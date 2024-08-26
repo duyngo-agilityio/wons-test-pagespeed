@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+// Contexts
+import { LayoutProvider } from '@/contexts';
+
 const inter = Inter({ subsets: ['latin'] });
+
+import '@/styles/global.css';
 
 export const metadata: Metadata = {
   title: 'Next.js Boilerplate',
@@ -20,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="dark">
+      <body className={inter.className}>
+        <LayoutProvider>{children}</LayoutProvider>
+      </body>
     </html>
   );
 }
