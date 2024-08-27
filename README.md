@@ -42,7 +42,7 @@ This document provides an overview of the system, detailing its functionality in
 
 ## Application flow chart
 
-- Update later
+![Flow App](./public/work-flow.png)
 
 ## How to run
 
