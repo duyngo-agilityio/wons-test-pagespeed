@@ -23,6 +23,7 @@ This document provides an overview of the system, detailing its functionality in
 
 - [Next - v14.2.3](https://nextjs.org/): Next.js enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.
 - [React - v^18](https://react.dev/learn): is a JavaScript library for building user interfaces.
+- [NextUI - v^2.4.6](https://nextui.org/): NextUI is a UI library for React that helps you build beautiful and accessible user interfaces. Created on top of [Tailwind CSS](https://tailwindcss.com/) and [React Aria](https://react-spectrum.adobe.com/react-aria/index.html).
 - [Storybook - v^8.1.2](https://storybook.js.org/): captures the rendered state of a UI component. Developers write multiple stories per component that describe all the “interesting” states a component can support.
 - Editor: Visual Studio Code.
 
