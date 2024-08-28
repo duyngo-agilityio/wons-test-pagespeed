@@ -1,0 +1,27 @@
+export const colors = {
+  white: '#FFFFFF',
+  black: '#000000',
+  blue: {
+    500: '#3A36DB', // Bright Blue
+    800: '#06152B', // Deep Blue
+    900: '#030229', // Darkest Blue
+  },
+  teal: {
+    300: '#2FE5A7', // Light Teal
+    500: '#03A89E', // Bright Teal
+  },
+  gray: {
+    50: '#F1F4FA', // Very Light Gray
+    100: '#DADADA', // Light Gray
+    200: '#99B2C6', // Muted Gray-Blue
+    300: '#9DA8BB', // Soft Gray
+    400: '#364153', // Slate Gray
+    600: '#1A202C', // Dark Gray
+  },
+  pink: {
+    500: '#FF69B4', // Hot Pink
+  },
+  purple: {
+    600: '#605CFF', // Light Purple
+  },
+};

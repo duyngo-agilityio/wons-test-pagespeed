@@ -2,6 +2,17 @@ import type { Config } from 'tailwindcss';
 
 import { nextui } from '@nextui-org/react';
 
+// Themes
+import {
+  borderRadius,
+  colors,
+  fontSize,
+  lineHeight,
+  spacing,
+} from './src/themes';
+
+const { gray, blue, white } = colors;
+
 const config: Config = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,6 +20,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      borderRadius,
+      colors,
+      fontSize,
+      lineHeight,
+      spacing,
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -17,6 +33,26 @@ const config: Config = {
     },
   },
   darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      addCommonColors: true,
+      themes: {
+        light: {
+          colors: {
+            background: gray[50],
+            foreground: blue[800],
+          },
+          layout: {},
+        },
+        dark: {
+          colors: {
+            background: gray[600],
+            foreground: white,
+          },
+          layout: {},
+        },
+      },
+    }),
+  ],
 };
 export default config;
