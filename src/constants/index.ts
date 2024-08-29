@@ -1,1 +1,2 @@
-export * from '@/constants/themes';
+export * from './themes';
+export * from './fonts';

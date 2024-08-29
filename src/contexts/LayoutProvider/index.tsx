@@ -18,7 +18,7 @@ const LayoutProvider = ({ children }: ILayoutProvider) => {
     <NextUIProvider>
       <NextThemesProvider
         attribute="class"
-        defaultTheme={THEME_MODES.DARK}
+        defaultTheme={THEME_MODES.LIGHT}
         themes={modeArr}
       >
         {children}
