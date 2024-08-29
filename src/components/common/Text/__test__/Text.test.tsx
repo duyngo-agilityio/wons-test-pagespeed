@@ -1,13 +1,15 @@
 import { render } from '@testing-library/react';
-import Heading from '@/components/common/Heading';
 
-describe('Heading Component', () => {
+// components
+import Text from '@/components/common/Text';
+
+describe('Text Component', () => {
   it('renders correctly with all custom props', () => {
     const component = render(
-      <Heading
-        title="Fully Customized Heading"
+      <Text
+        text="Fully Customized Text"
         size="xl"
-        as="h4"
+        as="p"
         className="custom-class"
       />,
     );
