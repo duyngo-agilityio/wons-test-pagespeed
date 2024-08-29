@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 
 //
-import Heading from '@/components/common/Heading';
+import Heading from '../index';
 
 describe('Heading Component', () => {
   it('renders correctly with all custom props', () => {

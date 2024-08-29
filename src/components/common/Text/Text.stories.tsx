@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Text from '@/components/common/Text';
+import Text from './index';
 
 const meta: Meta<typeof Text> = {
-  title: 'Components/Text',
+  title: 'Components/Common/Text',
   component: Text,
   parameters: {
     layout: 'centered',
