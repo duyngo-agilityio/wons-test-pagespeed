@@ -1,10 +1,11 @@
+// Libs
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
 // Contexts
 import { LayoutProvider } from '@/contexts';
 
-const inter = Inter({ subsets: ['latin'] });
+// Constants
+import { DM_SANS_FONT } from '@/constants';
 
 import '@/styles/global.css';
 
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
         <LayoutProvider>{children}</LayoutProvider>
       </body>
     </html>
