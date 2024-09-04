@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox component snapshot tests renders with custom color and afterBgColor 1`] = `
+<div>
+  <label
+    class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 custom-checkbox"
+    style="--after-bg-default: #ff6347;"
+  >
+    <span
+      style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+    >
+      <input
+        aria-label=" "
+        aria-labelledby=":r1:"
+        type="checkbox"
+        value=""
+      />
+    </span>
+    <span
+      aria-hidden="true"
+      class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:bg-primary after:text-primary-foreground w-5 h-5 mr-2 rtl:ml-2 rtl:mr-[unset] before:rounded-[calc(theme(borderRadius.medium)*0.5)] after:rounded-[calc(theme(borderRadius.medium)*0.5)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none text-white rounded-sm"
+    >
+      <svg
+        aria-hidden="true"
+        class="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity motion-reduce:transition-none"
+        role="presentation"
+        viewBox="0 0 17 18"
+      >
+        <polyline
+          fill="none"
+          points="1 9 7 14 15 4"
+          stroke="currentColor"
+          stroke-dasharray="22"
+          stroke-dashoffset="66"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Checkbox component snapshot tests renders with default color and custom afterBgColor 1`] = `
+<label
+  class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 custom-checkbox"
+  style="--after-bg-default: #32cd32;"
+>
+  <span
+    style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+  >
+    <input
+      aria-label=" "
+      aria-labelledby=":r2:"
+      type="checkbox"
+      value=""
+    />
+  </span>
+  <span
+    aria-hidden="true"
+    class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-default-foreground w-5 h-5 mr-2 rtl:ml-2 rtl:mr-[unset] before:rounded-[calc(theme(borderRadius.medium)*0.5)] after:rounded-[calc(theme(borderRadius.medium)*0.5)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[var(--after-bg-default)] text-white rounded-sm"
+  >
+    <svg
+      aria-hidden="true"
+      class="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity motion-reduce:transition-none"
+      role="presentation"
+      viewBox="0 0 17 18"
+    >
+      <polyline
+        fill="none"
+        points="1 9 7 14 15 4"
+        stroke="currentColor"
+        stroke-dasharray="22"
+        stroke-dashoffset="66"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </span>
+</label>
+`;
+
+exports[`Checkbox component snapshot tests renders with default color and custom afterBgColor 2`] = `
+<div>
+  <label
+    class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 custom-checkbox"
+    style="--after-bg-default: #32cd32;"
+  >
+    <span
+      style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+    >
+      <input
+        aria-label=" "
+        aria-labelledby=":r2:"
+        type="checkbox"
+        value=""
+      />
+    </span>
+    <span
+      aria-hidden="true"
+      class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-default-foreground w-5 h-5 mr-2 rtl:ml-2 rtl:mr-[unset] before:rounded-[calc(theme(borderRadius.medium)*0.5)] after:rounded-[calc(theme(borderRadius.medium)*0.5)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[var(--after-bg-default)] text-white rounded-sm"
+    >
+      <svg
+        aria-hidden="true"
+        class="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity motion-reduce:transition-none"
+        role="presentation"
+        viewBox="0 0 17 18"
+      >
+        <polyline
+          fill="none"
+          points="1 9 7 14 15 4"
+          stroke="currentColor"
+          stroke-dasharray="22"
+          stroke-dashoffset="66"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Checkbox component snapshot tests renders with default props 1`] = `
+<div>
+  <label
+    class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 custom-checkbox"
+    style="--after-bg-default: #1E90FF;"
+  >
+    <span
+      style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+    >
+      <input
+        aria-label=" "
+        aria-labelledby=":r0:"
+        type="checkbox"
+        value=""
+      />
+    </span>
+    <span
+      aria-hidden="true"
+      class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:border-2 before:box-border before:border-default after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-default-foreground w-5 h-5 mr-2 rtl:ml-2 rtl:mr-[unset] before:rounded-[calc(theme(borderRadius.medium)*0.5)] after:rounded-[calc(theme(borderRadius.medium)*0.5)] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-[var(--after-bg-default)] text-white rounded-sm"
+    >
+      <svg
+        aria-hidden="true"
+        class="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity motion-reduce:transition-none"
+        role="presentation"
+        viewBox="0 0 17 18"
+      >
+        <polyline
+          fill="none"
+          points="1 9 7 14 15 4"
+          stroke="currentColor"
+          stroke-dasharray="22"
+          stroke-dashoffset="66"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </label>
+</div>
+`;
