@@ -21,6 +21,7 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-fast-compare": "^3.2.2",
     "use-debounce": "^10.0.3"
   },
   "devDependencies": {
