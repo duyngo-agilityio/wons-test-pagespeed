@@ -6,3 +6,4 @@ export { default as Input } from './Input';
 export { default as SearchInput } from './SearchInput';
 export { default as Text } from './Text';
 export { default as DatePicker } from './DatePicker';
+export { default as Spinner } from './Spinner';
