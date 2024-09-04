@@ -41,7 +41,7 @@ const DateRangePicker = ({
       setIsOpenRangePicker(false);
       setDateRange(value);
     },
-    [setDateRange],
+    [setDateRange, setIsOpenRangePicker],
   );
 
   return (
