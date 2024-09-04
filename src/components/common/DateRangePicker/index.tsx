@@ -9,6 +9,9 @@ import {
   RangeValue,
 } from '@nextui-org/react';
 
+// Constants
+import { DEFAULT_RANGE_VALUE_PICKER } from '@/constants';
+
 // Utils
 import { currentDate, formatDate, getStartTimeDatePicker } from '@/utils';
 
@@ -26,7 +29,7 @@ const DateRangePicker = ({
   ...rest
 }: DateRangePickerBaseProps) => {
   const [dateRange, setDateRange] = useState<DateRangeState | null>(
-    getStartTimeDatePicker(6),
+    getStartTimeDatePicker(DEFAULT_RANGE_VALUE_PICKER - 1),
   );
 
   const [isOpenRangePicker, setIsOpenRangePicker] = useState(false);
