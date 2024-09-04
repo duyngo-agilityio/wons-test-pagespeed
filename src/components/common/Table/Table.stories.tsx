@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/react';
 
 // Mocks
-import { columnsProductsTable, productMock } from '@/mocks';
+import { PRODUCT_TABLE_COLUMNS_MOCK, PRODUCT_MOCK } from '@/mocks';
 
 // Components
 import { Table } from './index';
@@ -13,8 +13,8 @@ const meta: Meta<typeof Table> = {
 export default meta;
 
 const props = {
-  columns: columnsProductsTable,
-  data: productMock,
+  columns: PRODUCT_TABLE_COLUMNS_MOCK,
+  data: PRODUCT_MOCK,
 };
 
 export const Primary = () => <Table {...props} variant="primary" />;
