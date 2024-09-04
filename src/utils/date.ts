@@ -27,7 +27,6 @@ export const getStartTimeDatePicker = (date: number) => {
   // Get the current date in the local timezone
   const currentDate = today(getLocalTimeZone());
 
-  // Default start date is three days before the current date
   const defaultStartTime = currentDate.add({
     days: -date,
   });
