@@ -6,7 +6,7 @@ exports[`DateRangePicker match snapshot 1`] = `
     data-overlay-container="true"
   >
     <script>
-      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('dark')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'dark'}catch(e){}}()
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
     <div
       class="max-w-[290.5px] relative"
@@ -15,7 +15,7 @@ exports[`DateRangePicker match snapshot 1`] = `
         class="flex gap-[15.85px]"
       >
         <div
-          class="flex w-full relative light:bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+          class="flex w-full relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
         >
           <p
             class="text-[15.02px] ml-[17.96px]"
@@ -43,7 +43,7 @@ exports[`DateRangePicker match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex w-full relative light:bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+          class="flex w-full relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
         >
           <p
             class="text-[15.02px] ml-[17.96px]"
