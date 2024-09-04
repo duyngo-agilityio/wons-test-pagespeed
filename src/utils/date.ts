@@ -32,7 +32,6 @@ export const getStartTimeDatePicker = (date: number) => {
     days: -date,
   });
 
-  // Format the default start date to ISO string
   const defaultStartTimeIso = `${defaultStartTime.year}-${String(defaultStartTime.month).padStart(2, '0')}-${String(defaultStartTime.day).padStart(2, '0')}`;
 
   const defaultValue: DateRangeState = {

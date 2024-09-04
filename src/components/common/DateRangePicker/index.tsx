@@ -16,7 +16,7 @@ import { currentDate, formatDate, getStartTimeDatePicker } from '@/utils';
 import { DateRangeState } from '@/types';
 
 // Icons
-import { ChevronDownIcon } from '@/icons';
+import { FaChevronDown } from 'react-icons/fa6';
 
 interface DateRangePickerBaseProps extends DateRangePickerProps {}
 
@@ -65,7 +65,7 @@ const DateRangePicker = ({
                   className="flex h-[15px] w-[15px] justify-center items-center rounded-full hover:bg-gray-100"
                   onClick={handleOpenDatePicker}
                 >
-                  <ChevronDownIcon customClass="w-[8.43px]" />
+                  <FaChevronDown className="w-[8.43px]" />
                 </button>
               </div>
             </div>
