@@ -7,14 +7,14 @@ import {
   DatePickerProps,
 } from '@nextui-org/react';
 
-// Icons
-import { CalendarIcon } from '@/icons';
+// Components
+import { FaCalendarAlt } from '@/components/common';
 
 const DatePicker = ({ ...props }: DatePickerProps) => {
   return (
     <DatePickerNextUI
       labelPlacement="outside"
-      endContent={<CalendarIcon className="w-[18px] h-5" />}
+      endContent={<FaCalendarAlt className="w-[18px] h-5 text-blue-500" />}
       dateInputClassNames={{
         inputWrapper: [
           'px-5 pt-[17px] pb-[14px] h-12.5',

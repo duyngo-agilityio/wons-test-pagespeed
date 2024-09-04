@@ -1,4 +1,5 @@
 export { CiSearch } from 'react-icons/ci';
+export { FaCalendarAlt } from 'react-icons/fa';
 export { default as Button } from './Button';
 export { default as Heading } from './Heading';
 export { default as Input } from './Input';

@@ -33,6 +33,10 @@ const meta: Meta<typeof DatePicker> = {
       options: ['day', 'hour', 'minute', 'second'],
       control: { type: 'select' },
     },
+    className: {
+      description: 'Change style as you like',
+      type: 'string',
+    },
   },
 };
 
@@ -40,7 +44,9 @@ export default meta;
 type Story = StoryObj<typeof DatePicker>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    className: 'w-[300px]',
+  },
 };
 
 export const HasValue: Story = {
@@ -48,6 +54,7 @@ export const HasValue: Story = {
     label: 'Date',
     defaultValue: parseAbsoluteToLocal('2024-09-07T18:45:22Z'),
     granularity: 'day',
+    className: 'w-[300px]',
   },
 };
 
@@ -58,5 +65,6 @@ export const HasError: Story = {
     granularity: 'day',
     isInvalid: true,
     errorMessage: 'Value must be 9/3/2024 or later.',
+    className: 'w-[300px]',
   },
 };
