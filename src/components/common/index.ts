@@ -5,5 +5,6 @@ export { default as Heading } from './Heading';
 export { default as Input } from './Input';
 export { default as SearchInput } from './SearchInput';
 export { default as Text } from './Text';
+export { default as DateRangePicker } from './DateRangePicker';
 export * from './Table';
 export { default as DatePicker } from './DatePicker';
