@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { LayoutProvider } from '@/contexts';
 
 // Constants
-import { DM_SANS_FONT } from '@/constants';
+import { DM_SANS_FONT, IMAGE_URL } from '@/constants';
 
 import '@/styles/global.css';
 
@@ -13,6 +13,17 @@ export const metadata: Metadata = {
   title: 'Wons Dashboard',
   description:
     'Wons dashboard managing user-contributed templates and daily personal tasks.',
+  openGraph: {
+    title: 'Wons Dashboard',
+    description:
+      'Wons dashboard managing user-contributed templates and daily personal tasks.',
+    images: [
+      {
+        url: IMAGE_URL.LOGO,
+        alt: 'preview image',
+      },
+    ],
+  },
   icons: [
     {
       rel: 'icon',
@@ -21,11 +32,11 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en">
       <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
@@ -33,4 +44,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

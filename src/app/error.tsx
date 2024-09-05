@@ -3,14 +3,13 @@
 // Components
 import { ErrorBoundary } from '@/components';
 
-const Error = ({
-  error,
-  reset,
-}: {
+interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
-}) => {
-  return <ErrorBoundary error={error} reset={reset} />;
-};
+}
+
+const Error = ({ error, reset }: ErrorProps) => (
+  <ErrorBoundary error={error} reset={reset} />
+);
 
 export default Error;

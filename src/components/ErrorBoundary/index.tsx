@@ -23,7 +23,7 @@ const ErrorBoundary = ({ error, reset }: ErrorProps) => {
 
   return (
     <div className="text-center h-screen flex justify-center items-center flex-col">
-      <Heading title="Something went wrong!" size="4xl" fontWeight="bold" />
+      <Heading title="Something went wrong!" className="text-4xl" />
       <Button onClick={handleReset} color="primary" className="mt-8">
         Try again
       </Button>
