@@ -8,7 +8,7 @@ describe('Heading Component', () => {
 
   it('should match with snapshot', () => {
     const component = testLibJestUtils.render(
-      <Heading>This is a heading</Heading>,
+      <Heading title="This is a heading" />,
     );
 
     expect(component).toMatchSnapshot();

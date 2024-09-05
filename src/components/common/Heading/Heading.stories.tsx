@@ -7,7 +7,7 @@ const meta: Meta<typeof Heading> = {
   title: 'Components/Common/Heading',
   component: Heading,
   argTypes: {
-    children: {
+    title: {
       description: 'Text content',
       control: 'text',
     },
@@ -29,7 +29,7 @@ type Story = StoryObj<typeof Heading>;
 
 export const Default: Story = {
   args: {
-    children: 'This is a heading',
+    title: 'This is a heading',
     as: 'h2',
   },
 };

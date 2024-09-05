@@ -1,14 +1,14 @@
 // Libs
-import { ReactNode, memo } from 'react';
+import { memo } from 'react';
 
 interface HeadingProps {
-  children: ReactNode;
+  title: string;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
 }
 
 const Heading = ({
-  children,
+  title,
   as: Component = 'h2',
   className = '',
 }: HeadingProps) => {
@@ -28,7 +28,7 @@ const Heading = ({
       aria-level={ariaLevel}
       className={`text-5xl font-bold font-dm-sans text-blue-800 dark:text-white ${className}`}
     >
-      {children}
+      {title}
     </Component>
   );
 };
