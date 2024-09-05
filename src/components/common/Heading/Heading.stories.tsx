@@ -1,25 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-// components
+// Components
 import Heading from './index';
 
 const meta: Meta<typeof Heading> = {
   title: 'Components/Common/Heading',
   component: Heading,
-  parameters: {
-    layout: 'centered',
-    controls: { expanded: true },
-  },
-  tags: ['autodocs'],
   argTypes: {
-    title: {
+    children: {
       description: 'Text content',
       control: 'text',
-    },
-    size: {
-      description: 'Size of text',
-      control: { type: 'select' },
-      options: ['5xl', '4xl', '3xl', '2xl'],
     },
     as: {
       description: 'HTML tag',
@@ -37,11 +27,9 @@ export default meta;
 
 type Story = StoryObj<typeof Heading>;
 
-export const HeadingStory: Story = {
+export const Default: Story = {
   args: {
-    title: 'This is a heading',
-    as: 'h1',
-    size: '5xl',
-    className: '',
+    children: 'This is a heading',
+    as: 'h2',
   },
 };

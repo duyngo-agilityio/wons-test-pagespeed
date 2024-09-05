@@ -1,18 +1,16 @@
-import { render } from '@testing-library/react';
-
-//
+// Components
 import Heading from '../index';
 
 describe('Heading Component', () => {
-  it('renders correctly with all custom props', () => {
-    const component = render(
-      <Heading
-        title="Fully Customized Heading"
-        size="xl"
-        as="h4"
-        className="custom-class"
-      />,
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should match with snapshot', () => {
+    const component = testLibJestUtils.render(
+      <Heading>This is a heading</Heading>,
     );
+
     expect(component).toMatchSnapshot();
   });
 });

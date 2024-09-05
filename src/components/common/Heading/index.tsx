@@ -1,25 +1,16 @@
-import { colors, fontSize } from '@/themes';
+// Libs
+import { ReactNode, memo } from 'react';
 
 interface HeadingProps {
-  title: string;
-  size?: keyof typeof fontSize | string;
+  children: ReactNode;
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
-  fontWeight?: string;
-  color?: string;
-}
-
-interface FontSizeConfig {
-  [key: string]: [string, string];
 }
 
 const Heading = ({
-  title,
-  size = 'md',
+  children,
   as: Component = 'h2',
   className = '',
-  fontWeight = 'font-normal',
-  color,
 }: HeadingProps) => {
   const ariaLevels: { [key: string]: number } = {
     h1: 1,
@@ -32,27 +23,14 @@ const Heading = ({
 
   const ariaLevel = ariaLevels[Component];
 
-  const fontSizeValue = (fontSize as FontSizeConfig)[size]?.[0];
-
-  const lineHeightValue = (fontSize as FontSizeConfig)[size]?.[1];
-
-  const defaultColor = `text-${colors.blue[800]}`;
-  const darkModeColor = `text-${colors.white}`;
-  const textColor = color || defaultColor;
-
   return (
     <Component
       aria-level={ariaLevel}
-      className={`${textColor} ${className} dark:${darkModeColor}`}
-      style={{
-        fontSize: fontSizeValue,
-        lineHeight: lineHeightValue,
-        fontWeight,
-      }}
+      className={`text-5xl font-bold font-dm-sans text-blue-800 dark:text-white ${className}`}
     >
-      {title}
+      {children}
     </Component>
   );
 };
 
-export default Heading;
+export default memo(Heading);
