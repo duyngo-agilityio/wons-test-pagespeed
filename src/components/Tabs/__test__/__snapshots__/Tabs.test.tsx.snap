@@ -19,7 +19,7 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
         <div
           aria-label="Custom tabs"
           aria-orientation="horizontal"
-          class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide rounded-medium bg-[#fee9f3] dark:bg-[#714e6e]"
+          class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide rounded-medium bg-pink-400 dark:bg-pink-600"
           data-slot="tabList"
           id="react-aria-:r0:"
           role="tablist"
@@ -36,11 +36,11 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
             type="button"
           >
             <span
-              class="absolute z-0 inset-0 rounded-small dark:bg-default shadow-small bg-[#FF69B4]"
+              class="absolute z-0 inset-0 rounded-small dark:bg-default shadow-small bg-pink-500"
               data-slot="cursor"
             />
             <div
-              class="relative z-10 whitespace-nowrap transition-colors text-[#515567] dark:text-[#d4c9d3] group-data-[selected=true]:text-white"
+              class="relative z-10 whitespace-nowrap transition-colors text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white"
               data-slot="tabContent"
             >
               Event
@@ -57,7 +57,7 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
             type="button"
           >
             <div
-              class="relative z-10 whitespace-nowrap transition-colors text-[#515567] dark:text-[#d4c9d3] group-data-[selected=true]:text-white"
+              class="relative z-10 whitespace-nowrap transition-colors text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white"
               data-slot="tabContent"
             >
               Reminder
@@ -74,7 +74,7 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
             type="button"
           >
             <div
-              class="relative z-10 whitespace-nowrap transition-colors text-[#515567] dark:text-[#d4c9d3] group-data-[selected=true]:text-white"
+              class="relative z-10 whitespace-nowrap transition-colors text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white"
               data-slot="tabContent"
             >
               Task
