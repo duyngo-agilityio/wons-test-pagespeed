@@ -1,7 +1,13 @@
 'use client';
-import { extendVariants, Input as NextUIInput } from '@nextui-org/react';
 
-const Input = extendVariants(NextUIInput, {
+// Libs
+import {
+  extendVariants,
+  InputProps,
+  Input as NextUIInput,
+} from '@nextui-org/react';
+
+const CustomInput = extendVariants(NextUIInput, {
   variants: {
     color: {
       default: {
@@ -10,21 +16,26 @@ const Input = extendVariants(NextUIInput, {
           `!text-blue-800 dark:!text-white`,
           `placeholder-blue-800 dark:placeholder-white`,
         ],
+        label:
+          'group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white',
       },
     },
+
     size: {
       xs: {
         inputWrapper: 'h-auto px-1',
         input: 'text-tiny',
       },
       md: {
-        inputWrapper: 'h-auto  px-3',
-        input: 'text-small',
+        inputWrapper: 'h-12.5 p-3.75',
+        input: 'text-md',
+        base: 'data-[has-label=true]:mt-[29px]',
+        label: 'font-medium text-xl top-5',
       },
-      xl: {
-        inputWrapper: 'h-14 min-h-14',
-        input: 'text-medium',
-      },
+      // xl: {
+      //   inputWrapper: 'h-14 min-h-14',
+      //   input: 'text-medium',
+      // },
     },
     radius: {
       sm: {
@@ -37,12 +48,24 @@ const Input = extendVariants(NextUIInput, {
       },
     },
   },
+
   defaultVariants: {
     color: 'default',
     size: 'md',
     radius: 'sm',
     border: 'default',
+    labelPlacement: 'outside',
+    placeholder: ' ',
   },
 });
+
+const Input = ({ ...props }: InputProps): JSX.Element => {
+  return (
+    <CustomInput
+      // classNames={{ innerWrapper: 'focus:border-red-500' }}
+      {...props}
+    />
+  );
+};
 
 export default Input;
