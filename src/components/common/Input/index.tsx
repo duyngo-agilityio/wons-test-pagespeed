@@ -19,7 +19,7 @@ const CustomInput = extendVariants(NextUIInput, {
         ],
         input: [
           '!text-blue-800/70 dark:!text-white/70',
-          'placeholder-blue-800/20 dark:placeholder-white/20',
+          'placeholder:text-blue-800/40 dark:placeholder:text-white/40',
           'bg-transparent',
         ],
         label: [
@@ -35,7 +35,7 @@ const CustomInput = extendVariants(NextUIInput, {
         ],
         input: [
           '!text-blue-800/70 dark:!text-white/70',
-          'placeholder-blue-800/20 dark:placeholder-white/20',
+          'placeholder:text-blue-800/40 dark:placeholder:text-white/40',
         ],
         label:
           'group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white',
@@ -72,16 +72,14 @@ const CustomInput = extendVariants(NextUIInput, {
   },
 });
 
-const Input = ({ ...props }: InputProps): JSX.Element => {
-  return (
-    <CustomInput
-      classNames={{
-        inputWrapper:
-          'group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500',
-      }}
-      {...props}
-    />
-  );
-};
+const Input = ({ ...props }: InputProps): JSX.Element => (
+  <CustomInput
+    classNames={{
+      inputWrapper:
+        'group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500',
+    }}
+    {...props}
+  />
+);
 
 export default Input;

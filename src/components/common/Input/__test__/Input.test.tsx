@@ -1,15 +1,13 @@
-import { render } from '@testing-library/react';
-
-// components
+// Components
 import Input from '../index';
 
 describe('Input Component', () => {
-  it('renders correctly with all custom props', () => {
-    const component = render(
+  it('should match with snapshot', () => {
+    const component = testLibJestUtils.render(
       <Input
         label="Input Label"
         name="inputName"
-        labelPlacement={'outside'}
+        labelPlacement="outside"
         placeholder="Input Placeholder"
       />,
     );
