@@ -16,11 +16,6 @@ const meta: Meta<typeof Text> = {
       description: 'Text content',
       control: 'text',
     },
-    size: {
-      description: 'Size of text',
-      control: { type: 'select' },
-      options: ['4xs', '3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl'],
-    },
     as: {
       description: 'HTML tag',
       control: { type: 'select' },
@@ -39,9 +34,7 @@ type Story = StoryObj<typeof Text>;
 
 export const TextStory: Story = {
   args: {
-    text: 'Text content',
-    size: 'md',
-    as: 'p',
-    className: 'my-custom-class',
+    className: 'text-[30px]',
+    text: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur',
   },
 };

@@ -7,10 +7,11 @@ describe('Text Component', () => {
   it('renders correctly with all custom props', () => {
     const component = render(
       <Text
-        text="Fully Customized Text"
-        size="xl"
-        as="p"
-        className="custom-class"
+        className="text-[40px]"
+        text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+        veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti
+        voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi
+        architecto sapiente!"
       />,
     );
     expect(component).toMatchSnapshot();

@@ -6,19 +6,17 @@ exports[`Text Component renders correctly with all custom props 1`] = `
   "baseElement": <body>
     <div>
       <p
-        class="text-#06152B custom-class dark:text-#FFFFFF"
-        style="font-size: 1rem; line-height: 1.25rem; font-weight: font-normal;"
+        class="text-3xl font-dm-sans text-blue-800 dark:text-white text-[40px]"
       >
-        Fully Customized Text
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi architecto sapiente!
       </p>
     </div>
   </body>,
   "container": <div>
     <p
-      class="text-#06152B custom-class dark:text-#FFFFFF"
-      style="font-size: 1rem; line-height: 1.25rem; font-weight: font-normal;"
+      class="text-3xl font-dm-sans text-blue-800 dark:text-white text-[40px]"
     >
-      Fully Customized Text
+       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi architecto sapiente!
     </p>
   </div>,
   "debug": [Function],
