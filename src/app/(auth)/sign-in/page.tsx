@@ -17,10 +17,7 @@ const Homepage = () => {
           width={0}
           height={0}
           sizes="100vw"
-          className="h-[380px] lg:h-[584px]"
-          style={{
-            width: 'auto',
-          }}
+          className="h-[380px] lg:h-[584px] w-auto"
         />
       }
     >

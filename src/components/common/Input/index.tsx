@@ -1,4 +1,5 @@
 'use client';
+
 import { extendVariants, Input as NextUIInput } from '@nextui-org/react';
 
 const Input = extendVariants(NextUIInput, {
