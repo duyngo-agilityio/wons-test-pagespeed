@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination test cases should render correctly 1`] = `
+<div>
+  <div
+    data-overlay-container="true"
+  >
+    <script>
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
+    </script>
+    <nav
+      aria-label="pagination navigation"
+      class="p-2.5 overflow-x-scroll scrollbar-hide flex justify-center m-0"
+      data-active-page="1"
+      data-dots-jump="5"
+      data-slot="base"
+      data-total="5"
+      role="navigation"
+    >
+      <ul
+        class="flex flex-nowrap h-fit max-w-fit relative gap-1 items-center overflow-visible rounded-medium text-white"
+        data-slot="wrapper"
+      >
+        <span
+          aria-hidden="true"
+          class="absolute flex overflow-visible items-center justify-center origin-center left-0 select-none touch-none pointer-events-none z-20 text-primary-foreground data-[moving=true]:transition-transform !data-[moving=true]:duration-300 opacity-0 data-[moving]:opacity-100 min-w-9 w-9 h-9 text-small rounded-medium bg-[#3A36DB]"
+          data-moving="false"
+          data-slot="cursor"
+          style="transform: translateX(0px) scale(1);"
+        >
+          1
+        </span>
+        <li
+          aria-current="true"
+          aria-label="pagination item 1 active"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
+          data-active="true"
+          data-slot="item"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </li>
+        <li
+          aria-label="pagination item 2"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
+          data-slot="item"
+          role="button"
+          tabindex="0"
+        >
+          2
+        </li>
+        <li
+          aria-label="pagination item 3"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
+          data-slot="item"
+          role="button"
+          tabindex="0"
+        >
+          3
+        </li>
+        <li
+          aria-label="pagination item 4"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
+          data-slot="item"
+          role="button"
+          tabindex="0"
+        >
+          4
+        </li>
+        <li
+          aria-label="pagination item 5"
+          class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
+          data-slot="item"
+          role="button"
+          tabindex="0"
+        >
+          5
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
