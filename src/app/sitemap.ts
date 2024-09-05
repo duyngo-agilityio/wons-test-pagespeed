@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const sitemap = (): MetadataRoute.Sitemap => {
   return [
     {
       url: 'https://wons.vercel.app/sign-in',
@@ -35,4 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
   ];
-}
+};
+
+export default sitemap;
