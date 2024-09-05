@@ -1,48 +1,22 @@
-import clsx from 'clsx';
-import { fontSize, colors } from '@/themes';
+// Libs
+import { ReactNode, memo } from 'react';
+
 interface TextProps {
-  text: string;
-  size?: keyof typeof fontSize | string;
-  className?: string;
+  children: ReactNode;
   as?: keyof React.ReactHTML;
-  fontWeight?: string;
-  color?: string;
+  className?: string;
 }
 
-interface FontSizeConfig {
-  [key: string]: [string, string];
-}
-
-const Text = ({
-  text,
-  size = 'md',
-  className = '',
-  as = 'p',
-  fontWeight = 'font-normal',
-  color,
-}: TextProps) => {
+const Text = ({ children, as = 'p', className = '' }: TextProps) => {
   const Component = as;
-
-  const fontSizeValue = (fontSize as FontSizeConfig)[size]?.[0];
-
-  const lineHeightValue = (fontSize as FontSizeConfig)[size]?.[1];
-
-  const defaultColor = `text-${colors.blue[800]}`;
-  const darkModeColor = `text-${colors.white}`;
-  const textColor = color || defaultColor;
 
   return (
     <Component
-      className={clsx(textColor, className, `dark:${darkModeColor}`)}
-      style={{
-        fontSize: fontSizeValue,
-        lineHeight: lineHeightValue,
-        fontWeight,
-      }}
+      className={`text-3xl font-dm-sans text-blue-800 dark:text-white ${className}`}
     >
-      {text}
+      {children}
     </Component>
   );
 };
 
-export default Text;
+export default memo(Text);
