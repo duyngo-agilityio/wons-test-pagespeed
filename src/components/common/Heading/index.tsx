@@ -9,6 +9,10 @@ interface HeadingProps {
   color?: string;
 }
 
+interface FontSizeConfig {
+  [key: string]: [string, string];
+}
+
 const Heading = ({
   title,
   size = 'md',
@@ -28,6 +32,10 @@ const Heading = ({
 
   const ariaLevel = ariaLevels[Component];
 
+  const fontSizeValue = (fontSize as FontSizeConfig)[size]?.[0];
+
+  const lineHeightValue = (fontSize as FontSizeConfig)[size]?.[1];
+
   const defaultColor = `text-${colors.blue[800]}`;
   const darkModeColor = `text-${colors.white}`;
   const textColor = color || defaultColor;
@@ -35,8 +43,12 @@ const Heading = ({
   return (
     <Component
       aria-level={ariaLevel}
-      className={`text-${size} ${textColor} ${className} dark:${darkModeColor}`}
-      style={{ fontWeight }}
+      className={`${textColor} ${className} dark:${darkModeColor}`}
+      style={{
+        fontSize: fontSizeValue,
+        lineHeight: lineHeightValue,
+        fontWeight,
+      }}
     >
       {title}
     </Component>

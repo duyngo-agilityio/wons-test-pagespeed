@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+// components
 import Text from './index';
 
 const meta: Meta<typeof Text> = {
@@ -13,63 +14,33 @@ const meta: Meta<typeof Text> = {
   argTypes: {
     text: {
       description: 'Text content',
+      control: 'text',
     },
     size: {
       description: 'Size of text',
+      control: { type: 'select' },
+      options: ['4xs', '3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl'],
     },
-
     as: {
       description: 'HTML tag',
+      control: { type: 'select' },
+      options: ['p', 'span', 'div'],
     },
     className: {
       description: 'Additional class name',
+      control: 'text',
     },
   },
 } satisfies Meta<typeof Text>;
 
 export default meta;
+
 type Story = StoryObj<typeof Text>;
 
-export const SuperSmallText: Story = {
-  args: {
-    text: 'Text content',
-    size: '2xs',
-    as: 'p',
-    className: 'my-custom-class',
-  },
-};
-
-export const SmallText: Story = {
-  args: {
-    text: 'Text content',
-    size: 'sm',
-    as: 'p',
-    className: 'my-custom-class',
-  },
-};
-
-export const MediumText: Story = {
+export const TextStory: Story = {
   args: {
     text: 'Text content',
     size: 'md',
-    as: 'p',
-    className: 'my-custom-class',
-  },
-};
-
-export const LargeText: Story = {
-  args: {
-    text: 'Text content',
-    size: 'xl',
-    as: 'p',
-    className: 'my-custom-class',
-  },
-};
-
-export const ExtraLargeText: Story = {
-  args: {
-    text: 'Text content',
-    size: 'xxl',
     as: 'p',
     className: 'my-custom-class',
   },
