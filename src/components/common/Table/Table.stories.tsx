@@ -17,10 +17,10 @@ const props = {
   data: PRODUCT_MOCK,
 };
 
-export const Primary = () => <Table {...props} variant="primary" />;
-
 export const Secondary = () => (
   <div className="bg-[white] p-[20px] rounded-2xl">
     <Table {...props} variant="secondary" isStriped />
   </div>
 );
+
+export const Primary = () => <Table {...props} variant="primary" />;

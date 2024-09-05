@@ -10,8 +10,9 @@ import { DM_SANS_FONT } from '@/constants';
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
-  title: 'Next.js Boilerplate',
-  description: 'Next.js 14+ boilerplate app',
+  title: 'Wons Dashboard',
+  description:
+    'Wons dashboard managing user-contributed templates and daily personal tasks.',
   icons: [
     {
       rel: 'icon',
