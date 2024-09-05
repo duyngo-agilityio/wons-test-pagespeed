@@ -1,10 +1,17 @@
-// Components
-import Spinner from '../Spinner';
+// Libs
+import { memo } from 'react';
 
-const LoadingIndicator = () => (
+// Components
+import { Spinner } from '@/components/common';
+
+interface ILoadingIndicatorProps {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const LoadingIndicator = ({ size = 'lg' }: ILoadingIndicatorProps) => (
   <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-9999">
-    <Spinner size="lg" />
+    <Spinner size={size} />
   </div>
 );
 
-export default LoadingIndicator;
+export default memo(LoadingIndicator);
