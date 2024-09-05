@@ -6,8 +6,8 @@ exports[`Text Component renders correctly with all custom props 1`] = `
   "baseElement": <body>
     <div>
       <p
-        class="text-xl text-#06152B custom-class dark:text-#FFFFFF"
-        style="font-weight: font-normal;"
+        class="text-#06152B custom-class dark:text-#FFFFFF"
+        style="font-size: 1rem; line-height: 1.25rem; font-weight: font-normal;"
       >
         Fully Customized Text
       </p>
@@ -15,8 +15,8 @@ exports[`Text Component renders correctly with all custom props 1`] = `
   </body>,
   "container": <div>
     <p
-      class="text-xl text-#06152B custom-class dark:text-#FFFFFF"
-      style="font-weight: font-normal;"
+      class="text-#06152B custom-class dark:text-#FFFFFF"
+      style="font-size: 1rem; line-height: 1.25rem; font-weight: font-normal;"
     >
       Fully Customized Text
     </p>

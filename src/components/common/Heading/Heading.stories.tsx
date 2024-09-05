@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Heading from '../Heading';
+
+// components
+import Heading from './index';
 
 const meta: Meta<typeof Heading> = {
   title: 'Components/Common/Heading',
@@ -12,69 +14,34 @@ const meta: Meta<typeof Heading> = {
   argTypes: {
     title: {
       description: 'Text content',
+      control: 'text',
     },
     size: {
       description: 'Size of text',
+      control: { type: 'select' },
+      options: ['5xl', '4xl', '3xl', '2xl'],
     },
     as: {
       description: 'HTML tag',
+      control: { type: 'select' },
+      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     },
     className: {
       description: 'Additional class name',
+      control: 'text',
     },
   },
 } satisfies Meta<typeof Heading>;
 
 export default meta;
+
 type Story = StoryObj<typeof Heading>;
 
-export const TextWithH1: Story = {
+export const HeadingStory: Story = {
   args: {
-    title: 'This text with h1 tag element',
+    title: 'This is a heading',
     as: 'h1',
     size: '5xl',
-    className: 'text-xxl',
-  },
-};
-
-export const TextWithH2: Story = {
-  args: {
-    title: 'This text with h2 tag element',
-    as: 'h2',
-    size: '4xl',
-    className: 'text-xl',
-  },
-};
-
-export const TextWithH3: Story = {
-  args: {
-    title: 'This text with h3 tag element',
-    as: 'h3',
-    size: '3xl',
-    className: 'text-lg',
-  },
-};
-
-export const TextWithH4: Story = {
-  args: {
-    title: 'This text with h4 tag element',
-    as: 'h4',
-    size: '2xl',
-  },
-};
-
-export const TextWithH5: Story = {
-  args: {
-    title: 'This text with h5 tag element',
-    as: 'h5',
-    size: 'xxl',
-  },
-};
-
-export const TextWithH6: Story = {
-  args: {
-    title: 'This text with h6 tag element',
-    as: 'h6',
-    size: 'xl',
+    className: '',
   },
 };

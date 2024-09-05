@@ -7,8 +7,8 @@ exports[`Heading Component renders correctly with all custom props 1`] = `
     <div>
       <h4
         aria-level="4"
-        class="text-xl text-#06152B custom-class dark:text-#FFFFFF"
-        style="font-weight: font-normal;"
+        class="text-#06152B custom-class dark:text-#FFFFFF"
+        style="font-size: 1rem; line-height: 1.25rem; font-weight: font-normal;"
       >
         Fully Customized Heading
       </h4>
@@ -17,8 +17,8 @@ exports[`Heading Component renders correctly with all custom props 1`] = `
   "container": <div>
     <h4
       aria-level="4"
-      class="text-xl text-#06152B custom-class dark:text-#FFFFFF"
-      style="font-weight: font-normal;"
+      class="text-#06152B custom-class dark:text-#FFFFFF"
+      style="font-size: 1rem; line-height: 1.25rem; font-weight: font-normal;"
     >
       Fully Customized Heading
     </h4>

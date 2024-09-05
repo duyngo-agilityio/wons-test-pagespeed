@@ -1,5 +1,5 @@
+import clsx from 'clsx';
 import { fontSize, colors } from '@/themes';
-
 interface TextProps {
   text: string;
   size?: keyof typeof fontSize | string;
@@ -7,6 +7,10 @@ interface TextProps {
   as?: keyof React.ReactHTML;
   fontWeight?: string;
   color?: string;
+}
+
+interface FontSizeConfig {
+  [key: string]: [string, string];
 }
 
 const Text = ({
@@ -19,14 +23,22 @@ const Text = ({
 }: TextProps) => {
   const Component = as;
 
+  const fontSizeValue = (fontSize as FontSizeConfig)[size]?.[0];
+
+  const lineHeightValue = (fontSize as FontSizeConfig)[size]?.[1];
+
   const defaultColor = `text-${colors.blue[800]}`;
   const darkModeColor = `text-${colors.white}`;
   const textColor = color || defaultColor;
 
   return (
     <Component
-      className={`text-${size} ${textColor} ${className} dark:${darkModeColor}`}
-      style={{ fontWeight }}
+      className={clsx(textColor, className, `dark:${darkModeColor}`)}
+      style={{
+        fontSize: fontSizeValue,
+        lineHeight: lineHeightValue,
+        fontWeight,
+      }}
     >
       {text}
     </Component>
