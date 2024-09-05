@@ -9,3 +9,5 @@ export { default as Text } from './Text';
 export { default as DateRangePicker } from './DateRangePicker';
 export * from './Table';
 export { default as DatePicker } from './DatePicker';
+export { default as Spinner } from './Spinner';
+export { default as LoadingIndicator } from './LoadingIndicator';
