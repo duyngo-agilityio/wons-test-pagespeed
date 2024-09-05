@@ -1,7 +1,7 @@
 import { memo, ReactNode } from 'react';
 
 interface LayoutProps {
-  image: ReactNode;
+  image: JSX.Element;
   children: ReactNode;
 }
 
