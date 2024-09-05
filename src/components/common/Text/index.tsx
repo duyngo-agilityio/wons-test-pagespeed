@@ -1,20 +1,20 @@
 // Libs
-import { ReactNode, memo } from 'react';
+import { memo } from 'react';
 
 interface TextProps {
-  children: ReactNode;
+  text: string;
   as?: keyof React.ReactHTML;
   className?: string;
 }
 
-const Text = ({ children, as = 'p', className = '' }: TextProps) => {
+const Text = ({ text, as = 'p', className = '' }: TextProps) => {
   const Component = as;
 
   return (
     <Component
       className={`text-3xl font-dm-sans text-blue-800 dark:text-white ${className}`}
     >
-      {children}
+      {text}
     </Component>
   );
 };

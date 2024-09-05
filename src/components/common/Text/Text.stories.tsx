@@ -12,6 +12,10 @@ const meta: Meta<typeof Text> = {
   },
   tags: ['autodocs'],
   argTypes: {
+    text: {
+      description: 'Text content',
+      control: 'text',
+    },
     as: {
       description: 'HTML tag',
       control: { type: 'select' },
@@ -31,7 +35,6 @@ type Story = StoryObj<typeof Text>;
 export const TextStory: Story = {
   args: {
     className: 'text-[30px]',
-    children:
-      ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur',
+    text: ' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur',
   },
 };

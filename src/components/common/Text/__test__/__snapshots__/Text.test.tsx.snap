@@ -8,7 +8,7 @@ exports[`Text Component renders correctly with all custom props 1`] = `
       <p
         class="text-3xl font-dm-sans text-blue-800 dark:text-white text-[40px]"
       >
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi architecto sapiente!
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi architecto sapiente!
       </p>
     </div>
   </body>,
@@ -16,7 +16,7 @@ exports[`Text Component renders correctly with all custom props 1`] = `
     <p
       class="text-3xl font-dm-sans text-blue-800 dark:text-white text-[40px]"
     >
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi architecto sapiente!
+       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur, veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi architecto sapiente!
     </p>
   </div>,
   "debug": [Function],
