@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { z } from 'zod';
@@ -151,4 +151,4 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
   );
 };
 
-export default memo(SignInForm);
+export default SignInForm;
