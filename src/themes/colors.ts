@@ -17,9 +17,13 @@ export const colors = {
     300: '#9DA8BB', // Soft Gray
     400: '#364153', // Slate Gray
     600: '#1A202C', // Dark Gray
+    700: '#515567',
   },
   pink: {
+    400: '#fee9f3',
     500: '#FF69B4', // Hot Pink
+    600: '#714e6e',
+    700: '#d4c9d3',
   },
   purple: {
     600: '#605CFF', // Light Purple

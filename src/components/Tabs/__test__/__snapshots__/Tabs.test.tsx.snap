@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
+<div>
+  <div
+    data-overlay-container="true"
+  >
+    <script>
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
+    </script>
+    <div
+      class="p-4 rounded-xl  dark:bg-purple-900"
+    >
+      <div
+        aria-label="Custom tabs"
+        class="inline-flex text-white"
+        data-slot="base"
+      >
+        <div
+          aria-label="Custom tabs"
+          aria-orientation="horizontal"
+          class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide rounded-medium bg-pink-400 dark:bg-pink-600"
+          data-slot="tabList"
+          id="react-aria-:r0:"
+          role="tablist"
+        >
+          <button
+            aria-selected="true"
+            class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+            data-key="event"
+            data-selected="true"
+            data-slot="tab"
+            id="react-aria-:r0:-tab-event"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="absolute z-0 inset-0 rounded-small dark:bg-default shadow-small bg-pink-500"
+              data-slot="cursor"
+            />
+            <div
+              class="relative z-10 whitespace-nowrap transition-colors text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white"
+              data-slot="tabContent"
+            >
+              Event
+            </div>
+          </button>
+          <button
+            aria-selected="false"
+            class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+            data-key="reminder"
+            data-slot="tab"
+            id="react-aria-:r0:-tab-reminder"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              class="relative z-10 whitespace-nowrap transition-colors text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white"
+              data-slot="tabContent"
+            >
+              Reminder
+            </div>
+          </button>
+          <button
+            aria-selected="false"
+            class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+            data-key="task"
+            data-slot="tab"
+            id="react-aria-:r0:-tab-task"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              class="relative z-10 whitespace-nowrap transition-colors text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white"
+              data-slot="tabContent"
+            >
+              Task
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

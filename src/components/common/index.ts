@@ -11,3 +11,4 @@ export * from './Table';
 export { default as DatePicker } from './DatePicker';
 export { default as Spinner } from './Spinner';
 export { default as LoadingIndicator } from './LoadingIndicator';
+export { default as ImageFallback } from './ImageFallback';

@@ -1,4 +1,5 @@
 'use client';
+
 import { extendVariants, Checkbox as NextUICheckbox } from '@nextui-org/react';
 
 // themes
