@@ -1,3 +1,5 @@
+'use client';
+
 import { extendVariants, Button as ButtonNextUI } from '@nextui-org/react';
 
 const Button = extendVariants(ButtonNextUI, {

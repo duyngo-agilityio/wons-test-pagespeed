@@ -1,4 +1,5 @@
 'use client';
+
 import { Tabs as NextUITabs, Tab, TabsProps } from '@nextui-org/react';
 interface TabType {
   key: string;

@@ -1,3 +1,5 @@
+'use client';
+
 // Libs
 import { extendVariants, Spinner as SpinnerNextUI } from '@nextui-org/react';
 

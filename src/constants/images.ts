@@ -15,4 +15,6 @@ export const IMAGE_SRC = {
 
 export const IMAGE_URL = {
   LOGO: '/logo.svg',
+  SIGN_IN_IMAGE: '/sign-in-banner.webp',
+  SIGN_UP_IMAGE: '/sign-up-banner.webp',
 };
