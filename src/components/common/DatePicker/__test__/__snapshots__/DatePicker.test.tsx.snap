@@ -14,6 +14,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
       data-slot="base"
     >
       <div
+        aria-describedby="react-aria-description-1"
         aria-labelledby="react-aria-:r3:"
         class="relative gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-sm hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium w-full transition-background motion-reduce:transition-none !duration-150 px-5 pt-[17px] pb-[14px] h-12.5 rounded-10 bg-gray-50 dark:bg-gray-600"
         data-slot="input-wrapper"
@@ -31,16 +32,16 @@ exports[`DatePicker component should match with snapshot 1`] = `
             role="presentation"
           >
             <div
+              aria-describedby="react-aria-description-1"
               aria-label="month"
               aria-valuemax="12"
               aria-valuemin="1"
               aria-valuenow="9"
-              aria-valuetext="Empty"
+              aria-valuetext="09 – September"
               autocorrect="off"
               class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
               contenteditable="true"
               data-editable="true"
-              data-placeholder="true"
               data-slot="segment"
               data-type="month"
               enterkeyhint="next"
@@ -51,7 +52,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
               style="caret-color: transparent;"
               tabindex="0"
             >
-              mm
+              09
             </div>
             <div
               aria-hidden="true"
@@ -65,13 +66,12 @@ exports[`DatePicker component should match with snapshot 1`] = `
               aria-label="day"
               aria-valuemax="30"
               aria-valuemin="1"
-              aria-valuenow="6"
-              aria-valuetext="Empty"
+              aria-valuenow="8"
+              aria-valuetext="08"
               autocorrect="off"
               class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
               contenteditable="true"
               data-editable="true"
-              data-placeholder="true"
               data-slot="segment"
               data-type="day"
               enterkeyhint="next"
@@ -82,7 +82,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
               style="caret-color: transparent;"
               tabindex="0"
             >
-              dd
+              08
             </div>
             <div
               aria-hidden="true"
@@ -97,12 +97,11 @@ exports[`DatePicker component should match with snapshot 1`] = `
               aria-valuemax="9999"
               aria-valuemin="1"
               aria-valuenow="2024"
-              aria-valuetext="Empty"
+              aria-valuetext="2024"
               autocorrect="off"
               class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
               contenteditable="true"
               data-editable="true"
-              data-placeholder="true"
               data-slot="segment"
               data-type="year"
               enterkeyhint="next"
@@ -113,14 +112,125 @@ exports[`DatePicker component should match with snapshot 1`] = `
               style="caret-color: transparent;"
               tabindex="0"
             >
-              yyyy
+              2024
+            </div>
+            <div
+              aria-hidden="true"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              data-slot="segment"
+              data-type="literal"
+            >
+              , 
+            </div>
+            <div
+              aria-label="hour"
+              aria-valuemax="11"
+              aria-valuemin="0"
+              aria-valuenow="1"
+              aria-valuetext="1 AM"
+              autocorrect="off"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              contenteditable="true"
+              data-editable="true"
+              data-slot="segment"
+              data-type="hour"
+              enterkeyhint="next"
+              id="react-aria-:rp:"
+              inputmode="numeric"
+              role="spinbutton"
+              spellcheck="false"
+              style="caret-color: transparent;"
+              tabindex="0"
+            >
+              01
+            </div>
+            <div
+              aria-hidden="true"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              data-slot="segment"
+              data-type="literal"
+            >
+              :
+            </div>
+            <div
+              aria-label="minute"
+              aria-valuemax="59"
+              aria-valuemin="0"
+              aria-valuenow="45"
+              aria-valuetext="45"
+              autocorrect="off"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              contenteditable="true"
+              data-editable="true"
+              data-slot="segment"
+              data-type="minute"
+              enterkeyhint="next"
+              id="react-aria-:rt:"
+              inputmode="numeric"
+              role="spinbutton"
+              spellcheck="false"
+              style="caret-color: transparent;"
+              tabindex="0"
+            >
+              45
+            </div>
+            <div
+              aria-hidden="true"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              data-slot="segment"
+              data-type="literal"
+            >
+               
+            </div>
+            <div
+              aria-label="AM/PM"
+              aria-valuemax="12"
+              aria-valuemin="0"
+              aria-valuenow="0"
+              aria-valuetext="AM"
+              autocorrect="off"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              contenteditable="true"
+              data-editable="true"
+              data-slot="segment"
+              data-type="dayPeriod"
+              enterkeyhint="next"
+              id="react-aria-:r11:"
+              role="spinbutton"
+              spellcheck="false"
+              style="caret-color: transparent;"
+              tabindex="0"
+            >
+              AM
+            </div>
+            <div
+              aria-hidden="true"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              data-slot="segment"
+              data-type="literal"
+            >
+               
+            </div>
+            <div
+              aria-label="time zone"
+              aria-readonly="true"
+              class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
+              data-slot="segment"
+              data-type="timeZoneName"
+              id="react-aria-:r15:"
+              role="textbox"
+              style="caret-color: transparent;"
+              tabindex="0"
+            >
+              GMT+7
             </div>
             <input
               type="hidden"
-              value=""
+              value="2024-09-08T01:45:22+07:00[Asia/Bangkok]"
             />
           </div>
           <button
+            aria-describedby="react-aria-description-1"
             aria-expanded="false"
             aria-haspopup="dialog"
             aria-label="Calendar"

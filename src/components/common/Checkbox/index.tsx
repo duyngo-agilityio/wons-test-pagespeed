@@ -9,7 +9,8 @@ export const CustomCheckbox = extendVariants(NextUICheckbox, {
   variants: {
     color: {
       default: {
-        wrapper: 'after:bg-[var(--after-bg-default)] text-white',
+        wrapper:
+          'after:bg-[var(--after-bg-default)] text-white dark:before:border-blue-600',
       },
       custom: {
         wrapper: 'text-white',
@@ -55,7 +56,7 @@ const Checkbox = ({
   size = 'md',
   color = 'default',
   colorValue,
-  afterBgColor = '#1E90FF',
+  afterBgColor = '#3A36DB',
   radius = 'sm',
 }: CheckboxProps) => {
   const variantProps =
