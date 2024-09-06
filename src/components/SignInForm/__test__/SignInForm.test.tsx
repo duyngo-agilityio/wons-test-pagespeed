@@ -1,4 +1,6 @@
 import { ERROR_MESSAGES } from '@/constants';
+
+// Components
 import SignInForm from '../index';
 
 const mockOnSubmit = jest.fn();
@@ -8,15 +10,17 @@ const props = {
 };
 
 describe('SignInForm', () => {
+  const renderComponent = () =>
+    testLibJestUtils.render(<SignInForm {...props} />);
+
   it('should match snapshot for SignInForm', () => {
-    const { container } = testLibJestUtils.render(<SignInForm {...props} />);
+    const { container } = renderComponent();
+
     expect(container).toMatchSnapshot();
   });
 
   it('should call onSubmit with correct data when form is valid', async () => {
-    const { getByLabelText, getByRole } = testLibJestUtils.render(
-      <SignInForm {...props} />,
-    );
+    const { getByLabelText, getByRole } = renderComponent();
 
     // Fill form with valid data
     testLibJestUtils.fireEvent.change(getByLabelText(/Email Address/i), {
@@ -39,9 +43,7 @@ describe('SignInForm', () => {
   });
 
   it.skip('should show validation errors for empty fields', async () => {
-    const { getByRole, findByText, getByLabelText } = testLibJestUtils.render(
-      <SignInForm {...props} />,
-    );
+    const { getByRole, findByText, getByLabelText } = renderComponent();
 
     testLibJestUtils.fireEvent.change(getByLabelText(/Email Address/i), {
       target: { value: 'test' },
