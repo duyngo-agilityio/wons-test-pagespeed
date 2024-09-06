@@ -4,5 +4,6 @@ export * from './searchParams';
 export * from './themes';
 export * from './date';
 export * from './routes';
+export * from './typography';
 export * from './messages';
 export * from './regex';
