@@ -1,6 +1,9 @@
 // Libs
 import { memo } from 'react';
 
+// Constants
+import { HEADING_SIZE_MAP } from '@/constants';
+
 interface HeadingProps {
   title: string;
   size?: 'sm' | 'md' | 'lg';
@@ -23,14 +26,8 @@ const Heading = ({
     h6: 6,
   };
 
-  const sizeMap: { [key: string]: string } = {
-    sm: 'text-2xl',
-    md: 'text-3xl',
-    lg: 'text-5xl',
-  };
-
   const ariaLevel = ariaLevels[Component];
-  const fontSizeClass = sizeMap[size];
+  const fontSizeClass = HEADING_SIZE_MAP[size];
 
   return (
     <Component
