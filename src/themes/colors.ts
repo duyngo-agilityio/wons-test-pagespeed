@@ -2,6 +2,7 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   blue: {
+    400: '#515c6a', // Light Blue
     500: '#3A36DB', // Bright Blue
     800: '#06152B', // Deep Blue
     900: '#030229', // Darkest Blue

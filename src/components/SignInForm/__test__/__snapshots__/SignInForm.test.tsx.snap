@@ -139,7 +139,7 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
             </span>
           </label>
           <p
-            class="text-3xl font-dm-sans text-blue-800 dark:text-white color-blue.900 text-[14.22px] leading-[18.51px]"
+            class="text-3xl font-dm-sans dark:text-white color-blue.900 text-[14.22px] leading-[18.51px]"
           >
             Remember me
           </p>
