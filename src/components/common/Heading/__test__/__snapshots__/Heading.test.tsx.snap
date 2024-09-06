@@ -13,7 +13,7 @@ exports[`Heading Component should match with snapshot 1`] = `
         </script>
         <h2
           aria-level="2"
-          class="text-5xl font-bold font-dm-sans text-blue-800 dark:text-white "
+          class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
         >
           This is a heading
         </h2>
@@ -29,7 +29,7 @@ exports[`Heading Component should match with snapshot 1`] = `
       </script>
       <h2
         aria-level="2"
-        class="text-5xl font-bold font-dm-sans text-blue-800 dark:text-white "
+        class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
       >
         This is a heading
       </h2>

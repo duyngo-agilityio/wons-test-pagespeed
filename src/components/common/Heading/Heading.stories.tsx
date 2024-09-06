@@ -16,6 +16,11 @@ const meta: Meta<typeof Heading> = {
       control: { type: 'select' },
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     },
+    size: {
+      description: 'Size of heading',
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+    },
     className: {
       description: 'Additional class name',
       control: 'text',
@@ -31,5 +36,16 @@ export const Default: Story = {
   args: {
     title: 'This is a heading',
     as: 'h2',
+    size: 'lg',
   },
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <div className="w-full flex flex-col gap-10 items-center">
+      <Heading size="lg" as="h1" title="(lg) This is a heading" />
+      <Heading size="md" as="h2" title="(md) This is a heading" />
+      <Heading size="sm" as="h3" title="(sm) This is a heading" />
+    </div>
+  ),
 };
