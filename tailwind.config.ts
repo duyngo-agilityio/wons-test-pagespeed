@@ -20,6 +20,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        base: '0px',
+        xs: '375px',
+      },
       fontFamily: {
         'dm-sans': ['var(--font-dm-sans)'],
       },
