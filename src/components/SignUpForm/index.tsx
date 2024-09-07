@@ -197,9 +197,10 @@ const SignUpForm = ({ onSubmit }: ISignUpFormProps) => {
 
       {/* Policy */}
       <div className="flex gap-0.5 items-start mt-6.25">
-        <div>
-          <Checkbox onChange={handleCheckBoxChange} />
-        </div>
+        <Checkbox
+          onChange={handleCheckBoxChange}
+          classNames={{ wrapper: 'mt-1' }}
+        />
 
         <div>
           <Text
