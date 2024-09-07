@@ -7,6 +7,7 @@ import { LayoutProvider } from '@/contexts';
 // Constants
 import { DM_SANS_FONT, IMAGE_URL } from '@/constants';
 
+// Styles
 import '@/styles/global.css';
 
 export const metadata: Metadata = {
