@@ -8,4 +8,5 @@ export { default as Sidebar } from './Sidebar';
 export { default as SidebarFooter } from './SidebarFooter';
 export { default as SidebarHeader } from './SidebarHeader';
 export { default as SignInForm } from './SignInForm';
+export { default as SignUpForm } from './SignUpForm';
 export { default as StatisticCard } from './StatisticCard';
