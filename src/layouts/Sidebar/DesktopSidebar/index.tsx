@@ -5,7 +5,9 @@ import clsx from 'clsx';
 import { SIDE_BAR_STATE } from '@/constants';
 
 // Components
-import { NavigateList, SidebarFooter, SidebarHeader } from '@/components';
+import NavigateList from '@/layouts/Sidebar/NavigateList';
+import SidebarFooter from '@/layouts/Sidebar/SidebarFooter';
+import SidebarHeader from '@/layouts/Sidebar/SidebarHeader';
 
 interface IDesktopSidebar {
   toggleDesktopSidebar: string;

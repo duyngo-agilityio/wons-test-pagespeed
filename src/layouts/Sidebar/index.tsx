@@ -9,7 +9,8 @@ import { SIDE_BAR_STATE } from '@/constants';
 import { useBreakPoints } from '@/hooks';
 
 // Components
-import { DesktopSidebar, MobileSidebar } from '@/components';
+import DesktopSidebar from '@/layouts/Sidebar/DesktopSidebar';
+import MobileSidebar from '@/layouts/Sidebar/MobileSidebar';
 
 const Sidebar = () => {
   const { isGreaterThanMd } = useBreakPoints();
