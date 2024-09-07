@@ -2,7 +2,9 @@ import { memo } from 'react';
 import clsx from 'clsx';
 
 // Components
-import { SidebarHeader, NavigateList, SidebarFooter } from '@/components';
+import NavigateList from '@/layouts/Sidebar/NavigateList';
+import SidebarFooter from '@/layouts/Sidebar/SidebarFooter';
+import SidebarHeader from '@/layouts/Sidebar/SidebarHeader';
 
 interface IMobileSidebar {
   isToggleMobileSidebar: boolean;

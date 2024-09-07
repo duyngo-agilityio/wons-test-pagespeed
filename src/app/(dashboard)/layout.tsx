@@ -1,5 +1,5 @@
-// Components
-import { Sidebar } from '@/components';
+// Layouts
+import { Sidebar } from '@/layouts';
 
 export default function RootLayout({
   children,
