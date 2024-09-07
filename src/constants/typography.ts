@@ -18,3 +18,7 @@ export const HEADING_SIZE_MAP: { [key: string]: string } = {
   md: 'text-3xl',
   lg: 'text-5xl',
 };
+
+export const PAGE_TITLES = {
+  DASHBOARD: 'Dashboard',
+};

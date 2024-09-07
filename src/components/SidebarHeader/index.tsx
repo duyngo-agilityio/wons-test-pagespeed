@@ -35,7 +35,7 @@ const SidebarHeader = ({ isToggle, onToggleSidebar }: ISidebarHeader) => (
         height={26}
       />
       <Heading
-        as="h2"
+        as="h1"
         title="Wons"
         className={clsx(
           'font-medium',
