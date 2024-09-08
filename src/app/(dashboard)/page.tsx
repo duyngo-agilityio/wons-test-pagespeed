@@ -1,13 +1,19 @@
 'use client';
 
+import { ReactNode } from 'react';
+import { parseAbsoluteToLocal } from '@internationalized/date';
+
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
+// Mocks
+import { MOCK_RECENT_SERVICES } from '@/mocks';
+
 // Constants
 import { PAGE_TITLES } from '@/constants';
-import { DatePicker } from '@/components';
-import { ReactNode } from 'react';
-import { parseAbsoluteToLocal } from '@internationalized/date';
+
+// Components
+import { DatePicker, RecentServicesTable } from '@/components';
 
 const DashboardPage = () => {
   const renderDate = (): ReactNode => (
@@ -27,11 +33,9 @@ const DashboardPage = () => {
     <main>
       <DashBoardLayout
         title={PAGE_TITLES.DASHBOARD}
-        // Simulate date, you can remove it
         rightContent={renderDate()}
       >
-        {/* Simulate content, you can remove it when add new content */}
-        <div className="bg-black/50 w-full h-screen" />
+        <RecentServicesTable data={MOCK_RECENT_SERVICES} />
       </DashBoardLayout>
     </main>
   );

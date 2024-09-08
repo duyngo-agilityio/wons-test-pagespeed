@@ -1,0 +1,532 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecentServicesTable match snapshot 1`] = `
+<div>
+  <div
+    data-overlay-container="true"
+  >
+    <script>
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
+    </script>
+    <div
+      class="flex flex-col relative gap-4 w-full"
+    >
+      <div
+        class="z-0 flex flex-col relative justify-between gap-4 bg-content1 overflow-auto rounded-large w-full p-0 shadow-none dark:bg-gray-400"
+      >
+        <table
+          aria-describedby=""
+          class="min-w-full h-auto table-auto w-full px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 dark:[&>tbody>*:nth-child(even)]:bg-gray-600"
+          id="react-aria-:r0:"
+          role="grid"
+          tabindex="0"
+        >
+          <thead
+            class="[&>tr]:first:rounded-lg"
+            role="rowgroup"
+          >
+            <tr
+              class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+              role="row"
+            >
+              <th
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
+                data-key="Order ID0"
+                id="react-aria-:r0:-OrderID0"
+                role="columnheader"
+                tabindex="-1"
+              >
+                <div
+                  class="flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                >
+                  Order ID
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m98 190.06 139.78 163.12a24 24 0 0 0 36.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z"
+                    />
+                  </svg>
+                </div>
+              </th>
+              <th
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
+                data-key="Service Name1"
+                id="react-aria-:r0:-ServiceName1"
+                role="columnheader"
+                tabindex="-1"
+              >
+                <div
+                  class="flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                >
+                  Service Name
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m98 190.06 139.78 163.12a24 24 0 0 0 36.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z"
+                    />
+                  </svg>
+                </div>
+              </th>
+              <th
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
+                data-key="Price2"
+                id="react-aria-:r0:-Price2"
+                role="columnheader"
+                tabindex="-1"
+              >
+                <div
+                  class="flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                >
+                  Price
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m98 190.06 139.78 163.12a24 24 0 0 0 36.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z"
+                    />
+                  </svg>
+                </div>
+              </th>
+              <th
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
+                data-key="Total Order3"
+                id="react-aria-:r0:-TotalOrder3"
+                role="columnheader"
+                tabindex="-1"
+              >
+                <div
+                  class="flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                >
+                  Total Order
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m98 190.06 139.78 163.12a24 24 0 0 0 36.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z"
+                    />
+                  </svg>
+                </div>
+              </th>
+              <th
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
+                data-key="Total Amount4"
+                id="react-aria-:r0:-TotalAmount4"
+                role="columnheader"
+                tabindex="-1"
+              >
+                <div
+                  class="flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                >
+                  Total Amount
+                </div>
+              </th>
+            </tr>
+            <tr
+              aria-hidden="true"
+              class="w-px h-px block"
+              style="margin-left: 0.25rem; margin-top: 0.25rem;"
+              tabindex="-1"
+            />
+          </thead>
+          <tbody
+            role="rowgroup"
+          >
+            <tr
+              aria-labelledby="react-aria-:r0:-table-row-undefined-OrderID0"
+              class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
+              data-first="true"
+              data-key="table-row-undefined"
+              data-last="true"
+              role="row"
+              tabindex="-1"
+            >
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-0"
+                id="react-aria-:r0:-table-row-undefined-OrderID0"
+                role="rowheader"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  #876364
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-1"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="flex gap-2 items-center"
+                >
+                  <img
+                    alt="ui-ux-design"
+                    class="rounded-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="32"
+                    loading="lazy"
+                    src="http://localhost/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75 2x"
+                    style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                    width="32"
+                  />
+                  <p
+                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  >
+                    Ui/Ux Designing
+                  </p>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-2"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $178
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-3"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-2"
+                  >
+                    325
+                  </span>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-4"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $57,850
+                </p>
+              </td>
+            </tr>
+            <tr
+              aria-labelledby="react-aria-:r0:-table-row-undefined-OrderID0"
+              class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
+              data-first="true"
+              data-key="table-row-undefined"
+              data-last="true"
+              data-odd="true"
+              role="row"
+              tabindex="-1"
+            >
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-0"
+                id="react-aria-:r0:-table-row-undefined-OrderID0"
+                role="rowheader"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  #876368
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-1"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="flex gap-2 items-center"
+                >
+                  <img
+                    alt="ui-ux-design"
+                    class="rounded-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="32"
+                    loading="lazy"
+                    src="http://localhost/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75 2x"
+                    style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                    width="32"
+                  />
+                  <p
+                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  >
+                    Bug Fix
+                  </p>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-2"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $14
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-3"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-2"
+                  >
+                    53
+                  </span>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-4"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $742
+                </p>
+              </td>
+            </tr>
+            <tr
+              aria-labelledby="react-aria-:r0:-table-row-undefined-OrderID0"
+              class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
+              data-first="true"
+              data-key="table-row-undefined"
+              data-last="true"
+              role="row"
+              tabindex="-1"
+            >
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-0"
+                id="react-aria-:r0:-table-row-undefined-OrderID0"
+                role="rowheader"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  #876412
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-1"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="flex gap-2 items-center"
+                >
+                  <img
+                    alt="ui-ux-design"
+                    class="rounded-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="32"
+                    loading="lazy"
+                    src="http://localhost/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75 2x"
+                    style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                    width="32"
+                  />
+                  <p
+                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  >
+                    Wordpress
+                  </p>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-2"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $21
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-3"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-2"
+                  >
+                    78
+                  </span>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-4"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $1,638
+                </p>
+              </td>
+            </tr>
+            <tr
+              aria-labelledby="react-aria-:r0:-table-row-undefined-OrderID0"
+              class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
+              data-first="true"
+              data-key="table-row-undefined"
+              data-last="true"
+              data-odd="true"
+              role="row"
+              tabindex="-1"
+            >
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-0"
+                id="react-aria-:r0:-table-row-undefined-OrderID0"
+                role="rowheader"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  #876621
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-1"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="flex gap-2 items-center"
+                >
+                  <img
+                    alt="ui-ux-design"
+                    class="rounded-5"
+                    data-nimg="1"
+                    decoding="async"
+                    height="32"
+                    loading="lazy"
+                    src="http://localhost/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F407226-2eWiCl1471372939.jpg&w=64&q=75 2x"
+                    style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                    width="32"
+                  />
+                  <p
+                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  >
+                    Mobile Design
+                  </p>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-2"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $32
+                </p>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-3"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <div
+                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                >
+                  <span
+                    class="flex-1 text-inherit font-normal px-2"
+                  >
+                    98
+                  </span>
+                </div>
+              </td>
+              <td
+                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
+                data-key="table-cell-4"
+                role="gridcell"
+                tabindex="-1"
+              >
+                <p
+                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                >
+                  $3,724
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
