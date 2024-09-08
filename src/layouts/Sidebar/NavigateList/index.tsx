@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import { colors } from '@/themes';
 
 // Constants
-import { ROUTERS, SIDE_BAR_STATE, THEME_MODES } from '@/constants';
+import { ROUTES, SIDE_BAR_STATE, THEME_MODES } from '@/constants';
 
 // Components
 import {
@@ -41,7 +41,7 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
     NOTIFICATION,
     SCHEDULE,
     SETTINGS,
-  } = ROUTERS;
+  } = ROUTES;
   const { LIGHT, DARK } = THEME_MODES;
   const iconColor = {
     [DARK]: colors.white,

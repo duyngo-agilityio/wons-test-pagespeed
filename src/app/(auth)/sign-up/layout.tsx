@@ -8,7 +8,7 @@ import { IMAGES } from '@/constants';
 import { AuthLayout } from '@/layouts';
 
 // Components
-import { Heading, ImageFallback, Image } from '@/components';
+import { Heading, ImageFallback, Logo } from '@/components';
 
 interface SignUpLayoutProps {
   children: ReactNode;
@@ -28,14 +28,7 @@ const SignUpLayout = ({ children }: SignUpLayoutProps): JSX.Element => (
     }
   >
     <div className="flex flex-col items-center pt-[130px] pb-[90px] mx-auto base:w-full xs:max-w-[348px]">
-      <Image
-        priority
-        src={IMAGES.LOGO}
-        placeholder="empty"
-        alt="wons-logo"
-        width={90}
-        height={56}
-      />
+      <Logo />
       <Heading className="mt-7.5 mb-[69px]" title="Sign Up" />
       {children}
     </div>
