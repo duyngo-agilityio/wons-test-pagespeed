@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { z } from 'zod';
@@ -17,6 +17,7 @@ import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
 // Components
 import { Button, Input, Text, Checkbox } from '@/components';
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 interface SignInFormProps {
   onSubmit: (data: SignInFormData) => void;
@@ -34,6 +35,8 @@ const signInSchema = z.object({
 const REQUIRED_FIELDS = ['identifier', 'password'];
 
 const SignInForm = ({ onSubmit }: SignInFormProps) => {
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+
   const {
     control,
     formState: { dirtyFields, errors },
@@ -50,7 +53,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
   });
 
   /**
-   * Func handle login
+   * Func handle sign in
    */
   const handleSignIn = async (formData: SignInFormData) => {
     onSubmit(formData);
@@ -65,8 +68,13 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
   );
   const isDisableSubmit = !enableSubmit;
 
+  const handleToggleVisiblePassword = useCallback(
+    () => setIsShowPassword(!isShowPassword),
+    [isShowPassword],
+  );
+
   return (
-    <form onSubmit={handleSubmit(handleSignIn)}>
+    <form onSubmit={handleSubmit(handleSignIn)} className="w-full">
       {/*Email*/}
       <Controller
         name="identifier"
@@ -102,11 +110,20 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
         }) => (
           <Input
             label="Password"
-            type="password"
-            classNames={{
-              inputWrapper: 'mt-6',
-              base: 'data-[has-label=true]:mt-[20px] h-[64px]',
-            }}
+            type={isShowPassword ? 'text' : 'password'}
+            endContent={
+              isShowPassword ? (
+                <IoMdEyeOff
+                  className="w-5 h-5 cursor-pointer text-blue-800/50 dark:text-white/50"
+                  onClick={handleToggleVisiblePassword}
+                />
+              ) : (
+                <IoMdEye
+                  className="w-5 h-5 cursor-pointer text-blue-800/50 dark:text-white/50"
+                  onClick={handleToggleVisiblePassword}
+                />
+              )
+            }
             isInvalid={!!error}
             errorMessage={error?.message}
             onChange={(e) => {
@@ -131,7 +148,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
         <div>
           <Link
             href="#"
-            className="text-[14.22px] leading-[18.51px] text-blue-500"
+            className="text-[14.22px] leading-[18.51px] !text-blue-500 dark:!text-purple-600 hover:underline"
           >
             Reset Password?
           </Link>
