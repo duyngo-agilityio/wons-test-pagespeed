@@ -1,5 +1,5 @@
 // Constants
-import { IMAGE_URL } from '@/constants';
+import { IMAGES } from '@/constants';
 
 // Layouts
 import { AuthLayout } from '@/layouts';
@@ -11,7 +11,7 @@ const SignInPage = () => (
   <AuthLayout
     image={
       <ImageFallback
-        src={IMAGE_URL.SIGN_IN_IMAGE}
+        src={IMAGES.SIGN_IN_IMAGE}
         alt="sign-in"
         width={0}
         height={0}

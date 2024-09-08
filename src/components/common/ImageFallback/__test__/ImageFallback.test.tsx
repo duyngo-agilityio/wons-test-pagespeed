@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
 // Constants
-import { BLUR_SRC, FALLBACK_SRC, IMAGE_SRC } from '@/constants';
+import { BLUR_SRC, FALLBACK_SRC, IMAGES } from '@/constants';
 
 // Components
 import ImageFallback from '../index';
@@ -10,7 +10,7 @@ describe('ImageFallback component', () => {
   const renderComponent = (props?: Record<string, string>) =>
     render(
       <ImageFallback
-        src={IMAGE_SRC.DEFAULT}
+        src={IMAGES.DEFAULT}
         alt="image"
         blurDataURL={BLUR_SRC.DEFAULT}
         fallbackSrc={FALLBACK_SRC.DEFAULT}

@@ -21,7 +21,7 @@ exports[`RecentServicesSection should match snapshot 1`] = `
           Recent Orders
         </h2>
         <button
-          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover text-blue-800 border-transparent dark:bg-gray-400 dark:text-white dark:border-gray-400 hover:bg-blue-500 dark:hover:bg-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max bg-transparent"
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent !bg-gray-50 dark:bg-gray-600 text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max bg-transparent"
           type="button"
         >
           <svg

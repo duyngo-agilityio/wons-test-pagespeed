@@ -1,7 +1,6 @@
 export * from './date';
 export * from './fonts';
 export * from './images';
-export * from './routers';
 export * from './routes';
 export * from './searchParams';
 export * from './sidebar';

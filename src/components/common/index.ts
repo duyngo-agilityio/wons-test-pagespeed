@@ -5,6 +5,8 @@ export * from './icons';
 export { CiSearch } from 'react-icons/ci';
 export { FaCalendarAlt } from 'react-icons/fa';
 export { FaChevronLeft } from 'react-icons/fa6';
+export { FcGoogle } from 'react-icons/fc';
+export { FaFacebookF } from 'react-icons/fa';
 export { IoCheckmarkOutline } from 'react-icons/io5';
 export { IoLogOut } from 'react-icons/io5';
 export { TbDots } from 'react-icons/tb';

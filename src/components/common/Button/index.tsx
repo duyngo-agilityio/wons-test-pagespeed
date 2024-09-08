@@ -6,7 +6,8 @@ const Button = extendVariants(ButtonNextUI, {
   variants: {
     color: {
       default:
-        'bg-blue-500/5 text-blue-800 border-transparent dark:bg-gray-400 dark:text-white dark:border-gray-400 hover:bg-blue-500 dark:hover:bg-white',
+        ' border-transparent !bg-gray-50 dark:bg-gray-600 text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900',
+
       primary:
         'bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100',
       secondary:

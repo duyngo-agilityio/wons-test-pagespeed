@@ -16,7 +16,7 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
         >
           <h2
             aria-level="2"
-            class="text-5xl font-bold font-dm-sans text-blue-800 dark:text-white text-4xl"
+            class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-4xl"
           >
             Something went wrong!
           </h2>
@@ -42,7 +42,7 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
       >
         <h2
           aria-level="2"
-          class="text-5xl font-bold font-dm-sans text-blue-800 dark:text-white text-4xl"
+          class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-4xl"
         >
           Something went wrong!
         </h2>
