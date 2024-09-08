@@ -14,7 +14,7 @@ import { ERROR_MESSAGES, REGEX } from '@/constants';
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
 // Components
-import { Button, Input, Text, Checkbox } from '@/components/common';
+import { Button, Input, Text, Checkbox } from '@/components';
 
 interface ISignUpFormData {
   fullName: string;
@@ -251,7 +251,7 @@ const SignUpForm = ({ onSubmit }: ISignUpFormProps) => {
           className="color-blue-900 font-medium inline"
         />
         &nbsp;
-        <Link href="#">
+        <Link href="/sign-in">
           <Text
             text="Login"
             size="xl"

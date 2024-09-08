@@ -1,5 +1,5 @@
 // Sections
-import { SignUpForm } from '@/ui/sign-up';
+import { SignUpForm } from '@/ui';
 
 const SignUpPage = () => <SignUpForm />;
 

@@ -8,7 +8,9 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
     <script>
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
-    <form>
+    <form
+      class="w-full"
+    >
       <div
         class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] h-[74px]"
         data-filled="true"
@@ -53,7 +55,7 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
         </div>
       </div>
       <div
-        class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[20px] h-[64px]"
+        class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px]"
         data-filled="true"
         data-filled-within="true"
         data-has-elements="true"
@@ -65,7 +67,7 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
           data-slot="main-wrapper"
         >
           <div
-            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] mt-6"
+            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
             data-slot="input-wrapper"
             style="cursor: text;"
           >
@@ -85,12 +87,27 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
                 aria-label="Password"
                 aria-labelledby="react-aria-:r5: react-aria-:r6:"
                 class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+                data-has-end-content="true"
                 data-slot="input"
                 id="react-aria-:r5:"
                 placeholder=" "
                 type="password"
                 value=""
               />
+              <svg
+                class="w-5 h-5 cursor-pointer text-blue-800/50 dark:text-white/50"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M256 105c-101.8 0-188.4 62.4-224 151 35.6 88.6 122.2 151 224 151s188.4-62.4 224-151c-35.6-88.6-122.2-151-224-151zm0 251.7c-56 0-101.8-45.3-101.8-100.7S200 155.3 256 155.3 357.8 200.6 357.8 256 312 356.7 256 356.7zm0-161.1c-33.6 0-61.1 27.2-61.1 60.4s27.5 60.4 61.1 60.4 61.1-27.2 61.1-60.4-27.5-60.4-61.1-60.4z"
+                />
+              </svg>
             </div>
           </div>
         </div>
@@ -145,7 +162,7 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
         </div>
         <div>
           <a
-            class="text-[14.22px] leading-[18.51px] text-blue-500"
+            class="text-[14.22px] leading-[18.51px] !text-blue-500 dark:!text-purple-600 hover:underline"
             href="#"
           >
             Reset Password?
