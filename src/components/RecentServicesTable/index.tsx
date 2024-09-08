@@ -21,7 +21,9 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
     () => [
       {
         header: 'Order ID',
-        accessor: (data: TRecentServices) => <Text text={`#${data.orderID}`} />,
+        accessor: (data: TRecentServices) => (
+          <Text size="sm" text={`#${data.orderID}`} />
+        ),
         isSort: true,
       },
       {
@@ -35,7 +37,7 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
               height={32}
               className="rounded-5"
             />
-            <Text text={data.serviceName} />
+            <Text size="sm" text={data.serviceName} />
           </div>
         ),
         isSort: true,
@@ -43,14 +45,19 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
       {
         header: 'Price',
         accessor: (data: TRecentServices) => (
-          <Text text={`$${formatPrice(data.price)}`} />
+          <Text size="sm" text={`$${formatPrice(data.price)}`} />
         ),
         isSort: true,
       },
       {
         header: 'Total Order',
         accessor: (data: TRecentServices) => (
-          <Chip className="bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]">
+          <Chip
+            classNames={{
+              base: 'w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20',
+              content: 'text-blue-500 text-center text-sm',
+            }}
+          >
             {data.totalOrder}
           </Chip>
         ),
@@ -59,7 +66,7 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
       {
         header: 'Total Amount',
         accessor: (data: TRecentServices) => (
-          <Text text={`$${formatPrice(data.totalAmount)}`} />
+          <Text size="sm" text={`$${formatPrice(data.totalAmount)}`} />
         ),
       },
     ],

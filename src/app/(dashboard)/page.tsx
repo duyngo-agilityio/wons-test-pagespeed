@@ -6,14 +6,14 @@ import { parseAbsoluteToLocal } from '@internationalized/date';
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
-// Mocks
-import { MOCK_RECENT_SERVICES } from '@/mocks';
+// UI
+import { RecentServicesSection } from '@/ui';
 
 // Constants
 import { PAGE_TITLES } from '@/constants';
 
 // Components
-import { DatePicker, RecentServicesTable } from '@/components';
+import { DatePicker } from '@/components';
 
 const DashboardPage = () => {
   const renderDate = (): ReactNode => (
@@ -35,7 +35,7 @@ const DashboardPage = () => {
         title={PAGE_TITLES.DASHBOARD}
         rightContent={renderDate()}
       >
-        <RecentServicesTable data={MOCK_RECENT_SERVICES} />
+        <RecentServicesSection />
       </DashBoardLayout>
     </main>
   );
