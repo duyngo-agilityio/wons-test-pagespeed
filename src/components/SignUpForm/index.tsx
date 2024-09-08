@@ -172,12 +172,12 @@ const SignUpForm = ({ onSubmit }: ISignUpFormProps) => {
             endContent={
               isShowPassword ? (
                 <IoMdEyeOff
-                  className="w-5 h-5 text-blue-800/50 cursor-pointer"
+                  className="w-5 h-5 cursor-pointer text-blue-800/50 dark:text-white/50"
                   onClick={handleToggleVisiblePassword}
                 />
               ) : (
                 <IoMdEye
-                  className="w-5 h-5 text-blue-800/50 cursor-pointer"
+                  className="w-5 h-5 cursor-pointer text-blue-800/50 dark:text-white/50"
                   onClick={handleToggleVisiblePassword}
                 />
               )

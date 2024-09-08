@@ -10,6 +10,8 @@ export { FaFacebookF } from 'react-icons/fa';
 export { IoCheckmarkOutline } from 'react-icons/io5';
 export { IoLogOut } from 'react-icons/io5';
 export { TbDots } from 'react-icons/tb';
+export { FiSun } from 'react-icons/fi';
+export { IoMoonOutline } from 'react-icons/io5';
 
 export { default as Button } from './Button';
 export { default as Heading } from './Heading';
