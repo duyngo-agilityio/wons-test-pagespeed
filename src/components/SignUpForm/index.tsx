@@ -14,7 +14,7 @@ import { ERROR_MESSAGES, REGEX } from '@/constants';
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
 // Components
-import { Button, Input, Text, Checkbox } from '@/components';
+import { Button, Input, Text, Checkbox } from '@/components/common';
 
 interface ISignUpFormData {
   fullName: string;
