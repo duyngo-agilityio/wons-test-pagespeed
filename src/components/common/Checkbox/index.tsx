@@ -1,18 +1,14 @@
 'use client';
 
 // Libs
-import {
-  extendVariants,
-  Checkbox as NextUICheckbox,
-  CheckboxProps as NextUICheckboxProps,
-} from '@nextui-org/react';
+import { extendVariants, Checkbox as NextUICheckbox } from '@nextui-org/react';
 
 export const Checkbox = extendVariants(NextUICheckbox, {
   variants: {
     color: {
       primary: {
         wrapper: [
-          'after:bg-500 dark:after:bg-purple-600',
+          'after:bg-blue-500 dark:after:bg-purple-600',
           'after:hover:bg-blue-500 dark:after:hover:bg-purple-600',
           'before:border-blue-800/30 dark:before:border-white/30',
         ],
