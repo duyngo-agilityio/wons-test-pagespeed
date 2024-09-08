@@ -1,83 +1,42 @@
 'use client';
 
+// Libs
 import { extendVariants, Checkbox as NextUICheckbox } from '@nextui-org/react';
 
-// themes
-import { fontSize } from '@/themes';
-
-export const CustomCheckbox = extendVariants(NextUICheckbox, {
+export const Checkbox = extendVariants(NextUICheckbox, {
   variants: {
     color: {
-      default: {
-        wrapper:
-          'after:bg-[var(--after-bg-default)] text-white dark:before:border-blue-600',
-      },
-      custom: {
-        wrapper: 'text-white',
+      primary: {
+        wrapper: [
+          'after:bg-blue-500 dark:after:bg-purple-600',
+          'after:hover:bg-blue-500 dark:after:hover:bg-purple-600',
+          'before:border-blue-800/30 dark:before:border-white/30',
+        ],
+        icon: 'text-white dark:text-gray-400',
       },
     },
     size: {
       md: {
         label: 'text-sm',
+        wrapper: ['w-3.75 h-3.75', 'before:border'],
       },
       lg: {
         label: 'text-base',
+        wrapper: ['w-5 h-5', 'before:border'],
       },
     },
     radius: {
       sm: {
-        wrapper: 'rounded-sm',
-      },
-      md: {
-        wrapper: 'rounded-md',
-      },
-      lg: {
-        wrapper: 'rounded-lg',
+        wrapper: ['rounded-sm', 'before:rounded-sm', 'after:rounded-sm'],
       },
     },
   },
 
   defaultVariants: {
-    color: 'default',
+    color: 'primary',
     size: 'md',
     radius: 'sm',
   },
 });
-
-type CheckboxProps = {
-  color?: 'default' | 'custom';
-  colorValue?: string;
-  afterBgColor?: string;
-  size?: keyof typeof fontSize | 'md';
-  radius?: 'sm' | 'md' | 'lg';
-};
-
-const Checkbox = ({
-  size = 'md',
-  color = 'default',
-  colorValue,
-  afterBgColor = '#3A36DB',
-  radius = 'sm',
-}: CheckboxProps) => {
-  const variantProps =
-    color === 'custom' && colorValue
-      ? {
-          color,
-          style: {
-            backgroundColor: colorValue,
-            '--after-bg-default': afterBgColor,
-          },
-        }
-      : { color, style: { '--after-bg-default': afterBgColor } };
-
-  return (
-    <CustomCheckbox
-      {...variantProps}
-      size={size}
-      radius={radius}
-      className="custom-checkbox"
-    />
-  );
-};
 
 export default Checkbox;
