@@ -1,2 +1,3 @@
-export * from './customer';
 export * from './auth';
+export * from './customer';
+export * from './recentServices';
