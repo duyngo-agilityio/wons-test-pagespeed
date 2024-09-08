@@ -174,7 +174,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   #876364
                 </p>
@@ -201,7 +201,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                     width="32"
                   />
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                    class="font-dm-sans text-blue-800 dark:text-white text-sm "
                   >
                     Ui/Ux Designing
                   </p>
@@ -214,7 +214,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $178
                 </p>
@@ -226,10 +226,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
                 >
                   <span
-                    class="flex-1 text-inherit font-normal px-2"
+                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
                   >
                     325
                   </span>
@@ -242,7 +242,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $57,850
                 </p>
@@ -266,7 +266,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   #876368
                 </p>
@@ -293,7 +293,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                     width="32"
                   />
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                    class="font-dm-sans text-blue-800 dark:text-white text-sm "
                   >
                     Bug Fix
                   </p>
@@ -306,7 +306,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $14
                 </p>
@@ -318,10 +318,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
                 >
                   <span
-                    class="flex-1 text-inherit font-normal px-2"
+                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
                   >
                     53
                   </span>
@@ -334,7 +334,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $742
                 </p>
@@ -357,7 +357,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   #876412
                 </p>
@@ -384,7 +384,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                     width="32"
                   />
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                    class="font-dm-sans text-blue-800 dark:text-white text-sm "
                   >
                     Wordpress
                   </p>
@@ -397,7 +397,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $21
                 </p>
@@ -409,10 +409,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
                 >
                   <span
-                    class="flex-1 text-inherit font-normal px-2"
+                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
                   >
                     78
                   </span>
@@ -425,7 +425,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $1,638
                 </p>
@@ -449,7 +449,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   #876621
                 </p>
@@ -476,7 +476,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                     width="32"
                   />
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md "
+                    class="font-dm-sans text-blue-800 dark:text-white text-sm "
                   >
                     Mobile Design
                   </p>
@@ -489,7 +489,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $32
                 </p>
@@ -501,10 +501,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small bg-blue-500/20 text-blue-500 px-5 py-2 rounded-[8.45px]"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
                 >
                   <span
-                    class="flex-1 text-inherit font-normal px-2"
+                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
                   >
                     98
                   </span>
@@ -517,7 +517,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-md "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
                 >
                   $3,724
                 </p>

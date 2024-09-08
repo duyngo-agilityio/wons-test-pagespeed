@@ -3,10 +3,11 @@ export * from './icons';
 
 // React-icons
 export { CiSearch } from 'react-icons/ci';
-export { IoCheckmarkOutline } from 'react-icons/io5';
 export { FaCalendarAlt } from 'react-icons/fa';
-export { IoLogOut } from 'react-icons/io5';
 export { FaChevronLeft } from 'react-icons/fa6';
+export { IoCheckmarkOutline } from 'react-icons/io5';
+export { IoLogOut } from 'react-icons/io5';
+export { TbDots } from 'react-icons/tb';
 
 export { default as Button } from './Button';
 export { default as Heading } from './Heading';
