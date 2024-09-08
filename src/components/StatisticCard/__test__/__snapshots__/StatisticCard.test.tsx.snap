@@ -40,12 +40,12 @@ exports[`Text Component renders correctly with all custom props 1`] = `
             </div>
             <div>
               <p
-                class="text-3xl font-dm-sans dark:text-white font-bold text-[24.06px] text-[#515c6a]"
+                class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[24.06px] text-[#515c6a]"
               >
                 100+
               </p>
               <p
-                class="text-3xl font-dm-sans dark:text-white font-normal text-[#515c6a]"
+                class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[#515c6a]"
               >
                 Favorite Services
               </p>
@@ -91,12 +91,12 @@ exports[`Text Component renders correctly with all custom props 1`] = `
           </div>
           <div>
             <p
-              class="text-3xl font-dm-sans dark:text-white font-bold text-[24.06px] text-[#515c6a]"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[24.06px] text-[#515c6a]"
             >
               100+
             </p>
             <p
-              class="text-3xl font-dm-sans dark:text-white font-normal text-[#515c6a]"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[#515c6a]"
             >
               Favorite Services
             </p>
