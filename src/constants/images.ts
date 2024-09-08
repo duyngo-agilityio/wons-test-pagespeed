@@ -8,14 +8,10 @@ export const FALLBACK_SRC = {
     'https://images.ctfassets.net/5z56gn2a2s8n/2Js4uC2K1dbRunE4ria1qX/cebbe6fda2afbcc7b579111fd4404549/Image-Not-Available.jpg',
 };
 
-export const IMAGE_SRC = {
-  DEFAULT:
-    'https://media.istockphoto.com/id/1282514371/vi/vec-to/m%E1%BA%ABu-n%E1%BB%81n-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-kh%E1%BB%91i-retro.jpg?s=612x612&w=0&k=20&c=ZaZM5rBs2m5Se3yXhHuWWhTfXemN86o1rnsbB6vm1dI=',
-  LOGO: '/logo.svg',
-};
-
-export const IMAGE_URL = {
+export const IMAGES = {
   LOGO: '/logo.svg',
   SIGN_IN_IMAGE: '/sign-in-banner.webp',
   SIGN_UP_IMAGE: '/sign-up-banner.webp',
+  DEFAULT:
+    'https://media.istockphoto.com/id/1282514371/vi/vec-to/m%E1%BA%ABu-n%E1%BB%81n-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-kh%E1%BB%91i-retro.jpg?s=612x612&w=0&k=20&c=ZaZM5rBs2m5Se3yXhHuWWhTfXemN86o1rnsbB6vm1dI=',
 };

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import clsx from 'clsx';
 
 // Constants
-import { IMAGE_SRC } from '@/constants';
+import { IMAGES } from '@/constants';
 
 // Components
 import { Button, FaChevronLeft, Heading, Image } from '@/components/common';
@@ -28,7 +28,7 @@ const SidebarHeader = ({ isToggle, onToggleSidebar }: ISidebarHeader) => (
     <div className="w-full flex flex-col items-center mb-12.5">
       <Image
         priority
-        src={IMAGE_SRC.LOGO}
+        src={IMAGES.LOGO}
         placeholder="empty"
         alt="wons-logo"
         width={42}

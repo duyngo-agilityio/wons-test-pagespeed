@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { LayoutProvider } from '@/contexts';
 
 // Constants
-import { DM_SANS_FONT, IMAGE_URL } from '@/constants';
+import { DM_SANS_FONT, IMAGES } from '@/constants';
 
 // Styles
 import '@/styles/global.css';
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Wons dashboard managing user-contributed templates and daily personal tasks.',
     images: [
       {
-        url: IMAGE_URL.LOGO,
+        url: IMAGES.LOGO,
         alt: 'preview image',
       },
     ],

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Constants
-import { IMAGE_SRC } from '@/constants';
+import { IMAGES } from '@/constants';
 
 import ImageFallback from './index';
 
@@ -33,7 +33,7 @@ type Story = StoryObj<typeof ImageFallback>;
 
 export const Default: Story = {
   args: {
-    src: IMAGE_SRC.DEFAULT,
+    src: IMAGES.DEFAULT,
     alt: 'image',
   },
 };
