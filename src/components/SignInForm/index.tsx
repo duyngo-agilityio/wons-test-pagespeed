@@ -5,12 +5,13 @@ import { Controller, useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 
 // Types
 import { SignInFormData } from '@/types';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { ERROR_MESSAGES, ROUTES } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -39,6 +40,7 @@ const REQUIRED_FIELDS = ['identifier', 'password'];
 const SignInForm = ({ onSubmit }: SignInFormProps) => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const {
     control,
@@ -63,6 +65,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
       await onSubmit(formData);
 
       //TODO: handle onsuccess and error when toast components ready...
+      router.push(ROUTES.DASHBOARD);
     });
   };
 
