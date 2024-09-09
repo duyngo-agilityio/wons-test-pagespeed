@@ -10,7 +10,11 @@ import { RecentServicesSection } from '@/ui';
 import { PAGE_TITLES } from '@/constants';
 
 // Components
-import { DateRangePicker } from '@/components';
+import {
+  DateRangePicker,
+  StatisticSection,
+  TopSellingProducts,
+} from '@/components';
 
 const DashboardPage = () => (
   <main>
@@ -18,7 +22,11 @@ const DashboardPage = () => (
       title={PAGE_TITLES.DASHBOARD}
       rightContent={<DateRangePicker />}
     >
-      <RecentServicesSection />
+      <StatisticSection />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <RecentServicesSection />
+        <TopSellingProducts />
+      </div>
     </DashBoardLayout>
   </main>
 );
