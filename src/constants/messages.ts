@@ -11,8 +11,8 @@ export const ERROR_MESSAGES = {
 };
 
 export const SUCCESS_MESSAGES = {
-  SIGN_IN: 'Sign In success!!',
-  SIGN_OUT: 'Sign Out success!!',
+  SIGN_IN: 'Sign in successfully',
+  SIGN_OUT: 'Sign up successfully.',
 };
 
 export const MESSAGE_STATUS: Record<string, string> = {

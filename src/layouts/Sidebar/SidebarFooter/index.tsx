@@ -52,7 +52,6 @@ const SidebarFooter = ({
       }
 
       showToast({
-        title: MESSAGE_STATUS.SUCCESS,
         description: SUCCESS_MESSAGES.SIGN_OUT,
       });
 
