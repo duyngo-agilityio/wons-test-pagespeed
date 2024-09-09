@@ -82,7 +82,6 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
       }
 
       showToast({
-        title: MESSAGE_STATUS.SUCCESS,
         description: SUCCESS_MESSAGES.SIGN_IN,
       });
 
