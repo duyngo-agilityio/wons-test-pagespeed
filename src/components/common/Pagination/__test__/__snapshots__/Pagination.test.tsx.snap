@@ -8,6 +8,7 @@ exports[`Pagination test cases should render correctly 1`] = `
     <script>
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
+     
     <nav
       aria-label="pagination navigation"
       class="p-2.5 overflow-x-scroll scrollbar-hide flex justify-center m-0"
@@ -79,6 +80,9 @@ exports[`Pagination test cases should render correctly 1`] = `
         </li>
       </ul>
     </nav>
+    <div
+      class="fixed top-4 right-4"
+    />
   </div>
 </div>
 `;
