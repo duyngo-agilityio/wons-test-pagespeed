@@ -31,6 +31,7 @@ const meta: Meta<typeof ProductCard> = {
       control: { type: 'number', min: 0, max: 5 },
       defaultValue: 4,
     },
+
     alt: {
       description: 'The alternative text for the image.',
       control: { type: 'text' },

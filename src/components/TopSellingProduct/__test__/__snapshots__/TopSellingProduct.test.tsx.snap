@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopSellingProducts component renders correctly and matches snapshot 1`] = `
+<div>
+  <div
+    data-overlay-container="true"
+  >
+    <script>
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
+    </script>
+    <div
+      class="dark:bg-gray-600 bg-white p-6 rounded-lg shadow-lg w-full max-w-full md:max-w-3xl mx-auto"
+    >
+      <div
+        class="flex justify-between items-center mb-4"
+      >
+        <h2
+          class="text-gray-900 dark:text-gray-200 text-xl font-semibold"
+        >
+          Top Selling Products
+        </h2>
+        <div
+          class="text-gray-400"
+        >
+          ...
+        </div>
+      </div>
+      <div
+        class="space-y-4"
+      >
+        <div
+          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-transform-background motion-reduce:transition-none p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+          style="border-radius: undefined;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-center"
+          >
+            <div
+              class="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0"
+            >
+              <img
+                alt="image alt"
+                class="rounded-lg object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Fshoe1.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fshoe1.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fshoe1.png&w=256&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="100"
+              />
+            </div>
+            <div
+              class="sm:ml-4 flex-1 text-center sm:text-left"
+            >
+              <h3
+                class="text-black dark:text-white font-semibold text-base sm:text-lg"
+              >
+                Web Development
+              </h3>
+              <div
+                class="flex justify-center sm:justify-start py-2"
+              >
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-300"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+              </div>
+              <p
+                class="text-black dark:text-white text-base sm:text-lg font-semibold"
+              >
+                $
+                87
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-transform-background motion-reduce:transition-none p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+          style="border-radius: undefined;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-center"
+          >
+            <div
+              class="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0"
+            >
+              <img
+                alt="image alt"
+                class="rounded-lg object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Fshoe2.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fshoe2.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fshoe2.png&w=256&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="100"
+              />
+            </div>
+            <div
+              class="sm:ml-4 flex-1 text-center sm:text-left"
+            >
+              <h3
+                class="text-black dark:text-white font-semibold text-base sm:text-lg"
+              >
+                Graphic Design
+              </h3>
+              <div
+                class="flex justify-center sm:justify-start py-2"
+              >
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+              </div>
+              <p
+                class="text-black dark:text-white text-base sm:text-lg font-semibold"
+              >
+                $
+                120
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-transform-background motion-reduce:transition-none p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg"
+          style="border-radius: undefined;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-center"
+          >
+            <div
+              class="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0"
+            >
+              <img
+                alt="image alt"
+                class="rounded-lg object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fexample.com%2Fshoe3.png&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fshoe3.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fshoe3.png&w=256&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="100"
+              />
+            </div>
+            <div
+              class="sm:ml-4 flex-1 text-center sm:text-left"
+            >
+              <h3
+                class="text-black dark:text-white font-semibold text-base sm:text-lg"
+              >
+                Digital Marketing
+              </h3>
+              <div
+                class="flex justify-center sm:justify-start py-2"
+              >
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-300"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-300"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+              </div>
+              <p
+                class="text-black dark:text-white text-base sm:text-lg font-semibold"
+              >
+                $
+                99
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
