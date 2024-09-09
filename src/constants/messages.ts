@@ -8,6 +8,11 @@ export const ERROR_MESSAGES = {
   UNKNOWN_ERROR: 'Something went wrong.',
 };
 
+export const SUCCESS_MESSAGES = {
+  SIGN_IN: 'Sign In success!!',
+  SIGN_OUT: 'Sign Out success!!',
+};
+
 export const MESSAGE_STATUS: Record<string, string> = {
   SUCCESS: 'success',
   ERROR: 'error',

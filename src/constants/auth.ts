@@ -3,5 +3,5 @@ export const AUTH_METHODS = {
 };
 
 export const ERROR_TYPES = {
-  CREDENTIALS_SIGN_IN: 'CredentialsSignin',
+  CREDENTIALS_SIGN_IN: 'CallbackRouteError',
 };

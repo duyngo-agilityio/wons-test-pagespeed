@@ -5,7 +5,15 @@ import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
 
 // Constants
-import { ROUTES, SIDE_BAR_STATE } from '@/constants';
+import {
+  MESSAGE_STATUS,
+  ROUTES,
+  SIDE_BAR_STATE,
+  SUCCESS_MESSAGES,
+} from '@/constants';
+
+// Hooks
+import { useToast } from '@/hooks';
 
 // Components
 import { Button, Image, IoLogOut, Text } from '@/components/common';
@@ -21,11 +29,25 @@ const SidebarFooter = ({
 }: ISidebarFooter) => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const { showToast } = useToast();
 
   const handleSignOut = () => {
     startTransition(async () => {
       // TODO: Update confirm modal later..
-      await onLogout();
+      const res = await onLogout();
+
+      if (typeof res === 'string') {
+        return showToast({
+          status: 'error',
+          title: MESSAGE_STATUS.ERROR,
+          description: res,
+        });
+      }
+
+      showToast({
+        title: MESSAGE_STATUS.SUCCESS,
+        description: SUCCESS_MESSAGES.SIGN_OUT,
+      });
 
       router.push(ROUTES.SIGN_IN);
     });
