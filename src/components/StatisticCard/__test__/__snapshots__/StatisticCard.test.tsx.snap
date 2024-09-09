@@ -13,16 +13,16 @@ exports[`Text Component renders correctly with all custom props 1`] = `
         </script>
          
         <div
-          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-transform-background motion-reduce:transition-none p-6 m-2 bg-white shadow-lg rounded-lg"
+          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
           style="border-radius: undefined;"
           tabindex="-1"
         >
           <div
-            class="flex items-center"
+            class="flex items-center flex-wrap"
           >
             <div
-              class="mr-4 rounded-full flex items-center justify-center"
-              style="background-color: rgb(153, 178, 198); width: 63.38px; height: 63.38px;"
+              class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] undefined undefined"
+              style="width: 50px; height: 50px; min-width: 40px;"
             >
               <svg
                 class="h-8 w-8 text-blue-500"
@@ -39,14 +39,14 @@ exports[`Text Component renders correctly with all custom props 1`] = `
                 />
               </svg>
             </div>
-            <div>
+            <div
+              class="flex-1 min-w-0"
+            >
               <p
-                class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[24.06px] text-[#515c6a]"
-              >
-                100+
-              </p>
+                class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
+              />
               <p
-                class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[#515c6a]"
+                class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850"
               >
                 Favorite Services
               </p>
@@ -68,16 +68,16 @@ exports[`Text Component renders correctly with all custom props 1`] = `
       </script>
        
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-transform-background motion-reduce:transition-none p-6 m-2 bg-white shadow-lg rounded-lg"
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
         style="border-radius: undefined;"
         tabindex="-1"
       >
         <div
-          class="flex items-center"
+          class="flex items-center flex-wrap"
         >
           <div
-            class="mr-4 rounded-full flex items-center justify-center"
-            style="background-color: rgb(153, 178, 198); width: 63.38px; height: 63.38px;"
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] undefined undefined"
+            style="width: 50px; height: 50px; min-width: 40px;"
           >
             <svg
               class="h-8 w-8 text-blue-500"
@@ -94,14 +94,14 @@ exports[`Text Component renders correctly with all custom props 1`] = `
               />
             </svg>
           </div>
-          <div>
+          <div
+            class="flex-1 min-w-0"
+          >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[24.06px] text-[#515c6a]"
-            >
-              100+
-            </p>
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
+            />
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[#515c6a]"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850"
             >
               Favorite Services
             </p>

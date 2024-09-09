@@ -7,39 +7,44 @@ import { Card, Text } from '@/components';
 import { colors } from '@/themes';
 
 interface StatisticCardProps {
-  value: string;
+  statistic: string;
   label: string;
   icon: React.ReactNode;
-  bgColor?: string;
+  lightBgColor: string;
+  darkBgColor: string;
 }
 
-const StatisticCard = ({ value, label, icon, bgColor }: StatisticCardProps) => {
-  return (
-    <Card className="p-6 m-2 bg-white shadow-lg rounded-lg">
-      <div className="flex items-center">
-        <div
-          className="mr-4 rounded-full flex items-center justify-center"
-          style={{
-            backgroundColor: bgColor || colors.gray[200],
-            width: '63.38px',
-            height: '63.38px',
-          }}
-        >
-          {icon}
-        </div>
-        <div>
-          <Text
-            text={value}
-            className={`font-bold text-[24.06px] text-[${colors.blue[400]}]`}
-          />
-          <Text
-            text={String(label)}
-            className={`font-normal text-[${colors.blue[400]}]`}
-          />
-        </div>
+const StatisticCard = ({
+  statistic,
+  label,
+  icon,
+  lightBgColor,
+  darkBgColor,
+}: StatisticCardProps) => (
+  <Card className="p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none">
+    <div className="flex items-center flex-wrap">
+      <div
+        className={`mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] ${lightBgColor} ${darkBgColor}`}
+        style={{
+          width: '50px',
+          height: '50px',
+          minWidth: '40px',
+        }}
+      >
+        {icon}
       </div>
-    </Card>
-  );
-};
+      <div className="flex-1 min-w-0">
+        <Text
+          text={statistic}
+          className={`font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[${colors.blue[400]}] dark:text-gray-850 mb-2`}
+        />
+        <Text
+          text={label}
+          className={`font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850`}
+        />
+      </div>
+    </div>
+  </Card>
+);
 
 export default memo(StatisticCard);
