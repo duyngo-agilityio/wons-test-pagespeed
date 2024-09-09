@@ -12,7 +12,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-4 sm:p-6 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
         style="border-radius: undefined;"
         tabindex="-1"
       >
@@ -20,8 +20,8 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           class="flex items-center flex-wrap"
         >
           <div
-            class="mr-4 rounded-full flex items-center justify-center w-[63px] h-[63px] min-w-[50px] bg-gray-50 dark:bg-[#4a5463]"
-            style="width: 63px; height: 63px; min-width: 50px;"
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-gray-50 dark:bg-[#4a5463]"
+            style="width: 50px; height: 50px; min-width: 40px;"
           >
             <svg
               class="h-6 w-6 text-blue-500"
@@ -42,12 +42,12 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[18px] sm:text-[24px] text-[#515c6a] dark:text-gray-850 truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
               178+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[16px] sm:text-[20px] text-blue-400 dark:text-gray-850  truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850"
             >
               Favorite Services
             </p>
@@ -55,7 +55,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
         </div>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-4 sm:p-6 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
         style="border-radius: undefined;"
         tabindex="-1"
       >
@@ -63,8 +63,8 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           class="flex items-center flex-wrap"
         >
           <div
-            class="mr-4 rounded-full flex items-center justify-center w-[63px] h-[63px] min-w-[50px] bg-[#ceeeec] dark:bg-[#366263]"
-            style="width: 63px; height: 63px; min-width: 50px;"
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-[#ceeeec] dark:bg-[#366263]"
+            style="width: 50px; height: 50px; min-width: 40px;"
           >
             <svg
               class="h-6 w-6 text-teal-500"
@@ -85,12 +85,12 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[18px] sm:text-[24px] text-[#515c6a] dark:text-gray-850 truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
               20+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[16px] sm:text-[20px] text-blue-400 dark:text-gray-850  truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850"
             >
               New Sales
             </p>
@@ -98,7 +98,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
         </div>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-4 sm:p-6 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
         style="border-radius: undefined;"
         tabindex="-1"
       >
@@ -106,8 +106,8 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           class="flex items-center flex-wrap"
         >
           <div
-            class="mr-4 rounded-full flex items-center justify-center w-[63px] h-[63px] min-w-[50px] bg-[#fff0f8] dark:bg-[#4a455c]"
-            style="width: 63px; height: 63px; min-width: 50px;"
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-[#fff0f8] dark:bg-[#4a455c]"
+            style="width: 50px; height: 50px; min-width: 40px;"
           >
             <svg
               class="h-6 w-6 text-pink-500"
@@ -128,12 +128,12 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[18px] sm:text-[24px] text-[#515c6a] dark:text-gray-850 truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
               190+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[16px] sm:text-[20px] text-blue-400 dark:text-gray-850  truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850"
             >
               New Leads
             </p>
@@ -141,7 +141,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
         </div>
       </div>
       <div
-        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-4 sm:p-6 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none"
         style="border-radius: undefined;"
         tabindex="-1"
       >
@@ -149,8 +149,8 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           class="flex items-center flex-wrap"
         >
           <div
-            class="mr-4 rounded-full flex items-center justify-center w-[63px] h-[63px] min-w-[50px] bg-gray-50 dark:bg-[#4a5463]"
-            style="width: 63px; height: 63px; min-width: 50px;"
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-gray-50 dark:bg-[#4a5463]"
+            style="width: 50px; height: 50px; min-width: 40px;"
           >
             <svg
               class="h-6 w-6 text-blue-500"
@@ -175,12 +175,12 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[18px] sm:text-[24px] text-[#515c6a] dark:text-gray-850 truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
               12+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[16px] sm:text-[20px] text-blue-400 dark:text-gray-850  truncate"
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850"
             >
               Referral
             </p>
