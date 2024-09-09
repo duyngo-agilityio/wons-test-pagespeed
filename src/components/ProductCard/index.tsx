@@ -9,7 +9,7 @@ interface ProductCardProps {
   title: string;
   price?: number;
   rating?: number;
-  alt: string;
+  alt?: string;
 }
 
 const ProductCard = ({
@@ -17,7 +17,7 @@ const ProductCard = ({
   title,
   price = 0,
   rating = 0,
-  alt,
+  alt = 'image alt',
 }: ProductCardProps) => {
   return (
     <Card className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
