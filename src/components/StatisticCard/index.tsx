@@ -21,7 +21,7 @@ const StatisticCard = ({
   lightBgColor,
   darkBgColor,
 }: StatisticCardProps) => (
-  <Card className="p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-800 dark:shadow-none">
+  <Card className="p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-400 dark:shadow-none">
     <div className="flex items-center flex-wrap">
       <div
         className={`mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] ${lightBgColor} ${darkBgColor}`}
@@ -40,7 +40,8 @@ const StatisticCard = ({
         />
         <Text
           text={label}
-          className={`font-normal text-[12px] sm:text-[16px] lg:text-[20px] text-blue-400 dark:text-gray-850`}
+          className={`font-normal text-blue-400 dark:text-gray-850`}
+          size="xl"
         />
       </div>
     </div>

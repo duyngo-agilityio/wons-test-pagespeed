@@ -23,7 +23,7 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <Card
-      className={`p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg ${className}`}
+      className={`p-4 bg-white dark:bg-gray-400 rounded-lg shadow-lg ${className}`}
     >
       <div className="flex flex-col sm:flex-row items-center">
         <div className="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0">

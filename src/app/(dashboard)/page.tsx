@@ -22,10 +22,16 @@ const DashboardPage = () => (
       title={PAGE_TITLES.DASHBOARD}
       rightContent={<DateRangePicker />}
     >
-      <StatisticSection />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <RecentServicesSection />
-        <TopSellingProducts />
+      <div className="mb-8">
+        <StatisticSection />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
+        <div className="md:col-span-6">
+          <RecentServicesSection />
+        </div>
+        <div className="md:col-span-4">
+          <TopSellingProducts />
+        </div>
       </div>
     </DashBoardLayout>
   </main>
