@@ -13,6 +13,9 @@ import { v4 as uuidv4 } from 'uuid';
 // Types
 import { TToast } from '@/types';
 
+// Constants
+import { MESSAGE_SHOW_DURATION } from '@/constants';
+
 // Components
 import { ToastList } from '@/components';
 
@@ -32,7 +35,12 @@ const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   const [toasts, setToasts] = useState<TToast[]>([]);
 
   const showToast = useCallback(
-    ({ title, description, status, duration = 5000 }: Omit<TToast, 'id'>) => {
+    ({
+      title,
+      description,
+      status,
+      duration = MESSAGE_SHOW_DURATION,
+    }: Omit<TToast, 'id'>) => {
       const id = uuidv4();
 
       setToasts((prevToasts) => [

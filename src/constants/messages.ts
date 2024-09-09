@@ -12,3 +12,5 @@ export const MESSAGE_STATUS: Record<string, string> = {
   SUCCESS: 'success',
   ERROR: 'error',
 };
+
+export const MESSAGE_SHOW_DURATION = 5000;
