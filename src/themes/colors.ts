@@ -2,6 +2,7 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   blue: {
+    300: '#364152',
     400: '#515c6a', // Light Blue
     500: '#3A36DB', // Bright Blue
     800: '#06152B', // Deep Blue
@@ -19,6 +20,8 @@ export const colors = {
     400: '#364153', // Slate Gray
     600: '#1A202C', // Dark Gray
     700: '#515567',
+    750: '#4a5463',
+    850: '#c2c6cb', // Deep Gray
   },
   pink: {
     400: '#fee9f3',
