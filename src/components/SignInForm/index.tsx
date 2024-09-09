@@ -11,10 +11,18 @@ import { useRouter } from 'next/navigation';
 import { SignInFormData } from '@/types';
 
 // Constants
-import { ERROR_MESSAGES, ROUTES } from '@/constants';
+import {
+  ERROR_MESSAGES,
+  MESSAGE_STATUS,
+  ROUTES,
+  SUCCESS_MESSAGES,
+} from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+
+// Hooks
+import { useToast } from '@/hooks';
 
 // Icons
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
@@ -41,6 +49,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const { showToast } = useToast();
 
   const {
     control,
@@ -62,9 +71,21 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
    */
   const handleSignIn = async (formData: SignInFormData) => {
     startTransition(async () => {
-      await onSubmit(formData);
+      const res = await onSubmit(formData);
 
-      //TODO: handle onsuccess and error when toast components ready...
+      if (typeof res === 'string') {
+        return showToast({
+          status: 'error',
+          title: MESSAGE_STATUS.ERROR,
+          description: res,
+        });
+      }
+
+      showToast({
+        title: MESSAGE_STATUS.SUCCESS,
+        description: SUCCESS_MESSAGES.SIGN_IN,
+      });
+
       router.push(ROUTES.DASHBOARD);
     });
   };
