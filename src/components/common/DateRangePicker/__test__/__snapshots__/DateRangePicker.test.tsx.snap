@@ -16,7 +16,7 @@ exports[`DateRangePicker match snapshot 1`] = `
         class="flex gap-[15.85px]"
       >
         <div
-          class="flex w-full relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+          class="flex max-w-36 w-36 relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
         >
           <p
             class="text-[15.02px] ml-[17.96px]"
@@ -47,7 +47,7 @@ exports[`DateRangePicker match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex w-full relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+          class="flex max-w-36 w-36 relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
         >
           <p
             class="text-[15.02px] ml-[17.96px]"

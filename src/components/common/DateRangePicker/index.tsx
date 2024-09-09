@@ -54,7 +54,7 @@ const DateRangePicker = ({
           Object.keys(dateRange).map((key) => (
             <div
               key={key}
-              className="flex w-full relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+              className="flex max-w-36 w-36 relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
             >
               <p className="text-[15.02px] ml-[17.96px]">
                 {formatDate(

@@ -227,10 +227,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20 dark:bg-purple-600/20"
                 >
                   <span
-                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
+                    class="flex-1 font-normal px-2 text-center text-sm text-blue-500 dark:text-white"
                   >
                     325
                   </span>
@@ -319,10 +319,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20 dark:bg-purple-600/20"
                 >
                   <span
-                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
+                    class="flex-1 font-normal px-2 text-center text-sm text-blue-500 dark:text-white"
                   >
                     53
                   </span>
@@ -410,10 +410,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20 dark:bg-purple-600/20"
                 >
                   <span
-                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
+                    class="flex-1 font-normal px-2 text-center text-sm text-blue-500 dark:text-white"
                   >
                     78
                   </span>
@@ -502,10 +502,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20"
+                  class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20 dark:bg-purple-600/20"
                 >
                   <span
-                    class="flex-1 font-normal px-2 text-blue-500 text-center text-sm"
+                    class="flex-1 font-normal px-2 text-center text-sm text-blue-500 dark:text-white"
                   >
                     98
                   </span>

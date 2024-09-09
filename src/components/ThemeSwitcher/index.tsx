@@ -24,7 +24,7 @@ const ThemeSwitcher = () => {
       isIconOnly
       aria-label="theme switcher"
       onClick={handleToggleColorMode}
-      className="w-[52px] h-[52px] p-2 border border-blue-500 dark:border-blue/10 dark:border-white/10 !bg-white hover:!bg-white dark:!bg-gray-400 dark:hover:!bg-gray-400"
+      className="p-2"
     >
       {theme === THEME_MODES.DARK ? (
         <FiSun className="w-6 h-6" />
