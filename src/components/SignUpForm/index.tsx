@@ -23,10 +23,6 @@ interface ISignUpFormData {
   password: string;
 }
 
-interface ISignUpFormProps {
-  onSubmit: (data: ISignUpFormData) => void;
-}
-
 // Zod schema for validation
 const signUpSchema = z.object({
   fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Full Name')),
@@ -43,13 +39,18 @@ const signUpSchema = z.object({
 
 const REQUIRED_FIELDS = ['fullName', 'username', 'email', 'password'];
 
-const SignUpForm = ({ onSubmit }: ISignUpFormProps) => {
+interface ISignUpFormProps {
+  isPending?: boolean;
+  onSubmit: (data: ISignUpFormData) => void;
+}
+
+const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, isSubmitting },
     clearErrors,
     handleSubmit,
   } = useForm<ISignUpFormData>({
@@ -80,7 +81,7 @@ const SignUpForm = ({ onSubmit }: ISignUpFormProps) => {
   );
 
   const handleSignUp = (formData: ISignUpFormData) => {
-    onSubmit(formData);
+    return onSubmit(formData);
   };
 
   return (
@@ -236,7 +237,8 @@ const SignUpForm = ({ onSubmit }: ISignUpFormProps) => {
       {/* Submit button */}
       <Button
         type="submit"
-        isDisabled={!isEnableSubmit}
+        isLoading={isSubmitting}
+        isDisabled={!isEnableSubmit || isPending || isSubmitting}
         size="lg"
         color="primary"
         className="w-full mt-8 text-xl font-medium"

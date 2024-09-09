@@ -28,7 +28,11 @@ class HttpClient {
   async request<T>({ endpoint, configOptions }: TRequest): Promise<T> {
     const res = await fetch(this.baseApi + endpoint, configOptions);
 
+    console.log('configOptions==============', configOptions);
+
     if (!res?.ok) {
+      console.log('error===============', res);
+
       throw new Error(res?.statusText);
     }
 
