@@ -1,7 +1,20 @@
 import { ERROR_MESSAGES } from '@/constants';
+import { useRouter } from 'next/navigation';
 
 // Components
 import SignInForm from '../index';
+
+const mockReplace = jest.fn();
+const mockURLSearchParams = {
+  page: '1',
+};
+
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  usePathname: jest.fn(),
+  useRouter: jest.fn(() => ({ router: mockReplace })),
+  useSearchParams: jest.fn(() => new URLSearchParams(mockURLSearchParams)),
+}));
 
 const mockOnSubmit = jest.fn();
 
@@ -10,6 +23,12 @@ const props = {
 };
 
 describe('SignInForm', () => {
+  const push = jest.fn();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (useRouter as any).mockReturnValue({
+    push,
+  });
+
   const renderComponent = () =>
     testLibJestUtils.render(<SignInForm {...props} />);
 

@@ -3,4 +3,7 @@ export const ERROR_MESSAGES = {
   FIELD_INVALID: (fieldName: string) => `Invalid format of ${fieldName}.`,
   INVALID_PASSWORD:
     'Password must be between 8 and 32 characters, and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.',
+  EMAIL_PASSWORD_INVALID:
+    'Email or password invalid. Please help to try again!',
+  UNKNOWN_ERROR: 'Something went wrong.',
 };

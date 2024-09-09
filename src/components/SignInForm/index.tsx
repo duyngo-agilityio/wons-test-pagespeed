@@ -1,26 +1,29 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useTransition } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 
-// Models
-import { SignInFormData } from '@/models';
+// Types
+import { SignInFormData } from '@/types';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { ERROR_MESSAGES, ROUTES } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
-// Components
-import { Button, Input, Text, Checkbox } from '@/components';
+// Icons
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
+// Components
+import { Button, Input, Text, Checkbox } from '@/components';
+
 interface SignInFormProps {
-  onSubmit: (data: SignInFormData) => void;
+  onSubmit: (data: SignInFormData) => Promise<void | string>;
 }
 
 // Zod schema for validation
@@ -36,6 +39,8 @@ const REQUIRED_FIELDS = ['identifier', 'password'];
 
 const SignInForm = ({ onSubmit }: SignInFormProps) => {
   const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const {
     control,
@@ -56,7 +61,12 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
    * Func handle sign in
    */
   const handleSignIn = async (formData: SignInFormData) => {
-    onSubmit(formData);
+    startTransition(async () => {
+      await onSubmit(formData);
+
+      //TODO: handle onsuccess and error when toast components ready...
+      router.push(ROUTES.DASHBOARD);
+    });
   };
 
   // Checking to disable/enable submit button
@@ -157,6 +167,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
 
       <Button
         type="submit"
+        isLoading={isPending}
         isDisabled={isDisableSubmit}
         size="lg"
         color="primary"
