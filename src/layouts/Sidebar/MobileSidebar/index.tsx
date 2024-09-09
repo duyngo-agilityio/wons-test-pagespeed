@@ -1,6 +1,9 @@
 import { memo } from 'react';
 import clsx from 'clsx';
 
+// Actions
+import { signOut } from '@/actions';
+
 // Components
 import NavigateList from '@/layouts/Sidebar/NavigateList';
 import SidebarFooter from '@/layouts/Sidebar/SidebarFooter';
@@ -38,7 +41,7 @@ const MobileSidebar = ({
           />
           <div className="flex flex-col justify-between min-h-[calc(100vh-170px)]">
             <NavigateList />
-            <SidebarFooter />
+            <SidebarFooter onLogout={signOut} />
           </div>
         </div>
       </section>
