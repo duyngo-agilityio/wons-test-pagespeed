@@ -5,5 +5,8 @@ export { default as RecentServicesTable } from './RecentServicesTable';
 export { default as SignInForm } from './SignInForm';
 export { default as SignUpForm } from './SignUpForm';
 export { default as StatisticCard } from './StatisticCard';
+export { default as ProductCard } from './ProductCard';
+export { default as TopSellingProducts } from './TopSellingProduct';
+export { default as StatisticSection } from './StatisticSection';
 export { default as Logo } from './Logo';
 export { default as ThemeSwitcher } from './ThemeSwitcher';
