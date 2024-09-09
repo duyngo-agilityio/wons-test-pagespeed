@@ -10,6 +10,7 @@ interface ProductCardProps {
   price?: number;
   rating?: number;
   alt?: string;
+  className?: string;
 }
 
 const ProductCard = ({
@@ -18,9 +19,12 @@ const ProductCard = ({
   price = 0,
   rating = 0,
   alt = 'image alt',
+  className = '',
 }: ProductCardProps) => {
   return (
-    <Card className="p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+    <Card
+      className={`p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg ${className}`}
+    >
       <div className="flex flex-col sm:flex-row items-center">
         <div className="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0">
           <ImageFallback
