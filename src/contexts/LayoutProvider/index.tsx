@@ -7,6 +7,9 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 // Constants
 import { THEME_MODES } from '@/constants';
 
+// Provider
+import { ToastProvider } from '@/contexts';
+
 interface ILayoutProvider {
   children: ReactNode;
 }
@@ -21,7 +24,7 @@ const LayoutProvider = ({ children }: ILayoutProvider) => {
         defaultTheme={THEME_MODES.LIGHT}
         themes={modeArr}
       >
-        {children}
+        <ToastProvider> {children}</ToastProvider>
       </NextThemesProvider>
     </NextUIProvider>
   );

@@ -7,3 +7,4 @@ export { default as SignUpForm } from './SignUpForm';
 export { default as StatisticCard } from './StatisticCard';
 export { default as Logo } from './Logo';
 export { default as ThemeSwitcher } from './ThemeSwitcher';
+export { default as ToastList } from './ToastList';
