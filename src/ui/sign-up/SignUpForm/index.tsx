@@ -48,8 +48,9 @@ const SignUpForm = (): JSX.Element => {
         });
       }
 
-      // After sign up successfully, navigate to Account Success
-      return router.push(ROUTES.ACCOUNT_SUCCESS);
+      // TODO: Update later, navigate to Account Success instead of Sign In
+      // After sign up successfully, navigate to Sign In
+      return router.push(ROUTES.SIGN_IN);
     },
     [router, showToast],
   );

@@ -45,12 +45,9 @@ export const signUp = async (
   payload: TSignUpPayload,
 ): Promise<{ error?: string; data?: TSignUpResponse }> => {
   try {
-    const res = await httpClient.postRequest<
-      { data: TSignUpPayload },
-      TSignUpResponse
-    >({
+    const res = await httpClient.postRequest<TSignUpPayload, TSignUpResponse>({
       endpoint: API_PATH.SIGN_UP,
-      body: { data: payload },
+      body: payload,
     });
 
     return { data: res };

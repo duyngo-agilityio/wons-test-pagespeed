@@ -81,7 +81,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
   );
 
   const handleSignUp = (formData: ISignUpFormData) => {
-    onSubmit(formData);
+    return onSubmit(formData);
   };
 
   return (
