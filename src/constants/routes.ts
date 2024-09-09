@@ -7,4 +7,8 @@ export const ROUTES = {
   NOTIFICATION: '/notification',
   SCHEDULE: '/schedule',
   SETTINGS: '/settings',
+
+  /** Auth */
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
 };

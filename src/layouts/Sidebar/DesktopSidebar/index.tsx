@@ -4,6 +4,9 @@ import clsx from 'clsx';
 // Constants
 import { SIDE_BAR_STATE } from '@/constants';
 
+// Actions
+import { signOut } from '@/actions';
+
 // Components
 import NavigateList from '@/layouts/Sidebar/NavigateList';
 import SidebarFooter from '@/layouts/Sidebar/SidebarFooter';
@@ -45,7 +48,7 @@ const DesktopSidebar = ({
         )}
       >
         <NavigateList toggle={toggleDesktopSidebar} />
-        <SidebarFooter toggle={toggleDesktopSidebar} />
+        <SidebarFooter toggle={toggleDesktopSidebar} onLogout={signOut} />
       </div>
     </div>
   </section>
