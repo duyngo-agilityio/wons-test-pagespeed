@@ -1,5 +1,5 @@
 // Constants
-import { ROUTES } from '@/constants';
+import { API_PATH } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
@@ -7,7 +7,7 @@ import { httpClient } from '@/services';
 export const getProfile = async (jwt: string) => {
   try {
     const data = await httpClient.getRequest({
-      endpoint: `${ROUTES.USERS}/me?populate*`,
+      endpoint: `${API_PATH.USERS}/me?populate*`,
       configOptions: {
         headers: {
           Authorization: `Bearer ${jwt}`,

@@ -4,7 +4,6 @@ export const enum ROLE {
 }
 
 export interface User {
-  name: string;
   role: ROLE;
   token: string;
 }
