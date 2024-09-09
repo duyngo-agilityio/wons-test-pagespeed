@@ -24,13 +24,13 @@ const MobileSidebar = ({
     <>
       {isToggleMobileSidebar && (
         <button
-          className="bg-black/50 w-screen h-screen fixed"
+          className="bg-black/50 w-screen h-screen fixed z-40"
           onClick={onOutsideClick}
         />
       )}
       <section
         className={clsx(
-          'fixed top-0 duration-700',
+          'fixed top-0 duration-700 z-50',
           isToggleMobileSidebar ? 'left-0' : '-left-60',
         )}
       >

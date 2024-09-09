@@ -13,7 +13,7 @@ import DesktopSidebar from '@/layouts/Sidebar/DesktopSidebar';
 import MobileSidebar from '@/layouts/Sidebar/MobileSidebar';
 
 const Sidebar = () => {
-  const { isGreaterThanMd } = useBreakPoints();
+  const { isGreaterThanLg } = useBreakPoints();
   const [toggleDesktopSidebar, setToggleDesktopSidebar] = useState<string>('');
   const [isToggleMobileSidebar, setIsToggleMobileSidebar] =
     useState<boolean>(false);
@@ -53,7 +53,7 @@ const Sidebar = () => {
     [],
   );
 
-  return !isGreaterThanMd ? (
+  return !isGreaterThanLg ? (
     <MobileSidebar
       isToggleMobileSidebar={isToggleMobileSidebar}
       onToggleSidebar={handleToggleMobileSidebar}

@@ -54,8 +54,11 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
         accessor: (data: TRecentServices) => (
           <Chip
             classNames={{
-              base: 'w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px] bg-blue-500/20',
-              content: 'text-blue-500 text-center text-sm',
+              base: [
+                'w-[61px] max-w-[61px] h-7.5 max-h-7.5 rounded-[8px]',
+                'bg-blue-500/20 dark:bg-purple-600/20',
+              ],
+              content: ['text-center text-sm', 'text-blue-500 dark:text-white'],
             }}
           >
             {data.totalOrder}

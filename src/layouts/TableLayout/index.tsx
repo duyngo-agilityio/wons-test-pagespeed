@@ -4,7 +4,7 @@ import { memo, ReactNode } from 'react';
 import { TABLE_TITLES } from '@/constants';
 
 // components
-import { Button, Heading, TbDots } from '@/components';
+import { Heading } from '@/components';
 
 interface ITableLayout {
   children: ReactNode;
@@ -25,11 +25,7 @@ const TableLayout = ({
           size="sm"
           className="text-blue-800/70 dark:text-white/70"
         />
-        {rightContent || (
-          <Button isIconOnly className="bg-transparent">
-            <TbDots className="text-blue-800/70 dark:text-white/30" />
-          </Button>
-        )}
+        {rightContent}
       </div>
       {children}
     </section>

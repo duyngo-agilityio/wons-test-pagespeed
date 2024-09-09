@@ -1,14 +1,21 @@
 'use client';
 
 import { memo, useTransition } from 'react';
-import clsx from 'clsx';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
+import clsx from 'clsx';
 
 // Constants
 import { ROUTES, SIDE_BAR_STATE } from '@/constants';
 
 // Components
-import { Button, Image, IoLogOut, Text } from '@/components/common';
+import { Button, Image, IoLogOut, Text } from '@/components';
+const DynamicThemeSwitcher = dynamic(
+  () => import('@/components/ThemeSwitcher'),
+  {
+    ssr: false,
+  },
+);
 
 interface ISidebarFooter {
   toggle?: string;
@@ -32,36 +39,39 @@ const SidebarFooter = ({
   };
 
   return (
-    <div
-      className={clsx(
-        'flex',
-        toggle === SIDE_BAR_STATE.OPEN ? 'justify-between' : 'flex-col gap-3',
-      )}
-    >
-      <div className="flex items-center gap-2.5">
-        <Image
-          src="https://i.pravatar.cc/150?u=a04258114e29026708c"
-          alt="admin"
-          width={40}
-          height={40}
-          className="rounded-10"
-        />
-        {toggle === SIDE_BAR_STATE.OPEN && (
-          <div>
-            <Text text="Easin Arafat" className="text-sm" />
-            <Text text="Admin" className="text-xs opacity-50" />
-          </div>
+    <section className="flex flex-col gap-7.5">
+      <DynamicThemeSwitcher />
+      <div
+        className={clsx(
+          'flex',
+          toggle === SIDE_BAR_STATE.OPEN ? 'justify-between' : 'flex-col gap-3',
         )}
-      </div>
-      <Button
-        isLoading={isPending}
-        isIconOnly
-        className="bg-transparent hover:bg-transparent w-fit h-fit p-2"
-        onClick={handleSignOut}
       >
-        <IoLogOut className="text-blue-800/40 w-5 h-5" />
-      </Button>
-    </div>
+        <div className="flex items-center gap-2.5">
+          <Image
+            src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+            alt="admin"
+            width={40}
+            height={40}
+            className="rounded-10"
+          />
+          {toggle === SIDE_BAR_STATE.OPEN && (
+            <div>
+              <Text text="Easin Arafat" className="text-sm" />
+              <Text text="Admin" className="text-xs opacity-50" />
+            </div>
+          )}
+        </div>
+        <Button
+          isLoading={isPending}
+          isIconOnly
+          className="!bg-transparent dark:!bg-transparent hover:bg-transparent w-fit h-fit p-2"
+          onClick={handleSignOut}
+        >
+          <IoLogOut className="text-blue-800/40 dark:text-white/50 w-5 h-5" />
+        </Button>
+      </div>
+    </section>
   );
 };
 
