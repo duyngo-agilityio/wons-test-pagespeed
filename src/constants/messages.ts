@@ -7,3 +7,10 @@ export const ERROR_MESSAGES = {
     'Email or password invalid. Please help to try again!',
   UNKNOWN_ERROR: 'Something went wrong.',
 };
+
+export const MESSAGE_STATUS: Record<string, string> = {
+  SUCCESS: 'success',
+  ERROR: 'error',
+};
+
+export const MESSAGE_SHOW_DURATION = 5000;

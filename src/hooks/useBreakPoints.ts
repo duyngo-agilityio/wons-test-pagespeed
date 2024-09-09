@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../tailwind.config';

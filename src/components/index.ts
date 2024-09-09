@@ -10,3 +10,4 @@ export { default as TopSellingProducts } from './TopSellingProduct';
 export { default as StatisticSection } from './StatisticSection';
 export { default as Logo } from './Logo';
 export { default as ThemeSwitcher } from './ThemeSwitcher';
+export { default as ToastList } from './ToastList';
