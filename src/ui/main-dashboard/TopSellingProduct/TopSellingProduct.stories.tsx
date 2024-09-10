@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // components
-import { TopSellingProducts } from '@/components';
+import TopSellingProducts from './index';
 
 const meta: Meta<typeof TopSellingProducts> = {
   title: 'Components/TopSellingProducts',
