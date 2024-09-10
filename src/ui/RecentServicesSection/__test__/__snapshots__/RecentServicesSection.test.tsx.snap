@@ -10,7 +10,7 @@ exports[`RecentServicesSection should match snapshot 1`] = `
     </script>
      
     <section
-      class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10"
+      class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 "
     >
       <div
         class="flex justify-between mb-2"
