@@ -52,6 +52,6 @@ export const signUp = async (
 
     return { data: res };
   } catch (error) {
-    return { error: ERROR_MESSAGES.EMAIL_EXIST };
+    return { error: ERROR_MESSAGES.EMAIL_OR_USERNAME_EXIST };
   }
 };

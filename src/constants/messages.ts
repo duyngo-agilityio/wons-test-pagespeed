@@ -6,13 +6,13 @@ export const ERROR_MESSAGES = {
   EMAIL_PASSWORD_INVALID:
     'Email or password invalid. Please help to try again!',
 
-  EMAIL_EXIST: 'Email already exists.',
+  EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
   FETCH: 'Failed to fetch products',
 };
 
 export const SUCCESS_MESSAGES = {
-  SIGN_IN: 'Sign in successfully',
+  SIGN_IN: 'Sign in successfully.',
   SIGN_OUT: 'Sign up successfully.',
 };
 

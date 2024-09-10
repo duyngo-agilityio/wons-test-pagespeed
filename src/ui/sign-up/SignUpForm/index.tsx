@@ -6,13 +6,16 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 // Actions
-import { signUp } from '@/actions';
+import { authenticate, signUp } from '@/actions';
 
 // Hooks
 import { useToast } from '@/hooks';
 
 // Types
 import { TSignUpPayload } from '@/types';
+
+// Constants
+import { MESSAGE_STATUS, ROUTES } from '@/constants';
 
 // Components
 import {
@@ -22,7 +25,6 @@ import {
   FcGoogle,
   FaFacebookF,
 } from '@/components';
-import { ERROR_MESSAGES, MESSAGE_STATUS, ROUTES } from '@/constants';
 
 const SignUpForm = (): JSX.Element => {
   const [isPending, setIsPending] = useState(false);
@@ -42,15 +44,25 @@ const SignUpForm = (): JSX.Element => {
         setIsPending(false);
 
         return showToast({
-          title: '',
-          description: ERROR_MESSAGES.EMAIL_EXIST,
+          description: signUpError,
           status: MESSAGE_STATUS.ERROR,
         });
       }
 
-      // TODO: Update later, navigate to Account Success instead of Sign In
-      // After sign up successfully, navigate to Sign In
-      return router.push(ROUTES.SIGN_IN);
+      const { email, password } = formData || {};
+      const loginRes = await authenticate({ identifier: email, password });
+
+      if (loginRes) {
+        setIsPending(false);
+
+        return showToast({
+          description: loginRes,
+          status: MESSAGE_STATUS.ERROR,
+        });
+      }
+
+      // After sign up successfully, navigate to Account Success page
+      return router.push(ROUTES.ACCOUNT_SUCCESS);
     },
     [router, showToast],
   );
