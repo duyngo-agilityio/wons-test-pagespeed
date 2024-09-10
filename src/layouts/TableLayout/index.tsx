@@ -10,15 +10,19 @@ interface ITableLayout {
   children: ReactNode;
   title?: string;
   rightContent?: ReactNode;
+  className?: string;
 }
 
 const TableLayout = ({
   children,
   title = TABLE_TITLES.RECENT_ORDERS,
   rightContent,
+  className = '',
 }: ITableLayout) => {
   return (
-    <section className="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10">
+    <section
+      className={`bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 ${className}`}
+    >
       <div className="flex justify-between mb-2">
         <Heading
           title={title}
