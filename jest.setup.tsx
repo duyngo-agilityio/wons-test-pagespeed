@@ -19,6 +19,13 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
+const mockReplace = jest.fn();
+
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  useRouter: jest.fn(() => ({ replace: mockReplace })),
+}));
+
 const customRender = <
   Q extends jestFunc.Queries = typeof jestFunc.queries,
   Container extends Element | DocumentFragment = HTMLElement,
