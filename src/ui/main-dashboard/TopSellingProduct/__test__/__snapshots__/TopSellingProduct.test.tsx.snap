@@ -10,7 +10,7 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
     </script>
      
     <section
-      class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 h-full md:p-5"
+      class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 h-full md:!p-5"
     >
       <div
         class="flex justify-between mb-2"
@@ -55,7 +55,7 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
               <h3
                 class="text-black dark:text-white font-semibold text-base sm:text-lg"
               >
-                Web Development
+                Product 1
               </h3>
               <div
                 class="flex justify-center sm:justify-start py-2"
@@ -117,7 +117,7 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
                   />
                 </svg>
                 <svg
-                  class="text-pink-300"
+                  class="text-pink-500"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
@@ -135,7 +135,7 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
                 class="text-black dark:text-white text-base sm:text-lg font-semibold"
               >
                 $
-                87
+                100
               </p>
             </div>
           </div>
@@ -177,7 +177,7 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
               <h3
                 class="text-black dark:text-white font-semibold text-base sm:text-lg"
               >
-                Graphic Design
+                Product 2
               </h3>
               <div
                 class="flex justify-center sm:justify-start py-2"
@@ -257,7 +257,129 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
                 class="text-black dark:text-white text-base sm:text-lg font-semibold"
               >
                 $
-                120
+                200
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-300 dark:border-gray-600 my-8"
+        />
+      </div>
+      <div
+        class="mb-6 w-full"
+      >
+        <div
+          class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 transition-transform-background motion-reduce:transition-none bg-white dark:bg-gray-400 rounded-lg shadow-none py-4"
+          style="border-radius: undefined;"
+          tabindex="-1"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-center"
+          >
+            <div
+              class="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0"
+            >
+              <img
+                alt="image alt"
+                class="rounded-lg object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="100"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=256&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="100"
+              />
+            </div>
+            <div
+              class="sm:ml-4 flex-1 text-center sm:text-left"
+            >
+              <h3
+                class="text-black dark:text-white font-semibold text-base sm:text-lg"
+              >
+                Product 3
+              </h3>
+              <div
+                class="flex justify-center sm:justify-start py-2"
+              >
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+                <svg
+                  class="text-pink-500"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 576 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                  />
+                </svg>
+              </div>
+              <p
+                class="text-black dark:text-white text-base sm:text-lg font-semibold"
+              >
+                $
+                200
               </p>
             </div>
           </div>
