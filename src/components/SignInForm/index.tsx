@@ -169,7 +169,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
 
       <div className="flex justify-between mt-[25px]">
         <div className="flex items-center">
-          <Checkbox />
+          <Checkbox aria-label="Remember Me" />
           <Text
             text="Remember me"
             className="color-blue.900 text-[14.22px] leading-[18.51px]"

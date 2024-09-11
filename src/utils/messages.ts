@@ -1,3 +1,6 @@
+// Libs
+import { z } from 'zod';
+
 // Constants
 import { ERROR_MESSAGES, ErrorMapper } from '@/constants';
 
@@ -7,34 +10,29 @@ export type TStrapiErrorResponse = {
     status: number;
     name: string;
     message: string;
-    details: { [key: string]: string };
   };
 };
 
-export const isStrapiErrorResponse = (value: unknown): boolean => {
-  return (
-    typeof value === 'object' &&
-    value !== null &&
-    'data' in value &&
-    'error' in value &&
-    typeof value.error === 'object' &&
-    value.error !== null &&
-    'status' in value.error &&
-    'name' in value.error &&
-    'message' in value.error &&
-    'details' in value.error
-  );
-};
+const TStrapiErrorResponseSchema = z.object({
+  data: z.null(),
+  error: z.object({
+    status: z.number(),
+    name: z.string(),
+    message: z.string(),
+  }),
+});
 
 export const formatErrorMessage = (errorResponse: unknown): string => {
   let errorMessage = '';
 
-  if (isStrapiErrorResponse(errorResponse)) {
+  const parseResult = TStrapiErrorResponseSchema.safeParse(errorResponse);
+
+  if (parseResult.success) {
     const strapiErrorResponse = errorResponse as TStrapiErrorResponse;
 
     const { message } = strapiErrorResponse?.error || {};
 
-    errorMessage = ErrorMapper[message];
+    errorMessage = ErrorMapper[message] || ERROR_MESSAGES.UNKNOWN_ERROR;
   }
 
   // Set default message if unknown error
