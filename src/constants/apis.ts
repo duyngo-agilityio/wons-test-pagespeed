@@ -5,4 +5,5 @@ export const API_PATH = {
   SIGN_IN: '/auth/local',
   USERS: '/users',
   PRODUCTS: '/products',
+  STATISTICS: '/statistics',
 };

@@ -1,7 +1,9 @@
-export interface IStatistic {
-  value: string;
-  label: string;
-  icon: React.ReactNode;
-  lightBgColor: string;
-  darkBgColor: string;
+export interface IStatistics {
+  favoriteServices: number;
+  newSales: number;
+  newLeads: number;
+  referrals: number;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }

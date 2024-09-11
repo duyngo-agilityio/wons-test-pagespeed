@@ -29,6 +29,6 @@ export { default as ImageFallback } from './ImageFallback';
 export { default as Checkbox } from './Checkbox';
 export { default as Card } from './Card';
 export { default as Toast } from './Toast';
-export { default as SkeletonProductCard } from './Skeleton';
 export { default as NoProductAvailable } from './Message';
+export * from '../Skeleton';
 export { default as DropdownActions } from '../DropdownActions';
