@@ -22,3 +22,12 @@ export const MESSAGE_STATUS: Record<string, string> = {
 };
 
 export const MESSAGE_SHOW_DURATION = 5000;
+
+export const ERROR_API_MESSAGES = {
+  EMAIL_OR_USERNAME_EXIST: 'Email or Username are already taken',
+};
+
+export const ErrorMapper: Record<string, string> = {
+  [ERROR_API_MESSAGES.EMAIL_OR_USERNAME_EXIST]:
+    ERROR_MESSAGES.EMAIL_OR_USERNAME_EXIST,
+};

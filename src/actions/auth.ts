@@ -19,6 +19,9 @@ import { SignInFormData, TSignUpPayload, TSignUpResponse } from '@/types';
 // Services
 import { httpClient } from '@/services';
 
+// Utils
+import { formatErrorMessage } from '@/utils';
+
 export const authenticate = async (
   formData: SignInFormData,
 ): Promise<void | string> => {
@@ -52,6 +55,8 @@ export const signUp = async (
 
     return { data: res };
   } catch (error) {
-    return { error: ERROR_MESSAGES.EMAIL_OR_USERNAME_EXIST };
+    const message = formatErrorMessage(error);
+
+    return { error: message };
   }
 };
