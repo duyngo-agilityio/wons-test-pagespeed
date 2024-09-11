@@ -6,13 +6,12 @@ export const ERROR_MESSAGES = {
   EMAIL_PASSWORD_INVALID:
     'Email or password invalid. Please help to try again!',
 
-  EMAIL_EXIST: 'Email already exists.',
+  EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
-  FETCH: 'Failed to fetch products',
 };
 
 export const SUCCESS_MESSAGES = {
-  SIGN_IN: 'Sign in successfully',
+  SIGN_IN: 'Sign in successfully.',
   SIGN_OUT: 'Sign out successfully.',
 };
 
@@ -22,3 +21,12 @@ export const MESSAGE_STATUS: Record<string, string> = {
 };
 
 export const MESSAGE_SHOW_DURATION = 5000;
+
+export const ERROR_API_MESSAGES = {
+  EMAIL_OR_USERNAME_EXIST: 'Email or Username are already taken',
+};
+
+export const ErrorMapper: Record<string, string> = {
+  [ERROR_API_MESSAGES.EMAIL_OR_USERNAME_EXIST]:
+    ERROR_MESSAGES.EMAIL_OR_USERNAME_EXIST,
+};

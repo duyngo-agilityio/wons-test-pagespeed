@@ -7,4 +7,5 @@ export const API_PATH = {
   USERS: '/users',
   PRODUCTS: '/products',
   LOCATION_SUGGESTION: '/api/location-suggestion',
+  STATISTICS: '/statistics',
 };

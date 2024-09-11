@@ -1,5 +1,5 @@
 // api
-import { getAllProducts } from '@/app/api';
+import { getAllProducts } from '../product';
 
 // services
 import { httpClient } from '@/services';
@@ -27,7 +27,7 @@ describe('getAllProducts', () => {
 
   it('should return top 2 products when API call is successful', async () => {
     const mockResponse = {
-      data: [mockProducts[0], mockProducts[1], mockProducts[2]],
+      data: [mockProducts[0], mockProducts[1]],
     };
 
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);

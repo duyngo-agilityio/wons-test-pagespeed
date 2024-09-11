@@ -29,7 +29,9 @@ class HttpClient {
     const res = await fetch(this.baseApi + endpoint, configOptions);
 
     if (!res?.ok) {
-      throw new Error(res?.statusText);
+      const errorData = await res.json();
+
+      throw errorData;
     }
 
     const contentType = res.headers.get('Content-Type') || '';
