@@ -59,7 +59,7 @@ export const CredentialsProvider = Credentials({
 
       if (!user) return null;
 
-      return { ...user, role: profile.role };
+      return { ...user, token: jwt, role: profile.role };
     }
 
     return null;
