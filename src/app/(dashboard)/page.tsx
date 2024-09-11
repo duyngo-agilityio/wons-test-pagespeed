@@ -1,10 +1,10 @@
-'use client';
+import { Suspense } from 'react';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
 // UI
-import { RecentServicesSection } from '@/ui';
+import { RecentServicesSection, TopSellingProducts } from '@/ui/main-dashboard';
 
 // Constants
 import { PAGE_TITLES } from '@/constants';
@@ -13,10 +13,10 @@ import { PAGE_TITLES } from '@/constants';
 import {
   DateRangePicker,
   StatisticSection,
-  TopSellingProducts,
+  SkeletonProductCard,
 } from '@/components';
 
-const DashboardPage = () => (
+const DashboardPage = async () => (
   <main>
     <DashBoardLayout
       title={PAGE_TITLES.DASHBOARD}
@@ -30,7 +30,9 @@ const DashboardPage = () => (
           <RecentServicesSection />
         </div>
         <div className="md:col-span-4">
-          <TopSellingProducts />
+          <Suspense fallback={<SkeletonProductCard />}>
+            <TopSellingProducts />
+          </Suspense>
         </div>
       </div>
     </DashBoardLayout>

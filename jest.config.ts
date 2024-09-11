@@ -22,7 +22,7 @@ const config: Config = {
   ],
   collectCoverage: true,
   moduleNameMapper: {
-    '@/(.*)': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|svg|jpg)$': 'identity-obj-proxy',
   },
 };
