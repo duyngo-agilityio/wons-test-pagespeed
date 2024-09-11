@@ -1,5 +1,5 @@
-import { Heading } from '@/components';
+import { AccountSuccess } from '@/ui';
 
-const AccountSuccessPage = () => <Heading title="Account Success page" />;
+const AccountSuccessPage = () => <AccountSuccess />;
 
 export default AccountSuccessPage;
