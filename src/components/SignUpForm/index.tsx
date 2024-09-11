@@ -13,15 +13,11 @@ import { ERROR_MESSAGES, REGEX } from '@/constants';
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
+// Types
+import { ISignUpFormData } from '@/types';
+
 // Components
 import { Button, Input, Text, Checkbox } from '@/components';
-
-interface ISignUpFormData {
-  fullName: string;
-  username: string;
-  email: string;
-  password: string;
-}
 
 // Zod schema for validation
 const signUpSchema = z.object({
@@ -29,8 +25,8 @@ const signUpSchema = z.object({
   username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Username')),
   email: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email'))
-    .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
+    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email Address'))
+    .email(ERROR_MESSAGES.FIELD_INVALID('Email Address')),
   password: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Password'))
@@ -39,7 +35,7 @@ const signUpSchema = z.object({
 
 const REQUIRED_FIELDS = ['fullName', 'username', 'email', 'password'];
 
-interface ISignUpFormProps {
+export interface ISignUpFormProps {
   isPending?: boolean;
   onSubmit: (data: ISignUpFormData) => void;
 }
@@ -178,6 +174,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
                 />
               ) : (
                 <IoMdEye
+                  data-testid="show-password"
                   className="w-5 h-5 cursor-pointer text-blue-800/50 dark:text-white/50"
                   onClick={handleToggleVisiblePassword}
                 />
@@ -201,6 +198,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
         <Checkbox
           onChange={handleCheckBoxChange}
           classNames={{ wrapper: 'mt-1' }}
+          data-testid="policy"
         />
 
         <div>

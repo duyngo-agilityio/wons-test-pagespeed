@@ -12,6 +12,13 @@ export interface AuthResponse {
   error: string;
 }
 
+export interface ISignUpFormData {
+  fullName: string;
+  username: string;
+  email: string;
+  password: string;
+}
+
 export type TSignUpPayload = {
   fullName: string;
   username: string;
