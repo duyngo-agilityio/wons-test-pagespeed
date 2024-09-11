@@ -8,7 +8,6 @@ export const ERROR_MESSAGES = {
 
   EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
-  FETCH: 'Failed to fetch products',
 };
 
 export const SUCCESS_MESSAGES = {

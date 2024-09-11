@@ -4,7 +4,11 @@ import { Suspense } from 'react';
 import { DashBoardLayout } from '@/layouts';
 
 // UI
-import { RecentServicesSection, TopSellingProducts } from '@/ui/main-dashboard';
+import {
+  RecentServicesSection,
+  TopSellingProducts,
+  StatisticSection,
+} from '@/ui/main-dashboard';
 
 // Constants
 import { PAGE_TITLES } from '@/constants';
@@ -12,8 +16,8 @@ import { PAGE_TITLES } from '@/constants';
 // Components
 import {
   DateRangePicker,
-  StatisticSection,
   SkeletonProductCard,
+  SkeletonStatistic,
 } from '@/components';
 
 const DashboardPage = async () => (
@@ -23,7 +27,9 @@ const DashboardPage = async () => (
       rightContent={<DateRangePicker />}
     >
       <div className="mb-8">
-        <StatisticSection />
+        <Suspense fallback={<SkeletonStatistic />}>
+          <StatisticSection />
+        </Suspense>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
         <div className="md:col-span-6">

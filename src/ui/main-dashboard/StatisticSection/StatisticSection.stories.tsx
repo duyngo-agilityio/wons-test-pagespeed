@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // components
-import { StatisticSection } from '@/components';
+import StatisticSection from './index';
 
 const meta: Meta<typeof StatisticSection> = {
   title: 'Components/StatisticSection',
