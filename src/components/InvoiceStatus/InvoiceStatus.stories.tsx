@@ -11,7 +11,17 @@ const meta: Meta<typeof InvoiceStatusComponent> = {
   title: 'Components/InvoiceStatus',
   component: InvoiceStatusComponent,
   args: {},
-  argTypes: {},
+  argTypes: {
+    variant: {
+      description: 'Variant',
+      options: [
+        InvoiceStatus.COMPLETE,
+        InvoiceStatus.CANCEL,
+        InvoiceStatus.PENDING,
+      ],
+      control: { type: 'select' },
+    },
+  },
 };
 
 export default meta;

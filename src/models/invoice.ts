@@ -15,6 +15,17 @@ export type TInvoiceProduct<T> = {
 
 export interface IInvoice {
   id: string;
+  customer: string;
+  imageUrl: string;
+  status: InvoiceStatus;
+  address: string;
+  isSelected: boolean;
+  date: string;
+  email: string;
+}
+
+export type TInvoice = {
+  id: string;
   customer: ICustomer;
   imageUrl: string;
   status: InvoiceStatus;

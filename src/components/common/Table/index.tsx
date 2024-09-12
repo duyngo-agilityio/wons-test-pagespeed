@@ -26,6 +26,7 @@ interface CustomTableProps<T> {
   variant?: VariantTable;
   isStriped?: boolean;
   selectionMode?: 'single' | 'multiple' | 'none';
+  onSelectionChange?: (keys: string) => void;
 }
 
 const TableCustom = <T extends { id: string }>({

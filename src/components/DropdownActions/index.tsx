@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Dropdown as NextUIDropdown,
   DropdownTrigger,
@@ -11,25 +13,18 @@ import {
 import { RiEdit2Fill } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
 import { FaEllipsisH } from 'react-icons/fa';
+import { useCallback } from 'react';
 
 interface DropdownActionsProps {
-  id?: string;
-  onEdit?: (id: string) => void;
-  onDelete?: (id: string) => void;
+  id: string;
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
-  const handleDelete = () => {
-    if (onDelete) {
-      onDelete(id ?? '');
-    }
-  };
+  const handleDelete = useCallback(() => onDelete(id), [id, onDelete]);
 
-  const handleEdit = () => {
-    if (onEdit) {
-      onEdit(id ?? '');
-    }
-  };
+  const handleEdit = useCallback(() => onEdit(id), [id, onEdit]);
 
   return (
     <NextUIDropdown
@@ -41,7 +36,10 @@ const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
     >
       <DropdownTrigger>
         <Button className="border-none bg-bone">
-          <FaEllipsisH className="text-blue-500 dark:text-white/30" />
+          <FaEllipsisH
+            size={14}
+            className="text-blue-800/30 dark:text-white/30"
+          />
         </Button>
       </DropdownTrigger>
       <DropdownMenu variant="flat" aria-label="Dropdown menu">

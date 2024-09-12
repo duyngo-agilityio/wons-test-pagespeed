@@ -16,3 +16,4 @@ export { default as ToastList } from './ToastList';
 export { default as AddressInput } from './AddressInput';
 export { default as InvoiceStatus } from './InvoiceStatus';
 export { default as InvoicesTable } from './InvoicesTable';
+export { default as StarButton } from './StarButton';
