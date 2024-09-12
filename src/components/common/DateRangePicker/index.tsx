@@ -48,13 +48,14 @@ const DateRangePicker = ({
   );
 
   return (
-    <div className="max-w-[290.5px] relative">
+    <div className="max-w-[290.5px] relative bg-gray-50 dark:bg-gray-600">
       <div className="flex gap-[15.85px]">
         {dateRange &&
           Object.keys(dateRange).map((key) => (
             <div
               key={key}
-              className="flex max-w-36 w-36 relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+              className="flex max-w-36 w-36 relative bg-white cursor-pointer dark:bg-gray-400 rounded-[5.28px] h-[42.25px] items-center"
+              onClick={handleOpenDatePicker}
             >
               <p className="text-[15.02px] ml-[17.96px]">
                 {formatDate(
@@ -64,10 +65,7 @@ const DateRangePicker = ({
                 )}
               </p>
               <div className="absolute flex items-center h-full right-0 px-2">
-                <button
-                  className="flex h-[15px] w-[15px] justify-center items-center rounded-full hover:bg-gray-100"
-                  onClick={handleOpenDatePicker}
-                >
+                <button className="flex h-[15px] w-[15px] justify-center items-center rounded-full hover:bg-gray-100">
                   <FaChevronDown className="w-[8.43px]" />
                 </button>
               </div>
@@ -78,6 +76,7 @@ const DateRangePicker = ({
         <DateRangePickerBase
           classNames={{
             innerWrapper: 'z-[-1]',
+            inputWrapper: 'shadow-none',
           }}
           className="h-[42.25px]"
           isOpen={isOpenRangePicker}
