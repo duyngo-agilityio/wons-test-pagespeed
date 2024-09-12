@@ -21,7 +21,7 @@ import {
   SkeletonStatistic,
 } from '@/components';
 
-const DashboardPage = async () => (
+const DashboardPage = () => (
   <main>
     <DashBoardLayout
       title={PAGE_TITLES.DASHBOARD}
@@ -32,8 +32,8 @@ const DashboardPage = async () => (
           <StatisticSection />
         </Suspense>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
-        <div className="md:col-span-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-10 gap-6">
+        <div className="lg:col-span-6">
           <Suspense
             fallback={
               <TableLayout>
@@ -44,7 +44,7 @@ const DashboardPage = async () => (
             <LazyRecentServicesSection />
           </Suspense>
         </div>
-        <div className="md:col-span-4">
+        <div className="lg:col-span-4">
           <Suspense fallback={<SkeletonProductCard />}>
             <TopSellingProducts />
           </Suspense>
