@@ -13,6 +13,8 @@ export { TbDots } from 'react-icons/tb';
 export { FiSun } from 'react-icons/fi';
 export { IoMoonOutline } from 'react-icons/io5';
 export { IoIosClose } from 'react-icons/io';
+export { FaStar } from 'react-icons/fa';
+export { BsThreeDots } from 'react-icons/bs';
 
 export { default as Button } from './Button';
 export { default as Heading } from './Heading';

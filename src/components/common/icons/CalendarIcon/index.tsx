@@ -20,6 +20,7 @@ const CalendarIcon = ({
     width={width}
     height={height}
     color={color}
+    viewBox="0 0 18 20"
     {...props}
   >
     <path

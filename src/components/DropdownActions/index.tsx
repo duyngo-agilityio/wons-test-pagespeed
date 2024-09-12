@@ -41,7 +41,7 @@ const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
     >
       <DropdownTrigger>
         <Button className="border-none bg-bone">
-          <FaEllipsisH size={24} className="text-blue-500" />
+          <FaEllipsisH className="text-blue-500 dark:text-white/30" />
         </Button>
       </DropdownTrigger>
       <DropdownMenu variant="flat" aria-label="Dropdown menu">
