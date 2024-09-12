@@ -1,16 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StatisticSection component renders correctly and matches snapshot 1`] = `
+exports[`StatisticSection component should render NoProductAvailable when no data is available and match snapshot 1`] = `
 <div>
-  <div
-    data-overlay-container="true"
+  <section
+    class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 h-full md:!p-5"
   >
-    <script>
-      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
-    </script>
-     
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      class="flex justify-between mb-2"
+    >
+      <h2
+        aria-level="2"
+        class="font-bold font-dm-sans text-blue-800 dark:text-white text-2xl text-blue-800/70 dark:text-white/70"
+      >
+        Statistics Overview
+      </h2>
+    </div>
+    <div
+      class="text-center text-gray-500 dark:text-gray-400 "
+    >
+      No statistics available at the moment
+    </div>
+  </section>
+</div>
+`;
+
+exports[`StatisticSection component should render all content with resolved data and match snapshot 1`] = `
+<div>
+  <section
+    class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 h-full md:!p-5"
+  >
+    <div
+      class="flex justify-between mb-2"
+    >
+      <h2
+        aria-level="2"
+        class="font-bold font-dm-sans text-blue-800 dark:text-white text-2xl text-blue-800/70 dark:text-white/70"
+      >
+        Statistics Overview
+      </h2>
+    </div>
+    <div
+      class="mb-6 w-full"
     >
       <div
         class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-400 dark:shadow-none"
@@ -45,7 +75,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
-              178+
+              5+
             </p>
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl font-normal text-blue-400 dark:text-gray-850"
@@ -55,6 +85,10 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="mb-6 w-full"
+    >
       <div
         class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-400 dark:shadow-none"
         style="border-radius: undefined;"
@@ -88,7 +122,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
-              20+
+              10+
             </p>
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl font-normal text-blue-400 dark:text-gray-850"
@@ -98,6 +132,10 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="mb-6 w-full"
+    >
       <div
         class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-400 dark:shadow-none"
         style="border-radius: undefined;"
@@ -131,7 +169,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
-              190+
+              15+
             </p>
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl font-normal text-blue-400 dark:text-gray-850"
@@ -141,6 +179,10 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="mb-6 w-full"
+    >
       <div
         class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:p-10 m-2 bg-white shadow-lg rounded-10 dark:bg-gray-400 dark:shadow-none"
         style="border-radius: undefined;"
@@ -178,7 +220,7 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[24px] text-[#515c6a] dark:text-gray-850 mb-2"
             >
-              12+
+              20+
             </p>
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl font-normal text-blue-400 dark:text-gray-850"
@@ -189,9 +231,6 @@ exports[`StatisticSection component renders correctly and matches snapshot 1`] =
         </div>
       </div>
     </div>
-    <div
-      class="fixed top-4 right-4"
-    />
-  </div>
+  </section>
 </div>
 `;
