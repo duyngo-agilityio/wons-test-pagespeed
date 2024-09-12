@@ -32,7 +32,7 @@ const Autocomplete = ({
       classNames={{ selectorButton: 'text-gray-50 dark:text-gray-600' }}
       {...props}
     >
-      {options.map(({ value, label }) => (
+      {options.map(({ value = '', label = '' }) => (
         <AutocompleteItem key={value} value={value}>
           {label}
         </AutocompleteItem>
