@@ -20,10 +20,7 @@ interface LocationItem {
   };
 }
 
-const AddressInput = ({
-  placeholder = 'Street',
-  ...rest
-}: AddressInputProps) => {
+const AddressInput = ({ placeholder = ' ', ...rest }: AddressInputProps) => {
   const [searchAddress, setSearchAddress] = useState('');
   const [locationsSuggestion, setLocationsSuggestion] = useState<
     LocationItem[]
@@ -59,7 +56,7 @@ const AddressInput = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex-1">
       <Input
         placeholder={placeholder}
         value={searchAddress}

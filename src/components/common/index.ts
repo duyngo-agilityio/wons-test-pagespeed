@@ -33,3 +33,5 @@ export { default as SearchInput } from './SearchInput';
 export { default as Spinner } from './Spinner';
 export { default as Text } from './Text';
 export { default as Toast } from './Toast';
+export * from '../Skeleton';
+export { default as Autocomplete } from './Autocomplete';

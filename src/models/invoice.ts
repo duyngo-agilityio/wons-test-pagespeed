@@ -6,3 +6,20 @@ export type TInvoiceProduct<T> = {
   quantity: number;
   product: { data: T };
 };
+
+export enum InvoiceStatus {
+  COMPLETE = 'complete',
+  PENDING = 'pending',
+  CANCEL = 'cancel',
+}
+
+export interface IInvoice {
+  id: string;
+  customer: string;
+  imageUrl: string;
+  status: InvoiceStatus;
+  address: string;
+  isSelected: boolean;
+  date: string;
+  email: string;
+}

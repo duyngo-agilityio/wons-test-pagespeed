@@ -10,3 +10,4 @@ export * from './searchParams';
 export * from './sidebar';
 export * from './themes';
 export * from './typography';
+export * from './select';
