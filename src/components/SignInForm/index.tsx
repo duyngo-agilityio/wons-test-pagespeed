@@ -11,12 +11,7 @@ import { useRouter } from 'next/navigation';
 import { SignInFormData } from '@/types';
 
 // Constants
-import {
-  ERROR_MESSAGES,
-  MESSAGE_STATUS,
-  ROUTES,
-  SUCCESS_MESSAGES,
-} from '@/constants';
+import { ERROR_MESSAGES, MESSAGE_STATUS, ROUTES } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -80,10 +75,6 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
           description: res,
         });
       }
-
-      showToast({
-        description: SUCCESS_MESSAGES.SIGN_IN,
-      });
 
       router.push(ROUTES.DASHBOARD);
     });
