@@ -22,7 +22,7 @@ exports[`ProductCard component renders correctly and matches snapshot 1`] = `
         >
           <img
             alt="Shoe image"
-            class="rounded-lg object-cover"
+            class="rounded-lg object-cover !h-full"
             data-nimg="1"
             decoding="async"
             height="100"
@@ -37,7 +37,7 @@ exports[`ProductCard component renders correctly and matches snapshot 1`] = `
           class="sm:ml-4 flex-1 text-center sm:text-left"
         >
           <h3
-            class="text-black dark:text-white font-semibold text-base sm:text-lg"
+            class="text-black dark:text-white font-semibold text-lg sm:text-xl"
           >
             Web Development
           </h3>
