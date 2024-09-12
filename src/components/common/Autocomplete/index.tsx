@@ -29,7 +29,7 @@ const Autocomplete = ({
           label: ['text-xl font-medium font-dm-sans pb-[5px]'],
         },
       }}
-      classNames={{ selectorButton: 'text-gray-50' }}
+      classNames={{ selectorButton: 'text-gray-50 dark:text-gray-600' }}
       {...props}
     >
       {options.map(({ value, label }) => (

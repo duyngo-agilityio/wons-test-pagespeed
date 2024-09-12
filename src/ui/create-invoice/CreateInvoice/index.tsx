@@ -9,7 +9,10 @@ const CreateInvoice = () => {
   };
 
   return (
-    <div className="bg-white p-[30px]" style={{ height: 'calc(100vh - 60px)' }}>
+    <div
+      className="bg-white dark:bg-gray-400 p-[30px] rounded-[10px]"
+      style={{ height: 'calc(100vh - 60px)' }}
+    >
       <Heading title="Create New Invoice" />
       <div className="flex w-full justify-center">
         <InvoiceForm onSubmit={handleSubmit} />
