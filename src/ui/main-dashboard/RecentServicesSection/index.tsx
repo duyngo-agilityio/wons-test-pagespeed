@@ -1,16 +1,32 @@
+import { notFound } from 'next/navigation';
+
+// Api
+import { getInvoiceProducts } from '@/api';
+
 // Layouts
 import { TableLayout } from '@/layouts';
 
-// Mocks
-import { MOCK_RECENT_SERVICES } from '@/mocks';
+// Models
+import { IProduct, TInvoiceProduct } from '@/models';
+
+// Types
+import { StrapiModel, StrapiResponse } from '@/types';
 
 // Components
 import { RecentServicesTable } from '@/components';
 
-const RecentServicesSection = () => {
+const RecentServicesSection = async () => {
+  const result: StrapiResponse<
+    StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
+  > = (await getInvoiceProducts()) as StrapiResponse<
+    StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
+  >;
+
+  if (!result.data.length) notFound();
+
   return (
     <TableLayout>
-      <RecentServicesTable data={MOCK_RECENT_SERVICES} />
+      <RecentServicesTable data={result.data} />
     </TableLayout>
   );
 };

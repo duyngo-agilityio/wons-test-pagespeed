@@ -35,7 +35,7 @@ const TopSellingProducts = async () => {
                   className="shadow-none py-4"
                 />
                 {hasBorder && (
-                  <div className="border-t border-gray-300 dark:border-gray-600 my-8" />
+                  <div className="border-t border-solid border-gray-300 dark:border-gray-500 my-8" />
                 )}
               </div>
             );

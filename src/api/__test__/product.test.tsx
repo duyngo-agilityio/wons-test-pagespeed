@@ -7,9 +7,6 @@ import { httpClient } from '@/services';
 // mocks
 import { mockProducts } from '@/mocks';
 
-// constants
-import { ERROR_MESSAGES } from '@/constants';
-
 jest.mock('next/navigation', () => ({
   notFound: jest.fn(),
 }));
@@ -36,8 +33,8 @@ describe('getAllProducts', () => {
 
     expect(result.data).toHaveLength(2);
 
-    expect(result.data[0].attributes.rating).toBeGreaterThanOrEqual(
-      result.data[1].attributes.rating,
+    expect(result.data?.[0]?.attributes.rating).toBeGreaterThanOrEqual(
+      result.data?.[1]?.attributes.rating ?? 0,
     );
 
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
@@ -55,12 +52,15 @@ describe('getAllProducts', () => {
     expect(result.data).toHaveLength(0);
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
-
-  it('should throw an error if the API call fails', async () => {
+  it('should return an error when the API call fails', async () => {
     const mockError = new Error('API Error');
+
     (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
 
-    await expect(getAllProducts()).rejects.toThrow(ERROR_MESSAGES.FETCH);
+    const result = await getAllProducts();
+
+    expect(result.error).toBeDefined();
+
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
 });

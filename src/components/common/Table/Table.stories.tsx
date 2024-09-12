@@ -23,4 +23,8 @@ export const Secondary = () => (
   </div>
 );
 
-export const Primary = () => <Table {...props} variant="primary" />;
+export const Primary = () => (
+  <div className="p-[20px] rounded-2xl">
+    <Table {...props} variant="primary" />
+  </div>
+);

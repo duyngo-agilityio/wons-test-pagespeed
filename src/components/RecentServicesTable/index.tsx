@@ -4,16 +4,17 @@ import { memo, useMemo } from 'react';
 import { Chip } from '@nextui-org/react';
 
 // Utils
-import { formatPrice } from '@/utils';
+import { formatPrice, formatTotalAmount } from '@/utils';
 
 // Models
-import { TRecentServices } from '@/models';
+import { TInvoiceProduct, IProduct } from '@/models';
 
 // Components
 import { Image, Table, Text } from '@/components/common';
+import { StrapiModel } from '@/types';
 
 interface IRecentServicesTable {
-  data: TRecentServices[];
+  data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[];
 }
 
 const RecentServicesTable = ({ data }: IRecentServicesTable) => {
@@ -21,37 +22,45 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
     () => [
       {
         header: 'Order ID',
-        accessor: (data: TRecentServices) => (
-          <Text size="sm" text={`#${data.orderID}`} />
-        ),
+        accessor: (
+          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
+        ) => <Text size="sm" text={`#${data.id}`} />,
         isSort: true,
       },
       {
         header: 'Service Name',
-        accessor: (data: TRecentServices) => (
+        accessor: (
+          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
+        ) => (
           <div className="flex gap-2 items-center">
-            <Image
-              src={data.image}
-              alt="ui-ux-design"
-              width={32}
-              height={32}
-              className="rounded-5"
+            <div className="relative w-8 h-8">
+              <Image
+                fill
+                src={data.attributes.product.data.attributes.imageUrl}
+                alt="ui-ux-design"
+                className="rounded-5"
+              />
+            </div>
+            <Text
+              size="sm"
+              text={data.attributes.product.data.attributes.title}
             />
-            <Text size="sm" text={data.serviceName} />
           </div>
         ),
         isSort: true,
       },
       {
         header: 'Price',
-        accessor: (data: TRecentServices) => (
-          <Text size="sm" text={`$${formatPrice(data.price)}`} />
-        ),
+        accessor: (
+          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
+        ) => <Text size="sm" text={`$${formatPrice(data.attributes.price)}`} />,
         isSort: true,
       },
       {
         header: 'Total Order',
-        accessor: (data: TRecentServices) => (
+        accessor: (
+          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
+        ) => (
           <Chip
             classNames={{
               base: [
@@ -61,15 +70,20 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
               content: ['text-center text-sm', 'text-blue-500 dark:text-white'],
             }}
           >
-            {data.totalOrder}
+            {data.attributes.quantity}
           </Chip>
         ),
         isSort: true,
       },
       {
         header: 'Total Amount',
-        accessor: (data: TRecentServices) => (
-          <Text size="sm" text={`$${formatPrice(data.totalAmount)}`} />
+        accessor: (
+          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
+        ) => (
+          <Text
+            size="sm"
+            text={`$${formatTotalAmount(data.attributes.price, data.attributes.quantity)}`}
+          />
         ),
       },
     ],

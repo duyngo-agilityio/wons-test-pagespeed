@@ -32,12 +32,12 @@ const ProductCard = ({
             alt={alt}
             width={100}
             height={100}
-            className="rounded-lg object-cover"
+            className="rounded-lg object-cover !h-full"
           />
         </div>
 
         <div className="sm:ml-4 flex-1 text-center sm:text-left">
-          <h3 className="text-black dark:text-white font-semibold text-base sm:text-lg">
+          <h3 className="text-black dark:text-white font-semibold text-lg sm:text-xl">
             {title}
           </h3>
           <div className="flex justify-center sm:justify-start py-2">

@@ -1,6 +1,4 @@
-// statisticService.test.ts
 import { httpClient } from '@/services';
-import { ERROR_MESSAGES } from '@/constants';
 import { getAllStatistics } from '../statistic';
 
 jest.mock('@/services', () => ({
@@ -56,10 +54,11 @@ describe('getAllStatistics', () => {
   });
 
   it('should throw an error when the API call fails', async () => {
-    (httpClient.getRequest as jest.Mock).mockRejectedValue(
-      new Error('API error'),
-    );
+    const mockError = new Error('API Error');
+    (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
+    const result = await getAllStatistics();
+    expect(result.error).toBeDefined();
 
-    await expect(getAllStatistics()).rejects.toThrow(ERROR_MESSAGES.FETCH);
+    expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
 });

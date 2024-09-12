@@ -1,26 +1,27 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
 // Layouts
-import { DashBoardLayout } from '@/layouts';
+import { DashBoardLayout, TableLayout } from '@/layouts';
 
 // UI
-import {
-  RecentServicesSection,
-  TopSellingProducts,
-  StatisticSection,
-} from '@/ui/main-dashboard';
+const LazyRecentServicesSection = lazy(
+  () => import('@/ui/main-dashboard/RecentServicesSection'),
+);
+import { TopSellingProducts, StatisticSection } from '@/ui/main-dashboard';
 
 // Constants
 import { PAGE_TITLES } from '@/constants';
+import { MAPPING_RECENT_SERVICES_SKELETON } from '@/constants/skeleton';
 
 // Components
 import {
   DateRangePicker,
   SkeletonProductCard,
+  TableSkeleton,
   SkeletonStatistic,
 } from '@/components';
 
-const DashboardPage = async () => (
+const DashboardPage = () => (
   <main>
     <DashBoardLayout
       title={PAGE_TITLES.DASHBOARD}
@@ -31,11 +32,19 @@ const DashboardPage = async () => (
           <StatisticSection />
         </Suspense>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-10 gap-6">
-        <div className="md:col-span-6">
-          <RecentServicesSection />
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-10 gap-6">
+        <div className="lg:col-span-6">
+          <Suspense
+            fallback={
+              <TableLayout>
+                <TableSkeleton columns={MAPPING_RECENT_SERVICES_SKELETON} />
+              </TableLayout>
+            }
+          >
+            <LazyRecentServicesSection />
+          </Suspense>
         </div>
-        <div className="md:col-span-4">
+        <div className="lg:col-span-4">
           <Suspense fallback={<SkeletonProductCard />}>
             <TopSellingProducts />
           </Suspense>
