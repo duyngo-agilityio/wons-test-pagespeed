@@ -5,3 +5,9 @@ export const formatPrice = (price: number) => {
 
   return numPrice?.toLocaleString('en-US');
 };
+
+export const formatTotalAmount = (price: number, quantity: number) =>
+  formatPrice(price * quantity);
+
+export const InsertSkeletonRow = (quantity: number) =>
+  Array.from({ length: quantity }, (_, i) => ({ id: i + 1 }));

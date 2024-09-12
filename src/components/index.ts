@@ -1,5 +1,8 @@
 export * from './common';
 
+// Skeleton
+export * from './Skeleton';
+
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as RecentServicesTable } from './RecentServicesTable';
 export { default as SignInForm } from './SignInForm';

@@ -1,14 +1,12 @@
 // Mocks
-import { MOCK_RECENT_SERVICES } from '@/mocks';
+import { MOCK_INVOICES } from '@/mocks';
 
 // Components
 import RecentServicesTable from '../index';
 
 describe('RecentServicesTable', () => {
   const renderComponent = () =>
-    testLibJestUtils.render(
-      <RecentServicesTable data={MOCK_RECENT_SERVICES} />,
-    );
+    testLibJestUtils.render(<RecentServicesTable data={MOCK_INVOICES} />);
 
   it('match snapshot', () => {
     const { container } = renderComponent();
