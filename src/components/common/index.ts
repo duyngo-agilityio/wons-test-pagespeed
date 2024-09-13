@@ -16,7 +16,6 @@ export { TbDots } from 'react-icons/tb';
 export { FiSun } from 'react-icons/fi';
 export { IoMoonOutline } from 'react-icons/io5';
 export { IoIosClose } from 'react-icons/io';
-
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
@@ -29,6 +28,7 @@ export { default as ImageFallback } from './ImageFallback';
 export { default as Input } from './Input';
 export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as NoProductAvailable } from './Message';
+export { default as ConfirmModal } from './ConfirmModal';
 export { default as SearchInput } from './SearchInput';
 export { default as Spinner } from './Spinner';
 export { default as Text } from './Text';
