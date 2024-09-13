@@ -1,13 +1,33 @@
+import { Suspense } from 'react';
+
+// Constants
+import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
+
 // Layouts
-import { DashBoardLayout } from '@/layouts';
+import { DashBoardLayout, TableLayout } from '@/layouts';
 
 // Sections
-import { InvoiceList, InvoiceListActions } from '@/ui';
+import { InvoiceListActions, InvoiceList } from '@/ui';
+
+// Components
+import { TableSkeleton } from '@/components';
 
 const InvoiceListPage = (): JSX.Element => (
   <main>
     <DashBoardLayout title="Invoice List" rightContent={<InvoiceListActions />}>
-      <InvoiceList />
+      <Suspense
+        fallback={
+          <TableLayout>
+            <TableSkeleton
+              variant="primary"
+              isStriped={false}
+              columns={MAPPING_INVOICE_LIST_SKELETON}
+            />
+          </TableLayout>
+        }
+      >
+        <InvoiceList />
+      </Suspense>
     </DashBoardLayout>
   </main>
 );

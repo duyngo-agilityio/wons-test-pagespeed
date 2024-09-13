@@ -135,6 +135,7 @@ const InvoicesTable = ({
             />
           );
         },
+        isSort: true,
       },
       {
         header: (
