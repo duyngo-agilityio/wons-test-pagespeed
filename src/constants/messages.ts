@@ -8,6 +8,7 @@ export const ERROR_MESSAGES = {
 
   EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
+  INVALID_PHONE: 'Invalid phone number.',
 };
 
 export const SUCCESS_MESSAGES = {
