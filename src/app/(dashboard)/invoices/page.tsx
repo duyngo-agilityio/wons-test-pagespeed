@@ -1,6 +1,20 @@
-// Components
-import { Heading } from '@/components';
+// Layouts
+import { DashBoardLayout } from '@/layouts';
 
-const InvoiceListPage = (): JSX.Element => <Heading title="Invoice Page" />;
+// Sections
+import { InvoiceList, InvoiceListActions } from '@/ui';
+
+const InvoiceListPage = (): JSX.Element => {
+  return (
+    <main>
+      <DashBoardLayout
+        title="Invoice List"
+        rightContent={<InvoiceListActions />}
+      >
+        <InvoiceList />
+      </DashBoardLayout>
+    </main>
+  );
+};
 
 export default InvoiceListPage;

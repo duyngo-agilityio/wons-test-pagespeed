@@ -43,16 +43,24 @@ const SearchInput = ({ ...props }: InputProps) => {
     <Input
       classNames={{
         input: [
-          'bg-white dark:bg-gray-400',
-          '!text-blue-800/70',
-          'placeholder:text-sm placeholder:text-blue-800/50',
+          '!text-blue-800 dark:!text-white',
+          'placeholder:text-sm placeholder:text-blue-800/50 dark:placeholder:text-white/50',
         ],
-        inputWrapper: ['pl-5 pr-3.5 py-3', 'max-w-[230px]'],
+        inputWrapper: [
+          'bg-white dark:bg-gray-400',
+          'hover:!bg-white dark:hover:!bg-gray-400',
+          'focus-within:!bg-white dark:focus-within:!bg-gray-400',
+          'group-data-[focus=true]:!bg-white dark:group-data-[focus=true]:!bg-gray-400',
+          'pl-5 pr-3.5 py-3',
+          'md:max-w-[230px]',
+        ],
       }}
       placeholder="Search"
       defaultValue={defaultValueSearch}
       onChange={handleSearch}
-      endContent={<CiSearch className="w-3 h-3 text-blue-800/60" />}
+      endContent={
+        <CiSearch className="w-3 h-3 text-blue-800/60 dark:text-white/60" />
+      }
       {...props}
     />
   );
