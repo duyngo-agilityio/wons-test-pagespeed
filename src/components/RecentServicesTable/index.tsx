@@ -1,23 +1,32 @@
 'use client';
 
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { memo, useMemo } from 'react';
 import { Chip } from '@nextui-org/react';
 
 // Utils
 import { formatPrice, formatTotalAmount } from '@/utils';
 
+// Types
+import { StrapiModel } from '@/types';
+
 // Models
 import { TInvoiceProduct, IProduct } from '@/models';
 
+// Constants
+import { ORDER, PARAMS } from '@/constants';
+
 // Components
 import { Image, Table, Text } from '@/components/common';
-import { StrapiModel } from '@/types';
 
 interface IRecentServicesTable {
   data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[];
+  order?: string;
 }
 
-const RecentServicesTable = ({ data }: IRecentServicesTable) => {
+const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
+  const { ASC, DESC } = ORDER;
+  const { SORT_BY, ORDER_PARAM } = PARAMS;
   const mappingContentColumns = useMemo(
     () => [
       {
@@ -26,6 +35,7 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
         ) => <Text size="sm" text={`#${data.id}`} />,
         isSort: true,
+        value: 'id',
       },
       {
         header: 'Service Name',
@@ -48,6 +58,7 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
           </div>
         ),
         isSort: true,
+        value: 'title',
       },
       {
         header: 'Price',
@@ -55,6 +66,7 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
         ) => <Text size="sm" text={`$${formatPrice(data.attributes.price)}`} />,
         isSort: true,
+        value: 'price',
       },
       {
         header: 'Total Order',
@@ -74,6 +86,7 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
           </Chip>
         ),
         isSort: true,
+        value: 'quantity',
       },
       {
         header: 'Total Amount',
@@ -89,14 +102,34 @@ const RecentServicesTable = ({ data }: IRecentServicesTable) => {
     ],
     [],
   );
+  const searchParams = useSearchParams();
+
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const paramsObject = searchParams
+    ? Object.fromEntries(searchParams.entries())
+    : {};
+
+  const handleSort = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (value) {
+      params.set(SORT_BY, value);
+      params.set(ORDER_PARAM, order === DESC ? ASC : DESC);
+    }
+
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   return (
     <Table
       isStriped
       variant="secondary"
-      // Simulate data
       columns={mappingContentColumns}
       data={data}
+      order={order}
+      sortBy={paramsObject.sortBy}
+      onSort={handleSort}
     />
   );
 };

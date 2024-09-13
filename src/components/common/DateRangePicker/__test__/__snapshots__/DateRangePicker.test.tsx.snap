@@ -10,13 +10,13 @@ exports[`DateRangePicker match snapshot 1`] = `
     </script>
      
     <div
-      class="max-w-[290.5px] relative"
+      class="max-w-[290.5px] relative bg-gray-50 dark:bg-gray-600"
     >
       <div
         class="flex gap-[15.85px]"
       >
         <div
-          class="flex max-w-36 w-36 relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+          class="flex max-w-36 w-36 relative bg-white cursor-pointer dark:bg-gray-400 rounded-[5.28px] h-[42.25px] items-center"
         >
           <p
             class="text-[15.02px] ml-[17.96px]"
@@ -47,7 +47,7 @@ exports[`DateRangePicker match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="flex max-w-36 w-36 relative bg-white dark:bg-gray-400 : rounded-[5.28px] h-[42.25px] items-center"
+          class="flex max-w-36 w-36 relative bg-white cursor-pointer dark:bg-gray-400 rounded-[5.28px] h-[42.25px] items-center"
         >
           <p
             class="text-[15.02px] ml-[17.96px]"
@@ -90,7 +90,7 @@ exports[`DateRangePicker match snapshot 1`] = `
           <div
             aria-describedby="react-aria-description-2 react-aria-:r4:"
             aria-labelledby="react-aria-:r1:"
-            class="relative px-3 inline-flex cursor-text tap-highlight-transparent shadow-sm bg-default-100 hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium flex-col items-start justify-center gap-0 w-full h-14 py-2"
+            class="relative px-3 inline-flex cursor-text tap-highlight-transparent bg-default-100 hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium flex-col items-start justify-center gap-0 w-full h-14 py-2 shadow-none"
             data-slot="input-wrapper"
             id="react-aria-:r0:"
             role="group"

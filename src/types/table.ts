@@ -8,4 +8,5 @@ export interface TableColumnType<T> {
   accessor: TTableAccessor<T>;
   header?: string | ReactNode;
   isSort?: boolean;
+  value?: string;
 }

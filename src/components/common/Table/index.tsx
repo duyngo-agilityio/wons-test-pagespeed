@@ -10,6 +10,7 @@ import {
   TableColumn,
   TableRow,
   TableCell,
+  Button,
 } from '@nextui-org/react';
 
 // Icons
@@ -17,6 +18,9 @@ import { IoCaretDown } from 'react-icons/io5';
 
 // Types
 import { TableColumnType, TTableAccessor } from '@/types';
+
+// Constants
+import { ORDER } from '@/constants';
 
 type VariantTable = 'primary' | 'secondary';
 
@@ -27,6 +31,9 @@ interface CustomTableProps<T> {
   isStriped?: boolean;
   selectionMode?: 'single' | 'multiple' | 'none';
   onSelectionChange?: (keys: string) => void;
+  sortBy?: string;
+  order?: string;
+  onSort?: (value: string) => void;
 }
 
 const TableCustom = <T extends { id: string }>({
@@ -35,6 +42,9 @@ const TableCustom = <T extends { id: string }>({
   variant = 'primary',
   isStriped = false,
   selectionMode = 'none',
+  order = ORDER.ASC,
+  sortBy = '',
+  onSort,
 }: CustomTableProps<T>) => {
   const renderCell = (item: T, accessor: TTableAccessor<T>): ReactNode => {
     if (typeof accessor === 'string')
@@ -99,17 +109,31 @@ const TableCustom = <T extends { id: string }>({
     >
       <TableHeader className="border-spacing-y-0">
         {columns.map((columnConfig, index) => {
-          const { header, isSort } = columnConfig;
+          const { value, header, isSort } = columnConfig;
+
+          const handleSort = () => {
+            onSort?.(value as string);
+          };
 
           return (
             <TableColumn
               key={`${header}${index}`}
               className={clsx('py-0', TableClasses[variant].header)}
             >
-              <div className="flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]">
+              <Button
+                value={value}
+                className="justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                onClick={handleSort}
+              >
                 {header}
-                {isSort && <IoCaretDown />}
-              </div>
+                {isSort && (
+                  <IoCaretDown
+                    className={clsx(
+                      value === sortBy && order === ORDER.DESC && 'rotate-180',
+                    )}
+                  />
+                )}
+              </Button>
             </TableColumn>
           );
         })}
