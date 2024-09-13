@@ -33,4 +33,4 @@ export type TInvoice = {
   isSelected: boolean;
   date: string;
   email: string;
-}
+};
