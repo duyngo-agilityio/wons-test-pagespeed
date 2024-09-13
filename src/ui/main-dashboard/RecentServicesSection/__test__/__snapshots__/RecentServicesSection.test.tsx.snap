@@ -23,7 +23,7 @@ exports[`RecentServicesSection should match snapshot 1`] = `
         </h2>
       </div>
       <div
-        class="flex flex-col relative gap-4 w-full"
+        class="flex-col relative gap-4 w-full grid"
       >
         <div
           class="z-0 flex flex-col relative justify-between gap-4 bg-content1 overflow-auto rounded-large w-full p-0 shadow-none dark:bg-gray-400"
