@@ -29,6 +29,8 @@ interface CustomTableProps<T> {
   data: T[];
   variant?: VariantTable;
   isStriped?: boolean;
+  selectionMode?: 'single' | 'multiple' | 'none';
+  onSelectionChange?: (keys: string) => void;
   sortBy?: string;
   order?: string;
   onSort?: (value: string) => void;
@@ -39,6 +41,7 @@ const TableCustom = <T extends { id: string }>({
   data,
   variant = 'primary',
   isStriped = false,
+  selectionMode = 'none',
   order = ORDER.ASC,
   sortBy = '',
   onSort,
@@ -52,11 +55,11 @@ const TableCustom = <T extends { id: string }>({
 
   const TableClasses = {
     primary: {
-      header: 'bg-gray-50 dark:bg-gray-600 px-[25px]',
+      header: 'bg-gray-50 dark:bg-gray-600 px-[17px]',
       table:
         'border-separate border-spacing-x-0 border-spacing-y-[10px] bg-gray-50 dark:bg-gray-600',
       td: 'last:rounded-r-lg',
-      cell: 'text-[10px] sm:text-[14px] leading-[18px] py-[25px] px-[25px]',
+      cell: 'text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]',
     },
     secondary: {
       header: 'bg-white dark:bg-gray-400 border-b-[1px] px-[21px]',
@@ -70,11 +73,38 @@ const TableCustom = <T extends { id: string }>({
   return (
     <BaseTable
       {...(isStriped && { isStriped: true })}
+      selectionMode={selectionMode}
+      checkboxesProps={{
+        classNames: {
+          wrapper: [
+            'after:bg-blue-500 dark:after:bg-purple-600',
+            'after:hover:bg-blue-500 dark:after:hover:bg-purple-600',
+            'before:border-blue-800/30 dark:before:border-white/30',
+            'rounded-sm',
+            'before:rounded-sm',
+            'after:rounded-sm',
+            'w-5 h-5',
+            'mx-4',
+            'before:border',
+          ],
+          icon: 'text-white dark:text-gray-400',
+        },
+      }}
       classNames={{
+        base: 'grid',
         wrapper: 'p-0 shadow-none dark:bg-gray-400',
         table: TableClasses[variant].table,
-        td: clsx('first:rounded-l-lg', TableClasses[variant].td),
-        th: ['first:rounded-l-none last:rounded-r-none'],
+        td: clsx(
+          'first:rounded-l-lg',
+          TableClasses[variant].td,
+          TableClasses[variant].cell,
+        ),
+        th: [
+          clsx(
+            'first:rounded-l-none last:rounded-r-none',
+            TableClasses[variant].header,
+          ),
+        ],
       }}
     >
       <TableHeader className="border-spacing-y-0">

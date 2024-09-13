@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import {
   Dropdown as NextUIDropdown,
@@ -19,44 +19,29 @@ import { FaEllipsisH } from 'react-icons/fa';
 import { ConfirmModal } from '@/components';
 
 interface DropdownActionsProps {
-  id?: string;
-  onEdit?: (id: string) => void;
-  onDelete?: (id: string) => void;
+  id: string;
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleDelete = () => {
-    setIsModalOpen(true); //
-  };
+  const handleDelete = useCallback(() => setIsModalOpen(true), []);
 
-  const confirmDelete = () => {
-    if (onDelete) {
-      onDelete(id ?? '');
-    }
+  const handleConfirmDelete = useCallback(() => {
+    onDelete(id);
     setIsModalOpen(false);
-  };
+  }, [id, onDelete]);
 
-  const cancelDelete = () => {
+  const handleCancelDelete = useCallback(() => {
     setIsModalOpen(false);
-  };
+  }, []);
 
-  const handleEdit = () => {
-    if (onEdit) {
-      onEdit(id ?? '');
-    }
-  };
+  const handleEdit = useCallback(() => onEdit(id), [id, onEdit]);
 
   return (
     <>
-      <ConfirmModal
-        title="Delete Item"
-        content="Are you sure you want to delete this item?"
-        isOpen={isModalOpen}
-        onConfirm={confirmDelete}
-        onCancel={cancelDelete}
-      />
       <NextUIDropdown
         showArrow
         classNames={{
@@ -66,7 +51,10 @@ const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
       >
         <DropdownTrigger>
           <Button className="border-none bg-bone">
-            <FaEllipsisH size={24} className="text-blue-500" />
+            <FaEllipsisH
+              size={14}
+              className="text-blue-800/30 dark:text-white/30"
+            />
           </Button>
         </DropdownTrigger>
         <DropdownMenu variant="flat" aria-label="Dropdown menu">
@@ -94,6 +82,13 @@ const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
           </DropdownSection>
         </DropdownMenu>
       </NextUIDropdown>
+      <ConfirmModal
+        title="Delete Item"
+        content="Are you sure you want to delete this item?"
+        isOpen={isModalOpen}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
     </>
   );
 };

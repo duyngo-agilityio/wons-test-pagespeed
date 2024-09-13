@@ -1,3 +1,9 @@
+// Types
+import { ICustomer } from './customer';
+
+// Constants
+import { InvoiceStatus } from '@/constants';
+
 export type TInvoiceProduct<T> = {
   price: number;
   createdAt: string;
@@ -7,15 +13,20 @@ export type TInvoiceProduct<T> = {
   product: { data: T };
 };
 
-export enum InvoiceStatus {
-  COMPLETE = 'complete',
-  PENDING = 'pending',
-  CANCEL = 'cancel',
-}
-
 export interface IInvoice {
   id: string;
   customer: string;
+  imageUrl: string;
+  status: InvoiceStatus;
+  address: string;
+  isSelected: boolean;
+  date: string;
+  email: string;
+}
+
+export type TInvoice = {
+  id: string;
+  customer: ICustomer;
   imageUrl: string;
   status: InvoiceStatus;
   address: string;

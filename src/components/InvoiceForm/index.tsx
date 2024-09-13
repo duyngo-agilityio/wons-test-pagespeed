@@ -7,10 +7,10 @@ import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 // Constants
-import { ERROR_MESSAGES, INVOICE_STATUS } from '@/constants';
+import { ERROR_MESSAGES, INVOICE_STATUS, InvoiceStatus } from '@/constants';
 
 // Models
-import { IInvoice, InvoiceStatus } from '@/models';
+import { IInvoice } from '@/models';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';

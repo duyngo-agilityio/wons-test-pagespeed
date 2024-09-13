@@ -6,3 +6,4 @@ export { default as MessageIcon } from './MessageIcon';
 export { default as NotificationIcon } from './NotificationIcon';
 export { default as ScheduleIcon } from './ScheduleIcon';
 export { default as SettingIcon } from './SettingIcon';
+export { default as EmailIcon } from './EmailIcon';
