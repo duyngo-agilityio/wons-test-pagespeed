@@ -1,4 +1,5 @@
 'use client';
+import { useCallback, useState } from 'react';
 
 import {
   Dropdown as NextUIDropdown,
@@ -13,7 +14,9 @@ import {
 import { RiEdit2Fill } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
 import { FaEllipsisH } from 'react-icons/fa';
-import { useCallback } from 'react';
+
+// components
+import { ConfirmModal } from '@/components';
 
 interface DropdownActionsProps {
   id: string;
@@ -22,51 +25,71 @@ interface DropdownActionsProps {
 }
 
 const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
-  const handleDelete = useCallback(() => onDelete(id), [id, onDelete]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleDelete = useCallback(() => setIsModalOpen(true), []);
+
+  const handleConfirmDelete = useCallback(() => {
+    onDelete(id);
+    setIsModalOpen(false);
+  }, [id, onDelete]);
+
+  const handleCancelDelete = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
 
   const handleEdit = useCallback(() => onEdit(id), [id, onEdit]);
 
   return (
-    <NextUIDropdown
-      showArrow
-      classNames={{
-        base: 'bg-white dark:bg-[#1A202C] rounded-[15px]',
-        content: ' py-2 px-2 border border-transparent bg-dark-800 shadow-lg',
-      }}
-    >
-      <DropdownTrigger>
-        <Button className="border-none bg-bone">
-          <FaEllipsisH
-            size={14}
-            className="text-blue-800/30 dark:text-white/30"
-          />
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu variant="flat" aria-label="Dropdown menu">
-        <DropdownSection>
-          <DropdownItem
-            key="edit"
-            className="bg-[#f5f5fc] dark:bg-[#2f3268] py-3 text-[#605cf8]"
-            startContent={
-              <RiEdit2Fill className="text-blue-500 dark:text-purple-600 rounded-" />
-            }
-            onClick={handleEdit}
-          >
-            Edit
-          </DropdownItem>
-        </DropdownSection>
-        <DropdownSection>
-          <DropdownItem
-            key="delete"
-            className="bg-[#fff7fb] dark:bg-pink-600 py-3 text-pink-500"
-            startContent={<AiFillDelete className="text-pink-500" />}
-            onClick={handleDelete}
-          >
-            Delete
-          </DropdownItem>
-        </DropdownSection>
-      </DropdownMenu>
-    </NextUIDropdown>
+    <>
+      <NextUIDropdown
+        showArrow
+        classNames={{
+          base: 'bg-white dark:bg-[#1A202C] rounded-[15px]',
+          content: ' py-2 px-2 border border-transparent bg-dark-800 shadow-lg',
+        }}
+      >
+        <DropdownTrigger>
+          <Button className="border-none bg-bone">
+            <FaEllipsisH
+              size={14}
+              className="text-blue-800/30 dark:text-white/30"
+            />
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu variant="flat" aria-label="Dropdown menu">
+          <DropdownSection>
+            <DropdownItem
+              key="edit"
+              className="bg-[#f5f5fc] dark:bg-[#2f3268] py-3 text-[#605cf8]"
+              startContent={
+                <RiEdit2Fill className="text-blue-500 dark:text-purple-600 rounded-" />
+              }
+              onClick={handleEdit}
+            >
+              Edit
+            </DropdownItem>
+          </DropdownSection>
+          <DropdownSection>
+            <DropdownItem
+              key="delete"
+              className="bg-[#fff7fb] dark:bg-pink-600 py-3 text-pink-500"
+              startContent={<AiFillDelete className="text-pink-500" />}
+              onClick={handleDelete}
+            >
+              Delete
+            </DropdownItem>
+          </DropdownSection>
+        </DropdownMenu>
+      </NextUIDropdown>
+      <ConfirmModal
+        title="Delete Item"
+        content="Are you sure you want to delete this item?"
+        isOpen={isModalOpen}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
+    </>
   );
 };
 
