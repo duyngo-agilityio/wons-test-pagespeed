@@ -18,3 +18,5 @@ export { default as InvoiceStatus } from './InvoiceStatus';
 export { default as InvoicesTable } from './InvoicesTable';
 export { default as StarButton } from './StarButton';
 export { default as AvatarUpload } from './AvatarUpload';
+export { default as CustomerForm } from './CustomerForm';
+export { default as CustomerDrawer } from './CustomerDrawer';
