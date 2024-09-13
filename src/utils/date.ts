@@ -1,47 +1,53 @@
-import { DateRangeState } from '@/types';
-import {
-  DateFormatter,
-  getLocalTimeZone,
-  parseDate,
-  today,
-} from '@internationalized/date';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import { getLocalTimeZone, parseDate, today } from '@internationalized/date';
 
-const customDateFormatter = new DateFormatter('en-US', {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-});
+// Types
+import { DateRangeState } from '@/types';
+import { DAYJS_PATTERN } from '@/constants';
+
+dayjs.extend(utc);
 
 /***
- * Function format date dd-mm-yyyy
+ * Function format date
  */
-export const formatDate = (date: Date | undefined) => {
-  const formattedDate = customDateFormatter.format(date ?? new Date());
-  return formattedDate.replace(/\//g, '-');
-};
+export const formatDate = (date: string | Date, pattern: string) =>
+  dayjs(date).utc(true).format(pattern);
 
 /**
  * Function get start time for DatePicker
  */
-export const getStartTimeDatePicker = (date: number) => {
+export const getStartTimeDatePicker = (
+  date: number,
+  startTime: string,
+  endTime: string,
+): DateRangeState => {
   // Get the current date in the local timezone
   const currentDate = today(getLocalTimeZone());
-
   const defaultStartTime = currentDate.add({
     days: -date,
   });
+  const defaultStartTimeIso = `${defaultStartTime.year}-${String(
+    defaultStartTime.month,
+  ).padStart(2, '0')}-${String(defaultStartTime.day).padStart(2, '0')}`;
 
-  const defaultStartTimeIso = `${defaultStartTime.year}-${String(defaultStartTime.month).padStart(2, '0')}-${String(defaultStartTime.day).padStart(2, '0')}`;
+  return {
+    start: parseDate(
+      startTime
+        ? formatDate(new Date(startTime), DAYJS_PATTERN['YYYY-MM-DD'])
+        : defaultStartTimeIso,
+    ),
 
-  const defaultValue: DateRangeState = {
-    start: parseDate(defaultStartTimeIso),
-    end: currentDate,
+    end: endTime
+      ? parseDate(formatDate(new Date(endTime), DAYJS_PATTERN['YYYY-MM-DD']))
+      : currentDate,
   };
-
-  return defaultValue;
 };
 
 /**
  * Function Get current date
  */
 export const currentDate = today(getLocalTimeZone());
+
+export const formatDateByISO = (date: string): string =>
+  dayjs(date).utc(true).format();

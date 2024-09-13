@@ -21,7 +21,7 @@ exports[`DateRangePicker match snapshot 1`] = `
           <p
             class="text-[15.02px] ml-[17.96px]"
           >
-            09-07-2024
+            07-09-2024
           </p>
           <div
             class="absolute flex items-center h-full right-0 px-2"
@@ -52,7 +52,7 @@ exports[`DateRangePicker match snapshot 1`] = `
           <p
             class="text-[15.02px] ml-[17.96px]"
           >
-            09-13-2024
+            13-09-2024
           </p>
           <div
             class="absolute flex items-center h-full right-0 px-2"

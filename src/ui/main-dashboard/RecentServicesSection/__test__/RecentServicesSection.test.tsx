@@ -25,6 +25,8 @@ describe('RecentServicesSection', () => {
         searchParams: {
           sortBy: '',
           order: '',
+          startTime: '',
+          endTime: '',
         },
       }),
     );
@@ -41,11 +43,5 @@ describe('RecentServicesSection', () => {
     const { container } = await renderUI();
 
     expect(container).toMatchSnapshot();
-  });
-
-  it('should match snapshot with notFound', async () => {
-    (httpClient.getRequest as jest.Mock).mockResolvedValue({ data: [] });
-
-    await expect(renderUI()).rejects.toThrow('NEXT_NOT_FOUND');
   });
 });

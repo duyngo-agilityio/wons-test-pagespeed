@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useCallback } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { getLocalTimeZone } from '@internationalized/date';
 import {
   DateRangePicker as DateRangePickerBase,
@@ -10,10 +11,15 @@ import {
 } from '@nextui-org/react';
 
 // Constants
-import { DEFAULT_RANGE_VALUE_PICKER } from '@/constants';
+import { DAYJS_PATTERN, DEFAULT_RANGE_VALUE_PICKER, PARAMS } from '@/constants';
 
 // Utils
-import { currentDate, formatDate, getStartTimeDatePicker } from '@/utils';
+import {
+  currentDate,
+  formatDate,
+  formatDateByISO,
+  getStartTimeDatePicker,
+} from '@/utils';
 
 // Types
 import { DateRangeState } from '@/types';
@@ -28,11 +34,21 @@ const DateRangePicker = ({
   maxValue,
   ...rest
 }: DateRangePickerBaseProps) => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const paramsObject = searchParams
+    ? Object.fromEntries(searchParams.entries())
+    : {};
   const [dateRange, setDateRange] = useState<DateRangeState | null>(
-    getStartTimeDatePicker(DEFAULT_RANGE_VALUE_PICKER - 1),
+    getStartTimeDatePicker(
+      DEFAULT_RANGE_VALUE_PICKER - 1,
+      paramsObject.startTime,
+      paramsObject.endTime,
+    ),
   );
-
   const [isOpenRangePicker, setIsOpenRangePicker] = useState(false);
+  const { END_TIME, START_TIME } = PARAMS;
 
   const handleOpenDatePicker = useCallback(
     () => setIsOpenRangePicker((prev) => !prev),
@@ -41,10 +57,32 @@ const DateRangePicker = ({
 
   const handleOnChangeDateRangePicker = useCallback(
     (value: RangeValue<DateValue>) => {
+      const params = new URLSearchParams(searchParams);
+      const {
+        day: startDay = 1,
+        month: startMonth = 1,
+        year: startYear = 2024,
+      } = value.start ?? {};
+      const {
+        day: endDay = 2,
+        month: endMonth = 1,
+        year: endYear = 2024,
+      } = value.end ?? {};
+
       setIsOpenRangePicker(false);
       setDateRange(value);
+
+      const startTime = `${startYear}-${startMonth}-${startDay}`;
+      const endTime = `${endYear}-${endMonth}-${endDay} 23:59:59`;
+
+      if (startTime && endTime) {
+        params.set(START_TIME, formatDateByISO(startTime));
+        params.set(END_TIME, formatDateByISO(endTime));
+      }
+
+      replace(`${pathname}?${params.toString()}`, { scroll: false });
     },
-    [setDateRange, setIsOpenRangePicker],
+    [END_TIME, START_TIME, pathname, replace, searchParams],
   );
 
   return (
@@ -62,6 +100,7 @@ const DateRangePicker = ({
                   dateRange?.[key as keyof typeof dateRange].toDate(
                     getLocalTimeZone(),
                   ),
+                  DAYJS_PATTERN['DD-MM-YYYY'],
                 )}
               </p>
               <div className="absolute flex items-center h-full right-0 px-2">

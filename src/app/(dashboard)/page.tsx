@@ -31,6 +31,8 @@ interface IDashboardPage {
 const DashboardPage = async ({ searchParams }: IDashboardPage) => {
   const sortBy = searchParams.sortBy;
   const order = searchParams.order;
+  const startTime = searchParams.startTime;
+  const endTime = searchParams.endTime;
 
   return (
     <main>
@@ -46,7 +48,7 @@ const DashboardPage = async ({ searchParams }: IDashboardPage) => {
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
           <div className="lg:col-span-6">
             <Suspense
-              key={sortBy + order}
+              key={sortBy + order + startTime + endTime}
               fallback={
                 <TableLayout>
                   <TableSkeleton columns={MAPPING_RECENT_SERVICES_SKELETON} />
