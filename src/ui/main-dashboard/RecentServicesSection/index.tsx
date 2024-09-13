@@ -1,5 +1,3 @@
-import { notFound } from 'next/navigation';
-
 // Api
 import { getInvoiceProducts } from '@/api';
 
@@ -22,18 +20,22 @@ interface IRecentServicesSection {
 const RecentServicesSection = async ({
   searchParams,
 }: IRecentServicesSection) => {
-  const sortBy = searchParams.sortBy;
-  const order = searchParams.order;
-
+  const sortBy: string = searchParams.sortBy;
+  const order: string = searchParams.order;
+  const startTime: string = searchParams.startTime;
+  const endTime: string = searchParams.endTime;
+  const filters: Record<string, string> = {
+    'createdAt[$gte]': startTime,
+    'createdAt[$lte]': endTime,
+  };
   const result: StrapiResponse<
     StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
   > = (await getInvoiceProducts({
     sort: searchParams.sortBy
       ? `${sortBy === 'title' ? `product.${sortBy}` : sortBy}:${order}`
       : '',
+    filters,
   })) as StrapiResponse<StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]>;
-
-  if (!result.data.length) notFound();
 
   return (
     <TableLayout>

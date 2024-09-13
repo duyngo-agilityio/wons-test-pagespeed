@@ -138,7 +138,7 @@ const TableCustom = <T extends { id: string }>({
           );
         })}
       </TableHeader>
-      <TableBody>
+      <TableBody emptyContent={'No rows to display.'}>
         {data.map((item) => (
           <TableRow
             key={`table-row-${item.id}`}
