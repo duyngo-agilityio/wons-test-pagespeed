@@ -20,7 +20,14 @@ jest.mock('@/services', () => ({
 
 describe('RecentServicesSection', () => {
   const renderUI = async () =>
-    testLibJestUtils.render(await RecentServicesSection());
+    testLibJestUtils.render(
+      await RecentServicesSection({
+        searchParams: {
+          sortBy: '',
+          order: '',
+        },
+      }),
+    );
 
   afterEach(() => {
     jest.clearAllMocks();

@@ -10,11 +10,19 @@ import { StrapiModel, StrapiResponse } from '@/types';
 // Services
 import { httpClient } from '@/services';
 
-export const getInvoiceProducts = async (
-  cache?: RequestCache,
-  nextOptions?: NextFetchRequestConfig,
-) => {
-  const endpoint = `${API_PATH.INVOICE_PRODUCTS}?populate=product`;
+interface IParameters {
+  cache?: RequestCache;
+  nextOptions?: NextFetchRequestConfig;
+  sort?: string;
+}
+
+export const getInvoiceProducts = async ({
+  cache,
+  nextOptions,
+  sort,
+}: IParameters) => {
+  const sortValue: string = sort ? `&sort=${sort}` : '';
+  const endpoint: string = `${API_PATH.INVOICE_PRODUCTS}?populate=product&pagination[pageSize]=4${sortValue}`;
 
   try {
     const response = await httpClient.getRequest<
