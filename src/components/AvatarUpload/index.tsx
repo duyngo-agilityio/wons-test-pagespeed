@@ -1,4 +1,4 @@
-import { ICustomer } from '@/models';
+'use client';
 import { ChangeEvent, useCallback, useState } from 'react';
 import {
   Control,
@@ -10,78 +10,86 @@ import {
 // icons
 import { IoCamera } from 'react-icons/io5';
 
-// components
-import { ImageFallback, Input } from '@/components';
+import { Input } from '@/components';
+
+import { Image } from '@nextui-org/react';
 
 // constants
-import { MAX_SIZE, REGEX } from '@/constants';
+import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 
 // utils
 import { clearErrorOnChange } from '@/utils';
+
+// models
+import { ICustomer } from '@/models';
 
 export type TUpdateProfileProps = {
   control: Control<ICustomer>;
   errors: FieldErrors<ICustomer>;
   clearErrors: UseFormClearErrors<ICustomer>;
-  className?: string;
+  onFileChange: (file: File) => void;
 };
 
 const AvatarUpload = ({
   control,
   errors,
   clearErrors,
+  onFileChange,
 }: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   const handleChangeFile = useCallback(
-    (onChange: (value: string) => void) =>
-      async (e: ChangeEvent<HTMLInputElement>) => {
-        const file = (e.target.files && e.target.files[0]) as File;
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const file = (e.target.files && e.target.files[0]) as File;
 
-        // Check if file is undefined or empty
-        if (!file) {
-          return;
-        }
+      if (!file) {
+        return;
+      }
 
-        // Check if file type is valid
-        if (!REGEX.IMG.test(file.name)) {
-          return onChange('Invalid file type');
-        }
+      if (!REGEX.IMG.test(file.name)) {
+        const error = ERROR_MESSAGES.UPLOAD_IMAGE;
+        setErrorMessage(error);
+        return;
+      }
 
-        // Check if file size is valid
-        if (file.size > MAX_SIZE) {
-          return onChange('File size exceeds the limit');
-        }
+      if (file.size > MAX_SIZE) {
+        const error = ERROR_MESSAGES.UPLOAD_IMAGE_SIZE;
+        setErrorMessage(error);
+        return;
+      }
 
-        try {
-          const previewImage = URL.createObjectURL(file);
-          setPreviewURL(previewImage);
-          onChange(file.toString());
-        } catch (error) {
-          onChange('Error uploading the file');
-        }
-      },
-    [],
+      setErrorMessage('');
+
+      if (previewURL) {
+        URL.revokeObjectURL(previewURL);
+        setPreviewURL('');
+      }
+
+      const previewImage = URL.createObjectURL(file);
+      setPreviewURL(previewImage);
+      onFileChange(file);
+    },
+    [onFileChange, previewURL],
   );
 
   return (
     <Controller
       control={control}
       name="avatar"
-      render={({
-        field: { name, value, onChange, ...rest },
-        fieldState: { error },
-      }) => (
-        <div className="flex justify-center items-center my-20">
+      render={({ field: { name, value, onChange, ...rest } }) => (
+        <div className="flex flex-col justify-center items-center my-20">
           <label
             htmlFor="file"
             className="cursor-pointer hover:scale-110 transition-transform"
           >
             <div className="rounded-full w-32 h-32 bg-gray-50 dark:bg-gray-600 flex justify-center items-center">
               {previewURL || value ? (
-                <ImageFallback
+                <Image
                   src={previewURL || value}
                   alt="Avatar"
+                  width={128}
+                  height={128}
                   className="rounded-full object-cover w-full h-full"
                 />
               ) : (
@@ -99,14 +107,15 @@ const AvatarUpload = ({
             className="hidden"
             accept="image/*"
             onChange={(e) => {
-              handleChangeFile(onChange)(e);
+              handleChangeFile(e);
+              onChange(e);
               clearErrorOnChange(name, errors, clearErrors);
             }}
             {...rest}
           />
 
-          {error && (
-            <p className="text-red-500 text-xs mt-1">{error.message}</p>
+          {errorMessage && (
+            <p className="text-red-500 text-md mt-2">{errorMessage}</p>
           )}
         </div>
       )}

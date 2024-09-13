@@ -9,6 +9,8 @@ export const ERROR_MESSAGES = {
   EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
   INVALID_PHONE: 'Invalid phone number.',
+  UPLOAD_IMAGE: 'Wrong image format. Only "jpg", "png" and "webp" are allowed',
+  UPLOAD_IMAGE_SIZE: 'Image size should be less than 5MB',
 };
 
 export const SUCCESS_MESSAGES = {

@@ -1,4 +1,6 @@
 'use client';
+import { useCallback } from 'react';
+
 import { Select, SelectItem } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -11,9 +13,10 @@ import { ERROR_MESSAGES, REGEX } from '@/constants';
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
 // Components
-import { Button, Heading, Input } from '@/components';
+import { Button, Heading, Input, AvatarUpload } from '@/components';
+
+// Models
 import { ICustomer } from '@/models';
-import UpdateImage from '../AvatarUpload';
 
 // Zod schema for validation
 const customerFormSchema = z.object({
@@ -32,7 +35,14 @@ const customerFormSchema = z.object({
   }),
 });
 
-const REQUIRED_FIELDS = ['firstName', 'lastName', 'phone', 'email', 'gender'];
+const REQUIRED_FIELDS = [
+  'firstName',
+  'lastName',
+  'phone',
+  'email',
+  'gender',
+  'avatar',
+];
 const genders = [
   { key: 'male', label: 'Male' },
   { key: 'female', label: 'Female' },
@@ -59,6 +69,7 @@ const CustomerForm = ({ isPending = false, onSubmit }: ICustomerFormProps) => {
       email: '',
       phone: '',
       gender: undefined,
+      avatar: '',
     },
   });
 
@@ -73,6 +84,10 @@ const CustomerForm = ({ isPending = false, onSubmit }: ICustomerFormProps) => {
     return onSubmit(formData);
   };
 
+  const handleAvatarChange = useCallback(() => {
+    // TODO: handle later
+  }, []);
+
   return (
     <form
       className="w-full max-w-2xl mx-auto"
@@ -80,10 +95,11 @@ const CustomerForm = ({ isPending = false, onSubmit }: ICustomerFormProps) => {
     >
       <Heading title="Add Customer" />
 
-      <UpdateImage
+      <AvatarUpload
         control={control}
         errors={errors}
         clearErrors={clearErrors}
+        onFileChange={handleAvatarChange}
       />
 
       <Controller
