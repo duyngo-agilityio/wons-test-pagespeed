@@ -22,6 +22,7 @@ import {
   Button,
   DatePicker,
   Input,
+  InvoiceProductTable,
 } from '@/components';
 
 // Zod schema for validation
@@ -48,10 +49,11 @@ const REQUIRED_FIELDS = [
 ];
 
 interface InvoiceFormProps {
-  onSubmit: (data: Partial<TInvoice>) => void;
+  onSubmit: (data: Partial<IInvoice>) => void;
+  products: IProduct[];
 }
 
-const InvoiceForm = ({ onSubmit }: InvoiceFormProps) => {
+const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
   const {
     control,
     formState: { dirtyFields, errors },
@@ -200,6 +202,12 @@ const InvoiceForm = ({ onSubmit }: InvoiceFormProps) => {
             />
           )}
         />
+      </div>
+
+      <div>
+        <div className="mt-[17px]">
+          <InvoiceProductTable products={products} />
+        </div>
       </div>
 
       <div className="flex gap-[30px]">
