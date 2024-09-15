@@ -55,6 +55,7 @@ export const getInvoiceProducts = async ({
 };
 
 export type InvoiceListConfigs = {
+  query?: string;
   sortOrder?: string;
   sortBy?: string;
   cache?: RequestCache;
@@ -62,6 +63,7 @@ export type InvoiceListConfigs = {
 };
 
 export const getInvoices = async ({
+  query,
   sortOrder,
   sortBy,
   cache,
@@ -74,7 +76,9 @@ export const getInvoices = async ({
   } else {
     sort = sortBy ? `&sort=${sortBy}:${sortOrder}` : '';
   }
-  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sort}`;
+
+  const searchBy = query ? `&filters[$or][0][customer][firstName][$contains]=${query}&filters[$or][1][customer][lastName][$contains]=${query}&filters[$or][2][customer][email][$contains]=${query}` : '';
+  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sort}${searchBy}`;
 
   try {
     const response = await httpClient.getRequest<TInvoiceListResponse>({

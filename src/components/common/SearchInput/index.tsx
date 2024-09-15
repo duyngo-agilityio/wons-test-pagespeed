@@ -36,7 +36,7 @@ const SearchInput = ({ ...props }: InputProps) => {
 
       replace(`${pathname}?${params.toString()}`);
     },
-    2000,
+    500,
   );
 
   return (
