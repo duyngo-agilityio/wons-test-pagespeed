@@ -5,3 +5,4 @@ export * from './select';
 export * from './strapi';
 export * from './table';
 export * from './toast';
+export * from './invoice';

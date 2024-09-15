@@ -1,6 +1,3 @@
-// Types
-import { ICustomer } from './customer';
-
 // Constants
 import { InvoiceStatus } from '@/constants';
 
@@ -13,20 +10,9 @@ export type TInvoiceProduct<T> = {
   product: { data: T };
 };
 
-export interface IInvoice {
-  id: string;
-  customer: string;
-  imageUrl: string;
-  status: InvoiceStatus;
-  address: string;
-  isSelected: boolean;
-  date: string;
-  email: string;
-}
-
 export type TInvoice = {
-  id: string;
-  customer: ICustomer;
+  invoiceId: string;
+  customer: string;
   imageUrl: string;
   status: InvoiceStatus;
   address: string;

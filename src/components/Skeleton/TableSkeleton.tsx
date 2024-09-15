@@ -13,15 +13,17 @@ interface ITableSkeleton {
   columns: TableColumnType<Record<string, number>>[];
   quantity?: number;
   variant?: 'primary' | 'secondary';
+  isStriped?: boolean;
 }
 
 const TableSkeleton = ({
   quantity = 4,
   variant = 'secondary',
   columns,
+  isStriped = true,
 }: ITableSkeleton) => (
   <Table
-    isStriped
+    isStriped={isStriped}
     variant={variant}
     columns={columns}
     data={InsertSkeletonRow(quantity)}

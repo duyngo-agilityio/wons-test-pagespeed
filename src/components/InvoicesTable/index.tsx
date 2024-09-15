@@ -1,13 +1,14 @@
 'use client';
 
+// Libs
 import { useCallback, useMemo } from 'react';
 import dayjs from 'dayjs';
 
-// Models
-import { TInvoice } from '@/models';
-
 // Constants
 import { InvoiceStatus } from '@/constants';
+
+// Types
+import { TInvoiceDataResponse } from '@/types';
 
 // Components
 import {
@@ -23,8 +24,10 @@ import {
   StarButton,
 } from '@/components';
 
-type InvoicesTableProps = {
-  data: TInvoice[];
+type TInvoiceData = TInvoiceDataResponse;
+
+type TInvoicesTableProps = {
+  data: TInvoiceData[];
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
   onToggleSelectStar: (id: string) => void;
@@ -35,7 +38,7 @@ const InvoicesTable = ({
   onEdit,
   onDelete,
   onToggleSelectStar,
-}: InvoicesTableProps): JSX.Element => {
+}: TInvoicesTableProps): JSX.Element => {
   // TODO: Update later when handle delete invoice
   const handleDeleteMultiple = useCallback(() => {}, []);
 
@@ -43,18 +46,28 @@ const InvoicesTable = ({
     () => [
       {
         header: 'Invoice Id',
-        accessor: (invoice: TInvoice) => {
-          const { id = '' } = invoice || {};
+        accessor: (invoiceData: TInvoiceData) => {
+          const { attributes } = invoiceData || {};
 
-          return <Text size="md" text={`#${id}`} />;
+          const { invoiceId } = attributes || {};
+
+          return <Text size="md" text={`#${invoiceId}`} />;
         },
         isSort: true,
       },
       {
         header: 'Name',
-        accessor: (invoice: TInvoice) => {
-          const { customer } = invoice || {};
-          const { avatar = '', firstName = '', lastName = '' } = customer || {};
+        accessor: (invoice: TInvoiceData) => {
+          const { attributes: invoiceAttributes } = invoice || {};
+          const { customer } = invoiceAttributes || {};
+          const { data } = customer || {};
+          const { attributes: customerAttributes } = data || {};
+
+          const {
+            avatar = '',
+            firstName = '',
+            lastName = '',
+          } = customerAttributes || {};
 
           return (
             <div className="flex gap-3.5 items-center">
@@ -80,9 +93,12 @@ const InvoicesTable = ({
       },
       {
         header: 'Email',
-        accessor: (invoice: TInvoice) => {
-          const { customer } = invoice || {};
-          const { email = '' } = customer || {};
+        accessor: (invoice: TInvoiceData) => {
+          const { attributes: invoiceAttributes } = invoice || {};
+          const { customer } = invoiceAttributes || {};
+          const { data } = customer || {};
+          const { attributes: customerAttributes } = data || {};
+          const { email = '' } = customerAttributes || {};
 
           return (
             <div className="flex gap-2.5 items-center">
@@ -95,8 +111,9 @@ const InvoicesTable = ({
       },
       {
         header: 'Date',
-        accessor: (invoice: TInvoice) => {
-          const { date = '' } = invoice || {};
+        accessor: (invoice: TInvoiceData) => {
+          const { attributes: invoiceAttributes } = invoice || {};
+          const { date = '' } = invoiceAttributes || {};
 
           return (
             <div className="flex gap-2.5 items-center">
@@ -117,24 +134,28 @@ const InvoicesTable = ({
       },
       {
         header: 'Status',
-        accessor: (invoice: TInvoice) => {
-          const { status = InvoiceStatus.PENDING } = invoice || {};
+        accessor: (invoice: TInvoiceData) => {
+          const { attributes: invoiceAttributes } = invoice || {};
+          const { status = InvoiceStatus.PENDING } = invoiceAttributes || {};
 
           return <InvoiceStatusComponent variant={status} />;
         },
       },
       {
-        accessor: (invoice: TInvoice) => {
-          const { isSelected = false, id = '' } = invoice || {};
+        accessor: (invoice: TInvoiceData) => {
+          const { attributes: invoiceAttributes } = invoice || {};
+          const { isSelected = false, invoiceId = '' } =
+            invoiceAttributes || {};
 
           return (
             <StarButton
-              id={id}
+              id={invoiceId}
               isSelected={isSelected}
               onClick={onToggleSelectStar}
             />
           );
         },
+        isSort: true,
       },
       {
         header: (
@@ -150,11 +171,16 @@ const InvoicesTable = ({
           </Button>
         ),
 
-        accessor: (invoice: TInvoice) => {
-          const { id } = invoice || {};
+        accessor: (invoice: TInvoiceData) => {
+          const { attributes: invoiceAttributes } = invoice || {};
+          const { invoiceId = '' } = invoiceAttributes || {};
 
           return (
-            <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
+            <DropdownActions
+              id={invoiceId}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
           );
         },
       },

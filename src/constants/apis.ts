@@ -9,4 +9,5 @@ export const API_PATH = {
   SIGN_UP: '/auth/local/register',
   STATISTICS: '/statistics',
   USERS: '/users',
+  INVOICES: '/invoices',
 };
