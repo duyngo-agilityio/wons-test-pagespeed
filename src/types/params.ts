@@ -1,6 +1,6 @@
 export interface ISearchParams {
-  sortBy: string;
-  order: string;
-  startTime: string;
-  endTime: string;
+  sortBy?: string;
+  order?: string;
+  startTime?: string;
+  endTime?: string;
 }

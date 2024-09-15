@@ -3,6 +3,9 @@ import { Suspense } from 'react';
 // Constants
 import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
 
+// Types
+import { ISearchParams } from '@/types';
+
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
@@ -12,22 +15,36 @@ import { InvoiceListActions, InvoiceList } from '@/ui';
 // Components
 import { TableSkeleton } from '@/components';
 
-const InvoiceListPage = (): JSX.Element => (
-  <main>
-    <DashBoardLayout title="Invoice List" rightContent={<InvoiceListActions />}>
-      <Suspense
-        fallback={
-          <TableSkeleton
-            variant="primary"
-            isStriped={false}
-            columns={MAPPING_INVOICE_LIST_SKELETON}
-          />
-        }
+type TInvoiceListPageProps = {
+  searchParams: ISearchParams;
+};
+
+const InvoiceListPage = ({
+  searchParams,
+}: TInvoiceListPageProps): JSX.Element => {
+  const { order = '', sortBy = '' } = searchParams || {};
+
+  return (
+    <main>
+      <DashBoardLayout
+        title="Invoice List"
+        rightContent={<InvoiceListActions />}
       >
-        <InvoiceList />
-      </Suspense>
-    </DashBoardLayout>
-  </main>
-);
+        <Suspense
+          key={order + sortBy}
+          fallback={
+            <TableSkeleton
+              variant="primary"
+              isStriped={false}
+              columns={MAPPING_INVOICE_LIST_SKELETON}
+            />
+          }
+        >
+          <InvoiceList sortBy={sortBy} sortOrder={order} />
+        </Suspense>
+      </DashBoardLayout>
+    </main>
+  );
+};
 
 export default InvoiceListPage;
