@@ -31,6 +31,7 @@ type TInvoicesTableProps = {
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
   onToggleSelectStar: (id: string) => void;
+  onSort: (field: string) => void;
 };
 
 const InvoicesTable = ({
@@ -38,6 +39,7 @@ const InvoicesTable = ({
   onEdit,
   onDelete,
   onToggleSelectStar,
+  onSort,
 }: TInvoicesTableProps): JSX.Element => {
   // TODO: Update later when handle delete invoice
   const handleDeleteMultiple = useCallback(() => {}, []);
@@ -53,6 +55,7 @@ const InvoicesTable = ({
 
           return <Text size="md" text={`#${invoiceId}`} />;
         },
+        value: 'invoiceId',
         isSort: true,
       },
       {
@@ -89,6 +92,7 @@ const InvoicesTable = ({
             </div>
           );
         },
+        value: 'fullName',
         isSort: true,
       },
       {
@@ -107,6 +111,7 @@ const InvoicesTable = ({
             </div>
           );
         },
+        value: 'customer.email',
         isSort: true,
       },
       {
@@ -130,6 +135,7 @@ const InvoicesTable = ({
             </div>
           );
         },
+        value: 'date',
         isSort: true,
       },
       {
@@ -140,6 +146,8 @@ const InvoicesTable = ({
 
           return <InvoiceStatusComponent variant={status} />;
         },
+        value: 'status',
+        isSort: true,
       },
       {
         accessor: (invoice: TInvoiceData) => {
@@ -155,7 +163,6 @@ const InvoicesTable = ({
             />
           );
         },
-        isSort: true,
       },
       {
         header: (
@@ -194,6 +201,7 @@ const InvoicesTable = ({
       // Simulate data
       columns={mappingContentColumns}
       data={data}
+      onSort={onSort}
     />
   );
 };

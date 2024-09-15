@@ -54,8 +54,27 @@ export const getInvoiceProducts = async ({
   }
 };
 
-export const getInvoices = async ({ cache, nextOptions }: IParameters) => {
-  const endpoint: string = `${API_PATH.INVOICES}?populate=customer`;
+export type InvoiceListConfigs = {
+  sortOrder?: string;
+  sortBy?: string;
+  cache?: RequestCache;
+  nextOptions?: NextFetchRequestConfig;
+};
+
+export const getInvoices = async ({
+  sortOrder,
+  sortBy,
+  cache,
+  nextOptions,
+}: InvoiceListConfigs) => {
+  let sort = '';
+
+  if (sortBy === 'fullName') {
+    sort = `&sort=customer.firstName:${sortOrder},customer.lastName:${sortOrder}`;
+  } else {
+    sort = sortBy ? `&sort=${sortBy}:${sortOrder}` : '';
+  }
+  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sort}`;
 
   try {
     const response = await httpClient.getRequest<TInvoiceListResponse>({

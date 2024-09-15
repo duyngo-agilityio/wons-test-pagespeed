@@ -20,10 +20,13 @@ interface IRecentServicesSection {
 const RecentServicesSection = async ({
   searchParams,
 }: IRecentServicesSection) => {
-  const sortBy: string = searchParams.sortBy;
-  const order: string = searchParams.order;
-  const startTime: string = searchParams.startTime;
-  const endTime: string = searchParams.endTime;
+  const {
+    sortBy = '',
+    order = '',
+    startTime = '',
+    endTime = '',
+  } = searchParams || {};
+
   const filters: Record<string, string> = {
     'createdAt[$gte]': startTime,
     'createdAt[$lte]': endTime,

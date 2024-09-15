@@ -29,10 +29,12 @@ interface IDashboardPage {
 }
 
 const DashboardPage = async ({ searchParams }: IDashboardPage) => {
-  const sortBy = searchParams.sortBy;
-  const order = searchParams.order;
-  const startTime = searchParams.startTime;
-  const endTime = searchParams.endTime;
+  const {
+    sortBy = '',
+    order = '',
+    startTime = '',
+    endTime = '',
+  } = searchParams || {};
 
   return (
     <main>
