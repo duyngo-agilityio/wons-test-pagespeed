@@ -2,7 +2,7 @@ export const ROUTES = {
   DASHBOARD: '/',
   ANALYTICS: '/analytics',
   CALENDAR: '/calendar',
-  INVOICE: '/invoice',
+  INVOICE: '/invoices ',
   MESSAGES: '/messages',
   NOTIFICATION: '/notification',
   SCHEDULE: '/schedule',

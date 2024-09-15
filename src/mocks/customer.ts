@@ -7,11 +7,6 @@ import { TableColumnType } from '@/types';
 export const PRODUCT_TABLE_COLUMNS_MOCK: TableColumnType<Partial<ICustomer>>[] =
   [
     {
-      header: 'Name',
-      accessor: 'name',
-      isSort: true,
-    },
-    {
       header: 'FirstName',
       accessor: 'firstName',
       isSort: true,

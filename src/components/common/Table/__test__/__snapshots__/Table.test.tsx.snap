@@ -32,35 +32,8 @@ exports[`Table should match snapshot for Table primary 1`] = `
             >
               <th
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="Name0"
-                id="react-aria-:r0:-Name0"
-                role="columnheader"
-                tabindex="-1"
-              >
-                <button
-                  class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
-                  type="button"
-                >
-                  Name
-                  <svg
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 512 512"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="m98 190.06 139.78 163.12a24 24 0 0 0 36.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z"
-                    />
-                  </svg>
-                </button>
-              </th>
-              <th
-                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="FirstName1"
-                id="react-aria-:r0:-FirstName1"
+                data-key="FirstName0"
+                id="react-aria-:r0:-FirstName0"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -86,8 +59,8 @@ exports[`Table should match snapshot for Table primary 1`] = `
               </th>
               <th
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="LastName2"
-                id="react-aria-:r0:-LastName2"
+                data-key="LastName1"
+                id="react-aria-:r0:-LastName1"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -113,8 +86,8 @@ exports[`Table should match snapshot for Table primary 1`] = `
               </th>
               <th
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="Email3"
-                id="react-aria-:r0:-Email3"
+                data-key="Email2"
+                id="react-aria-:r0:-Email2"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -150,7 +123,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
             role="rowgroup"
           >
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-1-Name0"
+              aria-labelledby="react-aria-:r0:-table-row-1-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-white dark:bg-gray-400"
               data-first="true"
               data-id="1"
@@ -161,12 +134,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
               <td
                 class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-1-Name0"
+                id="react-aria-:r0:-table-row-1-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  John Doe
+                  John
                 </div>
               </td>
               <td
@@ -176,7 +149,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  John
+                  Doe
                 </div>
               </td>
               <td
@@ -186,22 +159,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Doe
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   john.doe@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-2-Name0"
+              aria-labelledby="react-aria-:r0:-table-row-2-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-white dark:bg-gray-400"
               data-id="2"
               data-key="table-row-2"
@@ -213,12 +176,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
               <td
                 class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-2-Name0"
+                id="react-aria-:r0:-table-row-2-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Jane Smith
+                  Jane
                 </div>
               </td>
               <td
@@ -228,7 +191,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Jane
+                  Smith
                 </div>
               </td>
               <td
@@ -238,22 +201,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Smith
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   jane.smith@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-3-Name0"
+              aria-labelledby="react-aria-:r0:-table-row-3-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-white dark:bg-gray-400"
               data-id="3"
               data-key="table-row-3"
@@ -264,12 +217,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
               <td
                 class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-3-Name0"
+                id="react-aria-:r0:-table-row-3-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Alice Johnson
+                  Alice
                 </div>
               </td>
               <td
@@ -279,7 +232,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Alice
+                  Johnson
                 </div>
               </td>
               <td
@@ -289,22 +242,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Johnson
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   alice.johnson@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-4-Name0"
+              aria-labelledby="react-aria-:r0:-table-row-4-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-white dark:bg-gray-400"
               data-id="4"
               data-key="table-row-4"
@@ -316,12 +259,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
               <td
                 class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-4-Name0"
+                id="react-aria-:r0:-table-row-4-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Bob Williams
+                  Bob
                 </div>
               </td>
               <td
@@ -331,7 +274,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Bob
+                  Williams
                 </div>
               </td>
               <td
@@ -341,22 +284,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Williams
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   bob.williams@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-5-Name0"
+              aria-labelledby="react-aria-:r0:-table-row-5-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-white dark:bg-gray-400"
               data-id="5"
               data-key="table-row-5"
@@ -367,12 +300,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
               <td
                 class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-5-Name0"
+                id="react-aria-:r0:-table-row-5-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Charlie Brown
+                  Charlie
                 </div>
               </td>
               <td
@@ -382,22 +315,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Charlie
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
-                data-key="table-cell-2"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   Brown
                 </div>
               </td>
               <td
                 class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
-                data-key="table-cell-3"
+                data-key="table-cell-2"
                 role="gridcell"
                 tabindex="-1"
               >
@@ -449,35 +372,8 @@ exports[`Table should match snapshot for Table secondary 1`] = `
             >
               <th
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
-                data-key="Name0"
-                id="react-aria-:r2:-Name0"
-                role="columnheader"
-                tabindex="-1"
-              >
-                <button
-                  class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
-                  type="button"
-                >
-                  Name
-                  <svg
-                    fill="currentColor"
-                    height="1em"
-                    stroke="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 512 512"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="m98 190.06 139.78 163.12a24 24 0 0 0 36.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z"
-                    />
-                  </svg>
-                </button>
-              </th>
-              <th
-                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
-                data-key="FirstName1"
-                id="react-aria-:r2:-FirstName1"
+                data-key="FirstName0"
+                id="react-aria-:r2:-FirstName0"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -503,8 +399,8 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               </th>
               <th
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
-                data-key="LastName2"
-                id="react-aria-:r2:-LastName2"
+                data-key="LastName1"
+                id="react-aria-:r2:-LastName1"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -530,8 +426,8 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               </th>
               <th
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] px-[21px]"
-                data-key="Email3"
-                id="react-aria-:r2:-Email3"
+                data-key="Email2"
+                id="react-aria-:r2:-Email2"
                 role="columnheader"
                 tabindex="-1"
               >
@@ -567,7 +463,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
             role="rowgroup"
           >
             <tr
-              aria-labelledby="react-aria-:r2:-table-row-1-Name0"
+              aria-labelledby="react-aria-:r2:-table-row-1-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-first="true"
               data-id="1"
@@ -578,12 +474,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r2:-table-row-1-Name0"
+                id="react-aria-:r2:-table-row-1-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  John Doe
+                  John
                 </div>
               </td>
               <td
@@ -593,7 +489,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  John
+                  Doe
                 </div>
               </td>
               <td
@@ -603,22 +499,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Doe
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   john.doe@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r2:-table-row-2-Name0"
+              aria-labelledby="react-aria-:r2:-table-row-2-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-id="2"
               data-key="table-row-2"
@@ -630,12 +516,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r2:-table-row-2-Name0"
+                id="react-aria-:r2:-table-row-2-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Jane Smith
+                  Jane
                 </div>
               </td>
               <td
@@ -645,7 +531,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Jane
+                  Smith
                 </div>
               </td>
               <td
@@ -655,22 +541,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Smith
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   jane.smith@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r2:-table-row-3-Name0"
+              aria-labelledby="react-aria-:r2:-table-row-3-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-id="3"
               data-key="table-row-3"
@@ -681,12 +557,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r2:-table-row-3-Name0"
+                id="react-aria-:r2:-table-row-3-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Alice Johnson
+                  Alice
                 </div>
               </td>
               <td
@@ -696,7 +572,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Alice
+                  Johnson
                 </div>
               </td>
               <td
@@ -706,22 +582,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Johnson
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   alice.johnson@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r2:-table-row-4-Name0"
+              aria-labelledby="react-aria-:r2:-table-row-4-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-id="4"
               data-key="table-row-4"
@@ -733,12 +599,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r2:-table-row-4-Name0"
+                id="react-aria-:r2:-table-row-4-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Bob Williams
+                  Bob
                 </div>
               </td>
               <td
@@ -748,7 +614,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Bob
+                  Williams
                 </div>
               </td>
               <td
@@ -758,22 +624,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Williams
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
-                data-key="table-cell-3"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   bob.williams@example.com
                 </div>
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r2:-table-row-5-Name0"
+              aria-labelledby="react-aria-:r2:-table-row-5-FirstName0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-id="5"
               data-key="table-row-5"
@@ -784,12 +640,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r2:-table-row-5-Name0"
+                id="react-aria-:r2:-table-row-5-FirstName0"
                 role="rowheader"
                 tabindex="-1"
               >
                 <div>
-                  Charlie Brown
+                  Charlie
                 </div>
               </td>
               <td
@@ -799,22 +655,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div>
-                  Charlie
-                </div>
-              </td>
-              <td
-                class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
-                data-key="table-cell-2"
-                role="gridcell"
-                tabindex="-1"
-              >
-                <div>
                   Brown
                 </div>
               </td>
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
-                data-key="table-cell-3"
+                data-key="table-cell-2"
                 role="gridcell"
                 tabindex="-1"
               >

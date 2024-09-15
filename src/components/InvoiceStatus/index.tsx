@@ -31,11 +31,11 @@ const InvoiceStatusComponent = ({
       classNames={{
         base: [
           'w-[162px] max-w-[162px] h-[45px] max-h-[45px] rounded-[22px]',
-          `${chipClasses[variant].bg}`,
+          `${chipClasses[variant]?.bg}`,
         ],
         content: [
           'text-center text-md capitalize',
-          `${chipClasses[variant].color}`,
+          `${chipClasses[variant]?.color}`,
         ],
       }}
     >

@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
 
 // Layouts
-import { DashBoardLayout, TableLayout } from '@/layouts';
+import { DashBoardLayout } from '@/layouts';
 
 // Sections
 import { InvoiceListActions, InvoiceList } from '@/ui';
@@ -17,13 +17,11 @@ const InvoiceListPage = (): JSX.Element => (
     <DashBoardLayout title="Invoice List" rightContent={<InvoiceListActions />}>
       <Suspense
         fallback={
-          <TableLayout>
-            <TableSkeleton
-              variant="primary"
-              isStriped={false}
-              columns={MAPPING_INVOICE_LIST_SKELETON}
-            />
-          </TableLayout>
+          <TableSkeleton
+            variant="primary"
+            isStriped={false}
+            columns={MAPPING_INVOICE_LIST_SKELETON}
+          />
         }
       >
         <InvoiceList />

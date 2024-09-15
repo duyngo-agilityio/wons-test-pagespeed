@@ -1,34 +1,15 @@
-'use client';
-// Libs
-import { useCallback } from 'react';
+// APIs
+import { getInvoices } from '@/api';
 
-// Models
-import { TInvoice } from '@/models';
+// Utils
+import { InvoiceListClient } from '@/ui';
 
-// Components
-import { InvoicesTable } from '@/components';
+const InvoiceList = async (): Promise<JSX.Element> => {
+  const invoicesRes = await getInvoices({});
 
-const InvoiceList = (): JSX.Element => {
-  // TODO: Update later
-  const data: TInvoice[] = [];
+  const { data: invoices } = invoicesRes || {};
 
-  // TODO: Update later
-  const handleEdit = useCallback(() => {}, []);
-
-  // TODO: Update later
-  const handleDelete = useCallback(() => {}, []);
-
-  // TODO: Update later
-  const handleToggleSelectStart = useCallback(() => {}, []);
-
-  return (
-    <InvoicesTable
-      data={data}
-      onEdit={handleEdit}
-      onDelete={handleDelete}
-      onToggleSelectStar={handleToggleSelectStart}
-    />
-  );
+  return <InvoiceListClient invoiceList={invoices} />;
 };
 
 export default InvoiceList;

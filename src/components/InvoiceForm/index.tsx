@@ -10,7 +10,7 @@ import { z } from 'zod';
 import { ERROR_MESSAGES, INVOICE_STATUS, InvoiceStatus } from '@/constants';
 
 // Models
-import { IInvoice } from '@/models';
+import { TInvoice } from '@/models';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -48,7 +48,7 @@ const REQUIRED_FIELDS = [
 ];
 
 interface InvoiceFormProps {
-  onSubmit: (data: Partial<IInvoice>) => void;
+  onSubmit: (data: Partial<TInvoice>) => void;
 }
 
 const InvoiceForm = ({ onSubmit }: InvoiceFormProps) => {
@@ -57,12 +57,12 @@ const InvoiceForm = ({ onSubmit }: InvoiceFormProps) => {
     formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
-  } = useForm<Partial<IInvoice>>({
+  } = useForm<Partial<TInvoice>>({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
-      id: '',
+      invoiceId: '',
       date: '',
       customer: '',
       email: '',
@@ -80,7 +80,7 @@ const InvoiceForm = ({ onSubmit }: InvoiceFormProps) => {
   );
   const isDisableSubmit = !enableSubmit;
 
-  const handleAddInvoice = (formData: Partial<IInvoice>) => {
+  const handleAddInvoice = (formData: Partial<TInvoice>) => {
     onSubmit(formData);
   };
 
@@ -97,7 +97,7 @@ const InvoiceForm = ({ onSubmit }: InvoiceFormProps) => {
       <div className="flex gap-[30px] mt-[30px]">
         {/* Invoice Id s*/}
         <Controller
-          name="id"
+          name="invoiceId"
           control={control}
           render={({
             field: { name, onChange, ...rest },
