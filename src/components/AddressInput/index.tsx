@@ -20,8 +20,13 @@ interface LocationItem {
   };
 }
 
-const AddressInput = ({ placeholder = ' ', ...rest }: AddressInputProps) => {
-  const [searchAddress, setSearchAddress] = useState('');
+const AddressInput = ({
+  placeholder = ' ',
+  value,
+  onChange,
+  ...rest
+}: AddressInputProps) => {
+  const [searchAddress, setSearchAddress] = useState(value);
   const [locationsSuggestion, setLocationsSuggestion] = useState<
     LocationItem[]
   >([]);
@@ -31,6 +36,7 @@ const AddressInput = ({ placeholder = ' ', ...rest }: AddressInputProps) => {
 
   const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
+    onChange && onChange(event);
     setSearchAddress(value);
   };
 

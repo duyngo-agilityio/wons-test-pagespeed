@@ -3,9 +3,9 @@ import { InvoiceStatus } from '@/constants';
 
 export type TInvoiceProduct<T> = {
   price: number;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
   quantity: number;
   product: { data: T };
 };

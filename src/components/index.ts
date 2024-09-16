@@ -20,3 +20,4 @@ export { default as StarButton } from './StarButton';
 export { default as AvatarUpload } from './AvatarUpload';
 export { default as CustomerForm } from './CustomerForm';
 export { default as CustomerDrawer } from './CustomerDrawer';
+export { default as InvoiceProductTable } from './InvoiceProductTable';
