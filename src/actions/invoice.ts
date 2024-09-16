@@ -47,10 +47,10 @@ export const createInvoiceAction = async (
 
     console.log('formattedData', formattedData);
 
-    // await httpClient.postRequest({
-    //   endpoint: API_PATH.INVOICES,
-    //   body: { data: formattedData },
-    // });
+    await httpClient.postRequest({
+      endpoint: API_PATH.INVOICES,
+      body: { data: formattedData },
+    });
 
     return { success: true };
   } catch (error) {

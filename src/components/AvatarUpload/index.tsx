@@ -11,12 +11,6 @@ import { Image } from '@nextui-org/react';
 // constants
 import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 
-// utils
-import { clearErrorOnChange } from '@/utils';
-
-// models
-import { ICustomer, TInvoice } from '@/models';
-
 export type TUpdateProfileProps = {
   onFileChange: (file: File) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
