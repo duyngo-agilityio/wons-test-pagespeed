@@ -1,6 +1,11 @@
 'use server';
 
+// Libs
+import { revalidateTag } from 'next/cache';
+
+// APIs
 import { uploadImage } from '@/api/image';
+
 // Constants
 import { API_PATH } from '@/constants';
 
@@ -38,6 +43,22 @@ export const createInvoiceAction = async (
     return { success: true };
   } catch (error) {
     const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};
+
+export const deleteInvoice = async (
+  id: number,
+): Promise<{ error?: string } | void> => {
+  try {
+    await httpClient.deleteRequest({
+      endpoint: `${API_PATH.INVOICES}/${id}`,
+    });
+
+    revalidateTag(API_PATH.INVOICES);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
     return { error: message };
   }
 };

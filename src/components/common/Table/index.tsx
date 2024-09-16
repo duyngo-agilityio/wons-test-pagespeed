@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, ReactNode } from 'react';
+import { memo, ReactNode, useCallback } from 'react';
 import { clsx } from 'clsx';
 import isEqual from 'react-fast-compare';
 import {
@@ -11,6 +11,7 @@ import {
   TableRow,
   TableCell,
   Button,
+  Selection,
 } from '@nextui-org/react';
 
 // Icons
@@ -35,6 +36,7 @@ interface CustomTableProps<T> {
   order?: string;
   onSort?: (value: string) => void;
   newData?: T;
+  onSelectChange?: (keys: Selection) => void;
 }
 
 const TableCustom = <T extends { id: string }>({
@@ -47,6 +49,7 @@ const TableCustom = <T extends { id: string }>({
   order = ORDER.ASC,
   sortBy = '',
   onSort,
+  onSelectChange = () => {},
 }: CustomTableProps<T>) => {
   const renderCell = (item: T, accessor: TTableAccessor<T>): ReactNode => {
     if (typeof accessor === 'string')
@@ -73,6 +76,12 @@ const TableCustom = <T extends { id: string }>({
   };
 
   const dataTable = data.length === 0 && newData ? [newData] : data;
+
+  const handleSelectChange = useCallback(
+    (keys: Selection) => onSelectChange(keys),
+
+    [onSelectChange],
+  );
 
   return (
     <BaseTable
@@ -110,6 +119,7 @@ const TableCustom = <T extends { id: string }>({
           ),
         ],
       }}
+      onSelectionChange={handleSelectChange}
     >
       <TableHeader className="border-spacing-y-0">
         {columns.map((columnConfig, index) => {
@@ -145,7 +155,7 @@ const TableCustom = <T extends { id: string }>({
       <TableBody emptyContent={'No Records found.'}>
         {dataTable.map((item) => (
           <TableRow
-            key={`table-row-${item.id}`}
+            key={item.id}
             data-id={item.id}
             className={
               isStriped ? 'rounded-[5px]' : 'bg-white dark:bg-gray-400 '

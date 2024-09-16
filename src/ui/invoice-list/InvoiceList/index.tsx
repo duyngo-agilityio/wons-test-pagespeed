@@ -1,6 +1,9 @@
 // APIs
 import { getInvoices } from '@/api';
 
+// Constants
+import { API_PATH } from '@/constants';
+
 // Utils
 import { InvoiceListClient } from '@/ui';
 
@@ -22,6 +25,7 @@ const InvoiceList = async ({
     sortBy,
     query,
     page,
+    nextOptions: { tags: [API_PATH.INVOICES] },
   });
 
   const { data: invoices = [], meta } = invoicesRes || {};

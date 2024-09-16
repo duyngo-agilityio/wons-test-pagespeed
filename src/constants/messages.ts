@@ -16,6 +16,7 @@ export const ERROR_MESSAGES = {
 export const SUCCESS_MESSAGES = {
   SIGN_IN: 'Sign in successfully.',
   SIGN_OUT: 'Sign out successfully.',
+  DELETE_INVOICE: 'Delete invoice successfully.',
 };
 
 export const MESSAGE_STATUS: Record<string, string> = {

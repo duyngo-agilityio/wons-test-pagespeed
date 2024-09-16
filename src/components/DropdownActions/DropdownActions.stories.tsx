@@ -32,6 +32,6 @@ export const Default: Story = {
   args: {
     onEdit: () => {},
     onDelete: () => {},
-    id: 'test-id',
+    id: 1,
   },
 };

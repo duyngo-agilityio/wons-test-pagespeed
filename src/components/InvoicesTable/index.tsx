@@ -1,7 +1,8 @@
 'use client';
 
 // Libs
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
+import { Selection } from '@nextui-org/react';
 import dayjs from 'dayjs';
 
 // Constants
@@ -30,22 +31,29 @@ type TInvoiceData = TInvoiceDataResponse;
 type TInvoicesTableProps = {
   data: TInvoiceData[];
   total: number;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
+  onDeleteMultiple: (ids: number[]) => void;
   onToggleSelectStar: (id: string) => void;
   onSort: (field: string) => void;
 };
 
 const InvoicesTable = ({
-  data,
+  data = [],
   total,
   onEdit,
   onDelete,
+  onDeleteMultiple,
   onToggleSelectStar,
   onSort,
 }: TInvoicesTableProps): JSX.Element => {
+  const [selectedInvoiceIds, setSelectedInvoiceIds] = useState<number[]>([]);
+
   // TODO: Update later when handle delete invoice
-  const handleDeleteMultiple = useCallback(() => {}, []);
+  const handleDeleteMultiple = useCallback(
+    () => onDeleteMultiple(selectedInvoiceIds),
+    [selectedInvoiceIds],
+  );
 
   const mappingContentColumns = useMemo(
     () => [
@@ -174,20 +182,27 @@ const InvoicesTable = ({
         ),
 
         accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes } = invoice || {};
-          const { invoiceId = '' } = invoiceAttributes || {};
+          const { id } = invoice || {};
 
           return (
-            <DropdownActions
-              id={invoiceId}
-              onEdit={onEdit}
-              onDelete={onDelete}
-            />
+            <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
           );
         },
       },
     ],
     [handleDeleteMultiple, onDelete, onEdit, onToggleSelectStar],
+  );
+
+  const handleSelectChange = useCallback(
+    (keys: Selection) => {
+      const ids =
+        typeof keys === 'string'
+          ? data.map((invoice) => invoice.id)
+          : Array.from(keys).map(Number);
+
+      setSelectedInvoiceIds(ids);
+    },
+    [data],
   );
 
   return (
@@ -198,6 +213,7 @@ const InvoicesTable = ({
         columns={mappingContentColumns}
         data={data}
         onSort={onSort}
+        onSelectChange={handleSelectChange}
       />
 
       <Pagination total={total} />
