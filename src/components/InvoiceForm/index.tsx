@@ -119,7 +119,6 @@ const InvoiceForm = ({
         formDataImage.append('file', avatarFile);
 
         const imageUrl = await uploadImage(formDataImage);
-        console.log('formData======>', imageUrl);
 
         if (typeof imageUrl === 'string') {
           formData.imageUrl = imageUrl;
@@ -154,14 +153,10 @@ const InvoiceForm = ({
     }
   };
 
-  const handleAvatarChange = useCallback(
-    (avatarFile: File) => {
-      console.log('avatarFile', avatarFile);
-      setAvatarFile(avatarFile);
-      setIsAvatarDirty(true);
-    },
-    [setAvatarFile, setIsAvatarDirty],
-  );
+  const handleAvatarChange = useCallback((avatarFile: File) => {
+    setAvatarFile(avatarFile);
+    setIsAvatarDirty(true);
+  }, []);
 
   return (
     <form

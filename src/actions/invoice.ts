@@ -26,13 +26,11 @@ export const createInvoiceAction = async (
     if (formData.imageUrl) {
       const imageFormData = new FormData();
       imageFormData.append('file', formData.imageUrl);
-      console.log('imageFormData', imageFormData);
+
       const imageUrl = await uploadImage(imageFormData);
 
       if (typeof imageUrl === 'string') {
         formData.imageUrl = imageUrl;
-
-        console.log('formattedData', formData.imageUrl);
       } else {
         return { error: imageUrl.error };
       }
@@ -44,8 +42,6 @@ export const createInvoiceAction = async (
       isSelected: false,
       invoice_products: products,
     };
-
-    console.log('formattedData', formattedData);
 
     await httpClient.postRequest({
       endpoint: API_PATH.INVOICES,
