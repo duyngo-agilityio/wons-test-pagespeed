@@ -1,5 +1,5 @@
 // Constants
-import { API_PATH, PAGE_SIZE } from '@/constants';
+import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
 
 // Models
 import { IProduct, TInvoiceProduct } from '@/models';
@@ -58,6 +58,8 @@ export type InvoiceListConfigs = {
   query?: string;
   sortOrder?: string;
   sortBy?: string;
+  page?: number;
+  pageSize?: number;
   cache?: RequestCache;
   nextOptions?: NextFetchRequestConfig;
 };
@@ -66,6 +68,8 @@ export const getInvoices = async ({
   query,
   sortOrder,
   sortBy,
+  page = DEFAULT_PAGE,
+  pageSize = PAGE_SIZE[10],
   cache,
   nextOptions,
 }: InvoiceListConfigs) => {
@@ -73,7 +77,8 @@ export const getInvoices = async ({
   const searchBy = query
     ? `&filters[$or][0][customer][fullName][$containsi]=${query}&filters[$or][1][customer][email][$containsi]=${query}`
     : '';
-  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sortValue}${searchBy}`;
+  const pageValue = `&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sortValue}${searchBy}${pageValue}`;
 
   try {
     const response = await httpClient.getRequest<TInvoiceListResponse>({

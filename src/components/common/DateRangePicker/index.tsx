@@ -11,7 +11,11 @@ import {
 } from '@nextui-org/react';
 
 // Constants
-import { DAYJS_PATTERN, DEFAULT_RANGE_VALUE_PICKER, PARAMS } from '@/constants';
+import {
+  DAYJS_PATTERN,
+  DEFAULT_RANGE_VALUE_PICKER,
+  SEARCH_QUERIES,
+} from '@/constants';
 
 // Utils
 import {
@@ -48,7 +52,7 @@ const DateRangePicker = ({
     ),
   );
   const [isOpenRangePicker, setIsOpenRangePicker] = useState(false);
-  const { END_TIME, START_TIME } = PARAMS;
+  const { END_TIME, START_TIME } = SEARCH_QUERIES;
 
   const handleOpenDatePicker = useCallback(
     () => setIsOpenRangePicker((prev) => !prev),

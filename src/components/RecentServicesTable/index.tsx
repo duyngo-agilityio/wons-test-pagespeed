@@ -14,7 +14,7 @@ import { StrapiModel } from '@/types';
 import { TInvoiceProduct, IProduct } from '@/models';
 
 // Constants
-import { ORDER, PARAMS } from '@/constants';
+import { ORDER, SEARCH_QUERIES } from '@/constants';
 
 // Components
 import { Image, Table, Text } from '@/components/common';
@@ -26,7 +26,7 @@ interface IRecentServicesTable {
 
 const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
   const { ASC, DESC } = ORDER;
-  const { SORT_BY, ORDER_PARAM } = PARAMS;
+
   const mappingContentColumns = useMemo(
     () => [
       {
@@ -114,8 +114,8 @@ const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
     const params = new URLSearchParams(searchParams);
 
     if (value) {
-      params.set(SORT_BY, value);
-      params.set(ORDER_PARAM, order === DESC ? ASC : DESC);
+      params.set(SEARCH_QUERIES.SORT_BY, value);
+      params.set(SEARCH_QUERIES.ORDER, order === DESC ? ASC : DESC);
     }
 
     replace(`${pathname}?${params.toString()}`, { scroll: false });

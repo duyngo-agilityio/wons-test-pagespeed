@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 
 // Constants
+import { DEFAULT_PAGE } from '@/constants';
 import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
 
 // Types
@@ -22,7 +23,12 @@ type TInvoiceListPageProps = {
 const InvoiceListPage = ({
   searchParams,
 }: TInvoiceListPageProps): JSX.Element => {
-  const { order = '', sortBy = '', query = '' } = searchParams || {};
+  const {
+    order = '',
+    sortBy = '',
+    query = '',
+    page = DEFAULT_PAGE,
+  } = searchParams || {};
 
   return (
     <main>
@@ -31,7 +37,7 @@ const InvoiceListPage = ({
         rightContent={<InvoiceListActions />}
       >
         <Suspense
-          key={order + sortBy + query}
+          key={order + sortBy + query + page}
           fallback={
             <TableSkeleton
               variant="primary"
@@ -40,7 +46,12 @@ const InvoiceListPage = ({
             />
           }
         >
-          <InvoiceList sortBy={sortBy} sortOrder={order} query={query} />
+          <InvoiceList
+            sortBy={sortBy}
+            sortOrder={order}
+            query={query}
+            page={+page}
+          />
         </Suspense>
       </DashBoardLayout>
     </main>
