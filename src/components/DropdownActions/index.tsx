@@ -19,9 +19,9 @@ import { FaEllipsisH } from 'react-icons/fa';
 import { ConfirmModal } from '@/components';
 
 interface DropdownActionsProps {
-  id: number;
-  onEdit: (id: number) => void;
-  onDelete: (id: number) => void;
+  id: string;
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
