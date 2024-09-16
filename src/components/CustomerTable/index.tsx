@@ -16,8 +16,8 @@ import {
 
 type CustomersTableProps = {
   data: ICustomer[];
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
   onToggleSelectStar: (id: string) => void;
 };
 

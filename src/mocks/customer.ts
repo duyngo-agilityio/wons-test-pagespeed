@@ -25,7 +25,7 @@ export const PRODUCT_TABLE_COLUMNS_MOCK: TableColumnType<Partial<ICustomer>>[] =
 
 export const PRODUCT_MOCK = [
   {
-    id: '1',
+    id: 1,
     name: 'John Doe',
     firstName: 'John',
     lastName: 'Doe',
@@ -37,7 +37,7 @@ export const PRODUCT_MOCK = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
   {
-    id: '2',
+    id: 2,
     name: 'Jane Smith',
     firstName: 'Jane',
     lastName: 'Smith',
@@ -49,7 +49,7 @@ export const PRODUCT_MOCK = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
   {
-    id: '3',
+    id: 3,
     name: 'Alice Johnson',
     firstName: 'Alice',
     lastName: 'Johnson',
@@ -61,7 +61,7 @@ export const PRODUCT_MOCK = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
   {
-    id: '4',
+    id: 4,
     name: 'Bob Williams',
     firstName: 'Bob',
     lastName: 'Williams',
@@ -73,7 +73,7 @@ export const PRODUCT_MOCK = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
   {
-    id: '5',
+    id: 5,
     name: 'Charlie Brown',
     firstName: 'Charlie',
     lastName: 'Brown',
@@ -88,7 +88,7 @@ export const PRODUCT_MOCK = [
 
 export const data: ICustomer[] = [
   {
-    id: '1',
+    id: 1,
     firstName: 'John',
     lastName: 'Doe',
     fullName: 'John Doe',
@@ -101,7 +101,7 @@ export const data: ICustomer[] = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
   {
-    id: '2',
+    id: 2,
     firstName: 'Jane',
     lastName: 'Smith',
     fullName: 'Jane Smith',
@@ -114,7 +114,7 @@ export const data: ICustomer[] = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
   {
-    id: '3',
+    id: 3,
     firstName: 'Emily',
     lastName: 'Johnson',
     fullName: 'Emily Johnson',
