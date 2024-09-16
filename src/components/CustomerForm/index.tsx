@@ -105,6 +105,7 @@ const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
               value={value}
               onChange={(e) => {
                 onChange(e);
+
                 clearErrorOnChange(name, errors, clearErrors);
               }}
               onFileChange={handleAvatarChange}

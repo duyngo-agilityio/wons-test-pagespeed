@@ -60,6 +60,11 @@ const AvatarUpload = ({
     [onFileChange, previewURL],
   );
 
+  const handleOnchange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleChangeFile(e);
+    onChange(e);
+  };
+
   return (
     <div className="flex flex-col justify-center items-center my-20">
       <label
@@ -76,7 +81,10 @@ const AvatarUpload = ({
               className="rounded-full object-cover w-full h-full"
             />
           ) : (
-            <IoCamera size={32} className="text-[#4b4b66] dark:text-blue-500" />
+            <IoCamera
+              size={32}
+              className="text-blue-800/70 dark:text-blue-500"
+            />
           )}
         </div>
       </label>
@@ -86,10 +94,7 @@ const AvatarUpload = ({
         id="file"
         className="hidden"
         accept="image/*"
-        onChange={(e) => {
-          handleChangeFile(e);
-          onChange(e);
-        }}
+        onChange={handleOnchange}
       />
 
       {errorMessage && (

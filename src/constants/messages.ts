@@ -11,6 +11,7 @@ export const ERROR_MESSAGES = {
   INVALID_PHONE: 'Invalid phone number.',
   UPLOAD_IMAGE: 'Wrong image format. Only "jpg", "png" and "webp" are allowed',
   UPLOAD_IMAGE_SIZE: 'Image size should be less than 5MB',
+  QUANTITY_INVALID: 'Quantity invalid.',
 };
 
 export const SUCCESS_MESSAGES = {

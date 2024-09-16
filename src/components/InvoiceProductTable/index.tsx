@@ -8,7 +8,7 @@ import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
 import { Autocomplete, Button, Input, Table, Text } from '@/components';
 
 // Constants
-import { MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
+import { ERROR_MESSAGES, MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
 
 // Models
 import { IProduct } from '@/models';
@@ -173,6 +173,8 @@ const InvoiceProductTable = ({
     const product = products.find((product) => product.id === id);
 
     if (product) {
+      if (!value) return setErrorProducts(ERROR_MESSAGES.QUANTITY_INVALID);
+
       // Validate and parse the value directly
       const parsedValue = Number(value);
 

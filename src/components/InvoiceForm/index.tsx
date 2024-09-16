@@ -16,6 +16,7 @@ import {
   clearErrorOnChange,
   currentDate,
   formatDateByISO,
+  formatDateString,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -125,7 +126,7 @@ const InvoiceForm = ({
 
           const { date } = formData;
 
-          const dateString = `${date?.year}-${date?.month}-${date?.day}`;
+          const dateString = formatDateString(date);
           const formattedDate = formatDateByISO(dateString);
 
           const invoiceProduct = productsValues.map(
