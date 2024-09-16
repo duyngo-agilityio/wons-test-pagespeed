@@ -31,7 +31,7 @@ const InvoiceListPage = ({
         rightContent={<InvoiceListActions />}
       >
         <Suspense
-          key={order + sortBy}
+          key={order + sortBy + query}
           fallback={
             <TableSkeleton
               variant="primary"

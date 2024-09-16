@@ -21,7 +21,7 @@ const InvoiceList = async ({
     query,
   });
 
-  const { data: invoices } = invoicesRes || {};
+  const { data: invoices = [] } = invoicesRes || {};
 
   return <InvoiceListClient invoiceList={invoices} sortOrder={sortOrder} />;
 };

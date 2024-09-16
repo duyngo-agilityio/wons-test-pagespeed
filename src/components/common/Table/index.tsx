@@ -38,7 +38,7 @@ interface CustomTableProps<T> {
 
 const TableCustom = <T extends { id: string }>({
   columns,
-  data,
+  data = [],
   variant = 'primary',
   isStriped = false,
   selectionMode = 'none',
@@ -138,7 +138,7 @@ const TableCustom = <T extends { id: string }>({
           );
         })}
       </TableHeader>
-      <TableBody emptyContent={'No rows to display.'}>
+      <TableBody emptyContent={'No Records found.'}>
         {data.map((item) => (
           <TableRow
             key={`table-row-${item.id}`}

@@ -69,16 +69,11 @@ export const getInvoices = async ({
   cache,
   nextOptions,
 }: InvoiceListConfigs) => {
-  let sort = '';
-
-  if (sortBy === 'fullName') {
-    sort = `&sort=customer.firstName:${sortOrder},customer.lastName:${sortOrder}`;
-  } else {
-    sort = sortBy ? `&sort=${sortBy}:${sortOrder}` : '';
-  }
-
-  const searchBy = query ? `&filters[$or][0][customer][firstName][$contains]=${query}&filters[$or][1][customer][lastName][$contains]=${query}&filters[$or][2][customer][email][$contains]=${query}` : '';
-  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sort}${searchBy}`;
+  const sortValue = sortBy ? `&sort=${sortBy}:${sortOrder}` : '';
+  const searchBy = query
+    ? `&filters[$or][0][customer][fullName][$containsi]=${query}&filters[$or][1][customer][email][$containsi]=${query}`
+    : '';
+  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sortValue}${searchBy}`;
 
   try {
     const response = await httpClient.getRequest<TInvoiceListResponse>({

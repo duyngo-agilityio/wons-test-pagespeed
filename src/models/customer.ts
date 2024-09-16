@@ -4,6 +4,7 @@ export interface ICustomer {
   id: string;
   firstName: string;
   lastName: string;
+  fullName: string;
   email: string;
   phone: string;
   gender: TGender;

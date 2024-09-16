@@ -33,7 +33,7 @@ export const formatFilterIntervalDate = (
     const match = RegExp(/^([^[]+)\[([^\]]+)\]$/).exec(key);
     const [field, operator] = match ? match.slice(1) : [];
 
-    if (value[key] !== undefined) {
+    if (value[key]) {
       urlParams.push(
         `&filters[$and][${urlParams.length}][${field}][${operator}]=${value[key]}`,
       );
