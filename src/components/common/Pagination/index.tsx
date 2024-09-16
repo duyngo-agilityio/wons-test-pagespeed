@@ -8,9 +8,6 @@ import {
 } from '@nextui-org/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-// themes
-import { colors } from '@/themes';
-
 // Constants
 import { DEFAULT_PAGE, SEARCH_QUERIES } from '@/constants';
 
@@ -19,8 +16,8 @@ export const CustomPagination = extendVariants(NextUIPagination, {
     color: {
       primary: {
         item: 'text-foreground hover:bg-primary hover:bg-opacity-25',
-        wrapper: 'text-white',
-        cursor: `bg-[${colors.blue[500]}]`,
+        wrapper: 'text-black dark:text-white',
+        cursor: `bg-blue-500`,
       },
     },
   },

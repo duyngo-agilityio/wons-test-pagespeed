@@ -1,7 +1,7 @@
 type TGender = 'male' | 'female';
 
 export interface ICustomer {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   fullName: string;
