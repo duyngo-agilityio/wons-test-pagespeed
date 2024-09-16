@@ -53,13 +53,13 @@ export interface ICustomerFormProps {
   onSubmit: (data: ICustomer) => void;
 }
 
-const CustomerForm = ({ isPending = false, onSubmit }: ICustomerFormProps) => {
+const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
   const {
     control,
     formState: { dirtyFields, errors, isSubmitting },
     clearErrors,
     handleSubmit,
-  } = useForm<ICustomer>({
+  } = useForm<Partial<ICustomer>>({
     resolver: zodResolver(customerFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -80,8 +80,8 @@ const CustomerForm = ({ isPending = false, onSubmit }: ICustomerFormProps) => {
     errors,
   );
 
-  const handleAddCustomer = (formData: ICustomer) => {
-    return onSubmit(formData);
+  const handleAddCustomer = () => {
+    // TODO: handle later
   };
 
   const handleAvatarChange = useCallback(() => {

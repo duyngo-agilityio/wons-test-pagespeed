@@ -21,12 +21,12 @@ import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 import { clearErrorOnChange } from '@/utils';
 
 // models
-import { ICustomer } from '@/models';
+import { ICustomer, TInvoice } from '@/models';
 
 export type TUpdateProfileProps = {
-  control: Control<ICustomer>;
-  errors: FieldErrors<ICustomer>;
-  clearErrors: UseFormClearErrors<ICustomer>;
+  control: Control<Partial<ICustomer | TInvoice>>;
+  errors: FieldErrors<Partial<ICustomer | TInvoice>>;
+  clearErrors: UseFormClearErrors<Partial<ICustomer | TInvoice>>;
   onFileChange: (file: File) => void;
 };
 
