@@ -1,11 +1,6 @@
 'use client';
+
 import { ChangeEvent, useCallback, useState } from 'react';
-import {
-  Control,
-  Controller,
-  FieldErrors,
-  UseFormClearErrors,
-} from 'react-hook-form';
 
 // icons
 import { IoCamera } from 'react-icons/io5';
@@ -17,23 +12,15 @@ import { Image } from '@nextui-org/react';
 // constants
 import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 
-// utils
-import { clearErrorOnChange } from '@/utils';
-
-// models
-import { ICustomer, TInvoice } from '@/models';
-
 export type TUpdateProfileProps = {
-  control: Control<Partial<ICustomer | TInvoice>>;
-  errors: FieldErrors<Partial<ICustomer | TInvoice>>;
-  clearErrors: UseFormClearErrors<Partial<ICustomer | TInvoice>>;
   onFileChange: (file: File) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  value: string | undefined;
 };
 
 const AvatarUpload = ({
-  control,
-  errors,
-  clearErrors,
+  value,
+  onChange,
   onFileChange,
 }: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
@@ -73,53 +60,47 @@ const AvatarUpload = ({
     [onFileChange, previewURL],
   );
 
+  const handleOnchange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleChangeFile(e);
+    onChange(e);
+  };
+
   return (
-    <Controller
-      control={control}
-      name="avatar"
-      render={({ field: { name, value, onChange, ...rest } }) => (
-        <div className="flex flex-col justify-center items-center my-20">
-          <label
-            htmlFor="file"
-            className="cursor-pointer hover:scale-110 transition-transform"
-          >
-            <div className="rounded-full w-32 h-32 bg-gray-50 dark:bg-gray-600 flex justify-center items-center">
-              {previewURL || value ? (
-                <Image
-                  src={previewURL || value}
-                  alt="Avatar"
-                  width={128}
-                  height={128}
-                  className="rounded-full object-cover w-full h-full"
-                />
-              ) : (
-                <IoCamera
-                  size={32}
-                  className="text-[#4b4b66] dark:text-blue-500"
-                />
-              )}
-            </div>
-          </label>
-
-          <Input
-            type="file"
-            id="file"
-            className="hidden"
-            accept="image/*"
-            onChange={(e) => {
-              handleChangeFile(e);
-              onChange(e);
-              clearErrorOnChange(name, errors, clearErrors);
-            }}
-            {...rest}
-          />
-
-          {errorMessage && (
-            <p className="text-red-500 text-md mt-2">{errorMessage}</p>
+    <div className="flex flex-col justify-center items-center my-20">
+      <label
+        htmlFor="file"
+        className="cursor-pointer hover:scale-110 transition-transform"
+      >
+        <div className="rounded-full w-32 h-32 bg-gray-50 dark:bg-gray-600 flex justify-center items-center">
+          {previewURL || value ? (
+            <Image
+              src={previewURL || value}
+              alt="Avatar"
+              width={128}
+              height={128}
+              className="rounded-full object-cover w-full h-full"
+            />
+          ) : (
+            <IoCamera
+              size={32}
+              className="text-blue-800/70 dark:text-blue-500"
+            />
           )}
         </div>
+      </label>
+
+      <Input
+        type="file"
+        id="file"
+        className="hidden"
+        accept="image/*"
+        onChange={handleOnchange}
+      />
+
+      {errorMessage && (
+        <p className="text-red-500 text-md mt-2">{errorMessage}</p>
       )}
-    />
+    </div>
   );
 };
 

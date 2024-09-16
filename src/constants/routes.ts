@@ -8,6 +8,7 @@ export const ROUTES = {
   SCHEDULE: '/schedule',
   SETTINGS: '/settings',
   ACCOUNT_SUCCESS: '/account-success',
+  CREATE_INVOICE: '/create-invoice',
 
   /** Auth */
   SIGN_IN: '/sign-in',

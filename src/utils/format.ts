@@ -1,5 +1,6 @@
 // Types
 import { StrapiModel } from '@/types';
+import { DateValue } from '@nextui-org/react';
 
 // Models
 import { IProduct, TInvoiceProduct } from '@/models';
@@ -82,3 +83,5 @@ export const formatAmountWithDiscount = (
 
   return `${formatPrice(total, true)} USD`;
 };
+export const formatDateString = (date: DateValue) =>
+  `${date.year}-${date.month}-${date.day}`;

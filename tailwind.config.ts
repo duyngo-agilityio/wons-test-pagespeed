@@ -5,11 +5,13 @@ import { nextui } from '@nextui-org/react';
 // Themes
 import {
   borderRadius,
-  colors,
   fontSize,
   lineHeight,
   spacing,
 } from './src/themes';
+import {
+  colors,
+} from './src/themes/colors';
 
 const { gray, blue, white } = colors;
 
