@@ -34,11 +34,13 @@ interface CustomTableProps<T> {
   sortBy?: string;
   order?: string;
   onSort?: (value: string) => void;
+  newData?: T;
 }
 
 const TableCustom = <T extends { id: string }>({
   columns,
-  data = [],
+  data,
+  newData,
   variant = 'primary',
   isStriped = false,
   selectionMode = 'none',
@@ -69,6 +71,8 @@ const TableCustom = <T extends { id: string }>({
       cell: 'leading-[17px] py-[17px] px-[21px]',
     },
   };
+
+  const dataTable = data.length === 0 && newData ? [newData] : data;
 
   return (
     <BaseTable
@@ -139,7 +143,7 @@ const TableCustom = <T extends { id: string }>({
         })}
       </TableHeader>
       <TableBody emptyContent={'No Records found.'}>
-        {data.map((item) => (
+        {dataTable.map((item) => (
           <TableRow
             key={`table-row-${item.id}`}
             data-id={item.id}
