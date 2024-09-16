@@ -82,7 +82,7 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
   });
 
   const optionsCustomers = customers.map((customer) => ({
-    value: customer.id.toString(),
+    value: customer.id,
     label: customer.lastName,
   }));
 

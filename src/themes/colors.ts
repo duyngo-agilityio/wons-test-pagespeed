@@ -22,6 +22,7 @@ export const colors = {
     700: '#515567',
     750: '#4a5463',
     850: '#c2c6cb', // Deep Gray
+    900: '#4a455c',
   },
   pink: {
     400: '#fee9f3',
@@ -31,5 +32,8 @@ export const colors = {
   },
   purple: {
     600: '#605CFF', // Light Purple
+  },
+  green: {
+    200: '#37525b',
   },
 };
