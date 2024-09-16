@@ -23,6 +23,6 @@ export const Default: Story = {
 
   render: function Render(props) {
     const { control } = useForm<Partial<ICustomer | TInvoice>>();
-    return <AvatarUpload {...props} control={control} />;
+    return <AvatarUpload {...props} />;
   },
 };
