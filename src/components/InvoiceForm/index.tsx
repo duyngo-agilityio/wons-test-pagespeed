@@ -1,8 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Avatar } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -24,11 +23,15 @@ import {
 import {
   AddressInput,
   Autocomplete,
+  AvatarUpload,
   Button,
   DatePicker,
   Input,
   InvoiceProductTable,
 } from '@/components';
+
+// api
+import { uploadImage } from '@/api/image';
 
 // Zod schema for validation
 const invoiceSchema = z.object({
@@ -56,6 +59,8 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
     TInvoiceProduct<IProduct & { id: number }>[]
   >([]);
   const [errorProducts, setErrorProducts] = useState<string>('');
+  const [avatarFile, setAvatarFile] = useState<File>();
+  const [isAvatarDirty, setIsAvatarDirty] = useState(false);
 
   const {
     control,
@@ -90,7 +95,7 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
   );
   const isDisableSubmit = !enableSubmit;
 
-  const handleAddInvoice = (formData: Partial<TInvoice>) => {
+  const handleAddInvoice = async (formData: Partial<TInvoice>) => {
     const hasEmptyField = productsValues.some((obj) =>
       Object.values(obj).some((value) => value === ''),
     );
@@ -99,8 +104,34 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
       return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Product'));
     }
 
+    if (isAvatarDirty && avatarFile) {
+      try {
+        const formDataImage = new FormData();
+        formDataImage.append('file', avatarFile);
+
+        const imageUrl = await uploadImage(formDataImage);
+
+        if (typeof imageUrl === 'string') {
+          formData.imageUrl = imageUrl;
+        } else {
+          return setErrorProducts(imageUrl.error);
+        }
+      } catch (error) {
+        return setErrorProducts(error as string);
+      }
+    } else {
+      if (!formData.imageUrl) {
+        return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Image'));
+      }
+    }
+
     onSubmit(formData);
   };
+
+  const handleAvatarChange = useCallback((avatarFile: File) => {
+    setAvatarFile(avatarFile);
+    setIsAvatarDirty(true);
+  }, []);
 
   return (
     <form
@@ -108,8 +139,12 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
       onSubmit={handleSubmit(handleAddInvoice)}
     >
       <div className="flex justify-center mt-[21px]">
-        {/** TODO: Update when UpdateLoadImage component ready */}
-        <Avatar className="w-[134px] h-[134px]" />
+        <AvatarUpload
+          control={control}
+          errors={errors}
+          clearErrors={clearErrors}
+          onFileChange={handleAvatarChange}
+        />
       </div>
 
       <div className="flex gap-[30px] mt-[30px]">
