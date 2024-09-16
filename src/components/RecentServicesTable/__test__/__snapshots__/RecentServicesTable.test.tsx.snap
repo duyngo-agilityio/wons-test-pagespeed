@@ -168,18 +168,18 @@ exports[`RecentServicesTable match snapshot 1`] = `
             role="rowgroup"
           >
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-1-OrderID0"
+              aria-labelledby="react-aria-:r0:-1-OrderID0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-first="true"
               data-id="1"
-              data-key="table-row-1"
+              data-key="1"
               role="row"
               tabindex="-1"
             >
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-1-OrderID0"
+                id="react-aria-:r0:-1-OrderID0"
                 role="rowheader"
                 tabindex="-1"
               >
@@ -262,10 +262,10 @@ exports[`RecentServicesTable match snapshot 1`] = `
               </td>
             </tr>
             <tr
-              aria-labelledby="react-aria-:r0:-table-row-2-OrderID0"
+              aria-labelledby="react-aria-:r0:-2-OrderID0"
               class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-[5px]"
               data-id="2"
-              data-key="table-row-2"
+              data-key="2"
               data-last="true"
               data-odd="true"
               role="row"
@@ -274,7 +274,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
               <td
                 class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground group-data-[odd=true]:before:bg-default-100 group-data-[odd=true]:before:opacity-100 group-data-[odd=true]:before:-z-10 first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start group-data-[odd=true]:data-[selected=true]:before:bg-default/60 first:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                 data-key="table-cell-0"
-                id="react-aria-:r0:-table-row-2-OrderID0"
+                id="react-aria-:r0:-2-OrderID0"
                 role="rowheader"
                 tabindex="-1"
               >
