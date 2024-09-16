@@ -1,4 +1,5 @@
 'use client';
+
 import { useCallback } from 'react';
 
 import { Select, SelectItem } from '@nextui-org/react';
@@ -95,11 +96,21 @@ const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
     >
       <Heading title="Add Customer" />
 
-      <AvatarUpload
+      <Controller
         control={control}
-        errors={errors}
-        clearErrors={clearErrors}
-        onFileChange={handleAvatarChange}
+        name="avatar"
+        render={({ field: { onChange, value, name } }) => {
+          return (
+            <AvatarUpload
+              value={value}
+              onChange={(e) => {
+                onChange(e);
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+              onFileChange={handleAvatarChange}
+            />
+          );
+        }}
       />
 
       <Controller

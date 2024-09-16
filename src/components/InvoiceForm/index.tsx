@@ -58,10 +58,6 @@ interface InvoiceFormProps {
   customers: (ICustomer & { id: number })[];
 }
 
-interface InvoiceFormDataCustom extends TInvoiceFormData {
-  avatar: string;
-}
-
 const InvoiceForm = ({
   invoiceId,
   products,
@@ -80,7 +76,7 @@ const InvoiceForm = ({
     formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
-  } = useForm<InvoiceFormDataCustom>({
+  } = useForm<TInvoiceFormData>({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -123,9 +119,28 @@ const InvoiceForm = ({
         formDataImage.append('file', avatarFile);
 
         const imageUrl = await uploadImage(formDataImage);
+        console.log('formData======>', imageUrl);
 
         if (typeof imageUrl === 'string') {
           formData.imageUrl = imageUrl;
+
+          const { date } = formData;
+
+          const dateString = `${date?.year}-${date?.month}-${date?.day}`;
+          const formattedDate = formatDateByISO(dateString);
+
+          const invoiceProduct = productsValues.map(
+            ({ product }) => product.data.id,
+          );
+
+          onSubmit(
+            {
+              ...formData,
+              invoiceId,
+              date: formattedDate,
+            },
+            invoiceProduct,
+          );
         } else {
           return setErrorProducts(imageUrl.error);
         }
@@ -137,28 +152,16 @@ const InvoiceForm = ({
         return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Image'));
       }
     }
-
-    const { date } = formData;
-
-    const dateString = `${date?.year}-${date?.month}-${date?.day}`;
-    const formattedDate = formatDateByISO(dateString);
-
-    const invoiceProduct = productsValues.map(({ product }) => product.data.id);
-
-    onSubmit(
-      {
-        ...formData,
-        invoiceId,
-        date: formattedDate,
-      },
-      invoiceProduct,
-    );
   };
 
-  const handleAvatarChange = useCallback((avatarFile: File) => {
-    setAvatarFile(avatarFile);
-    setIsAvatarDirty(true);
-  }, []);
+  const handleAvatarChange = useCallback(
+    (avatarFile: File) => {
+      console.log('avatarFile', avatarFile);
+      setAvatarFile(avatarFile);
+      setIsAvatarDirty(true);
+    },
+    [setAvatarFile, setIsAvatarDirty],
+  );
 
   return (
     <form
@@ -166,11 +169,21 @@ const InvoiceForm = ({
       onSubmit={handleSubmit(handleAddInvoice)}
     >
       <div className="flex justify-center mt-[21px]">
-        <AvatarUpload
+        <Controller
           control={control}
-          errors={errors}
-          clearErrors={clearErrors}
-          onFileChange={handleAvatarChange}
+          name="imageUrl"
+          render={({ field: { onChange, value, name } }) => {
+            return (
+              <AvatarUpload
+                value={value}
+                onChange={(e) => {
+                  onChange(e);
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                onFileChange={handleAvatarChange}
+              />
+            );
+          }}
         />
       </div>
 

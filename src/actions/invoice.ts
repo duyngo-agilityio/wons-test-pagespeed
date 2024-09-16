@@ -19,18 +19,20 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 export const createInvoiceAction = async (
-  formData: Partial<TInvoice> & { imageFile?: File },
+  formData: Partial<TInvoice>,
   products: number[],
 ) => {
   try {
-    if (formData.imageFile) {
+    if (formData.imageUrl) {
       const imageFormData = new FormData();
-      imageFormData.append('file', formData.imageFile);
-
+      imageFormData.append('file', formData.imageUrl);
+      console.log('imageFormData', imageFormData);
       const imageUrl = await uploadImage(imageFormData);
 
       if (typeof imageUrl === 'string') {
         formData.imageUrl = imageUrl;
+
+        console.log('formattedData', formData.imageUrl);
       } else {
         return { error: imageUrl.error };
       }
@@ -43,10 +45,12 @@ export const createInvoiceAction = async (
       invoice_products: products,
     };
 
-    await httpClient.postRequest({
-      endpoint: API_PATH.INVOICES,
-      body: { data: formattedData },
-    });
+    console.log('formattedData', formattedData);
+
+    // await httpClient.postRequest({
+    //   endpoint: API_PATH.INVOICES,
+    //   body: { data: formattedData },
+    // });
 
     return { success: true };
   } catch (error) {
