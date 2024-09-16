@@ -22,12 +22,14 @@ import {
   MdDelete,
   Button,
   StarButton,
+  Pagination,
 } from '@/components';
 
 type TInvoiceData = TInvoiceDataResponse;
 
 type TInvoicesTableProps = {
   data: TInvoiceData[];
+  total: number;
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
   onToggleSelectStar: (id: string) => void;
@@ -36,6 +38,7 @@ type TInvoicesTableProps = {
 
 const InvoicesTable = ({
   data,
+  total,
   onEdit,
   onDelete,
   onToggleSelectStar,
@@ -188,13 +191,17 @@ const InvoicesTable = ({
   );
 
   return (
-    <Table
-      selectionMode="multiple"
-      // Simulate data
-      columns={mappingContentColumns}
-      data={data}
-      onSort={onSort}
-    />
+    <div className="flex flex-col gap-10">
+      <Table
+        selectionMode="multiple"
+        // Simulate data
+        columns={mappingContentColumns}
+        data={data}
+        onSort={onSort}
+      />
+
+      <Pagination total={total} />
+    </div>
   );
 };
 

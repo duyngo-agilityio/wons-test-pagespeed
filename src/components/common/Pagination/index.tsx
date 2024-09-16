@@ -1,15 +1,18 @@
 'use client';
 
+import { useCallback } from 'react';
 import {
   extendVariants,
   Pagination as NextUIPagination,
   PaginationProps as NextUIPaginationProps,
 } from '@nextui-org/react';
-
-import { useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // themes
 import { colors } from '@/themes';
+
+// Constants
+import { DEFAULT_PAGE, SEARCH_QUERIES } from '@/constants';
 
 export const CustomPagination = extendVariants(NextUIPagination, {
   variants: {
@@ -27,18 +30,27 @@ export const CustomPagination = extendVariants(NextUIPagination, {
   },
 });
 
-export type PaginationProps = {
-  handlePageChange: (page: number) => void;
-} & NextUIPaginationProps;
-
-const Pagination = ({ handlePageChange, ...props }: PaginationProps) => {
+const Pagination = ({ ...props }: NextUIPaginationProps) => {
+  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const { replace } = useRouter();
 
-  const currentPage = Number(searchParams?.get('page')) || 1;
+  const currentPage = searchParams?.get(SEARCH_QUERIES.PAGE) || DEFAULT_PAGE;
+
+  const handlePageChange = useCallback(
+    (page: number) => {
+      const params = new URLSearchParams(searchParams);
+
+      params.set(SEARCH_QUERIES.PAGE, page.toString());
+
+      replace(`${pathname}?${params.toString()}`, { scroll: false });
+    },
+    [pathname, replace, searchParams],
+  );
 
   return (
     <CustomPagination
-      page={currentPage}
+      page={+currentPage}
       onChange={handlePageChange}
       className="flex justify-center m-0"
       {...props}

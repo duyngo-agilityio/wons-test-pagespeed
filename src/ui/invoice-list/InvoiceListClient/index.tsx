@@ -2,22 +2,26 @@
 
 // Libs
 import { useCallback } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Types
 import { TInvoiceDataResponse } from '@/types';
 
+// Constants
+import { ORDER, DEFAULT_PAGE, SEARCH_QUERIES } from '@/constants';
+
 // Components
 import { InvoicesTable } from '@/components';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { ORDER, PARAMS } from '@/constants';
 
 export type TInvoiceListClientProps = {
   invoiceList: TInvoiceDataResponse[];
+  total: number;
   sortOrder?: string;
 };
 
 const InvoiceListClient = ({
   invoiceList,
+  total,
   sortOrder = '',
 }: TInvoiceListClientProps): JSX.Element => {
   const searchParams = useSearchParams();
@@ -29,11 +33,12 @@ const InvoiceListClient = ({
       const params = new URLSearchParams(searchParams);
 
       if (value) {
-        params.set(PARAMS.SORT_BY, value);
+        params.set(SEARCH_QUERIES.SORT_BY, value);
         params.set(
-          PARAMS.ORDER_PARAM,
+          SEARCH_QUERIES.ORDER,
           sortOrder === ORDER.DESC ? ORDER.ASC : ORDER.DESC,
         );
+        params.set(SEARCH_QUERIES.PAGE, DEFAULT_PAGE.toString());
       }
 
       replace(`${pathname}?${params.toString()}`, { scroll: false });
@@ -53,6 +58,7 @@ const InvoiceListClient = ({
   return (
     <InvoicesTable
       data={invoiceList}
+      total={total}
       onEdit={handleEdit}
       onDelete={handleDelete}
       onToggleSelectStar={handleToggleSelectStart}

@@ -6,7 +6,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import { Input, InputProps } from '@nextui-org/react';
 
 // Constants
-import { SEARCH_PARAMS } from '@/constants';
+import { SEARCH_QUERIES, DEFAULT_PAGE } from '@/constants';
 
 // Components
 import { CiSearch } from '@/components';
@@ -16,17 +16,17 @@ const SearchInput = ({ ...props }: InputProps) => {
   const pathname = usePathname();
   const { replace } = useRouter();
   const defaultValueSearch: string = searchParams
-    ?.get(SEARCH_PARAMS.QUERY)
+    ?.get(SEARCH_QUERIES.QUERY)
     ?.toString() as string;
 
-  const { NUMBER_PAGE, PAGE, QUERY } = SEARCH_PARAMS;
+  const { PAGE, QUERY } = SEARCH_QUERIES;
 
   const handleSearch = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const term = event.target.value;
       const params = new URLSearchParams(searchParams);
 
-      params.set(PAGE, NUMBER_PAGE[1]);
+      params.set(PAGE, DEFAULT_PAGE.toString());
 
       if (term) {
         params.set(QUERY, term);
