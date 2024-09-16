@@ -30,6 +30,7 @@ interface CustomTableProps<T> {
   data: T[];
   variant?: VariantTable;
   isStriped?: boolean;
+  isStripedRow?: boolean;
   selectionMode?: 'single' | 'multiple' | 'none';
   onSelectionChange?: (keys: string) => void;
   sortBy?: string;
@@ -45,6 +46,7 @@ const TableCustom = <T extends { id: string }>({
   newData,
   variant = 'primary',
   isStriped = false,
+  isStripedRow = false,
   selectionMode = 'none',
   order = ORDER.ASC,
   sortBy = '',
@@ -105,7 +107,10 @@ const TableCustom = <T extends { id: string }>({
       }}
       classNames={{
         base: 'grid',
-        wrapper: 'p-0 shadow-none dark:bg-gray-400',
+        wrapper: clsx(
+          'p-0 shadow-none dark:bg-gray-400',
+          isStripedRow && 'rounded-none',
+        ),
         table: TableClasses[variant].table,
         td: clsx(
           'first:rounded-l-lg',
@@ -132,7 +137,11 @@ const TableCustom = <T extends { id: string }>({
           return (
             <TableColumn
               key={`${header}${index}`}
-              className={clsx('py-0', TableClasses[variant].header)}
+              className={clsx(
+                'py-0',
+                TableClasses[variant].header,
+                isStripedRow && 'border-none',
+              )}
             >
               <Button
                 value={value}
@@ -157,9 +166,11 @@ const TableCustom = <T extends { id: string }>({
           <TableRow
             key={item.id}
             data-id={item.id}
-            className={
-              isStriped ? 'rounded-[5px]' : 'bg-white dark:bg-gray-400 '
-            }
+            className={clsx(
+              isStripedRow &&
+                'border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400',
+              isStriped ? 'rounded-[5px]' : 'bg-white dark:bg-gray-400',
+            )}
           >
             {columns.map((columnConfig, indexColumn) => (
               <TableCell

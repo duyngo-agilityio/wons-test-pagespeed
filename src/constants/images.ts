@@ -10,6 +10,7 @@ export const FALLBACK_SRC = {
 
 export const IMAGES = {
   LOGO: '/logo.svg',
+  LOGO_COMPANY: '/logo-company.svg',
   SIGN_IN_IMAGE: '/sign-in-banner.webp',
   SIGN_UP_IMAGE: '/sign-up-banner.webp',
   ACCOUNT_SUCCESS_LIGHT: '/account-success-light.webp',
