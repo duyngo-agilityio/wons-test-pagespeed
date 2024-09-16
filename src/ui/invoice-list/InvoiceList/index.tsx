@@ -7,18 +7,21 @@ import { InvoiceListClient } from '@/ui';
 export type TInvoiceListProps = {
   sortOrder?: string;
   sortBy?: string;
+  query?: string;
 };
 
 const InvoiceList = async ({
   sortOrder,
   sortBy,
+  query,
 }: TInvoiceListProps): Promise<JSX.Element> => {
   const invoicesRes = await getInvoices({
-    sortOrder: sortOrder,
-    sortBy: sortBy,
+    sortOrder,
+    sortBy,
+    query,
   });
 
-  const { data: invoices } = invoicesRes || {};
+  const { data: invoices = [] } = invoicesRes || {};
 
   return <InvoiceListClient invoiceList={invoices} sortOrder={sortOrder} />;
 };

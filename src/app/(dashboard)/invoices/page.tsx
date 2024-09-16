@@ -22,7 +22,7 @@ type TInvoiceListPageProps = {
 const InvoiceListPage = ({
   searchParams,
 }: TInvoiceListPageProps): JSX.Element => {
-  const { order = '', sortBy = '' } = searchParams || {};
+  const { order = '', sortBy = '', query = '' } = searchParams || {};
 
   return (
     <main>
@@ -31,7 +31,7 @@ const InvoiceListPage = ({
         rightContent={<InvoiceListActions />}
       >
         <Suspense
-          key={order + sortBy}
+          key={order + sortBy + query}
           fallback={
             <TableSkeleton
               variant="primary"
@@ -40,7 +40,7 @@ const InvoiceListPage = ({
             />
           }
         >
-          <InvoiceList sortBy={sortBy} sortOrder={order} />
+          <InvoiceList sortBy={sortBy} sortOrder={order} query={query} />
         </Suspense>
       </DashBoardLayout>
     </main>

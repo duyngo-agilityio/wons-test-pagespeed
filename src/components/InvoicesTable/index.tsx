@@ -66,11 +66,7 @@ const InvoicesTable = ({
           const { data } = customer || {};
           const { attributes: customerAttributes } = data || {};
 
-          const {
-            avatar = '',
-            firstName = '',
-            lastName = '',
-          } = customerAttributes || {};
+          const { avatar = '', fullName = '' } = customerAttributes || {};
 
           return (
             <div className="flex gap-3.5 items-center">
@@ -84,15 +80,11 @@ const InvoicesTable = ({
                 />
               </div>
 
-              <Text
-                size="md"
-                text={`${firstName} ${lastName}`}
-                className="text-nowrap"
-              />
+              <Text size="md" text={fullName} className="text-nowrap" />
             </div>
           );
         },
-        value: 'fullName',
+        value: 'customer.fullName',
         isSort: true,
       },
       {

@@ -3,4 +3,6 @@ export interface ISearchParams {
   order?: string;
   startTime?: string;
   endTime?: string;
+  page?: string;
+  query?: string
 }

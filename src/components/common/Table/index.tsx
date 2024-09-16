@@ -142,7 +142,7 @@ const TableCustom = <T extends { id: string }>({
           );
         })}
       </TableHeader>
-      <TableBody emptyContent={'No rows to display.'}>
+      <TableBody emptyContent={'No Records found.'}>
         {dataTable.map((item) => (
           <TableRow
             key={`table-row-${item.id}`}
