@@ -1,29 +1,29 @@
 'use client';
 
-import { Autocomplete, Button, Input, Table, Text } from '@/components';
-import { IProduct, TInvoiceProduct } from '@/models';
-import { formatTotalAmount } from '@/utils';
-import { Dispatch, Key, SetStateAction } from 'react';
+import { ChangeEvent, Dispatch, Key, SetStateAction, MouseEvent } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
+
+// Components
+import { Autocomplete, Button, Input, Table, Text } from '@/components';
+
+// Constants
+import { MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
+
+// Models
+import { IProduct } from '@/models';
+
+// Utils
+import { formatTotalAmount } from '@/utils';
+
+// Types
+import { TInvoiceProductTable } from '@/types';
 
 interface InvoiceProductTableProps {
   products: (IProduct & { id: number })[];
   errorProducts: string;
-  productsValues: TInvoiceProduct<
-    IProduct & {
-      id: number;
-    }
-  >[];
-  setProductsValues: Dispatch<
-    SetStateAction<
-      TInvoiceProduct<
-        IProduct & {
-          id: number;
-        }
-      >[]
-    >
-  >;
+  productsValues: TInvoiceProductTable[];
+  setProductsValues: Dispatch<SetStateAction<TInvoiceProductTable[]>>;
   setErrorProducts: Dispatch<SetStateAction<string>>;
 }
 
@@ -82,7 +82,7 @@ const InvoiceProductTable = ({
   const columnTable = [
     {
       header: 'Product Name',
-      accessor: (data: TInvoiceProduct<IProduct & { id: number }>) => {
+      accessor: (data: TInvoiceProductTable) => {
         const optionsElse = optionsProducts.filter(
           ({ value }) =>
             !productsValues.some(
@@ -96,12 +96,19 @@ const InvoiceProductTable = ({
 
         return (
           <Autocomplete
+            disableClearable
             value={data.product.data.id}
             onSelectionChange={(key) =>
               handleChangeProductName(key, data.product.data.id)
             }
             options={[...current, ...optionsElse]}
-            className="!text-blue-500 text-[14.22px] leading-[18.51px]"
+            className="!text-blue-500 text-[14.22px] bg-white leading-[18.51px]"
+            inputProps={{
+              classNames: {
+                inputWrapper: 'bg-white shadow-none',
+                input: '!text-blue-500',
+              },
+            }}
           />
         );
       },
@@ -109,20 +116,21 @@ const InvoiceProductTable = ({
     },
     {
       header: 'Rate',
-      accessor: ({ product }: TInvoiceProduct<IProduct>) => {
-        return <Text text={`$${product.data.price}`} className="text-end" />;
+      accessor: ({ product }: TInvoiceProductTable) => {
+        return <Text text={`$${product.data.price}`} />;
       },
       isSort: true,
     },
     {
       header: 'QTY',
-      accessor: ({ quantity }: TInvoiceProduct<IProduct>) => (
+      accessor: ({ quantity, product }: TInvoiceProductTable) => (
         <Input
           value={quantity.toString()}
           classNames={{
             base: 'w-[65px]',
             inputWrapper: 'bg-white shadow-none px-2',
           }}
+          onChange={(e) => handleUpdateQuantity(e, product.data.id)}
           endContent={<Text text="Pcs" />}
         />
       ),
@@ -130,7 +138,7 @@ const InvoiceProductTable = ({
     },
     {
       header: 'Amount',
-      accessor: ({ product, quantity }: TInvoiceProduct<IProduct>) => (
+      accessor: ({ product, quantity }: TInvoiceProductTable) => (
         <Text
           className="text-end text-teal-500 pr-3"
           text={
@@ -143,15 +151,60 @@ const InvoiceProductTable = ({
       isSort: true,
     },
     {
-      accessor: () => (
+      accessor: ({ product }: TInvoiceProductTable) => (
         <Button
           variant="ghost"
           className="rounded-[100%] p-[10px] !bg-pink-500/5"
+          data-id={product.data.id}
           endContent={<FaTrash className="text-pink-500" />}
+          onClick={handleRemoveProduct}
         />
       ),
     },
   ];
+
+  const handleUpdateQuantity = (
+    e: ChangeEvent<HTMLInputElement>,
+    id: number,
+  ) => {
+    const { value } = e.target;
+
+    // Find the product to update
+    const product = products.find((product) => product.id === id);
+
+    if (product) {
+      // Validate and parse the value directly
+      const parsedValue = Number(value);
+
+      // Check if the value is a valid positive integer within the range of 0 to 99
+      const isValidQuantity =
+        !isNaN(parsedValue) &&
+        parsedValue > 0 &&
+        parsedValue <= MAX_QUANTITY_PRODUCTS &&
+        REGEX.INTEGER.test(value);
+
+      if (isValidQuantity || value === '') {
+        setProductsValues((prevProducts) =>
+          prevProducts.map((p) =>
+            p.product.data.id === id
+              ? { ...p, quantity: isValidQuantity ? parsedValue : 0 }
+              : p,
+          ),
+        );
+      }
+    }
+  };
+
+  const handleRemoveProduct = (event: MouseEvent<HTMLElement>) => {
+    const target = event.target as HTMLElement;
+
+    const id = target.dataset.id;
+
+    id &&
+      setProductsValues((prev) =>
+        prev.filter((product) => product.product.data.id !== Number(id)),
+      );
+  };
 
   return (
     <div>

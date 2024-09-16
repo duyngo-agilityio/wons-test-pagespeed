@@ -20,6 +20,7 @@ import { formatErrorMessage } from '@/utils';
 
 export const createInvoiceAction = async (
   formData: Partial<TInvoice> & { imageFile?: File },
+  products: number[],
 ) => {
   try {
     if (formData.imageFile) {
@@ -35,9 +36,16 @@ export const createInvoiceAction = async (
       }
     }
 
+    const formattedData = {
+      ...formData,
+      customer: Number(formData.customer),
+      isSelected: false,
+      invoice_products: products,
+    };
+
     await httpClient.postRequest({
       endpoint: API_PATH.INVOICES,
-      body: { data: formData },
+      body: { data: formattedData },
     });
 
     return { success: true };

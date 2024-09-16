@@ -15,9 +15,12 @@ import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 import {
   clearErrorOnChange,
   currentDate,
-  generateRandomID,
+  formatDateByISO,
   isEnableSubmitButton,
 } from '@/utils';
+
+// Types
+import { TInvoiceFormData } from '@/types';
 
 // Components
 import {
@@ -35,8 +38,8 @@ import { uploadImage } from '@/api/image';
 
 // Zod schema for validation
 const invoiceSchema = z.object({
+  invoiceId: z.string(),
   customer: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
-  // imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
   status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Status')),
   address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Address')),
   date: z.any(),
@@ -49,12 +52,22 @@ const invoiceSchema = z.object({
 const REQUIRED_FIELDS = ['date', 'customer', 'email', 'address', 'status'];
 
 interface InvoiceFormProps {
-  onSubmit: (data: Partial<TInvoice>) => void;
+  invoiceId: string;
+  onSubmit: (data: Partial<TInvoice>, products: number[]) => void;
   products: (IProduct & { id: number })[];
   customers: (ICustomer & { id: number })[];
 }
 
-const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
+interface InvoiceFormDataCustom extends TInvoiceFormData {
+  avatar: string;
+}
+
+const InvoiceForm = ({
+  invoiceId,
+  products,
+  customers,
+  onSubmit,
+}: InvoiceFormProps) => {
   const [productsValues, setProductsValues] = useState<
     TInvoiceProduct<IProduct & { id: number }>[]
   >([]);
@@ -67,7 +80,7 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
     formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
-  } = useForm<Partial<TInvoice>>({
+  } = useForm<InvoiceFormDataCustom>({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -95,7 +108,7 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
   );
   const isDisableSubmit = !enableSubmit;
 
-  const handleAddInvoice = async (formData: Partial<TInvoice>) => {
+  const handleAddInvoice = async (formData: TInvoiceFormData) => {
     const hasEmptyField = productsValues.some((obj) =>
       Object.values(obj).some((value) => value === ''),
     );
@@ -125,7 +138,21 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
       }
     }
 
-    onSubmit(formData);
+    const { date } = formData;
+
+    const dateString = `${date?.year}-${date?.month}-${date?.day}`;
+    const formattedDate = formatDateByISO(dateString);
+
+    const invoiceProduct = productsValues.map(({ product }) => product.data.id);
+
+    onSubmit(
+      {
+        ...formData,
+        invoiceId,
+        date: formattedDate,
+      },
+      invoiceProduct,
+    );
   };
 
   const handleAvatarChange = useCallback((avatarFile: File) => {
@@ -148,7 +175,7 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
       </div>
 
       <div className="flex gap-[30px] mt-[30px]">
-        {/* Invoice Id s*/}
+        {/* Invoice Id*/}
         <Controller
           name="invoiceId"
           control={control}
@@ -157,7 +184,7 @@ const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
               isDisabled
               label="Invoice Id"
               classNames={{ base: 'h-[74px]' }}
-              value={`#${generateRandomID()}`}
+              value={`#${invoiceId}`}
             />
           )}
         />
