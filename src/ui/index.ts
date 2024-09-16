@@ -5,3 +5,5 @@ export * from './sign-in';
 export * from './sign-up';
 export * from './invoice-list';
 export * from './customer-list';
+export * from './customer-list';
+export * from './invoice-details';
