@@ -36,3 +36,25 @@ export const getAllProducts = async (): Promise<{
     return { error: message };
   }
 };
+
+export const getProducts = async (): Promise<{
+  error?: string;
+  data?: StrapiModel<IProduct>[];
+}> => {
+  try {
+    const productsResponse = await httpClient.getRequest<
+      StrapiResponse<StrapiModel<IProduct>[]>
+    >({
+      endpoint: API_PATH.PRODUCTS,
+    });
+
+    if (!productsResponse?.data?.length) {
+      return { error: undefined, data: [] };
+    }
+
+    return { error: undefined, data: productsResponse.data };
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};

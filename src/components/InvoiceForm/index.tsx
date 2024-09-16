@@ -1,19 +1,24 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Avatar } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 // Constants
-import { ERROR_MESSAGES, INVOICE_STATUS, InvoiceStatus } from '@/constants';
+import { ERROR_MESSAGES, INVOICE_STATUS } from '@/constants';
 
 // Models
-import { TInvoice } from '@/models';
+import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 
 // Utils
-import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+import {
+  clearErrorOnChange,
+  currentDate,
+  generateRandomID,
+  isEnableSubmitButton,
+} from '@/utils';
 
 // Components
 import {
@@ -27,33 +32,31 @@ import {
 
 // Zod schema for validation
 const invoiceSchema = z.object({
-  id: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Id')),
   customer: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
-  imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
+  // imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
   status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Status')),
   address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Address')),
-  date: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Date')),
+  date: z.any(),
   email: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email'))
     .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
 });
 
-const REQUIRED_FIELDS = [
-  'id',
-  'date',
-  'customer',
-  'email',
-  'address',
-  'status',
-];
+const REQUIRED_FIELDS = ['date', 'customer', 'email', 'address', 'status'];
 
 interface InvoiceFormProps {
-  onSubmit: (data: Partial<IInvoice>) => void;
-  products: IProduct[];
+  onSubmit: (data: Partial<TInvoice>) => void;
+  products: (IProduct & { id: number })[];
+  customers: (ICustomer & { id: number })[];
 }
 
-const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
+const InvoiceForm = ({ products, customers, onSubmit }: InvoiceFormProps) => {
+  const [productsValues, setProductsValues] = useState<
+    TInvoiceProduct<IProduct & { id: number }>[]
+  >([]);
+  const [errorProducts, setErrorProducts] = useState<string>('');
+
   const {
     control,
     formState: { dirtyFields, errors },
@@ -69,9 +72,14 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
       customer: '',
       email: '',
       address: '',
-      status: InvoiceStatus.PENDING,
+      status: undefined,
     },
   });
+
+  const optionsCustomers = customers.map((customer) => ({
+    value: customer.id.toString(),
+    label: customer.lastName,
+  }));
 
   // Checking to disable/enable submit button
   const dirtyItems = Object.keys(dirtyFields);
@@ -83,6 +91,14 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
   const isDisableSubmit = !enableSubmit;
 
   const handleAddInvoice = (formData: Partial<TInvoice>) => {
+    const hasEmptyField = productsValues.some((obj) =>
+      Object.values(obj).some((value) => value === ''),
+    );
+
+    if (productsValues.length === 0 || hasEmptyField) {
+      return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Product'));
+    }
+
     onSubmit(formData);
   };
 
@@ -101,22 +117,12 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
         <Controller
           name="invoiceId"
           control={control}
-          render={({
-            field: { name, onChange, ...rest },
-            fieldState: { error },
-          }) => (
+          render={() => (
             <Input
+              isDisabled
               label="Invoice Id"
               classNames={{ base: 'h-[74px]' }}
-              isInvalid={!!error}
-              errorMessage={error?.message}
-              onChange={(e) => {
-                onChange(e.target.value);
-
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              {...rest}
+              value={`#${generateRandomID()}`}
             />
           )}
         />
@@ -125,7 +131,21 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
         <Controller
           name="date"
           control={control}
-          render={() => <DatePicker label="Date" className="mt-1" />}
+          render={({ field: { onChange, name }, fieldState: { error } }) => (
+            <DatePicker
+              onChange={(value) => {
+                onChange(value);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+              minValue={currentDate}
+              label="Date"
+              isInvalid={!!error}
+              className="mt-1"
+              errorMessage={error?.message}
+            />
+          )}
         />
       </div>
 
@@ -134,12 +154,21 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
         <Controller
           name="customer"
           control={control}
-          render={({ field: { ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { onChange, name, ...rest },
+            fieldState: { error },
+          }) => (
             <Autocomplete
               isInvalid={!!error}
               errorMessage={error?.message}
+              onSelectionChange={(key) => {
+                onChange(key);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
               label="Name"
-              options={[]}
+              options={optionsCustomers}
               {...rest}
             />
           )}
@@ -149,11 +178,20 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
         <Controller
           name="status"
           control={control}
-          render={({ field: { ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { onChange, name, ...rest },
+            fieldState: { error },
+          }) => (
             <Autocomplete
               isInvalid={!!error}
               errorMessage={error?.message}
               label="Status"
+              onSelectionChange={(key) => {
+                onChange(key);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
               options={INVOICE_STATUS}
               {...rest}
             />
@@ -192,11 +230,20 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
         <Controller
           name="address"
           control={control}
-          render={({ field: { ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { name, onChange, ...rest },
+            fieldState: { error },
+          }) => (
             <AddressInput
               isInvalid={!!error}
               errorMessage={error?.message}
               className="flex-1"
+              onChange={(e) => {
+                onChange(e.target.value);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
               label="Address"
               {...rest}
             />
@@ -206,17 +253,18 @@ const InvoiceForm = ({ products, onSubmit }: InvoiceFormProps) => {
 
       <div>
         <div className="mt-[17px]">
-          <InvoiceProductTable products={products} />
+          <InvoiceProductTable
+            products={products}
+            productsValues={productsValues}
+            errorProducts={errorProducts}
+            setErrorProducts={setErrorProducts}
+            setProductsValues={setProductsValues}
+          />
         </div>
       </div>
 
       <div className="flex gap-[30px]">
-        <Button
-          type="submit"
-          size="lg"
-          color="secondary"
-          className="w-full mt-10"
-        >
+        <Button size="lg" color="secondary" className="w-full mt-10">
           Cancel
         </Button>
         <Button

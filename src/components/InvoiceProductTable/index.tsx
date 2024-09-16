@@ -3,13 +3,28 @@
 import { Autocomplete, Button, Input, Table, Text } from '@/components';
 import { IProduct, TInvoiceProduct } from '@/models';
 import { formatTotalAmount } from '@/utils';
-import { Key, useState } from 'react';
+import { Dispatch, Key, SetStateAction } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
 
 interface InvoiceProductTableProps {
-  // data: TInvoiceProduct<IProduct>[];
-  products: IProduct[];
+  products: (IProduct & { id: number })[];
+  errorProducts: string;
+  productsValues: TInvoiceProduct<
+    IProduct & {
+      id: number;
+    }
+  >[];
+  setProductsValues: Dispatch<
+    SetStateAction<
+      TInvoiceProduct<
+        IProduct & {
+          id: number;
+        }
+      >[]
+    >
+  >;
+  setErrorProducts: Dispatch<SetStateAction<string>>;
 }
 
 const initInvoiceProduct = {
@@ -18,7 +33,7 @@ const initInvoiceProduct = {
   price: 0,
   product: {
     data: {
-      id: '',
+      id: 0,
       price: 0,
       imageUrl: '',
       title: '',
@@ -27,19 +42,20 @@ const initInvoiceProduct = {
   },
 };
 
-const InvoiceProductTable = ({ products }: InvoiceProductTableProps) => {
-  const [productsValues, setProductsValues] = useState<
-    TInvoiceProduct<IProduct>[]
-  >([]);
-  const [errorProducts, setErrorProducts] = useState<string>('');
-
+const InvoiceProductTable = ({
+  setErrorProducts,
+  setProductsValues,
+  products,
+  errorProducts,
+  productsValues,
+}: InvoiceProductTableProps) => {
   const handleAddProduct = () => {
     setErrorProducts('');
     setProductsValues((prev) => [...prev, initInvoiceProduct]);
   };
 
-  const handleChangeProductName = (key: Key | null) => {
-    const product = products.find((product) => product.id === key);
+  const handleChangeProductName = (key: Key | null, id: number) => {
+    const product = products.find((product) => product.id.toString() === key);
     setErrorProducts('');
 
     if (product) {
@@ -50,7 +66,7 @@ const InvoiceProductTable = ({ products }: InvoiceProductTableProps) => {
           ];
 
         return prevProducts.map((p) =>
-          p.product.data.id === key
+          p.product.data.id === id
             ? { product: { data: product }, quantity: 1, price: product.price }
             : p,
         );
@@ -59,31 +75,31 @@ const InvoiceProductTable = ({ products }: InvoiceProductTableProps) => {
   };
 
   const optionsProducts = products.map((product) => ({
-    value: product.id,
+    value: product.id.toString(),
     label: product.title,
   }));
 
   const columnTable = [
     {
       header: 'Product Name',
-      accessor: ({ product }: TInvoiceProduct<IProduct>) => {
+      accessor: (data: TInvoiceProduct<IProduct & { id: number }>) => {
         const optionsElse = optionsProducts.filter(
           ({ value }) =>
-            !productsValues.some(({ product }) => product.data.id === value),
+            !productsValues.some(
+              ({ product }) => product.data.id.toString() === value,
+            ),
         );
 
         const current = optionsProducts.filter(
-          ({ value }) => value === product.data.id,
+          ({ value }) => value === data.product.data.id.toString(),
         );
-
-        console.log(product.data.id, 'product.data.id');
-        console.log(current, '-------->current');
-        console.log(optionsElse, '-------->optionsElse');
 
         return (
           <Autocomplete
-            onSelectionChange={handleChangeProductName}
-            value={product.data.title}
+            value={data.product.data.id}
+            onSelectionChange={(key) =>
+              handleChangeProductName(key, data.product.data.id)
+            }
             options={[...current, ...optionsElse]}
             className="!text-blue-500 text-[14.22px] leading-[18.51px]"
           />
