@@ -5,7 +5,12 @@ import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
 import { IProduct, TInvoiceProduct } from '@/models';
 
 // Types
-import { StrapiModel, StrapiResponse, TInvoiceListResponse } from '@/types';
+import {
+  StrapiModel,
+  StrapiResponse,
+  TInvoiceDetailsResponse,
+  TInvoiceListResponse,
+} from '@/types';
 
 // Utils
 import { formatFilterIntervalDate } from '@/utils';
@@ -82,6 +87,35 @@ export const getInvoices = async ({
 
   try {
     const response = await httpClient.getRequest<TInvoiceListResponse>({
+      endpoint,
+      configOptions: {
+        cache: cache ?? 'force-cache',
+        next: nextOptions,
+      },
+    });
+
+    return response;
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
+    throw new Error(message);
+  }
+};
+
+interface IGetInvoiceByIdParams
+  extends Pick<IParameters, 'nextOptions' | 'cache'> {
+  id: number;
+}
+
+export const getInvoiceById = async ({
+  id,
+  cache,
+  nextOptions,
+}: IGetInvoiceByIdParams) => {
+  const endpoint = `${API_PATH.INVOICES}/${id}?populate=customer&populate=invoice_products&populate=invoice_products.product`;
+
+  try {
+    const response = await httpClient.getRequest<TInvoiceDetailsResponse>({
       endpoint,
       configOptions: {
         cache: cache ?? 'force-cache',

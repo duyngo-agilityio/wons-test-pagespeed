@@ -54,10 +54,10 @@ export const formatPhoneNumber = (value: string) => {
  *
  */
 export const formatSubtotal = (
-  data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[],
+  items: { data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[] },
   discount: number = 0,
 ) => {
-  const subtotal = data.reduce(
+  const subtotal = items.data.reduce(
     (prevResult, item) =>
       prevResult + item.attributes.price * item.attributes.quantity,
     0,
@@ -70,10 +70,10 @@ export const formatSubtotal = (
 };
 
 export const formatAmountWithDiscount = (
-  data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[],
+  items: { data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[] },
   discount: number = 0,
 ) => {
-  const subtotal = data.reduce(
+  const subtotal = items.data.reduce(
     (prevResult, item) =>
       prevResult + item.attributes.price * item.attributes.quantity,
     0,
