@@ -97,7 +97,7 @@ const InvoiceProductTable = ({
         return (
           <Autocomplete
             disableClearable
-            value={data.product.data.id}
+            defaultSelectedKey={data.product.data.id.toString()}
             onSelectionChange={(key) =>
               handleChangeProductName(key, data.product.data.id)
             }
@@ -198,9 +198,9 @@ const InvoiceProductTable = ({
   };
 
   const handleRemoveProduct = (event: MouseEvent<HTMLElement>) => {
-    const target = event.target as HTMLElement;
+    const currentTarget = event.currentTarget as HTMLElement;
 
-    const id = target.dataset.id;
+    const id = currentTarget.dataset.id;
 
     id &&
       setProductsValues((prev) =>

@@ -1,27 +1,29 @@
-// Services
-import { httpClient } from '@/services';
-
-// utils
-import { formatErrorMessage } from '@/utils';
-
 export const uploadImage = async (
   image: FormData,
 ): Promise<string | { error: string }> => {
   try {
-    const response = await httpClient.postRequest<
-      FormData,
-      { data: { url: string } }
-    >({
-      endpoint: `${process.env.NEXT_PUBLIC_UPLOAD_URL}?key=${process.env.NEXT_PUBLIC_UPLOAD_KEY}`,
-      body: image,
-      configOptions: {
-        headers: {},
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_UPLOAD_URL}?key=${process.env.NEXT_PUBLIC_UPLOAD_KEY}`,
+      {
+        method: 'POST',
+        body: image,
+        headers: {
+          Accept: 'application/json',
+        },
       },
-    });
+    );
 
-    return response.data.url;
+    if (!response.ok) {
+      const errorMessage = `Error: ${response.statusText}`;
+      console.error('Error uploading image:', errorMessage);
+      return { error: errorMessage };
+    }
+
+    const data = await response.json();
+
+    return data?.data?.url;
   } catch (error) {
-    const message = formatErrorMessage(error);
+    const message = `Error: ${error instanceof Error ? error.message : 'Unknown error'}`;
     return { error: message };
   }
 };

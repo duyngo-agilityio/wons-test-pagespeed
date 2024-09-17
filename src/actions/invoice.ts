@@ -25,8 +25,7 @@ export const createInvoiceAction = async (
   try {
     if (formData.imageUrl) {
       const imageFormData = new FormData();
-      imageFormData.append('file', formData.imageUrl);
-
+      imageFormData.append('image', formData.imageUrl);
       const imageUrl = await uploadImage(imageFormData);
 
       if (typeof imageUrl === 'string') {
@@ -38,6 +37,7 @@ export const createInvoiceAction = async (
 
     const formattedData = {
       ...formData,
+      imagerUrl: formData.imageUrl,
       customer: Number(formData.customer),
       isSelected: false,
       invoice_products: products,
@@ -47,6 +47,8 @@ export const createInvoiceAction = async (
       endpoint: API_PATH.INVOICES,
       body: { data: formattedData },
     });
+
+    revalidateTag(API_PATH.INVOICES);
 
     return { success: true };
   } catch (error) {
