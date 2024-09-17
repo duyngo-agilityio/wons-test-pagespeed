@@ -71,9 +71,10 @@ const TableCustom = <T extends { id: string }>({
       cell: 'text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]',
     },
     secondary: {
-      header: 'bg-white dark:bg-gray-400 border-b-[1px] px-[21px]',
+      header:
+        'bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]',
       table:
-        'px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 dark:[&>tbody>*:nth-child(even)]:bg-gray-600',
+        'px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 [&>tbody>*:nth-child(even)]:bg-gray-50/50 dark:[&>tbody>*:nth-child(even)]:bg-gray-600',
       td: 'last:rounded-r-lg',
       cell: 'leading-[17px] py-[17px] px-[21px]',
     },
