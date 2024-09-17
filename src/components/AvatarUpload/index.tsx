@@ -83,7 +83,7 @@ const AvatarUpload = ({
           ) : (
             <IoCamera
               size={32}
-              className="text-blue-800/70 dark:text-blue-500"
+              className="text-blue-800/70 dark:text-white/70"
             />
           )}
         </div>
