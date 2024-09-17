@@ -14,6 +14,7 @@ interface ITableSkeleton {
   quantity?: number;
   variant?: 'primary' | 'secondary';
   isStriped?: boolean;
+  isStripedRow?: boolean;
 }
 
 const TableSkeleton = ({
@@ -21,9 +22,11 @@ const TableSkeleton = ({
   variant = 'secondary',
   columns,
   isStriped = true,
+  isStripedRow = false,
 }: ITableSkeleton) => (
   <Table
     isStriped={isStriped}
+    isStripedRow={isStripedRow}
     variant={variant}
     columns={columns}
     data={InsertSkeletonRow(quantity)}

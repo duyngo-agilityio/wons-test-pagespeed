@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { useCallback, useState } from 'react';
+import { Key, useCallback, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
@@ -98,6 +98,11 @@ const InvoiceListClient = ({
   // TODO: Update later
   const handleToggleSelectStart = useCallback(() => {}, []);
 
+  const handleRowAction = useCallback(
+    (key: Key) => replace(`${pathname}/${key}`),
+    [pathname, replace],
+  );
+
   return (
     <>
       {isLoading && <LoadingIndicator />}
@@ -109,6 +114,7 @@ const InvoiceListClient = ({
         onDeleteMultiple={handleDeleteMultiple}
         onToggleSelectStar={handleToggleSelectStart}
         onSort={handleSort}
+        onRowAction={handleRowAction}
       />
     </>
   );

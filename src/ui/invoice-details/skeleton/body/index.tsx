@@ -1,83 +1,18 @@
-'use client';
+import { Skeleton } from '@nextui-org/react';
 
-import { memo, useMemo } from 'react';
-import isEqual from 'react-fast-compare';
-
-// Utils
-import {
-  formatPrice,
-  formatAmountWithDiscount,
-  formatSubtotal,
-  formatTotalAmount,
-} from '@/utils';
-
-// Types
-import { StrapiModel } from '@/types';
-
-// Models
-import { TInvoiceProduct, IProduct } from '@/models';
+// Constants
+import { MAPPING_PRODUCT_DESCRIPTIONS_SKELETON } from '@/constants/skeleton';
 
 // Components
-import { Table, Text } from '@/components';
+import { TableSkeleton, Text } from '@/components';
 
-interface IInvoiceDetailsBody {
-  data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[];
-}
-
-const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
-  const mappingContent = useMemo(
-    () => [
-      {
-        accessor: (
-          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
-        ) => (
-          <Text
-            size="2xs"
-            text={data.attributes.product?.data?.attributes.title}
-          />
-        ),
-
-        header: 'PRODUCT DESCRIPTION',
-      },
-      {
-        accessor: (
-          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
-        ) => <Text size="2xs" text={String(data?.attributes.quantity)} />,
-        header: 'QUANTITY',
-      },
-      {
-        accessor: (
-          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
-        ) => (
-          <Text
-            size="2xs"
-            text={`${formatPrice(data.attributes.price, true)} USD`}
-          />
-        ),
-        header: 'RATE',
-      },
-      {
-        accessor: (
-          data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
-        ) => (
-          <Text
-            size="2xs"
-            text={`${formatTotalAmount(data.attributes.price, data.attributes.quantity)} USD`}
-          />
-        ),
-        header: 'AMOUNT',
-      },
-    ],
-    [],
-  );
-
+const InvoiceDetailsBodySkeleton = () => {
   return (
     <div className="base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
-      <Table
+      <TableSkeleton
         isStripedRow
-        variant="secondary"
-        columns={mappingContent}
-        data={data}
+        isStriped={false}
+        columns={MAPPING_PRODUCT_DESCRIPTIONS_SKELETON}
       />
       <div className="flex flex-col items-end">
         <div className="flex justify-between w-[65%] py-[17px] border-b-1 border-gray-50 dark:border-gray-50/50">
@@ -86,7 +21,7 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
             className="uppercase text-gray-200"
             size="2xs"
           />
-          <Text text={formatSubtotal({ data })} size="2xs" />
+          <Skeleton className="flex base:w-16 lg:w-40 h-5 rounded-5" />
         </div>
         <div className="flex justify-between w-[65%] py-[17px] border-b-1 border-gray-50 dark:border-gray-50/50">
           <Text
@@ -94,15 +29,11 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
             className="uppercase text-gray-200"
             size="2xs"
           />
-          <Text text={formatSubtotal({ data }, 5)} size="2xs" />
+          <Skeleton className="flex base:w-16 lg:w-40 h-5 rounded-5" />
         </div>
         <div className="flex justify-between w-[65%] py-[17px]">
           <Text text="Total" className="uppercase" size="2xs" />
-          <Text
-            text={formatAmountWithDiscount({ data }, 5)}
-            size="sm"
-            className="!text-blue-500 dark:!text-white"
-          />
+          <Skeleton className="flex base:w-16 lg:w-40 h-5 rounded-5" />
         </div>
         <div className="flex flex-col py-4">
           <Text
@@ -151,4 +82,4 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
   );
 };
 
-export default memo(InvoiceDetailsBody, isEqual);
+export default InvoiceDetailsBodySkeleton;

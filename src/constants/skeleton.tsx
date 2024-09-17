@@ -74,3 +74,22 @@ export const MAPPING_INVOICE_LIST_SKELETON = [
     accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
   },
 ];
+
+export const MAPPING_PRODUCT_DESCRIPTIONS_SKELETON = [
+  {
+    header: 'PRODUCT DESCRIPTION',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+  {
+    header: 'QUANTITY',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+  {
+    header: 'RATE',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+  {
+    header: 'AMOUNT',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+];

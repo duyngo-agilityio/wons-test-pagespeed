@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { useCallback, useMemo, useState } from 'react';
+import { Key, useCallback, useMemo, useState } from 'react';
 import { Selection } from '@nextui-org/react';
 import dayjs from 'dayjs';
 
@@ -36,6 +36,7 @@ type TInvoicesTableProps = {
   onDeleteMultiple: (ids: number[]) => void;
   onToggleSelectStar: (id: string) => void;
   onSort: (field: string) => void;
+  onRowAction?: (key: Key) => void;
 };
 
 const InvoicesTable = ({
@@ -46,6 +47,7 @@ const InvoicesTable = ({
   onDeleteMultiple,
   onToggleSelectStar,
   onSort,
+  onRowAction,
 }: TInvoicesTableProps): JSX.Element => {
   const [selectedInvoiceIds, setSelectedInvoiceIds] = useState<number[]>([]);
 
@@ -210,6 +212,7 @@ const InvoicesTable = ({
         data={data}
         onSort={onSort}
         onSelectChange={handleSelectChange}
+        onRowAction={onRowAction}
       />
 
       <Pagination total={total} />

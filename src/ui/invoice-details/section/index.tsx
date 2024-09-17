@@ -1,5 +1,13 @@
-// Mocks
-import { MOCK_INVOICES, data as MOCK_CUSTOMERS } from '@/mocks';
+import { notFound } from 'next/navigation';
+
+// Api
+import { getInvoiceById } from '@/api';
+
+// Models
+import { ICustomer, IProduct, TInvoiceProduct } from '@/models';
+
+// Types
+import { StrapiModel } from '@/types';
 
 // Components
 import {
@@ -8,13 +16,26 @@ import {
   InvoiceDetailsFooter,
 } from '@/ui/invoice-details';
 
-const InvoiceDetailsSection = () => {
+interface IInvoiceDetailsSectionProps {
+  id: number;
+}
+
+const InvoiceDetailsSection = async ({ id }: IInvoiceDetailsSectionProps) => {
+  const result = await getInvoiceById({
+    id: id,
+  });
+  const customer: ICustomer =
+    result.data.attributes.customer?.data.attributes ?? {};
+  const invoices: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[] =
+    result.data.attributes.invoice_products.data;
+
+  if (!result.data) notFound();
+
   return (
     <div className="max-w-[1440px] m-auto base:px-2 base:py-5 lg:p-7.5 bg-white dark:bg-gray-400 rounded-10">
-      {/* Mock data */}
-      <InvoiceDetailsHeader customer={MOCK_CUSTOMERS[0]} />
-      <InvoiceDetailsBody data={MOCK_INVOICES} />
-      <InvoiceDetailsFooter customer={MOCK_CUSTOMERS[0]} />
+      <InvoiceDetailsHeader customer={customer} />
+      <InvoiceDetailsBody data={invoices} />
+      <InvoiceDetailsFooter customer={customer} />
     </div>
   );
 };

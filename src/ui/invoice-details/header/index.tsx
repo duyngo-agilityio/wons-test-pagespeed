@@ -62,7 +62,10 @@ const InvoiceDetailsHeader = ({ customer }: IInvoiceDetailsHeaderProps) => {
             </div>
             <div className="flex items-center gap-2.5">
               <Text text="m" size="3xs" className="text text-blue-500" />
-              <Link href={`tel:${formatPhoneNumber}`}>
+              <Link
+                as={`tel:${formatPhoneNumber}`}
+                href={`tel:${formatPhoneNumber}`}
+              >
                 <Text
                   text={formatPhoneNumber(phone)}
                   size="2xs"

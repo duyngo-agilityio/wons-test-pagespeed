@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, ReactNode, useCallback } from 'react';
+import { Key, memo, ReactNode, useCallback } from 'react';
 import { clsx } from 'clsx';
 import isEqual from 'react-fast-compare';
 import {
@@ -38,6 +38,7 @@ interface CustomTableProps<T> {
   onSort?: (value: string) => void;
   newData?: T;
   onSelectChange?: (keys: Selection) => void;
+  onRowAction?: (key: Key) => void;
 }
 
 const TableCustom = <T extends { id: string }>({
@@ -52,6 +53,7 @@ const TableCustom = <T extends { id: string }>({
   sortBy = '',
   onSort,
   onSelectChange = () => {},
+  onRowAction,
 }: CustomTableProps<T>) => {
   const renderCell = (item: T, accessor: TTableAccessor<T>): ReactNode => {
     if (typeof accessor === 'string')
@@ -125,6 +127,7 @@ const TableCustom = <T extends { id: string }>({
         ],
       }}
       onSelectionChange={handleSelectChange}
+      onRowAction={onRowAction}
     >
       <TableHeader className="border-spacing-y-0">
         {columns.map((columnConfig, index) => {
