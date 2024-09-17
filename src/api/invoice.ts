@@ -67,6 +67,7 @@ export type InvoiceListConfigs = {
   pageSize?: number;
   cache?: RequestCache;
   nextOptions?: NextFetchRequestConfig;
+  id?: number;
 };
 
 export const getInvoices = async ({
@@ -102,16 +103,11 @@ export const getInvoices = async ({
   }
 };
 
-interface IGetInvoiceByIdParams
-  extends Pick<IParameters, 'nextOptions' | 'cache'> {
-  id: number;
-}
-
 export const getInvoiceById = async ({
   id,
   cache,
   nextOptions,
-}: IGetInvoiceByIdParams) => {
+}: InvoiceListConfigs) => {
   const endpoint = `${API_PATH.INVOICES}/${id}?populate=customer&populate=invoice_products&populate=invoice_products.product`;
 
   try {

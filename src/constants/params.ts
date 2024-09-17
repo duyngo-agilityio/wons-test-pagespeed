@@ -10,4 +10,5 @@ export const SEARCH_QUERIES = {
   START_TIME: 'startTime',
   END_TIME: 'endTime',
   PAGE: 'page',
+  ID: 'id',
 };
