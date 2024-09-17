@@ -7,3 +7,4 @@ export * from './invoice-list';
 export * from './customer-list';
 export * from './customer-list';
 export * from './invoice-details';
+export * from './edit-invoice';

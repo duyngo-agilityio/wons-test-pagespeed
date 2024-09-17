@@ -25,6 +25,7 @@ export interface TInvoiceDetail extends Omit<TInvoice, 'customer'> {
 export type TInvoiceDetailsResponse = StrapiResponse<
   StrapiModel<TInvoiceDetail>
 >;
+
 export type TInvoiceProductTable = TInvoiceProduct<IProduct & { id: number }>;
 
 export type TInvoiceFormData = {

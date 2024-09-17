@@ -15,6 +15,7 @@ import {
   SEARCH_QUERIES,
   MESSAGE_STATUS,
   SUCCESS_MESSAGES,
+  ROUTES,
 } from '@/constants';
 
 // Actions
@@ -46,6 +47,7 @@ const InvoiceListClient = ({
   const pathname = usePathname();
   const { replace } = useRouter();
   const { showToast } = useToast();
+  const router = useRouter();
 
   const handleSort = useCallback(
     (value: string) => {
@@ -65,8 +67,18 @@ const InvoiceListClient = ({
     [sortOrder, pathname, replace, searchParams],
   );
 
-  // TODO: Update later
-  const handleEdit = useCallback(() => {}, []);
+  const handleEdit = useCallback(
+    (id: number) => {
+      const params = new URLSearchParams(searchParams);
+
+      if (id) {
+        params.set(SEARCH_QUERIES.ID, id.toString());
+
+        router.push(`${ROUTES.EDIT_INVOICE}?${params.toString()}`);
+      }
+    },
+    [searchParams, replace],
+  );
 
   const handleDelete = useCallback(
     async (id: number) => {

@@ -1,6 +1,11 @@
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { getLocalTimeZone, parseDate, today } from '@internationalized/date';
+import {
+  CalendarDate,
+  getLocalTimeZone,
+  parseDate,
+  today,
+} from '@internationalized/date';
 
 // Types
 import { DateRangeState } from '@/types';
@@ -51,3 +56,15 @@ export const currentDate = today(getLocalTimeZone());
 
 export const formatDateByISO = (date: string): string =>
   dayjs(date).utc(true).format();
+
+export const convertToCalendarDate = (
+  date?: string,
+): CalendarDate | undefined => {
+  if (!date) {
+    return undefined;
+  }
+
+  const [year, month, day] = date.split('-');
+
+  return new CalendarDate(Number(year), Number(month), Number(day));
+};

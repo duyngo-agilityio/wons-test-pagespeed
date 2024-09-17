@@ -16,11 +16,12 @@ import {
 } from '@/constants';
 
 // Models
-import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
+import { ICustomer, IProduct, TInvoice } from '@/models';
 
 // Utils
 import {
   clearErrorOnChange,
+  convertToCalendarDate,
   currentDate,
   formatDateByISO,
   formatDateString,
@@ -28,7 +29,7 @@ import {
 } from '@/utils';
 
 // Types
-import { TInvoiceFormData } from '@/types';
+import { TInvoiceFormData, TInvoiceProductTable } from '@/types';
 
 // Components
 import {
@@ -73,17 +74,21 @@ interface InvoiceFormProps {
   }>;
   products: (IProduct & { id: number })[];
   customers: (ICustomer & { id: number })[];
+  previewData?: TInvoice | null;
+  previewInvoiceProducts?: TInvoiceProductTable[];
 }
 
 const InvoiceForm = ({
   invoiceId,
   products,
   customers,
+  previewData = null,
+  previewInvoiceProducts,
   onSubmit,
 }: InvoiceFormProps) => {
-  const [productsValues, setProductsValues] = useState<
-    TInvoiceProduct<IProduct & { id: number }>[]
-  >([]);
+  const [productsValues, setProductsValues] = useState<TInvoiceProductTable[]>(
+    previewInvoiceProducts ?? [],
+  );
   const [errorProducts, setErrorProducts] = useState<string>('');
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
@@ -99,7 +104,7 @@ const InvoiceForm = ({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: {
+    defaultValues: previewData || {
       invoiceId: '',
       date: '',
       customer: '',
@@ -234,8 +239,12 @@ const InvoiceForm = ({
         <Controller
           name="date"
           control={control}
-          render={({ field: { onChange, name }, fieldState: { error } }) => (
+          render={({
+            field: { onChange, name, value },
+            fieldState: { error },
+          }) => (
             <DatePicker
+              value={convertToCalendarDate(value as unknown as string)}
               onChange={(value) => {
                 onChange(value);
 
@@ -258,10 +267,11 @@ const InvoiceForm = ({
           name="customer"
           control={control}
           render={({
-            field: { onChange, name, ...rest },
+            field: { onChange, value, name, ...rest },
             fieldState: { error },
           }) => (
             <Autocomplete
+              defaultSelectedKey={value}
               isInvalid={!!error}
               errorMessage={error?.message}
               onSelectionChange={(key) => {
@@ -282,10 +292,11 @@ const InvoiceForm = ({
           name="status"
           control={control}
           render={({
-            field: { onChange, name, ...rest },
+            field: { onChange, value, name, ...rest },
             fieldState: { error },
           }) => (
             <Autocomplete
+              defaultSelectedKey={value}
               isInvalid={!!error}
               errorMessage={error?.message}
               label="Status"

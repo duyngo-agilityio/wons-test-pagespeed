@@ -1,5 +1,5 @@
 // Actions
-import { createInvoiceAction } from '@/actions';
+import { createInvoice } from '@/actions';
 
 // Api
 import { getCustomers, getProducts } from '@/api';
@@ -20,7 +20,7 @@ const CreateInvoice = async () => {
       <div className="flex w-full justify-center">
         <InvoiceForm
           invoiceId={generateRandomID()}
-          onSubmit={createInvoiceAction}
+          onSubmit={createInvoice}
           products={formattedResponseData(products ?? [])}
           customers={formattedResponseData(customers ?? [])}
         />

@@ -18,7 +18,7 @@ import { httpClient } from '@/services';
 // Utils
 import { formatErrorMessage } from '@/utils';
 
-export const createInvoiceAction = async (
+export const createInvoice = async (
   formData: Partial<TInvoice>,
   products: number[],
 ) => {
@@ -46,6 +46,32 @@ export const createInvoiceAction = async (
     await httpClient.postRequest({
       endpoint: API_PATH.INVOICES,
       body: { data: formattedData },
+    });
+
+    revalidateTag(API_PATH.INVOICES);
+
+    return { success: true };
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};
+
+export const editInvoice = async (
+  data: Partial<TInvoice>,
+  products: number[],
+) => {
+  try {
+    // TODO: integrate api later
+    const formattedData = {
+      ...data,
+      customer: Number(data.customer),
+      invoice_products: products,
+    };
+
+    await httpClient.putRequest({
+      endpoint: `${API_PATH.INVOICES}`,
+      body: { formattedData },
     });
 
     revalidateTag(API_PATH.INVOICES);
