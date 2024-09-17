@@ -62,16 +62,16 @@ const ConfirmModal = ({
               <p className="text-lg">{content}</p>
             </ModalBody>
 
-            <ModalFooter className="flex justify-center gap-24">
+            <ModalFooter className="flex justify-center gap-4">
               <Button
-                className="!bg-blue-500 dark:!bg-blue-500 text-white/70 hover:!bg-blue-200 dark:hover:!bg-blue-200 px-6 py-2 !rounded-10 shadow-md"
+                className="flex-1 !bg-blue-500 dark:!bg-blue-500 text-white/70 hover:!bg-blue-200 dark:hover:!bg-blue-200 px-6 py-2 !rounded-10 shadow-md"
                 onPress={() => handleSubmit(onClose)}
               >
                 Delete
               </Button>
 
               <Button
-                className="!bg-white dark:!bg-white !text-blue-800/70 dark:text-white/70 border border-gray-300 hover:bg-gray-100 dark:hover:!bg-gray-300 px-6 py-2 !rounded-10"
+                className="flex-1 !bg-white dark:!bg-white !text-blue-800/70 dark:text-white/70 border border-gray-300 hover:bg-gray-100 dark:hover:!bg-gray-300 px-6 py-2 !rounded-10"
                 onPress={() => handleCancel(onClose)}
               >
                 Cancel
