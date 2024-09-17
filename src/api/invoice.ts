@@ -75,7 +75,7 @@ export const getInvoices = async ({
 }: InvoiceListConfigs) => {
   const sortValue = sortBy ? `&sort=${sortBy}:${sortOrder}` : '';
   const searchBy = query
-    ? `&filters[$or][0][customer][fullName][$containsi]=${query}&filters[$or][1][customer][email][$containsi]=${query}`
+    ? `&filters[$or][0][customer][fullName][$containsi]=${query}&filters[$or][1][email][$containsi]=${query}`
     : '';
   const pageValue = `&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
   const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sortValue}${searchBy}${pageValue}`;
