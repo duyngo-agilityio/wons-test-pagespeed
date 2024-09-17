@@ -1,12 +1,19 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, useTransition } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
+import Link from 'next/link';
 
 // Constants
-import { ERROR_MESSAGES, INVOICE_STATUS } from '@/constants';
+import {
+  ERROR_MESSAGES,
+  INVOICE_STATUS,
+  MESSAGE_STATUS,
+  ROUTES,
+  SUCCESS_MESSAGES,
+} from '@/constants';
 
 // Models
 import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
@@ -37,6 +44,9 @@ import {
 // api
 import { uploadImage } from '@/api/image';
 
+// Hooks
+import { useToast } from '@/hooks';
+
 // Zod schema for validation
 const invoiceSchema = z.object({
   invoiceId: z.string(),
@@ -54,7 +64,13 @@ const REQUIRED_FIELDS = ['date', 'customer', 'email', 'address', 'status'];
 
 interface InvoiceFormProps {
   invoiceId: string;
-  onSubmit: (data: Partial<TInvoice>, products: number[]) => void;
+  onSubmit: (
+    data: Partial<TInvoice>,
+    products: number[],
+  ) => Promise<{
+    error?: string;
+    success?: boolean;
+  }>;
   products: (IProduct & { id: number })[];
   customers: (ICustomer & { id: number })[];
 }
@@ -71,6 +87,8 @@ const InvoiceForm = ({
   const [errorProducts, setErrorProducts] = useState<string>('');
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const { showToast } = useToast();
 
   const {
     control,
@@ -117,7 +135,7 @@ const InvoiceForm = ({
     if (isAvatarDirty && avatarFile) {
       try {
         const formDataImage = new FormData();
-        formDataImage.append('file', avatarFile);
+        formDataImage.append('image', avatarFile);
 
         const imageUrl = await uploadImage(formDataImage);
 
@@ -133,14 +151,28 @@ const InvoiceForm = ({
             ({ product }) => product.data.id,
           );
 
-          onSubmit(
-            {
-              ...formData,
-              invoiceId,
-              date: formattedDate,
-            },
-            invoiceProduct,
-          );
+          startTransition(async () => {
+            const { error } = await onSubmit(
+              {
+                ...formData,
+                invoiceId,
+                date: formattedDate,
+              },
+              invoiceProduct,
+            );
+
+            if (error) {
+              return showToast({
+                description: error,
+                status: MESSAGE_STATUS.ERROR,
+              });
+            }
+
+            return showToast({
+              description: SUCCESS_MESSAGES.CREATE_INVOICE,
+              status: MESSAGE_STATUS.SUCCESS,
+            });
+          });
         } else {
           return setErrorProducts(imageUrl.error);
         }
@@ -336,11 +368,12 @@ const InvoiceForm = ({
 
       <div className="flex gap-[30px]">
         <Button size="lg" color="secondary" className="w-full mt-10">
-          Cancel
+          <Link href={ROUTES.INVOICE}>Cancel</Link>
         </Button>
         <Button
           type="submit"
           isDisabled={isDisableSubmit}
+          isLoading={isPending}
           size="lg"
           color="primary"
           className="w-full mt-10"

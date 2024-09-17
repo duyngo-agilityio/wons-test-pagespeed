@@ -102,10 +102,7 @@ const InvoicesTable = ({
         header: 'Email',
         accessor: (invoice: TInvoiceData) => {
           const { attributes: invoiceAttributes } = invoice || {};
-          const { customer } = invoiceAttributes || {};
-          const { data } = customer || {};
-          const { attributes: customerAttributes } = data || {};
-          const { email = '' } = customerAttributes || {};
+          const { email } = invoiceAttributes || {};
 
           return (
             <div className="flex gap-2.5 items-center">
