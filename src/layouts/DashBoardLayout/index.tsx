@@ -1,8 +1,8 @@
 import { memo, ReactNode } from 'react';
+import clsx from 'clsx';
 
 // Components
 import { Heading } from '@/components';
-import clsx from 'clsx';
 
 interface IDashboardLayout {
   title: string;
@@ -22,7 +22,7 @@ const DashboardLayout = ({
         rightContent && 'md:flex justify-between md:items-center',
       )}
     >
-      <Heading title={title} />
+      <Heading className="w-full" title={title} />
       {rightContent}
     </div>
     {children}

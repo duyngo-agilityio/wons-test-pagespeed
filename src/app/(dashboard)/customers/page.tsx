@@ -1,10 +1,13 @@
 import { Metadata } from 'next';
 
-// Layouts
+// layouts
 import { DashBoardLayout } from '@/layouts';
 
-// Sections
-import { CustomerList, CustomerActions } from '@/ui';
+// uis
+import { CustomerList } from '@/ui';
+
+// components
+import { CustomerDrawerWrapper } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Customer Directory - View All Customers',
@@ -14,7 +17,10 @@ export const metadata: Metadata = {
 
 const CustomerListPage = (): JSX.Element => (
   <main>
-    <DashBoardLayout title="Customer List" rightContent={<CustomerActions />}>
+    <DashBoardLayout
+      title="Customer List"
+      rightContent={<CustomerDrawerWrapper />}
+    >
       <CustomerList />
     </DashBoardLayout>
   </main>
