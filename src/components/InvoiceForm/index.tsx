@@ -104,16 +104,14 @@ const InvoiceForm = ({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: previewData
-      ? previewData
-      : {
-          invoiceId: '',
-          date: '',
-          customer: '',
-          email: '',
-          address: '',
-          status: undefined,
-        },
+    defaultValues: previewData || {
+      invoiceId: '',
+      date: '',
+      customer: '',
+      email: '',
+      address: '',
+      status: undefined,
+    },
   });
 
   const optionsCustomers = customers.map((customer) => ({
