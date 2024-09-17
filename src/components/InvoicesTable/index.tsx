@@ -49,10 +49,9 @@ const InvoicesTable = ({
 }: TInvoicesTableProps): JSX.Element => {
   const [selectedInvoiceIds, setSelectedInvoiceIds] = useState<number[]>([]);
 
-  // TODO: Update later when handle delete invoice
   const handleDeleteMultiple = useCallback(
     () => onDeleteMultiple(selectedInvoiceIds),
-    [selectedInvoiceIds],
+    [onDeleteMultiple, selectedInvoiceIds],
   );
 
   const mappingContentColumns = useMemo(
@@ -111,7 +110,7 @@ const InvoicesTable = ({
             </div>
           );
         },
-        value: 'customer.email',
+        value: 'email',
         isSort: true,
       },
       {
