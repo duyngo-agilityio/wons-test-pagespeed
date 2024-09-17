@@ -19,12 +19,12 @@ exports[`Pagination test cases should render correctly 1`] = `
       role="navigation"
     >
       <ul
-        class="flex flex-nowrap h-fit max-w-fit relative gap-1 items-center overflow-visible rounded-medium text-white"
+        class="flex flex-nowrap h-fit max-w-fit relative gap-1 items-center overflow-visible rounded-medium text-black dark:text-white"
         data-slot="wrapper"
       >
         <span
           aria-hidden="true"
-          class="absolute flex overflow-visible items-center justify-center origin-center left-0 select-none touch-none pointer-events-none z-20 text-primary-foreground data-[moving=true]:transition-transform !data-[moving=true]:duration-300 opacity-0 data-[moving]:opacity-100 min-w-9 w-9 h-9 text-small rounded-medium bg-[#3A36DB]"
+          class="absolute flex overflow-visible items-center justify-center origin-center left-0 select-none touch-none pointer-events-none z-20 text-primary-foreground data-[moving=true]:transition-transform !data-[moving=true]:duration-300 opacity-0 data-[moving]:opacity-100 min-w-9 w-9 h-9 text-small rounded-medium bg-blue-500"
           data-moving="false"
           data-slot="cursor"
           style="transform: translateX(0px) scale(1);"

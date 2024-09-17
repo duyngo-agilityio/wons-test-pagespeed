@@ -102,11 +102,11 @@ const InvoiceProductTable = ({
               handleChangeProductName(key, data.product.data.id)
             }
             options={[...current, ...optionsElse]}
-            className="!text-blue-500 text-[14.22px] bg-white leading-[18.51px]"
+            className="!text-blue-500 text-[14.22px] bg-white dark:bg-gray-400 leading-[18.51px]"
             inputProps={{
               classNames: {
-                inputWrapper: 'bg-white shadow-none',
-                input: '!text-blue-500',
+                inputWrapper: 'bg-white dark:bg-gray-400 shadow-none',
+                input: '!text-blue-500 dark:!text-purple-600',
               },
             }}
           />
@@ -128,7 +128,7 @@ const InvoiceProductTable = ({
           value={quantity.toString()}
           classNames={{
             base: 'w-[65px]',
-            inputWrapper: 'bg-white shadow-none px-2',
+            inputWrapper: 'bg-white dark:bg-gray-400 shadow-none px-2',
           }}
           onChange={(e) => handleUpdateQuantity(e, product.data.id)}
           endContent={<Text text="Pcs" />}
@@ -154,7 +154,7 @@ const InvoiceProductTable = ({
       accessor: ({ product }: TInvoiceProductTable) => (
         <Button
           variant="ghost"
-          className="rounded-[100%] p-[10px] !bg-pink-500/5"
+          className="rounded-[100%] p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
           data-id={product.data.id}
           endContent={<FaTrash className="text-pink-500" />}
           onClick={handleRemoveProduct}
@@ -213,15 +213,19 @@ const InvoiceProductTable = ({
       <div className="flex items-center justify-between">
         <Text
           text="Product Description"
-          className="font-medium text-[16px] leading-[20.83px]"
+          size="xl"
+          className="font-medium leading-[20.83px]"
         />
         <Button
           variant="ghost"
-          className="!bg-white p-0"
+          className="!bg-white dark:!bg-gray-400 p-0"
           isDisabled={productsValues.length === products.length}
           onClick={handleAddProduct}
           endContent={
-            <TbSquareRoundedPlusFilled size={34} className="text-blue-500" />
+            <TbSquareRoundedPlusFilled
+              size={34}
+              className="text-blue-500 dark:text-purple-600"
+            />
           }
         />
       </div>
