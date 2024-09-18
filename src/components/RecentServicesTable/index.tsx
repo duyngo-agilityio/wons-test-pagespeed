@@ -43,12 +43,15 @@ const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
         ) => (
           <div className="flex gap-2 items-center">
-            <div className="relative w-8 h-8">
+            <div className="relative w-8 h-8 overflow-x-auto">
               <Image
                 fill
                 src={data.attributes.product.data.attributes.imageUrl}
                 alt="ui-ux-design"
                 className="rounded-5"
+                style={{
+                  objectFit: 'cover',
+                }}
               />
             </div>
             <Text

@@ -6,20 +6,21 @@ export * from './Table';
 
 // React-icons
 export { CiSearch } from 'react-icons/ci';
-export { FaCalendarAlt } from 'react-icons/fa';
+export {
+  FaCalendarAlt,
+  FaProductHunt,
+  FaFacebookF,
+  FaStar,
+} from 'react-icons/fa';
 export { FaChevronLeft } from 'react-icons/fa6';
 export { FcGoogle } from 'react-icons/fc';
-export { FaFacebookF } from 'react-icons/fa';
-export { IoCheckmarkOutline } from 'react-icons/io5';
-export { IoLogOut } from 'react-icons/io5';
+export { IoCheckmarkOutline, IoLogOut, IoMoonOutline } from 'react-icons/io5';
 export { TbDots } from 'react-icons/tb';
 export { FiSun } from 'react-icons/fi';
-export { IoMoonOutline } from 'react-icons/io5';
 export { IoIosClose } from 'react-icons/io';
-export { FaStar } from 'react-icons/fa';
-export { BsThreeDots } from 'react-icons/bs';
+export { BsThreeDots, BsPlus } from 'react-icons/bs';
 export { MdDelete } from 'react-icons/md';
-export { BsPlus } from 'react-icons/bs';
+export { AiFillCustomerService } from 'react-icons/ai';
 
 export { default as Button } from './Button';
 export { default as Card } from './Card';

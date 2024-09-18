@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { Select, SelectItem } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
@@ -34,16 +34,10 @@ const customerFormSchema = z.object({
   gender: z.enum(['male', 'female'], {
     errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED('Gender') }),
   }),
+  avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Avatar')),
 });
 
-const REQUIRED_FIELDS = [
-  'firstName',
-  'lastName',
-  'phone',
-  'email',
-  'gender',
-  'avatar',
-];
+const REQUIRED_FIELDS = ['firstName', 'lastName', 'phone', 'email', 'gender'];
 const genders = [
   { key: 'male', label: 'Male' },
   { key: 'female', label: 'Female' },
@@ -54,7 +48,7 @@ export interface ICustomerFormProps {
   onSubmit: (data: ICustomer) => void;
 }
 
-const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
+const CustomerForm = ({ onSubmit }: ICustomerFormProps) => {
   const {
     control,
     formState: { dirtyFields, errors, isSubmitting },
@@ -75,14 +69,19 @@ const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
   });
 
   const dirtyItems = Object.keys(dirtyFields);
-  const isEnableSubmit = isEnableSubmitButton(
-    REQUIRED_FIELDS,
-    dirtyItems,
-    errors,
-  );
 
-  const handleAddCustomer = () => {
+  const enableSubmit: boolean = useMemo(
+    () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
+    [dirtyItems, errors],
+  );
+  const isDisableSubmit = !enableSubmit;
+
+  const handleAddCustomer = (formData: Partial<ICustomer>) => {
     // TODO: handle later
+    onSubmit({
+      id: 0,
+      ...formData,
+    } as ICustomer);
   };
 
   const handleAvatarChange = useCallback(() => {
@@ -99,17 +98,28 @@ const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
       <Controller
         control={control}
         name="avatar"
-        render={({ field: { onChange, value, name } }) => {
+        render={({
+          field: { onChange, value, name },
+          fieldState: { error },
+        }) => {
           return (
-            <AvatarUpload
-              value={value}
-              onChange={(e) => {
-                onChange(e);
-
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              onFileChange={handleAvatarChange}
-            />
+            <div>
+              <AvatarUpload
+                value={value}
+                onChange={(e) => {
+                  onChange(e);
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                onFileChange={(file) => {
+                  handleAvatarChange();
+                  onChange(file.name);
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+              />
+              {error && (
+                <p className="text-red-500 text-sm mt-2">{error.message}</p>
+              )}
+            </div>
           );
         }}
       />
@@ -255,7 +265,7 @@ const CustomerForm = ({ isPending = false }: ICustomerFormProps) => {
       <Button
         type="submit"
         isLoading={isSubmitting}
-        isDisabled={!isEnableSubmit || isPending || isSubmitting}
+        isDisabled={isDisableSubmit}
         size="lg"
         color="primary"
         className="w-full mt-8 text-xl font-medium cursor-pointer"
