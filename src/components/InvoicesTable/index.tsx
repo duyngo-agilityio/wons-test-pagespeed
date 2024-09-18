@@ -4,6 +4,7 @@
 import { Key, useCallback, useMemo, useState } from 'react';
 import { Selection } from '@nextui-org/react';
 import dayjs from 'dayjs';
+import dynamic from 'next/dynamic';
 
 // Constants
 import { InvoiceStatus } from '@/constants';
@@ -23,8 +24,9 @@ import {
   MdDelete,
   Button,
   StarButton,
-  Pagination,
 } from '@/components';
+
+const Pagination = dynamic(() => import('@/components/common/Pagination'));
 
 type TInvoiceData = TInvoiceDataResponse;
 
@@ -215,7 +217,7 @@ const InvoicesTable = ({
         onRowAction={onRowAction}
       />
 
-      <Pagination total={total} />
+      {total > 0 && <Pagination total={total} />}
     </div>
   );
 };

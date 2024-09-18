@@ -9,7 +9,7 @@ interface ILoadingIndicatorProps {
 }
 
 const LoadingIndicator = ({ size = 'lg' }: ILoadingIndicatorProps) => (
-  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-9999">
+  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
     <Spinner size={size} />
   </div>
 );
