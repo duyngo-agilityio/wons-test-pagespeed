@@ -30,11 +30,14 @@ const AddressInput = ({
   const [locationsSuggestion, setLocationsSuggestion] = useState<
     LocationItem[]
   >([]);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // Debounce searchAddress with a delay of 500ms
   const [debouncedSearchAddress] = useDebounce(searchAddress, 500);
 
   const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setIsOpen(true);
+
     const value = event.target.value;
     onChange && onChange(event);
     setSearchAddress(value);
@@ -59,6 +62,7 @@ const AddressInput = ({
   const handleClickSuggestion = (value: string) => {
     setSearchAddress(value);
     setLocationsSuggestion([]);
+    setIsOpen(false);
   };
 
   return (
@@ -70,7 +74,7 @@ const AddressInput = ({
         endContent={<HiLocationMarker />}
         {...rest}
       />
-      {locationsSuggestion.length !== 0 && (
+      {locationsSuggestion.length !== 0 && isOpen && (
         <div className="shadow-md p-3 absolute z-50 bg-white dark:bg-gray-400 w-full">
           {locationsSuggestion.map(({ properties }: LocationItem) => {
             const { formatted, name } = properties;
