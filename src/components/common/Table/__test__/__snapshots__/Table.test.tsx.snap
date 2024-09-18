@@ -8,7 +8,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
     <script>
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
-     
+
     <div
       class="flex-col relative gap-4 w-full grid"
     >
@@ -348,7 +348,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
     <script>
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
-     
+
     <div
       class="flex-col relative gap-4 w-full grid"
     >
@@ -371,7 +371,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               role="row"
             >
               <th
-                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]"
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]"
                 data-key="FirstName0"
                 id="react-aria-:r2:-FirstName0"
                 role="columnheader"
@@ -398,7 +398,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 </button>
               </th>
               <th
-                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]"
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]"
                 data-key="LastName1"
                 id="react-aria-:r2:-LastName1"
                 role="columnheader"
@@ -425,7 +425,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 </button>
               </th>
               <th
-                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]"
+                class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 px-[21px]"
                 data-key="Email2"
                 id="react-aria-:r2:-Email2"
                 role="columnheader"

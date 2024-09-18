@@ -29,10 +29,10 @@ const DesktopSidebar = ({
   >
     <div
       className={clsx(
-        'bg-white dark:bg-gray-400 px-6.25 py-7.5 flex flex-col duration-700',
+        'bg-white dark:bg-gray-400 px-6.25 py-7.5 flex flex-col duration-700 min-h-full',
         toggleDesktopSidebar === SIDE_BAR_STATE.OPEN
-          ? 'max-w-60 min-h-screen'
-          : 'max-w-20 items-center max-h-[calc(100vh-60px)] rounded-10',
+          ? 'max-w-60'
+          : 'max-w-20 items-center rounded-10',
       )}
     >
       <SidebarHeader
@@ -41,7 +41,7 @@ const DesktopSidebar = ({
       />
       <div
         className={clsx(
-          'flex flex-col justify-between',
+          'flex flex-1 flex-col justify-between',
           toggleDesktopSidebar === SIDE_BAR_STATE.OPEN
             ? 'min-h-[calc(100vh-170px)]'
             : 'min-h-[calc(100vh-230px)]',

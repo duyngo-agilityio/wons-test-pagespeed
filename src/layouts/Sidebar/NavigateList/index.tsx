@@ -15,9 +15,10 @@ import { ROUTES, SIDE_BAR_STATE, THEME_MODES } from '@/constants';
 
 // Components
 import {
-  AnalyticsIcon,
+  AiFillCustomerService,
   CalendarIcon,
   DashboardIcon,
+  FaProductHunt,
   InvoiceIcon,
   MessageIcon,
   NotificationIcon,
@@ -33,7 +34,8 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
   const pathname = usePathname();
   const { theme } = useTheme();
   const {
-    ANALYTICS,
+    CUSTOMER,
+    PRODUCT,
     CALENDAR,
     DASHBOARD,
     INVOICE,
@@ -57,37 +59,50 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
   const MAPPING_SIDEBAR_CONTENTS = useMemo(
     () => [
       {
-        id: 'sb_1',
+        id: 'sb_dashboard',
         href: DASHBOARD,
         content: 'Dashboard',
         startContent: <DashboardIcon {...mappingIconColor(DASHBOARD)} />,
       },
       {
-        id: 'sb_2',
-        href: ANALYTICS,
-        content: 'Analytics',
-        startContent: <AnalyticsIcon {...mappingIconColor(ANALYTICS)} />,
+        id: 'sb_customer',
+        href: CUSTOMER,
+        content: 'Customer',
+        startContent: (
+          <AiFillCustomerService
+            {...mappingIconColor(CUSTOMER)}
+            className="w-5 h-5"
+          />
+        ),
       },
       {
-        id: 'sb_3',
+        id: 'sb_product',
+        href: PRODUCT,
+        content: 'Product',
+        startContent: (
+          <FaProductHunt {...mappingIconColor(PRODUCT)} className="w-5 h-5" />
+        ),
+      },
+      {
+        id: 'sb_invoice',
         href: INVOICE,
         content: 'Invoice',
         startContent: <InvoiceIcon {...mappingIconColor(INVOICE)} />,
       },
       {
-        id: 'sb_4',
+        id: 'sb_schedule',
         href: SCHEDULE,
         content: 'Schedule',
         startContent: <ScheduleIcon {...mappingIconColor(SCHEDULE)} />,
       },
       {
-        id: 'sb_5',
+        id: 'sb_calendar',
         href: CALENDAR,
         content: 'Calendar',
         startContent: <CalendarIcon {...mappingIconColor(CALENDAR)} />,
       },
       {
-        id: 'sb_6',
+        id: 'sb_messages',
         href: MESSAGES,
         content: 'Messages',
         startContent: <MessageIcon {...mappingIconColor(MESSAGES)} />,
@@ -103,13 +118,13 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
         ),
       },
       {
-        id: 'sb_7',
+        id: 'sb_notification',
         href: NOTIFICATION,
         content: 'Notification',
         startContent: <NotificationIcon {...mappingIconColor(NOTIFICATION)} />,
       },
       {
-        id: 'sb_8',
+        id: 'sb_settings',
         href: SETTINGS,
         content: 'Settings',
         startContent: <SettingIcon {...mappingIconColor(SETTINGS)} />,
@@ -123,7 +138,9 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
       {MAPPING_SIDEBAR_CONTENTS.map(
         ({ id, href, startContent, endContent, content }) => (
           <ListboxItem
+            as={Link}
             key={id}
+            href={href}
             startContent={toggle === SIDE_BAR_STATE.OPEN && startContent}
             endContent={toggle === SIDE_BAR_STATE.OPEN && endContent}
             className={clsx(
@@ -137,9 +154,7 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
               title: ['text-xl font-medium'],
             }}
           >
-            <Link href={href}>
-              {toggle === SIDE_BAR_STATE.OPEN ? content : startContent}
-            </Link>
+            {toggle === SIDE_BAR_STATE.OPEN ? content : startContent}
           </ListboxItem>
         ),
       )}
