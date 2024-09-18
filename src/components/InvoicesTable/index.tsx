@@ -27,6 +27,7 @@ import {
 } from '@/components';
 
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
+const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
 
 type TInvoiceData = TInvoiceDataResponse;
 
@@ -38,7 +39,7 @@ type TInvoicesTableProps = {
   onDeleteMultiple: (ids: number[]) => void;
   onToggleSelectStar: (id: string) => void;
   onSort: (field: string) => void;
-  onRowAction?: (key: Key) => void;
+  onRowAction: (key: Key) => void;
 };
 
 const InvoicesTable = ({
@@ -52,11 +53,18 @@ const InvoicesTable = ({
   onRowAction,
 }: TInvoicesTableProps): JSX.Element => {
   const [selectedInvoiceIds, setSelectedInvoiceIds] = useState<number[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleDeleteMultiple = useCallback(
-    () => onDeleteMultiple(selectedInvoiceIds),
-    [onDeleteMultiple, selectedInvoiceIds],
-  );
+  const handleOpenConfirmModal = useCallback(() => setIsModalOpen(true), []);
+
+  const handleConfirmDelete = useCallback(() => {
+    onDeleteMultiple(selectedInvoiceIds);
+    setIsModalOpen(false);
+  }, [onDeleteMultiple, selectedInvoiceIds]);
+
+  const handleCancelDelete = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
 
   const mappingContentColumns = useMemo(
     () => [
@@ -172,7 +180,7 @@ const InvoicesTable = ({
           <Button
             isIconOnly
             className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
-            onClick={handleDeleteMultiple}
+            onClick={handleOpenConfirmModal}
           >
             <MdDelete
               size={20}
@@ -190,7 +198,7 @@ const InvoicesTable = ({
         },
       },
     ],
-    [handleDeleteMultiple, onDelete, onEdit, onToggleSelectStar],
+    [handleOpenConfirmModal, onDelete, onEdit, onToggleSelectStar],
   );
 
   const handleSelectChange = useCallback(
@@ -218,6 +226,16 @@ const InvoicesTable = ({
       />
 
       {total > 0 && <Pagination total={total} />}
+
+      {isModalOpen && (
+        <ConfirmModal
+          title="Delete Item"
+          content="Are you sure you want to delete these items?"
+          isOpen={isModalOpen}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancelDelete}
+        />
+      )}
     </div>
   );
 };
