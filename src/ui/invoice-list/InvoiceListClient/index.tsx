@@ -19,7 +19,7 @@ import {
 } from '@/constants';
 
 // Actions
-import { deleteInvoice, deleteMultipleInvoice } from '@/actions';
+import { deleteInvoice, deleteMultipleInvoice, updateInvoice } from '@/actions';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -90,7 +90,7 @@ const InvoiceListClient = ({
       const { error } = res || {};
 
       showToast({
-        description: error ? error : SUCCESS_MESSAGES.DELETE_INVOICE,
+        description: error ? error : SUCCESS_MESSAGES.UPDATE_INVOICE,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
@@ -114,8 +114,22 @@ const InvoiceListClient = ({
     [showToast],
   );
 
-  // TODO: Update later
-  const handleToggleSelectStart = useCallback(() => {}, []);
+  const handleToggleSelectStart = useCallback(
+    async (id: number, isSelected: boolean) => {
+      setIsLoading(true);
+
+      const res = await updateInvoice(id, { isSelected: !isSelected });
+
+      setIsLoading(false);
+      const { error } = res || {};
+
+      showToast({
+        description: error ? error : SUCCESS_MESSAGES.UPDATE_INVOICE,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+    },
+    [showToast],
+  );
 
   const handleRowAction = useCallback(
     (key: Key) => replace(`${pathname}/${key}`),

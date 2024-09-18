@@ -6,9 +6,9 @@ import { useCallback } from 'react';
 import { Button, FaStar } from '@/components';
 
 export type TStartButtonProps = {
-  id: string;
+  id: number;
   isSelected: boolean;
-  onClick: (id: string) => void;
+  onClick: (id: number, isSelected: boolean) => void;
 };
 
 const StartButton = ({
@@ -16,7 +16,10 @@ const StartButton = ({
   isSelected,
   onClick,
 }: TStartButtonProps): JSX.Element => {
-  const handleOnClick = useCallback(() => onClick(id), [id, onClick]);
+  const handleOnClick = useCallback(
+    () => onClick(id, isSelected),
+    [id, isSelected, onClick],
+  );
 
   return (
     <Button

@@ -82,6 +82,20 @@ export const editInvoice = async (
   }
 };
 
+export const updateInvoice = async (id: number, data: Partial<TInvoice>) => {
+  try {
+    await httpClient.putRequest({
+      endpoint: `${API_PATH.INVOICES}/${id}`,
+      body: { data },
+    });
+
+    revalidateTag(API_PATH.INVOICES);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};
+
 export const deleteInvoice = async (
   id: number,
 ): Promise<{ error?: string } | void> => {
