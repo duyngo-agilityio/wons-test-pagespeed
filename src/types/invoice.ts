@@ -1,5 +1,3 @@
-import { DateValue } from '@nextui-org/react';
-
 // Types
 import { StrapiModel, StrapiResponse } from '@/types';
 
@@ -30,7 +28,7 @@ export type TInvoiceProductTable = TInvoiceProduct<IProduct & { id: number }>;
 
 export type TInvoiceFormData = {
   invoiceId: string;
-  date: DateValue;
+  date: string;
   imageUrl: string;
   customer: string;
   status: InvoiceStatus;

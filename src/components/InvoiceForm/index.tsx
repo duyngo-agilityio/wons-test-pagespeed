@@ -23,8 +23,6 @@ import {
   clearErrorOnChange,
   convertToCalendarDate,
   currentDate,
-  formatDateByISO,
-  formatDateString,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -64,6 +62,7 @@ const invoiceSchema = z.object({
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email'))
     .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
+  imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
 });
 
 const REQUIRED_FIELDS = ['date', 'customer', 'email', 'address', 'status'];
@@ -110,6 +109,7 @@ const InvoiceForm = ({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: previewData || {
+      imageUrl: '',
       invoiceId: '',
       date: '',
       customer: '',
@@ -152,11 +152,6 @@ const InvoiceForm = ({
         if (typeof imageUrl === 'string') {
           formData.imageUrl = imageUrl;
 
-          const { date } = formData;
-
-          const dateString = formatDateString(date);
-          const formattedDate = formatDateByISO(dateString);
-
           const invoiceProduct = productsValues.map(
             ({ product }) => product.data.id,
           );
@@ -166,7 +161,6 @@ const InvoiceForm = ({
               {
                 ...formData,
                 invoiceId,
-                date: formattedDate,
               },
               invoiceProduct,
             );
@@ -210,18 +204,18 @@ const InvoiceForm = ({
         <Controller
           control={control}
           name="imageUrl"
-          render={({ field: { onChange, value, name } }) => {
-            return (
-              <AvatarUpload
-                value={value}
-                onChange={(e) => {
-                  onChange(e);
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-                onFileChange={handleAvatarChange}
-              />
-            );
-          }}
+          render={({ field: { onChange, value, name } }) => (
+            <AvatarUpload
+              value={value}
+              onChange={(e) => {
+                onChange(e);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+              onFileChange={handleAvatarChange}
+            />
+          )}
         />
       </div>
 
