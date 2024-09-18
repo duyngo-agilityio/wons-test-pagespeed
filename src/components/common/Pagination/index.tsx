@@ -47,6 +47,7 @@ const Pagination = ({ ...props }: NextUIPaginationProps) => {
 
   return (
     <CustomPagination
+      showControls
       page={+currentPage}
       onChange={handlePageChange}
       className="flex justify-center m-0"

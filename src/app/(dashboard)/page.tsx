@@ -47,8 +47,9 @@ const DashboardPage = async ({ searchParams }: IDashboardPage) => {
             <StatisticSection />
           </Suspense>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
-          <div className="lg:col-span-6">
+
+        <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-10 gap-6">
+          <div className="xl:col-span-6">
             <Suspense
               key={sortBy + order + startTime + endTime}
               fallback={
@@ -60,7 +61,7 @@ const DashboardPage = async ({ searchParams }: IDashboardPage) => {
               <LazyRecentServicesSection searchParams={searchParams} />
             </Suspense>
           </div>
-          <div className="lg:col-span-4">
+          <div className="xl:col-span-4">
             <Suspense fallback={<SkeletonProductCard />}>
               <TopSellingProducts />
             </Suspense>
