@@ -41,6 +41,7 @@ const InvoiceListPage = ({
           fallback={
             <TableSkeleton
               variant="primary"
+              quantity={10}
               isStriped={false}
               columns={MAPPING_INVOICE_LIST_SKELETON}
             />
