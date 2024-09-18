@@ -1,3 +1,9 @@
+// Constants
+import { InvoiceStatus } from '@/constants';
+
+// Types
+import { TInvoiceDataResponse } from '@/types';
+
 export const MOCK_INVOICES = [
   {
     id: 1,
@@ -44,6 +50,69 @@ export const MOCK_INVOICES = [
             title: 'I phone',
             imageUrl:
               'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
+          },
+        },
+      },
+    },
+  },
+];
+
+export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
+  {
+    id: 4,
+    attributes: {
+      email: 'arroragaur@gmail.com',
+      date: '2024-09-10',
+      status: InvoiceStatus.COMPLETE,
+      address: '1254 Xo Viet Nghe Tinh, Da Nang',
+      isSelected: true,
+      invoiceId: '871345',
+      imageUrl: '',
+      customer: {
+        data: {
+          id: 3,
+          attributes: {
+            id: 1,
+            email: 'arroragaur@gmail.com',
+            phone: '(213) 555-5554',
+            gender: 'male',
+            address: 'danang',
+            avatar:
+              'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+            firstName: 'Arrora',
+            job: 'UI/UX',
+            lastName: ' Gaur',
+            fullName: 'Arrora Gaur',
+          },
+        },
+      },
+    },
+  },
+  {
+    id: 2,
+    attributes: {
+      email: 'annejacob@gmail.com',
+      date: '2024-09-10',
+      status: InvoiceStatus.COMPLETE,
+      address: 'danang',
+      isSelected: false,
+      invoiceId: '32434',
+      imageUrl: '',
+      customer: {
+        data: {
+          id: 6,
+          attributes: {
+            id: 2,
+            email: 'annejacob@gmail.com',
+            phone: '(325) 987-6541',
+            gender: 'female',
+            address: '1254 Xo Viet Nghe Tinh, Da Nang',
+            avatar:
+              'https://cellphones.com.vn/sforum/wp-content/uploads/2024/02/anh-avatar-cute-4.jpg',
+            firstName: 'Anne ',
+            job: 'UI/UX',
+            lastName: 'Jacob',
+            fullName: 'Anne Jacob',
           },
         },
       },

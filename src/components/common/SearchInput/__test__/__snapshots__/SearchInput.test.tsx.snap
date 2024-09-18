@@ -10,7 +10,7 @@ exports[`SearchInput calls change values 1`] = `
     </script>
      
     <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
       data-filled="true"
       data-filled-within="true"
       data-has-value="true"
@@ -85,7 +85,7 @@ exports[`SearchInput changes empty value 1`] = `
     </script>
      
     <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
       data-filled="true"
       data-filled-within="true"
       data-slot="base"
@@ -157,7 +157,7 @@ exports[`SearchInput should match snapshot 1`] = `
     </script>
      
     <div
-      class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
       data-filled="true"
       data-filled-within="true"
       data-slot="base"
