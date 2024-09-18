@@ -97,3 +97,23 @@ export const deleteInvoice = async (
     return { error: message };
   }
 };
+
+export const deleteMultipleInvoice = async (
+  ids: number[],
+): Promise<{ error?: string } | void> => {
+  try {
+    await Promise.all(
+      ids.map((id) =>
+        httpClient.deleteRequest({
+          endpoint: `${API_PATH.INVOICES}/${id}`,
+        }),
+      ),
+    );
+
+    revalidateTag(API_PATH.INVOICES);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
+    return { error: message };
+  }
+};

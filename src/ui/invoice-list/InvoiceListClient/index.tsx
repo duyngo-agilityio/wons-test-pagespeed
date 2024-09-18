@@ -19,7 +19,7 @@ import {
 } from '@/constants';
 
 // Actions
-import { deleteInvoice } from '@/actions';
+import { deleteInvoice, deleteMultipleInvoice } from '@/actions';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -97,8 +97,22 @@ const InvoiceListClient = ({
     [showToast],
   );
 
-  // TODO: Update later
-  const handleDeleteMultiple = useCallback(() => {}, []);
+  const handleDeleteMultiple = useCallback(
+    async (ids: number[]) => {
+      setIsLoading(true);
+
+      const res = await deleteMultipleInvoice(ids);
+
+      setIsLoading(false);
+      const { error } = res || {};
+
+      showToast({
+        description: error ? error : SUCCESS_MESSAGES.DELETE_INVOICE,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+    },
+    [showToast],
+  );
 
   // TODO: Update later
   const handleToggleSelectStart = useCallback(() => {}, []);
