@@ -77,7 +77,7 @@ const InvoiceListClient = ({
         router.push(`${ROUTES.EDIT_INVOICE}?${params.toString()}`);
       }
     },
-    [searchParams, replace],
+    [searchParams, router],
   );
 
   const handleDelete = useCallback(
@@ -89,16 +89,9 @@ const InvoiceListClient = ({
       setIsLoading(false);
       const { error } = res || {};
 
-      if (error) {
-        return showToast({
-          description: error,
-          status: MESSAGE_STATUS.ERROR,
-        });
-      }
-
-      return showToast({
-        description: SUCCESS_MESSAGES.DELETE_INVOICE,
-        status: MESSAGE_STATUS.SUCCESS,
+      showToast({
+        description: error ? error : SUCCESS_MESSAGES.DELETE_INVOICE,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
     [showToast],
