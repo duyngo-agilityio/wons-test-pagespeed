@@ -4,6 +4,9 @@ import { FaStar } from 'react-icons/fa';
 // components
 import { Card, ImageFallback } from '@/components/common';
 
+// utils
+import { formatPrice } from '@/utils';
+
 interface ProductCardProps {
   url: string;
   title: string;
@@ -21,6 +24,8 @@ const ProductCard = ({
   alt = 'image alt',
   className = '',
 }: ProductCardProps) => {
+  const formattedPrice = formatPrice(price);
+
   return (
     <Card
       className={`bg-white dark:bg-gray-400 rounded-lg shadow-lg ${className}`}
@@ -51,7 +56,7 @@ const ProductCard = ({
             ))}
           </div>
           <p className="text-black dark:text-white text-2xl font-semibold">
-            ${price}
+            ${formattedPrice}
           </p>
         </div>
       </div>
