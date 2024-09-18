@@ -37,7 +37,6 @@ export const createInvoice = async (
 
     const formattedData = {
       ...formData,
-      imagerUrl: formData.imageUrl,
       customer: Number(formData.customer),
       isSelected: false,
       invoice_products: products,
