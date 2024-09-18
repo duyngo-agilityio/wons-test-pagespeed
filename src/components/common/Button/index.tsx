@@ -1,8 +1,16 @@
 'use client';
+import { ReactNode } from 'react';
 
-import { extendVariants, Button as ButtonNextUI } from '@nextui-org/react';
+// icons
+import { FaSpinner } from 'react-icons/fa';
 
-const Button = extendVariants(ButtonNextUI, {
+import {
+  extendVariants,
+  Button as ButtonNextUI,
+  ButtonProps as NextUIButtonProps,
+} from '@nextui-org/react';
+
+const ButtonCustom = extendVariants(ButtonNextUI, {
   variants: {
     color: {
       default:
@@ -38,5 +46,26 @@ const Button = extendVariants(ButtonNextUI, {
     },
   ],
 });
+
+interface ButtonProps extends Omit<NextUIButtonProps, 'size'> {
+  isLoading?: boolean;
+  children?: ReactNode;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const Button = ({ isLoading = false, children, ...props }: ButtonProps) => {
+  return (
+    <ButtonCustom
+      {...props}
+      isLoading={undefined}
+      disabled={isLoading || props.disabled}
+    >
+      <div className="flex items-center">
+        {isLoading && <FaSpinner className="animate-spin mr-2" />}
+        {children}
+      </div>
+    </ButtonCustom>
+  );
+};
 
 export default Button;

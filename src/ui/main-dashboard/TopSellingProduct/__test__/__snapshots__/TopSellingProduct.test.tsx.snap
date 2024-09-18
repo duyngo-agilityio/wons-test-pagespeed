@@ -10,15 +10,19 @@ exports[`TopSellingProducts component renders correctly and matches snapshot 1`]
     >
       <h2
         aria-level="2"
-        class="font-bold font-dm-sans text-blue-800 dark:text-white text-2xl text-blue-800/70 dark:text-white/70"
+        class="font-bold font-dm-sans text-blue-800 dark:text-white text-2xl !text-blue-400 dark:!text-gray-850 font-medium"
       >
         Top Selling Products
       </h2>
     </div>
     <div
-      class="text-center text-gray-500 dark:text-gray-400 "
+      class="mt-8"
     >
-      No top selling products at the moment
+      <div
+        class="text-center text-gray-500 dark:text-gray-400 "
+      >
+        No top selling products at the moment
+      </div>
     </div>
   </section>
 </div>

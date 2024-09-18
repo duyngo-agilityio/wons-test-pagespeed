@@ -15,8 +15,10 @@ export const colors = {
   gray: {
     50: '#F1F4FA', // Very Light Gray
     100: '#DADADA', // Light Gray
+    150: '#f2f3f4',
     200: '#99B2C6', // Muted Gray-Blue
     300: '#9DA8BB', // Soft Gray
+    350: '#404b5b',
     400: '#364153', // Slate Gray
     600: '#1A202C', // Dark Gray
     700: '#515567',

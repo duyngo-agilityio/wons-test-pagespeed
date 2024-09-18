@@ -177,7 +177,11 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
         disabled=""
         type="submit"
       >
-        Log in
+        <div
+          class="flex items-center"
+        >
+          Log in
+        </div>
       </button>
     </form>
     <div
