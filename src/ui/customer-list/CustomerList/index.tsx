@@ -1,33 +1,12 @@
-'use client';
-// Libs
-import { useCallback } from 'react';
+import { getCustomers } from '@/api';
+import { CustomerListClient } from '@/ui';
 
-// Components
-import { CustomerTable } from '@/components';
+const CustomerList = async () => {
+  const customerRes = await getCustomers();
 
-// mocks
-import { data } from '@/mocks';
+  const { data: customers = [] } = customerRes || {};
 
-const CustomerList = (): JSX.Element => {
-  // TODO: Update later
-
-  // TODO: Update later
-  const handleEdit = useCallback(() => {}, []);
-
-  // TODO: Update later
-  const handleDelete = useCallback(() => {}, []);
-
-  // TODO: Update later
-  const handleToggleSelectStart = useCallback(() => {}, []);
-
-  return (
-    <CustomerTable
-      data={data}
-      onEdit={handleEdit}
-      onDelete={handleDelete}
-      onToggleSelectStar={handleToggleSelectStart}
-    />
-  );
+  return <CustomerListClient customerList={customers} />;
 };
 
 export default CustomerList;

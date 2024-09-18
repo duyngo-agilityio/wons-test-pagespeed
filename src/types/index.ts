@@ -6,3 +6,4 @@ export * from './strapi';
 export * from './table';
 export * from './toast';
 export * from './invoice';
+export * from './customer';
