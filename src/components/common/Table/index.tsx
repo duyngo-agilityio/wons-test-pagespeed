@@ -84,7 +84,6 @@ const TableCustom = <T extends { id: string }>({
 
   const handleSelectChange = useCallback(
     (keys: Selection) => onSelectChange(keys),
-
     [onSelectChange],
   );
 
