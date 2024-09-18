@@ -7,7 +7,7 @@ const meta: Meta<typeof AvatarUpload> = {
   title: 'Components/AvatarUpload',
   component: AvatarUpload,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
 };
 

@@ -13,7 +13,7 @@ const StatisticSection = async () => {
   const { data: statisticsData } = await getAllStatistics();
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8">
       {statisticsData?.length ? (
         statisticsData
           .map((stat) => [
