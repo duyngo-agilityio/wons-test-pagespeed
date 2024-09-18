@@ -13,6 +13,7 @@ exports[`Pagination test cases should render correctly 1`] = `
       aria-label="pagination navigation"
       class="p-2.5 overflow-x-scroll scrollbar-hide flex justify-center m-0"
       data-active-page="1"
+      data-controls="true"
       data-dots-jump="5"
       data-slot="base"
       data-total="5"
@@ -31,6 +32,33 @@ exports[`Pagination test cases should render correctly 1`] = `
         >
           1
         </span>
+        <li
+          aria-disabled="true"
+          aria-label="previous page button"
+          class="flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
+          data-disabled="true"
+          data-slot="prev"
+          role="button"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M15.5 19l-7-7 7-7"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
+        </li>
         <li
           aria-current="true"
           aria-label="pagination item 1 active"
@@ -77,6 +105,32 @@ exports[`Pagination test cases should render correctly 1`] = `
           tabindex="0"
         >
           5
+        </li>
+        <li
+          aria-label="next page button"
+          class="flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
+          data-slot="next"
+          role="button"
+          tabindex="0"
+        >
+          <svg
+            aria-hidden="true"
+            class="rotate-180"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="1em"
+          >
+            <path
+              d="M15.5 19l-7-7 7-7"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+            />
+          </svg>
         </li>
       </ul>
     </nav>

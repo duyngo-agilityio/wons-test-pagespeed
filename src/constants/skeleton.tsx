@@ -75,6 +75,37 @@ export const MAPPING_INVOICE_LIST_SKELETON = [
   },
 ];
 
+export const MAPPING_CUSTOMER_LIST_SKELETON = [
+  {
+    header: 'Name',
+    accessor: () => (
+      <div className="flex gap-3.5 items-center min-w-36">
+        <Skeleton className="h-9 w-9 rounded-full" />
+        <Skeleton className="h-8 w-3/5 rounded-lg" />
+      </div>
+    ),
+    isSort: true,
+  },
+  {
+    header: 'Email',
+    accessor: () => <Skeleton className="h-8 w-4/5 rounded-lg" />,
+    isSort: true,
+  },
+  {
+    header: 'Phone Number ',
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+    isSort: true,
+  },
+  {
+    header: 'Gender',
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+    isSort: true,
+  },
+  {
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+  },
+];
+
 export const MAPPING_PRODUCT_DESCRIPTIONS_SKELETON = [
   {
     header: 'PRODUCT DESCRIPTION',

@@ -147,7 +147,7 @@ const InvoiceProductTable = ({
       accessor: ({ product }: TInvoiceProductTable) => (
         <Button
           variant="ghost"
-          className="rounded-[100%] p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
+          className="rounded-[100%] block p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
           data-id={product.data.id}
           endContent={<FaTrash className="text-pink-500" />}
           onClick={handleRemoveProduct}
