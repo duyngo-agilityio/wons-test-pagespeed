@@ -47,6 +47,11 @@ import { uploadImage } from '@/api/image';
 
 // Hooks
 import { useToast } from '@/hooks';
+import {
+  CalendarDate,
+  CalendarDateTime,
+  ZonedDateTime,
+} from '@internationalized/date';
 
 // Zod schema for validation
 const invoiceSchema = z.object({
@@ -242,22 +247,39 @@ const InvoiceForm = ({
           render={({
             field: { onChange, name, value },
             fieldState: { error },
-          }) => (
-            <DatePicker
-              value={convertToCalendarDate(value as unknown as string)}
-              onChange={(value) => {
-                onChange(value);
+          }) => {
+            const handleChange = (
+              date: CalendarDate | CalendarDateTime | ZonedDateTime | null,
+            ): void => {
+              if (!date) {
+                return onChange?.('');
+              }
 
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              minValue={currentDate}
-              label="Date"
-              isInvalid={!!error}
-              className="mt-1"
-              errorMessage={error?.message}
-            />
-          )}
+              // Pad the month and day with a leading zero if they are single digits
+              const formattedMonth = String(date.month).padStart(2, '0');
+              const formattedDay = String(date.day).padStart(2, '0');
+              const formattedYear = String(date.year);
+
+              onChange?.(`${formattedYear}-${formattedMonth}-${formattedDay}`);
+            };
+
+            return (
+              <DatePicker
+                defaultValue={convertToCalendarDate(value as unknown as string)}
+                onChange={(value) => {
+                  handleChange(value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                minValue={currentDate}
+                label="Date"
+                isInvalid={!!error}
+                className="mt-1"
+                errorMessage={error?.message}
+              />
+            );
+          }}
         />
       </div>
 

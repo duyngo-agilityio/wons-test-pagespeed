@@ -8,7 +8,7 @@ import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
 import { Autocomplete, Button, Input, Table, Text } from '@/components';
 
 // Constants
-import { ERROR_MESSAGES, MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
+import { MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
 
 // Models
 import { IProduct } from '@/models';
@@ -102,13 +102,6 @@ const InvoiceProductTable = ({
               handleChangeProductName(key, data.product.data.id)
             }
             options={[...current, ...optionsElse]}
-            className="!text-blue-500 text-[14.22px] bg-white dark:bg-gray-400 leading-[18.51px]"
-            inputProps={{
-              classNames: {
-                inputWrapper: 'bg-white dark:bg-gray-400 shadow-none',
-                input: '!text-blue-500 dark:!text-purple-600',
-              },
-            }}
           />
         );
       },
@@ -168,20 +161,19 @@ const InvoiceProductTable = ({
     id: number,
   ) => {
     const { value } = e.target;
+    setErrorProducts('');
 
     // Find the product to update
     const product = products.find((product) => product.id === id);
 
     if (product) {
-      if (!value) return setErrorProducts(ERROR_MESSAGES.QUANTITY_INVALID);
-
       // Validate and parse the value directly
       const parsedValue = Number(value);
 
       // Check if the value is a valid positive integer within the range of 0 to 99
       const isValidQuantity =
         !isNaN(parsedValue) &&
-        parsedValue > 0 &&
+        parsedValue >= 0 &&
         parsedValue <= MAX_QUANTITY_PRODUCTS &&
         REGEX.INTEGER.test(value);
 
@@ -232,10 +224,11 @@ const InvoiceProductTable = ({
 
       <div className="mt-[17px]">
         <Table
+          isStripedRow
+          variant="secondary"
           newData={initInvoiceProduct}
           columns={columnTable}
           data={productsValues}
-          variant="secondary"
         />
         {errorProducts && (
           <Text text={errorProducts} className="text-red-400" />
