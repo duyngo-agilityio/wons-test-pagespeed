@@ -58,7 +58,11 @@ exports[`SignInForm Component should match with snapshot 1`] = `
                 fill="#1976D2"
               />
             </svg>
-            Google
+            <div
+              class="flex items-center"
+            >
+              Google
+            </div>
           </button>
           <button
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent !bg-gray-50 dark:!bg-gray-600 text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] min-w-max w-[164px] h-12.5"
@@ -81,7 +85,11 @@ exports[`SignInForm Component should match with snapshot 1`] = `
                 d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
               />
             </svg>
-            Facebook
+            <div
+              class="flex items-center"
+            >
+              Facebook
+            </div>
           </button>
         </div>
         <div
@@ -269,7 +277,11 @@ exports[`SignInForm Component should match with snapshot 1`] = `
             disabled=""
             type="submit"
           >
-            Log in
+            <div
+              class="flex items-center"
+            >
+              Log in
+            </div>
           </button>
         </form>
         <div
@@ -351,7 +363,11 @@ exports[`SignInForm Component should match with snapshot 1`] = `
               fill="#1976D2"
             />
           </svg>
-          Google
+          <div
+            class="flex items-center"
+          >
+            Google
+          </div>
         </button>
         <button
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent !bg-gray-50 dark:!bg-gray-600 text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] min-w-max w-[164px] h-12.5"
@@ -374,7 +390,11 @@ exports[`SignInForm Component should match with snapshot 1`] = `
               d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
             />
           </svg>
-          Facebook
+          <div
+            class="flex items-center"
+          >
+            Facebook
+          </div>
         </button>
       </div>
       <div
@@ -562,7 +582,11 @@ exports[`SignInForm Component should match with snapshot 1`] = `
           disabled=""
           type="submit"
         >
-          Log in
+          <div
+            class="flex items-center"
+          >
+            Log in
+          </div>
         </button>
       </form>
       <div

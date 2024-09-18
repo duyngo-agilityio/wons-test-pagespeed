@@ -18,7 +18,7 @@ exports[`ProductCard component renders correctly and matches snapshot 1`] = `
         class="flex flex-col sm:flex-row items-center"
       >
         <div
-          class="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0"
+          class="w-24 h-24 sm:w-24 sm:h-24 mb-4 sm:mb-0"
         >
           <img
             alt="Shoe image"
@@ -116,7 +116,7 @@ exports[`ProductCard component renders correctly and matches snapshot 1`] = `
             </svg>
           </div>
           <p
-            class="text-black dark:text-white text-base sm:text-lg font-semibold"
+            class="text-black dark:text-white text-2xl font-semibold"
           >
             $
             87

@@ -26,7 +26,7 @@ const ProductCard = ({
       className={`bg-white dark:bg-gray-400 rounded-lg shadow-lg ${className}`}
     >
       <div className="flex flex-col sm:flex-row items-center">
-        <div className="w-24 h-24 sm:w-20 sm:h-20 mb-4 sm:mb-0">
+        <div className="w-24 h-24 sm:w-24 sm:h-24 mb-4 sm:mb-0">
           <ImageFallback
             src={url}
             alt={alt}
@@ -50,7 +50,7 @@ const ProductCard = ({
               />
             ))}
           </div>
-          <p className="text-black dark:text-white text-base sm:text-lg font-semibold">
+          <p className="text-black dark:text-white text-2xl font-semibold">
             ${price}
           </p>
         </div>
