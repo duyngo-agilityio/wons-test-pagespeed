@@ -2,9 +2,6 @@
 
 import { useMemo } from 'react';
 
-// Models
-import { ICustomer } from '@/models';
-
 // Components
 import {
   Table,
@@ -14,15 +11,20 @@ import {
   Image,
 } from '@/components';
 
+// Types
+import { TCustomerDataResponse } from '@/types';
+
+type TCustomerData = TCustomerDataResponse;
+
 type CustomersTableProps = {
-  data: ICustomer[];
+  data: TCustomerData[];
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onToggleSelectStar: (id: string) => void;
 };
 
 const CustomersTable = ({
-  data,
+  data = [],
   onEdit,
   onDelete,
 }: CustomersTableProps): JSX.Element => {
@@ -30,8 +32,13 @@ const CustomersTable = ({
     () => [
       {
         header: 'Name',
-        accessor: (customer: ICustomer) => {
-          const { avatar = '', firstName = '', lastName = '' } = customer || {};
+        accessor: (customerData: TCustomerData) => {
+          const { attributes } = customerData || {};
+          const {
+            avatar = '',
+            firstName = '',
+            lastName = '',
+          } = attributes || {};
 
           return (
             <div className="flex gap-3.5 items-center">
@@ -57,8 +64,9 @@ const CustomersTable = ({
       },
       {
         header: 'Email',
-        accessor: (customer: ICustomer) => {
-          const { email = '' } = customer || {};
+        accessor: (customerData: TCustomerData) => {
+          const { attributes } = customerData || {};
+          const { email = '' } = attributes || {};
 
           return (
             <div className="flex gap-2.5 items-center">
@@ -70,8 +78,9 @@ const CustomersTable = ({
       },
       {
         header: 'Phone Number',
-        accessor: (customer: ICustomer) => {
-          const { phone = '' } = customer || {};
+        accessor: (customerData: TCustomerData) => {
+          const { attributes } = customerData || {};
+          const { phone = '' } = attributes || {};
 
           return <Text size="md" text={phone} className="text-nowrap" />;
         },
@@ -79,15 +88,18 @@ const CustomersTable = ({
       },
       {
         header: 'Gender',
-        accessor: (customer: ICustomer) => {
-          const gender = customer.gender || 'male';
+        accessor: (customerData: TCustomerData) => {
+          const { attributes } = customerData || {};
+          const gender = attributes.gender || 'male';
+
           return <GenderStatusComponent gender={gender as 'male' | 'female'} />;
         },
         isSort: true,
       },
       {
-        accessor: (customer: ICustomer) => {
-          const { id } = customer || {};
+        accessor: (customerData: TCustomerData) => {
+          const { attributes } = customerData || {};
+          const { id } = attributes || {};
 
           return (
             <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />

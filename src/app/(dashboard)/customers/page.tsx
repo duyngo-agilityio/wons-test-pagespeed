@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 // layouts
 import { DashBoardLayout } from '@/layouts';
@@ -7,7 +8,10 @@ import { DashBoardLayout } from '@/layouts';
 import { CustomerList } from '@/ui';
 
 // components
-import { CustomerDrawerWrapper } from '@/components';
+import { CustomerDrawerWrapper, TableSkeleton } from '@/components';
+
+// Constants
+import { MAPPING_CUSTOMER_LIST_SKELETON } from '@/constants/skeleton';
 
 export const metadata: Metadata = {
   title: 'Customer Directory - View All Customers',
@@ -21,7 +25,17 @@ const CustomerListPage = (): JSX.Element => (
       title="Customer List"
       rightContent={<CustomerDrawerWrapper />}
     >
-      <CustomerList />
+      <Suspense
+        fallback={
+          <TableSkeleton
+            variant="primary"
+            isStriped={false}
+            columns={MAPPING_CUSTOMER_LIST_SKELETON}
+          />
+        }
+      >
+        <CustomerList />
+      </Suspense>
     </DashBoardLayout>
   </main>
 );

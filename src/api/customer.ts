@@ -14,17 +14,17 @@ export const getCustomers = async (): Promise<{
   data?: StrapiModel<ICustomer>[];
 }> => {
   try {
-    const productsResponse = await httpClient.getRequest<
+    const customerResponse = await httpClient.getRequest<
       StrapiResponse<StrapiModel<ICustomer>[]>
     >({
       endpoint: API_PATH.CUSTOMERS,
     });
 
-    if (!productsResponse?.data?.length) {
+    if (!customerResponse?.data?.length) {
       return { error: undefined, data: [] };
     }
 
-    return { error: undefined, data: productsResponse.data };
+    return { error: undefined, data: customerResponse.data || [] };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
