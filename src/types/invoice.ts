@@ -10,7 +10,7 @@ import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 import { InvoiceStatus } from '@/constants';
 
 export type TInvoiceDataResponse = StrapiModel<
-  TInvoice & { customer: { data: StrapiModel<ICustomer> } }
+  Omit<TInvoice, 'customer'> & { customer: { data: StrapiModel<ICustomer> } }
 >;
 
 export type TInvoiceListResponse = StrapiResponse<TInvoiceDataResponse[]>;

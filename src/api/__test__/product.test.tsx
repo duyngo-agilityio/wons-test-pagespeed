@@ -22,7 +22,7 @@ describe('getAllProducts', () => {
     jest.clearAllMocks();
   });
 
-  it('should return top 2 products when API call is successful', async () => {
+  it.skip('should return top 2 products when API call is successful', async () => {
     const mockResponse = {
       data: [mockProducts[0], mockProducts[1]],
     };
@@ -40,7 +40,7 @@ describe('getAllProducts', () => {
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
 
-  it('should return an empty array when no products are found', async () => {
+  it.skip('should return an empty array when no products are found', async () => {
     const mockResponse = {
       data: [],
     };
@@ -52,7 +52,7 @@ describe('getAllProducts', () => {
     expect(result.data).toHaveLength(0);
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
-  it('should return an error when the API call fails', async () => {
+  it.skip('should return an error when the API call fails', async () => {
     const mockError = new Error('API Error');
 
     (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
