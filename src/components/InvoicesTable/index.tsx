@@ -178,6 +178,7 @@ const InvoicesTable = ({
         header: (
           <Button
             isIconOnly
+            isDisabled={!selectedInvoiceIds.length}
             className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
             onClick={handleOpenConfirmModal}
           >
@@ -197,7 +198,13 @@ const InvoicesTable = ({
         },
       },
     ],
-    [handleOpenConfirmModal, onDelete, onEdit, onToggleSelectStar],
+    [
+      handleOpenConfirmModal,
+      onDelete,
+      onEdit,
+      onToggleSelectStar,
+      selectedInvoiceIds,
+    ],
   );
 
   const handleSelectChange = useCallback(
