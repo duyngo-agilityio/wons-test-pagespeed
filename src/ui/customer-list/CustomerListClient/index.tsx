@@ -11,10 +11,12 @@ import { TCustomerDataResponse } from '@/types';
 
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
+  pageCount: number;
 };
 
 const CustomerListClient = ({
   customerList,
+  pageCount,
 }: TCustomerListClientProps): JSX.Element => {
   // TODO: Update later
 
@@ -30,6 +32,7 @@ const CustomerListClient = ({
   return (
     <CustomerTable
       data={customerList}
+      pageCount={pageCount}
       onEdit={handleEdit}
       onDelete={handleDelete}
       onToggleSelectStar={handleToggleSelectStart}

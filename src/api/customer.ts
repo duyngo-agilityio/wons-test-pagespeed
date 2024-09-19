@@ -1,32 +1,39 @@
 // Constants
-import { API_PATH } from '@/constants';
-import { ICustomer } from '@/models';
+import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
-import { StrapiModel, StrapiResponse } from '@/types';
+
+// Types
+import { TCustomerListResponse } from '@/types';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
 
-export const getCustomers = async (): Promise<{
-  error?: string;
-  data?: StrapiModel<ICustomer>[];
-}> => {
+type CustomerListConfigs = {
+  page?: number;
+  pageSize?: number;
+};
+
+export const getCustomers = async ({
+  page = DEFAULT_PAGE,
+  pageSize = PAGE_SIZE[10],
+}: CustomerListConfigs = {}): Promise<TCustomerListResponse> => {
+  const pageValue = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+
+  const endpoint = `${API_PATH.CUSTOMERS}?${pageValue}`;
+
   try {
-    const customerResponse = await httpClient.getRequest<
-      StrapiResponse<StrapiModel<ICustomer>[]>
-    >({
-      endpoint: API_PATH.CUSTOMERS,
-    });
+    const customerResponse = await httpClient.getRequest<TCustomerListResponse>(
+      {
+        endpoint,
+      },
+    );
 
-    if (!customerResponse?.data?.length) {
-      return { error: undefined, data: [] };
-    }
-
-    return { error: undefined, data: customerResponse.data || [] };
+    return customerResponse;
   } catch (error) {
     const message = formatErrorMessage(error);
-    return { error: message };
+
+    throw new Error(message);
   }
 };

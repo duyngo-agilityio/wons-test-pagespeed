@@ -35,7 +35,7 @@ const InvoiceList = async ({
   return (
     <InvoiceListClient
       invoiceList={invoices}
-      total={pageCount}
+      pageCount={pageCount}
       sortOrder={sortOrder}
     />
   );

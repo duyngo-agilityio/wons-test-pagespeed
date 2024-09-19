@@ -33,13 +33,13 @@ const LoadingIndicator = dynamic(
 
 export type TInvoiceListClientProps = {
   invoiceList: TInvoiceDataResponse[];
-  total: number;
+  pageCount: number;
   sortOrder?: string;
 };
 
 const InvoiceListClient = ({
   invoiceList,
-  total,
+  pageCount,
   sortOrder = '',
 }: TInvoiceListClientProps): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
@@ -141,7 +141,7 @@ const InvoiceListClient = ({
       {isLoading && <LoadingIndicator />}
       <InvoicesTable
         data={invoiceList}
-        total={total}
+        pageCount={pageCount}
         onEdit={handleEdit}
         onDelete={handleDelete}
         onDeleteMultiple={handleDeleteMultiple}

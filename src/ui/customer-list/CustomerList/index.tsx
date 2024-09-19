@@ -1,12 +1,22 @@
+// apis
 import { getCustomers } from '@/api';
+
+// uis
 import { CustomerListClient } from '@/ui';
 
-const CustomerList = async () => {
-  const customerRes = await getCustomers();
+type TCustomerListProps = {
+  page?: number;
+};
 
-  const { data: customers = [] } = customerRes || {};
+const CustomerList = async ({ page }: TCustomerListProps) => {
+  const { data: customerRes, meta } = await getCustomers({ page });
 
-  return <CustomerListClient customerList={customers} />;
+  const { pagination } = meta || {};
+  const { pageCount = 0 } = pagination || {};
+
+  return (
+    <CustomerListClient customerList={customerRes} pageCount={pageCount} />
+  );
 };
 
 export default CustomerList;
