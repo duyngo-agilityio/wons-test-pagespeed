@@ -30,7 +30,7 @@ export const createInvoiceProducts = async (
 ): Promise<number[]> => {
   try {
     const res = await Promise.all(
-      products.map(async ({ product, quantity, price }) => {
+      products.map(async ({ product, quantity = 0, price = 0 }) => {
         const productData = {
           price,
           quantity: Number(quantity),
