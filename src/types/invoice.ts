@@ -11,6 +11,11 @@ export type TInvoiceDataResponse = StrapiModel<
   Omit<TInvoice, 'customerId'> & { customer: { data: StrapiModel<ICustomer> } }
 >;
 
+export type TInvoiceProductRequest = Omit<
+  TInvoiceProduct<IProduct>,
+  'product'
+> & { product: number };
+
 export type TInvoiceListResponse = StrapiResponse<TInvoiceDataResponse[]>;
 
 export interface TInvoiceDetail extends Omit<TInvoice, 'customer'> {
@@ -19,6 +24,8 @@ export interface TInvoiceDetail extends Omit<TInvoice, 'customer'> {
     data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[];
   };
 }
+
+export type TInvoiceProductResponse = StrapiResponse<StrapiModel<IProduct>>;
 
 export type TInvoiceDetailsResponse = StrapiResponse<
   StrapiModel<TInvoiceDetail>
