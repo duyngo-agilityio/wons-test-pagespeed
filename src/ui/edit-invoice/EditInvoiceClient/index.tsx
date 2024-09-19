@@ -1,7 +1,7 @@
 'use client';
 
 // Models
-import { ICustomer, IProduct, TInvoice } from '@/models';
+import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 
 // Types
 import { TInvoiceProductTable } from '@/types';
@@ -17,7 +17,7 @@ interface EditInvoiceClientProps {
   onEditInvoice: (
     id: number,
     data: Partial<TInvoice>,
-    products: number[],
+    products: TInvoiceProduct<IProduct & { id: number }>[],
   ) => Promise<{
     error?: string;
     success?: boolean;
@@ -33,7 +33,7 @@ const EditInvoiceClient = ({
 }: EditInvoiceClientProps) => {
   const handleEditInvoice = async (
     data: Partial<TInvoice>,
-    products: number[],
+    products: TInvoiceProduct<IProduct & { id: number }>[],
   ) => await onEditInvoice(invoice.id, data, products);
 
   return (

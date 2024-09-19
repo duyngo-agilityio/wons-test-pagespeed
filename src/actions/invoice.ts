@@ -103,7 +103,7 @@ export const createInvoice = async (
 export const editInvoice = async (
   id: number,
   newData: Partial<TInvoice>,
-  newProducts: number[],
+  newProducts: TInvoiceProduct<IProduct & { id: number }>[],
 ) => {
   try {
     const data = {
@@ -112,18 +112,21 @@ export const editInvoice = async (
       invoice_products: newProducts,
     };
 
-    const res = await httpClient.putRequest<
-      { data: Partial<TInvoiceFormData> },
-      TInvoiceDetailsResponse
-    >({
-      endpoint: `${API_PATH.INVOICES}/${id}`,
-      body: { data },
-    });
+    // TODO: Update later
+    console.log(data);
 
-    revalidateTag(API_PATH.INVOICES);
-    revalidateTag(API_PATH.INVOICE);
+    // const res = await httpClient.putRequest<
+    //   { data: Partial<TInvoiceFormData> },
+    //   TInvoiceDetailsResponse
+    // >({
+    //   endpoint: `${API_PATH.INVOICES}/${id}`,
+    //   body: { data },
+    // });
 
-    return { data: res.data || {} };
+    // revalidateTag(API_PATH.INVOICES);
+    // revalidateTag(API_PATH.INVOICE);
+
+    return { data: {} };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
