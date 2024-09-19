@@ -14,16 +14,9 @@ const CustomerDrawerWrapper = (): JSX.Element => {
     setIsDrawerOpen((prev) => !prev);
   };
 
-  const handleAddCustomer = () => {
-    // TODO: later
-  };
-
   return (
     <div className="w-full flex justify-center md:justify-end">
-      <CustomerActions
-        onAddCustomer={handleAddCustomer}
-        onToggleDrawer={toggleDrawer}
-      />
+      <CustomerActions onToggleDrawer={toggleDrawer} />
       <CustomerDrawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
     </div>
   );

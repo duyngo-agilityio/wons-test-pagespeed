@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo } from 'react';
+import dynamic from 'next/dynamic';
 
 // Components
 import {
@@ -14,10 +15,13 @@ import {
 // Types
 import { TCustomerDataResponse } from '@/types';
 
+const Pagination = dynamic(() => import('@/components/common/Pagination'));
+
 type TCustomerData = TCustomerDataResponse;
 
 type CustomersTableProps = {
   data: TCustomerData[];
+  pageCount: number;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onToggleSelectStar: (id: string) => void;
@@ -25,6 +29,7 @@ type CustomersTableProps = {
 
 const CustomersTable = ({
   data = [],
+  pageCount,
   onEdit,
   onDelete,
 }: CustomersTableProps): JSX.Element => {
@@ -110,7 +115,13 @@ const CustomersTable = ({
     [onDelete, onEdit],
   );
 
-  return <Table columns={mappingContentColumns} data={data} />;
+  return (
+    <div className="flex flex-col gap-10">
+      <Table columns={mappingContentColumns} data={data} />
+
+      {pageCount > 0 && <Pagination total={pageCount} />}
+    </div>
+  );
 };
 
 export default CustomersTable;

@@ -30,7 +30,12 @@ import {
 } from '@/utils';
 
 // Types
-import { TInvoiceFormData, TInvoiceProductTable } from '@/types';
+import {
+  StrapiModel,
+  TInvoiceDetail,
+  TInvoiceFormData,
+  TInvoiceProductTable,
+} from '@/types';
 
 // Components
 import {
@@ -57,7 +62,7 @@ import {
 // Zod schema for validation
 const invoiceSchema = z.object({
   invoiceId: z.string(),
-  customer: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
+  customerId: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
   status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Status')),
   address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Address')),
   date: z.any(),
@@ -68,7 +73,7 @@ const invoiceSchema = z.object({
   imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
 });
 
-const REQUIRED_FIELDS = ['date', 'customer', 'email', 'address', 'status'];
+const REQUIRED_FIELDS = ['date', 'customerId', 'email', 'address', 'status'];
 
 interface InvoiceFormProps {
   invoiceId: string;
@@ -77,7 +82,7 @@ interface InvoiceFormProps {
     products: number[],
   ) => Promise<{
     error?: string;
-    success?: boolean;
+    data?: StrapiModel<TInvoiceDetail>;
   }>;
   isEdit?: boolean;
   products: (IProduct & { id: number })[];
@@ -119,7 +124,7 @@ const InvoiceForm = ({
       imageUrl: '',
       invoiceId: '',
       date: '',
-      customer: '',
+      customerId: undefined,
       email: '',
       address: '',
       status: undefined,
@@ -178,9 +183,10 @@ const InvoiceForm = ({
     const invoiceProduct = productsValues.map(({ product }) => product.data.id);
 
     startTransition(async () => {
-      const { error } = await onSubmit(
+      const { error, data } = await onSubmit(
         {
           ...formData,
+          customerId: formData.customerId.toString(),
           invoiceId,
         },
         invoiceProduct,
@@ -193,7 +199,7 @@ const InvoiceForm = ({
         });
       }
 
-      previewData && router.push(`/invoices/${previewData.id}`);
+      data && router.push(`${ROUTES.INVOICE}/${data.id}`);
 
       return showToast({
         description: previewData
@@ -298,7 +304,7 @@ const InvoiceForm = ({
       <div className="flex gap-[30px]">
         {/* Customer */}
         <Controller
-          name="customer"
+          name="customerId"
           control={control}
           render={({
             field: { onChange, value, name, ...rest },
@@ -423,7 +429,7 @@ const InvoiceForm = ({
           color="primary"
           className="w-full mt-10"
         >
-          Create Invoice
+          {isEdit ? 'Update Invoice' : 'Create Invoice'}
         </Button>
       </div>
     </form>

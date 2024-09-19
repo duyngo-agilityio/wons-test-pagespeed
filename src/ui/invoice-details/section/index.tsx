@@ -9,15 +9,15 @@ import { ICustomer, IProduct, TInvoiceProduct } from '@/models';
 // Types
 import { StrapiModel } from '@/types';
 
-// Constants
-import { API_PATH } from '@/constants';
-
 // Components
 import {
   InvoiceDetailsHeader,
   InvoiceDetailsBody,
   InvoiceDetailsFooter,
 } from '@/ui/invoice-details';
+
+// Constants
+import { API_PATH } from '@/constants';
 
 interface IInvoiceDetailsSectionProps {
   id: number;

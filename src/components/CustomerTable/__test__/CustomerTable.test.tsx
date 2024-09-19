@@ -8,6 +8,7 @@ import { CUSTOMER_MOCK } from '@/mocks';
 
 // components
 import CustomersTable from '../index';
+import { DEFAULT_PAGE } from '@/constants';
 
 const mockCustomersData: TCustomerDataResponse[] = [
   {
@@ -32,6 +33,7 @@ describe('CustomersTable Component', () => {
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
         onToggleSelectStar={mockOnToggleSelectStar}
+        pageCount={DEFAULT_PAGE}
       />,
     );
 
@@ -45,10 +47,11 @@ describe('CustomersTable Component', () => {
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
         onToggleSelectStar={mockOnToggleSelectStar}
+        pageCount={DEFAULT_PAGE}
       />,
     );
 
-    expect(screen.getAllByText('')).toHaveLength(24);
+    expect(screen.getAllByText('')).toHaveLength(33);
   });
 
   it('renders correctly with empty attributes', () => {
@@ -58,6 +61,7 @@ describe('CustomersTable Component', () => {
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
         onToggleSelectStar={mockOnToggleSelectStar}
+        pageCount={DEFAULT_PAGE}
       />,
     );
 
