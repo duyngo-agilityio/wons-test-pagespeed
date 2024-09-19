@@ -5,6 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Link from 'next/link';
+import isEqual from 'react-fast-compare';
+import { useRouter } from 'next/navigation';
 
 // Constants
 import {
@@ -23,6 +25,7 @@ import {
   clearErrorOnChange,
   convertToCalendarDate,
   currentDate,
+  getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -76,9 +79,10 @@ interface InvoiceFormProps {
     error?: string;
     success?: boolean;
   }>;
+  isEdit?: boolean;
   products: (IProduct & { id: number })[];
   customers: (ICustomer & { id: number })[];
-  previewData?: TInvoice | null;
+  previewData?: (TInvoice & { id: number }) | null;
   previewInvoiceProducts?: TInvoiceProductTable[];
 }
 
@@ -86,6 +90,7 @@ const InvoiceForm = ({
   invoiceId,
   products,
   customers,
+  isEdit = false,
   previewData = null,
   previewInvoiceProducts,
   onSubmit,
@@ -98,10 +103,12 @@ const InvoiceForm = ({
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
+  const router = useRouter();
 
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues },
+    watch,
     clearErrors,
     handleSubmit,
   } = useForm<TInvoiceFormData>({
@@ -131,9 +138,14 @@ const InvoiceForm = ({
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
     [dirtyItems, errors],
   );
-  const isDisableSubmit = !enableSubmit;
 
-  const handleAddInvoice = async (formData: TInvoiceFormData) => {
+  const isDisableSubmit = !(
+    enableSubmit ||
+    !getDirtyState(defaultValues ?? {}, watch()) ||
+    (!isEqual(previewInvoiceProducts, productsValues) && isEdit)
+  );
+
+  const handleSubmitButton = async (formData: TInvoiceFormData) => {
     const hasEmptyField = productsValues.some((obj) =>
       Object.values(obj).some((value) => value === ''),
     );
@@ -151,32 +163,6 @@ const InvoiceForm = ({
 
         if (typeof imageUrl === 'string') {
           formData.imageUrl = imageUrl;
-
-          const invoiceProduct = productsValues.map(
-            ({ product }) => product.data.id,
-          );
-
-          startTransition(async () => {
-            const { error } = await onSubmit(
-              {
-                ...formData,
-                invoiceId,
-              },
-              invoiceProduct,
-            );
-
-            if (error) {
-              return showToast({
-                description: error,
-                status: MESSAGE_STATUS.ERROR,
-              });
-            }
-
-            return showToast({
-              description: SUCCESS_MESSAGES.CREATE_INVOICE,
-              status: MESSAGE_STATUS.SUCCESS,
-            });
-          });
         } else {
           return setErrorProducts(imageUrl.error);
         }
@@ -188,6 +174,34 @@ const InvoiceForm = ({
         return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Image'));
       }
     }
+
+    const invoiceProduct = productsValues.map(({ product }) => product.data.id);
+
+    startTransition(async () => {
+      const { error } = await onSubmit(
+        {
+          ...formData,
+          invoiceId,
+        },
+        invoiceProduct,
+      );
+
+      if (error) {
+        return showToast({
+          description: error,
+          status: MESSAGE_STATUS.ERROR,
+        });
+      }
+
+      previewData && router.push(`/invoices/${previewData.id}`);
+
+      return showToast({
+        description: previewData
+          ? SUCCESS_MESSAGES.UPDATE_INVOICE
+          : SUCCESS_MESSAGES.CREATE_INVOICE,
+        status: MESSAGE_STATUS.SUCCESS,
+      });
+    });
   };
 
   const handleAvatarChange = useCallback((avatarFile: File) => {
@@ -198,15 +212,19 @@ const InvoiceForm = ({
   return (
     <form
       className=" w-full max-w-[700px] justify-center"
-      onSubmit={handleSubmit(handleAddInvoice)}
+      onSubmit={handleSubmit(handleSubmitButton)}
     >
       <div className="flex justify-center mt-[21px]">
         <Controller
           control={control}
           name="imageUrl"
-          render={({ field: { onChange, value, name } }) => (
+          render={({
+            field: { onChange, value, name },
+            fieldState: { error },
+          }) => (
             <AvatarUpload
               value={value}
+              error={error?.message}
               onChange={(e) => {
                 onChange(e);
 

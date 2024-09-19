@@ -1,3 +1,6 @@
+// Constants
+import { API_PATH } from '@/constants';
+
 // Actions
 import { editInvoice } from '@/actions';
 
@@ -8,7 +11,7 @@ import { getCustomers, getInvoiceById, getProducts } from '@/api';
 import { formattedResponseData } from '@/utils';
 
 // Components
-import { Heading, InvoiceForm } from '@/components';
+import EditInvoiceClient from '../EditInvoiceClient';
 
 interface EditInvoiceProps {
   id: number;
@@ -17,7 +20,10 @@ interface EditInvoiceProps {
 const EditInvoice = async ({ id }: EditInvoiceProps) => {
   const { data: products } = await getProducts();
   const { data: customers } = await getCustomers();
-  const { data: invoice } = await getInvoiceById({ id });
+  const { data: invoice } = await getInvoiceById({
+    id,
+    nextOptions: { tags: [API_PATH.INVOICE] },
+  });
 
   const productInvoice = formattedResponseData(
     invoice.attributes.invoice_products.data,
@@ -41,23 +47,18 @@ const EditInvoice = async ({ id }: EditInvoiceProps) => {
 
   const formattedInvoice = {
     ...invoice.attributes,
+    id: invoice.id,
     customer: invoice.attributes.customer?.data.id.toString() ?? '',
   };
 
   return (
-    <div className="bg-white dark:bg-gray-400 p-[30px] rounded-[10px] h-[calc(full-60px)]">
-      <Heading title="Edit Invoice" />
-      <div className="flex w-full justify-center">
-        <InvoiceForm
-          invoiceId={formattedInvoice.invoiceId ?? ''}
-          previewData={formattedInvoice}
-          previewInvoiceProducts={formattedPreviewProduct}
-          onSubmit={editInvoice}
-          products={formattedResponseData(products ?? [])}
-          customers={formattedResponseData(customers ?? [])}
-        />
-      </div>
-    </div>
+    <EditInvoiceClient
+      invoice={formattedInvoice}
+      invoiceProducts={formattedPreviewProduct}
+      products={formattedResponseData(products ?? [])}
+      customers={formattedResponseData(customers ?? [])}
+      onEditInvoice={editInvoice}
+    />
   );
 };
 

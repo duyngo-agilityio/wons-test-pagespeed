@@ -7,7 +7,7 @@ import { IoCamera } from 'react-icons/io5';
 
 import { Input } from '@/components';
 
-import { Image } from '@nextui-org/react';
+import Image from 'next/image';
 
 // constants
 import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
@@ -15,16 +15,18 @@ import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 export type TUpdateProfileProps = {
   onFileChange: (file: File) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  value: string | undefined;
+  value: string;
+  error?: string;
 };
 
 const AvatarUpload = ({
   value,
+  error = '',
   onChange,
   onFileChange,
 }: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>(error);
 
   const handleChangeFile = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -95,10 +97,14 @@ const AvatarUpload = ({
         className="hidden"
         accept="image/*"
         onChange={handleOnchange}
+        isInvalid={!errorMessage}
+        errorMessage={errorMessage}
       />
 
-      {errorMessage && (
-        <p className="text-red-500 text-md mt-2">{errorMessage}</p>
+      {(errorMessage || error) && (
+        <p className="text-red-500 text-md mt-2 z-100">
+          {errorMessage || error}
+        </p>
       )}
     </div>
   );

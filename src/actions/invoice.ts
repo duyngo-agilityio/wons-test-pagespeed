@@ -1,6 +1,5 @@
 'use server';
 
-// Libs
 import { revalidateTag } from 'next/cache';
 
 // APIs
@@ -57,23 +56,24 @@ export const createInvoice = async (
 };
 
 export const editInvoice = async (
-  data: Partial<TInvoice>,
-  products: number[],
+  id: number,
+  newData: Partial<TInvoice>,
+  newProducts: number[],
 ) => {
   try {
-    // TODO: integrate api later
-    const formattedData = {
-      ...data,
-      customer: Number(data.customer),
-      invoice_products: products,
+    const data = {
+      ...newData,
+      customer: Number(newData.customer),
+      invoice_products: newProducts,
     };
 
     await httpClient.putRequest({
-      endpoint: `${API_PATH.INVOICES}`,
-      body: { formattedData },
+      endpoint: `${API_PATH.INVOICES}/${id}`,
+      body: { data },
     });
 
     revalidateTag(API_PATH.INVOICES);
+    revalidateTag(API_PATH.INVOICE);
 
     return { success: true };
   } catch (error) {
