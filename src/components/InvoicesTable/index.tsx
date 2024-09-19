@@ -37,7 +37,7 @@ type TInvoicesTableProps = {
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onDeleteMultiple: (ids: number[]) => void;
-  onToggleSelectStar: (id: string) => void;
+  onToggleSelectStar: (id: number, isSelected: boolean) => void;
   onSort: (field: string) => void;
   onRowAction: (key: Key) => void;
 };
@@ -162,13 +162,12 @@ const InvoicesTable = ({
       },
       {
         accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes } = invoice || {};
-          const { isSelected = false, invoiceId = '' } =
-            invoiceAttributes || {};
+          const { attributes: invoiceAttributes, id } = invoice || {};
+          const { isSelected = false } = invoiceAttributes || {};
 
           return (
             <StarButton
-              id={invoiceId}
+              id={id}
               isSelected={isSelected}
               onClick={onToggleSelectStar}
             />
@@ -179,6 +178,7 @@ const InvoicesTable = ({
         header: (
           <Button
             isIconOnly
+            isDisabled={!selectedInvoiceIds.length}
             className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
             onClick={handleOpenConfirmModal}
           >
@@ -198,7 +198,13 @@ const InvoicesTable = ({
         },
       },
     ],
-    [handleOpenConfirmModal, onDelete, onEdit, onToggleSelectStar],
+    [
+      handleOpenConfirmModal,
+      onDelete,
+      onEdit,
+      onToggleSelectStar,
+      selectedInvoiceIds,
+    ],
   );
 
   const handleSelectChange = useCallback(
