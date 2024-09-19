@@ -12,7 +12,7 @@ export type TInvoiceProduct<T> = {
 
 export type TInvoice = {
   invoiceId: string;
-  customer: number;
+  customerId: string;
   imageUrl: string;
   status: InvoiceStatus;
   address: string;

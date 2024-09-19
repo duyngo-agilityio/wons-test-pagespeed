@@ -39,7 +39,7 @@ export const createInvoice = async (
 
     const formattedData = {
       ...formData,
-      customer: Number(formData.customer),
+      customer: Number(formData.customerId),
       isSelected: false,
       invoice_products: products,
     };
@@ -70,7 +70,7 @@ export const editInvoice = async (
   try {
     const data = {
       ...newData,
-      customer: Number(newData.customer),
+      customer: Number(newData.customerId),
       invoice_products: newProducts,
     };
 

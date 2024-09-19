@@ -62,7 +62,7 @@ import {
 // Zod schema for validation
 const invoiceSchema = z.object({
   invoiceId: z.string(),
-  customer: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
+  customerId: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
   status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Status')),
   address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Address')),
   date: z.any(),
@@ -73,7 +73,7 @@ const invoiceSchema = z.object({
   imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
 });
 
-const REQUIRED_FIELDS = ['date', 'customer', 'email', 'address', 'status'];
+const REQUIRED_FIELDS = ['date', 'customerId', 'email', 'address', 'status'];
 
 interface InvoiceFormProps {
   invoiceId: string;
@@ -124,7 +124,7 @@ const InvoiceForm = ({
       imageUrl: '',
       invoiceId: '',
       date: '',
-      customer: undefined,
+      customerId: undefined,
       email: '',
       address: '',
       status: undefined,
@@ -186,6 +186,7 @@ const InvoiceForm = ({
       const { error, data } = await onSubmit(
         {
           ...formData,
+          customerId: formData.customerId.toString(),
           invoiceId,
         },
         invoiceProduct,
@@ -198,7 +199,7 @@ const InvoiceForm = ({
         });
       }
 
-      data && router.push(`${ROUTES.INVOICE}/${data?.id}`);
+      data && router.push(`${ROUTES.INVOICE}/${data.id}`);
 
       return showToast({
         description: previewData
@@ -303,7 +304,7 @@ const InvoiceForm = ({
       <div className="flex gap-[30px]">
         {/* Customer */}
         <Controller
-          name="customer"
+          name="customerId"
           control={control}
           render={({
             field: { onChange, value, name, ...rest },
