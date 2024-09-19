@@ -2,7 +2,7 @@
 import { InvoiceStatus } from '@/constants';
 
 // Types
-import { TInvoiceDataResponse } from '@/types';
+import { TInvoiceDataResponse, TInvoiceListResponse } from '@/types';
 
 export const MOCK_INVOICES = [
   {
@@ -119,3 +119,15 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
     },
   },
 ];
+
+export const MOCK_INVOICES_RESPONSE: TInvoiceListResponse = {
+  data: MOCK_INVOICES_WITH_CUSTOMER,
+  meta: {
+    pagination: {
+      page: 1,
+      pageSize: 10,
+      pageCount: 1,
+      total: 2,
+    },
+  },
+};

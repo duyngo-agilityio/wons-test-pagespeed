@@ -1,5 +1,3 @@
-'use client';
-
 // Libs
 import Link from 'next/link';
 
