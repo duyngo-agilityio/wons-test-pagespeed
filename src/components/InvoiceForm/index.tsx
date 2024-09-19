@@ -18,7 +18,7 @@ import {
 } from '@/constants';
 
 // Models
-import { ICustomer, IProduct, TInvoice } from '@/models';
+import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 
 // Utils
 import {
@@ -79,7 +79,7 @@ interface InvoiceFormProps {
   invoiceId: string;
   onSubmit: (
     data: Partial<TInvoice>,
-    products: number[],
+    products: TInvoiceProduct<IProduct & { id: number }>[],
   ) => Promise<{
     error?: string;
     data?: StrapiModel<TInvoiceDetail>;
@@ -180,8 +180,6 @@ const InvoiceForm = ({
       }
     }
 
-    const invoiceProduct = productsValues.map(({ product }) => product.data.id);
-
     startTransition(async () => {
       const { error, data } = await onSubmit(
         {
@@ -189,7 +187,7 @@ const InvoiceForm = ({
           customerId: formData.customerId.toString(),
           invoiceId,
         },
-        invoiceProduct,
+        productsValues,
       );
 
       if (error) {
