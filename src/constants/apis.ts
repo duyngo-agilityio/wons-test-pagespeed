@@ -10,5 +10,6 @@ export const API_PATH = {
   STATISTICS: '/statistics',
   USERS: '/users',
   INVOICES: '/invoices',
+  INVOICE: '/invoice',
   CUSTOMERS: '/customers',
 };

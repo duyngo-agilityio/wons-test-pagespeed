@@ -99,29 +99,27 @@ const CustomerForm = ({ onSubmit }: ICustomerFormProps) => {
         control={control}
         name="avatar"
         render={({
-          field: { onChange, value, name },
+          field: { onChange, value = '', name },
           fieldState: { error },
-        }) => {
-          return (
-            <div>
-              <AvatarUpload
-                value={value}
-                onChange={(e) => {
-                  onChange(e);
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-                onFileChange={(file) => {
-                  handleAvatarChange();
-                  onChange(file.name);
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-              />
-              {error && (
-                <p className="text-red-500 text-sm mt-2">{error.message}</p>
-              )}
-            </div>
-          );
-        }}
+        }) => (
+          <div>
+            <AvatarUpload
+              value={value}
+              onChange={(e) => {
+                onChange(e);
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+              onFileChange={(file) => {
+                handleAvatarChange();
+                onChange(file.name);
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+            />
+            {error && (
+              <p className="text-red-500 text-sm mt-2">{error.message}</p>
+            )}
+          </div>
+        )}
       />
 
       <Controller

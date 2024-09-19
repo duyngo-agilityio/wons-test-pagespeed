@@ -30,3 +30,28 @@ export const validateRequired = (fieldName: string, value?: string | null) =>
  * Function to check if a given value is a valid email address.
  */
 export const isValidEmail = (value: string) => REGEX.EMAIL.test(value);
+
+/**
+ * Function get dirty state
+ */
+export const getDirtyState = <T extends object>(
+  baseObject: T,
+  targetObject: T,
+) => {
+  const baseKeys = Object.keys(baseObject) as Array<keyof T>;
+  const targetKeys = Object.keys(targetObject) as Array<keyof T>;
+
+  if (baseKeys.length !== targetKeys.length) return false;
+
+  for (const key of baseKeys) {
+    if (!Object.prototype.hasOwnProperty.call(targetObject, key)) return false;
+
+    // Trim the values before comparing
+    const baseValue = String(baseObject[key]).trim();
+    const targetValue = String(targetObject[key]).trim();
+
+    if (baseValue !== targetValue) return false;
+  }
+
+  return true;
+};

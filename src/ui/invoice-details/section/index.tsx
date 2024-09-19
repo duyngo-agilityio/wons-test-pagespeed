@@ -9,6 +9,9 @@ import { ICustomer, IProduct, TInvoiceProduct } from '@/models';
 // Types
 import { StrapiModel } from '@/types';
 
+// Constants
+import { API_PATH } from '@/constants';
+
 // Components
 import {
   InvoiceDetailsHeader,
@@ -23,6 +26,7 @@ interface IInvoiceDetailsSectionProps {
 const InvoiceDetailsSection = async ({ id }: IInvoiceDetailsSectionProps) => {
   const result = await getInvoiceById({
     id: id,
+    nextOptions: { tags: [API_PATH.INVOICE] },
   });
   const customer: ICustomer =
     result.data.attributes.customer?.data.attributes ?? {};
