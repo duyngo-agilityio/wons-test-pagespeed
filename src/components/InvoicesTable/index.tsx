@@ -33,7 +33,7 @@ type TInvoiceData = TInvoiceDataResponse;
 
 type TInvoicesTableProps = {
   data: TInvoiceData[];
-  total: number;
+  pageCount: number;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onDeleteMultiple: (ids: number[]) => void;
@@ -44,7 +44,7 @@ type TInvoicesTableProps = {
 
 const InvoicesTable = ({
   data = [],
-  total,
+  pageCount,
   onEdit,
   onDelete,
   onDeleteMultiple,
@@ -231,7 +231,7 @@ const InvoicesTable = ({
         onRowAction={onRowAction}
       />
 
-      {total > 0 && <Pagination total={total} />}
+      {pageCount > 0 && <Pagination total={pageCount} />}
 
       {isModalOpen && (
         <ConfirmModal

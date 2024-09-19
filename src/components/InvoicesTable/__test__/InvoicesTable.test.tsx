@@ -7,6 +7,7 @@ import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
 import InvoicesTable from '../index';
 
 const mockOnDelete = jest.fn();
+const mockOnRowAction = jest.fn();
 const mockOnDeleteMultiple = jest.fn();
 const mockOnEdit = jest.fn();
 const mockOnSort = jest.fn();
@@ -22,7 +23,8 @@ describe('InvoicesTable Component', () => {
         onEdit={mockOnEdit}
         onSort={mockOnSort}
         onToggleSelectStar={mockOnToggleSelectStar}
-        total={2}
+        pageCount={2}
+        onRowAction={mockOnRowAction}
       />,
     );
 
