@@ -90,8 +90,8 @@ const DateRangePicker = ({
   );
 
   return (
-    <div className="max-w-[290.5px] relative bg-gray-50 dark:bg-gray-600">
-      <div className="flex gap-[15.85px]">
+    <div className="w-full md:max-w-[290.5px] relative bg-gray-50 dark:bg-gray-600 mt-8 md:mt-0">
+      <div className="flex justify-between md:gap-[15.85px]">
         {dateRange &&
           Object.keys(dateRange).map((key) => (
             <div

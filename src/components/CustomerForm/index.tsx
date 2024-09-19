@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from 'react';
 
 import { Select, SelectItem } from '@nextui-org/react';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -11,7 +11,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { ERROR_MESSAGES, REGEX } from '@/constants';
 
 // Utils
-import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+import {
+  clearErrorOnChange,
+  formatPhoneNumber,
+  isEnableSubmitButton,
+} from '@/utils';
 
 // Components
 import { Button, Heading, Input, AvatarUpload } from '@/components';
@@ -46,14 +50,16 @@ const genders = [
 export interface ICustomerFormProps {
   isPending?: boolean;
   onSubmit: (data: ICustomer) => void;
+  setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
 }
 
-const CustomerForm = ({ onSubmit }: ICustomerFormProps) => {
+const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
   const {
     control,
     formState: { dirtyFields, errors, isSubmitting },
     clearErrors,
     handleSubmit,
+    reset,
   } = useForm<Partial<ICustomer>>({
     resolver: zodResolver(customerFormSchema),
     mode: 'onBlur',
@@ -67,6 +73,8 @@ const CustomerForm = ({ onSubmit }: ICustomerFormProps) => {
       avatar: '',
     },
   });
+
+  setReset(reset);
 
   const dirtyItems = Object.keys(dirtyFields);
 
@@ -205,7 +213,7 @@ const CustomerForm = ({ onSubmit }: ICustomerFormProps) => {
             isInvalid={!!error}
             errorMessage={error?.message}
             onChange={(e) => {
-              onChange(e.target.value);
+              onChange(formatPhoneNumber(e.target.value));
 
               clearErrorOnChange(name, errors, clearErrors);
             }}

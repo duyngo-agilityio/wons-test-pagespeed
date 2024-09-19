@@ -3,16 +3,13 @@
 import { Button, BsPlus } from '@/components';
 
 interface CustomerActionsProps {
-  onAddCustomer: () => void;
   onToggleDrawer: () => void;
 }
 
 const CustomerActions = ({
-  onAddCustomer,
   onToggleDrawer,
 }: CustomerActionsProps): JSX.Element => {
   const handleAddCustomerAndToggle = () => {
-    onAddCustomer();
     onToggleDrawer();
   };
 

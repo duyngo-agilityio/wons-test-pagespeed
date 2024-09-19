@@ -40,11 +40,11 @@ export const formattedResponseData = <T>(data: StrapiModel<T>[]) =>
   });
 
 export const formatPhoneNumber = (value: string) => {
-  const phone = value.replace(/[()\\-]/g, ' ');
+  if (!value) {
+    return '';
+  }
 
-  if (phone) return `+${phone}`;
-
-  return '';
+  return value.replace(/[^0-9]/g, '');
 };
 
 /**
