@@ -1,12 +1,12 @@
 // Mocks
-import { PRODUCT_MOCK, PRODUCT_TABLE_COLUMNS_MOCK } from '@/mocks';
+import { CUSTOMER_MOCK, PRODUCT_TABLE_COLUMNS_MOCK } from '@/mocks';
 
 // Components
 import { Table } from '../index';
 
 const props = {
   columns: PRODUCT_TABLE_COLUMNS_MOCK,
-  data: PRODUCT_MOCK,
+  data: CUSTOMER_MOCK,
 };
 
 describe('Table', () => {
