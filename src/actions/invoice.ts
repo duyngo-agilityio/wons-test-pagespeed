@@ -82,7 +82,10 @@ export const editInvoice = async (
   }
 };
 
-export const updateInvoice = async (id: number, data: Partial<TInvoice>): Promise<{ error?: string } | void> => {
+export const updateInvoice = async (
+  id: number,
+  data: Partial<TInvoice>,
+): Promise<{ error?: string } | void> => {
   try {
     await httpClient.putRequest({
       endpoint: `${API_PATH.INVOICES}/${id}`,

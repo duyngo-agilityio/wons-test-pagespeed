@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerListPage render should render and match with snapshot 1`] = `
+<div>
+  <main>
+    <section>
+      <div
+        class="base:mb-6 md:mb-7.5 md:flex justify-between md:items-center"
+      >
+        <h2
+          aria-level="2"
+          class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl w-full"
+        >
+          Customer List
+        </h2>
+        <div
+          data-testid="customer-drawer"
+        >
+          Customer Drawer
+        </div>
+      </div>
+      <div
+        data-testid="customer-list"
+      >
+        Customer List
+      </div>
+    </section>
+  </main>
+</div>
+`;
