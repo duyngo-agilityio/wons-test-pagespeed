@@ -30,7 +30,7 @@ export type TInvoiceFormData = {
   invoiceId: string;
   date: string;
   imageUrl: string;
-  customer: string;
+  customer: number;
   status: InvoiceStatus;
   address: string;
   email: string;

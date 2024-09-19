@@ -30,7 +30,12 @@ import {
 } from '@/utils';
 
 // Types
-import { TInvoiceFormData, TInvoiceProductTable } from '@/types';
+import {
+  StrapiModel,
+  TInvoiceDetail,
+  TInvoiceFormData,
+  TInvoiceProductTable,
+} from '@/types';
 
 // Components
 import {
@@ -77,7 +82,7 @@ interface InvoiceFormProps {
     products: number[],
   ) => Promise<{
     error?: string;
-    success?: boolean;
+    data?: StrapiModel<TInvoiceDetail>;
   }>;
   isEdit?: boolean;
   products: (IProduct & { id: number })[];
@@ -119,7 +124,7 @@ const InvoiceForm = ({
       imageUrl: '',
       invoiceId: '',
       date: '',
-      customer: '',
+      customer: undefined,
       email: '',
       address: '',
       status: undefined,
@@ -178,7 +183,7 @@ const InvoiceForm = ({
     const invoiceProduct = productsValues.map(({ product }) => product.data.id);
 
     startTransition(async () => {
-      const { error } = await onSubmit(
+      const { error, data } = await onSubmit(
         {
           ...formData,
           invoiceId,
@@ -193,7 +198,7 @@ const InvoiceForm = ({
         });
       }
 
-      previewData && router.push(`/invoices/${previewData.id}`);
+      data && router.push(`${ROUTES.INVOICE}/${data?.id}`);
 
       return showToast({
         description: previewData
@@ -423,7 +428,7 @@ const InvoiceForm = ({
           color="primary"
           className="w-full mt-10"
         >
-          Create Invoice
+          {isEdit ? 'Update Invoice' : 'Create Invoice'}
         </Button>
       </div>
     </form>

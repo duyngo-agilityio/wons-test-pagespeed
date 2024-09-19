@@ -17,6 +17,9 @@ import { httpClient } from '@/services';
 // Utils
 import { formatErrorMessage } from '@/utils';
 
+// Types
+import { TInvoiceDetailsResponse, TInvoiceFormData } from '@/types';
+
 export const createInvoice = async (
   formData: Partial<TInvoice>,
   products: number[],
@@ -41,14 +44,18 @@ export const createInvoice = async (
       invoice_products: products,
     };
 
-    await httpClient.postRequest({
+    const res = await httpClient.postRequest<
+      { data: Partial<TInvoiceFormData> },
+      TInvoiceDetailsResponse
+    >({
       endpoint: API_PATH.INVOICES,
       body: { data: formattedData },
     });
 
     revalidateTag(API_PATH.INVOICES);
+    revalidateTag(API_PATH.INVOICE);
 
-    return { success: true };
+    return { data: res.data || {} };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
@@ -67,7 +74,10 @@ export const editInvoice = async (
       invoice_products: newProducts,
     };
 
-    await httpClient.putRequest({
+    const res = await httpClient.putRequest<
+      { data: Partial<TInvoiceFormData> },
+      TInvoiceDetailsResponse
+    >({
       endpoint: `${API_PATH.INVOICES}/${id}`,
       body: { data },
     });
@@ -75,14 +85,17 @@ export const editInvoice = async (
     revalidateTag(API_PATH.INVOICES);
     revalidateTag(API_PATH.INVOICE);
 
-    return { success: true };
+    return { data: res.data || {} };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
   }
 };
 
-export const updateInvoice = async (id: number, data: Partial<TInvoice>): Promise<{ error?: string } | void> => {
+export const updateInvoice = async (
+  id: number,
+  data: Partial<TInvoice>,
+): Promise<{ error?: string } | void> => {
   try {
     await httpClient.putRequest({
       endpoint: `${API_PATH.INVOICES}/${id}`,
@@ -90,6 +103,7 @@ export const updateInvoice = async (id: number, data: Partial<TInvoice>): Promis
     });
 
     revalidateTag(API_PATH.INVOICES);
+    revalidateTag(API_PATH.INVOICE);
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
