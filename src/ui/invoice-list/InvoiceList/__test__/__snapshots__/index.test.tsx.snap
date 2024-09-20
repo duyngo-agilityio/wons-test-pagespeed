@@ -35,8 +35,8 @@ exports[`InvoiceList section should match with snapshot 1`] = `
               >
                 <th
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="row-header-column-h5d6en7aifq"
-                  id="react-aria-:r0:-row-header-column-h5d6en7aifq"
+                  data-key="row-header-column-jdk62e5mg3"
+                  id="react-aria-:r0:-row-header-column-jdk62e5mg3"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -818,8 +818,8 @@ exports[`InvoiceList section should render correctly with response is null when 
               >
                 <th
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-s-lg last:rounded-e-lg data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="row-header-column-h5d6en7aifq"
-                  id="react-aria-:rj:-row-header-column-h5d6en7aifq"
+                  data-key="row-header-column-jdk62e5mg3"
+                  id="react-aria-:rj:-row-header-column-jdk62e5mg3"
                   role="columnheader"
                   tabindex="-1"
                 >
