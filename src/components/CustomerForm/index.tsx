@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useMemo } from 'react';
-
 import { Select, SelectItem } from '@nextui-org/react';
 import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
@@ -41,22 +40,35 @@ const customerFormSchema = z.object({
   avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Avatar')),
 });
 
-const REQUIRED_FIELDS = ['firstName', 'lastName', 'phone', 'email', 'gender'];
+const REQUIRED_FIELDS = [
+  'firstName',
+  'lastName',
+  'phone',
+  'email',
+  'gender',
+  'avatar',
+];
 const genders = [
   { key: 'male', label: 'Male' },
   { key: 'female', label: 'Female' },
 ];
 
 export interface ICustomerFormProps {
-  isPending?: boolean;
+  isDisabledField?: boolean;
+  onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
   setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
 }
 
-const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
+const CustomerForm = ({
+  isDisabledField,
+  onAvatarChange,
+  onSubmit,
+  setReset,
+}: ICustomerFormProps) => {
   const {
     control,
-    formState: { dirtyFields, errors, isSubmitting },
+    formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
     reset,
@@ -77,24 +89,19 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
   setReset(reset);
 
   const dirtyItems = Object.keys(dirtyFields);
-
   const enableSubmit: boolean = useMemo(
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
     [dirtyItems, errors],
   );
   const isDisableSubmit = !enableSubmit;
 
-  const handleAddCustomer = (formData: Partial<ICustomer>) => {
-    // TODO: handle later
-    onSubmit({
-      id: 0,
-      ...formData,
-    } as ICustomer);
-  };
-
-  const handleAvatarChange = useCallback(() => {
-    // TODO: handle later
-  }, []);
+  const handleAddCustomer = useCallback(
+    async (formData: Partial<ICustomer>) => {
+      onSubmit(formData as ICustomer);
+      reset();
+    },
+    [onSubmit, reset],
+  );
 
   return (
     <form
@@ -103,32 +110,26 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
     >
       <Heading title="Add Customer" />
 
-      <Controller
-        control={control}
-        name="avatar"
-        render={({
-          field: { onChange, value = '', name },
-          fieldState: { error },
-        }) => (
-          <div>
+      <div className="flex justify-center mt-[21px]">
+        <Controller
+          control={control}
+          name="avatar"
+          render={({
+            field: { onChange, value, name },
+            fieldState: { error },
+          }) => (
             <AvatarUpload
-              value={value}
+              value={value ?? ''}
+              error={error?.message}
               onChange={(e) => {
                 onChange(e);
                 clearErrorOnChange(name, errors, clearErrors);
               }}
-              onFileChange={(file) => {
-                handleAvatarChange();
-                onChange(file.name);
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
+              onFileChange={onAvatarChange}
             />
-            {error && (
-              <p className="text-red-500 text-sm mt-2">{error.message}</p>
-            )}
-          </div>
-        )}
-      />
+          )}
+        />
+      </div>
 
       <Controller
         name="firstName"
@@ -142,6 +143,7 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
             classNames={{ base: 'h-[71px]' }}
             isInvalid={!!error}
             errorMessage={error?.message}
+            isDisabled={isDisabledField}
             onChange={(e) => {
               onChange(e.target.value);
 
@@ -165,6 +167,7 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
             classNames={{ base: 'h-[71px]' }}
             isInvalid={!!error}
             errorMessage={error?.message}
+            isDisabled={isDisabledField}
             onChange={(e) => {
               onChange(e.target.value);
 
@@ -189,6 +192,7 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
             type="email"
             isInvalid={!!error}
             errorMessage={error?.message}
+            isDisabled={isDisabledField}
             onChange={(e) => {
               onChange(e.target.value);
 
@@ -212,6 +216,7 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
             type="text"
             isInvalid={!!error}
             errorMessage={error?.message}
+            isDisabled={isDisabledField}
             onChange={(e) => {
               onChange(formatPhoneNumber(e.target.value));
 
@@ -248,6 +253,7 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
                 } py-[26px] mt-5`,
                 label: 'text-xl font-medium pb-1',
               }}
+              isDisabled={isDisabledField}
               onChange={(e) => {
                 onChange(e.target.value);
                 clearErrorOnChange(name, errors, clearErrors);
@@ -270,7 +276,7 @@ const CustomerForm = ({ onSubmit, setReset }: ICustomerFormProps) => {
 
       <Button
         type="submit"
-        isLoading={isSubmitting}
+        isLoading={isDisabledField}
         isDisabled={isDisableSubmit}
         size="lg"
         color="primary"
