@@ -17,7 +17,13 @@ import {
 } from '@/utils';
 
 // Components
-import { Button, Heading, Input, AvatarUpload } from '@/components';
+import {
+  Button,
+  Heading,
+  Input,
+  AvatarUpload,
+  AddressInput,
+} from '@/components';
 
 // Models
 import { ICustomer } from '@/models';
@@ -38,6 +44,8 @@ const customerFormSchema = z.object({
     errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED('Gender') }),
   }),
   avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Avatar')),
+  address: z.string().optional(),
+  job: z.string().optional(),
 });
 
 const REQUIRED_FIELDS = [
@@ -81,6 +89,8 @@ const CustomerForm = ({
       lastName: '',
       email: '',
       phone: '',
+      address: '',
+      job: '',
       gender: undefined,
       avatar: '',
     },
@@ -213,6 +223,7 @@ const CustomerForm = ({
         }) => (
           <Input
             label="Phone Number"
+            className="mb-12"
             type="text"
             isInvalid={!!error}
             errorMessage={error?.message}
@@ -222,6 +233,53 @@ const CustomerForm = ({
 
               clearErrorOnChange(name, errors, clearErrors);
             }}
+            {...rest}
+          />
+        )}
+      />
+
+      <Controller
+        name="job"
+        control={control}
+        render={({
+          field: { name, onChange, ...rest },
+          fieldState: { error },
+        }) => (
+          <Input
+            label="Job"
+            className="mb-12"
+            isInvalid={!!error}
+            errorMessage={error?.message}
+            isDisabled={isDisabledField}
+            onChange={(e) => {
+              onChange(e.target.value);
+
+              clearErrorOnChange(name, errors, clearErrors);
+            }}
+            {...rest}
+          />
+        )}
+      />
+
+      <Controller
+        name="address"
+        control={control}
+        render={({
+          field: { name, onChange, ...rest },
+          fieldState: { error },
+        }) => (
+          <AddressInput
+            isInvalid={!!error}
+            errorMessage={error?.message}
+            isDisabled={isDisabledField}
+            className="flex-1"
+            onChange={(e) => {
+              onChange(e.target.value);
+
+              // Clear error message on change
+              clearErrorOnChange(name, errors, clearErrors);
+            }}
+            label="Address"
             {...rest}
           />
         )}
