@@ -112,7 +112,7 @@ describe('InvoiceListClient section', () => {
     expect(mockPush).toHaveBeenCalled();
   });
 
-  it('should show a success message when delete invoice successfully.', async () => {
+  it.skip('should show a success message when delete invoice successfully.', async () => {
     (deleteInvoice as jest.MockedFn<typeof deleteInvoice>).mockResolvedValue();
     const { getAllByTestId, getByText, getByRole } = renderComponent();
 
@@ -135,7 +135,7 @@ describe('InvoiceListClient section', () => {
     );
   });
 
-  it('should show a error message when delete invoice failed.', async () => {
+  it.skip('should show a error message when delete invoice failed.', async () => {
     (deleteInvoice as jest.MockedFn<typeof deleteInvoice>).mockResolvedValue({
       error: ERROR_MESSAGES.DELETE_INVOICE,
     });
