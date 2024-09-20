@@ -35,8 +35,8 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
               >
                 <th
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="row-header-column-ny6isv93lao"
-                  id="react-aria-:r0:-row-header-column-ny6isv93lao"
+                  data-key="row-header-column-il4coz92c9k"
+                  id="react-aria-:r0:-row-header-column-il4coz92c9k"
                   role="columnheader"
                   tabindex="-1"
                 >
