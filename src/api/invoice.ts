@@ -78,7 +78,7 @@ export const getInvoices = async ({
   pageSize = PAGE_SIZE[10],
   cache,
   nextOptions,
-}: InvoiceListConfigs): Promise<TInvoiceListResponse> => {
+}: InvoiceListConfigs = {}): Promise<TInvoiceListResponse> => {
   const sortValue = sortBy ? `&sort=${sortBy}:${sortOrder}` : '';
   const searchBy = query
     ? `&filters[$or][0][customer][fullName][$containsi]=${query}&filters[$or][1][email][$containsi]=${query}`
