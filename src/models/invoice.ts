@@ -2,6 +2,7 @@
 import { InvoiceStatus } from '@/constants';
 
 export type TInvoiceProduct<T> = {
+  id?: number;
   price: number;
   createdAt?: string;
   updatedAt?: string;

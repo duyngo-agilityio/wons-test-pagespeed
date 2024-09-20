@@ -23,10 +23,11 @@ import {
   TInvoiceFormData,
   TInvoiceProductRequest,
   TInvoiceProductResponse,
+  TInvoiceProductTable,
 } from '@/types';
 
 export const createInvoiceProducts = async (
-  products: TInvoiceProduct<IProduct & { id: number }>[],
+  products: TInvoiceProductTable[],
 ): Promise<number[]> => {
   try {
     const res = await Promise.all(
@@ -42,6 +43,38 @@ export const createInvoiceProducts = async (
           TInvoiceProductResponse
         >({
           endpoint: API_PATH.INVOICE_PRODUCTS,
+          body: { data: productData },
+        });
+
+        return data.id;
+      }),
+    );
+
+    return res;
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    throw new Error(message);
+  }
+};
+
+export const updateInvoiceProducts = async (
+  products: TInvoiceProductTable[],
+): Promise<number[]> => {
+  try {
+    const res = await Promise.all(
+      products.map(async ({ product, quantity = 0, price = 0, id }) => {
+        const productData = {
+          price,
+          quantity: Number(quantity),
+          product: product.data.id,
+          id,
+        };
+
+        const { data } = await httpClient.putRequest<
+          { data: TInvoiceProductRequest },
+          TInvoiceProductResponse
+        >({
+          endpoint: `${API_PATH.INVOICE_PRODUCTS}/${productData.id}`,
           body: { data: productData },
         });
 
@@ -103,30 +136,40 @@ export const createInvoice = async (
 export const editInvoice = async (
   id: number,
   newData: Partial<TInvoice>,
-  newProducts: TInvoiceProduct<IProduct & { id: number }>[],
+  newProductsInvoice: TInvoiceProductTable[],
 ) => {
   try {
+    const prevProducts = newProductsInvoice.filter((product) =>
+      Object.prototype.hasOwnProperty.call(product, 'id'),
+    );
+
+    const newProducts = newProductsInvoice.filter(
+      (product) => !Object.prototype.hasOwnProperty.call(product, 'id'),
+    );
+
+    const postNewInvoiceProducts = await createInvoiceProducts(newProducts);
+    const updatePrevInvoiceProducts = await updateInvoiceProducts(prevProducts);
+
     const data = {
       ...newData,
       customer: Number(newData.customerId),
-      invoice_products: newProducts,
+      invoice_products: postNewInvoiceProducts.concat(
+        updatePrevInvoiceProducts,
+      ),
     };
 
-    // TODO: Update later
-    console.log(data);
+    const res = await httpClient.putRequest<
+      { data: Partial<TInvoiceFormData> },
+      TInvoiceDetailsResponse
+    >({
+      endpoint: `${API_PATH.INVOICES}/${id}`,
+      body: { data },
+    });
 
-    // const res = await httpClient.putRequest<
-    //   { data: Partial<TInvoiceFormData> },
-    //   TInvoiceDetailsResponse
-    // >({
-    //   endpoint: `${API_PATH.INVOICES}/${id}`,
-    //   body: { data },
-    // });
+    revalidateTag(API_PATH.INVOICES);
+    revalidateTag(API_PATH.INVOICE);
 
-    // revalidateTag(API_PATH.INVOICES);
-    // revalidateTag(API_PATH.INVOICE);
-
-    return { data: {} };
+    return { data: res.data || {} };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
