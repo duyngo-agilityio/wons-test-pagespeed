@@ -12,7 +12,7 @@ export {
   FaFacebookF,
   FaStar,
 } from 'react-icons/fa';
-export { FaChevronLeft } from 'react-icons/fa6';
+export { FaChevronLeft, FaLocationDot } from 'react-icons/fa6';
 export { FcGoogle } from 'react-icons/fc';
 export { IoCheckmarkOutline, IoLogOut, IoMoonOutline } from 'react-icons/io5';
 export { TbDots } from 'react-icons/tb';
@@ -21,6 +21,7 @@ export { IoIosClose } from 'react-icons/io';
 export { BsThreeDots, BsPlus } from 'react-icons/bs';
 export { MdDelete } from 'react-icons/md';
 export { AiFillCustomerService } from 'react-icons/ai';
+export { ImPhone } from 'react-icons/im';
 
 export { default as Button } from './Button';
 export { default as Card } from './Card';

@@ -23,3 +23,4 @@ export { default as CustomerTable } from './CustomerTable';
 export { default as GenderStatusComponent } from './GenderStatus';
 export { default as InvoiceProductTable } from './InvoiceProductTable';
 export { default as CustomerDrawer } from './CustomerDrawer';
+export { default as CustomerDetails } from './CustomerDetails';

@@ -1,13 +1,18 @@
 'use client';
 
 // Libs
-import { useCallback, useState } from 'react';
+import { Key, useCallback, useState } from 'react';
+import Drawer from 'react-modern-drawer';
+import 'react-modern-drawer/dist/index.css';
 
 // Components
-import { CustomerTable, LoadingIndicator } from '@/components';
+import { CustomerDetails, CustomerTable, LoadingIndicator } from '@/components';
 
 // Types
 import { TCustomerDataResponse } from '@/types';
+
+// Mocks
+import { CUSTOMER_MOCK } from '@/mocks';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -27,6 +32,7 @@ const CustomerListClient = ({
   customerList,
   pageCount,
 }: TCustomerListClientProps): JSX.Element => {
+  const [toggleDetails, setToggleDetails] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
   const { showToast } = useToast();
 
@@ -54,6 +60,18 @@ const CustomerListClient = ({
   // TODO: Update later
   const handleToggleSelectStart = useCallback(() => {}, []);
 
+  const handleCloseDrawer = useCallback(() => {
+    setToggleDetails(false);
+  }, []);
+
+  const handleRowAction = useCallback(
+    (_: Key) => {
+      // TODO: Update later
+      setToggleDetails(true);
+    },
+    [setToggleDetails],
+  );
+
   return (
     <>
       {isLoading && <LoadingIndicator />}
@@ -63,7 +81,17 @@ const CustomerListClient = ({
         onEdit={handleEdit}
         onDelete={handleDelete}
         onToggleSelectStar={handleToggleSelectStart}
+        onRowAction={handleRowAction}
       />
+      <Drawer
+        open={toggleDetails}
+        onClose={handleCloseDrawer}
+        direction="right"
+        className="!w-[302px] !max-w-[302px]"
+      >
+        {/* Mock data */}
+        <CustomerDetails customer={CUSTOMER_MOCK[1]} />
+      </Drawer>
     </>
   );
 };
