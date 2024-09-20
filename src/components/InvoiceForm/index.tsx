@@ -215,10 +215,10 @@ const InvoiceForm = ({
 
   return (
     <form
-      className=" w-full max-w-[700px] justify-center"
+      className="w-full max-w-[700px] justify-center"
       onSubmit={handleSubmit(handleSubmitButton)}
     >
-      <div className="flex justify-center mt-[21px]">
+      <div className="flex justify-center sm:mt-[21px]">
         <Controller
           control={control}
           name="imageUrl"
@@ -241,7 +241,7 @@ const InvoiceForm = ({
         />
       </div>
 
-      <div className="flex gap-[30px] mt-[30px]">
+      <div className="flex flex-col sm:flex-row sm:gap-[30px] sm:mt-[30px]">
         {/* Invoice Id*/}
         <Controller
           name="invoiceId"
@@ -299,7 +299,7 @@ const InvoiceForm = ({
         />
       </div>
 
-      <div className="flex gap-[30px]">
+      <div className="flex flex-col sm:flex-row mt-8 sm:mt-0 gap-[30px]">
         {/* Customer */}
         <Controller
           name="customerId"
@@ -351,7 +351,7 @@ const InvoiceForm = ({
         />
       </div>
 
-      <div className="flex gap-[30px] mt-[30px]">
+      <div className="flex flex-col sm:flex-row gap-[30px] mt-[30px]">
         {/*Email*/}
         <Controller
           name="email"
@@ -404,7 +404,7 @@ const InvoiceForm = ({
       </div>
 
       <div>
-        <div className="mt-[17px]">
+        <div className="mt-[30px] sm:mt-[17px]">
           <InvoiceProductTable
             products={products}
             productsValues={productsValues}
@@ -415,7 +415,7 @@ const InvoiceForm = ({
         </div>
       </div>
 
-      <div className="flex gap-[30px]">
+      <div className="flex flex-col sm:flex-row sm:gap-[30px]">
         <Button size="lg" color="secondary" className="w-full mt-10">
           <Link href={ROUTES.INVOICE}>Cancel</Link>
         </Button>
@@ -425,7 +425,7 @@ const InvoiceForm = ({
           isLoading={isPending}
           size="lg"
           color="primary"
-          className="w-full mt-10"
+          className="w-full mt-[20px] sm:mt-10"
         >
           {isEdit ? 'Update Invoice' : 'Create Invoice'}
         </Button>
