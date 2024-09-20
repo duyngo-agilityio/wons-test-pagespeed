@@ -45,9 +45,8 @@ const InvoiceListClient = ({
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const { replace, push } = useRouter();
   const { showToast } = useToast();
-  const router = useRouter();
 
   const handleSort = useCallback(
     (value: string) => {
@@ -74,10 +73,10 @@ const InvoiceListClient = ({
       if (id) {
         params.set(SEARCH_QUERIES.ID, id.toString());
 
-        router.push(`${ROUTES.EDIT_INVOICE}?${params.toString()}`);
+        push(`${ROUTES.EDIT_INVOICE}?${params.toString()}`);
       }
     },
-    [searchParams, router],
+    [searchParams, push],
   );
 
   const handleDelete = useCallback(

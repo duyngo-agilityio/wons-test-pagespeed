@@ -147,6 +147,7 @@ const TableCustom = <T extends { id: string }>({
               )}
             >
               <Button
+                data-testid="sort-btn"
                 value={value}
                 className="justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
                 onClick={handleSort}

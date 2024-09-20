@@ -177,6 +177,7 @@ const InvoicesTable = ({
       {
         header: (
           <Button
+            data-testid="multiple-delete-btn"
             isIconOnly
             isDisabled={!selectedInvoiceIds.length}
             className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
