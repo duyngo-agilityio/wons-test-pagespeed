@@ -50,7 +50,7 @@ const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
         }}
       >
         <DropdownTrigger>
-          <Button className="border-none bg-bone">
+          <Button data-testid="actions-btn" className="border-none bg-bone">
             <FaEllipsisH
               size={14}
               className="text-blue-800/30 dark:text-white/30"

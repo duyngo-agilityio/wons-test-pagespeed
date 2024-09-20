@@ -1,9 +1,11 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import * as jestFunc from '@testing-library/react';
+import { NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-// Contexts
-import { LayoutProvider } from '@/contexts';
+// Constants
+import { THEME_MODES } from '@/constants';
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -41,10 +43,18 @@ const customRender = <
         ? options.wrapper
         : ({ children }: { children: React.ReactNode }) => children;
 
+      const modeArr: string[] = Object.values(THEME_MODES);
+
       return (
-        <LayoutProvider>
-          <CustomWrapper>{children}</CustomWrapper>
-        </LayoutProvider>
+        <NextUIProvider>
+          <NextThemesProvider
+            attribute="class"
+            defaultTheme={THEME_MODES.LIGHT}
+            themes={modeArr}
+          >
+            <CustomWrapper>{children}</CustomWrapper>
+          </NextThemesProvider>
+        </NextUIProvider>
       );
     },
   });

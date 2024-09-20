@@ -12,6 +12,9 @@ export const ERROR_MESSAGES = {
   UPLOAD_IMAGE: 'Wrong image format. Only "jpg", "png" and "webp" are allowed',
   UPLOAD_IMAGE_SIZE: 'Image size should be less than 5MB',
   QUANTITY_INVALID: 'Quantity invalid.',
+
+  UPDATE_INVOICE: 'Update invoice failed.',
+  DELETE_INVOICE: 'Delete invoice failed.',
 };
 
 export const SUCCESS_MESSAGES = {

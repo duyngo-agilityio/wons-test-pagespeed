@@ -16,7 +16,7 @@ import { InvoiceListActions, InvoiceList } from '@/ui';
 // Components
 import { TableSkeleton } from '@/components';
 
-type TInvoiceListPageProps = {
+export type TInvoiceListPageProps = {
   searchParams: ISearchParams;
 };
 
