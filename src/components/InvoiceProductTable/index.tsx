@@ -210,7 +210,7 @@ const InvoiceProductTable = ({
         />
         <Button
           variant="ghost"
-          className="!bg-white dark:!bg-gray-400 p-0"
+          className="!bg-white block dark:!bg-gray-400 p-0"
           isDisabled={productsValues.length === products.length}
           onClick={handleAddProduct}
           endContent={

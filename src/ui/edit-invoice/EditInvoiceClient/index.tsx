@@ -7,7 +7,7 @@ import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 import { TInvoiceProductTable } from '@/types';
 
 // Components
-import { Heading, InvoiceForm } from '@/components';
+import { InvoiceForm } from '@/components';
 
 interface EditInvoiceClientProps {
   invoice: TInvoice & { id: number };
@@ -34,22 +34,19 @@ const EditInvoiceClient = ({
   const handleEditInvoice = async (
     data: Partial<TInvoice>,
     products: TInvoiceProduct<IProduct & { id: number }>[],
-  ) => await onEditInvoice(invoice.id, data, products);
+  ) => onEditInvoice(invoice.id, data, products);
 
   return (
-    <div className="bg-white dark:bg-gray-400 p-[30px] rounded-[10px] h-[calc(full-60px)]">
-      <Heading title="Edit Invoice" />
-      <div className="flex w-full justify-center">
-        <InvoiceForm
-          isEdit
-          invoiceId={invoice.invoiceId ?? ''}
-          previewData={invoice}
-          previewInvoiceProducts={invoiceProducts}
-          onSubmit={handleEditInvoice}
-          products={products}
-          customers={customers}
-        />
-      </div>
+    <div className="bg-white dark:bg-gray-400 p-[30px] pb-[60px] rounded-[10px] h-[calc(full-60px)] flex w-full justify-center">
+      <InvoiceForm
+        isEdit
+        invoiceId={invoice.invoiceId ?? ''}
+        previewData={invoice}
+        previewInvoiceProducts={invoiceProducts}
+        onSubmit={handleEditInvoice}
+        products={products}
+        customers={customers}
+      />
     </div>
   );
 };

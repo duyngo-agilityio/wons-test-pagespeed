@@ -1,3 +1,7 @@
+// Layouts
+import { DashBoardLayout } from '@/layouts';
+
+// UI
 import { EditInvoice } from '@/ui';
 
 interface CustomersProps {
@@ -9,7 +13,11 @@ interface CustomersProps {
 const EditInvoicePage = ({ searchParams }: CustomersProps) => {
   const { id } = searchParams;
 
-  return <EditInvoice id={id} />;
+  return (
+    <DashBoardLayout title="Edit Invoice">
+      <EditInvoice id={id} />
+    </DashBoardLayout>
+  );
 };
 
 export default EditInvoicePage;
