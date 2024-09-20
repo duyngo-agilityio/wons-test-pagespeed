@@ -29,7 +29,7 @@ const SignUpLayout = ({ children }: SignUpLayoutProps): JSX.Element => (
   >
     <div className="flex flex-col items-center pt-[47px] pb-[90px] mx-auto base:w-full xs:max-w-[348px]">
       <Logo />
-      <Heading className="mt-[38px] mb-[69px]" title="Sign Up" />
+      <Heading className="mt-[38px] mb-[41px]" title="Sign Up" />
       {children}
     </div>
   </AuthLayout>
