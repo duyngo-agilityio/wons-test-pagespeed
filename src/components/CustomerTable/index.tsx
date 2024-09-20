@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { Key, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
 // Components
@@ -25,6 +25,7 @@ type CustomersTableProps = {
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onToggleSelectStar: (id: string) => void;
+  onRowAction?: (key: Key) => void;
 };
 
 const CustomersTable = ({
@@ -32,6 +33,7 @@ const CustomersTable = ({
   pageCount,
   onEdit,
   onDelete,
+  onRowAction,
 }: CustomersTableProps): JSX.Element => {
   const mappingContentColumns = useMemo(
     () => [
@@ -116,7 +118,11 @@ const CustomersTable = ({
 
   return (
     <div className="flex flex-col gap-10">
-      <Table columns={mappingContentColumns} data={data} />
+      <Table
+        columns={mappingContentColumns}
+        data={data}
+        onRowAction={onRowAction}
+      />
 
       {pageCount > 0 && <Pagination total={pageCount} />}
     </div>
