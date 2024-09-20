@@ -35,8 +35,8 @@ exports[`InvoicesTable Component match snapshot 1`] = `
               >
                 <th
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="row-header-column-7wc2abdy3nd"
-                  id="react-aria-:r0:-row-header-column-7wc2abdy3nd"
+                  data-key="row-header-column-lpungkfees7"
+                  id="react-aria-:r0:-row-header-column-lpungkfees7"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -87,6 +87,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                     value="invoiceId"
                   >
@@ -115,6 +116,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                     value="customer.fullName"
                   >
@@ -143,6 +145,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                     value="email"
                   >
@@ -171,6 +174,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                     value="date"
                   >
@@ -199,6 +203,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                     value="status"
                   >
@@ -227,6 +232,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                   />
                 </th>
@@ -239,11 +245,13 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 min-w-20 h-10 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
+                    data-testid="sort-btn"
                     type="button"
                   >
                     <button
                       class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 pointer-events-none !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent text-blue-800 dark:text-white opacity-50 cursor-not-allowed px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] min-w-max w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
                       data-disabled="true"
+                      data-testid="multiple-delete-btn"
                       disabled=""
                       type="button"
                     >
@@ -469,6 +477,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent text-blue-800 dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
+                    data-testid="star-btn"
                     type="button"
                   >
                     <div
@@ -502,6 +511,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                     aria-haspopup="true"
                     class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone"
                     data-slot="trigger"
+                    data-testid="actions-btn"
                     id="react-aria-:r5:"
                     type="button"
                   >
@@ -709,6 +719,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                 >
                   <button
                     class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent text-blue-800 dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
+                    data-testid="star-btn"
                     type="button"
                   >
                     <div
@@ -742,6 +753,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                     aria-haspopup="true"
                     class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone"
                     data-slot="trigger"
+                    data-testid="actions-btn"
                     id="react-aria-:rd:"
                     type="button"
                   >
