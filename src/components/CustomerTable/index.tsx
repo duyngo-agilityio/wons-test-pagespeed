@@ -103,8 +103,7 @@ const CustomersTable = ({
       },
       {
         accessor: (customerData: TCustomerData) => {
-          const { attributes } = customerData || {};
-          const { id } = attributes || {};
+          const { id } = customerData || {};
 
           return (
             <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />

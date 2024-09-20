@@ -13,11 +13,15 @@ import { formatErrorMessage } from '@/utils';
 type CustomerListConfigs = {
   page?: number;
   pageSize?: number;
+  cache?: RequestCache;
+  nextOptions?: NextFetchRequestConfig;
 };
 
 export const getCustomers = async ({
   page = DEFAULT_PAGE,
   pageSize = PAGE_SIZE[10],
+  cache,
+  nextOptions,
 }: CustomerListConfigs = {}): Promise<TCustomerListResponse> => {
   const pageValue = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
 
@@ -27,6 +31,10 @@ export const getCustomers = async ({
     const customerResponse = await httpClient.getRequest<TCustomerListResponse>(
       {
         endpoint,
+        configOptions: {
+          cache: cache ?? 'force-cache',
+          next: nextOptions,
+        },
       },
     );
 
