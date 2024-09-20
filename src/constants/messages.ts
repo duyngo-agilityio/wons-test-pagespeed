@@ -20,6 +20,7 @@ export const SUCCESS_MESSAGES = {
   DELETE_INVOICE: 'Delete invoice successfully.',
   CREATE_INVOICE: 'Create invoice successfully.',
   UPDATE_INVOICE: 'Update invoice successfully.',
+  CREATE_CUSTOMER: 'Create customer successfully.',
 };
 
 export const MESSAGE_STATUS: Record<string, string> = {

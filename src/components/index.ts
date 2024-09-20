@@ -3,9 +3,6 @@ export * from './common';
 // Skeleton
 export * from './Skeleton';
 
-// Drawer
-export * from './DrawerActions';
-
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as RecentServicesTable } from './RecentServicesTable';
 export { default as SignInForm } from './SignInForm';
@@ -25,3 +22,4 @@ export { default as CustomerForm } from './CustomerForm';
 export { default as CustomerTable } from './CustomerTable';
 export { default as GenderStatusComponent } from './GenderStatus';
 export { default as InvoiceProductTable } from './InvoiceProductTable';
+export { default as CustomerDrawer } from './CustomerDrawer';

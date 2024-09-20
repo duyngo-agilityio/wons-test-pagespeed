@@ -8,7 +8,7 @@ import { DashBoardLayout } from '@/layouts';
 import { CustomerList } from '@/ui';
 
 // components
-import { CustomerDrawerWrapper, TableSkeleton } from '@/components';
+import { CustomerDrawer, TableSkeleton } from '@/components';
 
 // constants
 import { MAPPING_CUSTOMER_LIST_SKELETON } from '@/constants/skeleton';
@@ -34,10 +34,7 @@ const CustomerListPage = ({
 
   return (
     <main>
-      <DashBoardLayout
-        title="Customer List"
-        rightContent={<CustomerDrawerWrapper />}
-      >
+      <DashBoardLayout title="Customer List" rightContent={<CustomerDrawer />}>
         <Suspense
           key={page}
           fallback={
