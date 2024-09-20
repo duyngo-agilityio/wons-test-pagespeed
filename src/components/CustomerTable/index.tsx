@@ -95,7 +95,7 @@ const CustomersTable = ({
         header: 'Gender',
         accessor: (customerData: TCustomerData) => {
           const { attributes } = customerData || {};
-          const gender = attributes.gender || 'male';
+          const gender = attributes?.gender || 'male';
 
           return <GenderStatusComponent gender={gender as 'male' | 'female'} />;
         },
