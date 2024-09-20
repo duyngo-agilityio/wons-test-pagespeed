@@ -67,7 +67,7 @@ const ConfirmModal = ({
                 className="flex-1 !bg-blue-500 dark:!bg-blue-500 text-white/70 hover:!bg-blue-200 dark:hover:!bg-blue-200 px-6 py-2 !rounded-10 shadow-md"
                 onPress={() => handleSubmit(onClose)}
               >
-                Delete
+                Submit
               </Button>
 
               <Button
