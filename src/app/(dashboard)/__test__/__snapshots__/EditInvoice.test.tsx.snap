@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit Invoice Page render should render and match with snapshot 1`] = `
+<div>
+  <div
+    data-testid="edit-invoice"
+  >
+    Edit Invoice
+  </div>
+</div>
+`;

@@ -28,7 +28,7 @@ interface InvoiceProductTableProps {
 }
 
 const initInvoiceProduct = {
-  id: '',
+  id: undefined,
   quantity: 0,
   price: 0,
   product: {

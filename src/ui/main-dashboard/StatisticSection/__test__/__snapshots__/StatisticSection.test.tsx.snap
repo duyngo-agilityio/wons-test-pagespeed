@@ -20,9 +20,196 @@ exports[`StatisticSection component should render all content with resolved data
     class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8"
   >
     <div
-      class="text-center text-gray-500 dark:text-gray-400 "
+      class="w-full"
     >
-      No statistics available at the moment
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
+        style="border-radius: undefined;"
+        tabindex="-1"
+      >
+        <div
+          class="flex items-center flex-wrap"
+        >
+          <div
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-gray-50 dark:bg-[#4a5463]"
+            style="width: 60px; height: 60px; min-width: 45px;"
+          >
+            <svg
+              class="h-5 w-5 text-[#605cf8]"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
+              />
+            </svg>
+          </div>
+          <div
+            class="flex-1 min-w-0"
+          >
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+            >
+              5+
+            </p>
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+            >
+              Favorite
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full"
+    >
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
+        style="border-radius: undefined;"
+        tabindex="-1"
+      >
+        <div
+          class="flex items-center flex-wrap"
+        >
+          <div
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-[#ceeeec] dark:bg-[#366263]"
+            style="width: 60px; height: 60px; min-width: 45px;"
+          >
+            <svg
+              class="h-5 w-5 text-teal-500"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M478.07 356.88 439 151c-8.86-40.35-23-71-88-71H145c-66 0-79.14 30.65-88 71L18 356.88c-7 34.12 4.43 61.25 33.37 71.81S103 423 119.18 391.3l15.42-30.52a16 16 0 0 1 14.28-8.78h198.28a16 16 0 0 1 14.28 8.78l15.42 30.52c16.14 31.7 38.88 48 67.81 37.39S485 391 478.07 356.88zM224 240h-48v48h-32v-48H96v-32h48v-48h32v48h48zm68 4a20 20 0 1 1 20-20 20 20 0 0 1-20 20zm44 44a20 20 0 1 1 20-20 20 20 0 0 1-20 20zm0-88a20 20 0 1 1 20-20 20 20 0 0 1-20 20zm44 44a20 20 0 1 1 20-20 20 20 0 0 1-20 20z"
+              />
+            </svg>
+          </div>
+          <div
+            class="flex-1 min-w-0"
+          >
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+            >
+              10+
+            </p>
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+            >
+              New Sales
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full"
+    >
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
+        style="border-radius: undefined;"
+        tabindex="-1"
+      >
+        <div
+          class="flex items-center flex-wrap"
+        >
+          <div
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-[#fff0f8] dark:bg-[#4a455c]"
+            style="width: 60px; height: 60px; min-width: 45px;"
+          >
+            <svg
+              class="h-5 w-5 text-pink-500"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M352 160v-32C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128v32H0v272c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V160h-96zm-192-32c0-35.29 28.71-64 64-64s64 28.71 64 64v32H160v-32zm160 120c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm-192 0c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"
+              />
+            </svg>
+          </div>
+          <div
+            class="flex-1 min-w-0"
+          >
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+            >
+              15+
+            </p>
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+            >
+              New Leads
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full"
+    >
+      <div
+        class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
+        style="border-radius: undefined;"
+        tabindex="-1"
+      >
+        <div
+          class="flex items-center flex-wrap"
+        >
+          <div
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] bg-gray-50 dark:bg-[#4a5463]"
+            style="width: 60px; height: 60px; min-width: 45px;"
+          >
+            <svg
+              class="h-5 w-5 text-[#605cf8]"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"
+              />
+            </svg>
+          </div>
+          <div
+            class="flex-1 min-w-0"
+          >
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+            >
+              20+
+            </p>
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+            >
+              Referral
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

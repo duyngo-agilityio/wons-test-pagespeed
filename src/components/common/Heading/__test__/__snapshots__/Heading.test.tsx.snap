@@ -11,16 +11,12 @@ exports[`Heading Component should match with snapshot 1`] = `
         <script>
           !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
         </script>
-         
         <h2
           aria-level="2"
           class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
         >
           This is a heading
         </h2>
-        <div
-          class="fixed top-4 right-4"
-        />
       </div>
     </div>
   </body>,
@@ -31,16 +27,12 @@ exports[`Heading Component should match with snapshot 1`] = `
       <script>
         !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
       </script>
-       
       <h2
         aria-level="2"
         class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
       >
         This is a heading
       </h2>
-      <div
-        class="fixed top-4 right-4"
-      />
     </div>
   </div>,
   "debug": [Function],

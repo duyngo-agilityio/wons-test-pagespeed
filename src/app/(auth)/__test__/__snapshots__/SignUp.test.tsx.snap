@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp Page render should render and match with snapshot 1`] = `
+<div>
+  <div
+    data-testid="sign-up-form"
+  >
+    Sign Up Form
+  </div>
+</div>
+`;

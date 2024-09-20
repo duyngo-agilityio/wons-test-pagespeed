@@ -11,7 +11,6 @@ exports[`Text Component renders correctly with all custom props 1`] = `
         <script>
           !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
         </script>
-         
         <div
           class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
           style="border-radius: undefined;"
@@ -53,9 +52,6 @@ exports[`Text Component renders correctly with all custom props 1`] = `
             </div>
           </div>
         </div>
-        <div
-          class="fixed top-4 right-4"
-        />
       </div>
     </div>
   </body>,
@@ -66,7 +62,6 @@ exports[`Text Component renders correctly with all custom props 1`] = `
       <script>
         !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
       </script>
-       
       <div
         class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
         style="border-radius: undefined;"
@@ -108,9 +103,6 @@ exports[`Text Component renders correctly with all custom props 1`] = `
           </div>
         </div>
       </div>
-      <div
-        class="fixed top-4 right-4"
-      />
     </div>
   </div>,
   "debug": [Function],
