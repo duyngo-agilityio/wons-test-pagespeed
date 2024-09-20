@@ -1,7 +1,6 @@
-import { render, waitFor } from '@testing-library/react';
-
 // Pages
 import CustomerListPage from '../customers/page';
+import { ISearchParams } from '@/types';
 
 jest.mock('@/components', () => ({
   CustomerDrawerWrapper: () => (
@@ -14,13 +13,15 @@ jest.mock('@/ui', () => ({
   CustomerList: () => <div data-testid="customer-list">Customer List</div>,
 }));
 
+jest.mock('@/layouts', () => ({
+  DashBoardLayout: () => <div>DashBoardLayout</div>,
+}));
+
 describe('CustomerListPage render', () => {
   it('should render and match with snapshot', async () => {
-    const { container } = render(<CustomerListPage />);
-
-    await waitFor(() => {
-      expect(container).toBeInTheDocument();
-    });
+    const { container } = testLibJestUtils.render(
+      <CustomerListPage searchParams={undefined as unknown as ISearchParams} />,
+    );
 
     expect(container).toMatchSnapshot();
   });

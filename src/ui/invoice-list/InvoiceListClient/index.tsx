@@ -89,7 +89,7 @@ const InvoiceListClient = ({
       const { error } = res || {};
 
       showToast({
-        description: error ? error : SUCCESS_MESSAGES.DELETE_INVOICE,
+        description: error || SUCCESS_MESSAGES.UPDATE_INVOICE,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
@@ -106,7 +106,7 @@ const InvoiceListClient = ({
       const { error } = res || {};
 
       showToast({
-        description: error ? error : SUCCESS_MESSAGES.DELETE_INVOICE,
+        description: error || SUCCESS_MESSAGES.DELETE_INVOICE,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
@@ -123,7 +123,7 @@ const InvoiceListClient = ({
       const { error } = res || {};
 
       showToast({
-        description: error ? error : SUCCESS_MESSAGES.UPDATE_INVOICE,
+        description: error || SUCCESS_MESSAGES.UPDATE_INVOICE,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
