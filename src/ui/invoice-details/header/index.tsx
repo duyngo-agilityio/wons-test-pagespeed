@@ -26,7 +26,7 @@ const InvoiceDetailsHeader = ({ customer }: IInvoiceDetailsHeaderProps) => {
     phone = '',
   } = customer ?? {};
   return (
-    <div className="flex items-center justify-between bg-gray-50 dark:bg-blue-800 base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
+    <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-600 base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
       <div className="flex flex-col gap-[37px]">
         <Image
           src={IMAGES.LOGO_COMPANY}
@@ -55,13 +55,21 @@ const InvoiceDetailsHeader = ({ customer }: IInvoiceDetailsHeaderProps) => {
           </div>
           <div>
             <div className="flex items-center gap-2.5">
-              <Text text="@" size="3xs" className="text text-blue-500" />
+              <Text
+                text="@"
+                size="3xs"
+                className="text text-blue-500 dark:text-blue-500"
+              />
               <Link href={`mailto:${email}`}>
                 <Text text={email} size="2xs" className="text-gray-200" />
               </Link>
             </div>
             <div className="flex items-center gap-2.5">
-              <Text text="m" size="3xs" className="text text-blue-500" />
+              <Text
+                text="m"
+                size="3xs"
+                className="text text-blue-500 dark:text-blue-500"
+              />
               <Link
                 as={`tel:${formatPhoneNumber}`}
                 href={`tel:${formatPhoneNumber}`}
@@ -79,13 +87,21 @@ const InvoiceDetailsHeader = ({ customer }: IInvoiceDetailsHeaderProps) => {
       <div className="flex flex-col items-end gap-[26px]">
         <div>
           <div className="flex items-center gap-2.5">
-            <Text text="@" size="3xs" className="text text-blue-500" />
+            <Text
+              text="@"
+              size="3xs"
+              className="text text-blue-500 dark:text-blue-500"
+            />
             <Link href="mailto:your.mail@gmail.com">
               <Text text="your.mail@gmail.com" size="2xs" />
             </Link>
           </div>
           <div className="flex items-center gap-2.5">
-            <Text text="m" size="3xs" className="text text-blue-500" />
+            <Text
+              text="m"
+              size="3xs"
+              className="text text-blue-500 dark:text-blue-500"
+            />
             <Link href="tel:+386 989 271 3115">
               <Text text="+386 989 271 3115" size="2xs" />
             </Link>
