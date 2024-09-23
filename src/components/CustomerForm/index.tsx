@@ -12,7 +12,7 @@ import { ERROR_MESSAGES, REGEX } from '@/constants';
 // Utils
 import {
   clearErrorOnChange,
-  formatPhoneNumber,
+  formatPhoneNumberTyping,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -233,7 +233,7 @@ const CustomerForm = ({
             errorMessage={error?.message}
             isDisabled={isDisabledField}
             onChange={(e) => {
-              onChange(formatPhoneNumber(e.target.value));
+              onChange(formatPhoneNumberTyping(e.target.value));
 
               clearErrorOnChange(name, errors, clearErrors);
             }}

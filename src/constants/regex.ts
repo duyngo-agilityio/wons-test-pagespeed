@@ -4,4 +4,5 @@ export const REGEX = {
   PHONE: /^\+?[0-9][0-9]{7,14}$/,
   IMG: /\.(png|jpg|webp)$/,
   INTEGER: /^-?\d*$/,
+  NOT_NUMBER: /\D/g,
 };
