@@ -1,6 +1,7 @@
 // Types
 import { StrapiModel } from '@/types';
-import { DateValue } from '@nextui-org/react';
+import { CalendarDate, DateValue } from '@nextui-org/react';
+import { CalendarDateTime, ZonedDateTime } from '@internationalized/date';
 
 // Models
 import { IProduct, TInvoiceProduct } from '@/models';
@@ -85,3 +86,14 @@ export const formatAmountWithDiscount = (
 };
 export const formatDateString = (date: DateValue) =>
   `${date.year}-${date.month}-${date.day}`;
+
+export const formatDatePicker = (
+  date: CalendarDate | CalendarDateTime | ZonedDateTime,
+) => {
+  // Pad the month and day with a leading zero if they are single digits
+  const formattedMonth = String(date.month).padStart(2, '0');
+  const formattedDay = String(date.day).padStart(2, '0');
+  const formattedYear = String(date.year);
+
+  return `${formattedYear}-${formattedMonth}-${formattedDay}`;
+};

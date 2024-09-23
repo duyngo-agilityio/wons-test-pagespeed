@@ -25,6 +25,7 @@ import {
   clearErrorOnChange,
   convertToCalendarDate,
   currentDate,
+  formatDatePicker,
   getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
@@ -274,14 +275,7 @@ const InvoiceForm = ({
                   return onChange?.('');
                 }
 
-                // Pad the month and day with a leading zero if they are single digits
-                const formattedMonth = String(date.month).padStart(2, '0');
-                const formattedDay = String(date.day).padStart(2, '0');
-                const formattedYear = String(date.year);
-
-                onChange?.(
-                  `${formattedYear}-${formattedMonth}-${formattedDay}`,
-                );
+                onChange?.(formatDatePicker(date));
               };
 
               return (
