@@ -1,7 +1,8 @@
-// Types
-import { StrapiModel } from '@/types';
 import { CalendarDate, DateValue } from '@nextui-org/react';
 import { CalendarDateTime, ZonedDateTime } from '@internationalized/date';
+
+// Types
+import { StrapiModel } from '@/types';
 
 // Models
 import { IProduct, TInvoiceProduct } from '@/models';
