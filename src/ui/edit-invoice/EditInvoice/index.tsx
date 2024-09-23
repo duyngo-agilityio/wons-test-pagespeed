@@ -26,7 +26,7 @@ const EditInvoice = async ({ id }: EditInvoiceProps) => {
   });
 
   const productInvoice = formattedResponseData(
-    invoice.attributes.invoice_products.data,
+    invoice.attributes.invoice_products?.data || [],
   );
 
   const formattedPreviewProduct = productInvoice.map((data) => {

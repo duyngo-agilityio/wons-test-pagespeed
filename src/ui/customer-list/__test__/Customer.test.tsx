@@ -2,7 +2,7 @@ import { render, waitFor } from '@testing-library/react';
 import { FunctionComponent } from 'react';
 
 // components
-import CustomerList from '../index';
+import CustomerList from '../CustomerList';
 
 // mocks
 import { CUSTOMER_MOCK } from '@/mocks';
