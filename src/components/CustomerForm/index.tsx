@@ -69,7 +69,7 @@ export interface ICustomerFormProps {
   onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
   setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
-  previewData?: ICustomer | null;
+  previewData?: ICustomer;
 }
 
 const CustomerForm = ({
@@ -90,16 +90,7 @@ const CustomerForm = ({
     resolver: zodResolver(customerFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: previewData || {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      address: '',
-      job: '',
-      gender: undefined,
-      avatar: '',
-    },
+    values: previewData,
   });
 
   setReset(reset);
@@ -111,8 +102,10 @@ const CustomerForm = ({
   );
   const isDisableSubmit = !enableSubmit;
 
-  const handleAddCustomer = useCallback(
+  const saveData = useCallback(
     async (formData: Partial<ICustomer>) => {
+      console.log('formData', formData);
+
       onSubmit(formData as ICustomer);
       reset();
     },
@@ -122,7 +115,7 @@ const CustomerForm = ({
   return (
     <form
       className="w-full max-w-2xl mx-auto"
-      onSubmit={handleSubmit(handleAddCustomer)}
+      onSubmit={handleSubmit(saveData)}
     >
       <Heading title={isEdit ? 'Update Customer' : 'Add Customer'} />
 

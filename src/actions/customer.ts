@@ -64,3 +64,22 @@ export const deleteCustomer = async (
     return { error: message };
   }
 };
+
+export const updateCustomer = async (
+  id: number,
+  data: Partial<ICustomer>,
+): Promise<{ error?: string }> => {
+  try {
+    await httpClient.putRequest({
+      endpoint: `${API_PATH.CUSTOMERS}/${id}`,
+      body: { data },
+    });
+
+    revalidateTag(API_PATH.CUSTOMERS);
+
+    return { error: undefined };
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};
