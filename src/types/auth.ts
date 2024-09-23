@@ -24,7 +24,6 @@ export type TSignUpPayload = {
   username: string;
   email: string;
   password: string;
-  role: number;
 };
 
 export type TSignUpResponse = { jwt: string; user: Omit<TUser, 'password'> };
