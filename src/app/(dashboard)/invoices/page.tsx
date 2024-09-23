@@ -32,6 +32,7 @@ const InvoiceListPage = ({
 
   return (
     <main>
+      {/* TODO: Update later, add suspense for InvoiceListActions */}
       <DashBoardLayout
         title="Invoice List"
         rightContent={<InvoiceListActions />}

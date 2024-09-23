@@ -38,11 +38,13 @@ import { IoClose } from 'react-icons/io5';
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
   pageCount: number;
+  isReadOnly?: boolean;
 };
 
 const CustomerListClient = ({
   customerList,
   pageCount,
+  isReadOnly = true,
 }: TCustomerListClientProps): JSX.Element => {
   const [toggleDetails, setToggleDetails] = useState<boolean>(false);
   const [toggleForm, setToggleForm] = useState<boolean>(false);
@@ -109,6 +111,7 @@ const CustomerListClient = ({
     <>
       {isLoading && <LoadingIndicator />}
       <CustomerTable
+        isReadOnly={isReadOnly}
         data={customerList}
         pageCount={pageCount}
         onEdit={handleEdit}

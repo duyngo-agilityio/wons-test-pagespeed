@@ -29,6 +29,7 @@ describe('CustomersTable Component', () => {
   it('renders the table headers and customer data correctly', () => {
     const { container } = render(
       <CustomersTable
+        isReadOnly={false}
         data={mockCustomersData}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
@@ -51,7 +52,7 @@ describe('CustomersTable Component', () => {
       />,
     );
 
-    expect(screen.getAllByText('')).toHaveLength(33);
+    expect(screen.getAllByText('')).toHaveLength(31);
   });
 
   it('renders correctly with empty attributes', () => {

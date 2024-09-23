@@ -6,8 +6,8 @@ describe('InvoiceListActions section', () => {
     jest.clearAllMocks();
   });
 
-  it('should match with snapshot', () => {
-    const { container } = testLibJestUtils.render(<InvoiceListActions />);
+  it('should match with snapshot', async () => {
+    const { container } = testLibJestUtils.render(await InvoiceListActions());
 
     expect(container).toMatchSnapshot();
   });
