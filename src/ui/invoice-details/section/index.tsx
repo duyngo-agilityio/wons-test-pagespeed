@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getInvoiceById } from '@/api';
 
 // Models
-import { ICustomer, IProduct, TInvoiceProduct } from '@/models';
+import { IProduct, TInvoiceProduct } from '@/models';
 
 // Types
 import { StrapiModel } from '@/types';
@@ -24,22 +24,29 @@ interface IInvoiceDetailsSectionProps {
 }
 
 const InvoiceDetailsSection = async ({ id }: IInvoiceDetailsSectionProps) => {
-  const result = await getInvoiceById({
+  const { data } = await getInvoiceById({
     id: id,
     nextOptions: { tags: [API_PATH.INVOICE] },
   });
-  const customer: ICustomer =
-    result.data.attributes.customer?.data.attributes ?? {};
   const invoices: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[] =
-    result.data.attributes.invoice_products.data;
+    data.attributes.invoice_products.data;
+  const { address = '', email = '', date = '' } = data.attributes ?? {};
+  const { phone = '', fullName = '' } =
+    data.attributes.customer?.data.attributes ?? {};
 
-  if (!result.data) notFound();
+  if (!data) notFound();
 
   return (
     <div className="max-w-[1440px] m-auto base:px-2 base:py-5 lg:p-7.5 bg-white dark:bg-gray-400 rounded-10">
-      <InvoiceDetailsHeader customer={customer} />
+      <InvoiceDetailsHeader
+        fullName={fullName}
+        email={email}
+        address={address}
+        phone={phone}
+        date={date}
+      />
       <InvoiceDetailsBody data={invoices} />
-      <InvoiceDetailsFooter customer={customer} />
+      <InvoiceDetailsFooter />
     </div>
   );
 };

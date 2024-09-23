@@ -1,22 +1,15 @@
 import { memo } from 'react';
-import isEqual from 'react-fast-compare';
-
-// Models
-import { ICustomer } from '@/models';
-
-// Utils
-import { formatPhoneNumber } from '@/utils';
+import Link from 'next/link';
 
 // Components
 import { Text } from '@/components';
-import Link from 'next/link';
 
-interface IInvoiceDetailsFooterProps {
-  customer: ICustomer;
-}
+// Constants
+import { DEFAULT_VALUE_INVOICE } from '@/constants';
 
-const InvoiceDetailsFooter = ({ customer }: IInvoiceDetailsFooterProps) => {
-  const { email = '', phone = '' } = customer ?? {};
+const InvoiceDetailsFooter = () => {
+  const { EMAIL, PHONE } = DEFAULT_VALUE_INVOICE;
+
   return (
     <div className="flex base:flex-col lg:flex-row base:gap-5 lg:justify-between base:px-2 md:pl-7.5 md:pr-5">
       <div>
@@ -38,8 +31,8 @@ const InvoiceDetailsFooter = ({ customer }: IInvoiceDetailsFooterProps) => {
             size="4xs"
             className="text text-blue-500 dark:text-blue-500"
           />
-          <Link href={`mailto:${email}`}>
-            <Text text={email} size="4xs" className="text-gray-200" />
+          <Link href={`mailto:${EMAIL}`}>
+            <Text text={EMAIL} size="4xs" className="text-gray-200" />
           </Link>
         </div>
         <div className="flex items-center gap-2.5">
@@ -48,15 +41,8 @@ const InvoiceDetailsFooter = ({ customer }: IInvoiceDetailsFooterProps) => {
             size="4xs"
             className="text text-blue-500 dark:text-blue-500"
           />
-          <Link
-            as={`tel:${formatPhoneNumber}`}
-            href={`tel:${formatPhoneNumber}`}
-          >
-            <Text
-              text={formatPhoneNumber(phone)}
-              size="4xs"
-              className="text-gray-200"
-            />
+          <Link as={`tel:${PHONE}`} href={`tel:${PHONE}`}>
+            <Text text={PHONE} size="4xs" className="text-gray-200" />
           </Link>
         </div>
       </div>
@@ -76,4 +62,4 @@ const InvoiceDetailsFooter = ({ customer }: IInvoiceDetailsFooterProps) => {
   );
 };
 
-export default memo(InvoiceDetailsFooter, isEqual);
+export default memo(InvoiceDetailsFooter);
