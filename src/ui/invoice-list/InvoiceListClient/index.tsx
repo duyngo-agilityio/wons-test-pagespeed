@@ -80,16 +80,16 @@ const InvoiceListClient = ({
   );
 
   const handleDelete = useCallback(
-    async (id: number) => {
+    async (invoiceId: number, invoiceProductIds: number[]) => {
       setIsLoading(true);
 
-      const res = await deleteInvoice(id);
+      const res = await deleteInvoice(invoiceId, invoiceProductIds);
 
       setIsLoading(false);
       const { error } = res || {};
 
       showToast({
-        description: error || SUCCESS_MESSAGES.UPDATE_INVOICE,
+        description: error || SUCCESS_MESSAGES.DELETE_INVOICE,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
@@ -97,10 +97,10 @@ const InvoiceListClient = ({
   );
 
   const handleDeleteMultiple = useCallback(
-    async (ids: number[]) => {
+    async (ids: number[], invoiceProductIds: number[]) => {
       setIsLoading(true);
 
-      const res = await deleteMultipleInvoice(ids);
+      const res = await deleteMultipleInvoice(ids, invoiceProductIds);
 
       setIsLoading(false);
       const { error } = res || {};
