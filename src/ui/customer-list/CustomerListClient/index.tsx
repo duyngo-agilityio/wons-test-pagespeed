@@ -22,6 +22,7 @@ import { MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
 
 // Actions
 import { deleteCustomer } from '@/actions';
+import { ICustomer } from '@/models';
 
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
@@ -35,6 +36,10 @@ const CustomerListClient = ({
   const [toggleDetails, setToggleDetails] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
   const { showToast } = useToast();
+  const [isLoadingDetails, setIsLoadingDetails] = useState<boolean>(false);
+  const [customerDetails, setCustomerDetails] = useState<ICustomer>(
+    CUSTOMER_MOCK[1],
+  );
 
   // TODO: Update later
   const handleEdit = useCallback(() => {}, []);
@@ -64,13 +69,17 @@ const CustomerListClient = ({
     setToggleDetails(false);
   }, []);
 
-  const handleRowAction = useCallback(
-    (_: Key) => {
-      // TODO: Update later
-      setToggleDetails(true);
-    },
-    [setToggleDetails],
-  );
+  const handleRowAction = useCallback(async (key: Key) => {
+    setToggleDetails(true);
+    setIsLoadingDetails(true);
+
+    const data: TCustomerDataResponse = customerList.find(
+      (customer) => customer.id === Number(key),
+    ) as TCustomerDataResponse;
+
+    setCustomerDetails(data?.attributes);
+    setIsLoadingDetails(false);
+  }, [customerList]);
 
   return (
     <>
@@ -89,8 +98,10 @@ const CustomerListClient = ({
         direction="right"
         className="!w-[302px] !max-w-[302px]"
       >
-        {/* Mock data */}
-        <CustomerDetails customer={CUSTOMER_MOCK[1]} />
+        <CustomerDetails
+          customer={customerDetails}
+          isLoading={isLoadingDetails}
+        />
       </Drawer>
     </>
   );
