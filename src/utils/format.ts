@@ -6,6 +6,7 @@ import { StrapiModel } from '@/types';
 
 // Models
 import { IProduct, TInvoiceProduct } from '@/models';
+import { REGEX } from '@/constants';
 
 export const formatPrice = (price: number, isDigits: boolean = false) => {
   const numPrice = typeof price === 'string' ? parseFloat(price) : price;
@@ -42,13 +43,27 @@ export const formattedResponseData = <T>(data: StrapiModel<T>[]) =>
   });
 
 export const formatPhoneNumber = (value: string) => {
-  if (!value) {
-    return '';
-  }
+  const phone = value.replace(/[()\\-]/g, ' ');
 
-  return value.replace(/[^0-9]/g, '');
+  if (phone) return `+${phone}`;
+
+  return '';
 };
 
+export const clearPhoneNumberFormat = (value: string): string =>
+  value.replace(REGEX.NOT_NUMBER, '').substring(0, 10);
+
+export const formatPhoneNumberTyping: (value: string) => string = (
+  value: string,
+): string => {
+  if (!value) return value;
+  const clearedValue = clearPhoneNumberFormat(value);
+  const phoneNumberLength = clearedValue.length;
+  if (phoneNumberLength < 4) return clearedValue;
+  if (phoneNumberLength < 7)
+    return `(${clearedValue.slice(0, 3)}) ${clearedValue.slice(3)}`;
+  return `(${clearedValue.slice(0, 3)}) ${clearedValue.slice(3, 6)}-${clearedValue.slice(6)}`;
+};
 /**
  *
  * @param products - the products from api
