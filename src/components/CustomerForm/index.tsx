@@ -12,6 +12,7 @@ import { ERROR_MESSAGES, REGEX } from '@/constants';
 // Utils
 import {
   clearErrorOnChange,
+  clearPhoneNumberFormat,
   formatPhoneNumberTyping,
   isEnableSubmitButton,
 } from '@/utils';
@@ -39,7 +40,8 @@ const customerFormSchema = z.object({
   phone: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Phone Number'))
-    .regex(REGEX.PHONE, ERROR_MESSAGES.INVALID_PHONE),
+    .transform((value) => clearPhoneNumberFormat(value))
+    .refine((value) => REGEX.PHONE.test(value), ERROR_MESSAGES.INVALID_PHONE),
   gender: z.enum(['male', 'female'], {
     errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED('Gender') }),
   }),

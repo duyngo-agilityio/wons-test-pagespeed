@@ -58,12 +58,16 @@ export const formatPhoneNumberTyping: (value: string) => string = (
 ): string => {
   if (!value) return value;
   const clearedValue = clearPhoneNumberFormat(value);
+
   const phoneNumberLength = clearedValue.length;
+
   if (phoneNumberLength < 4) return clearedValue;
   if (phoneNumberLength < 7)
     return `(${clearedValue.slice(0, 3)}) ${clearedValue.slice(3)}`;
+
   return `(${clearedValue.slice(0, 3)}) ${clearedValue.slice(3, 6)}-${clearedValue.slice(6)}`;
 };
+
 /**
  *
  * @param products - the products from api
