@@ -8,7 +8,10 @@ import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 import { InvoiceStatus } from '@/constants';
 
 export type TInvoiceDataResponse = StrapiModel<
-  Omit<TInvoice, 'customerId'> & { customer: { data: StrapiModel<ICustomer> }, invoice_products: { data: StrapiModel<TInvoiceProduct<IProduct>>[] } }
+  Omit<TInvoice, 'customerId'> & {
+    customer: { data: StrapiModel<ICustomer> };
+    invoice_products: { data: StrapiModel<TInvoiceProduct<IProduct>>[] };
+  }
 >;
 
 export type TInvoiceProductRequest = Omit<
@@ -43,3 +46,7 @@ export type TInvoiceFormData = {
   email: string;
   invoice_products: number[];
 };
+
+export type TRecentInvoiceProductResponse = StrapiResponse<
+  StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
+>;
