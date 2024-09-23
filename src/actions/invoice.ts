@@ -222,7 +222,7 @@ export const deleteInvoice = async (
     // Delete invoice products
     await deleteInvoiceProducts(invoiceProductIds);
 
-    // Delete invoice
+    // Delete an invoice
     await httpClient.deleteRequest({
       endpoint: `${API_PATH.INVOICES}/${invoiceId}`,
     });
@@ -236,11 +236,16 @@ export const deleteInvoice = async (
 };
 
 export const deleteMultipleInvoice = async (
-  ids: number[],
+  invoiceIds: number[],
+  invoiceProductIds: number[],
 ): Promise<{ error?: string } | void> => {
   try {
+    // Delete invoice products
+    await deleteInvoiceProducts(invoiceProductIds);
+
+    // Delete invoices
     await Promise.all(
-      ids.map((id) =>
+      invoiceIds.map((id) =>
         httpClient.deleteRequest({
           endpoint: `${API_PATH.INVOICES}/${id}`,
         }),

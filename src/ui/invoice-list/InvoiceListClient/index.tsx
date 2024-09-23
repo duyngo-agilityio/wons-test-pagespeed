@@ -97,10 +97,10 @@ const InvoiceListClient = ({
   );
 
   const handleDeleteMultiple = useCallback(
-    async (ids: number[]) => {
+    async (ids: number[], invoiceProductIds: number[]) => {
       setIsLoading(true);
 
-      const res = await deleteMultipleInvoice(ids);
+      const res = await deleteMultipleInvoice(ids, invoiceProductIds);
 
       setIsLoading(false);
       const { error } = res || {};

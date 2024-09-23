@@ -36,7 +36,7 @@ type TInvoicesTableProps = {
   pageCount: number;
   onEdit: (id: number) => void;
   onDelete: (invoiceId: number, invoiceProductIds: number[]) => void;
-  onDeleteMultiple: (ids: number[]) => void;
+  onDeleteMultiple: (ids: number[], invoiceProductIds: number[]) => void;
   onToggleSelectStar: (id: number, isSelected: boolean) => void;
   onSort: (field: string) => void;
   onRowAction: (key: Key) => void;
@@ -64,7 +64,6 @@ const InvoicesTable = ({
       });
 
       const { attributes } = deletedInvoice || {};
-
       const { invoice_products: invoiceProducts } = attributes || {};
       const { data: invoiceProductsData = [] } = invoiceProducts || {};
 
@@ -82,9 +81,31 @@ const InvoicesTable = ({
   const handleOpenConfirmModal = useCallback(() => setIsModalOpen(true), []);
 
   const handleConfirmDeleteMultiple = useCallback(() => {
-    onDeleteMultiple(selectedInvoiceIds);
+    const deletedInvoiceProductIds: number[] = [];
+
+    selectedInvoiceIds.forEach((invoiceId) => {
+      const deletedInvoice = data.find((invoice) => {
+        const { id } = invoice || {};
+
+        return invoiceId === id;
+      });
+
+      const { attributes } = deletedInvoice || {};
+      const { invoice_products: invoiceProducts } = attributes || {};
+      const { data: invoiceProductsData = [] } = invoiceProducts || {};
+
+      const invoiceProductIds = invoiceProductsData.map((item) => {
+        const { id } = item || {};
+
+        return id;
+      });
+
+      deletedInvoiceProductIds.push(...invoiceProductIds);
+    });
+
+    onDeleteMultiple(selectedInvoiceIds, deletedInvoiceProductIds);
     setIsModalOpen(false);
-  }, [onDeleteMultiple, selectedInvoiceIds]);
+  }, [data, onDeleteMultiple, selectedInvoiceIds]);
 
   const handleCancelDeleteMultiple = useCallback(() => {
     setIsModalOpen(false);
