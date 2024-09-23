@@ -89,6 +89,28 @@ export const updateInvoiceProducts = async (
   }
 };
 
+
+export const deleteInvoiceProducts = async (
+  ids: number[],
+): Promise<{ error?: string } | void> => {
+  try {
+    await Promise.all(
+      ids.map((id) =>
+        httpClient.deleteRequest({
+          endpoint: `${API_PATH.INVOICE_PRODUCTS}/${id}`,
+        }),
+      ),
+    );
+
+    revalidateTag(API_PATH.INVOICE_PRODUCTS);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
+    return { error: message };
+  }
+};
+
+
 export const createInvoice = async (
   formData: Partial<TInvoice>,
   products: TInvoiceProduct<IProduct & { id: number }>[],
@@ -195,11 +217,16 @@ export const updateInvoice = async (
 };
 
 export const deleteInvoice = async (
-  id: number,
+  invoiceId: number, invoiceProductIds: number[]
 ): Promise<{ error?: string } | void> => {
   try {
+
+    // Delete invoice products
+    await deleteInvoiceProducts(invoiceProductIds);
+
+    // Delete invoice
     await httpClient.deleteRequest({
-      endpoint: `${API_PATH.INVOICES}/${id}`,
+      endpoint: `${API_PATH.INVOICES}/${invoiceId}`,
     });
 
     revalidateTag(API_PATH.INVOICES);

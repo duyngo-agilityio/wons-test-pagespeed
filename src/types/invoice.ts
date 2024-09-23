@@ -8,7 +8,7 @@ import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 import { InvoiceStatus } from '@/constants';
 
 export type TInvoiceDataResponse = StrapiModel<
-  Omit<TInvoice, 'customerId'> & { customer: { data: StrapiModel<ICustomer> } }
+  Omit<TInvoice, 'customerId'> & { customer: { data: StrapiModel<ICustomer> }, invoice_products: { data: StrapiModel<TInvoiceProduct<IProduct>>[] } }
 >;
 
 export type TInvoiceProductRequest = Omit<

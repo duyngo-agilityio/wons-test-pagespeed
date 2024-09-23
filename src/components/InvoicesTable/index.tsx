@@ -35,7 +35,7 @@ type TInvoicesTableProps = {
   data: TInvoiceData[];
   pageCount: number;
   onEdit: (id: number) => void;
-  onDelete: (id: number) => void;
+  onDelete: (invoiceId: number, invoiceProductIds: number[]) => void;
   onDeleteMultiple: (ids: number[]) => void;
   onToggleSelectStar: (id: number, isSelected: boolean) => void;
   onSort: (field: string) => void;
@@ -55,14 +55,39 @@ const InvoicesTable = ({
   const [selectedInvoiceIds, setSelectedInvoiceIds] = useState<number[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleDelete = useCallback(
+    (invoiceId: number) => {
+      console.log('handleDelete=============');
+
+      const deletedInvoice = data.find((invoice) => {
+        const { id } = invoice || {};
+
+        return invoiceId === id;
+      });
+
+      const { attributes } = deletedInvoice || {};
+      const { invoice_products: invoiceProducts } = attributes || {};
+      const { data: invoiceProductsData = [] } = invoiceProducts || {};
+
+      const invoiceProductIds = invoiceProductsData.map((item) => {
+        const { id } = item || {};
+
+        return id;
+      });
+
+      onDelete(invoiceId, invoiceProductIds);
+    },
+    [data, onDelete],
+  );
+
   const handleOpenConfirmModal = useCallback(() => setIsModalOpen(true), []);
 
-  const handleConfirmDelete = useCallback(() => {
+  const handleConfirmDeleteMultiple = useCallback(() => {
     onDeleteMultiple(selectedInvoiceIds);
     setIsModalOpen(false);
   }, [onDeleteMultiple, selectedInvoiceIds]);
 
-  const handleCancelDelete = useCallback(() => {
+  const handleCancelDeleteMultiple = useCallback(() => {
     setIsModalOpen(false);
   }, []);
 
@@ -194,17 +219,17 @@ const InvoicesTable = ({
           const { id } = invoice || {};
 
           return (
-            <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
+            <DropdownActions id={id} onEdit={onEdit} onDelete={handleDelete} />
           );
         },
       },
     ],
     [
+      handleDelete,
       handleOpenConfirmModal,
-      onDelete,
       onEdit,
       onToggleSelectStar,
-      selectedInvoiceIds,
+      selectedInvoiceIds.length,
     ],
   );
 
@@ -239,8 +264,8 @@ const InvoicesTable = ({
           title="Delete Item"
           content="Are you sure you want to delete these items?"
           isOpen={isModalOpen}
-          onConfirm={handleConfirmDelete}
-          onCancel={handleCancelDelete}
+          onConfirm={handleConfirmDeleteMultiple}
+          onCancel={handleCancelDeleteMultiple}
         />
       )}
     </div>
