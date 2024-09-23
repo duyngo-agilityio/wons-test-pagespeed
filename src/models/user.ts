@@ -1,9 +1,12 @@
-export const enum ROLE {
-  ADMIN = 'admin',
-  NORMAL_USER = 'user',
-}
+// Types
+import { TRole } from '@/types';
 
-export interface User {
-  role: ROLE;
+export type TUser = {
+  id: string;
+  email: string;
+  username: string;
+  fullName: string;
+  password: string;
+  role: TRole;
   token: string;
-}
+};

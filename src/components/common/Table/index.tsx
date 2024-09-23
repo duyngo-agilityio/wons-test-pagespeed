@@ -54,7 +54,9 @@ const TableCustom = <T extends { id: string }>({
   onSelectChange = () => {},
   onRowAction,
 }: CustomTableProps<T>) => {
-  const renderCell = (item: T, accessor: TTableAccessor<T>): ReactNode => {
+  const renderCell = (item: T, accessor?: TTableAccessor<T>): ReactNode => {
+    if (!accessor) return;
+
     if (typeof accessor === 'string')
       return <div>{item[accessor] as ReactNode}</div>;
 

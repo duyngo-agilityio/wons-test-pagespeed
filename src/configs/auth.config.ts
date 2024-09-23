@@ -1,4 +1,5 @@
 import { ROUTES } from '@/constants';
+import { TRole } from '@/types';
 import type {
   NextAuthConfig,
   Session as NextAuthSession,
@@ -7,6 +8,12 @@ import type {
 
 export interface CustomUser extends NextAuthUser {
   id: string;
+  email: string;
+  username: string;
+  fullName: string;
+  password: string;
+  role: TRole;
+  token: string;
 }
 
 export interface CustomSession extends NextAuthSession {
