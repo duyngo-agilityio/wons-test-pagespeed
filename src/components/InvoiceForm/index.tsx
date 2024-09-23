@@ -25,6 +25,7 @@ import {
   clearErrorOnChange,
   convertToCalendarDate,
   currentDate,
+  formatDatePicker,
   getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
@@ -46,6 +47,7 @@ import {
   DatePicker,
   Input,
   InvoiceProductTable,
+  LoadingIndicator,
 } from '@/components';
 
 // api
@@ -214,223 +216,223 @@ const InvoiceForm = ({
   }, []);
 
   return (
-    <form
-      className="w-full max-w-[700px] justify-center"
-      onSubmit={handleSubmit(handleSubmitButton)}
-    >
-      <div className="flex justify-center sm:mt-[21px]">
-        <Controller
-          control={control}
-          name="imageUrl"
-          render={({
-            field: { onChange, value, name },
-            fieldState: { error },
-          }) => (
-            <AvatarUpload
-              value={value}
-              error={error?.message}
-              onChange={(e) => {
-                onChange(e);
-
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              onFileChange={handleAvatarChange}
-            />
-          )}
-        />
-      </div>
-
-      <div className="flex flex-col sm:flex-row sm:gap-[30px] sm:mt-[30px]">
-        {/* Invoice Id*/}
-        <Controller
-          name="invoiceId"
-          control={control}
-          render={() => (
-            <Input
-              isDisabled
-              label="Invoice Id"
-              classNames={{ base: 'h-[74px]' }}
-              value={`#${invoiceId}`}
-            />
-          )}
-        />
-
-        {/* Date */}
-        <Controller
-          name="date"
-          control={control}
-          render={({
-            field: { onChange, name, value },
-            fieldState: { error },
-          }) => {
-            const handleChange = (
-              date: CalendarDate | CalendarDateTime | ZonedDateTime | null,
-            ): void => {
-              if (!date) {
-                return onChange?.('');
-              }
-
-              // Pad the month and day with a leading zero if they are single digits
-              const formattedMonth = String(date.month).padStart(2, '0');
-              const formattedDay = String(date.day).padStart(2, '0');
-              const formattedYear = String(date.year);
-
-              onChange?.(`${formattedYear}-${formattedMonth}-${formattedDay}`);
-            };
-
-            return (
-              <DatePicker
-                defaultValue={convertToCalendarDate(value as unknown as string)}
-                onChange={(value) => {
-                  handleChange(value);
+    <>
+      {isPending && <LoadingIndicator />}
+      <form
+        className="w-full max-w-[700px] justify-center"
+        onSubmit={handleSubmit(handleSubmitButton)}
+      >
+        <div className="flex justify-center sm:mt-[21px]">
+          <Controller
+            control={control}
+            name="imageUrl"
+            render={({
+              field: { onChange, value, name },
+              fieldState: { error },
+            }) => (
+              <AvatarUpload
+                value={value}
+                error={error?.message}
+                onChange={(e) => {
+                  onChange(e);
 
                   // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);
                 }}
-                minValue={currentDate}
-                label="Date"
-                isInvalid={!!error}
-                className="mt-1"
-                errorMessage={error?.message}
+                onFileChange={handleAvatarChange}
               />
-            );
-          }}
-        />
-      </div>
-
-      <div className="flex flex-col sm:flex-row mt-8 sm:mt-0 gap-[30px]">
-        {/* Customer */}
-        <Controller
-          name="customerId"
-          control={control}
-          render={({
-            field: { onChange, value, name, ...rest },
-            fieldState: { error },
-          }) => (
-            <Autocomplete
-              defaultSelectedKey={value}
-              isInvalid={!!error}
-              errorMessage={error?.message}
-              onSelectionChange={(key) => {
-                onChange(key);
-
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              label="Name"
-              options={optionsCustomers}
-              {...rest}
-            />
-          )}
-        />
-
-        {/* Status */}
-        <Controller
-          name="status"
-          control={control}
-          render={({
-            field: { onChange, value, name, ...rest },
-            fieldState: { error },
-          }) => (
-            <Autocomplete
-              defaultSelectedKey={value}
-              isInvalid={!!error}
-              errorMessage={error?.message}
-              label="Status"
-              onSelectionChange={(key) => {
-                onChange(key);
-
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              options={INVOICE_STATUS}
-              {...rest}
-            />
-          )}
-        />
-      </div>
-
-      <div className="flex flex-col sm:flex-row gap-[30px] mt-[30px]">
-        {/*Email*/}
-        <Controller
-          name="email"
-          control={control}
-          render={({
-            field: { name, onChange, ...rest },
-            fieldState: { error },
-          }) => (
-            <Input
-              className="flex-1"
-              label="Email"
-              classNames={{ base: 'h-[74px]' }}
-              type="email"
-              isInvalid={!!error}
-              errorMessage={error?.message}
-              onChange={(e) => {
-                onChange(e.target.value);
-
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              {...rest}
-            />
-          )}
-        />
-
-        {/* Address */}
-        <Controller
-          name="address"
-          control={control}
-          render={({
-            field: { name, onChange, ...rest },
-            fieldState: { error },
-          }) => (
-            <AddressInput
-              isInvalid={!!error}
-              errorMessage={error?.message}
-              className="flex-1"
-              onChange={(e) => {
-                onChange(e.target.value);
-
-                // Clear error message on change
-                clearErrorOnChange(name, errors, clearErrors);
-              }}
-              label="Address"
-              {...rest}
-            />
-          )}
-        />
-      </div>
-
-      <div>
-        <div className="mt-[30px] sm:mt-[17px]">
-          <InvoiceProductTable
-            products={products}
-            productsValues={productsValues}
-            errorProducts={errorProducts}
-            setErrorProducts={setErrorProducts}
-            setProductsValues={setProductsValues}
+            )}
           />
         </div>
-      </div>
 
-      <div className="flex flex-col sm:flex-row sm:gap-[30px]">
-        <Button size="lg" color="secondary" className="w-full mt-10">
-          <Link href={ROUTES.INVOICE}>Cancel</Link>
-        </Button>
-        <Button
-          type="submit"
-          isDisabled={isDisableSubmit}
-          isLoading={isPending}
-          size="lg"
-          color="primary"
-          className="w-full mt-[20px] sm:mt-10"
-        >
-          {isEdit ? 'Update Invoice' : 'Create Invoice'}
-        </Button>
-      </div>
-    </form>
+        <div className="flex flex-col sm:flex-row sm:gap-[30px] sm:mt-[30px]">
+          {/* Invoice Id*/}
+          <Controller
+            name="invoiceId"
+            control={control}
+            render={() => (
+              <Input
+                isDisabled
+                label="Invoice Id"
+                classNames={{ base: 'h-[74px]' }}
+                value={`#${invoiceId}`}
+              />
+            )}
+          />
+
+          {/* Date */}
+          <Controller
+            name="date"
+            control={control}
+            render={({
+              field: { onChange, name, value },
+              fieldState: { error },
+            }) => {
+              const handleChange = (
+                date: CalendarDate | CalendarDateTime | ZonedDateTime | null,
+              ): void => {
+                if (!date) {
+                  return onChange?.('');
+                }
+
+                onChange?.(formatDatePicker(date));
+              };
+
+              return (
+                <DatePicker
+                  defaultValue={convertToCalendarDate(
+                    value as unknown as string,
+                  )}
+                  onChange={(value) => {
+                    handleChange(value);
+
+                    // Clear error message on change
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                  minValue={currentDate}
+                  label="Date"
+                  isInvalid={!!error}
+                  className="mt-1"
+                  errorMessage={error?.message}
+                />
+              );
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row mt-8 sm:mt-0 gap-[30px]">
+          {/* Customer */}
+          <Controller
+            name="customerId"
+            control={control}
+            render={({
+              field: { onChange, value, name, ...rest },
+              fieldState: { error },
+            }) => (
+              <Autocomplete
+                defaultSelectedKey={value}
+                isInvalid={!!error}
+                errorMessage={error?.message}
+                onSelectionChange={(key) => {
+                  onChange(key);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                label="Name"
+                options={optionsCustomers}
+                {...rest}
+              />
+            )}
+          />
+
+          {/* Status */}
+          <Controller
+            name="status"
+            control={control}
+            render={({
+              field: { onChange, value, name, ...rest },
+              fieldState: { error },
+            }) => (
+              <Autocomplete
+                defaultSelectedKey={value}
+                isInvalid={!!error}
+                errorMessage={error?.message}
+                label="Status"
+                onSelectionChange={(key) => {
+                  onChange(key);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                options={INVOICE_STATUS}
+                {...rest}
+              />
+            )}
+          />
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-[30px] mt-[30px]">
+          {/*Email*/}
+          <Controller
+            name="email"
+            control={control}
+            render={({
+              field: { name, onChange, ...rest },
+              fieldState: { error },
+            }) => (
+              <Input
+                className="flex-1"
+                label="Email"
+                classNames={{ base: 'h-[74px]' }}
+                type="email"
+                isInvalid={!!error}
+                errorMessage={error?.message}
+                onChange={(e) => {
+                  onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                {...rest}
+              />
+            )}
+          />
+
+          {/* Address */}
+          <Controller
+            name="address"
+            control={control}
+            render={({
+              field: { name, onChange, ...rest },
+              fieldState: { error },
+            }) => (
+              <AddressInput
+                isInvalid={!!error}
+                errorMessage={error?.message}
+                className="flex-1"
+                onChange={(e) => {
+                  onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                label="Address"
+                {...rest}
+              />
+            )}
+          />
+        </div>
+
+        <div>
+          <div className="mt-[30px] sm:mt-[17px]">
+            <InvoiceProductTable
+              products={products}
+              productsValues={productsValues}
+              errorProducts={errorProducts}
+              setErrorProducts={setErrorProducts}
+              setProductsValues={setProductsValues}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row sm:gap-[30px]">
+          <Button size="lg" color="secondary" className="w-full mt-10">
+            <Link href={ROUTES.INVOICE}>Cancel</Link>
+          </Button>
+          <Button
+            type="submit"
+            isDisabled={isDisableSubmit}
+            isLoading={isPending}
+            size="lg"
+            color="primary"
+            className="w-full mt-[20px] sm:mt-10"
+          >
+            {isEdit ? 'Update Invoice' : 'Create Invoice'}
+          </Button>
+        </div>
+      </form>
+    </>
   );
 };
 
