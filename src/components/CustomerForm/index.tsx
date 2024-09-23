@@ -14,6 +14,7 @@ import {
   clearErrorOnChange,
   clearPhoneNumberFormat,
   formatPhoneNumberTyping,
+  getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -82,9 +83,10 @@ const CustomerForm = ({
 }: ICustomerFormProps) => {
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues },
     clearErrors,
     handleSubmit,
+    watch,
     reset,
   } = useForm<Partial<ICustomer>>({
     resolver: zodResolver(customerFormSchema),
@@ -96,11 +98,14 @@ const CustomerForm = ({
   setReset(reset);
 
   const dirtyItems = Object.keys(dirtyFields);
+
   const enableSubmit: boolean = useMemo(
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
     [dirtyItems, errors],
   );
-  const isDisableSubmit = !enableSubmit;
+  const isDisableSubmit = !(
+    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
+  );
 
   const saveData = useCallback(
     async (formData: Partial<ICustomer>) => {
@@ -295,7 +300,7 @@ const CustomerForm = ({
             <Select
               name={name}
               id="gender"
-              value={value || undefined}
+              defaultSelectedKeys={[value as string]}
               labelPlacement="outside"
               placeholder=" "
               label="Gender"
