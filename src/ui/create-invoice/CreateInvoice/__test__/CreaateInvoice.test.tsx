@@ -43,4 +43,21 @@ describe('CreateInvoice Component Test', () => {
       expect(container).toMatchSnapshot();
     });
   });
+
+  it('should render content with empty', async () => {
+    (getProducts as jest.Mock).mockResolvedValue({
+      mockProducts: [],
+    });
+
+    (getCustomers as jest.Mock).mockResolvedValue({
+      CUSTOMER_MOCK: [],
+    });
+
+    const CreateInvoiceResolved = await resolvedComponent(CreateInvoice, {});
+    const { container } = render(<CreateInvoiceResolved />);
+
+    await waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
+  });
 });

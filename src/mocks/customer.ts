@@ -64,3 +64,71 @@ export const CUSTOMER_MOCK: ICustomer[] = [
       'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
 ];
+
+const GENDER_MALE = 'male' as const;
+const GENDER_FEMALE = 'female' as const;
+
+export const MOCK_CUSTOMERS_WITH_ATTRIBUTES = [
+  {
+    id: 1,
+    attributes: {
+      id: 1,
+      firstName: 'Arrora',
+      lastName: 'Gaur',
+      fullName: 'Arrora Gaur',
+      email: 'arroragaur@gmail.com',
+      phone: '(213) 555-5554',
+      gender: GENDER_MALE,
+      job: 'UI/UX',
+      address: '1254 Xo Viet Nghe Tinh, Da Nang',
+      avatar:
+        'https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    },
+  },
+  {
+    id: 2,
+    attributes: {
+      id: 2,
+      firstName: 'Anne',
+      lastName: 'Jacob',
+      fullName: 'Anne Jacob',
+      email: 'annejacob@gmail.com',
+      phone: '(325) 987-6541',
+      gender: GENDER_FEMALE,
+      job: 'UI/UX',
+      address: '1254 Xo Viet Nghe Tinh, Da Nang',
+      avatar:
+        'https://cellphones.com.vn/sforum/wp-content/uploads/2024/02/anh-avatar-cute-4.jpg',
+    },
+  },
+  {
+    id: 3,
+    attributes: {
+      id: 3,
+      firstName: 'John',
+      lastName: 'Doe',
+      fullName: 'John Doe',
+      email: 'johndoe@example.com',
+      phone: '(555) 123-4567',
+      gender: GENDER_MALE,
+      job: 'Software Engineer',
+      address: '123 Main St, Anytown',
+      avatar: 'https://via.placeholder.com/150',
+    },
+  },
+  {
+    id: 4,
+    attributes: {
+      id: 4,
+      firstName: 'Jane',
+      lastName: 'Smith',
+      fullName: 'Jane Smith',
+      email: 'janesmith@example.com',
+      phone: '(555) 765-4321',
+      gender: GENDER_FEMALE,
+      job: 'Product Manager',
+      address: '456 Elm St, Othertown',
+      avatar: 'https://via.placeholder.com/150',
+    },
+  },
+];
