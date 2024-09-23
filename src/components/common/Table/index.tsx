@@ -10,7 +10,6 @@ import {
   TableColumn,
   TableRow,
   TableCell,
-  Button,
   Selection,
 } from '@nextui-org/react';
 
@@ -140,18 +139,15 @@ const TableCustom = <T extends { id: string }>({
           return (
             <TableColumn
               key={`${header}${index}`}
+              data-testid="sort-btn"
               className={clsx(
-                'py-0',
+                'py-0 cursor-pointer font-normal',
                 TableClasses[variant].header,
                 isStripedRow && 'border-none',
               )}
+              onClick={handleSort}
             >
-              <Button
-                data-testid="sort-btn"
-                value={value}
-                className="justify-start p-0 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent flex opacity-70 gap-2 items-center text-blue-800 dark:text-white font-normal text-[13px] leading-[17px]"
-                onClick={handleSort}
-              >
+              <div className="flex items-center gap-2">
                 {header}
                 {isSort && (
                   <IoCaretDown
@@ -160,7 +156,7 @@ const TableCustom = <T extends { id: string }>({
                     )}
                   />
                 )}
-              </Button>
+              </div>
             </TableColumn>
           );
         })}
