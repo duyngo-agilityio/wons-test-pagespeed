@@ -30,7 +30,7 @@ const meta: Meta<typeof DateRangePicker> = {
 export default meta;
 
 export const Default = () => (
-  <div className="w-[320px] p-[20px] bg-gray-50 rounded-2xl">
+  <div className="w-[320px] p-[20px] bg-gray-50 dark:bg-gray-600 rounded-2xl">
     <DateRangePicker />
   </div>
 );
