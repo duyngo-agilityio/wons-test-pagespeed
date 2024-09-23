@@ -63,16 +63,20 @@ const genders = [
 
 export interface ICustomerFormProps {
   isDisabledField?: boolean;
+  isEdit?: boolean;
   onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
   setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
+  previewData?: ICustomer | null;
 }
 
 const CustomerForm = ({
   isDisabledField,
+  isEdit,
   onAvatarChange,
   onSubmit,
   setReset,
+  previewData,
 }: ICustomerFormProps) => {
   const {
     control,
@@ -84,7 +88,7 @@ const CustomerForm = ({
     resolver: zodResolver(customerFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: {
+    defaultValues: previewData || {
       firstName: '',
       lastName: '',
       email: '',
@@ -118,7 +122,7 @@ const CustomerForm = ({
       className="w-full max-w-2xl mx-auto"
       onSubmit={handleSubmit(handleAddCustomer)}
     >
-      <Heading title="Add Customer" />
+      <Heading title={isEdit ? 'Update Customer' : 'Add Customer'} />
 
       <div className="flex justify-center mt-[21px]">
         <Controller
@@ -340,7 +344,7 @@ const CustomerForm = ({
         color="primary"
         className="w-full mt-8 text-xl font-medium cursor-pointer"
       >
-        Add Customer
+        {isEdit ? 'Update Customer' : 'Add Customer'}
       </Button>
     </form>
   );
