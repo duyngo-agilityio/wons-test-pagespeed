@@ -6,10 +6,8 @@ describe('CustomerActions section', () => {
     jest.clearAllMocks();
   });
 
-  it('should match with snapshot', () => {
-    const { container } = testLibJestUtils.render(
-      <CustomerActions onToggleDrawer={() => {}} />,
-    );
+  it('should match with snapshot', async () => {
+    const { container } = testLibJestUtils.render(await CustomerActions());
 
     expect(container).toMatchSnapshot();
   });

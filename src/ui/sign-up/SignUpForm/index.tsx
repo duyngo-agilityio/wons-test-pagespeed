@@ -29,7 +29,7 @@ const SignUpForm = (): JSX.Element => {
       setIsPending(true);
 
       // Call API to create a new account with user role
-      const payload = { ...formData, role: ROLES[0].id };
+      const payload = { ...formData, role: ROLES[1].id };
       const signUpRes = await signUp(payload);
 
       const { error: signUpError } = signUpRes || {};

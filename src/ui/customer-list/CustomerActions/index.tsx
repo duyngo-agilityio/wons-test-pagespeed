@@ -1,28 +1,13 @@
-'use client';
+// Utils
+import { isAdmin } from '@/utils';
 
-import { Button, BsPlus } from '@/components';
+// Components
+import { CustomerDrawer } from '@/components';
 
-interface CustomerActionsProps {
-  onToggleDrawer: () => void;
-}
+const CustomerActions = async (): Promise<JSX.Element> => {
+  const isSuperAdmin = await isAdmin();
 
-const CustomerActions = ({
-  onToggleDrawer,
-}: CustomerActionsProps): JSX.Element => {
-  const handleAddCustomerAndToggle = () => {
-    onToggleDrawer();
-  };
-
-  return (
-    <Button
-      color="primary"
-      startContent={<BsPlus size={22} className="text-white" />}
-      className="text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-10 md:mt-0"
-      onClick={handleAddCustomerAndToggle}
-    >
-      Add Customer
-    </Button>
-  );
+  return isSuperAdmin ? <CustomerDrawer /> : <></>;
 };
 
 export default CustomerActions;

@@ -22,6 +22,7 @@ type TCustomerData = TCustomerDataResponse;
 type CustomersTableProps = {
   data: TCustomerData[];
   pageCount: number;
+  isReadOnly?: boolean;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onToggleSelectStar: (id: string) => void;
@@ -31,88 +32,94 @@ type CustomersTableProps = {
 const CustomersTable = ({
   data = [],
   pageCount,
+  isReadOnly = true,
   onEdit,
   onDelete,
   onRowAction,
 }: CustomersTableProps): JSX.Element => {
   const mappingContentColumns = useMemo(
-    () => [
-      {
-        header: 'Name',
-        accessor: (customerData: TCustomerData) => {
-          const { attributes } = customerData || {};
-          const {
-            avatar = '',
-            firstName = '',
-            lastName = '',
-          } = attributes || {};
+    () =>
+      [
+        {
+          header: 'Name',
+          accessor: (customerData: TCustomerData) => {
+            const { attributes } = customerData || {};
+            const {
+              avatar = '',
+              firstName = '',
+              lastName = '',
+            } = attributes || {};
 
-          return (
-            <div className="flex gap-3.5 items-center">
-              <div className="relative w-9 h-9 rounded-full">
-                <Image
-                  src={avatar}
-                  alt="customer avatar"
-                  fill
-                  objectFit="cover"
-                  className="rounded-full "
+            return (
+              <div className="flex gap-3.5 items-center">
+                <div className="relative w-9 h-9 rounded-full">
+                  <Image
+                    src={avatar}
+                    alt="customer avatar"
+                    fill
+                    objectFit="cover"
+                    className="rounded-full "
+                  />
+                </div>
+
+                <Text
+                  size="md"
+                  text={`${firstName} ${lastName}`}
+                  className="text-nowrap"
                 />
               </div>
-
-              <Text
-                size="md"
-                text={`${firstName} ${lastName}`}
-                className="text-nowrap"
-              />
-            </div>
-          );
+            );
+          },
+          isSort: true,
         },
-        isSort: true,
-      },
-      {
-        header: 'Email',
-        accessor: (customerData: TCustomerData) => {
-          const { attributes } = customerData || {};
-          const { email = '' } = attributes || {};
+        {
+          header: 'Email',
+          accessor: (customerData: TCustomerData) => {
+            const { attributes } = customerData || {};
+            const { email = '' } = attributes || {};
 
-          return (
-            <div className="flex gap-2.5 items-center">
-              <Text size="md" text={email} className="text-nowrap" />
-            </div>
-          );
+            return (
+              <div className="flex gap-2.5 items-center">
+                <Text size="md" text={email} className="text-nowrap" />
+              </div>
+            );
+          },
+          isSort: true,
         },
-        isSort: true,
-      },
-      {
-        header: 'Phone Number',
-        accessor: (customerData: TCustomerData) => {
-          const { attributes } = customerData || {};
-          const { phone = '' } = attributes || {};
+        {
+          header: 'Phone Number',
+          accessor: (customerData: TCustomerData) => {
+            const { attributes } = customerData || {};
+            const { phone = '' } = attributes || {};
 
-          return <Text size="md" text={phone} className="text-nowrap" />;
+            return <Text size="md" text={phone} className="text-nowrap" />;
+          },
+          isSort: true,
         },
-        isSort: true,
-      },
-      {
-        header: 'Gender',
-        accessor: (customerData: TCustomerData) => {
-          const { attributes } = customerData || {};
-          const gender = attributes?.gender || 'male';
+        {
+          header: 'Gender',
+          accessor: (customerData: TCustomerData) => {
+            const { attributes } = customerData || {};
+            const gender = attributes?.gender || 'male';
 
-          return <GenderStatusComponent gender={gender as 'male' | 'female'} />;
+            return (
+              <GenderStatusComponent gender={gender as 'male' | 'female'} />
+            );
+          },
+          isSort: true,
         },
-        isSort: true,
-      },
-      {
-        accessor: (customerData: TCustomerData) => {
-          const { id } = customerData || {};
+        {
+          ...(!isReadOnly && {
+            accessor: (customerData: TCustomerData) => {
+              const { id } = customerData || {};
 
-          return (
-            <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
-          );
+              return (
+                <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
+              );
+            },
+          }),
         },
-      },
-    ],
+      ].filter((item) => Object.keys(item).length !== 0),
     [onDelete, onEdit],
   );
 
