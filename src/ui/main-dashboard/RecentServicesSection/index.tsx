@@ -4,11 +4,8 @@ import { getInvoiceProducts } from '@/api';
 // Layouts
 import { TableLayout } from '@/layouts';
 
-// Models
-import { IProduct, TInvoiceProduct } from '@/models';
-
 // Types
-import { ISearchParams, StrapiModel, StrapiResponse } from '@/types';
+import { ISearchParams, TRecentInvoiceProductResponse } from '@/types';
 
 // Components
 import { RecentServicesTable } from '@/components';
@@ -31,14 +28,12 @@ const RecentServicesSection = async ({
     'createdAt[$gte]': startTime,
     'createdAt[$lte]': endTime,
   };
-  const result: StrapiResponse<
-    StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
-  > = (await getInvoiceProducts({
+  const result: TRecentInvoiceProductResponse = (await getInvoiceProducts({
     sort: searchParams.sortBy
       ? `${sortBy === 'title' ? `product.${sortBy}` : sortBy}:${order}`
       : '',
     filters,
-  })) as StrapiResponse<StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]>;
+  })) as TRecentInvoiceProductResponse;
 
   return (
     <TableLayout>

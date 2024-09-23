@@ -1,25 +1,18 @@
 // Constants
 import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
 
-// Models
-import { IProduct, TInvoiceProduct } from '@/models';
-
 // Types
 import {
-  StrapiModel,
-  StrapiResponse,
   TInvoiceDetailsResponse,
   TInvoiceListResponse,
+  TRecentInvoiceProductResponse,
 } from '@/types';
 
 // Utils
-import { formatFilterIntervalDate } from '@/utils';
+import { formatFilterIntervalDate, formatErrorMessage } from '@/utils';
 
 // Services
 import { httpClient } from '@/services';
-
-// Utils
-import { formatErrorMessage } from '@/utils';
 
 interface IParameters {
   cache?: RequestCache;
@@ -38,20 +31,18 @@ export const getInvoiceProducts = async ({
   const filterQuery: string = formatFilterIntervalDate(
     filters as Record<string, string>,
   );
+  const endpoint: string = `${API_PATH.INVOICE_PRODUCTS}?populate=product&pagination[page]=${DEFAULT_PAGE}&pagination[pageSize]=${PAGE_SIZE[4]}${sortValue}${filterQuery}`;
 
-  const endpoint: string = `${API_PATH.INVOICE_PRODUCTS}?populate=product&
-                            pagination[pageSize]=${PAGE_SIZE[4]}
-                            ${sortValue}${filterQuery}`;
   try {
-    const response = await httpClient.getRequest<
-      StrapiResponse<StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]>
-    >({
-      endpoint: endpoint,
-      configOptions: {
-        cache: cache ?? 'force-cache',
-        next: nextOptions,
+    const response = await httpClient.getRequest<TRecentInvoiceProductResponse>(
+      {
+        endpoint: endpoint,
+        configOptions: {
+          cache: cache ?? 'force-cache',
+          next: nextOptions,
+        },
       },
-    });
+    );
 
     return response;
   } catch (error) {
