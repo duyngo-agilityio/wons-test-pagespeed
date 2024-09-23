@@ -7,12 +7,14 @@ import { ICustomer } from '@/models';
 // Components
 import CustomerDetailsHeader from './header';
 import CustomerDetailsBody from './body';
+import { LoadingIndicator } from '../common';
 
 interface ICustomerDetails {
   customer: ICustomer;
+  isLoading?: boolean;
 }
 
-const CustomerDetails = ({ customer }: ICustomerDetails) => {
+const CustomerDetails = ({ customer, isLoading = false }: ICustomerDetails) => {
   const {
     avatar = '',
     firstName = '',
@@ -24,7 +26,9 @@ const CustomerDetails = ({ customer }: ICustomerDetails) => {
     address = '',
   } = customer ?? {};
 
-  return (
+  return isLoading ? (
+    <LoadingIndicator />
+  ) : (
     <div className="min-h-full max-w-[302px] bg-white dark:bg-gray-400 py-[62px] px-6">
       <CustomerDetailsHeader
         avatar={avatar}
