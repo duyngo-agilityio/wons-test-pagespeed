@@ -89,7 +89,6 @@ export const updateInvoiceProducts = async (
   }
 };
 
-
 export const deleteInvoiceProducts = async (
   ids: number[],
 ): Promise<{ error?: string } | void> => {
@@ -109,7 +108,6 @@ export const deleteInvoiceProducts = async (
     return { error: message };
   }
 };
-
 
 export const createInvoice = async (
   formData: Partial<TInvoice>,
@@ -217,10 +215,10 @@ export const updateInvoice = async (
 };
 
 export const deleteInvoice = async (
-  invoiceId: number, invoiceProductIds: number[]
+  invoiceId: number,
+  invoiceProductIds: number[],
 ): Promise<{ error?: string } | void> => {
   try {
-
     // Delete invoice products
     await deleteInvoiceProducts(invoiceProductIds);
 

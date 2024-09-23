@@ -83,10 +83,6 @@ const InvoiceListClient = ({
     async (invoiceId: number, invoiceProductIds: number[]) => {
       setIsLoading(true);
 
-      console.log('invoiceId======', invoiceId);
-
-      console.log('invoiceProductIds============', invoiceProductIds);
-
       const res = await deleteInvoice(invoiceId, invoiceProductIds);
 
       setIsLoading(false);

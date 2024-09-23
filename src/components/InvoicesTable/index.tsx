@@ -57,8 +57,6 @@ const InvoicesTable = ({
 
   const handleDelete = useCallback(
     (invoiceId: number) => {
-      console.log('handleDelete=============');
-
       const deletedInvoice = data.find((invoice) => {
         const { id } = invoice || {};
 
@@ -66,6 +64,7 @@ const InvoicesTable = ({
       });
 
       const { attributes } = deletedInvoice || {};
+
       const { invoice_products: invoiceProducts } = attributes || {};
       const { data: invoiceProductsData = [] } = invoiceProducts || {};
 

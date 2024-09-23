@@ -84,7 +84,7 @@ export const getInvoices = async ({
     ? `&filters[$or][0][customer][fullName][$containsi]=${query}&filters[$or][1][email][$containsi]=${query}`
     : '';
   const pageValue = `&pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
-  const endpoint: string = `${API_PATH.INVOICES}?populate=customer${sortValue}${searchBy}${pageValue}`;
+  const endpoint: string = `${API_PATH.INVOICES}?populate=customer&populate=invoice_products${sortValue}${searchBy}${pageValue}`;
 
   try {
     const response = await httpClient.getRequest<TInvoiceListResponse>({
