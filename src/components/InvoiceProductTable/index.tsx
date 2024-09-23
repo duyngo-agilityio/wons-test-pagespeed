@@ -86,18 +86,18 @@ const InvoiceProductTable = ({
         const optionsElse = optionsProducts.filter(
           ({ value }) =>
             !productsValues.some(
-              ({ product }) => product.data.id.toString() === value,
+              ({ product }) => product.data?.id?.toString() === value,
             ),
         );
 
         const current = optionsProducts.filter(
-          ({ value }) => value === data.product.data.id.toString(),
+          ({ value }) => value === data.product?.data?.id?.toString(),
         );
 
         return (
           <Autocomplete
             disableClearable
-            defaultSelectedKey={data.product.data.id.toString()}
+            defaultSelectedKey={data.product?.data?.id?.toString()}
             onSelectionChange={(key) =>
               handleChangeProductName(key, data.product.data.id)
             }

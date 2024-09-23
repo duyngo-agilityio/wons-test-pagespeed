@@ -48,7 +48,7 @@ const EditInvoice = async ({ id }: EditInvoiceProps) => {
   const formattedInvoice = {
     ...invoice.attributes,
     id: invoice.id,
-    customerId: invoice.attributes.customer?.data.id.toString() ?? '',
+    customerId: invoice.attributes.customer?.data?.id.toString() ?? '',
   };
 
   return (
