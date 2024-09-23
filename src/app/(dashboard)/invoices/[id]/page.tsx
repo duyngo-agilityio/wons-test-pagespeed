@@ -18,7 +18,7 @@ const InvoiceDetailsPage = ({ params }: IInvoiceDetailsPageProps) => {
 
   return (
     <main>
-      <DashBoardLayout title="Preview">
+      <DashBoardLayout title="Invoice Details">
         <Suspense
           key={`${ROUTES.INVOICE}/${id}`}
           fallback={<InvoiceDetailsSkeleton />}

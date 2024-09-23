@@ -33,13 +33,21 @@ const InvoiceDetailsFooter = ({ customer }: IInvoiceDetailsFooterProps) => {
       </div>
       <div>
         <div className="flex items-center gap-2.5">
-          <Text text="@" size="4xs" className="text text-blue-500" />
+          <Text
+            text="@"
+            size="4xs"
+            className="text text-blue-500 dark:text-blue-500"
+          />
           <Link href={`mailto:${email}`}>
             <Text text={email} size="4xs" className="text-gray-200" />
           </Link>
         </div>
         <div className="flex items-center gap-2.5">
-          <Text text="m" size="4xs" className="text text-blue-500" />
+          <Text
+            text="m"
+            size="4xs"
+            className="text text-blue-500 dark:text-blue-500"
+          />
           <Link
             as={`tel:${formatPhoneNumber}`}
             href={`tel:${formatPhoneNumber}`}
