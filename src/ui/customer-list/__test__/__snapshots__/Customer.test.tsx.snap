@@ -390,16 +390,16 @@ exports[`Customer List component should render all content with resolved data an
   </div>
   <div
     class="EZDrawer"
-    id="EZDrawerhwyon"
+    id="EZDrawer28ucdi"
   >
     <input
       class="EZDrawer__checkbox"
-      id="EZDrawer__checkboxhwyon"
+      id="EZDrawer__checkbox28ucdi"
       type="checkbox"
     />
     <nav
       class="EZDrawer__container !w-full md:!w-[400px]"
-      id="EZDrawer__containerhwyon"
+      id="EZDrawer__container28ucdi"
       role="navigation"
       style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 400px; height: 100vh;"
     >
@@ -909,23 +909,23 @@ exports[`Customer List component should render all content with resolved data an
     </nav>
     <label
       class="EZDrawer__overlay "
-      for="EZDrawer__checkboxhwyon"
-      id="EZDrawer__overlayhwyon"
+      for="EZDrawer__checkbox28ucdi"
+      id="EZDrawer__overlay28ucdi"
       style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
     />
   </div>
   <div
     class="EZDrawer"
-    id="EZDrawer2xtoa"
+    id="EZDrawerlehgcl"
   >
     <input
       class="EZDrawer__checkbox"
-      id="EZDrawer__checkbox2xtoa"
+      id="EZDrawer__checkboxlehgcl"
       type="checkbox"
     />
     <nav
       class="EZDrawer__container !w-[302px] !max-w-[302px]"
-      id="EZDrawer__container2xtoa"
+      id="EZDrawer__containerlehgcl"
       role="navigation"
       style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
     >
@@ -1054,8 +1054,8 @@ exports[`Customer List component should render all content with resolved data an
     </nav>
     <label
       class="EZDrawer__overlay "
-      for="EZDrawer__checkbox2xtoa"
-      id="EZDrawer__overlay2xtoa"
+      for="EZDrawer__checkboxlehgcl"
+      id="EZDrawer__overlaylehgcl"
       style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
     />
   </div>

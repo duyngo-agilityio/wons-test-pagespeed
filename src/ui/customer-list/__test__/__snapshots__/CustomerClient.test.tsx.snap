@@ -595,16 +595,16 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawerdz9il"
+      id="EZDrawerpkfww"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkboxdz9il"
+        id="EZDrawer__checkboxpkfww"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-full md:!w-[400px]"
-        id="EZDrawer__containerdz9il"
+        id="EZDrawer__containerpkfww"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 400px; height: 100vh;"
       >
@@ -1114,23 +1114,23 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkboxdz9il"
-        id="EZDrawer__overlaydz9il"
+        for="EZDrawer__checkboxpkfww"
+        id="EZDrawer__overlaypkfww"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
     <div
       class="EZDrawer"
-      id="EZDraweroii5w"
+      id="EZDrawerik2x7f"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkboxoii5w"
+        id="EZDrawer__checkboxik2x7f"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__containeroii5w"
+        id="EZDrawer__containerik2x7f"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -1259,8 +1259,8 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkboxoii5w"
-        id="EZDrawer__overlayoii5w"
+        for="EZDrawer__checkboxik2x7f"
+        id="EZDrawer__overlayik2x7f"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
