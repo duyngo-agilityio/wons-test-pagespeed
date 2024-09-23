@@ -43,6 +43,7 @@ describe('InvoiceListClient section', () => {
   const renderComponent = (props?: Partial<TInvoiceListClientProps>) =>
     testLibJestUtils.render(
       <InvoiceListClient
+        isReadOnly={false}
         invoiceList={MOCK_INVOICES_WITH_CUSTOMER}
         pageCount={1}
         {...props}

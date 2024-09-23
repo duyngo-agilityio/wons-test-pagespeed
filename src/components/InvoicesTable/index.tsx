@@ -34,6 +34,7 @@ type TInvoiceData = TInvoiceDataResponse;
 type TInvoicesTableProps = {
   data: TInvoiceData[];
   pageCount: number;
+  isReadOnly?: boolean;
   onEdit: (id: number) => void;
   onDelete: (invoiceId: number, invoiceProductIds: number[]) => void;
   onDeleteMultiple: (ids: number[], invoiceProductIds: number[]) => void;
@@ -45,6 +46,7 @@ type TInvoicesTableProps = {
 const InvoicesTable = ({
   data = [],
   pageCount,
+  isReadOnly = true,
   onEdit,
   onDelete,
   onDeleteMultiple,
@@ -112,141 +114,149 @@ const InvoicesTable = ({
   }, []);
 
   const mappingContentColumns = useMemo(
-    () => [
-      {
-        header: 'Invoice Id',
-        accessor: (invoiceData: TInvoiceData) => {
-          const { attributes } = invoiceData || {};
+    () =>
+      [
+        {
+          header: 'Invoice Id',
+          accessor: (invoiceData: TInvoiceData) => {
+            const { attributes } = invoiceData || {};
 
-          const { invoiceId } = attributes || {};
+            const { invoiceId } = attributes || {};
 
-          return <Text size="md" text={`#${invoiceId}`} />;
+            return <Text size="md" text={`#${invoiceId}`} />;
+          },
+          value: 'invoiceId',
+          isSort: true,
         },
-        value: 'invoiceId',
-        isSort: true,
-      },
-      {
-        header: 'Name',
-        accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes } = invoice || {};
-          const { customer } = invoiceAttributes || {};
-          const { data } = customer || {};
-          const { attributes: customerAttributes } = data || {};
+        {
+          header: 'Name',
+          accessor: (invoice: TInvoiceData) => {
+            const { attributes: invoiceAttributes } = invoice || {};
+            const { customer } = invoiceAttributes || {};
+            const { data } = customer || {};
+            const { attributes: customerAttributes } = data || {};
 
-          const { avatar = '', fullName = '' } = customerAttributes || {};
+            const { avatar = '', fullName = '' } = customerAttributes || {};
 
-          return (
-            <div className="flex gap-3.5 items-center">
-              <div className="relative w-9 h-9 rounded-full">
-                <Image
-                  src={avatar}
-                  alt="customer avatar"
-                  fill
-                  objectFit="cover"
-                  className="rounded-full "
+            return (
+              <div className="flex gap-3.5 items-center">
+                <div className="relative w-9 h-9 rounded-full">
+                  <Image
+                    src={avatar}
+                    alt="customer avatar"
+                    fill
+                    objectFit="cover"
+                    className="rounded-full "
+                  />
+                </div>
+
+                <Text size="md" text={fullName} className="text-nowrap" />
+              </div>
+            );
+          },
+          value: 'customer.fullName',
+          isSort: true,
+        },
+        {
+          header: 'Email',
+          accessor: (invoice: TInvoiceData) => {
+            const { attributes: invoiceAttributes } = invoice || {};
+            const { email } = invoiceAttributes || {};
+
+            return (
+              <div className="flex gap-2.5 items-center">
+                <EmailIcon className="text-blue-500 dark:text-purple-600" />
+                <Text size="md" text={email} className="text-nowrap" />
+              </div>
+            );
+          },
+          value: 'email',
+          isSort: true,
+        },
+        {
+          header: 'Date',
+          accessor: (invoice: TInvoiceData) => {
+            const { attributes: invoiceAttributes } = invoice || {};
+            const { date = '' } = invoiceAttributes || {};
+
+            return (
+              <div className="flex gap-2.5 items-center">
+                <CalendarIcon
+                  width={13}
+                  height={14}
+                  className="text-teal-500 dark:text-teal-300"
+                />
+                <Text
+                  size="md"
+                  text={dayjs(date).format('DD MMM, YYYY')}
+                  className="text-nowrap"
                 />
               </div>
-
-              <Text size="md" text={fullName} className="text-nowrap" />
-            </div>
-          );
+            );
+          },
+          value: 'date',
+          isSort: true,
         },
-        value: 'customer.fullName',
-        isSort: true,
-      },
-      {
-        header: 'Email',
-        accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes } = invoice || {};
-          const { email } = invoiceAttributes || {};
+        {
+          header: 'Status',
+          accessor: (invoice: TInvoiceData) => {
+            const { attributes: invoiceAttributes } = invoice || {};
+            const { status = InvoiceStatus.PENDING } = invoiceAttributes || {};
 
-          return (
-            <div className="flex gap-2.5 items-center">
-              <EmailIcon className="text-blue-500 dark:text-purple-600" />
-              <Text size="md" text={email} className="text-nowrap" />
-            </div>
-          );
+            return <InvoiceStatusComponent variant={status} />;
+          },
+          value: 'status',
+          isSort: true,
         },
-        value: 'email',
-        isSort: true,
-      },
-      {
-        header: 'Date',
-        accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes } = invoice || {};
-          const { date = '' } = invoiceAttributes || {};
+        {
+          accessor: (invoice: TInvoiceData) => {
+            const { attributes: invoiceAttributes, id } = invoice || {};
+            const { isSelected = false } = invoiceAttributes || {};
 
-          return (
-            <div className="flex gap-2.5 items-center">
-              <CalendarIcon
-                width={13}
-                height={14}
-                className="text-teal-500 dark:text-teal-300"
+            return (
+              <StarButton
+                id={id}
+                isSelected={isSelected}
+                onClick={onToggleSelectStar}
               />
-              <Text
-                size="md"
-                text={dayjs(date).format('DD MMM, YYYY')}
-                className="text-nowrap"
-              />
-            </div>
-          );
+            );
+          },
         },
-        value: 'date',
-        isSort: true,
-      },
-      {
-        header: 'Status',
-        accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes } = invoice || {};
-          const { status = InvoiceStatus.PENDING } = invoiceAttributes || {};
+        {
+          ...(!isReadOnly && {
+            header: (
+              <Button
+                data-testid="multiple-delete-btn"
+                isIconOnly
+                isDisabled={!selectedInvoiceIds.length}
+                className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
+                onClick={handleOpenConfirmModal}
+              >
+                <MdDelete
+                  size={20}
+                  className="text-blue-800/30 dark:text-white/40"
+                />
+              </Button>
+            ),
 
-          return <InvoiceStatusComponent variant={status} />;
+            accessor: (invoice: TInvoiceData) => {
+              const { id } = invoice || {};
+
+              return (
+                <DropdownActions
+                  id={id}
+                  onEdit={onEdit}
+                  onDelete={handleDelete}
+                />
+              );
+            },
+          }),
         },
-        value: 'status',
-        isSort: true,
-      },
-      {
-        accessor: (invoice: TInvoiceData) => {
-          const { attributes: invoiceAttributes, id } = invoice || {};
-          const { isSelected = false } = invoiceAttributes || {};
-
-          return (
-            <StarButton
-              id={id}
-              isSelected={isSelected}
-              onClick={onToggleSelectStar}
-            />
-          );
-        },
-      },
-      {
-        header: (
-          <Button
-            data-testid="multiple-delete-btn"
-            isIconOnly
-            isDisabled={!selectedInvoiceIds.length}
-            className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
-            onClick={handleOpenConfirmModal}
-          >
-            <MdDelete
-              size={20}
-              className="text-blue-800/30 dark:text-white/40"
-            />
-          </Button>
-        ),
-
-        accessor: (invoice: TInvoiceData) => {
-          const { id } = invoice || {};
-
-          return (
-            <DropdownActions id={id} onEdit={onEdit} onDelete={handleDelete} />
-          );
-        },
-      },
-    ],
+      ].filter((item) => Object.keys(item).length !== 0),
     [
       handleDelete,
       handleOpenConfirmModal,
+      isReadOnly,
       onEdit,
       onToggleSelectStar,
       selectedInvoiceIds.length,

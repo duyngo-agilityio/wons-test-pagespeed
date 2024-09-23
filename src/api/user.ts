@@ -4,10 +4,16 @@ import { API_PATH } from '@/constants';
 // Services
 import { httpClient } from '@/services';
 
-export const getProfile = async (jwt: string) => {
+// Types
+import { TProfileResponse } from '@/types';
+
+// Utils
+import { formatErrorMessage } from '@/utils';
+
+export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
   try {
-    const data = await httpClient.getRequest({
-      endpoint: `${API_PATH.USERS}/me?populate*`,
+    const data = await httpClient.getRequest<TProfileResponse>({
+      endpoint: `${API_PATH.USERS}/me?populate=role`,
       configOptions: {
         headers: {
           Authorization: `Bearer ${jwt}`,
@@ -16,8 +22,10 @@ export const getProfile = async (jwt: string) => {
       },
     });
 
-    return { data };
+    return data;
   } catch (error) {
-    return error;
+    const message = formatErrorMessage(error);
+
+    throw new Error(message);
   }
 };

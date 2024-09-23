@@ -1,6 +1,9 @@
 // APIs
 import { getInvoices } from '@/api';
 
+// Utils
+import { isAdmin } from '@/utils';
+
 // Constants
 import { API_PATH } from '@/constants';
 
@@ -32,8 +35,11 @@ const InvoiceList = async ({
   const { pagination } = meta || {};
   const { pageCount = 0 } = pagination || {};
 
+  const isSuperAdmin = await isAdmin();
+
   return (
     <InvoiceListClient
+      isReadOnly={!isSuperAdmin}
       invoiceList={invoices}
       pageCount={pageCount}
       sortOrder={sortOrder}

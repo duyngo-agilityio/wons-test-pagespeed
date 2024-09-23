@@ -11,10 +11,10 @@ import { authenticate, signUp } from '@/actions';
 import { useToast } from '@/hooks';
 
 // Types
-import { TSignUpPayload } from '@/types';
+import { ISignUpFormData } from '@/types';
 
 // Constants
-import { MESSAGE_STATUS, ROUTES } from '@/constants';
+import { MESSAGE_STATUS, ROLES, ROUTES } from '@/constants';
 
 // Components
 import { SignUpForm as SignUpFormComponent } from '@/components';
@@ -25,11 +25,12 @@ const SignUpForm = (): JSX.Element => {
   const router = useRouter();
 
   const handleSignUp = useCallback(
-    async (formData: TSignUpPayload) => {
+    async (formData: ISignUpFormData) => {
       setIsPending(true);
 
-      // Call API to create a new account
-      const signUpRes = await signUp(formData);
+      // Call API to create a new account with user role
+      const payload = { ...formData, role: ROLES[0].id };
+      const signUpRes = await signUp(payload);
 
       const { error: signUpError } = signUpRes || {};
 

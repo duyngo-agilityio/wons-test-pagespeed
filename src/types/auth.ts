@@ -1,5 +1,5 @@
 // Models
-import { User } from '@/models';
+import { TUser } from '@/models';
 
 export interface SignInFormData {
   identifier: string;
@@ -8,7 +8,7 @@ export interface SignInFormData {
 
 export interface AuthResponse {
   jwt: string;
-  user: User | null;
+  user: TUser | null;
   error: string;
 }
 
@@ -24,6 +24,12 @@ export type TSignUpPayload = {
   username: string;
   email: string;
   password: string;
+  role: number;
 };
 
-export type TSignUpResponse = { jwt: string; user: Omit<User, 'password'> };
+export type TSignUpResponse = { jwt: string; user: Omit<TUser, 'password'> };
+
+export type TRole = {
+  id: number;
+  name: string;
+};

@@ -7,3 +7,4 @@ export * from './table';
 export * from './toast';
 export * from './invoice';
 export * from './customer';
+export * from './user';

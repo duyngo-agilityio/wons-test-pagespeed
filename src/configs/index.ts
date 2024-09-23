@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { httpClient } from '@/services';
 
 // Models
-import { ROLE, User } from '@/models';
+import { TUser } from '@/models';
 
 // Api
 import { getProfile } from '@/api';
@@ -19,13 +19,8 @@ import { AuthResponse } from '@/types';
 import { API_PATH } from '@/constants';
 
 declare module 'next-auth' {
-  interface User {
-    role: ROLE;
-    token: string;
-  }
-
   interface Session {
-    user: User & DefaultSession['user'];
+    user: TUser & DefaultSession['user'];
   }
 }
 
@@ -55,11 +50,13 @@ export const CredentialsProvider = Credentials({
 
       const { jwt, user } = data as AuthResponse;
 
-      const profile = (await getProfile(jwt)) as User;
+      const profile = await getProfile(jwt);
 
       if (!user) return null;
 
-      return { ...user, token: jwt, role: profile.role };
+      const { role } = profile || {};
+
+      return { ...user, token: jwt, role: role };
     }
 
     return null;

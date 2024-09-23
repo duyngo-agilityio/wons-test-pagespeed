@@ -7,9 +7,14 @@ jest.mock('@/ui', () => ({
   CreateInvoice: () => <div data-testid="create-invoice">Create Invoice</div>,
 }));
 
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  notFound: jest.fn(),
+}));
+
 describe('CreateInvoice Page render', () => {
   it('should render and match with snapshot', async () => {
-    const { container } = render(<CreateInvoicePage />);
+    const { container } = render(await CreateInvoicePage());
 
     await waitFor(() => {
       expect(container).toBeInTheDocument();
