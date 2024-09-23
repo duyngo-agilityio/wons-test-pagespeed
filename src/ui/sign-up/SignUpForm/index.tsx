@@ -14,7 +14,7 @@ import { useToast } from '@/hooks';
 import { ISignUpFormData } from '@/types';
 
 // Constants
-import { MESSAGE_STATUS, ROLES, ROUTES } from '@/constants';
+import { MESSAGE_STATUS, ROUTES } from '@/constants';
 
 // Components
 import { SignUpForm as SignUpFormComponent } from '@/components';
@@ -28,9 +28,8 @@ const SignUpForm = (): JSX.Element => {
     async (formData: ISignUpFormData) => {
       setIsPending(true);
 
-      // Call API to create a new account with user role
-      const payload = { ...formData, role: ROLES[1].id };
-      const signUpRes = await signUp(payload);
+      // Call API to create a new account
+      const signUpRes = await signUp(formData);
 
       const { error: signUpError } = signUpRes || {};
 
