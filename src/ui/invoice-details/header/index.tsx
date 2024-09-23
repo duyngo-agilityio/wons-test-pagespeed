@@ -59,7 +59,7 @@ const InvoiceDetailsHeader = ({
               <Text
                 text="@"
                 size="3xs"
-                className="text text-blue-500 dark:text-blue-500"
+                className="!text-blue-500 dark:!text-purple-600"
               />
               <Link href={`mailto:${email}`}>
                 <Text text={email} size="2xs" className="text-gray-200" />
@@ -69,7 +69,7 @@ const InvoiceDetailsHeader = ({
               <Text
                 text="m"
                 size="3xs"
-                className="text text-blue-500 dark:text-blue-500"
+                className="!text-blue-500 dark:!text-purple-600"
               />
               <Link
                 as={`tel:${formatPhoneNumber}`}
@@ -91,7 +91,7 @@ const InvoiceDetailsHeader = ({
             <Text
               text="@"
               size="3xs"
-              className="text text-blue-500 dark:text-blue-500"
+              className="!text-blue-500 dark:!text-purple-600"
             />
             <Link href={`mailto:${EMAIL}`}>
               <Text text={EMAIL} size="2xs" />
@@ -101,7 +101,7 @@ const InvoiceDetailsHeader = ({
             <Text
               text="m"
               size="3xs"
-              className="text text-blue-500 dark:text-blue-500"
+              className="!text-blue-500 dark:!text-purple-600"
             />
             <Link href={`tel:${PHONE}`}>
               <Text text={PHONE} size="2xs" />
