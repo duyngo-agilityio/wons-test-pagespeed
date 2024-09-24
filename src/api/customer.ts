@@ -14,6 +14,8 @@ type CustomerListConfigs = {
   id?: number;
   page?: number;
   pageSize?: number;
+  sortBy?: string;
+  order?: string;
   cache?: RequestCache;
   nextOptions?: NextFetchRequestConfig;
 };
@@ -22,9 +24,12 @@ export const getCustomers = async ({
   page = DEFAULT_PAGE,
   pageSize = PAGE_SIZE[10],
   cache,
+  sortBy,
+  order,
   nextOptions,
 }: CustomerListConfigs = {}): Promise<TCustomerListResponse> => {
-  const pageValue = `pagination[page]=${page}&pagination[pageSize]=${pageSize}`;
+  const sortValue = sortBy ? `&sort=${sortBy}:${order}` : '';
+  const pageValue = `pagination[page]=${page}&pagination[pageSize]=${pageSize}${sortValue}`;
 
   const endpoint = `${API_PATH.CUSTOMERS}?${pageValue}`;
 

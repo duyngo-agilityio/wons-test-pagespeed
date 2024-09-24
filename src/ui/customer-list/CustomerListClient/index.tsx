@@ -4,6 +4,7 @@
 import { Key, useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 // Components
 import {
@@ -24,7 +25,12 @@ import { CUSTOMER_MOCK } from '@/mocks';
 import { useToast } from '@/hooks';
 
 // Constants
-import { MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
+import {
+  MESSAGE_STATUS,
+  ORDER,
+  SEARCH_QUERIES,
+  SUCCESS_MESSAGES,
+} from '@/constants';
 
 // Actions
 import { deleteCustomer, updateCustomer } from '@/actions';
@@ -39,11 +45,13 @@ export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
   pageCount: number;
   isReadOnly?: boolean;
+  order?: string;
 };
 
 const CustomerListClient = ({
   customerList,
   pageCount,
+  order = '',
   isReadOnly = true,
 }: TCustomerListClientProps): JSX.Element => {
   const [toggleDetails, setToggleDetails] = useState<boolean>(false);
@@ -59,6 +67,13 @@ const CustomerListClient = ({
   const [customerForm, setCustomerForm] = useState<ICustomer>();
   const [idCustomer, setIdCustomer] = useState<number>();
   const [toggleForm, setToggleForm] = useState<boolean>(false);
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const paramsObject = searchParams
+    ? Object.fromEntries(searchParams.entries())
+    : {};
 
   const handleCloseFormDrawer = () => {
     setToggleForm(false);
@@ -96,6 +111,20 @@ const CustomerListClient = ({
     },
     [showToast],
   );
+
+  const handleSort = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (value) {
+      params.set(SEARCH_QUERIES.SORT_BY, value);
+      params.set(
+        SEARCH_QUERIES.ORDER,
+        order === ORDER.DESC ? ORDER.ASC : ORDER.DESC,
+      );
+    }
+
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   // TODO: Update later
   const handleToggleSelectStart = useCallback(() => {}, []);
@@ -152,6 +181,9 @@ const CustomerListClient = ({
       <CustomerTable
         isReadOnly={isReadOnly}
         data={customerList}
+        onSort={handleSort}
+        sortBy={paramsObject.sortBy}
+        order={paramsObject.order}
         pageCount={pageCount}
         onEdit={handleEdit}
         onDelete={handleDelete}

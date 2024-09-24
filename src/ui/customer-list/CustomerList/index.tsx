@@ -12,11 +12,19 @@ import { isAdmin } from '@/utils';
 
 type TCustomerListProps = {
   page?: number;
+  sortBy?: string;
+  order?: string;
 };
 
-const CustomerList = async ({ page }: TCustomerListProps) => {
+const CustomerList = async ({
+  page,
+  sortBy = '',
+  order = '',
+}: TCustomerListProps) => {
   const { data: customerRes, meta } = await getCustomers({
     page,
+    sortBy,
+    order,
     nextOptions: { tags: [API_PATH.CUSTOMERS] },
   });
 
@@ -27,6 +35,7 @@ const CustomerList = async ({ page }: TCustomerListProps) => {
 
   return (
     <CustomerListClient
+      order={order}
       customerList={customerRes}
       pageCount={pageCount}
       isReadOnly={!isSuperAdmin}

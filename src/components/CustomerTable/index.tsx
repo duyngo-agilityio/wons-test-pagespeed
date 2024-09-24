@@ -26,7 +26,10 @@ type CustomersTableProps = {
   data: TCustomerData[];
   pageCount: number;
   isReadOnly?: boolean;
+  sortBy?: string;
+  order?: string;
   onEdit: (id: number) => void;
+  onSort: (field: string) => void;
   onDelete: (id: number) => void;
   onToggleSelectStar: (id: string) => void;
   onRowAction?: (key: Key) => void;
@@ -36,7 +39,10 @@ const CustomersTable = ({
   data = [],
   pageCount,
   isReadOnly = true,
+  sortBy = '',
+  order = '',
   onEdit,
+  onSort,
   onDelete,
   onRowAction,
 }: CustomersTableProps): JSX.Element => {
@@ -74,6 +80,7 @@ const CustomersTable = ({
             );
           },
           isSort: true,
+          value: 'fullName',
         },
         {
           header: 'Email',
@@ -88,6 +95,7 @@ const CustomersTable = ({
             );
           },
           isSort: true,
+          value: 'email',
         },
         {
           header: 'Phone Number',
@@ -104,6 +112,7 @@ const CustomersTable = ({
             );
           },
           isSort: true,
+          value: 'phone',
         },
         {
           header: 'Gender',
@@ -116,6 +125,7 @@ const CustomersTable = ({
             );
           },
           isSort: true,
+          value: 'gender',
         },
         {
           ...(!isReadOnly && {
@@ -135,8 +145,11 @@ const CustomersTable = ({
   return (
     <div className="flex flex-col gap-10">
       <Table
+        onSort={onSort}
         columns={mappingContentColumns}
         data={data}
+        sortBy={sortBy}
+        order={order}
         onRowAction={onRowAction}
       />
 
