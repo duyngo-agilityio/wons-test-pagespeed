@@ -55,9 +55,9 @@ const CustomerListClient = ({
   );
 
   const [isPending, startTransition] = useTransition();
-  console.log('isPending', isPending);
-  // const [isLoadingEdit, setIsLoadingEdit] = useState<boolean>(false);
+
   const [customerForm, setCustomerForm] = useState<ICustomer>();
+  const [idCustomer, setIdCustomer] = useState<number>();
   const [toggleForm, setToggleForm] = useState<boolean>(false);
 
   const handleCloseFormDrawer = () => {
@@ -66,6 +66,8 @@ const CustomerListClient = ({
 
   const handleEdit = useCallback(
     (id: number) => {
+      setIdCustomer(id);
+
       const data: TCustomerDataResponse = customerList.find(
         (customer) => customer.id === id,
       ) as TCustomerDataResponse;
@@ -74,7 +76,7 @@ const CustomerListClient = ({
 
       setToggleForm(true);
     },
-    [customerList],
+    [customerList, setCustomerForm, setToggleForm],
   );
 
   const handleDelete = useCallback(
@@ -117,25 +119,30 @@ const CustomerListClient = ({
     [customerList],
   );
 
-  const handleFormSubmit = useCallback((payload: ICustomer) => {
-    startTransition(async () => {
-      const { error } = await updateCustomer(payload.id, payload);
+  const handleFormSubmit = useCallback(
+    (payload: ICustomer) => {
+      startTransition(async () => {
+        if (idCustomer) {
+          const { error } = await updateCustomer(idCustomer, payload);
 
-      if (error) {
-        showToast({
-          description: error,
-          status: MESSAGE_STATUS.ERROR,
-        });
+          if (error) {
+            showToast({
+              description: error,
+              status: MESSAGE_STATUS.ERROR,
+            });
 
-        return;
-      }
+            return;
+          }
 
-      showToast({
-        description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
-        status: MESSAGE_STATUS.SUCCESS,
+          showToast({
+            description: SUCCESS_MESSAGES.UPDATE_CUSTOMER,
+            status: MESSAGE_STATUS.SUCCESS,
+          });
+        }
       });
-    });
-  }, []);
+    },
+    [idCustomer, showToast],
+  );
 
   const handleAvatarChange = useCallback(() => {}, []);
 
@@ -171,6 +178,7 @@ const CustomerListClient = ({
             <CustomerForm
               isEdit
               previewData={customerForm}
+              isDisabledField={isPending}
               onAvatarChange={handleAvatarChange}
               onSubmit={handleFormSubmit}
               setReset={() => {}}

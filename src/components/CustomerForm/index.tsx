@@ -109,8 +109,6 @@ const CustomerForm = ({
 
   const saveData = useCallback(
     async (formData: Partial<ICustomer>) => {
-      console.log('formData', formData);
-
       onSubmit(formData as ICustomer);
       reset();
     },
