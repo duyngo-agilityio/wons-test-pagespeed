@@ -17,6 +17,7 @@ describe('InvoicesTable Component', () => {
   const renderComponent = () =>
     testLibJestUtils.render(
       <InvoicesTable
+        isReadOnly={false}
         data={MOCK_INVOICES_WITH_CUSTOMER}
         onDelete={mockOnDelete}
         onDeleteMultiple={mockOnDeleteMultiple}
