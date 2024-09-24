@@ -19,7 +19,7 @@ exports[`DashboardLayout should match snapshot 1`] = `
           Dashboard
         </h2>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
           data-filled="true"
           data-filled-within="true"
           data-has-value="true"
