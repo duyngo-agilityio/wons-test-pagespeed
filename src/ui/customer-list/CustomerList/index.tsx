@@ -1,5 +1,5 @@
 // apis
-import { getCustomerById, getCustomers } from '@/api';
+import { getCustomers } from '@/api';
 
 // constants
 import { API_PATH } from '@/constants';
@@ -21,8 +21,6 @@ const CustomerList = async ({ page }: TCustomerListProps) => {
   });
 
   const isSuperAdmin = await isAdmin();
-
-  await getCustomerById({ id: 2 });
 
   const { pagination } = meta || {};
   const { pageCount = 0 } = pagination || {};

@@ -46,27 +46,3 @@ export const getCustomers = async ({
     throw new Error(message);
   }
 };
-
-export const getCustomerById = async ({
-  id,
-  cache,
-  nextOptions,
-}: CustomerListConfigs) => {
-  const endpoint = `${API_PATH.CUSTOMERS}/${id}`;
-
-  try {
-    const response = await httpClient.getRequest<TCustomerListResponse>({
-      endpoint,
-      configOptions: {
-        cache: cache ?? 'force-cache',
-        next: nextOptions,
-      },
-    });
-
-    return response;
-  } catch (error) {
-    const message = formatErrorMessage(error);
-
-    throw new Error(message);
-  }
-};
