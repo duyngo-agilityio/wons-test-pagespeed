@@ -2,7 +2,7 @@
 import { ICustomer } from '@/models';
 
 // Types
-import { TableColumnType } from '@/types';
+import { TableColumnType, TCustomerListResponse } from '@/types';
 
 export const PRODUCT_TABLE_COLUMNS_MOCK: TableColumnType<Partial<ICustomer>>[] =
   [
@@ -132,3 +132,15 @@ export const MOCK_CUSTOMERS_WITH_ATTRIBUTES = [
     },
   },
 ];
+
+export const MOCK_CUSTOMER_RESPONSE: TCustomerListResponse = {
+  data: MOCK_CUSTOMERS_WITH_ATTRIBUTES,
+  meta: {
+    pagination: {
+      page: 1,
+      pageSize: 10,
+      pageCount: 1,
+      total: 2,
+    },
+  },
+};
