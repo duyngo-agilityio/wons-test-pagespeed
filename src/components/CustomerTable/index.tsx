@@ -3,6 +3,9 @@
 import { Key, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
+// Utils
+import { formatPhoneNumberTyping } from '@/utils';
+
 // Components
 import {
   Table,
@@ -92,7 +95,13 @@ const CustomersTable = ({
             const { attributes } = customerData || {};
             const { phone = '' } = attributes || {};
 
-            return <Text size="md" text={phone} className="text-nowrap" />;
+            return (
+              <Text
+                size="md"
+                text={formatPhoneNumberTyping(phone)}
+                className="text-nowrap"
+              />
+            );
           },
           isSort: true,
         },
