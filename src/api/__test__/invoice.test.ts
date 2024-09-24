@@ -1,8 +1,12 @@
 // APIs
-import { getInvoiceProducts, getInvoices } from '../invoice';
+import { getInvoiceProducts, getInvoices, getInvoiceById } from '../invoice';
 
 // Mocks
-import { MOCK_ERROR_RESPONSE, MOCK_INVOICES_RESPONSE } from '@/mocks';
+import {
+  MOCK_ERROR_RESPONSE,
+  MOCK_INVOICES_RESPONSE,
+  MOCK_INVOICES_WITH_CUSTOMER,
+} from '@/mocks';
 
 // Services
 import { httpClient } from '@/services';
@@ -113,5 +117,27 @@ describe('Invoice APIs', () => {
 
       expect(result).toEqual(MOCK_ERROR_RESPONSE);
     });
+  });
+});
+
+describe('getInvoiceById', () => {
+  it('should get the invoice list successfully', async () => {
+    jest
+      .spyOn(httpClient, 'getRequest')
+      .mockResolvedValue(MOCK_INVOICES_WITH_CUSTOMER[0]);
+
+    const response = await getInvoiceById({
+      id: 4,
+    });
+
+    expect(response).toEqual(MOCK_INVOICES_WITH_CUSTOMER[0]);
+  });
+
+  it('should get the invoice list failed', async () => {
+    jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
+
+    await expect(getInvoiceById({})).rejects.toThrow(
+      ERROR_MESSAGES.UNKNOWN_ERROR,
+    );
   });
 });
