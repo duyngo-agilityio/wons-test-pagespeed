@@ -223,7 +223,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 <p
                   class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
                 >
-                  123-456-7890
+                  (123) 456-7890
                 </p>
               </td>
               <td
@@ -341,7 +341,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 <p
                   class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
                 >
-                  987-654-3210
+                  (987) 654-3210
                 </p>
               </td>
               <td
