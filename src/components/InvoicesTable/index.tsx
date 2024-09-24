@@ -278,7 +278,7 @@ const InvoicesTable = ({
   return (
     <div className="flex flex-col gap-10">
       <Table
-        selectionMode="multiple"
+        selectionMode={!isReadOnly ? 'multiple' : 'none'}
         // Simulate data
         columns={mappingContentColumns}
         data={data}

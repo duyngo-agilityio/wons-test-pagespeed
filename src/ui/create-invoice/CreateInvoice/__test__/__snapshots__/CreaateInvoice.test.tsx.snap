@@ -123,7 +123,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   id="react-aria-:r5:"
                   placeholder=" "
                   type="text"
-                  value="#423229"
+                  value="#644234"
                 />
               </div>
             </div>
@@ -1220,7 +1220,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   id="react-aria-:r34:"
                   placeholder=" "
                   type="text"
-                  value="#542339"
+                  value="#467876"
                 />
               </div>
             </div>
