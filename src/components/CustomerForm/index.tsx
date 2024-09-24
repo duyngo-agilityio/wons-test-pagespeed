@@ -14,6 +14,7 @@ import {
   clearErrorOnChange,
   clearPhoneNumberFormat,
   formatPhoneNumberTyping,
+  getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -69,7 +70,7 @@ export interface ICustomerFormProps {
   onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
   setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
-  previewData?: ICustomer | null;
+  previewData?: ICustomer;
 }
 
 const CustomerForm = ({
@@ -82,36 +83,31 @@ const CustomerForm = ({
 }: ICustomerFormProps) => {
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues },
     clearErrors,
     handleSubmit,
+    watch,
     reset,
   } = useForm<Partial<ICustomer>>({
     resolver: zodResolver(customerFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: previewData || {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      address: '',
-      job: '',
-      gender: undefined,
-      avatar: '',
-    },
+    values: previewData,
   });
 
   setReset(reset);
 
   const dirtyItems = Object.keys(dirtyFields);
+
   const enableSubmit: boolean = useMemo(
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
     [dirtyItems, errors],
   );
-  const isDisableSubmit = !enableSubmit;
+  const isDisableSubmit = !(
+    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
+  );
 
-  const handleAddCustomer = useCallback(
+  const saveData = useCallback(
     async (formData: Partial<ICustomer>) => {
       onSubmit(formData as ICustomer);
       reset();
@@ -122,7 +118,7 @@ const CustomerForm = ({
   return (
     <form
       className="w-full max-w-2xl mx-auto"
-      onSubmit={handleSubmit(handleAddCustomer)}
+      onSubmit={handleSubmit(saveData)}
     >
       <Heading title={isEdit ? 'Update Customer' : 'Add Customer'} />
 
@@ -302,7 +298,7 @@ const CustomerForm = ({
             <Select
               name={name}
               id="gender"
-              value={value || undefined}
+              defaultSelectedKeys={[value as string]}
               labelPlacement="outside"
               placeholder=" "
               label="Gender"

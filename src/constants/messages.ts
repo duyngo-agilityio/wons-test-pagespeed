@@ -25,6 +25,7 @@ export const SUCCESS_MESSAGES = {
   UPDATE_INVOICE: 'Update invoice successfully.',
   CREATE_CUSTOMER: 'Create customer successfully.',
   DELETE_CUSTOMER: 'Delete customer successfully.',
+  UPDATE_CUSTOMER: 'Update customer successfully.',
 };
 
 export const MESSAGE_STATUS: Record<string, string> = {
