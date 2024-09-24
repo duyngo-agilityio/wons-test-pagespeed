@@ -2,9 +2,6 @@
 
 import { revalidateTag } from 'next/cache';
 
-// APIs
-import { uploadImage } from '@/api/image';
-
 // Constants
 import { API_PATH } from '@/constants';
 
@@ -114,18 +111,6 @@ export const createInvoice = async (
   products: TInvoiceProduct<IProduct & { id: number }>[],
 ) => {
   try {
-    if (formData.imageUrl) {
-      const imageFormData = new FormData();
-      imageFormData.append('image', formData.imageUrl);
-      const imageUrl = await uploadImage(imageFormData);
-
-      if (typeof imageUrl === 'string') {
-        formData.imageUrl = imageUrl;
-      } else {
-        return { error: imageUrl.error };
-      }
-    }
-
     const resProducts = await createInvoiceProducts(products);
 
     const formattedInvoiceData = {
