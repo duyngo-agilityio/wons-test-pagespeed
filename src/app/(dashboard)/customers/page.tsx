@@ -30,7 +30,7 @@ type TInvoiceListPageProps = {
 const CustomerListPage = ({
   searchParams,
 }: TInvoiceListPageProps): JSX.Element => {
-  const { page = DEFAULT_PAGE } = searchParams || {};
+  const { page = DEFAULT_PAGE, order, sortBy } = searchParams || {};
 
   return (
     <main>
@@ -46,7 +46,7 @@ const CustomerListPage = ({
             />
           }
         >
-          <CustomerList page={+page} />
+          <CustomerList page={+page} order={order} sortBy={sortBy} />
         </Suspense>
       </DashBoardLayout>
     </main>
