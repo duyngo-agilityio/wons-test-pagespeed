@@ -163,15 +163,12 @@ const InvoiceForm = ({
 
     if (isAvatarDirty && avatarFile) {
       try {
-        const formDataImage = new FormData();
-        formDataImage.append('image', avatarFile);
+        const imageUrl = await uploadImage(avatarFile);
 
-        const imageUrl = await uploadImage(formDataImage);
-
-        if (typeof imageUrl === 'string') {
-          formData.imageUrl = imageUrl;
+        if (imageUrl?.downloadURL) {
+          formData.imageUrl = imageUrl.downloadURL;
         } else {
-          return setErrorProducts(imageUrl.error);
+          return { error: imageUrl.error };
         }
       } catch (error) {
         return setErrorProducts(error as string);

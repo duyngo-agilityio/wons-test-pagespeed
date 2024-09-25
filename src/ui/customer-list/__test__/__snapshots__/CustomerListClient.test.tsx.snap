@@ -596,16 +596,16 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawermj04wk"
+      id="EZDrawerbljvr"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkboxmj04wk"
+        id="EZDrawer__checkboxbljvr"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__containermj04wk"
+        id="EZDrawer__containerbljvr"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -734,8 +734,8 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkboxmj04wk"
-        id="EZDrawer__overlaymj04wk"
+        for="EZDrawer__checkboxbljvr"
+        id="EZDrawer__overlaybljvr"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
@@ -1338,16 +1338,16 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawerfbeh1"
+      id="EZDrawerkzqey"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkboxfbeh1"
+        id="EZDrawer__checkboxkzqey"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__containerfbeh1"
+        id="EZDrawer__containerkzqey"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -1476,8 +1476,8 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkboxfbeh1"
-        id="EZDrawer__overlayfbeh1"
+        for="EZDrawer__checkboxkzqey"
+        id="EZDrawer__overlaykzqey"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>

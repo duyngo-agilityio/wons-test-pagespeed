@@ -123,7 +123,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   id="react-aria-:r5:"
                   placeholder=" "
                   type="text"
-                  value="#342822"
+                  value="#261115"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   aria-labelledby="react-aria-:rr: react-aria-:rj: react-aria-:re:"
                   aria-valuemax="30"
                   aria-valuemin="1"
-                  aria-valuenow="24"
+                  aria-valuenow="25"
                   aria-valuetext="Empty"
                   autocorrect="off"
                   class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
@@ -1220,7 +1220,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   id="react-aria-:r34:"
                   placeholder=" "
                   type="text"
-                  value="#306214"
+                  value="#637877"
                 />
               </div>
             </div>
@@ -1292,7 +1292,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   aria-labelledby="react-aria-:r3q: react-aria-:r3i: react-aria-:r3d:"
                   aria-valuemax="30"
                   aria-valuemin="1"
-                  aria-valuenow="24"
+                  aria-valuenow="25"
                   aria-valuetext="Empty"
                   autocorrect="off"
                   class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
