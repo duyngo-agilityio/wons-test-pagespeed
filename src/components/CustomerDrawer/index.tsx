@@ -49,16 +49,12 @@ const CustomerDrawer = (): JSX.Element => {
     async (formData: ICustomer) => {
       if (avatarFile && isAvatarDirty) {
         try {
-          const formDataAvatar = new FormData();
+          const uploadImageResponse = await uploadImage(avatarFile);
 
-          formDataAvatar.append('image', avatarFile);
-
-          const avatar = await uploadImage(formDataAvatar);
-
-          if (typeof avatar === 'string') {
-            formData.avatar = avatar;
+          if (uploadImageResponse?.downloadURL) {
+            formData.avatar = uploadImageResponse.downloadURL;
           } else {
-            return { error: avatar.error };
+            return { error: uploadImageResponse.error };
           }
         } catch (error) {
           return error;

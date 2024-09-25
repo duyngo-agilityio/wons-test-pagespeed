@@ -1,27 +1,22 @@
-export const uploadImage = async (
-  image: FormData,
-): Promise<string | { error: string }> => {
+import { UploadImageResponse } from '@/types';
+
+export const uploadImage = async (file: File): Promise<UploadImageResponse> => {
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_UPLOAD_URL}?key=${process.env.NEXT_PUBLIC_UPLOAD_KEY}`,
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const uploadImageRequest = await fetch(
+      process.env.NEXT_PUBLIC_UPLOAD_URL || '',
       {
-        method: 'POST',
-        body: image,
         headers: {
-          Accept: 'application/json',
+          'API-Key': process.env.NEXT_PUBLIC_UPLOAD_KEY || '',
         },
+        method: 'POST',
+        body: formData,
       },
     );
 
-    if (!response.ok) {
-      const errorMessage = `Error: ${response.statusText}`;
-      console.error('Error uploading image:', errorMessage);
-      return { error: errorMessage };
-    }
-
-    const data = await response.json();
-
-    return data?.data?.url;
+    return await uploadImageRequest.json();
   } catch (error) {
     const message = `Error: ${error instanceof Error ? error.message : 'Unknown error'}`;
     return { error: message };
