@@ -17,6 +17,7 @@ import {
 
 // Types
 import { TCustomerDataResponse } from '@/types';
+import Link from 'next/link';
 
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 
@@ -90,7 +91,9 @@ const CustomersTable = ({
 
             return (
               <div className="flex gap-2.5 items-center">
-                <Text size="md" text={email} className="text-nowrap" />
+                <Link href={`mailto:${email}`}>
+                  <Text size="md" text={email} className="text-nowrap" />
+                </Link>
               </div>
             );
           },
@@ -104,11 +107,13 @@ const CustomersTable = ({
             const { phone = '' } = attributes || {};
 
             return (
-              <Text
-                size="md"
-                text={formatPhoneNumberTyping(phone)}
-                className="text-nowrap"
-              />
+              <Link href={`tel:${phone}`}>
+                <Text
+                  size="md"
+                  text={formatPhoneNumberTyping(phone)}
+                  className="text-nowrap"
+                />
+              </Link>
             );
           },
           isSort: true,

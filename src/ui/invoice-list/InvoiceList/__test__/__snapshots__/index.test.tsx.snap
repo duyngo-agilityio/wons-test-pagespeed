@@ -267,11 +267,15 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                         fill-rule="evenodd"
                       />
                     </svg>
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:arroragaur@gmail.com"
                     >
-                      arroragaur@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        arroragaur@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -431,11 +435,15 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                         fill-rule="evenodd"
                       />
                     </svg>
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:annejacob@gmail.com"
                     >
-                      annejacob@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        annejacob@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td

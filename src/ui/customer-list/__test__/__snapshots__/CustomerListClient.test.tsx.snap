@@ -202,11 +202,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:arroragaur@gmail.com"
                     >
-                      arroragaur@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        arroragaur@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -215,11 +219,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(213) 555-5554"
                   >
-                    (213) 555-5554
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (213) 555-5554
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -289,11 +297,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:annejacob@gmail.com"
                     >
-                      annejacob@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        annejacob@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -302,11 +314,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(325) 987-6541"
                   >
-                    (325) 987-6541
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (325) 987-6541
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -375,11 +391,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:johndoe@example.com"
                     >
-                      johndoe@example.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        johndoe@example.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -388,11 +408,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(555) 123-4567"
                   >
-                    (555) 123-4567
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (555) 123-4567
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -462,11 +486,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:janesmith@example.com"
                     >
-                      janesmith@example.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        janesmith@example.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -475,11 +503,15 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(555) 765-4321"
                   >
-                    (555) 765-4321
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (555) 765-4321
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -596,16 +628,16 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawerel5hl"
+      id="EZDrawer6ekam"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkboxel5hl"
+        id="EZDrawer__checkbox6ekam"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__containerel5hl"
+        id="EZDrawer__container6ekam"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -734,8 +766,8 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkboxel5hl"
-        id="EZDrawer__overlayel5hl"
+        for="EZDrawer__checkbox6ekam"
+        id="EZDrawer__overlay6ekam"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
@@ -944,11 +976,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:arroragaur@gmail.com"
                     >
-                      arroragaur@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        arroragaur@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -957,11 +993,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(213) 555-5554"
                   >
-                    (213) 555-5554
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (213) 555-5554
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -1031,11 +1071,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:annejacob@gmail.com"
                     >
-                      annejacob@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        annejacob@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -1044,11 +1088,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(325) 987-6541"
                   >
-                    (325) 987-6541
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (325) 987-6541
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -1117,11 +1165,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:johndoe@example.com"
                     >
-                      johndoe@example.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        johndoe@example.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -1130,11 +1182,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(555) 123-4567"
                   >
-                    (555) 123-4567
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (555) 123-4567
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -1204,11 +1260,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   <div
                     class="flex gap-2.5 items-center"
                   >
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:janesmith@example.com"
                     >
-                      janesmith@example.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        janesmith@example.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -1217,11 +1277,15 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   role="gridcell"
                   tabindex="-1"
                 >
-                  <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                  <a
+                    href="tel:(555) 765-4321"
                   >
-                    (555) 765-4321
-                  </p>
+                    <p
+                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    >
+                      (555) 765-4321
+                    </p>
+                  </a>
                 </td>
                 <td
                   class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
@@ -1338,16 +1402,16 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawerj505t"
+      id="EZDrawerc6dq2k"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkboxj505t"
+        id="EZDrawer__checkboxc6dq2k"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__containerj505t"
+        id="EZDrawer__containerc6dq2k"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -1476,8 +1540,8 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkboxj505t"
-        id="EZDrawer__overlayj505t"
+        for="EZDrawer__checkboxc6dq2k"
+        id="EZDrawer__overlayc6dq2k"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
