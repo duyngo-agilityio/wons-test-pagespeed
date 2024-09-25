@@ -115,3 +115,15 @@ export const Radius: Story = {
     </div>
   ),
 };
+
+export const Disable: Story = {
+  args: {
+    color: 'primary',
+    size: 'lg',
+  },
+  render: (args) => (
+    <Checkbox isDisabled {...args}>
+      Disable
+    </Checkbox>
+  ),
+};
