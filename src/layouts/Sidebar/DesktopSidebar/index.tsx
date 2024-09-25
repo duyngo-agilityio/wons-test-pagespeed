@@ -29,9 +29,9 @@ const DesktopSidebar = ({
   >
     <div
       className={clsx(
-        'bg-white dark:bg-gray-400 px-6.25 py-7.5 flex flex-col duration-700 min-h-full',
+        'bg-white dark:bg-gray-400 px-6.25 py-7.5 flex flex-col min-h-full',
         toggleDesktopSidebar === SIDE_BAR_STATE.OPEN
-          ? 'max-w-60'
+          ? 'max-w-60 duration-700'
           : 'max-w-20 items-center rounded-10',
       )}
     >
