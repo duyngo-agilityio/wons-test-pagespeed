@@ -1,4 +1,4 @@
-export const eventTabs = [
+export const EVENT_TABS = [
   { key: 'event', label: 'Event', content: 'This is the event content' },
   {
     key: 'reminder',
