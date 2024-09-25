@@ -38,9 +38,7 @@ export const createCustomer = async (formData: Partial<ICustomer>) => {
   }
 };
 
-export const deleteCustomer = async (
-  id: number,
-): Promise<{ error?: string } | void> => {
+export const deleteCustomer = async (id: number) => {
   try {
     const response: TInvoiceListResponse = await httpClient.getRequest({
       endpoint: `${API_PATH.INVOICES}?filters[customer][$eq]=${id}`,
@@ -58,6 +56,8 @@ export const deleteCustomer = async (
 
     revalidateTag(API_PATH.CUSTOMERS);
     revalidateTag(API_PATH.INVOICES);
+
+    return { success: true };
   } catch (error) {
     const message = formatErrorMessage(error);
 
