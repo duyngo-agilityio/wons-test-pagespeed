@@ -1,5 +1,3 @@
-import { waitFor } from '@testing-library/react';
-
 // Mocks
 import { MOCK_CUSTOMERS_WITH_ATTRIBUTES } from '@/mocks';
 
@@ -68,10 +66,25 @@ describe('CustomerListClient section', () => {
   it('should match with snapshot', async () => {
     const { container } = renderComponent();
 
-    await waitFor(() => {
+    await testLibJestUtils.waitFor(() => {
       expect(container).toBeInTheDocument();
     });
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('open customer details drawer', async () => {
+    const { container } = renderComponent();
+
+    await testLibJestUtils.waitFor(() => {
+      testLibJestUtils.fireEvent.click(
+        container.querySelector('[data-key="1"]') as Element,
+      );
+    });
+
+    // Await drawer appear
+    await testLibJestUtils.waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });

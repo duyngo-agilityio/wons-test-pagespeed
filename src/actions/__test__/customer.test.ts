@@ -12,12 +12,17 @@ import { API_PATH } from '@/constants';
 // models
 import { ICustomer } from '@/models';
 
+// Mocks
+import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
+
 // actions
-import { createCustomer } from '@/actions/customer';
+import { createCustomer, deleteCustomer } from '@/actions/customer';
 
 jest.mock('@/services', () => ({
   httpClient: {
+    getRequest: jest.fn(),
     postRequest: jest.fn(),
+    deleteRequest: jest.fn(),
   },
 }));
 
@@ -87,5 +92,55 @@ describe('createCustomer', () => {
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
     expect(result).toEqual({ error: 'Something went wrong.' });
     expect(revalidateTag).not.toHaveBeenCalled();
+  });
+});
+
+describe('deleteCustomer', () => {
+  const customerID = MOCK_INVOICES_WITH_CUSTOMER[0].attributes.customer.data.id;
+  const invoiceID = MOCK_INVOICES_WITH_CUSTOMER[0].id;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('calls success', async () => {
+    (httpClient.getRequest as jest.Mock).mockResolvedValue({
+      data: MOCK_INVOICES_WITH_CUSTOMER,
+    });
+    (httpClient.deleteRequest as jest.Mock).mockResolvedValue({
+      endpoint: `${API_PATH.INVOICES}/${invoiceID}`,
+    });
+    (httpClient.deleteRequest as jest.Mock).mockResolvedValue({
+      endpoint: `${API_PATH.CUSTOMERS}/${customerID}`,
+    });
+
+    const result = await deleteCustomer(
+      MOCK_INVOICES_WITH_CUSTOMER[0].attributes.customer.data.id,
+    );
+
+    expect(httpClient.deleteRequest).toHaveBeenCalledWith({
+      endpoint: `${API_PATH.INVOICES}/${invoiceID}`,
+    });
+    expect(httpClient.deleteRequest).toHaveBeenCalledWith({
+      endpoint: `${API_PATH.CUSTOMERS}/${customerID}`,
+    });
+
+    expect(revalidateTag).toHaveBeenCalledWith(API_PATH.CUSTOMERS);
+    expect(revalidateTag).toHaveBeenCalledWith(API_PATH.INVOICES);
+    expect(result).toEqual({ success: true });
+  });
+
+  it('calls failed', async () => {
+    const MOCK_ERROR = new Error('Request failed');
+    (httpClient.getRequest as jest.Mock).mockResolvedValue({
+      data: undefined,
+    });
+    (httpClient.deleteRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
+
+    const result = await deleteCustomer(customerID);
+
+    expect(revalidateTag).not.toHaveBeenCalled();
+    expect(result).toEqual({ error: 'Something went wrong.' });
   });
 });
