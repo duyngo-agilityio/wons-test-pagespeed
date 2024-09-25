@@ -35,8 +35,8 @@ exports[`InvoicesTable Component match snapshot 1`] = `
               >
                 <th
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="row-header-column-ait5galu6s4"
-                  id="react-aria-:r0:-row-header-column-ait5galu6s4"
+                  data-key="row-header-column-fyu6g4cvg5q"
+                  id="react-aria-:r0:-row-header-column-fyu6g4cvg5q"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -403,11 +403,15 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                         fill-rule="evenodd"
                       />
                     </svg>
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:arroragaur@gmail.com"
                     >
-                      arroragaur@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        arroragaur@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td
@@ -645,11 +649,15 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                         fill-rule="evenodd"
                       />
                     </svg>
-                    <p
-                      class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                    <a
+                      href="mailto:annejacob@gmail.com"
                     >
-                      annejacob@gmail.com
-                    </p>
+                      <p
+                        class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
+                      >
+                        annejacob@gmail.com
+                      </p>
+                    </a>
                   </div>
                 </td>
                 <td

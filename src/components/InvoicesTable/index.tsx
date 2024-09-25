@@ -25,6 +25,7 @@ import {
   Button,
   StarButton,
 } from '@/components';
+import Link from 'next/link';
 
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
@@ -166,7 +167,9 @@ const InvoicesTable = ({
             return (
               <div className="flex gap-2.5 items-center">
                 <EmailIcon className="text-blue-500 dark:text-purple-600" />
-                <Text size="md" text={email} className="text-nowrap" />
+                <Link href={`mailto:${email}`}>
+                  <Text size="md" text={email} className="text-nowrap" />
+                </Link>
               </div>
             );
           },
