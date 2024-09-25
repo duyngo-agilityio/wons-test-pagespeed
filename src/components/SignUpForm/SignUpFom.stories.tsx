@@ -16,4 +16,9 @@ export const Default: Story = {
   args: {
     onSubmit: fn(),
   },
+  render: (args) => (
+    <div className="flex flex-col items-center pt-[47px] pb-[90px] mx-auto base:w-full xs:max-w-[348px]">
+      <SignUpForm {...args} />
+    </div>
+  ),
 };
