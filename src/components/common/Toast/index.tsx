@@ -46,7 +46,7 @@ const Toast = ({
       </div>
       <Button
         isIconOnly
-        className={`ml-2 p-0 ${getStatusColor()}`}
+        className={`ml-2 p-0 hover:!bg-transparent dark:hover:!bg-transparent ${getStatusColor()}`}
         onClick={handleClose}
       >
         <IoIosClose
