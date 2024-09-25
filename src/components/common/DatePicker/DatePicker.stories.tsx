@@ -49,7 +49,7 @@ export const Default: Story = {
   },
 };
 
-export const HasValue: Story = {
+export const WithValue: Story = {
   args: {
     label: 'Date',
     defaultValue: parseAbsoluteToLocal('2024-09-07T18:45:22Z'),
@@ -58,7 +58,7 @@ export const HasValue: Story = {
   },
 };
 
-export const HasError: Story = {
+export const Error: Story = {
   args: {
     label: 'Date',
     defaultValue: parseAbsoluteToLocal('2024-09-07T18:45:22Z'),
