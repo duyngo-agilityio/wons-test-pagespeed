@@ -155,7 +155,7 @@ exports[`Customer List component should render all content with resolved data an
               tabindex="-1"
             >
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
                 id="react-aria-:r0:-1-Name0"
                 role="rowheader"
@@ -184,7 +184,7 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-1"
                 role="gridcell"
                 tabindex="-1"
@@ -198,7 +198,7 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-2"
                 role="gridcell"
                 tabindex="-1"
@@ -208,7 +208,7 @@ exports[`Customer List component should render all content with resolved data an
                 />
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-3"
                 role="gridcell"
                 tabindex="-1"
@@ -235,7 +235,7 @@ exports[`Customer List component should render all content with resolved data an
               tabindex="-1"
             >
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
                 id="react-aria-:r0:-2-Name0"
                 role="rowheader"
@@ -264,7 +264,7 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-1"
                 role="gridcell"
                 tabindex="-1"
@@ -278,7 +278,7 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-2"
                 role="gridcell"
                 tabindex="-1"
@@ -288,7 +288,7 @@ exports[`Customer List component should render all content with resolved data an
                 />
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-3"
                 role="gridcell"
                 tabindex="-1"
@@ -314,7 +314,7 @@ exports[`Customer List component should render all content with resolved data an
               tabindex="-1"
             >
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-0"
                 id="react-aria-:r0:-3-Name0"
                 role="rowheader"
@@ -343,7 +343,7 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-1"
                 role="gridcell"
                 tabindex="-1"
@@ -357,7 +357,7 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-2"
                 role="gridcell"
                 tabindex="-1"
@@ -367,7 +367,7 @@ exports[`Customer List component should render all content with resolved data an
                 />
               </td>
               <td
-                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg last:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
+                class="relative align-middle whitespace-normal font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]"
                 data-key="table-cell-3"
                 role="gridcell"
                 tabindex="-1"
@@ -390,16 +390,16 @@ exports[`Customer List component should render all content with resolved data an
   </div>
   <div
     class="EZDrawer"
-    id="EZDrawerl429e"
+    id="EZDrawer7q802"
   >
     <input
       class="EZDrawer__checkbox"
-      id="EZDrawer__checkboxl429e"
+      id="EZDrawer__checkbox7q802"
       type="checkbox"
     />
     <nav
       class="EZDrawer__container !w-[302px] !max-w-[302px]"
-      id="EZDrawer__containerl429e"
+      id="EZDrawer__container7q802"
       role="navigation"
       style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
     >
@@ -528,8 +528,8 @@ exports[`Customer List component should render all content with resolved data an
     </nav>
     <label
       class="EZDrawer__overlay "
-      for="EZDrawer__checkboxl429e"
-      id="EZDrawer__overlayl429e"
+      for="EZDrawer__checkbox7q802"
+      id="EZDrawer__overlay7q802"
       style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
     />
   </div>

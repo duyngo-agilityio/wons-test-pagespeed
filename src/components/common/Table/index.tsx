@@ -68,7 +68,7 @@ const TableCustom = <T extends { id: string }>({
       header: 'bg-gray-50 dark:bg-gray-600 px-[17px]',
       table:
         'border-separate border-spacing-x-0 border-spacing-y-[10px] bg-gray-50 dark:bg-gray-600',
-      td: 'last:rounded-r-lg',
+      td: 'last:rounded-r-lg last:group-data-[middle=true]:before:rounded-r-lg',
       cell: 'text-[10px] sm:text-[14px] leading-[18px] py-[17px] px-[17px]',
     },
     secondary: {
@@ -116,7 +116,7 @@ const TableCustom = <T extends { id: string }>({
         ),
         table: TableClasses[variant].table,
         td: clsx(
-          'first:rounded-l-lg',
+          'first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg',
           TableClasses[variant].td,
           TableClasses[variant].cell,
         ),
