@@ -35,7 +35,6 @@ interface CustomTableProps<T> {
   sortBy?: string;
   order?: string;
   onSort?: (value: string) => void;
-  newData?: T;
   onSelectChange?: (keys: Selection) => void;
   onRowAction?: (key: Key) => void;
 }
@@ -43,7 +42,6 @@ interface CustomTableProps<T> {
 const TableCustom = <T extends { id: string }>({
   columns,
   data,
-  newData,
   variant = 'primary',
   isStriped = false,
   isStripedRow = false,
@@ -80,8 +78,6 @@ const TableCustom = <T extends { id: string }>({
       cell: 'leading-[17px] py-[17px] px-[21px]',
     },
   };
-
-  const dataTable = data.length === 0 && newData ? [newData] : data;
 
   const handleSelectChange = useCallback(
     (keys: Selection) => onSelectChange(keys),
@@ -164,7 +160,7 @@ const TableCustom = <T extends { id: string }>({
         })}
       </TableHeader>
       <TableBody emptyContent={'No Records found.'}>
-        {dataTable.map((item) => (
+        {data.map((item) => (
           <TableRow
             key={item.id}
             data-id={item.id}
