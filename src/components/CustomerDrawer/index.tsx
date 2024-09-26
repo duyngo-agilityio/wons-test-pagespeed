@@ -118,6 +118,7 @@ const CustomerDrawer = (): JSX.Element => {
           <Button
             onClick={handleCloseDrawer}
             className="absolute top-5 right-5 !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+            data-testid="close-button"
           >
             <IoClose size={20} />
           </Button>
