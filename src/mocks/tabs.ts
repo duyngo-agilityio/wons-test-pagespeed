@@ -7,3 +7,8 @@ export const EVENT_TABS = [
   },
   { key: 'task', label: 'Task', content: 'This is the task content' },
 ];
+
+export const productTabs = [
+  { key: 'product', label: 'Product', isDisable: false },
+  { key: 'customer', label: 'Customer', isDisable: true },
+];

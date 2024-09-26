@@ -1,35 +1,46 @@
 'use client';
 
-import { Tabs as NextUITabs, Tab, TabsProps } from '@nextui-org/react';
+import { cn, Tabs as NextUITabs, Tab, TabsProps } from '@nextui-org/react';
+
 interface TabType {
   key: string;
   label: string;
-  content: string;
+  content?: string;
+  isDisable?: boolean;
 }
 
 interface CustomTabsProps extends TabsProps {
   tabs: TabType[];
 }
 
-const Tabs = ({ tabs, ...props }: CustomTabsProps) => {
+const Tabs = ({ tabs, classNames, className, ...props }: CustomTabsProps) => {
+  const { cursor, tabList, tab, tabContent } = classNames || {};
+
   return (
-    <div className={`p-4 rounded-xl  dark:bg-purple-900`}>
-      <NextUITabs
-        aria-label="Custom tabs"
-        classNames={{
-          base: 'text-white',
-          tabList: `bg-pink-400 dark:bg-pink-600`,
-          cursor: `bg-pink-500`,
-          tabContent: `text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white`,
-          tab: 'my-[2px] mx-[2px]',
-        }}
-        {...props}
-      >
-        {tabs.map((tab) => (
-          <Tab key={tab.key} title={tab.label} className="px-4 py-2" />
-        ))}
-      </NextUITabs>
-    </div>
+    <NextUITabs
+      className={cn('p-4 rounded-[3px] dark:bg-purple-900', className)}
+      aria-label="Custom tabs"
+      classNames={{
+        base: 'text-white',
+        tabList: cn('bg-pink-400 dark:bg-pink-600', tabList),
+        cursor: cn('bg-pink-500', cursor),
+        tabContent: cn(
+          'text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white',
+          tabContent,
+        ),
+        tab: cn('my-[2px] mx-[2px]', tab),
+      }}
+      {...props}
+    >
+      {tabs.map((tab) => (
+        <Tab
+          key={tab.key}
+          title={tab.label}
+          isDisabled={tab.isDisable}
+          className="px-4 py-2"
+        />
+      ))}
+    </NextUITabs>
   );
 };
 

@@ -1,20 +1,20 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 
-// layouts
-import { DashBoardLayout } from '@/layouts';
-
-// uis
-import { ProductActions } from '@/ui';
-
-// components
+// Components
 import { TableSkeleton } from '@/components';
 
-// constants
-import { MAPPING_CUSTOMER_LIST_SKELETON } from '@/constants/skeleton';
-import { DEFAULT_PAGE } from '@/constants';
+// Constants
+import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
+import { MAPPING_PRODUCT_SKELETON } from '@/constants/skeleton';
 
-// types
+// Layouts
+import { DashBoardLayout, TableLayout } from '@/layouts';
+
+// UIs
+import { ProductActions, ProductList } from '@/ui/product-list';
+
+// Types
 import { ISearchParams } from '@/types';
 
 export const metadata: Metadata = {
@@ -35,20 +35,18 @@ const ProductListPage = ({
   return (
     <main>
       <DashBoardLayout
-        title="Product Analytics"
+        title={PAGE_TITLES.PRODUCT}
         rightContent={<ProductActions />}
       >
         <Suspense
           key={page}
           fallback={
-            <TableSkeleton
-              variant="primary"
-              isStriped={false}
-              columns={MAPPING_CUSTOMER_LIST_SKELETON}
-            />
+            <TableLayout>
+              <TableSkeleton columns={MAPPING_PRODUCT_SKELETON} />
+            </TableLayout>
           }
         >
-          {/* TODO: Update later, add suspense for ProductList */}
+          <ProductList />
         </Suspense>
       </DashBoardLayout>
     </main>
