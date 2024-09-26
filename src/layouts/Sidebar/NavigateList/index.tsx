@@ -134,7 +134,7 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
   );
 
   return (
-    <Listbox>
+    <Listbox aria-label="Sidebar">
       {MAPPING_SIDEBAR_CONTENTS.map(
         ({ id, href, startContent, endContent, content }) => (
           <ListboxItem
