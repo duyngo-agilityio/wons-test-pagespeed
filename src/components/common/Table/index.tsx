@@ -136,7 +136,7 @@ const TableCustom = <T extends { id: string }>({
 
           return (
             <TableColumn
-              key={`${header}${index}`}
+              key={`${value}${index}`}
               data-testid="sort-btn"
               className={clsx(
                 'py-0 cursor-pointer font-normal',
