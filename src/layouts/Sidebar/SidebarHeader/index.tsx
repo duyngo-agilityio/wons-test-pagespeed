@@ -22,6 +22,7 @@ const SidebarHeader = ({ isToggle, onToggleSidebar }: ISidebarHeader) => (
         isToggle ? 'right-0' : '-right-5 rotate-180',
       )}
       onClick={onToggleSidebar}
+      aria-label="Toggle sidebar"
     >
       <FaChevronLeft />
     </Button>
