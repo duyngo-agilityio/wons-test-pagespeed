@@ -144,6 +144,7 @@ const TableCustom = <T extends { id: string }>({
                 isStripedRow && 'border-none',
               )}
               onClick={handleSort}
+              style={{ visibility: header ? 'visible' : 'hidden' }}
             >
               <div className="flex items-center gap-2">
                 {header}
