@@ -12,7 +12,7 @@ exports[`InvoiceListActions section should match with snapshot 1`] = `
       class="mb-1 flex items-center gap-5 base:mt-10 md:mt-0 base:flex-col md:flex-row"
     >
       <div
-        class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] base:!w-full md:!w-[230px]"
+        class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] base:!w-full md:!w-[230px]"
         data-filled="true"
         data-filled-within="true"
         data-slot="base"
