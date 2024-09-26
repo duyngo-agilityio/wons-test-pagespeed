@@ -200,6 +200,11 @@ const InvoiceProductTable = ({
       );
   };
 
+  const dataTable =
+    productsValues.length === 0 && initInvoiceProduct
+      ? [initInvoiceProduct]
+      : productsValues;
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -226,9 +231,8 @@ const InvoiceProductTable = ({
         <Table
           isStripedRow
           variant="secondary"
-          newData={initInvoiceProduct}
           columns={columnTable}
-          data={productsValues}
+          data={dataTable}
         />
         {errorProducts && (
           <Text text={errorProducts} className="text-red-400" />

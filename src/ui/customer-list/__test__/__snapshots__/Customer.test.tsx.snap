@@ -179,7 +179,7 @@ exports[`Customer List component should render all content with resolved data an
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
                   >
-                     
+
                   </p>
                 </div>
               </td>
@@ -267,7 +267,7 @@ exports[`Customer List component should render all content with resolved data an
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
                   >
-                     
+
                   </p>
                 </div>
               </td>
@@ -354,7 +354,7 @@ exports[`Customer List component should render all content with resolved data an
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
                   >
-                     
+
                   </p>
                 </div>
               </td>
