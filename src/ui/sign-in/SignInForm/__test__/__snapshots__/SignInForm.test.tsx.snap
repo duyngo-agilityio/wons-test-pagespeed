@@ -115,64 +115,6 @@ exports[`SignInForm Component should match with snapshot 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="flex justify-between mt-[25px]"
-          >
-            <div
-              class="flex items-center"
-            >
-              <label
-                aria-label="Remember Me"
-                class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2"
-              >
-                <span
-                  style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-                >
-                  <input
-                    aria-label="Remember Me"
-                    aria-labelledby=":ra:"
-                    type="checkbox"
-                    value=""
-                  />
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:box-border after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-primary-foreground text-primary-foreground mr-2 rtl:ml-2 rtl:mr-[unset] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-blue-500 dark:after:bg-purple-600 after:hover:bg-blue-500 dark:after:hover:bg-purple-600 before:border-blue-800/30 dark:before:border-white/30 w-3.75 h-3.75 before:border rounded-sm before:rounded-sm after:rounded-sm"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity motion-reduce:transition-none text-white dark:text-gray-400"
-                    role="presentation"
-                    viewBox="0 0 17 18"
-                  >
-                    <polyline
-                      fill="none"
-                      points="1 9 7 14 15 4"
-                      stroke="currentColor"
-                      stroke-dasharray="22"
-                      stroke-dashoffset="66"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                    />
-                  </svg>
-                </span>
-              </label>
-              <p
-                class="font-dm-sans text-blue-800 dark:text-white text-md color-blue.900 text-[14.22px] leading-[18.51px]"
-              >
-                Remember me
-              </p>
-            </div>
-            <div>
-              <a
-                class="text-[14.22px] leading-[18.51px] !text-blue-500 dark:!text-purple-600 hover:underline"
-                href="#"
-              >
-                Reset Password?
-              </a>
-            </div>
-          </div>
           <button
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 opacity-50 cursor-not-allowed px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-10"
             data-disabled="true"
@@ -317,64 +259,6 @@ exports[`SignInForm Component should match with snapshot 1`] = `
                 </svg>
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="flex justify-between mt-[25px]"
-        >
-          <div
-            class="flex items-center"
-          >
-            <label
-              aria-label="Remember Me"
-              class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2"
-            >
-              <span
-                style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
-              >
-                <input
-                  aria-label="Remember Me"
-                  aria-labelledby=":ra:"
-                  type="checkbox"
-                  value=""
-                />
-              </span>
-              <span
-                aria-hidden="true"
-                class="relative inline-flex items-center justify-center flex-shrink-0 overflow-hidden before:content-[''] before:absolute before:inset-0 before:border-solid before:box-border after:content-[''] after:absolute after:inset-0 after:scale-50 after:opacity-0 after:origin-center group-data-[selected=true]:after:scale-100 group-data-[selected=true]:after:opacity-100 group-data-[hover=true]:before:bg-default-100 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background after:text-primary-foreground text-primary-foreground mr-2 rtl:ml-2 rtl:mr-[unset] before:transition-colors group-data-[pressed=true]:scale-95 transition-transform after:transition-transform-opacity after:!ease-linear after:!duration-200 motion-reduce:transition-none after:bg-blue-500 dark:after:bg-purple-600 after:hover:bg-blue-500 dark:after:hover:bg-purple-600 before:border-blue-800/30 dark:before:border-white/30 w-3.75 h-3.75 before:border rounded-sm before:rounded-sm after:rounded-sm"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="z-10 opacity-0 group-data-[selected=true]:opacity-100 w-4 h-3 transition-opacity motion-reduce:transition-none text-white dark:text-gray-400"
-                  role="presentation"
-                  viewBox="0 0 17 18"
-                >
-                  <polyline
-                    fill="none"
-                    points="1 9 7 14 15 4"
-                    stroke="currentColor"
-                    stroke-dasharray="22"
-                    stroke-dashoffset="66"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                  />
-                </svg>
-              </span>
-            </label>
-            <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md color-blue.900 text-[14.22px] leading-[18.51px]"
-            >
-              Remember me
-            </p>
-          </div>
-          <div>
-            <a
-              class="text-[14.22px] leading-[18.51px] !text-blue-500 dark:!text-purple-600 hover:underline"
-              href="#"
-            >
-              Reset Password?
-            </a>
           </div>
         </div>
         <button
