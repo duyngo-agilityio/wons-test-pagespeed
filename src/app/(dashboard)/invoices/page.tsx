@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 // Constants
-import { DEFAULT_PAGE } from '@/constants';
+import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
 import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
 
 // Types
@@ -34,7 +34,7 @@ const InvoiceListPage = ({
     <main>
       {/* TODO: Update later, add suspense for InvoiceListActions */}
       <DashBoardLayout
-        title="Invoice List"
+        title={PAGE_TITLES.INVOICE}
         rightContent={<InvoiceListActions />}
       >
         <Suspense

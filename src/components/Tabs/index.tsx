@@ -14,14 +14,14 @@ interface CustomTabsProps extends TabsProps {
 }
 
 const Tabs = ({ tabs, classNames, className, ...props }: CustomTabsProps) => {
-  const { cursor, tabList, tab, tabContent } = classNames || {};
+  const { cursor, tabList, tab, tabContent, base } = classNames || {};
 
   return (
     <NextUITabs
       className={cn('p-4 rounded-[3px] dark:bg-purple-900', className)}
       aria-label="Custom tabs"
       classNames={{
-        base: 'text-white',
+        base: cn('text-white', base),
         tabList: cn('bg-pink-400 dark:bg-pink-600', tabList),
         cursor: cn('bg-pink-500', cursor),
         tabContent: cn(

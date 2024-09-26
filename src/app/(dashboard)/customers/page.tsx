@@ -12,7 +12,7 @@ import { TableSkeleton } from '@/components';
 
 // constants
 import { MAPPING_CUSTOMER_LIST_SKELETON } from '@/constants/skeleton';
-import { DEFAULT_PAGE } from '@/constants';
+import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
 
 // types
 import { ISearchParams } from '@/types';
@@ -35,7 +35,10 @@ const CustomerListPage = ({
   return (
     <main>
       {/* TODO: Update later, add suspense for CustomerDrawer */}
-      <DashBoardLayout title="Customer List" rightContent={<CustomerActions />}>
+      <DashBoardLayout
+        title={PAGE_TITLES.CUSTOMER}
+        rightContent={<CustomerActions />}
+      >
         <Suspense
           key={page}
           fallback={

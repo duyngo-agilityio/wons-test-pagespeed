@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 // Components
-import { TableSkeleton } from '@/components';
+import { DateRangePicker, ProductDrawer, TableSkeleton } from '@/components';
 
 // Constants
 import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
@@ -12,7 +12,7 @@ import { MAPPING_PRODUCT_SKELETON } from '@/constants/skeleton';
 import { DashBoardLayout, TableLayout } from '@/layouts';
 
 // UIs
-import { ProductActions, ProductList } from '@/ui/product-list';
+import { ProductList } from '@/ui/product-list';
 
 // Types
 import { ISearchParams } from '@/types';
@@ -36,8 +36,9 @@ const ProductListPage = ({
     <main>
       <DashBoardLayout
         title={PAGE_TITLES.PRODUCT}
-        rightContent={<ProductActions />}
+        rightContent={<DateRangePicker />}
       >
+        <ProductDrawer />
         <Suspense
           key={page}
           fallback={
