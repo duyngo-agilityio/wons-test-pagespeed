@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Calendar, DateValue } from '@nextui-org/react';
+import { Calendar, CalendarProps, DateValue } from '@nextui-org/react';
 import { getLocalTimeZone, today } from '@internationalized/date';
 
 // Utils
@@ -10,10 +10,11 @@ import { formatDateCalendar } from '@/utils';
 // Components
 import { Text } from '@/components';
 
-const CalendarCustom = () => {
-  const [selectedDate, setSelectedDate] = useState<DateValue>(
-    today(getLocalTimeZone()),
-  );
+const CalendarCustom = ({
+  value = today(getLocalTimeZone()),
+  ...props
+}: CalendarProps) => {
+  const [selectedDate, setSelectedDate] = useState<DateValue | null>(value);
 
   return (
     <Calendar
@@ -36,9 +37,13 @@ const CalendarCustom = () => {
       }}
       topContent={
         <div className="flex absolute w-4/5 flex justify-between top-[17px] right-[24px] z-100 bg-white dark:bg-gray-400">
-          <Text text={formatDateCalendar(selectedDate)} className="z-100" />
+          <Text
+            text={formatDateCalendar(selectedDate ?? today(getLocalTimeZone()))}
+            className="z-100"
+          />
         </div>
       }
+      {...props}
     />
   );
 };
