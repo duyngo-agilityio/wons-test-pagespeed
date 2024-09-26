@@ -28,7 +28,7 @@ const SignInPage = ({ children }: SignInLayoutProps) => (
   >
     <div className="flex flex-col items-center pt-[47px] md:pt-[148px] pb-[90px] mx-auto base:w-full xs:max-w-[348px]">
       <Logo />
-      <Heading className="mt-[38px] mb-[41px]" title="Sign In" />
+      <Heading className="mt-[38px] mb-[41px]" title="Sign in" />
       {children}
     </div>
   </AuthLayout>

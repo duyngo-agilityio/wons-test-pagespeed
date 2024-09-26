@@ -105,8 +105,8 @@ const SidebarFooter = ({
         </div>
       </section>
       <ConfirmModal
-        title="SignOut"
-        content="Are you sure you would like to SignOut?"
+        title="Sign out"
+        content="Are you sure you would like to Sign out?"
         isOpen={isModalOpen}
         onConfirm={handleSignOut}
         onCancel={handleCancelDelete}

@@ -32,8 +32,8 @@ interface SignInFormProps {
 const signInSchema = z.object({
   identifier: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email'))
-    .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
+    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email Address'))
+    .email(ERROR_MESSAGES.FIELD_INVALID('Email Address')),
   password: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Password')),
 });
 
