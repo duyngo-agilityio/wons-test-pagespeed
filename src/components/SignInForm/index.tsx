@@ -2,7 +2,6 @@
 
 import { useCallback, useMemo, useState, useTransition } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import Link from 'next/link';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -23,7 +22,7 @@ import { useToast } from '@/hooks';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 // Components
-import { Button, Input, Text, Checkbox } from '@/components';
+import { Button, Input } from '@/components';
 
 interface SignInFormProps {
   onSubmit: (data: SignInFormData) => Promise<void | string>;
@@ -157,24 +156,6 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
           />
         )}
       />
-
-      <div className="flex justify-between mt-[25px]">
-        <div className="flex items-center">
-          <Checkbox aria-label="Remember Me" />
-          <Text
-            text="Remember me"
-            className="color-blue.900 text-[14.22px] leading-[18.51px]"
-          />
-        </div>
-        <div>
-          <Link
-            href="#"
-            className="text-[14.22px] leading-[18.51px] !text-blue-500 dark:!text-purple-600 hover:underline"
-          >
-            Reset Password?
-          </Link>
-        </div>
-      </div>
 
       <Button
         type="submit"
