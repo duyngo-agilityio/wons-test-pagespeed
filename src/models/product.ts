@@ -7,3 +7,10 @@ export interface IProduct {
   updatedAt?: string;
   publishedAt?: string;
 }
+
+export interface IProductDetail extends IProduct {
+  id: number;
+  brand: string;
+  description: string;
+  negotiable: boolean;
+}

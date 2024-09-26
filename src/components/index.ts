@@ -24,3 +24,5 @@ export { default as GenderStatusComponent } from './GenderStatus';
 export { default as InvoiceProductTable } from './InvoiceProductTable';
 export { default as CustomerDrawer } from './CustomerDrawer';
 export { default as CustomerDetails } from './CustomerDetails';
+export { default as ProductForm } from './ProductForm';
+export { default as ProductDrawer } from './ProductDrawer';

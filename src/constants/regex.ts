@@ -5,4 +5,5 @@ export const REGEX = {
   IMG: /\.(png|jpg|webp)$/,
   INTEGER: /^-?\d*$/,
   NOT_NUMBER: /\D/g,
+  PRICE_PRODUCT: /[^0-9.]/g,
 };
