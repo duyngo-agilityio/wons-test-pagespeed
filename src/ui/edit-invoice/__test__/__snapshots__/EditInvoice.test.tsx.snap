@@ -478,9 +478,9 @@ exports[`EditInvoice Component Test should render all content with resolved data
                       >
                         <th
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Product Name0"
+                          data-key="undefined0"
                           data-testid="sort-btn"
-                          id="react-aria-:r1b:-ProductName0"
+                          id="react-aria-:r1b:-undefined0"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -505,9 +505,9 @@ exports[`EditInvoice Component Test should render all content with resolved data
                         </th>
                         <th
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Rate1"
+                          data-key="undefined1"
                           data-testid="sort-btn"
-                          id="react-aria-:r1b:-Rate1"
+                          id="react-aria-:r1b:-undefined1"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -532,9 +532,9 @@ exports[`EditInvoice Component Test should render all content with resolved data
                         </th>
                         <th
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="QTY2"
+                          data-key="undefined2"
                           data-testid="sort-btn"
-                          id="react-aria-:r1b:-QTY2"
+                          id="react-aria-:r1b:-undefined2"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -559,9 +559,9 @@ exports[`EditInvoice Component Test should render all content with resolved data
                         </th>
                         <th
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Amount3"
+                          data-key="undefined3"
                           data-testid="sort-btn"
-                          id="react-aria-:r1b:-Amount3"
+                          id="react-aria-:r1b:-undefined3"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -608,7 +608,7 @@ exports[`EditInvoice Component Test should render all content with resolved data
                       role="rowgroup"
                     >
                       <tr
-                        aria-labelledby="react-aria-:r1b:-6-ProductName0"
+                        aria-labelledby="react-aria-:r1b:-6-undefined0"
                         class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400 bg-white dark:bg-gray-400"
                         data-first="true"
                         data-id="6"
@@ -620,7 +620,7 @@ exports[`EditInvoice Component Test should render all content with resolved data
                         <td
                           class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                           data-key="table-cell-0"
-                          id="react-aria-:r1b:-6-ProductName0"
+                          id="react-aria-:r1b:-6-undefined0"
                           role="rowheader"
                           tabindex="-1"
                         >
