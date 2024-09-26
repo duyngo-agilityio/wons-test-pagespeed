@@ -92,11 +92,14 @@ const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
         value: 'quantity',
       },
       {
-        header: 'Total Amount',
+        header: (
+          <Text text="Total Amount" className="!text-right block w-full" />
+        ),
         accessor: (
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
         ) => (
           <Text
+            className="text-right"
             size="sm"
             text={`$${formatTotalAmount(data.attributes.price, data.attributes.quantity)}`}
           />
