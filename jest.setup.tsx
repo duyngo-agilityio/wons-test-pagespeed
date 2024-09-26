@@ -7,6 +7,14 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 // Constants
 import { THEME_MODES } from '@/constants';
 
+import ResizeObserver from 'resize-observer-polyfill';
+import fetchMock from 'jest-fetch-mock';
+
+fetchMock.enableMocks();
+window.ResizeObserver = ResizeObserver;
+
+Math.random = () => 1;
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({

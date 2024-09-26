@@ -6,7 +6,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
     class="w-full flex justify-center md:justify-end"
   >
     <button
-      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 pb-2.5 pt-[11px] rounded-[10px] border-[1px] min-w-max text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-3 md:mt-0"
+      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 pb-2.5 pt-[11px] rounded-[10px] border-[1px] min-w-max text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-10 md:mt-0"
       type="button"
     >
       <svg
@@ -34,16 +34,16 @@ exports[`CustomerDrawer matches snapshot 1`] = `
     </button>
     <div
       class="EZDrawer"
-      id="EZDrawer22ril"
+      id="EZDrawer"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkbox22ril"
+        id="EZDrawer__checkbox"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-full md:!w-[400px]"
-        id="EZDrawer__container22ril"
+        id="EZDrawer__container"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 400px; height: 100vh;"
       >
@@ -117,7 +117,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                   </div>
                 </label>
                 <div
-                  class="group flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] hidden"
+                  class="group flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] hidden"
                   data-filled="true"
                   data-filled-within="true"
                   data-invalid="true"
@@ -153,7 +153,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] h-[71px]"
+              class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] h-[71px]"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -170,7 +170,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                     data-slot="label"
                     for="react-aria-:r5:"
                     id="react-aria-:r6:"
@@ -196,7 +196,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] h-[71px]"
+              class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] h-[71px]"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -213,7 +213,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                     data-slot="label"
                     for="react-aria-:ra:"
                     id="react-aria-:rb:"
@@ -239,7 +239,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] h-[71px]"
+              class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] h-[71px]"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -256,7 +256,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                     data-slot="label"
                     for="react-aria-:rf:"
                     id="react-aria-:rg:"
@@ -282,7 +282,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] mb-12"
+              class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] mb-12"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -299,7 +299,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                     data-slot="label"
                     for="react-aria-:rk:"
                     id="react-aria-:rl:"
@@ -325,7 +325,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
               </div>
             </div>
             <div
-              class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] mb-12"
+              class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] mb-12"
               data-filled="true"
               data-filled-within="true"
               data-has-elements="true"
@@ -342,7 +342,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                   style="cursor: text;"
                 >
                   <label
-                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                    class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                     data-slot="label"
                     for="react-aria-:rp:"
                     id="react-aria-:rq:"
@@ -371,7 +371,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
               class="relative flex-1"
             >
               <div
-                class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px] flex-1"
+                class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] flex-1"
                 data-filled="true"
                 data-filled-within="true"
                 data-has-elements="true"
@@ -388,7 +388,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                     style="cursor: text;"
                   >
                     <label
-                      class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                      class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                       data-slot="label"
                       for="react-aria-:ru:"
                       id="react-aria-:rv:"
@@ -482,13 +482,13 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-labelledby="react-aria-:r1a: react-aria-:r16:"
-                    class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium data-[hover=true]:bg-default-50 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5"
+                    class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5"
                     data-slot="trigger"
                     id="gender"
                     type="button"
                   >
                     <label
-                      class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:start-0 start-3 group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
+                      class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
                       data-slot="label"
                       id="react-aria-:r16:"
                     >
@@ -508,7 +508,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                     </div>
                     <svg
                       aria-hidden="true"
-                      class="absolute end-3 w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180"
+                      class="absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180"
                       data-slot="selectorIcon"
                       fill="none"
                       focusable="false"
@@ -546,8 +546,8 @@ exports[`CustomerDrawer matches snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkbox22ril"
-        id="EZDrawer__overlay22ril"
+        for="EZDrawer__checkbox"
+        id="EZDrawer__overlay"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
