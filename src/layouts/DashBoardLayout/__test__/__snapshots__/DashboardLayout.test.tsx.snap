@@ -10,16 +10,10 @@ exports[`DashboardLayout should match snapshot 1`] = `
     </script>
     <section>
       <div
-        class="base:mb-6 md:mb-7.5 md:flex justify-between md:items-center"
+        class="base:mb-6 md:mb-7.5 w-full md:flex justify-between md:items-center"
       >
-        <h2
-          aria-level="2"
-          class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl w-full"
-        >
-          Dashboard
-        </h2>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
+          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] is-filled"
           data-filled="true"
           data-filled-within="true"
           data-has-value="true"

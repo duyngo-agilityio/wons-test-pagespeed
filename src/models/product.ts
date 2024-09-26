@@ -6,6 +6,7 @@ export interface IProduct {
   createdAt?: string;
   updatedAt?: string;
   publishedAt?: string;
+  totalSale?: number;
 }
 
 export interface IProductDetail extends IProduct {

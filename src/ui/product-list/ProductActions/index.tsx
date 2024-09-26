@@ -1,7 +1,7 @@
 // Utils
 import { isAdmin } from '@/utils';
 
-// Components
+// Mocks
 import { ProductDrawer } from '@/components';
 
 const ProductActions = async (): Promise<JSX.Element> => {

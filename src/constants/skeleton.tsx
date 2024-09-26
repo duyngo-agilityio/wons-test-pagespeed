@@ -34,6 +34,41 @@ export const MAPPING_RECENT_SERVICES_SKELETON = [
   },
 ];
 
+export const MAPPING_PRODUCT_SKELETON = [
+  {
+    header: 'SN',
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+    isSort: true,
+  },
+  {
+    header: 'Name',
+    accessor: () => (
+      <div className="flex gap-2 items-center">
+        <Skeleton className="h-8 w-8 rounded-lg" />
+        <Skeleton className="h-8 w-3/5 rounded-lg" />
+      </div>
+    ),
+    isSort: true,
+  },
+  {
+    header: 'Price',
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+    isSort: true,
+  },
+  {
+    header: 'Total Order',
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+    isSort: true,
+  },
+  {
+    header: 'Total Sale',
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+  },
+  {
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
+  },
+];
+
 export const MAPPING_INVOICE_LIST_SKELETON = [
   {
     accessor: () => <Skeleton className="h-8 w-2/5 rounded-lg" />,

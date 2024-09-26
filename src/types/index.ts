@@ -8,4 +8,5 @@ export * from './toast';
 export * from './invoice';
 export * from './customer';
 export * from './user';
+export * from './product';
 export * from './image';
