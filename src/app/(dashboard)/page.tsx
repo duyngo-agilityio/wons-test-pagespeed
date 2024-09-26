@@ -39,38 +39,36 @@ const DashboardPage = async ({ searchParams }: IDashboardPage) => {
   } = searchParams || {};
 
   return (
-    <main>
-      <DashBoardLayout
-        title={PAGE_TITLES.DASHBOARD}
-        rightContent={<DateRangePicker />}
-      >
-        <div className="mb-8">
-          <Suspense fallback={<SkeletonStatistic />}>
-            <StatisticSection />
+    <DashBoardLayout
+      title={PAGE_TITLES.DASHBOARD}
+      rightContent={<DateRangePicker />}
+    >
+      <div className="mb-8">
+        <Suspense fallback={<SkeletonStatistic />}>
+          <StatisticSection />
+        </Suspense>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-10 gap-6">
+        <div className="xl:col-span-6">
+          <Suspense
+            key={sortBy + order + startTime + endTime}
+            fallback={
+              <TableLayout>
+                <TableSkeleton columns={MAPPING_RECENT_SERVICES_SKELETON} />
+              </TableLayout>
+            }
+          >
+            <LazyRecentServicesSection searchParams={searchParams} />
           </Suspense>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-1 xl:grid-cols-10 gap-6">
-          <div className="xl:col-span-6">
-            <Suspense
-              key={sortBy + order + startTime + endTime}
-              fallback={
-                <TableLayout>
-                  <TableSkeleton columns={MAPPING_RECENT_SERVICES_SKELETON} />
-                </TableLayout>
-              }
-            >
-              <LazyRecentServicesSection searchParams={searchParams} />
-            </Suspense>
-          </div>
-          <div className="xl:col-span-4">
-            <Suspense fallback={<SkeletonProductCard />}>
-              <TopSellingProducts />
-            </Suspense>
-          </div>
+        <div className="xl:col-span-4">
+          <Suspense fallback={<SkeletonProductCard />}>
+            <TopSellingProducts />
+          </Suspense>
         </div>
-      </DashBoardLayout>
-    </main>
+      </div>
+    </DashBoardLayout>
   );
 };
 

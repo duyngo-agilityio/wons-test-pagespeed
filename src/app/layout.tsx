@@ -41,7 +41,9 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
-        <LayoutProvider>{children}</LayoutProvider>
+        <main>
+          <LayoutProvider>{children}</LayoutProvider>
+        </main>
       </body>
     </html>
   );
