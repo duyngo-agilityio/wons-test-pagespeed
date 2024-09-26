@@ -16,7 +16,6 @@ const InvoiceListActions = async (): Promise<JSX.Element> => {
   return (
     <div className="mb-1 flex items-center gap-5 base:mt-10 md:mt-0 base:flex-col md:flex-row">
       <SearchInput className="base:!w-full md:!w-[230px]" />
-
       {isSuperAdmin && (
         <Link href={ROUTES.CREATE_INVOICE} className="base:w-full md:w-[122px]">
           <Button

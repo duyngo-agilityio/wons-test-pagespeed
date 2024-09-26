@@ -22,6 +22,8 @@ export const HEADING_SIZE_MAP: { [key: string]: string } = {
 export const PAGE_TITLES = {
   DASHBOARD: 'Dashboard',
   PRODUCT: 'Product Analytics',
+  CUSTOMER: 'Customer List',
+  INVOICE: 'Invoice List',
 };
 
 export const TABLE_TITLES = {

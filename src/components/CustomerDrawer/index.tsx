@@ -98,7 +98,7 @@ const CustomerDrawer = (): JSX.Element => {
       <Button
         color="primary"
         startContent={<BsPlus size={22} className="text-white" />}
-        className="text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-3 md:mt-0"
+        className="text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-10 md:mt-0"
         onClick={handleOpenDrawer}
       >
         Add Customer

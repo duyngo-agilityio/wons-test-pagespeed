@@ -1,14 +1,16 @@
 import { memo, ReactNode } from 'react';
 import clsx from 'clsx';
 
+// Components
+import { Heading } from '@/components';
+
 interface IDashboardLayout {
-  title: string;
   children: ReactNode;
+  title?: string;
   rightContent?: ReactNode;
 }
 
 const DashboardLayout = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   title = '',
   children,
   rightContent,
@@ -21,7 +23,7 @@ const DashboardLayout = ({
           rightContent && 'w-full md:flex justify-between md:items-center',
         )}
       >
-        {/* TODO: Update heading for layout later */}
+        {title && <Heading className="w-full" title={title} />}
         {rightContent}
       </div>
       {children}

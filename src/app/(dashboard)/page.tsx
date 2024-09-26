@@ -10,7 +10,6 @@ const LazyRecentServicesSection = lazy(
 import { TopSellingProducts, StatisticSection } from '@/ui/main-dashboard';
 
 // Constants
-import { PAGE_TITLES } from '@/constants';
 import { MAPPING_RECENT_SERVICES_SKELETON } from '@/constants/skeleton';
 
 // Types
@@ -18,11 +17,14 @@ import { ISearchParams } from '@/types';
 
 // Components
 import {
-  DateRangePicker,
   SkeletonProductCard,
   TableSkeleton,
   SkeletonStatistic,
+  DateRangePicker,
 } from '@/components';
+
+// Constants
+import { PAGE_TITLES } from '@/constants';
 
 interface IDashboardPage {
   searchParams: ISearchParams;
