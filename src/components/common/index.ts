@@ -24,7 +24,6 @@ export { AiFillCustomerService } from 'react-icons/ai';
 export { ImPhone } from 'react-icons/im';
 
 export { default as Button } from './Button';
-export { default as Card } from './Card';
 export { default as Checkbox } from './Checkbox';
 export { default as DatePicker } from './DatePicker';
 export { default as DateRangePicker } from './DateRangePicker';
