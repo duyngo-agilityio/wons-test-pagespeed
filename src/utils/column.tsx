@@ -1,5 +1,5 @@
 // Types
-import { TProductDataResponse } from '@/types';
+import { TProductInvoiceResponse } from '@/types';
 
 // Utils
 import {
@@ -12,7 +12,7 @@ import {
 import { DropdownActions, Text, Image } from '@/components';
 
 type TColumn = {
-  data: TProductDataResponse[];
+  data: TProductInvoiceResponse[];
   isReadOnly: boolean;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
@@ -28,16 +28,19 @@ export const mappingContentColumns = ({
   return [
     {
       header: 'SN',
-      accessor: (productData: TProductDataResponse) =>
+      accessor: (productData: TProductInvoiceResponse) =>
         getSerialNumberWithMedal(data, productData),
       isSort: true,
       value: 'sn',
     },
     {
       header: 'Name',
-      accessor: (productData: TProductDataResponse) => {
+      accessor: (productData: TProductInvoiceResponse) => {
         const { attributes } = productData || {};
-        const { title, imageUrl } = attributes || {};
+        const { product } = attributes || {};
+        const { data } = product || {};
+        const { attributes: attributesProduct } = data || {};
+        const { imageUrl = '', title = '' } = attributesProduct || {};
 
         return (
           <div className="flex gap-3.5 items-center">
@@ -63,9 +66,9 @@ export const mappingContentColumns = ({
     },
     {
       header: 'Price',
-      accessor: (productData: TProductDataResponse) => {
+      accessor: (productData: TProductInvoiceResponse) => {
         const { attributes } = productData || {};
-        const { price } = attributes || {};
+        const { price = 0 } = attributes || {};
         return (
           <Text
             size="md"
@@ -79,25 +82,31 @@ export const mappingContentColumns = ({
     },
     {
       header: 'Total Order',
-      accessor: () => {
-        const mockTotalOrder = '34,666 Piece';
-        return <Text size="md" text={mockTotalOrder} className="text-nowrap" />;
+      accessor: (productData: TProductInvoiceResponse) => {
+        const { attributes } = productData || {};
+        const { quantity = 0 } = attributes || {};
+
+        return (
+          <Text
+            size="md"
+            text={`${quantity.toString()} Piece`}
+            className="text-nowrap"
+          />
+        );
       },
       isSort: true,
       value: 'totalPrice',
     },
     {
       header: 'Total Sales',
-      accessor: (productData: TProductDataResponse) => {
+      accessor: (productData: TProductInvoiceResponse) => {
         const { attributes } = productData || {};
-        const { price } = attributes || {};
-        const mockQuantity = 5;
-        const mockTotalSale = `$${formatTotalAmount(price, mockQuantity)}`;
+        const { price = 0, quantity = 0 } = attributes || {};
 
         return (
           <Text
             size="md"
-            text={mockTotalSale}
+            text={`$${formatTotalAmount(price, quantity)}`}
             className="text-nowrap text-teal-500 dark:!text-teal-300"
           />
         );
@@ -107,7 +116,7 @@ export const mappingContentColumns = ({
     },
     {
       ...(!isReadOnly && {
-        accessor: (customerData: TProductDataResponse) => {
+        accessor: (customerData: TProductInvoiceResponse) => {
           const { id } = customerData || {};
           return (
             <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />

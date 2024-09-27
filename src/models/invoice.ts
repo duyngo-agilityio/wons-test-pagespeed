@@ -11,6 +11,10 @@ export type TInvoiceProduct<T> = {
   product: { data: T };
 };
 
+export type TInvoiceProductWithTotalSale<T> = TInvoiceProduct<T> & {
+  totalSale?: number;
+};
+
 export type TInvoice = {
   invoiceId: string;
   customerId: string;

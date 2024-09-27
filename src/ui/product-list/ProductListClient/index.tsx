@@ -1,13 +1,16 @@
 'use client';
 
+import isEqual from 'react-fast-compare';
+import { memo } from 'react';
+
 // Components
 import ProductTable from '@/components/ProductTable';
 
 // Types
-import { TProductDataResponse } from '@/types';
+import { TProductInvoiceResponse } from '@/types';
 
 export type TCustomerListClientProps = {
-  productList: TProductDataResponse[];
+  productList: TProductInvoiceResponse[];
   isReadOnly?: boolean;
 };
 
@@ -31,4 +34,4 @@ const ProductListClient = ({
   );
 };
 
-export default ProductListClient;
+export default memo(ProductListClient, isEqual);
