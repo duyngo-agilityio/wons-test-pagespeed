@@ -33,8 +33,9 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                 role="row"
               >
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="fullName0"
+                  data-key="Name0"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-fullName0"
                   role="columnheader"
@@ -60,8 +61,9 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="email1"
+                  data-key="Email1"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-email1"
                   role="columnheader"
@@ -87,8 +89,9 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="phone2"
+                  data-key="Phone Number2"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-phone2"
                   role="columnheader"
@@ -114,8 +117,9 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="gender3"
+                  data-key="Gender3"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-gender3"
                   role="columnheader"
@@ -628,16 +632,16 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawer"
+      id="EZDrawer94guu"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkbox"
+        id="EZDrawer__checkbox94guu"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__container"
+        id="EZDrawer__container94guu"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -766,8 +770,8 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkbox"
-        id="EZDrawer__overlay"
+        for="EZDrawer__checkbox94guu"
+        id="EZDrawer__overlay94guu"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>
@@ -808,8 +812,9 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                 role="row"
               >
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="fullName0"
+                  data-key="Name0"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-fullName0"
                   role="columnheader"
@@ -835,8 +840,9 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="email1"
+                  data-key="Email1"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-email1"
                   role="columnheader"
@@ -862,8 +868,9 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="phone2"
+                  data-key="Phone Number2"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-phone2"
                   role="columnheader"
@@ -889,8 +896,9 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="gender3"
+                  data-key="Gender3"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-gender3"
                   role="columnheader"
@@ -1402,16 +1410,16 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
     </div>
     <div
       class="EZDrawer"
-      id="EZDrawer"
+      id="EZDrawernqmnr"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkbox"
+        id="EZDrawer__checkboxnqmnr"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-[302px] !max-w-[302px]"
-        id="EZDrawer__container"
+        id="EZDrawer__containernqmnr"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
       >
@@ -1540,8 +1548,8 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkbox"
-        id="EZDrawer__overlay"
+        for="EZDrawer__checkboxnqmnr"
+        id="EZDrawer__overlaynqmnr"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>

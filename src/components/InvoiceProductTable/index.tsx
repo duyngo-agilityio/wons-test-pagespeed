@@ -102,6 +102,7 @@ const InvoiceProductTable = ({
               handleChangeProductName(key, data.product.data.id)
             }
             options={[...current, ...optionsElse]}
+            aria-label="Product Name field"
           />
         );
       },
@@ -125,6 +126,7 @@ const InvoiceProductTable = ({
           }}
           onChange={(e) => handleUpdateQuantity(e, product.data.id)}
           endContent={<Text text="Pcs" />}
+          aria-label="Quantity field"
         />
       ),
       isSort: true,
@@ -151,6 +153,7 @@ const InvoiceProductTable = ({
           data-id={product.data.id}
           endContent={<FaTrash className="text-pink-500" />}
           onClick={handleRemoveProduct}
+          aria-label="Remove product"
         />
       ),
     },
@@ -214,6 +217,7 @@ const InvoiceProductTable = ({
           className="font-medium leading-[20.83px]"
         />
         <Button
+          aria-label="Add new product"
           variant="ghost"
           className="!bg-white block dark:!bg-gray-400 p-0"
           isDisabled={productsValues.length === products.length}

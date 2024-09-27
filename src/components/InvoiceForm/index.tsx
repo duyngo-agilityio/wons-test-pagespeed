@@ -414,8 +414,15 @@ const InvoiceForm = ({
         </div>
 
         <div className="flex flex-col sm:flex-row sm:gap-[30px]">
-          <Button size="lg" color="secondary" className="w-full mt-10">
-            <Link href={ROUTES.INVOICE}>Cancel</Link>
+          <Button
+            as={Link}
+            href={ROUTES.INVOICE}
+            size="lg"
+            color="secondary"
+            className="w-full mt-10"
+            aria-label="Cancel"
+          >
+            Cancel
           </Button>
           <Button
             type="submit"

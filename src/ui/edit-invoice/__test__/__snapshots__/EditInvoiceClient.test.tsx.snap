@@ -658,6 +658,7 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                   Product Description
                 </p>
                 <button
+                  aria-label="Add new product"
                   class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 opacity-50 cursor-not-allowed text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
                   data-disabled="true"
                   disabled=""
@@ -712,8 +713,9 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                           role="row"
                         >
                           <th
+                            aria-hidden="false"
                             class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                            data-key="undefined0"
+                            data-key="Product Name0"
                             data-testid="sort-btn"
                             id="react-aria-:r29:-undefined0"
                             role="columnheader"
@@ -739,8 +741,9 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                             </div>
                           </th>
                           <th
+                            aria-hidden="false"
                             class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                            data-key="undefined1"
+                            data-key="Rate1"
                             data-testid="sort-btn"
                             id="react-aria-:r29:-undefined1"
                             role="columnheader"
@@ -766,8 +769,9 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                             </div>
                           </th>
                           <th
+                            aria-hidden="false"
                             class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                            data-key="undefined2"
+                            data-key="QTY2"
                             data-testid="sort-btn"
                             id="react-aria-:r29:-undefined2"
                             role="columnheader"
@@ -793,8 +797,9 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                             </div>
                           </th>
                           <th
+                            aria-hidden="false"
                             class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                            data-key="undefined3"
+                            data-key="Amount3"
                             data-testid="sort-btn"
                             id="react-aria-:r29:-undefined3"
                             role="columnheader"
@@ -820,6 +825,7 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                             </div>
                           </th>
                           <th
+                            aria-hidden="true"
                             class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                             data-key="undefined4"
                             data-testid="sort-btn"
@@ -883,7 +889,7 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                                       <input
                                         aria-autocomplete="list"
                                         aria-expanded="false"
-                                        aria-label=" "
+                                        aria-label="Product Name field"
                                         autocomplete="off"
                                         class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
                                         data-has-end-content="true"
@@ -1002,7 +1008,7 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                                     data-slot="inner-wrapper"
                                   >
                                     <input
-                                      aria-label=" "
+                                      aria-label="Quantity field"
                                       class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
                                       data-filled="true"
                                       data-filled-within="true"
@@ -1042,6 +1048,7 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
                             tabindex="-1"
                           >
                             <button
+                              aria-label="Remove product"
                               class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md border-[1px] h-auto min-w-max rounded-[100%] block p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
                               data-id="0"
                               type="button"
@@ -1080,20 +1087,19 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
         <div
           class="flex flex-col sm:flex-row sm:gap-[30px]"
         >
-          <button
+          <a
+            aria-label="Cancel"
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-transparent text-blue-500 border-blue-500 dark:text-purple-600 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:bg-white px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-10"
-            type="button"
+            href="/invoices"
+            role="button"
+            tabindex="0"
           >
             <div
               class="flex items-center"
             >
-              <a
-                href="/invoices"
-              >
-                Cancel
-              </a>
+              Cancel
             </div>
-          </button>
+          </a>
           <button
             class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 opacity-50 cursor-not-allowed px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-[20px] sm:mt-10"
             data-disabled="true"

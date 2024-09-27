@@ -99,6 +99,7 @@ const SidebarFooter = ({
             isIconOnly
             className="!bg-transparent dark:!bg-transparent hover:bg-transparent w-fit h-fit p-2"
             onClick={handleOpenModal}
+            aria-label="Sign out"
           >
             <IoLogOut className="text-blue-800/40 dark:text-white/50 w-5 h-5" />
           </Button>
