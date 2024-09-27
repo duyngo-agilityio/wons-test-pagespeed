@@ -7,23 +7,36 @@ import ProductListClient from '../ProductListClient';
 // utils
 import { isAdmin, sortByTotalSaleDescending } from '@/utils';
 
-// Mocks
-import { MOCK_PRODUCTS_TOP_SELLING } from '@/mocks';
-
 // types
-import { TProductDataResponse } from '@/types';
+import {
+  ISearchParams,
+  TProductInvoiceListResponse,
+  TProductInvoiceResponse,
+} from '@/types';
 
-const ProductList = async () => {
+// services
+import { getInvoiceProducts } from '@/api';
+
+type TProductListPageProps = {
+  searchParams: ISearchParams;
+};
+
+const ProductList = async ({ searchParams }: TProductListPageProps) => {
+  const result: TProductInvoiceListResponse = (await getInvoiceProducts({
+    sort: searchParams.sortBy,
+    filters: {},
+  })) as TProductInvoiceListResponse;
+
   const isSuperAdmin = await isAdmin();
 
-  const sortProductsByTotalSale = (products: TProductDataResponse[]) => {
-    if (!Array.isArray(products) || products.length === 0) return [];
+  const sortProductsByTotalSale = (products: TProductInvoiceResponse[]) => {
+    if (!Array.isArray(products) || !products.length) return [];
 
     const productsWithTotalSale = products.map((product) => ({
       ...product,
       attributes: {
         ...product.attributes,
-        totalSale: product.attributes.price * 5,
+        totalSale: product.attributes.price * product.attributes.quantity,
       },
     }));
 
@@ -33,7 +46,7 @@ const ProductList = async () => {
   return (
     <TableLayout title="Top Selling Products">
       <ProductListClient
-        productList={sortProductsByTotalSale(MOCK_PRODUCTS_TOP_SELLING)}
+        productList={sortProductsByTotalSale(result.data)}
         isReadOnly={!isSuperAdmin}
       />
     </TableLayout>

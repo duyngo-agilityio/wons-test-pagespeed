@@ -1,6 +1,8 @@
 // Components
 import { MedalIcon, Text } from '@/components';
-import { TProductDataResponse } from '@/types';
+
+// Types
+import { TProductInvoiceWithTotalSaleResponse } from '@/types';
 
 /**
  * Returns a MedalIcon if the product is among the top three items,
@@ -29,7 +31,9 @@ export const getSerialNumberWithMedal = <T extends { id: number }>(
  * @param products Array of product data
  * @returns Sorted products by total sale
  */
-export const sortByTotalSaleDescending = (products: TProductDataResponse[]) =>
+export const sortByTotalSaleDescending = (
+  products: TProductInvoiceWithTotalSaleResponse[],
+) =>
   products.sort(
     (a, b) => (b.attributes.totalSale ?? 0) - (a.attributes.totalSale ?? 0),
   );

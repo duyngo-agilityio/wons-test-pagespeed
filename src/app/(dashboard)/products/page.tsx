@@ -47,7 +47,7 @@ const ProductListPage = ({
             </TableLayout>
           }
         >
-          <ProductList />
+          <ProductList searchParams={searchParams} />
         </Suspense>
       </DashBoardLayout>
     </main>

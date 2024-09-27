@@ -6,15 +6,13 @@ import { Key, useMemo } from 'react';
 import { Table } from '@/components';
 
 // Types
-import { TProductDataResponse } from '@/types';
+import { TProductInvoiceResponse } from '@/types';
 
 // Utils
 import { mappingContentColumns } from '@/utils';
 
-type TProductData = TProductDataResponse;
-
 type ProductTableProps = {
-  data: TProductData[];
+  data: TProductInvoiceResponse[];
   isReadOnly?: boolean;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
