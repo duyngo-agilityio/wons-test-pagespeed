@@ -27,11 +27,11 @@ exports[`AccountSuccess Component should match snapshot in dark theme 1`] = `
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
           width="184"
         />
-        <h1
+        <h2
           class="font-dm-sans text-blue-800 dark:text-white text-md mt-[53px] font-bold base:text-xl md:text-3xl"
         >
           Your account successfully created.
-        </h1>
+        </h2>
         <a
           aria-label="Go to Home"
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max mt-9 font-medium md:text-xl md:w-[169px] md:h-[50px]"
@@ -78,11 +78,11 @@ exports[`AccountSuccess Component should match snapshot in light theme 1`] = `
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
           width="184"
         />
-        <h1
+        <h2
           class="font-dm-sans text-blue-800 dark:text-white text-md mt-[53px] font-bold base:text-xl md:text-3xl"
         >
           Your account successfully created.
-        </h1>
+        </h2>
         <a
           aria-label="Go to Home"
           class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 pb-2.5 pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max mt-9 font-medium md:text-xl md:w-[169px] md:h-[50px]"
