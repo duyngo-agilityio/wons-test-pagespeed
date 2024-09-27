@@ -12,19 +12,19 @@ export interface AuthResponse {
   error: string;
 }
 
-export interface ISignUpFormData {
+export interface ISignUpFormData extends Pick<TUser, 'avatar'> {
   fullName: string;
   username: string;
   email: string;
   password: string;
 }
 
-export type TSignUpPayload = {
+export interface TSignUpPayload extends Pick<TUser, 'avatar'> {
   fullName: string;
   username: string;
   email: string;
   password: string;
-};
+}
 
 export type TSignUpResponse = { jwt: string; user: Omit<TUser, 'password'> };
 

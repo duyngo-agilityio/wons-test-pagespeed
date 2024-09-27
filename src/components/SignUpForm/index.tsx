@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 // Constants
-import { ERROR_MESSAGES, REGEX } from '@/constants';
+import { ERROR_MESSAGES, IMAGES, REGEX } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -54,6 +54,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
+      avatar: IMAGES.AVATAR_DEFAULT,
       fullName: '',
       username: '',
       email: '',
@@ -76,9 +77,8 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
     [isChecked],
   );
 
-  const handleSignUp = (formData: ISignUpFormData) => {
-    return onSubmit(formData);
-  };
+  const handleSignUp = (formData: ISignUpFormData) =>
+    onSubmit({ ...formData, avatar: IMAGES.AVATAR_DEFAULT });
 
   return (
     <form onSubmit={handleSubmit(handleSignUp)}>
