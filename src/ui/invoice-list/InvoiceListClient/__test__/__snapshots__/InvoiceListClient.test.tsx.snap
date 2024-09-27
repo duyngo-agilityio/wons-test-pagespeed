@@ -35,8 +35,8 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
               >
                 <th
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="row-header-column-vpsheialuj8"
-                  id="react-aria-:r0:-row-header-column-vpsheialuj8"
+                  data-key="row-header-column-1v3qymfk1fd"
+                  id="react-aria-:r0:-row-header-column-1v3qymfk1fd"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -81,7 +81,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 <th
                   aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="Invoice Id0"
+                  data-key="invoiceId0"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-invoiceId0"
                   role="columnheader"
@@ -109,7 +109,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 <th
                   aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="Name1"
+                  data-key="customer.fullName1"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-customer.fullName1"
                   role="columnheader"
@@ -137,7 +137,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 <th
                   aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="Email2"
+                  data-key="email2"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-email2"
                   role="columnheader"
@@ -165,7 +165,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 <th
                   aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="Date3"
+                  data-key="date3"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-date3"
                   role="columnheader"
@@ -193,7 +193,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 <th
                   aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="Status4"
+                  data-key="status4"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-status4"
                   role="columnheader"
@@ -234,7 +234,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 <th
                   aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                  data-key="[object Object]6"
+                  data-key="undefined6"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-undefined6"
                   role="columnheader"
@@ -304,7 +304,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 >
                   <label
                     aria-label="Select"
-                    aria-labelledby="react-aria-:r3: react-aria-:r0:-4-InvoiceId0"
+                    aria-labelledby="react-aria-:r3: react-aria-:r0:-4-invoiceId0"
                     class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2"
                     id="react-aria-:r3:"
                   >
@@ -550,7 +550,7 @@ exports[`InvoiceListClient section should match with snapshot 1`] = `
                 >
                   <label
                     aria-label="Select"
-                    aria-labelledby="react-aria-:rb: react-aria-:r0:-2-InvoiceId0"
+                    aria-labelledby="react-aria-:rb: react-aria-:r0:-2-invoiceId0"
                     class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2"
                     id="react-aria-:rb:"
                   >

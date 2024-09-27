@@ -19,6 +19,29 @@ const meta: Meta<typeof Card> = {
       control: 'select',
       options: ['5px', '10px', '15px', '20px', '25px'],
     },
+    borderColor: {
+      control: 'select',
+      options: ['transparent', 'black', 'red', 'blue', 'green'],
+    },
+    hoverEffect: {
+      control: 'boolean',
+    },
+    header: {
+      control: 'text',
+      description: 'Content for the card header',
+    },
+    body: {
+      control: 'text',
+      description: 'Content for the card body',
+    },
+    footer: {
+      control: 'text',
+      description: 'Content for the card footer',
+    },
+    image: {
+      control: 'text',
+      description: 'URL for the image displayed in the card body',
+    },
   },
 };
 
@@ -30,11 +53,12 @@ export const Default: Story = {
     bgColor: 'pink',
     rounded: '20px',
     padding: '10px',
-    children: (
-      <div>
-        <h3>Custom Card</h3>
-        <p>Card with custom border radius, background color, and padding.</p>
-      </div>
-    ),
+    borderColor: 'transparent',
+    hoverEffect: true,
+    header: 'Card Header: This is custom card header',
+    body: 'Card Body: This is custom card body',
+    footer: 'Card Footer: This is custom card footer',
+    image:
+      'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
   },
 };

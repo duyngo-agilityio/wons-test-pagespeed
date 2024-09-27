@@ -25,6 +25,9 @@ import {
 // Models
 import { IProductDetail } from '@/models';
 
+// icons
+import { GrPrevious } from 'react-icons/gr';
+
 // Zod schema for validation
 const productFormSchema = z.object({
   title: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Title')),
@@ -64,6 +67,7 @@ export interface IProductFormProps {
   onSubmit: (data: IProductDetail) => void;
   setReset: (reset: UseFormReset<Partial<IProductDetail>>) => void;
   previewData?: IProductDetail;
+  onCloseDrawer?: () => void;
 }
 
 const ProductForm = ({
@@ -72,6 +76,7 @@ const ProductForm = ({
   onSubmit,
   setReset,
   previewData = {} as IProductDetail,
+  onCloseDrawer,
 }: IProductFormProps) => {
   const {
     control,
@@ -137,10 +142,18 @@ const ProductForm = ({
       className="w-full max-w-2xl mx-auto mt-20"
       onSubmit={handleSubmit(saveData)}
     >
-      <Heading
-        title={previewData ? 'Update Product' : 'Add a New Product'}
-        className="text-center"
-      />
+      <div className="flex items-center gap-5">
+        <Button
+          onClick={onCloseDrawer}
+          className="!bg-transparent dark:!bg-transparent text-gray-200 dark:text-gray-300 hover:!bg-transparent dark:hover:!bg-transparent"
+        >
+          <GrPrevious size={20} />
+        </Button>
+        <Heading
+          title={previewData ? 'Update Product' : 'Add a New Product'}
+          className="text-center"
+        />
+      </div>
 
       <div className="flex justify-center mt-[21px]">
         <Controller

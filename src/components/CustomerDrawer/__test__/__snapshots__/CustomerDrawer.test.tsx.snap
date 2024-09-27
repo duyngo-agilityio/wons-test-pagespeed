@@ -34,16 +34,16 @@ exports[`CustomerDrawer matches snapshot 1`] = `
     </button>
     <div
       class="EZDrawer"
-      id="EZDrawer5ge6y"
+      id="EZDrawer"
     >
       <input
         class="EZDrawer__checkbox"
-        id="EZDrawer__checkbox5ge6y"
+        id="EZDrawer__checkbox"
         type="checkbox"
       />
       <nav
         class="EZDrawer__container !w-full md:!w-[400px]"
-        id="EZDrawer__container5ge6y"
+        id="EZDrawer__container"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 400px; height: 100vh;"
       >
@@ -546,8 +546,8 @@ exports[`CustomerDrawer matches snapshot 1`] = `
       </nav>
       <label
         class="EZDrawer__overlay "
-        for="EZDrawer__checkbox5ge6y"
-        id="EZDrawer__overlay5ge6y"
+        for="EZDrawer__checkbox"
+        id="EZDrawer__overlay"
         style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
       />
     </div>

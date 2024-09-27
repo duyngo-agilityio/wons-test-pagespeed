@@ -29,7 +29,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
               <th
                 aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="Name0"
+                data-key="fullName0"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-fullName0"
                 role="columnheader"
@@ -57,7 +57,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
               <th
                 aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="Email1"
+                data-key="email1"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-email1"
                 role="columnheader"
@@ -85,7 +85,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
               <th
                 aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="Phone Number2"
+                data-key="phone2"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-phone2"
                 role="columnheader"
@@ -113,7 +113,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
               <th
                 aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
-                data-key="Gender3"
+                data-key="gender3"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-gender3"
                 role="columnheader"
