@@ -8,6 +8,7 @@ import type {
 
 export interface CustomUser extends NextAuthUser {
   id: string;
+  avatar: string;
   email: string;
   username: string;
   fullName: string;

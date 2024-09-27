@@ -14,11 +14,17 @@ import SidebarHeader from '@/layouts/Sidebar/SidebarHeader';
 
 interface IDesktopSidebar {
   toggleDesktopSidebar: string;
+  avatar: string;
+  fullName: string;
+  role: string;
   onToggleDesktopSidebar: () => void;
 }
 
 const DesktopSidebar = ({
   toggleDesktopSidebar,
+  avatar,
+  fullName,
+  role,
   onToggleDesktopSidebar,
 }: IDesktopSidebar) => (
   <section
@@ -48,7 +54,13 @@ const DesktopSidebar = ({
         )}
       >
         <NavigateList toggle={toggleDesktopSidebar} />
-        <SidebarFooter toggle={toggleDesktopSidebar} onLogout={signOut} />
+        <SidebarFooter
+          toggle={toggleDesktopSidebar}
+          onLogout={signOut}
+          avatar={avatar}
+          fullName={fullName}
+          role={role}
+        />
       </div>
     </div>
   </section>

@@ -9,6 +9,8 @@ export const FALLBACK_SRC = {
 };
 
 export const IMAGES = {
+  AVATAR_DEFAULT:
+    'https://t3.ftcdn.net/jpg/01/26/91/78/360_F_126917812_XlWgkaV9f81Hde4wvmvJWM3huJRvy5EM.webp',
   LOGO: '/logo.svg',
   LOGO_COMPANY: '/logo-company.svg',
   SIGN_IN_IMAGE: '/sign-in-banner.webp',

@@ -14,7 +14,7 @@ import { useToast } from '@/hooks';
 import { ISignUpFormData } from '@/types';
 
 // Constants
-import { MESSAGE_STATUS, ROUTES } from '@/constants';
+import { IMAGES, MESSAGE_STATUS, ROUTES } from '@/constants';
 
 // Components
 import { SignUpForm as SignUpFormComponent } from '@/components';
@@ -29,7 +29,10 @@ const SignUpForm = (): JSX.Element => {
       setIsPending(true);
 
       // Call API to create a new account
-      const signUpRes = await signUp(formData);
+      const signUpRes = await signUp({
+        ...formData,
+        avatar: IMAGES.AVATAR_DEFAULT,
+      });
 
       const { error: signUpError } = signUpRes || {};
 

@@ -30,11 +30,17 @@ const DynamicThemeSwitcher = dynamic(
 
 interface ISidebarFooter {
   toggle?: string;
+  avatar: string;
+  fullName: string;
+  role: string;
   onLogout: () => Promise<void>;
 }
 
 const SidebarFooter = ({
   toggle = SIDE_BAR_STATE.OPEN,
+  avatar,
+  fullName,
+  role,
   onLogout,
 }: ISidebarFooter) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -82,7 +88,7 @@ const SidebarFooter = ({
         >
           <div className="flex items-center gap-2.5">
             <Image
-              src="https://i.pravatar.cc/150?u=a04258114e29026708c"
+              src={avatar}
               alt="admin"
               width={40}
               height={40}
@@ -90,8 +96,8 @@ const SidebarFooter = ({
             />
             {toggle === SIDE_BAR_STATE.OPEN && (
               <div>
-                <Text text="Easin Arafat" className="text-sm" />
-                <Text text="Admin" className="text-xs opacity-50" />
+                <Text text={fullName} className="text-sm capitalize" />
+                <Text text={role} className="text-xs opacity-50 capitalize" />
               </div>
             )}
           </div>

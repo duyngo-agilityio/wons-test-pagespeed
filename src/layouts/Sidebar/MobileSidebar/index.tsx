@@ -11,12 +11,18 @@ import SidebarHeader from '@/layouts/Sidebar/SidebarHeader';
 
 interface IMobileSidebar {
   isToggleMobileSidebar: boolean;
+  avatar: string;
+  fullName: string;
+  role: string;
   onOutsideClick: () => void;
   onToggleSidebar: () => void;
 }
 
 const MobileSidebar = ({
   isToggleMobileSidebar,
+  avatar,
+  fullName,
+  role,
   onOutsideClick,
   onToggleSidebar,
 }: IMobileSidebar) => {
@@ -41,7 +47,12 @@ const MobileSidebar = ({
           />
           <div className="flex flex-col justify-between min-h-[calc(100vh-170px)]">
             <NavigateList />
-            <SidebarFooter onLogout={signOut} />
+            <SidebarFooter
+              onLogout={signOut}
+              avatar={avatar}
+              fullName={fullName}
+              role={role}
+            />
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ import { SIGN_UP_FORM_DATA_MOCK } from '@/mocks';
 import { ISignUpFormData } from '@/types';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { ERROR_MESSAGES, IMAGES } from '@/constants';
 
 // Components
 import SignUpForm, { ISignUpFormProps } from '../index';
@@ -81,6 +81,7 @@ describe('SignUpForm', () => {
     renderComponent();
 
     submitForm({
+      avatar: IMAGES.AVATAR_DEFAULT,
       email: 'email',
       password: 'abcd@123',
       fullName: '',
