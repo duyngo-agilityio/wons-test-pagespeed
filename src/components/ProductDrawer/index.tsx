@@ -1,7 +1,7 @@
 'use client';
 
 import { UseFormReset } from 'react-hook-form';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
@@ -18,8 +18,24 @@ import Tabs from '../Tabs';
 // Mocks
 import { productTabs } from '@/mocks';
 
+// constants
+import { MESSAGE_STATUS, SUCCESS_MESSAGES, RATING_PRODUCT } from '@/constants';
+
+// hooks
+import { useToast } from '@/hooks';
+
+// actions
+import { createProduct } from '@/actions';
+
+// utils
+import { handleUpdateImage } from '@/utils/formHandler';
+
 const ProductDrawer = (): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [avatarFile, setAvatarFile] = useState<File>();
+  const [isAvatarDirty, setIsAvatarDirty] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const { showToast } = useToast();
   let formReset: UseFormReset<Partial<IProductDetail>> | null = null;
 
   const handleOpenDrawer = useCallback(() => {
@@ -30,16 +46,54 @@ const ProductDrawer = (): JSX.Element => {
     if (formReset) {
       formReset();
     }
+    setAvatarFile(undefined);
+    setIsAvatarDirty(false);
     setIsDrawerOpen(false);
   };
 
-  const handleFormSubmit = () => {
-    // TODO: later
-  };
+  const handleFormSubmit = useCallback(
+    async (formData: IProductDetail) => {
+      formData.rating = RATING_PRODUCT;
 
-  const handleAvatarChange = () => {
-    // TODO: later
-  };
+      if (avatarFile && isAvatarDirty) {
+        formData = (await handleUpdateImage(
+          avatarFile,
+          formData,
+        )) as IProductDetail;
+      }
+
+      startTransition(async () => {
+        const { error } = await createProduct({
+          ...formData,
+          title: `${formData.title}`,
+        });
+
+        if (error) {
+          return showToast({
+            description: error,
+            status: MESSAGE_STATUS.ERROR,
+          });
+        } else {
+          showToast({
+            description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
+            status: MESSAGE_STATUS.SUCCESS,
+          });
+        }
+      });
+
+      if (!isPending) {
+        setIsDrawerOpen(false);
+        setAvatarFile(undefined);
+        setIsAvatarDirty(false);
+      }
+    },
+    [avatarFile, isAvatarDirty, isPending, showToast],
+  );
+
+  const handleAvatarChange = useCallback((avatarFile: File) => {
+    setAvatarFile(avatarFile);
+    setIsAvatarDirty(true);
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row justify-between md:items-center w-full mb-8">
@@ -78,6 +132,7 @@ const ProductDrawer = (): JSX.Element => {
               <GrPrevious size={20} />
             </Button>
             <ProductForm
+              key={isDrawerOpen ? 'open' : 'closed'}
               onSubmit={handleFormSubmit}
               onAvatarChange={handleAvatarChange}
               setReset={(

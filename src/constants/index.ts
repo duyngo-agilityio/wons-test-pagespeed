@@ -18,3 +18,4 @@ export * from './invoices';
 export * from './select';
 export * from './pagination';
 export * from './brand';
+export * from './rating';
