@@ -27,12 +27,12 @@ exports[`Customer List component should render all content with resolved data an
               role="row"
             >
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="Name0"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-Name0"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -55,12 +55,12 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="Email1"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-Email1"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -83,12 +83,12 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="Phone Number2"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-PhoneNumber2"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -111,12 +111,12 @@ exports[`Customer List component should render all content with resolved data an
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="Gender3"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-Gender3"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -418,16 +418,16 @@ exports[`Customer List component should render all content with resolved data an
   </div>
   <div
     class="EZDrawer"
-    id="EZDrawerabhlu"
+    id="EZDrawerh1tfb"
   >
     <input
       class="EZDrawer__checkbox"
-      id="EZDrawer__checkboxabhlu"
+      id="EZDrawer__checkboxh1tfb"
       type="checkbox"
     />
     <nav
       class="EZDrawer__container !w-[302px] !max-w-[302px]"
-      id="EZDrawer__containerabhlu"
+      id="EZDrawer__containerh1tfb"
       role="navigation"
       style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 250px; height: 100vh;"
     >
@@ -556,8 +556,8 @@ exports[`Customer List component should render all content with resolved data an
     </nav>
     <label
       class="EZDrawer__overlay "
-      for="EZDrawer__checkboxabhlu"
-      id="EZDrawer__overlayabhlu"
+      for="EZDrawer__checkboxh1tfb"
+      id="EZDrawer__overlayh1tfb"
       style="background-color: rgb(0, 0, 0); opacity: 0.4; z-index: 100;"
     />
   </div>

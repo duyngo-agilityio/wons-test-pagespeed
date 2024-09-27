@@ -33,12 +33,12 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                 role="row"
               >
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Invoice Id0"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-InvoiceId0"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -61,12 +61,12 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Name1"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-Name1"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -89,12 +89,12 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Email2"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-Email2"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -117,12 +117,12 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Date3"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-Date3"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -145,12 +145,12 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Status4"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-Status4"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -173,12 +173,12 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                   </div>
                 </th>
                 <th
+                  aria-hidden="true"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="undefined5"
                   data-testid="sort-btn"
                   id="react-aria-:r0:-undefined5"
                   role="columnheader"
-                  style="visibility: hidden;"
                   tabindex="-1"
                 >
                   <div
@@ -573,12 +573,12 @@ exports[`InvoiceList section should render correctly with response is null when 
                 role="row"
               >
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Invoice Id0"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-InvoiceId0"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -601,12 +601,12 @@ exports[`InvoiceList section should render correctly with response is null when 
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Name1"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-Name1"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -629,12 +629,12 @@ exports[`InvoiceList section should render correctly with response is null when 
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Email2"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-Email2"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -657,12 +657,12 @@ exports[`InvoiceList section should render correctly with response is null when 
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Date3"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-Date3"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -685,12 +685,12 @@ exports[`InvoiceList section should render correctly with response is null when 
                   </div>
                 </th>
                 <th
+                  aria-hidden="false"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="Status4"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-Status4"
                   role="columnheader"
-                  style="visibility: visible;"
                   tabindex="-1"
                 >
                   <div
@@ -713,12 +713,12 @@ exports[`InvoiceList section should render correctly with response is null when 
                   </div>
                 </th>
                 <th
+                  aria-hidden="true"
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="undefined5"
                   data-testid="sort-btn"
                   id="react-aria-:r2:-undefined5"
                   role="columnheader"
-                  style="visibility: hidden;"
                   tabindex="-1"
                 >
                   <div

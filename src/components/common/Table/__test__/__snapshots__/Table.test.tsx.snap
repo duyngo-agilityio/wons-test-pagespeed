@@ -30,12 +30,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
               role="row"
             >
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="FirstName0"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-FirstName0"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -58,12 +58,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="LastName1"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-LastName1"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -86,12 +86,12 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                 data-key="Email2"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-Email2"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -286,12 +286,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
               role="row"
             >
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="FirstName0"
                 data-testid="sort-btn"
                 id="react-aria-:r2:-FirstName0"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -314,12 +314,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="LastName1"
                 data-testid="sort-btn"
                 id="react-aria-:r2:-LastName1"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -342,12 +342,12 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="Email2"
                 data-testid="sort-btn"
                 id="react-aria-:r2:-Email2"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div

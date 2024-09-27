@@ -30,12 +30,12 @@ exports[`RecentServicesTable match snapshot 1`] = `
               role="row"
             >
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="Order ID0"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-OrderID0"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -58,12 +58,12 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="Service Name1"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-ServiceName1"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -86,12 +86,12 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="Price2"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-Price2"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -114,12 +114,12 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="Total Order3"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-TotalOrder3"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
@@ -142,12 +142,12 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 </div>
               </th>
               <th
+                aria-hidden="false"
                 class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px]"
                 data-key="Total Amount4"
                 data-testid="sort-btn"
                 id="react-aria-:r0:-TotalAmount4"
                 role="columnheader"
-                style="visibility: visible;"
                 tabindex="-1"
               >
                 <div
