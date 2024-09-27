@@ -123,7 +123,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   id="react-aria-:r5:"
                   placeholder=" "
                   type="text"
-                  value="#657303"
+                  value="#1000000"
                 />
               </div>
             </div>
@@ -700,7 +700,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Product Name0"
+                          data-key="undefined0"
                           data-testid="sort-btn"
                           id="react-aria-:r29:-undefined0"
                           role="columnheader"
@@ -728,7 +728,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Rate1"
+                          data-key="undefined1"
                           data-testid="sort-btn"
                           id="react-aria-:r29:-undefined1"
                           role="columnheader"
@@ -756,7 +756,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="QTY2"
+                          data-key="undefined2"
                           data-testid="sort-btn"
                           id="react-aria-:r29:-undefined2"
                           role="columnheader"
@@ -784,7 +784,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Amount3"
+                          data-key="undefined3"
                           data-testid="sort-btn"
                           id="react-aria-:r29:-undefined3"
                           role="columnheader"
@@ -1226,7 +1226,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   id="react-aria-:r34:"
                   placeholder=" "
                   type="text"
-                  value="#914840"
+                  value="#1000000"
                 />
               </div>
             </div>
@@ -1803,7 +1803,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Product Name0"
+                          data-key="undefined0"
                           data-testid="sort-btn"
                           id="react-aria-:r58:-undefined0"
                           role="columnheader"
@@ -1831,7 +1831,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Rate1"
+                          data-key="undefined1"
                           data-testid="sort-btn"
                           id="react-aria-:r58:-undefined1"
                           role="columnheader"
@@ -1859,7 +1859,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="QTY2"
+                          data-key="undefined2"
                           data-testid="sort-btn"
                           id="react-aria-:r58:-undefined2"
                           role="columnheader"
@@ -1887,7 +1887,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                         <th
                           aria-hidden="false"
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
-                          data-key="Amount3"
+                          data-key="undefined3"
                           data-testid="sort-btn"
                           id="react-aria-:r58:-undefined3"
                           role="columnheader"

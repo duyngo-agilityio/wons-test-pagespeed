@@ -5,9 +5,6 @@ import { useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
-// icons
-import { GrPrevious } from 'react-icons/gr';
-
 // Models
 import { IProductDetail } from '@/models';
 
@@ -124,14 +121,9 @@ const ProductDrawer = (): JSX.Element => {
           size={400}
           className="!w-full md:!w-[450px]"
         >
-          <div className="p-8 relative bg-white dark:bg-gray-400 h-full max-w-full">
-            <Button
-              onClick={handleCloseDrawer}
-              className="absolute top-[6.6rem] right-[24rem] !bg-transparent dark:!bg-transparent text-gray-200 dark:text-gray-300 hover:!bg-transparent dark:hover:!bg-transparent"
-            >
-              <GrPrevious size={20} />
-            </Button>
+          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full">
             <ProductForm
+              onCloseDrawer={handleCloseDrawer}
               key={isDrawerOpen ? 'open' : 'closed'}
               onSubmit={handleFormSubmit}
               onAvatarChange={handleAvatarChange}
