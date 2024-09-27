@@ -1,7 +1,9 @@
+import { Card } from '@nextui-org/react';
+
 import { memo } from 'react';
 
 // components
-import { Card, Text } from '@/components';
+import { Text } from '@/components';
 
 interface StatisticCardProps {
   statistic: string;

@@ -1,8 +1,10 @@
+import { Card } from '@nextui-org/react';
+
 // icons
 import { FaStar } from 'react-icons/fa';
 
 // components
-import { Card, ImageFallback } from '@/components/common';
+import { ImageFallback } from '@/components/common';
 
 // utils
 import { formatPrice } from '@/utils';
