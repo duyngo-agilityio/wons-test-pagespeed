@@ -17,6 +17,9 @@ import {
 // services
 import { getInvoiceProducts } from '@/api';
 
+// Constants
+import { PAGE_SIZE } from '@/constants';
+
 type TProductListPageProps = {
   searchParams: ISearchParams;
 };
@@ -25,6 +28,7 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
   const result: TProductInvoiceListResponse = (await getInvoiceProducts({
     sort: searchParams.sortBy,
     filters: {},
+    pageSize: PAGE_SIZE[10],
   })) as TProductInvoiceListResponse;
 
   const isSuperAdmin = await isAdmin();
