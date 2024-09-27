@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { getLocalTimeZone } from '@internationalized/date';
 import {
@@ -16,6 +16,9 @@ import {
   DEFAULT_RANGE_VALUE_PICKER,
   SEARCH_QUERIES,
 } from '@/constants';
+
+// Hooks
+import useClickOutside from '@/hooks/useClickOutside';
 
 // Utils
 import {
@@ -54,10 +57,15 @@ const DateRangePicker = ({
   const [isOpenRangePicker, setIsOpenRangePicker] = useState(false);
   const { END_TIME, START_TIME } = SEARCH_QUERIES;
 
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const handleOpenDatePicker = useCallback(
     () => setIsOpenRangePicker((prev) => !prev),
     [setIsOpenRangePicker],
   );
+
+  // Custom hook to detect click outside the modal
+  useClickOutside(modalRef, () => setIsOpenRangePicker(false));
 
   const handleOnChangeDateRangePicker = useCallback(
     (value: RangeValue<DateValue>) => {
@@ -77,7 +85,7 @@ const DateRangePicker = ({
       setDateRange(value);
 
       const startTime = `${startYear}-${startMonth}-${startDay}`;
-      const endTime = `${endYear}-${endMonth}-${endDay} 23:59:59`;
+      const endTime = `${endYear}-${endMonth}-${endDay} 16:59:59`;
 
       if (startTime && endTime) {
         params.set(START_TIME, formatDateByISO(startTime));
@@ -121,6 +129,7 @@ const DateRangePicker = ({
             innerWrapper: 'z-[-1]',
             inputWrapper: 'shadow-none',
           }}
+          ref={modalRef}
           className="h-[42.25px]"
           isOpen={isOpenRangePicker}
           value={dateRange}

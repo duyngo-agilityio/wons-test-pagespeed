@@ -120,10 +120,9 @@ export const formatDatePicker = (
 
 export const formatPriceTyping = (value: string) => {
   // Check for an empty or undefined value, set to default '0' if so
-  if (!value || isNaN(Number(value))) {
-    return '$0';
+  if (value === '') {
+    return '';
   }
-
   // Remove all non-numeric characters except the dot
   const numericValue = value.replace(/[^0-9.]/g, '');
 
