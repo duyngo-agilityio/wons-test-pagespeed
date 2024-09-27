@@ -19,6 +19,7 @@ interface IParameters {
   nextOptions?: NextFetchRequestConfig;
   sort?: string;
   filters?: Record<string, string>;
+  pageSize?: number;
 }
 
 export const getInvoiceProducts = async ({
@@ -26,12 +27,13 @@ export const getInvoiceProducts = async ({
   nextOptions,
   sort,
   filters,
+  pageSize = PAGE_SIZE[4],
 }: IParameters) => {
   const sortValue: string = sort ? `&sort=${sort}` : '';
   const filterQuery: string = formatFilterIntervalDate(
     filters as Record<string, string>,
   );
-  const endpoint: string = `${API_PATH.INVOICE_PRODUCTS}?populate=product&pagination[page]=${DEFAULT_PAGE}&pagination[pageSize]=${PAGE_SIZE[4]}${sortValue}${filterQuery}`;
+  const endpoint: string = `${API_PATH.INVOICE_PRODUCTS}?populate=product&pagination[page]=${DEFAULT_PAGE}&pagination[pageSize]=${pageSize}${sortValue}${filterQuery}`;
 
   try {
     const response = await httpClient.getRequest<TRecentInvoiceProductResponse>(
