@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useTransition } from 'react';
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
 import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
@@ -10,12 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { BRANDS, ERROR_MESSAGES, REGEX } from '@/constants';
 
 // Utils
-import {
-  clearErrorOnChange,
-  formatPriceTyping,
-  getDirtyState,
-  isEnableSubmitButton,
-} from '@/utils';
+import { clearErrorOnChange, formatPriceTyping } from '@/utils';
 
 // Components
 import {
@@ -33,10 +28,12 @@ import { IProductDetail } from '@/models';
 // Zod schema for validation
 const productFormSchema = z.object({
   title: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Title')),
-  brand: z.enum(['apple', 'samsung'], {
+  brand: z.enum(['apple', 'samsung', 'huawei', 'xioami', 'oppo', 'google'], {
     errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED('Brand') }),
   }),
-  imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image Url')),
+  imageUrl: z.string().nonempty({
+    message: ERROR_MESSAGES.FIELD_REQUIRED('Image'),
+  }),
   price: z.preprocess(
     (value) => {
       if (typeof value === 'string') {
@@ -48,7 +45,7 @@ const productFormSchema = z.object({
     z
       .number({ invalid_type_error: ERROR_MESSAGES.FIELD_INVALID('Price') })
       .min(0, ERROR_MESSAGES.FIELD_INVALID('Price'))
-      .refine((val) => String(Math.floor(val)).length <= 8, {
+      .refine((val) => String(Math.floor(val)).length <= 9, {
         message: ERROR_MESSAGES.FIELD_INVALID('Price cannot exceed 7 digits'),
       }),
   ),
@@ -78,17 +75,26 @@ const ProductForm = ({
 }: IProductFormProps) => {
   const {
     control,
-    formState: { dirtyFields, errors, defaultValues },
+    formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
-    watch,
     reset,
+    setError,
   } = useForm<Partial<IProductDetail>>({
     resolver: zodResolver(productFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    values: previewData,
+    defaultValues: previewData || {
+      title: '',
+      brand: '',
+      imageUrl: '',
+      price: 0,
+      description: '',
+      negotiable: false,
+    },
   });
+
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     if (setReset) {
@@ -98,20 +104,32 @@ const ProductForm = ({
 
   const dirtyItems = Object.keys(dirtyFields);
 
-  const enableSubmit: boolean = useMemo(
-    () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
-    [dirtyItems, errors],
-  );
-  const isDisableSubmit = !(
-    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
-  );
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<IProductDetail>];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = !allFieldsFilled;
 
   const saveData = useCallback(
     async (formData: Partial<IProductDetail>) => {
-      onSubmit(formData as IProductDetail);
-      reset();
+      if (!formData.imageUrl) {
+        setError('imageUrl', {
+          type: 'manual',
+          message: ERROR_MESSAGES.FIELD_REQUIRED('Image'),
+        });
+        return;
+      }
+
+      startTransition(async () => {
+        await onSubmit(formData as IProductDetail);
+        reset();
+      });
     },
-    [onSubmit, reset],
+    [onSubmit, reset, setError],
   );
 
   return (
@@ -137,7 +155,7 @@ const ProductForm = ({
               error={error?.message}
               onChange={(e) => {
                 onChange(e);
-                clearErrorOnChange(name, errors, clearErrors);
+                clearErrors(name);
               }}
               onFileChange={onAvatarChange}
             />
@@ -223,21 +241,28 @@ const ProductForm = ({
             render={({
               field: { name, onChange, value, ...rest },
               fieldState: { error },
-            }) => (
-              <Input
-                label="Price"
-                value={value ? formatPriceTyping(String(value)) : ''}
-                classNames={{ base: 'h-[71px]' }}
-                isInvalid={!!error}
-                errorMessage={error?.message}
-                isDisabled={isDisabledField}
-                onChange={(e) => {
-                  onChange(e.target.value);
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-                {...rest}
-              />
-            )}
+            }) => {
+              const formattedValue = formatPriceTyping(
+                value ? String(value) : '',
+              );
+
+              return (
+                <Input
+                  label="Price"
+                  value={formattedValue}
+                  classNames={{ base: 'h-[71px]' }}
+                  isInvalid={!!error}
+                  errorMessage={error?.message}
+                  isDisabled={isDisabledField}
+                  onChange={(e) => {
+                    const rawValue = e.target.value.replace(/\$|,/g, '');
+                    onChange(rawValue);
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                  {...rest}
+                />
+              );
+            }}
           />
         </div>
 
@@ -300,8 +325,8 @@ const ProductForm = ({
 
       <Button
         type="submit"
-        isLoading={isDisabledField}
-        isDisabled={isDisableSubmit}
+        isLoading={isPending}
+        isDisabled={isDisableSubmit || isPending}
         size="lg"
         color="primary"
         className="w-full mt-8 text-xl font-medium cursor-pointer"
