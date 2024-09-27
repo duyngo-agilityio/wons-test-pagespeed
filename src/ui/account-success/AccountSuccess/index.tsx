@@ -31,7 +31,7 @@ const AccountSuccess = (): JSX.Element => {
             className="base:mt-[80px] sm:mt-[100px] md:mt-[150px] xl:mt-[186px]"
           />
           <Text
-            as="h1"
+            as="h2"
             text="Your account successfully created."
             className="mt-[53px] font-bold base:text-xl md:text-3xl"
           />
