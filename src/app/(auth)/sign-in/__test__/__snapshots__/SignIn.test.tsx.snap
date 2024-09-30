@@ -124,7 +124,7 @@ exports[`SignUpPage should match with snapshot 1`] = `
             <div
               class="flex items-center"
             >
-              Log in
+              Sign in
             </div>
           </button>
         </form>
@@ -270,7 +270,7 @@ exports[`SignUpPage should match with snapshot 1`] = `
           <div
             class="flex items-center"
           >
-            Log in
+            Sign in
           </div>
         </button>
       </form>

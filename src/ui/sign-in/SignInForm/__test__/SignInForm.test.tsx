@@ -43,7 +43,7 @@ describe('SignInForm Component', () => {
     });
 
     // Submit the form
-    testLibJestUtils.fireEvent.click(getByRole('button', { name: /Log In/i }));
+    testLibJestUtils.fireEvent.click(getByRole('button', { name: /Sign in/i }));
 
     // Wait for the form to submit and check the onSubmit was called with correct data
     await testLibJestUtils.waitFor(() => {

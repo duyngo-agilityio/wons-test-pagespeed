@@ -121,7 +121,7 @@ exports[`SignInForm should match snapshot for SignInForm 1`] = `
         <div
           class="flex items-center"
         >
-          Log in
+          Sign in
         </div>
       </button>
     </form>
