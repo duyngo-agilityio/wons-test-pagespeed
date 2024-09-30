@@ -7,7 +7,12 @@ import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
 // Components
-import { ProductDetails, ProductForm, ProductTable } from '@/components';
+import {
+  LoadingIndicator,
+  ProductDetails,
+  ProductForm,
+  ProductTable,
+} from '@/components';
 
 // Types
 import { TProductInvoiceResponse } from '@/types';
@@ -41,12 +46,23 @@ export type TProductListClientProps = {
         success: undefined;
       }
   >;
+  onDelete: (id: number) => Promise<
+    | {
+        success: boolean;
+        error?: undefined;
+      }
+    | {
+        error: string;
+        success?: undefined;
+      }
+  >;
 };
 
 const ProductListClient = ({
   productList,
   isReadOnly = true,
   order,
+  onDelete,
   onEdit,
 }: TProductListClientProps) => {
   const [toggleProductDetails, setToggleProductDetails] =
@@ -60,9 +76,25 @@ const ProductListClient = ({
   const [idProduct, setIdProduct] = useState<number>(0);
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
 
-  // TODO: Handle delete logic later
-  const handleDelete = () => {};
+  const handleDelete = useCallback(
+    async (id: number) => {
+      setIsLoading(true);
+
+      const res = await onDelete(id);
+
+      setIsLoading(false);
+
+      const { error } = res || {};
+
+      showToast({
+        description: error || SUCCESS_MESSAGES.DELETE_CUSTOMER,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+    },
+    [onDelete, showToast],
+  );
 
   const handleCloseProductDetails = useCallback(
     () => setToggleProductDetails(false),
@@ -164,6 +196,7 @@ const ProductListClient = ({
 
   return (
     <>
+      {isLoading && <LoadingIndicator />}
       <ProductTable
         data={productList}
         isReadOnly={isReadOnly}
