@@ -13,12 +13,43 @@ exports[`Text Component renders correctly with all custom props 1`] = `
         </script>
         <div
           class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
-          style="border-radius: undefined; box-shadow: none;"
           tabindex="-1"
         >
           <div
-            class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
-          />
+            class="flex items-center flex-wrap"
+          >
+            <div
+              class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] undefined undefined"
+              style="width: 60px; height: 60px; min-width: 45px;"
+            >
+              <svg
+                class="h-8 w-8 text-blue-500"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
+                />
+              </svg>
+            </div>
+            <div
+              class="flex-1 min-w-0"
+            >
+              <p
+                class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+              />
+              <p
+                class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+              >
+                Favorite Services
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,12 +63,43 @@ exports[`Text Component renders correctly with all custom props 1`] = `
       </script>
       <div
         class="flex flex-col relative overflow-hidden h-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none p-2 sm:p-4 xl:p-8 2xl:py-10 2xl:px-8 bg-white rounded-10 dark:bg-gray-400"
-        style="border-radius: undefined; box-shadow: none;"
         tabindex="-1"
       >
         <div
-          class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
-        />
+          class="flex items-center flex-wrap"
+        >
+          <div
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] undefined undefined"
+            style="width: 60px; height: 60px; min-width: 45px;"
+          >
+            <svg
+              class="h-8 w-8 text-blue-500"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"
+              />
+            </svg>
+          </div>
+          <div
+            class="flex-1 min-w-0"
+          >
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+            />
+            <p
+              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+            >
+              Favorite Services
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>,
