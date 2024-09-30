@@ -51,7 +51,7 @@ exports[`DashboardLayout should match snapshot 1`] = `
                   value="()=>"John Deo""
                 />
                 <svg
-                  class="w-3 h-3 text-blue-800/60 dark:text-white/60"
+                  class="w-3 h-3 text-blue-800/60 dark:text-white/60 cursor-pointer"
                   fill="currentColor"
                   height="1em"
                   id="search"

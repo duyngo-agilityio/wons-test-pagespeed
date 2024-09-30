@@ -108,7 +108,7 @@ const CustomerDrawer = (): JSX.Element => {
         onClose={handleCloseDrawer}
         direction="right"
         size={400}
-        className="!w-full md:!w-[400px]"
+        className="!w-full md:!w-[400px] overflow-auto"
       >
         <div className="p-5 relative bg-white dark:bg-gray-400 h-full max-w-full">
           <Button
