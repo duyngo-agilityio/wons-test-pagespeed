@@ -24,6 +24,9 @@ import { getInvoiceProducts } from '@/api';
 // Constants
 import { PAGE_SIZE } from '@/constants';
 
+// Actions
+import { updateProduct } from '@/actions';
+
 type TProductListPageProps = {
   searchParams: ISearchParams;
 };
@@ -66,6 +69,7 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
       <ProductListClient
         productList={sortProductsByTotalSale(formattedProducts)}
         isReadOnly={!isSuperAdmin}
+        onEdit={updateProduct}
       />
     </TableLayout>
   );

@@ -24,6 +24,11 @@ export const getAllProducts = async (): Promise<{
       StrapiResponse<StrapiModel<IProduct>[]>
     >({
       endpoint: url,
+      configOptions: {
+        next: {
+          tags: [API_PATH.PRODUCTS],
+        },
+      },
     });
 
     if (!productsResponse?.data?.length) {
@@ -46,6 +51,11 @@ export const getProducts = async (): Promise<{
       StrapiResponse<StrapiModel<IProduct>[]>
     >({
       endpoint: API_PATH.PRODUCTS,
+      configOptions: {
+        next: {
+          tags: [API_PATH.PRODUCTS],
+        },
+      },
     });
 
     if (!productsResponse?.data?.length) {

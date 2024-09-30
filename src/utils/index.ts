@@ -8,3 +8,4 @@ export * from './generate-id';
 export * from './auth';
 export * from './product';
 export * from './column';
+export * from './formHandler';
