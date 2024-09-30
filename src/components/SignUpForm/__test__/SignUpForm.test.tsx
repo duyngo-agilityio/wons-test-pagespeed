@@ -89,8 +89,8 @@ describe('SignUpForm', () => {
     });
 
     await testLibJestUtils.waitFor(() => {
-      expect(ERROR_MESSAGES.FIELD_REQUIRED('Full Name')).toBeTruthy();
-      expect(ERROR_MESSAGES.FIELD_REQUIRED('Username')).toBeTruthy();
+      expect(ERROR_MESSAGES.FIELD_REQUIRED).toBeTruthy();
+      expect(ERROR_MESSAGES.FIELD_REQUIRED).toBeTruthy();
       expect(ERROR_MESSAGES.FIELD_INVALID('Email Address')).toBeTruthy();
       expect(ERROR_MESSAGES.INVALID_PASSWORD).toBeTruthy();
     });

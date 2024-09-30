@@ -1,5 +1,3 @@
-import { ERROR_MESSAGES, REGEX } from '@/constants';
-
 /**
  * @param requiredFields [] The required fields on form
  * @param dirtyFields [] The fields, which the users touched and fill data on
@@ -20,16 +18,6 @@ export const isEnableSubmitButton = (
 
   return isMatchAllRequiredFields && errors && !Object.keys(errors).length;
 };
-
-export const isRequired = (value?: string | null): boolean => !!value;
-
-export const validateRequired = (fieldName: string, value?: string | null) =>
-  isRequired(value?.trim()) || ERROR_MESSAGES.FIELD_REQUIRED(fieldName);
-
-/**
- * Function to check if a given value is a valid email address.
- */
-export const isValidEmail = (value: string) => REGEX.EMAIL.test(value);
 
 /**
  * Function get dirty state
