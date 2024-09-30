@@ -209,7 +209,7 @@ const ProductForm = ({
         name="brand"
         control={control}
         render={({
-          field: { name, onChange, value, ...rest },
+          field: { name, onChange, value },
           fieldState: { error },
         }) => (
           <div className="flex flex-col w-full h-[71px] mb-5">
@@ -236,7 +236,6 @@ const ProductForm = ({
                 onChange(e.target.value);
                 clearErrorOnChange(name, errors, clearErrors);
               }}
-              {...rest}
             >
               {BRANDS.map((brand) => (
                 <SelectItem key={brand.key} value={brand.key}>
