@@ -59,7 +59,7 @@ const SearchInput = ({ ...props }: InputProps) => {
       defaultValue={defaultValueSearch}
       onChange={handleSearch}
       endContent={
-        <CiSearch className="w-3 h-3 text-blue-800/60 dark:text-white/60" />
+        <CiSearch className="w-3 h-3 text-blue-800/60 dark:text-white/60 cursor-pointer" />
       }
       {...props}
     />
