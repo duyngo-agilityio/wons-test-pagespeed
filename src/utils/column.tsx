@@ -105,7 +105,11 @@ export const mappingContentColumns = ({
       header: 'Total Sales',
       accessor: (productData: TProductInvoiceResponse) => {
         const { attributes } = productData || {};
-        const { price = 0, quantity = 0 } = attributes || {};
+        const { quantity = 0 } = attributes || {};
+        const { product } = attributes || {};
+        const { data } = product || {};
+        const { attributes: attributesProduct } = data || {};
+        const { price = 0 } = attributesProduct || {};
 
         return (
           <Text
