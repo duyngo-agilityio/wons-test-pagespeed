@@ -18,14 +18,14 @@ import {
   TProductInvoiceResponse,
 } from '@/types';
 
+// Constants
+import { API_PATH, PAGE_SIZE } from '@/constants';
+
 // services
 import { getInvoiceProducts, getProducts } from '@/api';
 
-// Constants
-import { PAGE_SIZE } from '@/constants';
-
 // Actions
-import { updateProduct } from '@/actions';
+import { updateProduct, deleteProduct } from '@/actions';
 
 type TProductListPageProps = {
   searchParams?: ISearchParams;
@@ -49,6 +49,7 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
       ? `${sortBy === 'title' ? `product.${sortBy}` : sortBy}:${order}`
       : '',
     filters,
+    nextOptions: { tags: [API_PATH.INVOICE_PRODUCTS] },
     pageSize: PAGE_SIZE[10],
   })) as TProductInvoiceListResponse;
 
@@ -63,7 +64,7 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
 
   const formatProduct = productsNotInInvoice.map((product) => {
     return {
-      id: 0,
+      id: product.id,
       attributes: {
         price: 0,
         quantity: 0,
@@ -103,6 +104,7 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
         )}
         isReadOnly={!isSuperAdmin}
         onEdit={updateProduct}
+        onDelete={deleteProduct}
       />
     </TableLayout>
   );
