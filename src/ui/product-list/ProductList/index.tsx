@@ -25,9 +25,16 @@ type TProductListPageProps = {
 };
 
 const ProductList = async ({ searchParams }: TProductListPageProps) => {
+  const { startTime = '', endTime = '' } = searchParams || {};
+
+  const filters: Record<string, string> = {
+    'createdAt[$gte]': startTime,
+    'createdAt[$lte]': endTime,
+  };
+
   const result: TProductInvoiceListResponse = (await getInvoiceProducts({
     sort: searchParams.sortBy,
-    filters: {},
+    filters,
     pageSize: PAGE_SIZE[10],
   })) as TProductInvoiceListResponse;
 

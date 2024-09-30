@@ -30,7 +30,11 @@ type TInvoiceListPageProps = {
 const ProductListPage = ({
   searchParams,
 }: TInvoiceListPageProps): JSX.Element => {
-  const { page = DEFAULT_PAGE } = searchParams || {};
+  const {
+    page = DEFAULT_PAGE,
+    startTime = '',
+    endTime = '',
+  } = searchParams || {};
 
   return (
     <main>
@@ -40,7 +44,7 @@ const ProductListPage = ({
       >
         <ProductDrawer />
         <Suspense
-          key={page}
+          key={page + startTime + endTime}
           fallback={
             <TableLayout>
               <TableSkeleton columns={MAPPING_PRODUCT_SKELETON} />
