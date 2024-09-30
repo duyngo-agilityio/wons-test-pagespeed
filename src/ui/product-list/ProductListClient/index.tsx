@@ -24,9 +24,10 @@ import { IProductDetail } from '@/models';
 // Hooks
 import { useToast } from '@/hooks';
 
-export type TCustomerListClientProps = {
+export type TProductListClientProps = {
   productList: TProductInvoiceResponse[];
   isReadOnly?: boolean;
+  order?: string;
   onEdit: (
     payload: Partial<IProductDetail>,
     id: number,
@@ -45,8 +46,9 @@ export type TCustomerListClientProps = {
 const ProductListClient = ({
   productList,
   isReadOnly = true,
+  order,
   onEdit,
-}: TCustomerListClientProps) => {
+}: TProductListClientProps) => {
   const [toggleProductDetails, setToggleProductDetails] =
     useState<boolean>(false);
   const [productDetailsByID, setProductDetailsByID] =
@@ -59,12 +61,12 @@ const ProductListClient = ({
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
 
-  // TODO: Handle later
+  // TODO: Handle delete logic later
   const handleDelete = () => {};
 
   const handleCloseProductDetails = useCallback(
     () => setToggleProductDetails(false),
-    [formReset],
+    [],
   );
 
   const handleOpenProductDetails = useCallback(
@@ -73,7 +75,6 @@ const ProductListClient = ({
         productList,
         Number(key),
       );
-
       setProductDetailsByID(productByID);
       setToggleProductDetails(true);
     },
@@ -112,7 +113,6 @@ const ProductListClient = ({
     if (formReset) {
       formReset();
     }
-
     setToggleEditProduct(false);
     setProductDetailsByID(undefined);
   }, [formReset]);
@@ -170,6 +170,7 @@ const ProductListClient = ({
         onDelete={handleDelete}
         onEdit={handleOpenEditProduct}
         onRowAction={handleOpenProductDetails}
+        order={order}
       />
       {productDetailsByID && (
         <Drawer
@@ -181,27 +182,28 @@ const ProductListClient = ({
           <ProductDetails product={productDetailsByID} />
         </Drawer>
       )}
-
-      {productDetailsByID && (
+      {toggleEditProduct && (
         <Drawer
           open={toggleEditProduct}
           onClose={handleCloseEditProduct}
           direction="right"
-          className="base:!w-[302px] lg:!w-[369px] !max-w-[369px] px-7.5"
+          className="base:!w-[302px] lg:!w-[369px] !max-w-[369px]"
         >
-          <ProductForm
-            previewData={
-              productDetailsByID?.attributes?.product?.data?.attributes
-            }
-            onAvatarChange={handleAvatarChange}
-            onSubmit={handleEditProduct}
-            setReset={(
-              resetFn: UseFormReset<Partial<IProductDetail>> | null,
-            ): void => {
-              formReset = resetFn;
-            }}
-            onCloseDrawer={handleCloseEditProduct}
-          />
+          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
+            <ProductForm
+              previewData={
+                productDetailsByID?.attributes?.product?.data?.attributes
+              }
+              onAvatarChange={handleAvatarChange}
+              onSubmit={handleEditProduct}
+              setReset={(
+                resetFn: UseFormReset<Partial<IProductDetail>> | null,
+              ): void => {
+                formReset = resetFn;
+              }}
+              onCloseDrawer={handleCloseEditProduct}
+            />
+          </div>
         </Drawer>
       )}
     </>

@@ -28,11 +28,16 @@ import { PAGE_SIZE } from '@/constants';
 import { updateProduct } from '@/actions';
 
 type TProductListPageProps = {
-  searchParams: ISearchParams;
+  searchParams?: ISearchParams;
 };
 
-const ProductList = async ({ searchParams }: TProductListPageProps) => {
-  const { startTime = '', endTime = '' } = searchParams || {};
+const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
+  const {
+    sortBy = '',
+    order = '',
+    startTime = '',
+    endTime = '',
+  } = searchParams;
 
   const filters: Record<string, string> = {
     'createdAt[$gte]': startTime,
@@ -40,13 +45,16 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
   };
 
   const result: TProductInvoiceListResponse = (await getInvoiceProducts({
-    sort: searchParams.sortBy,
+    sort: sortBy
+      ? `${sortBy === 'title' ? `product.${sortBy}` : sortBy}:${order}`
+      : '',
     filters,
     pageSize: PAGE_SIZE[10],
   })) as TProductInvoiceListResponse;
 
   const isSuperAdmin = await isAdmin();
 
+  // Aggregate and sort products by total sales
   const formattedProducts: TProductInvoiceResponse[] =
     aggregateProductQuantities(result.data);
 
@@ -70,6 +78,7 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
     <TableLayout title="Top Selling Products">
       <ProductListClient
         productList={sortProductsByTotalSale(formattedProducts)}
+        order={order}
         isReadOnly={!isSuperAdmin}
         onEdit={updateProduct}
       />

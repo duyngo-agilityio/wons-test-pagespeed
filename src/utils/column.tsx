@@ -31,7 +31,7 @@ export const mappingContentColumns = ({
       accessor: (productData: TProductInvoiceResponse) =>
         getSerialNumberWithMedal(data, productData),
       isSort: true,
-      value: 'sn',
+      value: 'id',
     },
     {
       header: 'Name',
@@ -62,7 +62,7 @@ export const mappingContentColumns = ({
         );
       },
       isSort: true,
-      value: 'fullName',
+      value: 'title',
     },
     {
       header: 'Price',
@@ -99,7 +99,7 @@ export const mappingContentColumns = ({
         );
       },
       isSort: true,
-      value: 'totalPrice',
+      value: 'quantity',
     },
     {
       header: 'Total Sales',
@@ -120,7 +120,7 @@ export const mappingContentColumns = ({
         );
       },
       isSort: true,
-      value: 'totalSale',
+      // value: 'totalSale',
     },
     {
       ...(!isReadOnly && {
