@@ -80,8 +80,6 @@ const ProductListClient = ({
 
   const handleDelete = useCallback(
     async (id: number) => {
-      console.log('id', id);
-
       setIsLoading(true);
 
       const res = await onDelete(id);
