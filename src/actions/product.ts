@@ -26,6 +26,8 @@ export const createProduct = async (formData: Partial<IProductDetail>) => {
       body: { data: formattedData },
     });
 
+    revalidateTag(API_PATH.PRODUCTS);
+
     return { success: true };
   } catch (error) {
     const message = formatErrorMessage(error);
