@@ -165,7 +165,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
         color="primary"
         className="w-full mt-10"
       >
-        Log in
+        Sign in
       </Button>
     </form>
   );

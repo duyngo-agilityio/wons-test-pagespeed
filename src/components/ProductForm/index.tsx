@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useTransition } from 'react';
+import { useCallback, useEffect, useMemo, useTransition } from 'react';
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
 import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
@@ -10,7 +10,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { BRANDS, ERROR_MESSAGES, REGEX } from '@/constants';
 
 // Utils
-import { clearErrorOnChange, formatPriceTyping } from '@/utils';
+import {
+  clearErrorOnChange,
+  formatPriceTyping,
+  getDirtyState,
+  isEnableSubmitButton,
+} from '@/utils';
 
 // Components
 import {
@@ -66,7 +71,7 @@ export interface IProductFormProps {
   onAvatarChange: (file: File) => void;
   onSubmit: (data: IProductDetail) => void;
   setReset: (reset: UseFormReset<Partial<IProductDetail>>) => void;
-  previewData?: IProductDetail;
+  previewData?: IProductDetail | null;
   onCloseDrawer?: () => void;
 }
 
@@ -75,15 +80,16 @@ const ProductForm = ({
   onAvatarChange,
   onSubmit,
   setReset,
-  previewData = {} as IProductDetail,
+  previewData = null,
   onCloseDrawer,
 }: IProductFormProps) => {
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues },
     clearErrors,
     handleSubmit,
     reset,
+    watch,
     setError,
   } = useForm<Partial<IProductDetail>>({
     resolver: zodResolver(productFormSchema),
@@ -107,17 +113,17 @@ const ProductForm = ({
     }
   }, [setReset, reset]);
 
+  // Checking to disable/enable submit button
   const dirtyItems = Object.keys(dirtyFields);
 
-  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+  const enableSubmit: boolean = useMemo(
+    () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
+    [dirtyItems, errors],
+  );
 
-  const allFieldsFilled = requiredField.every((field) => {
-    const isDirty = dirtyItems.includes(field);
-    const hasError = errors[field as keyof Partial<IProductDetail>];
-    return isDirty && !hasError;
-  });
-
-  const isDisableSubmit = !allFieldsFilled;
+  const isDisableSubmit = !(
+    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
+  );
 
   const saveData = useCallback(
     async (formData: Partial<IProductDetail>) => {

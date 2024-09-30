@@ -68,7 +68,11 @@ export const mappingContentColumns = ({
       header: 'Price',
       accessor: (productData: TProductInvoiceResponse) => {
         const { attributes } = productData || {};
-        const { price = 0 } = attributes || {};
+        const { product } = attributes || {};
+        const { data } = product || {};
+        const { attributes: attributesProduct } = data || {};
+        const { price = 0 } = attributesProduct || {};
+
         return (
           <Text
             size="md"

@@ -253,7 +253,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
         &nbsp;
         <Link href="/sign-in">
           <Text
-            text="Login"
+            text="Sign in"
             size="xl"
             className="!text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
           />
