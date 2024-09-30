@@ -19,7 +19,7 @@ import {
 } from '@/types';
 
 // services
-import { getInvoiceProducts } from '@/api';
+import { getInvoiceProducts, getProducts } from '@/api';
 
 // Constants
 import { PAGE_SIZE } from '@/constants';
@@ -52,6 +52,26 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
     pageSize: PAGE_SIZE[10],
   })) as TProductInvoiceListResponse;
 
+  const { data: resultProducts = [] } = await getProducts();
+
+  const invoiceProductIds = new Set(
+    result.data.map((invoice) => invoice.attributes.product.data.id),
+  );
+  const productsNotInInvoice = resultProducts.filter(
+    (product) => !invoiceProductIds.has(product.id),
+  );
+
+  const formatProduct = productsNotInInvoice.map((product) => {
+    return {
+      id: 0,
+      attributes: {
+        price: 0,
+        quantity: 0,
+        product: { data: product },
+      },
+    };
+  });
+
   const isSuperAdmin = await isAdmin();
 
   // Aggregate and sort products by total sales
@@ -77,8 +97,10 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
   return (
     <TableLayout title="Top Selling Products">
       <ProductListClient
-        productList={sortProductsByTotalSale(formattedProducts)}
         order={order}
+        productList={sortProductsByTotalSale(
+          formatProduct.concat(formattedProducts) as TProductInvoiceResponse[],
+        )}
         isReadOnly={!isSuperAdmin}
         onEdit={updateProduct}
       />
