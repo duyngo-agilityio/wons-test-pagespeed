@@ -5,7 +5,11 @@ import { TableLayout } from '@/layouts';
 import ProductListClient from '../ProductListClient';
 
 // utils
-import { isAdmin, sortByTotalSaleDescending } from '@/utils';
+import {
+  aggregateProductQuantities,
+  isAdmin,
+  sortByTotalSaleDescending,
+} from '@/utils';
 
 // types
 import {
@@ -40,6 +44,9 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
 
   const isSuperAdmin = await isAdmin();
 
+  const formattedProducts: TProductInvoiceResponse[] =
+    aggregateProductQuantities(result.data);
+
   const sortProductsByTotalSale = (products: TProductInvoiceResponse[]) => {
     if (!Array.isArray(products) || !products.length) return [];
 
@@ -57,7 +64,7 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
   return (
     <TableLayout title="Top Selling Products">
       <ProductListClient
-        productList={sortProductsByTotalSale(result.data)}
+        productList={sortProductsByTotalSale(formattedProducts)}
         isReadOnly={!isSuperAdmin}
       />
     </TableLayout>

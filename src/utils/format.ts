@@ -2,7 +2,7 @@ import { CalendarDate, DateValue } from '@nextui-org/react';
 import { CalendarDateTime, ZonedDateTime } from '@internationalized/date';
 
 // Types
-import { StrapiModel } from '@/types';
+import { StrapiModel, TProductInvoiceResponse } from '@/types';
 
 // Models
 import { IProduct, TInvoiceProduct } from '@/models';
@@ -132,4 +132,39 @@ export const formatPriceTyping = (value: string) => {
 
   // Join back the integer and decimal parts
   return `$${parts.join('.')}`;
+};
+
+/**
+ * Aggregates product quantities by product ID.
+ * @param {TProductInvoiceResponse[]} products - Array of products with attributes.
+ * @returns {TProductInvoiceResponse[]} - Aggregated product quantities.
+ */
+export const aggregateProductQuantities = (
+  products: TProductInvoiceResponse[],
+): TProductInvoiceResponse[] => {
+  const quantityByProductId: { [key: string]: TProductInvoiceResponse } = {};
+
+  products.forEach((product) => {
+    const productId = product.attributes.product.data.id;
+    const quantity = product.attributes.quantity;
+
+    // Check if the product ID exists in the results
+    if (!quantityByProductId[productId]) {
+      // If not, initialize the object for that ID
+      quantityByProductId[productId] = {
+        id: productId,
+        attributes: {
+          ...product.attributes,
+          quantity: 0, // Initialize quantity
+          product: { data: product.attributes.product.data }, // Keep product info
+        },
+      };
+    }
+
+    // Accumulate the quantity
+    quantityByProductId[productId].attributes.quantity += quantity;
+  });
+
+  // Convert the object into an array and return
+  return Object.values(quantityByProductId);
 };
