@@ -39,7 +39,7 @@ describe('SignInForm Component', () => {
       target: { value: 'test@example.com' },
     });
     testLibJestUtils.fireEvent.change(getByLabelText(/Password/i), {
-      target: { value: 'password123' },
+      target: { value: 'Password@123' },
     });
 
     // Submit the form
@@ -49,7 +49,7 @@ describe('SignInForm Component', () => {
     await testLibJestUtils.waitFor(() => {
       expect(mockOnSubmit).toHaveBeenCalledWith({
         identifier: 'test@example.com',
-        password: 'password123',
+        password: 'Password@123',
       });
     });
   });
