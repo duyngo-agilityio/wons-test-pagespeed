@@ -320,7 +320,6 @@ const ProductForm = ({
           }) => (
             <Textarea
               classNames={{
-                base: 'h-[140px]',
                 input: '!text-blue-800/70 dark:!text-white/70',
                 inputWrapper: [
                   'bg-gray-50 dark:bg-gray-600',
