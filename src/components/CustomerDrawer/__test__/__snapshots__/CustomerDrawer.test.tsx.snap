@@ -42,7 +42,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
         type="checkbox"
       />
       <nav
-        class="EZDrawer__container !w-full md:!w-[400px]"
+        class="EZDrawer__container !w-full md:!w-[400px] overflow-auto"
         id="EZDrawer__container"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 400px; height: 100vh;"
