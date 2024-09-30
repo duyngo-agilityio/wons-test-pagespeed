@@ -103,7 +103,7 @@ const ProductDrawer = (): JSX.Element => {
           tab: 'm-0 h-[40px] rounded-[10px]',
           tabContent: 'dark:text-white',
         }}
-        className="p-0 rounded-[10px]"
+        className="!w-full md:!w-[450px] max-h-screen"
       />
       <div>
         <Button
@@ -121,7 +121,7 @@ const ProductDrawer = (): JSX.Element => {
           size={400}
           className="!w-full md:!w-[450px]"
         >
-          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full">
+          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
             <ProductForm
               onCloseDrawer={handleCloseDrawer}
               key={isDrawerOpen ? 'open' : 'closed'}
