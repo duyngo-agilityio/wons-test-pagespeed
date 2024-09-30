@@ -42,7 +42,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
         type="checkbox"
       />
       <nav
-        class="EZDrawer__container !w-full md:!w-[400px] overflow-auto"
+        class="EZDrawer__container !w-full md:!w-[450px] max-h-screen"
         id="EZDrawer__container"
         role="navigation"
         style="z-index: 101; transition-duration: 500ms; top: 0px; right: 0px; transform: translate3d(100%, 0, 0); width: 400px; height: 100vh;"
@@ -503,7 +503,7 @@ exports[`CustomerDrawer matches snapshot 1`] = `
                         data-slot="value"
                         id="react-aria-:r1a:"
                       >
-
+                         
                       </span>
                     </div>
                     <svg
