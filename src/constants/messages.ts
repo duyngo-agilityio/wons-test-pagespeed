@@ -4,7 +4,7 @@ export const ERROR_MESSAGES = {
   INVALID_PASSWORD:
     'Password must be between 8 and 32 characters, and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.',
   EMAIL_PASSWORD_INVALID:
-    'Email or password invalid. Please help to try again!',
+    'Incorrect email and password. Please help to try again.',
 
   EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
