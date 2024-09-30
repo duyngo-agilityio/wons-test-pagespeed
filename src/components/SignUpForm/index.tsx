@@ -21,15 +21,15 @@ import { Button, Input, Text, Checkbox } from '@/components';
 
 // Zod schema for validation
 const signUpSchema = z.object({
-  fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Full Name')),
-  username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Username')),
+  fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
   email: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email Address'))
+    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
     .email(ERROR_MESSAGES.FIELD_INVALID('Email Address')),
   password: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Password'))
+    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
     .regex(REGEX.PASSWORD, ERROR_MESSAGES.INVALID_PASSWORD),
 });
 

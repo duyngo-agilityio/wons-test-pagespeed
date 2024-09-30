@@ -64,15 +64,15 @@ import {
 // Zod schema for validation
 const invoiceSchema = z.object({
   invoiceId: z.string(),
-  customerId: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Name')),
-  status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Status')),
-  address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Address')),
+  customerId: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
   date: z.any(),
   email: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Email'))
+    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
     .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
-  imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED('Image')),
+  imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
 });
 
 const REQUIRED_FIELDS = ['date', 'customerId', 'email', 'address', 'status'];
@@ -158,7 +158,7 @@ const InvoiceForm = ({
     );
 
     if (productsValues.length === 0 || hasEmptyField) {
-      return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Product'));
+      return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED);
     }
 
     if (isAvatarDirty && avatarFile) {
@@ -175,7 +175,7 @@ const InvoiceForm = ({
       }
     } else {
       if (!formData.imageUrl) {
-        return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED('Image'));
+        return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED);
       }
     }
 
