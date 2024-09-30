@@ -57,7 +57,9 @@ const ProductList = async ({ searchParams }: TProductListPageProps) => {
       ...product,
       attributes: {
         ...product.attributes,
-        totalSale: product.attributes.price * product.attributes.quantity,
+        totalSale:
+          product.attributes.product.data.attributes.price *
+          product.attributes.quantity,
       },
     }));
 
