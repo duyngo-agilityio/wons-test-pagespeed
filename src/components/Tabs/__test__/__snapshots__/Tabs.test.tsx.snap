@@ -10,7 +10,7 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
     </script>
     <div
       aria-label="Custom tabs"
-      class="inline-flex text-white p-4 rounded-[3px] dark:bg-purple-900"
+      class="inline-flex text-white p-4 rounded-[3px]"
       data-slot="base"
     >
       <div

@@ -32,12 +32,18 @@ const meta: Meta<typeof Tabs> = {
       options: ['top', 'right', 'bottom', 'left'],
       control: { type: 'inline-radio' },
     },
+    customVariant: {
+      description: 'Switch between primary and secondary styles',
+      options: ['primary', 'secondary'],
+      control: { type: 'radio' },
+    },
     tabs: {
       description: 'Array of tabs with dynamic key, label, and content',
     },
   },
   args: {
     isDisabled: false,
+    customVariant: 'primary',
   },
 };
 

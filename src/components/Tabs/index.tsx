@@ -11,24 +11,48 @@ interface TabType {
 
 interface CustomTabsProps extends TabsProps {
   tabs: TabType[];
+  customVariant?: 'primary' | 'secondary';
 }
 
-const Tabs = ({ tabs, classNames, className, ...props }: CustomTabsProps) => {
-  const { cursor, tabList, tab, tabContent, base } = classNames || {};
+const Tabs = ({
+  tabs,
+  customVariant = 'primary',
+  classNames,
+  className,
+  ...props
+}: CustomTabsProps) => {
+  const primaryStyles = {
+    base: 'text-white',
+    tabList: 'bg-pink-400 dark:bg-pink-600',
+    cursor: 'bg-pink-500',
+    tab: 'my-[2px] mx-[2px]',
+    tabContent:
+      'text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white',
+  };
+
+  const secondaryStyles = {
+    base: 'text-black dark:text-white',
+    tabList:
+      'bg-white dark:bg-gray-400 shadow-lg border border-gray-200 dark:border-gray-700 p-0 rounded-[5px]',
+    cursor: 'bg-blue-500 dark:bg-purple-600 rounded-none',
+    tab: 'px-4 !py-6 font-medium text-gray-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-white',
+    tabContent:
+      'text-blue-800 dark:text-white group-data-[selected=true]:text-white dark:group-data-[selected=true]:text-gray-400',
+  };
+
+  const styles =
+    customVariant === 'secondary' ? secondaryStyles : primaryStyles;
 
   return (
     <NextUITabs
-      className={cn('p-4 rounded-[3px] dark:bg-purple-900', className)}
+      className={cn('p-4 rounded-[3px]', className)}
       aria-label="Custom tabs"
       classNames={{
-        base: cn('text-white', base),
-        tabList: cn('bg-pink-400 dark:bg-pink-600', tabList),
-        cursor: cn('bg-pink-500', cursor),
-        tabContent: cn(
-          'text-gray-700 dark:text-pink-700 group-data-[selected=true]:text-white',
-          tabContent,
-        ),
-        tab: cn('my-[2px] mx-[2px]', tab),
+        base: cn(styles.base, classNames?.base),
+        tabList: cn(styles.tabList, classNames?.tabList),
+        cursor: cn(styles.cursor, classNames?.cursor),
+        tab: cn(styles.tab, classNames?.tab),
+        tabContent: cn(styles.tabContent, classNames?.tabContent),
       }}
       {...props}
     >
