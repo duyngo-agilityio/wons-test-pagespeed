@@ -199,6 +199,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           onChange={handleCheckBoxChange}
           classNames={{ wrapper: 'mt-1' }}
           data-testid="policy"
+          aria-label="Policy"
         />
 
         <div>
