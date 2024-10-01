@@ -1,11 +1,17 @@
-import { Heading, Text } from '@/components';
+// Constants
+import { PAGE_TITLES } from '@/constants';
+
+// Layouts
+import { DashBoardLayout } from '@/layouts';
+
+// UI
+import Calendar from '@/ui/calendar';
 
 const CalendarPage = () => {
   return (
-    <div>
-      <Heading size="lg" title="Calendar page" />
-      <Text text="Coming soon!" className="mt-2" />
-    </div>
+    <DashBoardLayout title={PAGE_TITLES.CALENDAR}>
+      <Calendar />
+    </DashBoardLayout>
   );
 };
 

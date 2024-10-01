@@ -42,4 +42,4 @@ export { default as Toast } from './Toast';
 export * from '../Skeleton';
 export { default as Autocomplete } from './Autocomplete';
 export { default as Pagination } from './Pagination';
-export { default as Calendar } from './Calendar';
+export { default as CustomCalendar } from './Calendar';
