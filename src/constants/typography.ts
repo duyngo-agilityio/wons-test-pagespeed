@@ -24,6 +24,7 @@ export const PAGE_TITLES = {
   PRODUCT: 'Product Analytics',
   CUSTOMER: 'Customer List',
   INVOICE: 'Invoice List',
+  CALENDAR: 'Calendar',
 };
 
 export const TABLE_TITLES = {
