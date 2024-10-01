@@ -74,22 +74,24 @@ export const deleteProduct = async (id: number) => {
       )
       .join('&');
 
-    const responseInvoices: TProductInvoiceListResponse =
-      await httpClient.getRequest({
-        endpoint: `${API_PATH.INVOICES}?${queryString}`,
-      });
-
     responseInvoiceProducts.map(async (invoice) => {
       return await httpClient.deleteRequest({
         endpoint: `${API_PATH.INVOICE_PRODUCTS}/${invoice.id}`,
       });
     });
 
-    responseInvoices.data.map(async (invoice) => {
-      return await httpClient.deleteRequest({
-        endpoint: `${API_PATH.INVOICES}/${invoice.id}`,
+    if (queryString) {
+      const responseInvoices: TProductInvoiceListResponse =
+        await httpClient.getRequest({
+          endpoint: `${API_PATH.INVOICES}?${queryString}`,
+        });
+
+      responseInvoices.data.map(async (invoice) => {
+        await httpClient.deleteRequest({
+          endpoint: `${API_PATH.INVOICES}/${invoice.id}`,
+        });
       });
-    });
+    }
 
     await httpClient.deleteRequest({
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
