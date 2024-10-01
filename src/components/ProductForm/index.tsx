@@ -121,9 +121,16 @@ const ProductForm = ({
     [dirtyItems, errors],
   );
 
-  const isDisableSubmit = !(
-    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
-  );
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<IProductDetail>];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = previewData
+    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
+    : !allFieldsFilled;
 
   const saveData = useCallback(
     async (formData: Partial<IProductDetail>) => {
