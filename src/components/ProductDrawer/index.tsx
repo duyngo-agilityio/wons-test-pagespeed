@@ -103,7 +103,7 @@ const ProductDrawer = (): JSX.Element => {
           tab: 'm-0 h-[40px] rounded-[10px]',
           tabContent: 'dark:text-white',
         }}
-        className="!w-full md:!w-[450px] max-h-screen"
+        className="p-0 rounded-[10px]"
       />
       <div>
         <Button
