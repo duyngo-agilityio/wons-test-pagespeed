@@ -78,6 +78,7 @@ const ProductListClient = ({
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
+  // Func
   const handleDelete = useCallback(
     async (id: number) => {
       setIsLoading(true);
