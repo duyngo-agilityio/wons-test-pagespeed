@@ -95,7 +95,9 @@ const CustomerForm = ({
     values: previewData,
   });
 
-  setReset(reset);
+  if (setReset) {
+    setReset(reset);
+  }
 
   const dirtyItems = Object.keys(dirtyFields);
 
@@ -110,6 +112,7 @@ const CustomerForm = ({
   const saveData = useCallback(
     async (formData: Partial<ICustomer>) => {
       onSubmit(formData as ICustomer);
+
       reset();
     },
     [onSubmit, reset],
@@ -131,6 +134,7 @@ const CustomerForm = ({
             fieldState: { error },
           }) => (
             <AvatarUpload
+              aria-label="Avatar"
               value={value ?? ''}
               error={error?.message}
               onChange={(e) => {

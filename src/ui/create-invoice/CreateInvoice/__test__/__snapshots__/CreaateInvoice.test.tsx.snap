@@ -65,7 +65,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   <input
                     accept="image/*"
                     aria-invalid="true"
-                    aria-label=" "
+                    aria-label="Upload Avatar"
                     class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !placeholder:text-danger !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                     data-slot="input"
                     id="file"
@@ -1168,7 +1168,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   <input
                     accept="image/*"
                     aria-invalid="true"
-                    aria-label=" "
+                    aria-label="Upload Avatar"
                     class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !placeholder:text-danger !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                     data-slot="input"
                     id="file"

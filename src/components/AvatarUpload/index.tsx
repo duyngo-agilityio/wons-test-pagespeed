@@ -92,6 +92,7 @@ const AvatarUpload = ({
       </label>
 
       <Input
+        aria-label="Upload Avatar"
         type="file"
         id="file"
         className="hidden"
