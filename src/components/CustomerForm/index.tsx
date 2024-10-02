@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useTransition } from 'react';
 import { Select, SelectItem } from '@nextui-org/react';
 import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
@@ -66,7 +66,6 @@ const genders = [
 
 export interface ICustomerFormProps {
   isDisabledField?: boolean;
-  isEdit?: boolean;
   onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
   setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
@@ -74,8 +73,7 @@ export interface ICustomerFormProps {
 }
 
 const CustomerForm = ({
-  isDisabledField,
-  isEdit,
+  isDisabledField = false,
   onAvatarChange,
   onSubmit,
   setReset,
@@ -92,12 +90,27 @@ const CustomerForm = ({
     resolver: zodResolver(customerFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
+    defaultValues: previewData || {
+      firstName: '',
+      lastName: '',
+      fullName: '',
+      email: '',
+      phone: '',
+      gender: '',
+      job: '',
+      address: '',
+      avatar: '',
+    },
     values: previewData,
   });
 
-  if (setReset) {
-    setReset(reset);
-  }
+  useEffect(() => {
+    if (setReset) {
+      setReset(reset);
+    }
+  }, [setReset, reset]);
+
+  const [isPending, startTransition] = useTransition();
 
   const dirtyItems = Object.keys(dirtyFields);
 
@@ -105,15 +118,24 @@ const CustomerForm = ({
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
     [dirtyItems, errors],
   );
-  const isDisableSubmit = !(
-    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
-  );
+
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<ICustomer>];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = previewData
+    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
+    : !allFieldsFilled;
 
   const saveData = useCallback(
     async (formData: Partial<ICustomer>) => {
-      onSubmit(formData as ICustomer);
-
-      reset();
+      startTransition(async () => {
+        await onSubmit(formData as ICustomer);
+        reset();
+      });
     },
     [onSubmit, reset],
   );
@@ -123,7 +145,7 @@ const CustomerForm = ({
       className="w-full max-w-2xl mx-auto"
       onSubmit={handleSubmit(saveData)}
     >
-      <Heading title={isEdit ? 'Update Customer' : 'Add Customer'} />
+      <Heading title={previewData ? 'Update Customer' : 'Add Customer'} />
 
       <div className="flex justify-center mt-[21px]">
         <Controller
@@ -295,7 +317,7 @@ const CustomerForm = ({
         name="gender"
         control={control}
         render={({
-          field: { name, onChange, value, ...rest },
+          field: { name, onChange, value },
           fieldState: { error },
         }) => (
           <div className="flex flex-col w-full h-[71px] mb-5">
@@ -322,7 +344,6 @@ const CustomerForm = ({
                 onChange(e.target.value);
                 clearErrorOnChange(name, errors, clearErrors);
               }}
-              {...rest}
             >
               {genders.map((gender) => (
                 <SelectItem key={gender.key} value={gender.key}>
@@ -340,13 +361,13 @@ const CustomerForm = ({
 
       <Button
         type="submit"
-        isLoading={isDisabledField}
-        isDisabled={isDisableSubmit}
+        isLoading={isPending}
+        isDisabled={isDisableSubmit || isPending}
         size="lg"
         color="primary"
         className="w-full mt-8 text-xl font-medium cursor-pointer"
       >
-        {isEdit ? 'Update Customer' : 'Add Customer'}
+        {previewData ? 'Update Customer' : 'Add Customer'}
       </Button>
     </form>
   );
