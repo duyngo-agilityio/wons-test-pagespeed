@@ -8,3 +8,6 @@ export { default as ScheduleIcon } from './ScheduleIcon';
 export { default as SettingIcon } from './SettingIcon';
 export { default as EmailIcon } from './EmailIcon';
 export { default as MedalIcon } from './MedalIcon';
+export { default as ClockIcon } from './ClockIcon';
+export { default as PeopleIcon } from './PeopleIcon';
+export { default as LocationIcon } from './LocationIcon';
