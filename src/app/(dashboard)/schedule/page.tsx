@@ -16,11 +16,16 @@ import { SearchInput, Tabs } from '@/components';
  */
 const SchedulePage = () => (
   <DashBoardLayout title={PAGE_TITLES.TASK_PREVIEW}>
-    <div className="flex justify-between items-center">
-      <Tabs tabs={TASK_TABS} customVariant="secondary" className="px-0" />
-      <div className="w-fit">
-        <SearchInput />
-      </div>
+    <div className="md:flex md:justify-between md:items-center">
+      <Tabs
+        tabs={TASK_TABS}
+        customVariant="secondary"
+        className="px-0 base:w-full md:w-fit"
+        classNames={{
+          tabList: 'base:w-full md:w-fit',
+        }}
+      />
+      <SearchInput className="base:w-full md:w-fit" />
     </div>
     {/* TODO: Add list later */}
   </DashBoardLayout>
