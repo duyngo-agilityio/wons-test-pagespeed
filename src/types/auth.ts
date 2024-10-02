@@ -1,6 +1,9 @@
 // Models
 import { TUser } from '@/models';
 
+// Constants
+import { ROLE } from '@/constants';
+
 export interface SignInFormData {
   identifier: string;
   password: string;
@@ -30,5 +33,5 @@ export type TSignUpResponse = { jwt: string; user: Omit<TUser, 'password'> };
 
 export type TRole = {
   id: number;
-  name: string;
+  name: ROLE;
 };
