@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarGroup Component should match snapshot 1`] = `
+<div>
+  <div
+    data-overlay-container="true"
+  >
+    <script>
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
+    </script>
+    <div
+      class="flex items-center"
+    >
+      <div
+        class="relative w-7 h-7 rounded-full "
+      >
+        <img
+          alt="user1"
+          class="h-full w-full rounded-full object-cover"
+          data-nimg="1"
+          decoding="async"
+          height="28"
+          loading="lazy"
+          src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+          style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+          width="28"
+        />
+      </div>
+      <div
+        class="relative w-7 h-7 rounded-full -ml-3"
+      >
+        <img
+          alt="user2"
+          class="h-full w-full rounded-full object-cover"
+          data-nimg="1"
+          decoding="async"
+          height="28"
+          loading="lazy"
+          src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+          style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+          width="28"
+        />
+      </div>
+      <div
+        class="relative w-7 h-7 rounded-full -ml-3"
+      >
+        <img
+          alt="user3"
+          class="h-full w-full rounded-full object-cover"
+          data-nimg="1"
+          decoding="async"
+          height="28"
+          loading="lazy"
+          src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+          style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+          width="28"
+        />
+      </div>
+      <div
+        class="relative w-7 h-7 rounded-full -ml-3"
+      >
+        <img
+          alt="user4"
+          class="h-full w-full rounded-full object-cover"
+          data-nimg="1"
+          decoding="async"
+          height="28"
+          loading="lazy"
+          src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+          style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+          width="28"
+        />
+      </div>
+      <button
+        class="z-0 group box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] min-w-max !px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out"
+        type="button"
+      >
+        <div
+          class="flex items-center"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="12"
+              x2="12"
+              y1="5"
+              y2="19"
+            />
+            <line
+              x1="5"
+              x2="19"
+              y1="12"
+              y2="12"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
