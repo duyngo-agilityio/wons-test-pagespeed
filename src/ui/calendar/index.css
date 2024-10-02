@@ -51,3 +51,7 @@
 .rbc-header + .rbc-header {
   border-left: none;
 }
+
+.rbc-month-row {
+  height: 132px;
+}
