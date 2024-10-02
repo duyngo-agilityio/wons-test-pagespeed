@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 
 // Constants
-import { MESSAGE_STATUS, ROUTES, SIDE_BAR_STATE } from '@/constants';
+import { MESSAGE_STATUS, ROLE, ROUTES, SIDE_BAR_STATE } from '@/constants';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -32,7 +32,7 @@ interface ISidebarFooter {
   toggle?: string;
   avatar: string;
   fullName: string;
-  role: string;
+  role: ROLE;
   onLogout: () => Promise<void>;
 }
 
@@ -97,7 +97,10 @@ const SidebarFooter = ({
             {toggle === SIDE_BAR_STATE.OPEN && (
               <div>
                 <Text text={fullName} className="text-sm capitalize" />
-                <Text text={role} className="text-xs opacity-50 capitalize" />
+                <Text
+                  text={role === ROLE.USER ? 'View-only' : role}
+                  className="text-xs opacity-50 capitalize"
+                />
               </div>
             )}
           </div>

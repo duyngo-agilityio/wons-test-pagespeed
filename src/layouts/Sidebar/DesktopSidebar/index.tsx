@@ -2,7 +2,7 @@ import { memo } from 'react';
 import clsx from 'clsx';
 
 // Constants
-import { SIDE_BAR_STATE } from '@/constants';
+import { ROLE, SIDE_BAR_STATE } from '@/constants';
 
 // Actions
 import { signOut } from '@/actions';
@@ -16,7 +16,7 @@ interface IDesktopSidebar {
   toggleDesktopSidebar: string;
   avatar: string;
   fullName: string;
-  role: string;
+  role: ROLE;
   onToggleDesktopSidebar: () => void;
 }
 

@@ -3,7 +3,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 
 // Constants
-import { SIDE_BAR_STATE } from '@/constants';
+import { ROLE, SIDE_BAR_STATE } from '@/constants';
 
 // Hooks
 import { useBreakPoints } from '@/hooks';
@@ -15,7 +15,7 @@ import MobileSidebar from '@/layouts/Sidebar/MobileSidebar';
 interface ISidebarClientProps {
   avatar: string;
   fullName: string;
-  role: string;
+  role: ROLE;
 }
 
 const SidebarClient = ({ avatar, fullName, role }: ISidebarClientProps) => {
