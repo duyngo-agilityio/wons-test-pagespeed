@@ -6,6 +6,7 @@ import { CustomerForm } from '@/components';
 
 // utils
 import * as utils from '@/utils';
+import { CUSTOMER_MOCK } from '@/mocks';
 
 const mockOnSubmit = jest.fn();
 const mockOnAvatarChange = jest.fn();
@@ -110,7 +111,10 @@ describe('CustomerForm', () => {
   });
 
   it('renders correct title for Update Customer', () => {
-    const { getAllByText } = renderComponent({ isEdit: true });
-    expect(getAllByText(/Update Customer/i).length).toBeGreaterThan(0);
+    const { getByRole } = renderComponent({ previewData: CUSTOMER_MOCK });
+
+    const heading = getByRole('heading', { name: /Update Customer/i });
+
+    expect(heading).toBeInTheDocument();
   });
 });
