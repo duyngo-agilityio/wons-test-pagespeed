@@ -10,7 +10,7 @@ exports[`Schedule page should match snapshot 1`] = `
     </script>
     <section>
       <div
-        class="base:mb-6 md:mb-7.5"
+        class="base:mb-6 md:mb-7.5 flex items-center justify-between"
       >
         <h2
           aria-level="2"
@@ -18,6 +18,31 @@ exports[`Schedule page should match snapshot 1`] = `
         >
           Task Preview
         </h2>
+        <button
+          aria-expanded="false"
+          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium"
+          data-slot="trigger"
+          type="button"
+        >
+          Filter
+          <svg
+            aria-hidden="true"
+            color="#FFFFFF"
+            fill="none"
+            focusable="false"
+            height="13"
+            tabindex="-1"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M4.853 3.1c0 1.283-1.058 2.324-2.364 2.324C1.184 5.424.125 4.384.125 3.1.125 1.818 1.184.777 2.489.777c1.306 0 2.364 1.04 2.364 2.323Zm7.986-1.017c.572 0 1.036.456 1.036 1.017 0 .562-.464 1.019-1.036 1.019H8.32A1.028 1.028 0 0 1 7.282 3.1c0-.561.464-1.017 1.037-1.017h4.52ZM1.162 9.686h4.52c.572 0 1.037.456 1.037 1.018s-.465 1.019-1.037 1.019h-4.52a1.029 1.029 0 0 1-1.037-1.019c0-.562.464-1.018 1.037-1.018Zm10.349 3.313c1.306 0 2.364-1.04 2.364-2.322 0-1.284-1.058-2.324-2.364-2.324-1.306 0-2.364 1.04-2.364 2.324 0 1.282 1.058 2.322 2.364 2.322Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
       </div>
       <div
         class="md:flex md:justify-between md:items-center"
@@ -32,7 +57,7 @@ exports[`Schedule page should match snapshot 1`] = `
             aria-orientation="horizontal"
             class="flex h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-white dark:bg-gray-400 shadow-lg border border-gray-200 dark:border-gray-700 p-0 rounded-[5px] base:w-full md:w-fit"
             data-slot="tabList"
-            id="react-aria-:r0:"
+            id="react-aria-:r1:"
             role="tablist"
           >
             <button
@@ -41,7 +66,7 @@ exports[`Schedule page should match snapshot 1`] = `
               data-key="list"
               data-selected="true"
               data-slot="tab"
-              id="react-aria-:r0:-tab-list"
+              id="react-aria-:r1:-tab-list"
               role="tab"
               tabindex="0"
               type="button"
@@ -62,7 +87,7 @@ exports[`Schedule page should match snapshot 1`] = `
               class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small !py-6 font-medium text-gray-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-white px-4 py-2"
               data-key="board"
               data-slot="tab"
-              id="react-aria-:r0:-tab-board"
+              id="react-aria-:r1:-tab-board"
               role="tab"
               tabindex="-1"
               type="button"
@@ -79,7 +104,7 @@ exports[`Schedule page should match snapshot 1`] = `
               class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small !py-6 font-medium text-gray-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-white px-4 py-2"
               data-key="timeLine"
               data-slot="tab"
-              id="react-aria-:r0:-tab-timeLine"
+              id="react-aria-:r1:-tab-timeLine"
               role="tab"
               tabindex="-1"
               type="button"
@@ -117,7 +142,7 @@ exports[`Schedule page should match snapshot 1`] = `
                   class="w-full font-normal bg-transparent !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground !text-blue-800 dark:!text-white placeholder:text-sm placeholder:text-blue-800/50 dark:placeholder:text-white/50"
                   data-has-end-content="true"
                   data-slot="input"
-                  id="react-aria-:r6:"
+                  id="react-aria-:r7:"
                   placeholder="Search"
                   type="text"
                   value=""
