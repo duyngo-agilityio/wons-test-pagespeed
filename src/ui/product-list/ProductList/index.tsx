@@ -98,7 +98,6 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
   return (
     <TableLayout title="Top Selling Products">
       <ProductListClient
-        order={order}
         productList={sortProductsByTotalSale(
           formatProduct.concat(formattedProducts) as TProductInvoiceResponse[],
         )}

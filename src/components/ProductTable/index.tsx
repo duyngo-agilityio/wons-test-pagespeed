@@ -1,7 +1,6 @@
 'use client';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { Key, useMemo } from 'react';
+import { Key, memo, useCallback, useMemo, useState } from 'react';
 
 // Components
 import { Table } from '@/components';
@@ -10,10 +9,11 @@ import { Table } from '@/components';
 import { TProductInvoiceResponse } from '@/types';
 
 // Utils
-import { mappingContentColumns } from '@/utils';
+import { calcTotalAmount, mappingContentColumns } from '@/utils';
 
 // constants
-import { ORDER, SEARCH_QUERIES } from '@/constants';
+import { ORDER } from '@/constants';
+import isEqual from 'react-fast-compare';
 
 type ProductTableProps = {
   data: TProductInvoiceResponse[];
@@ -21,7 +21,6 @@ type ProductTableProps = {
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onRowAction?: (key: Key) => void;
-  order?: string;
 };
 
 const ProductTable = ({
@@ -30,33 +29,116 @@ const ProductTable = ({
   onEdit,
   onDelete,
   onRowAction,
-  order = '',
 }: ProductTableProps): JSX.Element => {
-  const searchParams = useSearchParams();
-
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const paramsObject = searchParams
-    ? Object.fromEntries(searchParams.entries())
-    : {};
-
+  const { ASC, DESC } = ORDER;
+  const [productsBySort, setProductsBySort] =
+    useState<TProductInvoiceResponse[]>(data);
+  const [order, setOrder] = useState<string>(ASC);
+  const [sortBy, setSortBy] = useState<string>('');
   const columns = useMemo(
     () => mappingContentColumns({ data, isReadOnly, onEdit, onDelete }),
     [data, isReadOnly, onDelete, onEdit],
   );
 
-  const { ASC, DESC } = ORDER;
+  /**
+   * Handles sorting of products based on the selected value
+   * @param {string} value - The value to sort by (id, title, price, quantity, totalSale)
+   *
+   * Previous product and Behind product represent two products being compared for sorting
+   * @param {object} previousProduct - The first product to compare
+   * @param {object} behindProduct - The second product to compare
+   */
+  const handleSort = useCallback(
+    (value: string) => {
+      setSortBy(value);
+      setOrder((prev) => (prev === ASC ? DESC : ASC));
 
-  const handleSort = (value: string) => {
-    const params = new URLSearchParams(searchParams);
+      const isASC = order === ASC;
 
-    if (value) {
-      params.set(SEARCH_QUERIES.SORT_BY, value);
-      params.set(SEARCH_QUERIES.ORDER, order === DESC ? ASC : DESC);
-    }
+      switch (value) {
+        case 'id':
+          setProductsBySort(data);
 
-    replace(`${pathname}?${params.toString()}`, { scroll: false });
-  };
+          setProductsBySort((prev) =>
+            prev.toSorted((previousProduct, behindProduct) =>
+              isASC
+                ? prev.indexOf(behindProduct) - prev.indexOf(previousProduct)
+                : prev.indexOf(previousProduct) - prev.indexOf(behindProduct),
+            ),
+          );
+          break;
+
+        case 'title':
+          setProductsBySort((prev) =>
+            prev.toSorted((previousProduct, behindProduct) => {
+              const { title: titleFirst = '' } =
+                previousProduct?.attributes?.product?.data?.attributes ?? {};
+              const { title: titleSecond = '' } =
+                behindProduct?.attributes?.product?.data?.attributes ?? {};
+
+              return isASC
+                ? titleSecond.localeCompare(titleFirst)
+                : titleFirst.localeCompare(titleSecond);
+            }),
+          );
+          break;
+
+        case 'price':
+          setProductsBySort((prev) =>
+            prev.toSorted((previousProduct, behindProduct) => {
+              const { price: priceFirst = 0 } =
+                previousProduct?.attributes?.product?.data?.attributes ?? {};
+              const { price: priceSecond = 0 } =
+                behindProduct?.attributes?.product?.data?.attributes ?? {};
+
+              return isASC
+                ? priceSecond - priceFirst
+                : priceFirst - priceSecond;
+            }),
+          );
+          break;
+
+        case 'quantity':
+          setProductsBySort((prev) =>
+            prev.toSorted((previousProduct, behindProduct) => {
+              const { quantity: quantityFirst = 0 } =
+                previousProduct?.attributes ?? {};
+              const { quantity: quantitySecond = 0 } =
+                behindProduct?.attributes ?? {};
+
+              return isASC
+                ? quantitySecond - quantityFirst
+                : quantityFirst - quantitySecond;
+            }),
+          );
+          break;
+
+        case 'totalSale':
+          setProductsBySort((prev) =>
+            prev.toSorted((previousProduct, behindProduct) => {
+              const { quantity: quantityFirst = 0 } =
+                previousProduct?.attributes ?? {};
+              const { price: priceFirst = 0 } =
+                previousProduct?.attributes?.product?.data?.attributes ?? {};
+              const { quantity: quantitySecond = 0 } =
+                behindProduct?.attributes ?? {};
+              const { price: priceSecond = 0 } =
+                behindProduct?.attributes?.product?.data?.attributes ?? {};
+
+              return isASC
+                ? calcTotalAmount(priceFirst, quantityFirst) -
+                    calcTotalAmount(priceSecond, quantitySecond)
+                : calcTotalAmount(priceSecond, quantitySecond) -
+                    calcTotalAmount(priceFirst, quantityFirst);
+            }),
+          );
+          break;
+        default:
+          return data;
+      }
+    },
+    [data, order],
+  );
 
   return (
     <div className="flex flex-col gap-10">
@@ -64,9 +146,9 @@ const ProductTable = ({
         isStriped
         variant="secondary"
         columns={columns}
-        data={data}
+        data={productsBySort}
         order={order}
-        sortBy={paramsObject.sortBy}
+        sortBy={sortBy}
         onRowAction={onRowAction}
         onSort={handleSort}
       />
@@ -74,4 +156,4 @@ const ProductTable = ({
   );
 };
 
-export default ProductTable;
+export default memo(ProductTable, isEqual);
