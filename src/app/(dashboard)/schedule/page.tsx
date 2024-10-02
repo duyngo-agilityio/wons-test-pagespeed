@@ -2,20 +2,24 @@
 import { TASK_TABS } from '@/mocks';
 
 // Constants
-import { PAGE_TITLES } from '@/constants';
+import { FILTER_OPTIONS, PAGE_TITLES } from '@/constants';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
 // Tabs
-import { SearchInput, Tabs } from '@/components';
+import { Filter, SearchInput, Tabs } from '@/components';
 
 /**
  * TODO: Add search params later
  * @prop - search params
  */
 const SchedulePage = () => (
-  <DashBoardLayout title={PAGE_TITLES.TASK_PREVIEW}>
+  <DashBoardLayout
+    isFilter
+    title={PAGE_TITLES.TASK_PREVIEW}
+    rightContent={<Filter title="Filter" items={FILTER_OPTIONS} />}
+  >
     <div className="md:flex md:justify-between md:items-center">
       <Tabs
         tabs={TASK_TABS}
