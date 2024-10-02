@@ -201,6 +201,7 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
         class="flex gap-0.5 items-start mt-6.25"
       >
         <label
+          aria-label="Policy"
           class="group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2"
           data-testid="policy"
         >
@@ -208,7 +209,7 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
             style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
             <input
-              aria-label=" "
+              aria-label="Policy"
               aria-labelledby=":rk:"
               type="checkbox"
               value=""
