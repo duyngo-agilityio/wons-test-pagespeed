@@ -37,7 +37,7 @@ const signInSchema = z.object({
   password: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
-    .regex(REGEX.PASSWORD, ERROR_MESSAGES.INVALID_PASSWORD),
+    .regex(REGEX.PASSWORD, ERROR_MESSAGES.GENERAL_INVALID_PASSWORD),
 });
 
 const REQUIRED_FIELDS = ['identifier', 'password'];
