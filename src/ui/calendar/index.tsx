@@ -19,7 +19,7 @@ const localizer = dayjsLocalizer(dayjs);
 const Calendar = () => {
   return (
     <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
-      <div className="bg-white px-[28px] py-[32px] rounded-[5px] flex flex-col justify-between">
+      <div className="bg-white dark:bg-gray-400 px-[28px] py-[32px] rounded-[5px] flex flex-col justify-between">
         <CustomCalendar />
         <Button color="secondary" as={Link} href={ROUTES.SCHEDULE}>
           My Schedule
