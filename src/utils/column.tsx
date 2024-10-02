@@ -29,7 +29,7 @@ export const mappingContentColumns = ({
     {
       header: 'SN',
       accessor: (productData: TProductInvoiceResponse) =>
-        getSerialNumberWithMedal(data, productData),
+        getSerialNumberWithMedal<TProductInvoiceResponse>(data, productData),
       isSort: true,
       value: 'id',
     },
@@ -122,7 +122,7 @@ export const mappingContentColumns = ({
         );
       },
       isSort: true,
-      // value: 'totalSale',
+      value: 'totalSale',
     },
     {
       ...(!isReadOnly && {
