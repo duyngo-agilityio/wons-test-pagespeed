@@ -106,7 +106,7 @@ export const formatToCalendarDate = (value: Date) => {
  * @param value - A CalendarDate object with year, month, and day properties
  * @returns A JavaScript Date object
  */
-export const formatToJsDate = (value: CalendarDate) => {
+export const formatToStandardDate = (value: CalendarDate) => {
   return new Date(value.year, value.month - 1, value.day);
 };
 

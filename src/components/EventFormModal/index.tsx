@@ -13,7 +13,7 @@ import { IoClose } from 'react-icons/io5';
 // Utils
 import {
   formatToCalendarDate,
-  formatToJsDate,
+  formatToStandardDate,
   capitalizeFirstLetter,
   formatEventDate,
   clearErrorOnChange,
@@ -81,7 +81,7 @@ const EventFormModal = ({
     reset,
     formState: { errors, isValid },
   } = useForm<Pick<EventFormModalProps, 'title'>>({
-    mode: 'onChange',
+    mode: 'onBlur',
     reValidateMode: 'onChange',
     defaultValues: {
       title,
@@ -92,8 +92,8 @@ const EventFormModal = ({
   const modalTitle =
     EVENT_MODAL_TITLES[type.toUpperCase() as keyof typeof EVENT_MODAL_TITLES] ||
     EVENT_MODAL_TITLES.EVENT;
-  const jsDate = formatToJsDate(calendarDate);
-  const formattedDate = formatEventDate(jsDate);
+  const standardDate = formatToStandardDate(calendarDate);
+  const formattedDate = formatEventDate(standardDate);
 
   const toggleCalendarVisibility = useCallback(() => {
     setIsOpenCalendar((prev) => !prev);
