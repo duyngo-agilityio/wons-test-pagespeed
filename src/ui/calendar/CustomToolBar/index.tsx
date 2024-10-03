@@ -56,12 +56,6 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
         >
           Month
         </Button>
-        <Button
-          color="primary"
-          className="bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30"
-        >
-          Year
-        </Button>
       </div>
       <div className="flex pl-[15px] pr-[21px] py-[15px] rounded-tl-[10px] rounded-tr-[10px] bg-white justify-between dark:bg-gray-400">
         <div>
