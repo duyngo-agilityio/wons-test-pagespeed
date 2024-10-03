@@ -32,3 +32,5 @@ export { default as AvatarGroup } from './AvatarGroup';
 export { default as EventDetail } from './EventDetail';
 export { default as Tabs } from './Tabs';
 export { default as TaskCard } from './TaskCard';
+export { default as Column } from './ColumnTask';
+export { default as LevelCardComponent } from './LevelCard';

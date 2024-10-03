@@ -55,7 +55,7 @@ exports[`Schedule page should match snapshot 1`] = `
           <div
             aria-label="Custom tabs"
             aria-orientation="horizontal"
-            class="flex h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-white dark:bg-gray-400 shadow-lg border border-gray-200 dark:border-gray-700 p-0 rounded-[5px] base:w-full md:w-fit"
+            class="flex h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-white dark:bg-gray-400 p-0 rounded-[5px] base:w-full md:w-fit"
             data-slot="tabList"
             id="react-aria-:r1:"
             role="tablist"
@@ -119,7 +119,7 @@ exports[`Schedule page should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] base:w-full md:w-fit"
+          class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] base:w-full md:w-fit"
           data-filled="true"
           data-filled-within="true"
           data-slot="base"
@@ -176,158 +176,365 @@ exports[`Schedule page should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="w-[275px] bg-white dark:bg-gray-400 p-[20px] rounded-5"
+        class="flex flex-row space-x-2"
       >
         <div
-          class="flex flex-row items-center justify-between mb-[15px]"
+          class="w-[300px]"
+          data-rfd-droppable-context-id=":rc:"
+          data-rfd-droppable-id="ToDo"
         >
+          <h2
+            aria-level="2"
+            class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
+          >
+            ToDo
+          </h2>
           <div
-            class="text-md"
+            class="space-y-6"
           >
-            Dashboard Design
-          </div>
-          <button
-            aria-expanded="false"
-            aria-haspopup="true"
-            class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-4 min-w-20 h-10 text-small gap-2 rounded-medium [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none text-default-foreground data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone"
-            data-slot="trigger"
-            data-testid="actions-btn"
-            id="react-aria-:rb:"
-            type="button"
-          >
-            <svg
-              class="text-blue-800/30 dark:text-white/30"
-              fill="currentColor"
-              height="14"
-              stroke="currentColor"
-              stroke-width="0"
-              viewBox="0 0 512 512"
-              width="14"
-              xmlns="http://www.w3.org/2000/svg"
+            <div
+              aria-describedby="rfd-hidden-text-:rc:-hidden-text-:rd:"
+              class="w-[275px] bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md "
+              data-rfd-drag-handle-context-id=":rc:"
+              data-rfd-drag-handle-draggable-id="1"
+              data-rfd-draggable-context-id=":rc:"
+              data-rfd-draggable-id="1"
+              draggable="false"
+              role="button"
+              tabindex="0"
             >
-              <path
-                d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
-              />
-            </svg>
-          </button>
+              <div
+                class="flex flex-row items-center justify-between mb-[15px]"
+              >
+                <div
+                  class="text-md"
+                >
+                  Dashboard Design
+                </div>
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 !transition-none data-[pressed=true]:scale-100 text-default-foreground h-10 data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone w-[15px] min-w-[15px]"
+                  data-slot="trigger"
+                  data-testid="actions-btn"
+                  id="react-aria-:rg:"
+                  type="button"
+                >
+                  <svg
+                    class="text-blue-800/30 dark:text-white/30"
+                    fill="currentColor"
+                    height="14"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[45px] max-h-[45px] rounded-[22px] bg-blue-500"
+              >
+                <span
+                  class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
+                >
+                  medium
+                </span>
+              </div>
+              <div
+                class="mt-[20px] text-sm"
+              >
+                Discussion for UI
+              </div>
+              <div
+                class="mt-[20px]"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  <div
+                    class="relative w-7 h-7 rounded-full "
+                  >
+                    <img
+                      alt="user1"
+                      class="h-full w-full rounded-full object-cover"
+                      data-nimg="1"
+                      decoding="async"
+                      height="28"
+                      loading="lazy"
+                      src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      width="28"
+                    />
+                  </div>
+                  <div
+                    class="relative w-7 h-7 rounded-full -ml-3"
+                  >
+                    <img
+                      alt="user2"
+                      class="h-full w-full rounded-full object-cover"
+                      data-nimg="1"
+                      decoding="async"
+                      height="28"
+                      loading="lazy"
+                      src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      width="28"
+                    />
+                  </div>
+                  <div
+                    class="relative w-7 h-7 rounded-full -ml-3"
+                  >
+                    <img
+                      alt="user4"
+                      class="h-full w-full rounded-full object-cover"
+                      data-nimg="1"
+                      decoding="async"
+                      height="28"
+                      loading="lazy"
+                      src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      width="28"
+                    />
+                  </div>
+                  <button
+                    class="z-0 group box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] min-w-max !px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out"
+                    type="button"
+                  >
+                    <div
+                      class="flex items-center"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="5"
+                          y2="19"
+                        />
+                        <line
+                          x1="5"
+                          x2="19"
+                          y1="12"
+                          y2="12"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[45px] max-h-[45px] rounded-[22px] bg-blue-500"
+          class="w-[300px]"
+          data-rfd-droppable-context-id=":rc:"
+          data-rfd-droppable-id="In Progress"
         >
-          <span
-            class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
+          <h2
+            aria-level="2"
+            class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
           >
-            medium
-          </span>
+            In Progress
+          </h2>
+          <div
+            class="space-y-6"
+          >
+            <div
+              aria-describedby="rfd-hidden-text-:rc:-hidden-text-:rd:"
+              class="w-[275px] bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md "
+              data-rfd-drag-handle-context-id=":rc:"
+              data-rfd-drag-handle-draggable-id="2"
+              data-rfd-draggable-context-id=":rc:"
+              data-rfd-draggable-id="2"
+              draggable="false"
+              role="button"
+              tabindex="0"
+            >
+              <div
+                class="flex flex-row items-center justify-between mb-[15px]"
+              >
+                <div
+                  class="text-md"
+                >
+                  API Development
+                </div>
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 !transition-none data-[pressed=true]:scale-100 text-default-foreground h-10 data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone w-[15px] min-w-[15px]"
+                  data-slot="trigger"
+                  data-testid="actions-btn"
+                  id="react-aria-:ro:"
+                  type="button"
+                >
+                  <svg
+                    class="text-blue-800/30 dark:text-white/30"
+                    fill="currentColor"
+                    height="14"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[45px] max-h-[45px] rounded-[22px] bg-blue-500"
+              >
+                <span
+                  class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
+                >
+                  medium
+                </span>
+              </div>
+              <div
+                class="mt-[20px] text-sm"
+              >
+                Create APIs
+              </div>
+              <div
+                class="mt-[20px]"
+              >
+                <div
+                  class="flex items-center"
+                >
+                  <div
+                    class="relative w-7 h-7 rounded-full "
+                  >
+                    <img
+                      alt="user1"
+                      class="h-full w-full rounded-full object-cover"
+                      data-nimg="1"
+                      decoding="async"
+                      height="28"
+                      loading="lazy"
+                      src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      width="28"
+                    />
+                  </div>
+                  <div
+                    class="relative w-7 h-7 rounded-full -ml-3"
+                  >
+                    <img
+                      alt="user2"
+                      class="h-full w-full rounded-full object-cover"
+                      data-nimg="1"
+                      decoding="async"
+                      height="28"
+                      loading="lazy"
+                      src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      width="28"
+                    />
+                  </div>
+                  <div
+                    class="relative w-7 h-7 rounded-full -ml-3"
+                  >
+                    <img
+                      alt="user4"
+                      class="h-full w-full rounded-full object-cover"
+                      data-nimg="1"
+                      decoding="async"
+                      height="28"
+                      loading="lazy"
+                      src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
+                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      width="28"
+                    />
+                  </div>
+                  <button
+                    class="z-0 group box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] min-w-max !px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out"
+                    type="button"
+                  >
+                    <div
+                      class="flex items-center"
+                    >
+                      <svg
+                        fill="none"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="12"
+                          x2="12"
+                          y1="5"
+                          y2="19"
+                        />
+                        <line
+                          x1="5"
+                          x2="19"
+                          y1="12"
+                          y2="12"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="mt-[20px] text-sm"
+          class="w-[300px]"
+          data-rfd-droppable-context-id=":rc:"
+          data-rfd-droppable-id="In Review"
         >
-          Discussion for management dashboard ui design
-        </div>
-        <div
-          class="mt-[20px]"
-        >
-          <img
-            alt="John Doe"
-            data-nimg="1"
-            decoding="async"
-            height="176"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=640&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=256&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=640&q=75 2x"
-            style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-            width="235"
+          <h2
+            aria-level="2"
+            class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
+          >
+            In Review
+          </h2>
+          <div
+            class="space-y-6"
           />
         </div>
         <div
-          class="mt-[20px]"
+          class="w-[300px]"
+          data-rfd-droppable-context-id=":rc:"
+          data-rfd-droppable-id="Done"
         >
-          <div
-            class="flex items-center"
+          <h2
+            aria-level="2"
+            class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
           >
-            <div
-              class="relative w-7 h-7 rounded-full "
-            >
-              <img
-                alt="user1"
-                class="h-full w-full rounded-full object-cover"
-                data-nimg="1"
-                decoding="async"
-                height="28"
-                loading="lazy"
-                src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
-                srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
-                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                width="28"
-              />
-            </div>
-            <div
-              class="relative w-7 h-7 rounded-full -ml-3"
-            >
-              <img
-                alt="user2"
-                class="h-full w-full rounded-full object-cover"
-                data-nimg="1"
-                decoding="async"
-                height="28"
-                loading="lazy"
-                src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
-                srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
-                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                width="28"
-              />
-            </div>
-            <div
-              class="relative w-7 h-7 rounded-full -ml-3"
-            >
-              <img
-                alt="user4"
-                class="h-full w-full rounded-full object-cover"
-                data-nimg="1"
-                decoding="async"
-                height="28"
-                loading="lazy"
-                src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
-                srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
-                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                width="28"
-              />
-            </div>
-            <button
-              class="z-0 group box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] min-w-max !px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out"
-              type="button"
-            >
-              <div
-                class="flex items-center"
-              >
-                <svg
-                  fill="none"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <line
-                    x1="12"
-                    x2="12"
-                    y1="5"
-                    y2="19"
-                  />
-                  <line
-                    x1="5"
-                    x2="19"
-                    y1="12"
-                    y2="12"
-                  />
-                </svg>
-              </div>
-            </button>
-          </div>
+            Done
+          </h2>
+          <div
+            class="space-y-6"
+          />
         </div>
       </div>
     </section>
