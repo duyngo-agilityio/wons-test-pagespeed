@@ -1,11 +1,20 @@
 .rbc-day-bg {
-  background-color: white;
+  background-color: var(--c-calendar-white);
 }
 
 .rbc-date-cell {
   align-items: center;
   text-align: center;
   height: 100%;
+  border-right: 1px solid
+    light-dark(
+      var(--c-calendar-date-cell-light),
+      var(--c-calendar-date-cell-dark)
+    );
+  background-color: light-dark(
+    var(--c-calendar-white),
+    var(--c-calendar-date-cell-background-dark)
+  );
 }
 
 .rbc-button-link {
@@ -35,9 +44,13 @@
   border: none;
 }
 
+.rbc-row:not(.rbc-month-header) {
+  flex: 1;
+}
+
 .rbc-row-content {
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   flex-direction: column;
 }
 
@@ -45,7 +58,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20.83px;
-  color: #06152b;
+  color: light-dark(var(--c-calendar-header-light), var(--c-calendar-white));
 }
 
 .rbc-header + .rbc-header {
@@ -54,4 +67,22 @@
 
 .rbc-month-row {
   height: 132px;
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid
+    light-dark(
+      var(--c-calendar-date-cell-light),
+      var(--c-calendar-date-cell-dark)
+    );
+}
+
+.rbc-date-cell.rbc-now {
+  color: var(--c-calendar-current-date-color);
+  line-height: 33.37px;
+  font-size: 25.63px;
+}
+
+.rbc-date-cell.rbc-now.rbc-current {
+  border-top: 2px solid var(--c-calendar-current-date-color);
 }

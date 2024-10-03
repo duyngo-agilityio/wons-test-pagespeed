@@ -8,7 +8,7 @@ import { LayoutProvider } from '@/contexts';
 import { DM_SANS_FONT, IMAGES } from '@/constants';
 
 // Styles
-import '@/styles/global.css';
+import '@/styles/index.css';
 
 export const metadata: Metadata = {
   title: 'Wons Dashboard',
