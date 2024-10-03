@@ -1,5 +1,5 @@
 // Mocks
-import { TASK_TABS } from '@/mocks';
+import { MOCK_USERS, TASK_TABS } from '@/mocks';
 
 // Constants
 import { FILTER_OPTIONS, PAGE_TITLES } from '@/constants';
@@ -8,7 +8,7 @@ import { FILTER_OPTIONS, PAGE_TITLES } from '@/constants';
 import { DashBoardLayout } from '@/layouts';
 
 // Tabs
-import { Filter, SearchInput, Tabs } from '@/components';
+import { Filter, SearchInput, Tabs, TaskCard } from '@/components';
 
 /**
  * TODO: Add search params later
@@ -31,7 +31,11 @@ const SchedulePage = () => (
       />
       <SearchInput className="base:w-full md:w-fit" />
     </div>
-    {/* TODO: Add list later */}
+    <TaskCard
+      title="Dashboard Design"
+      description="Discussion for management dashboard ui design"
+      images={[MOCK_USERS[0].avatar]}
+    />
   </DashBoardLayout>
 );
 

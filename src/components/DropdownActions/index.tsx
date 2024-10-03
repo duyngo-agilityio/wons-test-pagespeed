@@ -23,9 +23,19 @@ interface DropdownActionsProps {
   id: number;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
+  isIconOnly?: boolean;
+  disableAnimation?: boolean;
+  customClassName?: string;
 }
 
-const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
+const DropdownActions = ({
+  id,
+  onEdit,
+  onDelete,
+  isIconOnly = false,
+  disableAnimation = false,
+  customClassName,
+}: DropdownActionsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleDelete = useCallback(() => setIsModalOpen(true), []);
@@ -51,7 +61,12 @@ const DropdownActions = ({ id, onEdit, onDelete }: DropdownActionsProps) => {
         }}
       >
         <DropdownTrigger>
-          <Button data-testid="actions-btn" className="border-none bg-bone">
+          <Button
+            data-testid="actions-btn"
+            className={`border-none bg-bone ${customClassName}`}
+            isIconOnly={isIconOnly}
+            disableAnimation={disableAnimation}
+          >
             <FaEllipsisH
               size={14}
               className="text-blue-800/30 dark:text-white/30"
