@@ -28,4 +28,5 @@ export { default as ProductForm } from './ProductForm';
 export { default as ProductDrawer } from './ProductDrawer';
 export { default as ProductDetails } from './ProductDetails';
 export { default as ProductTable } from './ProductTable';
+export { default as Tabs } from './Tabs';
 export { default as EventFormModal } from './EventFormModal';
