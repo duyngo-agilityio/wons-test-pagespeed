@@ -29,4 +29,5 @@ export { default as ProductDrawer } from './ProductDrawer';
 export { default as ProductDetails } from './ProductDetails';
 export { default as ProductTable } from './ProductTable';
 export { default as AvatarGroup } from './AvatarGroup';
+export { default as EventDetail } from './EventDetail';
 export { default as Tabs } from './Tabs';

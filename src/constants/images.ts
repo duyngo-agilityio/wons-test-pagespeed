@@ -19,6 +19,7 @@ export const IMAGES = {
   ACCOUNT_SUCCESS_DARK: '/account-success-dark.webp',
   DEFAULT:
     'https://media.istockphoto.com/id/1282514371/vi/vec-to/m%E1%BA%ABu-n%E1%BB%81n-tr%E1%BB%ABu-t%C6%B0%E1%BB%A3ng-kh%E1%BB%91i-retro.jpg?s=612x612&w=0&k=20&c=ZaZM5rBs2m5Se3yXhHuWWhTfXemN86o1rnsbB6vm1dI=',
+  GOOGLE_MEET: '/google-meet.webp',
 };
 
 export const MAX_SIZE = 5 * 1024 * 1024;
