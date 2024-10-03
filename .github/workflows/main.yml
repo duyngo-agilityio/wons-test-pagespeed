@@ -42,7 +42,6 @@ jobs:
           commit_message=$(echo "$commit_response" | jq -r '.commit.message')
           commit_date=$(echo "$commit_response" | jq -r '.commit.author.date')
 
-          echo "Branch Name : $branch_name"
           echo "Commit Message: $commit_message"
           echo "Commit Date: $commit_date"
 
