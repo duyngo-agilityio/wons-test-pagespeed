@@ -68,7 +68,9 @@ const EventFormModal = ({
   const [calendarDate, setCalendarDate] = useState(formatToCalendarDate(date));
 
   // Helper functions
-  const modalTitle = EVENT_MODAL_TITLES[type] || EVENT_MODAL_TITLES.EVENT;
+  const modalTitle =
+    EVENT_MODAL_TITLES[type.toUpperCase() as keyof typeof EVENT_MODAL_TITLES] ||
+    EVENT_MODAL_TITLES.EVENT;
   const jsDate = formatToJsDate(calendarDate);
   const formattedDate = formatEventDate(jsDate);
 
