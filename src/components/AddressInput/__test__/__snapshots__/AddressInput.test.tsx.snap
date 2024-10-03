@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddressInput component matches snapshot 1`] = `
+<div>
+  <div
+    class="relative flex-1"
+  >
+    <div
+      class="group flex flex-col data-[hidden=true]:hidden w-full relative justify-end data-[has-label=true]:mt-[29px]"
+      data-filled="true"
+      data-filled-within="true"
+      data-has-elements="true"
+      data-has-label="true"
+      data-slot="base"
+    >
+      <div
+        class="h-full flex flex-col"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <label
+            class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:start-0 start-3 end-auto group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+            data-slot="label"
+            for="react-aria-:r0:"
+            id="react-aria-:r1:"
+          >
+            Address
+          </label>
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              aria-label="Address"
+              aria-labelledby="react-aria-:r0: react-aria-:r1:"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+              data-has-end-content="true"
+              data-slot="input"
+              id="react-aria-:r0:"
+              placeholder=" "
+              type="text"
+              value=""
+            />
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 20 20"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
