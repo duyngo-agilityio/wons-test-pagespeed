@@ -1,14 +1,14 @@
 'use client';
 
-import { memo, useState, useCallback, FormEvent } from 'react';
+import { memo, useState, useCallback } from 'react';
 
 // Libraries
 import isEqual from 'react-fast-compare';
 import { CalendarDate } from '@internationalized/date';
+import { Controller, useForm } from 'react-hook-form';
 
 // Icons
 import { IoClose } from 'react-icons/io5';
-import { ClockIcon, CalendarIcon, LocationIcon, PeopleIcon } from '../common';
 
 // Utils
 import {
@@ -16,56 +16,77 @@ import {
   formatToJsDate,
   capitalizeFirstLetter,
   formatEventDate,
+  clearErrorOnChange,
 } from '@/utils';
 
 // Components
-import { Heading, Input, Button, Text } from '@/components/common';
 import { Tabs } from '@/components';
+import {
+  ClockIcon,
+  CalendarIcon,
+  LocationIcon,
+  PeopleIcon,
+  Heading,
+  Input,
+  Button,
+  Text,
+} from '@/components/common';
 import { Modal as NextModal, ModalContent, Calendar } from '@nextui-org/react';
 
 // Constants
-import { EVENT_MODAL_TITLES } from '@/constants';
+import { EVENT_MODAL_TITLES, ERROR_MESSAGES } from '@/constants';
 
 // Mocks
 import { EVENT_TABS } from '@/mocks';
 
-type TimeRangeProps = {
+interface TimeRangeProps {
   start: string;
   end: string;
-};
+}
 
-type EventFormModalProps = {
+interface EventFormModalProps {
   type: 'event' | 'reminder' | 'task';
+  title: string;
   date: Date;
   timeRange: TimeRangeProps;
-  repeatSetting: string;
   status: 'free' | 'busy';
   visibility: 'default visibility' | 'public' | 'private';
   notificationTime: number;
   isOpen: boolean;
-  onSubmit: (data: FormEvent) => void;
+  onSubmit: (data: Pick<EventFormModalProps, 'title'>) => void;
   onClose: () => void;
+  repeatSetting?: string;
   guests?: string[];
   location?: string;
-};
+}
 
 const EventFormModal = ({
   type = 'event',
+  title = '',
   date,
   timeRange,
-  repeatSetting = 'does not repeat',
-  // status = 'free',
-  // visibility = 'default visibility',
-  // notificationTime = 0,
   isOpen,
   onClose,
   onSubmit,
-  // guests,
-  // location,
+  repeatSetting = 'does not repeat',
 }: EventFormModalProps): JSX.Element => {
   // States
   const [isOpenCalendar, setIsOpenCalendar] = useState(false);
   const [calendarDate, setCalendarDate] = useState(formatToCalendarDate(date));
+
+  const {
+    handleSubmit,
+    control,
+    clearErrors,
+    reset,
+    formState: { errors, isValid },
+  } = useForm<Pick<EventFormModalProps, 'title'>>({
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+    defaultValues: {
+      title,
+    },
+  });
 
   // Helper functions
   const modalTitle =
@@ -83,10 +104,14 @@ const EventFormModal = ({
     setCalendarDate(newDate);
   };
 
-  const handleFormSubmit = (event: React.FormEvent) => {
-    // TODO: update logic or side effects
-    event.preventDefault();
-    onSubmit(event);
+  const handleFormSubmit = handleSubmit((data) => {
+    // TODO: update logic or sideEffects
+    onSubmit(data);
+  });
+
+  const handleModalClose = () => {
+    reset({ title });
+    onClose();
   };
 
   return (
@@ -95,7 +120,7 @@ const EventFormModal = ({
       isOpen={isOpen}
       hideCloseButton={true}
     >
-      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
+      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
         {isOpenCalendar && (
           <Calendar
             className="absolute top-[240px] left-[80px] z-10"
@@ -111,7 +136,7 @@ const EventFormModal = ({
           <Button
             className="absolute top-[30px] right-[30px] !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
             data-testid="close-button"
-            onClick={onClose}
+            onClick={handleModalClose}
           >
             <IoClose size={20} />
           </Button>
@@ -121,17 +146,38 @@ const EventFormModal = ({
             tabs={EVENT_TABS}
           />
 
-          <Input
-            classNames={{
-              inputWrapper:
-                'w-full h-[42px] rounded-[10px] bg-[#99B2C6]/30 m-[0_0_25px]',
-              input:
-                'placeholder:text-[#06152B] placeholder:opacity-20 placeholder:font-medium placeholder:text-[16px]',
+          <Controller
+            name="title"
+            control={control}
+            rules={{
+              required: ERROR_MESSAGES.FIELD_REQUIRED,
             }}
-            placeholder="Add title"
+            render={({
+              field: { name, onChange, ...rest },
+              fieldState: { error },
+            }) => (
+              <Input
+                classNames={{
+                  inputWrapper: 'w-full h-[42px] rounded-[10px] bg-gray-200/30',
+                  input:
+                    'placeholder:text-blue-800 placeholder:opacity-20 placeholder:font-medium placeholder:text-[16px]',
+                }}
+                type="text"
+                isInvalid={!!error}
+                placeholder="Add title"
+                errorMessage={error?.message}
+                onChange={(e) => {
+                  onChange(e.target.value);
+
+                  // Clear error message on change
+                  clearErrorOnChange(name, errors, clearErrors);
+                }}
+                {...rest}
+              />
+            )}
           />
 
-          <div className="flex gap-[0_15px]">
+          <div className="flex mt-[25px] gap-[0_15px]">
             <Button
               className="!bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
               data-testid="time-button"
@@ -142,15 +188,15 @@ const EventFormModal = ({
 
             <div className="grid grid-rows-2 grid-cols-2 max-w-[350px] gap-[0_30px]">
               <Text
-                className="text-[#06152B] text-[12px] font-normal leading-normal col-span-1"
+                className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
                 text={formattedDate} // Display date
               />
               <Text
-                className="text-[#06152B] text-[12px] font-normal leading-normal col-span-1"
+                className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
                 text={`${timeRange.start} - ${timeRange.end}`} // Display time
               />
               <Text
-                className="text-[#010d1c] text-opacity-50 text-[12px] font-normal leading-normal col-span-2"
+                className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal col-span-2"
                 text={`Time zone - ${capitalizeFirstLetter(repeatSetting)}`}
               />
             </div>
@@ -167,7 +213,7 @@ const EventFormModal = ({
 
             <Button
               startContent={<LocationIcon />}
-              className="!bg-white font-medium dark:!bg-white text-center !text-[#3A36DB] dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] !rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"
+              className="!bg-white font-medium dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] !rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"
             >
               Add Location
             </Button>
@@ -178,16 +224,16 @@ const EventFormModal = ({
               className="!bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
               data-testid="calendar-button"
             >
-              <CalendarIcon width={15} height={15} color="#FF69B4" />
+              <CalendarIcon width={15} height={15} color="pink-500" />
             </Button>
 
             <div className="flex flex-col gap-[0_30px]">
               <Text
-                className="text-[#06152B] text-[12px] font-normal leading-normal col-span-1"
+                className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
                 text="John Deo" // Display name
               />
               <Text
-                className="text-[#010d1c] text-opacity-50 text-[12px] font-normal leading-normal"
+                className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal"
                 text="Busy - Default visibility - notify 30 minutes before" // Display status
               />
             </div>
@@ -198,13 +244,14 @@ const EventFormModal = ({
               className="min-w-[93px] text-[15px] font-normal md:w-auto py-[10px] w-full mt-10 md:mt-0"
               type="submit"
               color="primary"
+              isDisabled={!isValid}
             >
               Save
             </Button>
 
             <Button
-              className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-[#3A36DB] dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
-              onClick={onClose}
+              className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
+              onClick={handleModalClose}
             >
               Close
             </Button>
