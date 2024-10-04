@@ -19,4 +19,3 @@ export * from './select';
 export * from './pagination';
 export * from './brand';
 export * from './rating';
-export * from './titles';
