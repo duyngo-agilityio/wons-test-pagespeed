@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 
 // Mocks
 import { MOCK_USERS } from '@/mocks';
@@ -11,21 +12,42 @@ jest.mock('next/image', () => ({ src, alt }: { src: string; alt: string }) => (
   <img src={src} alt={alt} />
 ));
 
-// Snapshot and other tests
+const onDragEnd = jest.fn(); // Mock function for DragDropContext
+
+// Helper to wrap the component inside DragDropContext and Droppable
+const renderWithDndContext = (ui: React.ReactElement) => {
+  return render(
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="droppable-1">
+        {(provided) => (
+          <div ref={provided.innerRef} {...provided.droppableProps}>
+            {ui}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>,
+  );
+};
+
 describe('TaskCard Component', () => {
   const defaultProps = {
     title: 'Demo Task',
     description: 'This is a demo task description',
+    id: 1,
+    images: [],
+    status: 'todo',
+    index: 0,
   };
 
   it('matches the snapshot', () => {
-    const { container } = render(<TaskCard {...defaultProps} />);
+    const { container } = renderWithDndContext(<TaskCard {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 
   it('renders with one image correctly', () => {
     const images = [MOCK_USERS[0].avatar];
-    render(<TaskCard {...defaultProps} images={images} />);
+    renderWithDndContext(<TaskCard {...defaultProps} images={images} />);
 
     const image = screen.getByAltText(MOCK_USERS[0].fullName);
     expect(image).toBeInTheDocument();
@@ -33,7 +55,7 @@ describe('TaskCard Component', () => {
   });
 
   it('renders title and description correctly', () => {
-    render(<TaskCard {...defaultProps} />);
+    renderWithDndContext(<TaskCard {...defaultProps} />);
 
     expect(screen.getByText('Demo Task')).toBeInTheDocument();
     expect(
@@ -43,7 +65,7 @@ describe('TaskCard Component', () => {
 
   it('renders with two images correctly', () => {
     const images = [MOCK_USERS[0].avatar, MOCK_USERS[1].avatar];
-    render(<TaskCard {...defaultProps} images={images} />);
+    renderWithDndContext(<TaskCard {...defaultProps} images={images} />);
 
     const imageElements = screen.getAllByAltText('Image Task');
     expect(imageElements.length).toBe(2);

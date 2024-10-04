@@ -10,6 +10,7 @@ import Calendar from '@/ui/calendar';
 const CalendarPage = () => {
   return (
     <DashBoardLayout title={PAGE_TITLES.CALENDAR}>
+      {/* TODO: add suspense for Calendar */}
       <Calendar />
     </DashBoardLayout>
   );

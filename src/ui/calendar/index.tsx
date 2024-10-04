@@ -1,40 +1,21 @@
-'use client';
-
-import Link from 'next/link';
-import dayjs from 'dayjs';
-import { Calendar as CalendarBase, dayjsLocalizer } from 'react-big-calendar';
-
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './index.css';
-
-// Constants
-import { ROUTES } from '@/constants';
+// Apis
+import { getEvents } from '@/api';
 
 // Components
-import { Button, CustomCalendar } from '@/components';
-import CustomToolBar from './CustomToolBar';
+import CalendarClient from './CalendarClient';
+import dayjs from 'dayjs';
+import { IEvent } from '@/models';
 
-const localizer = dayjsLocalizer(dayjs);
+const Calendar = async () => {
+  const { data: events = [] } = await getEvents();
 
-const Calendar = () => {
-  return (
-    <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
-      <div className="bg-white dark:bg-gray-400 px-[28px] py-[32px] rounded-[5px] flex flex-col justify-between">
-        <CustomCalendar />
-        <Button color="secondary" as={Link} href={ROUTES.SCHEDULE}>
-          My Schedule
-        </Button>
-      </div>
-      <div className="flex-1">
-        <CalendarBase
-          components={{ toolbar: CustomToolBar }}
-          localizer={localizer}
-          startAccessor="start"
-          endAccessor="end"
-        />
-      </div>
-    </div>
-  );
+  const formattedEvent = events.map(({ attributes }) => ({
+    ...attributes,
+    start: dayjs(attributes.startTime).toDate(),
+    end: dayjs(attributes.endTime).toDate(),
+  })) as unknown as (Event & IEvent)[]; // TODO: Update type later;
+
+  return <CalendarClient events={formattedEvent} />;
 };
 
 export default Calendar;
