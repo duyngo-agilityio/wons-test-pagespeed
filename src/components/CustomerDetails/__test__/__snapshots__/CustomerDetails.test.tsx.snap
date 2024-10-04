@@ -19,7 +19,7 @@ exports[`CustomerDetails should match snapshot 1`] = `
         >
           <img
             alt="John-Doe"
-            class="object-contain rounded-full"
+            class="object-cover rounded-full"
             data-nimg="fill"
             decoding="async"
             loading="lazy"
@@ -100,7 +100,7 @@ exports[`CustomerDetails should match snapshot 1`] = `
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium"
             >
-              123-456-7890
+              (123) 456-7890
             </p>
           </div>
           <div
@@ -184,7 +184,7 @@ exports[`CustomerDetails should match snapshot with undefined 1`] = `
         >
           <img
             alt="-"
-            class="object-contain rounded-full"
+            class="object-cover rounded-full"
             data-nimg="fill"
             decoding="async"
             src="http://localhost/"

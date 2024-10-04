@@ -26,6 +26,9 @@ import { createCustomer } from '@/actions';
 // Hooks
 import { useToast } from '@/hooks';
 
+// Utils
+import { formatPhoneNumberTyping } from '@/utils';
+
 const CustomerDrawer = (): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [avatarFile, setAvatarFile] = useState<File>();
@@ -64,6 +67,7 @@ const CustomerDrawer = (): JSX.Element => {
       startTransition(async () => {
         const { error } = await createCustomer({
           ...formData,
+          phone: formatPhoneNumberTyping(formData.phone),
           fullName: `${formData.firstName} ${formData.lastName}`,
         });
 

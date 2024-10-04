@@ -24,7 +24,7 @@ const CustomerDetailsHeader = ({
         fill
         src={avatar}
         alt={`${firstName}-${lastName}`}
-        className="object-contain rounded-full"
+        className="object-cover rounded-full"
       />
     </div>
     <div className="flex flex-col items-center">

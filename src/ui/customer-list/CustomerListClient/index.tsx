@@ -41,6 +41,9 @@ import { ICustomer } from '@/models';
 // Icons
 import { IoClose } from 'react-icons/io5';
 
+// Utils
+import { formatPhoneNumberTyping } from '@/utils';
+
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
   pageCount: number;
@@ -152,7 +155,12 @@ const CustomerListClient = ({
     (payload: ICustomer) => {
       startTransition(async () => {
         if (idCustomer) {
-          const { error } = await updateCustomer(idCustomer, payload);
+          const formattedPayload = {
+            ...payload,
+            phone: formatPhoneNumberTyping(payload.phone),
+          };
+
+          const { error } = await updateCustomer(idCustomer, formattedPayload);
 
           if (error) {
             showToast({
