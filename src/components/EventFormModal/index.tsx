@@ -34,7 +34,7 @@ import {
 import { Modal as NextModal, ModalContent, Calendar } from '@nextui-org/react';
 
 // Constants
-import { EVENT_MODAL_TITLES, ERROR_MESSAGES } from '@/constants';
+import { ERROR_MESSAGES } from '@/constants';
 
 // Mocks
 import { EVENT_TABS } from '@/mocks';
@@ -45,15 +45,16 @@ interface TimeRangeProps {
 }
 
 interface EventFormModalProps {
-  type: 'event' | 'reminder' | 'task';
   title: string;
+  type: 'event' | 'reminder' | 'task';
+  eventTitle: string;
   date: Date;
   timeRange: TimeRangeProps;
   status: 'free' | 'busy';
-  visibility: 'default visibility' | 'public' | 'private';
+  visibility: 'default' | 'public' | 'private';
   notificationTime: number;
   isOpen: boolean;
-  onSubmit: (data: Pick<EventFormModalProps, 'title'>) => void;
+  onSubmit: (type: string, data: Pick<EventFormModalProps, 'title'>) => void;
   onClose: () => void;
   repeatSetting?: string;
   guests?: string[];
@@ -61,8 +62,9 @@ interface EventFormModalProps {
 }
 
 const EventFormModal = ({
-  type = 'event',
   title = '',
+  type = 'event',
+  eventTitle = '',
   date,
   timeRange,
   isOpen,
@@ -80,18 +82,16 @@ const EventFormModal = ({
     clearErrors,
     reset,
     formState: { errors, isValid },
+    //!TODO: update type for data object when submit (* Pick "title" is not enough *)
   } = useForm<Pick<EventFormModalProps, 'title'>>({
     mode: 'onBlur',
     reValidateMode: 'onChange',
     defaultValues: {
-      title,
+      title: eventTitle,
     },
   });
 
   // Helper functions
-  const modalTitle =
-    EVENT_MODAL_TITLES[type.toUpperCase() as keyof typeof EVENT_MODAL_TITLES] ||
-    EVENT_MODAL_TITLES.EVENT;
   const standardDate = formatToStandardDate(calendarDate);
   const formattedDate = formatEventDate(standardDate);
 
@@ -106,7 +106,7 @@ const EventFormModal = ({
 
   const handleFormSubmit = handleSubmit((data) => {
     // TODO: update logic or sideEffects
-    onSubmit(data);
+    onSubmit(type, data);
   });
 
   const handleModalClose = () => {
@@ -131,7 +131,7 @@ const EventFormModal = ({
         )}
 
         <form onSubmit={handleFormSubmit}>
-          <Heading className="mt-[12px]" size="md" title={modalTitle} />
+          <Heading className="mt-[12px]" size="md" title={title} />
 
           <Button
             className="absolute top-[30px] right-[30px] !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
