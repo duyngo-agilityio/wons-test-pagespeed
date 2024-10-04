@@ -1,0 +1,10 @@
+:root {
+  --c-calendar-white: white;
+
+  --c-calendar-date-cell-light: #f1f4fa;
+  --c-calendar-date-cell-dark: #1a202c;
+  --c-calendar-date-cell-background-dark: #364153;
+  --c-calendar-header-light: #06152b;
+  --c-calendar-current-date-color: #ff69b4;
+  --c-calender-row-border: #ffffff0d;
+}

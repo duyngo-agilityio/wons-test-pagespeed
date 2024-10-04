@@ -4,7 +4,7 @@ import { User } from 'next-auth';
 import { TUser } from '@/models';
 
 // Constants
-import { IMAGES } from '@/constants';
+import { IMAGES, ROLE } from '@/constants';
 
 export const SIGN_UP_FORM_DATA_MOCK = {
   avatar: IMAGES.AVATAR_DEFAULT,
@@ -31,7 +31,7 @@ export const MOCK_AUTH: Array<TUser & User> = [
     name: 'Super Admin',
     role: {
       id: 1,
-      name: 'Admin',
+      name: ROLE.ADMIN,
     },
     image:
       'https://t3.ftcdn.net/jpg/01/26/91/78/360_F_126917812_XlWgkaV9f81Hde4wvmvJWM3huJRvy5EM.webp',
@@ -49,7 +49,7 @@ export const MOCK_AUTH: Array<TUser & User> = [
     name: 'User',
     role: {
       id: 2,
-      name: 'User',
+      name: ROLE.USER,
     },
     image:
       'https://t3.ftcdn.net/jpg/01/26/91/78/360_F_126917812_XlWgkaV9f81Hde4wvmvJWM3huJRvy5EM.webp',

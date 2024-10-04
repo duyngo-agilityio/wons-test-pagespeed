@@ -4,7 +4,7 @@ const robots = (): MetadataRoute.Robots => {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
+      disallow: '',
     },
     sitemap: 'https://wons.vercel.app/sitemap.xml',
   };

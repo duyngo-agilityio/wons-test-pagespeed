@@ -208,7 +208,6 @@ const CustomerListClient = ({
               <IoClose size={20} />
             </Button>
             <CustomerForm
-              isEdit
               previewData={customerForm}
               isDisabledField={isPending}
               onAvatarChange={handleAvatarChange}

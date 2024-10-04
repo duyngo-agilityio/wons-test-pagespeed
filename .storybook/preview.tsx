@@ -11,7 +11,7 @@ import { colors } from '../src/themes';
 import { DM_SANS_FONT } from '../src/constants';
 
 // Style
-import '../src/styles/global.css';
+import '../src/styles/index.css';
 
 const { white, black } = colors;
 

@@ -43,3 +43,4 @@ export * from '../Skeleton';
 export { default as Autocomplete } from './Autocomplete';
 export { default as Pagination } from './Pagination';
 export { default as CustomCalendar } from './Calendar';
+export { default as Filter } from './Filter';

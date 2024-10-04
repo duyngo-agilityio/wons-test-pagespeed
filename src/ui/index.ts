@@ -10,3 +10,4 @@ export * from './invoice-details';
 export * from './edit-invoice';
 export * from './product-list';
 export * from './calendar';
+export * from './task-list';

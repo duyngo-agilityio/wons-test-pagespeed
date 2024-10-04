@@ -1,11 +1,20 @@
 .rbc-day-bg {
-  background-color: white;
+  background-color: var(--c-calendar-white);
 }
 
 .rbc-date-cell {
   align-items: center;
   text-align: center;
   height: 100%;
+  border-right: 1px solid
+    light-dark(
+      var(--c-calendar-date-cell-light),
+      var(--c-calendar-date-cell-dark)
+    );
+  background-color: light-dark(
+    var(--c-calendar-white),
+    var(--c-calendar-date-cell-background-dark)
+  );
 }
 
 .rbc-button-link {
@@ -14,6 +23,10 @@
 
 .rbc-row-content {
   height: 100%;
+}
+
+.rbc-allday-cell {
+  display: none;
 }
 
 .rbc-month-header {
@@ -35,9 +48,13 @@
   border: none;
 }
 
+.rbc-row:not(.rbc-month-header) {
+  flex: 1;
+}
+
 .rbc-row-content {
   display: flex;
-  justify-content: center;
+  justify-content: stretch;
   flex-direction: column;
 }
 
@@ -45,9 +62,87 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 20.83px;
-  color: #06152b;
+  color: light-dark(var(--c-calendar-header-light), var(--c-calendar-white));
 }
 
 .rbc-header + .rbc-header {
   border-left: none;
+}
+
+.rbc-month-row {
+  height: 132px;
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid
+    light-dark(
+      var(--c-calendar-date-cell-light),
+      var(--c-calendar-date-cell-dark)
+    );
+}
+
+.rbc-date-cell.rbc-now {
+  color: var(--c-calendar-current-date-color);
+  line-height: 33.37px;
+  font-size: 25.63px;
+}
+
+.rbc-date-cell.rbc-now.rbc-current {
+  border-top: 2px solid var(--c-calendar-current-date-color);
+}
+
+.rbc-time-column {
+  background-color: light-dark(
+    var(--c-calendar-white),
+    var(--c-calendar-date-cell-background-dark)
+  );
+}
+
+.rbc-timeslot-group {
+  border-bottom: none;
+  font-size: 10px;
+  text-align: left;
+}
+
+.rbc-time-gutter {
+  width: 74px;
+  padding-left: 15px;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-top: none;
+}
+
+.rbc-day-slot .rbc-timeslot-group {
+  border-top: none;
+  border-bottom: 1px solid
+    light-dark(var(--c-calendar-date-cell-light), var(--c-calender-row-border));
+}
+
+.rbc-time-content > .rbc-time-gutter {
+  background-color: light-dark(
+    var(--c-calendar-white),
+    var(--c-calendar-date-cell-dark)
+  );
+}
+
+.rbc-time-content {
+  border-top: none;
+}
+
+.rbc-button-link {
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.rbc-today {
+  color: var(--c-calendar-date-cell-dark);
+}
+
+.rbc-time-slot {
+  justify-content: flex-end;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }

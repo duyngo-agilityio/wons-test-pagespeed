@@ -34,7 +34,7 @@ export const getSerialNumberWithMedal = <T extends { id: number }>(
 export const sortByTotalSaleDescending = (
   products: TProductInvoiceWithTotalSaleResponse[],
 ) =>
-  products.sort(
+  products.toSorted(
     (a, b) => (b.attributes.totalSale ?? 0) - (a.attributes.totalSale ?? 0),
   );
 
@@ -58,3 +58,6 @@ export const getDataByID = <T extends { id: number }>(
 
   return item;
 };
+
+export const calcTotalAmount = (price: number, quantity: number): number =>
+  price * quantity;
