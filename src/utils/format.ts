@@ -1,11 +1,14 @@
 import { CalendarDate, DateValue } from '@nextui-org/react';
 import { CalendarDateTime, ZonedDateTime } from '@internationalized/date';
+import dayjs from 'dayjs';
 
 // Types
 import { StrapiModel, TProductInvoiceResponse } from '@/types';
 
 // Models
-import { IProduct, TInvoiceProduct } from '@/models';
+import { IEvent, IProduct, TInvoiceProduct } from '@/models';
+
+// Constants
 import { REGEX } from '@/constants';
 
 export const formatPrice = (price: number, isDigits: boolean = false) => {
@@ -172,3 +175,10 @@ export const aggregateProductQuantities = (
 export const capitalizeFirstLetter = (value: string = '') => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
+
+export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
+  events.map(({ attributes }) => ({
+    ...attributes,
+    start: dayjs(attributes.startTime).toDate(),
+    end: dayjs(attributes.endTime).toDate(),
+  })) as unknown as (Event & IEvent)[]; // TODO: Update type later;
