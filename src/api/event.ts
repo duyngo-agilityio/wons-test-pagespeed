@@ -30,10 +30,10 @@ export const getEvents = async (): Promise<{
     });
 
     if (!productsResponse?.data?.length) {
-      return { error: undefined, data: [] };
+      return { data: [] };
     }
 
-    return { error: undefined, data: productsResponse.data };
+    return { data: productsResponse.data };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
