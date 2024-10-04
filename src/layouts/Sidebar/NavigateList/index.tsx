@@ -148,7 +148,7 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
               toggle === SIDE_BAR_STATE.CLOSED && 'max-w-fit',
               pathname === href
                 ? `text-blue-500 dark:text-purple-600 pointer-events-none before:block before:absolute before:h-12 before:-top-2 before:rounded-r-5 before:bg-gray-200/20 ${toggle === SIDE_BAR_STATE.OPEN ? 'before:w-[60px] before:-left-7' : 'before:w-[53px] before:-left-[22px]'}`
-                : 'text-gray-800 dark:text-white opacity-80',
+                : 'text-blue-800 dark:text-white opacity-80',
             )}
             classNames={{
               title: ['text-xl font-medium'],
