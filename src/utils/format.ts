@@ -168,3 +168,7 @@ export const aggregateProductQuantities = (
   // Convert the object into an array and return
   return Object.values(quantityByProductId);
 };
+
+export const capitalizeFirstLetter = (value: string = '') => {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+};

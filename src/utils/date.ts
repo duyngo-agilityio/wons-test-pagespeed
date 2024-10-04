@@ -91,3 +91,42 @@ export const formatDateCalendar = (calendarDate: DateValue) => {
     year: 'numeric',
   }).format(date);
 };
+
+/**
+ * Converts a JavaScript Date object to a CalendarDate format by parsing the ISO date string.
+ * @param value - A JavaScript Date object
+ * @returns A parsed CalendarDate object
+ */
+export const formatToCalendarDate = (value: Date) => {
+  return parseDate(value.toISOString().split('T')[0]);
+};
+
+/**
+ * Converts a CalendarDate object to a JavaScript Date object.
+ * @param value - A CalendarDate object with year, month, and day properties
+ * @returns A JavaScript Date object
+ */
+export const formatToStandardDate = (value: CalendarDate) => {
+  return new Date(value.year, value.month - 1, value.day);
+};
+
+/**
+ * Formats a JavaScript Date object to a readable string format including the day of the week, month, and date as "Day.Month Date" format.
+ * @param date - A JavaScript Date object
+ * @returns A formatted string like "Monday. January 1"
+ */
+export const formatEventDate = (date: Date) => {
+  // Get date as letter
+  const selectedDate = date.toLocaleDateString('en-US', {
+    weekday: 'long',
+  });
+
+  // Get month as letter
+  const selectedMonth = date.toLocaleDateString('en-US', {
+    month: 'long',
+  });
+
+  const selectedDateNumber = date.getDate();
+
+  return `${selectedDate}. ${selectedMonth} ${selectedDateNumber}`;
+};
