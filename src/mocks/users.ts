@@ -1,6 +1,6 @@
 import { ROLE } from '@/constants';
 import { TUser } from '@/models';
-import { TRole } from '@/types';
+import { StrapiModel, TRole } from '@/types';
 
 const mockRoles: TRole[] = [
   { id: 1, name: ROLE.ADMIN },
@@ -40,5 +40,26 @@ export const MOCK_USERS: TUser[] = [
     password: 'password123',
     role: mockRoles[1], // User
     token: 'token_101',
+  },
+];
+
+export const MOCK_AVATAR_GROUP: StrapiModel<Omit<TUser, 'id'>>[] = [
+  {
+    id: 1,
+    attributes: {
+      ...MOCK_USERS[0],
+    },
+  },
+  {
+    id: 2,
+    attributes: {
+      ...MOCK_USERS[1],
+    },
+  },
+  {
+    id: 3,
+    attributes: {
+      ...MOCK_USERS[2],
+    },
   },
 ];

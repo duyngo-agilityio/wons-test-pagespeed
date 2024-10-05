@@ -20,3 +20,4 @@ export * from './pagination';
 export * from './brand';
 export * from './rating';
 export * from './card';
+export * from './task';

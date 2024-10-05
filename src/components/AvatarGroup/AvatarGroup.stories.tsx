@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import AvatarGroup from './index';
 
 // mocks
-import { MOCK_USERS } from '@/mocks';
+import { MOCK_AVATAR_GROUP } from '@/mocks';
 
 const meta: Meta<typeof AvatarGroup> = {
   title: 'Components/AvatarGroup',
@@ -21,6 +21,6 @@ type Story = StoryObj<typeof AvatarGroup>;
 
 export const Default: Story = {
   args: {
-    users: MOCK_USERS,
+    users: MOCK_AVATAR_GROUP,
   },
 };
