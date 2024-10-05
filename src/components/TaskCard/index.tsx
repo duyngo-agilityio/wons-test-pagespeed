@@ -1,37 +1,76 @@
 'use client';
-import { Draggable } from '@hello-pangea/dnd';
-import Image from 'next/image';
 
-// Mocks
-import { MOCK_USERS } from '@/mocks';
+import { memo } from 'react';
+import { Draggable } from '@hello-pangea/dnd';
+
+// Types
+import { StrapiModel, Task } from '@/types';
 
 // Components
-import { LevelCardComponent, DropdownActions, AvatarGroup } from '@/components';
-
-// Constants
-import { BLUR_SRC } from '@/constants';
+import {
+  LevelChip,
+  DropdownActions,
+  AvatarGroup,
+  Text,
+  ImageFallback,
+} from '@/components';
+import { Level } from '@/constants';
 
 type TTaskCardProps = {
-  id: number;
-  title: string;
-  images?: string[];
-  description?: string;
-  status: string;
   index: number;
+  task: StrapiModel<Task>;
 };
 
-const TaskCard = ({
-  id,
-  title,
-  images,
-  description,
-  index,
-}: TTaskCardProps) => {
+const TaskCard = ({ index, task }: TTaskCardProps) => {
+  const { id, attributes } = task ?? {};
+  const {
+    title = '',
+    level = Level.LOW,
+    assignees = { data: [] },
+    images = [],
+    description = '',
+  } = attributes ?? {};
+
   // TODO:: Handle later
   const handleDelete = () => {};
 
   // TODO:: Handle later
   const handleEdit = () => {};
+
+  const renderImageTask = () => {
+    const hasTwoImages = images.length === 2;
+
+    if (!images) return <></>;
+
+    // If images exist and has exactly two items
+    if (hasTwoImages)
+      return (
+        <div className="flex flex-row justify-between w-[235px] mt-[20px]">
+          {images.map((image, indexImage) => (
+            <ImageFallback
+              key={`imageTask_${indexImage}`}
+              alt={`imageTask_${indexImage}`}
+              src={image}
+              width={107}
+              height={90}
+              style={{ borderRadius: '10px' }}
+            />
+          ))}
+        </div>
+      );
+
+    // If images exist and has exactly one item
+    return (
+      <div className="mt-[20px]">
+        <ImageFallback
+          alt={`imageTask_${id}`}
+          src={images[0]}
+          width={235}
+          height={176}
+        />
+      </div>
+    );
+  };
 
   return (
     <Draggable draggableId={id.toString()} index={index}>
@@ -45,7 +84,7 @@ const TaskCard = ({
           }`}
         >
           <div className="flex flex-row items-center justify-between mb-[15px]">
-            <div className="text-md">{title}</div>
+            <Text className="text-md" text={title} />
             <DropdownActions
               id={id}
               onDelete={handleDelete}
@@ -55,40 +94,11 @@ const TaskCard = ({
               customClassName="w-[15px] min-w-[15px]"
             />
           </div>
-          <LevelCardComponent />
-          <div className="mt-[20px] text-sm">{description}</div>
-          {/* If images exist and has exactly one item */}
-          {images && images.length === 1 && (
-            <div className="mt-[20px]">
-              <Image
-                alt={MOCK_USERS[0].fullName}
-                src={images[0]}
-                width={235}
-                height={176}
-                placeholder="blur"
-                blurDataURL={BLUR_SRC.DEFAULT}
-              />
-            </div>
-          )}
-          {/* If images exist and has exactly two items */}
-          {images && images.length === 2 && (
-            <div className="flex flex-row justify-between w-[235px] mt-[20px]">
-              {images.map((item, idx) => (
-                <Image
-                  key={idx}
-                  alt="Image Task"
-                  src={item}
-                  width={107}
-                  height={90}
-                  style={{ borderRadius: '10px' }}
-                  placeholder="blur"
-                  blurDataURL={BLUR_SRC.DEFAULT}
-                />
-              ))}
-            </div>
-          )}
+          <LevelChip level={level} />
+          <Text className="mt-[20px] text-sm" text={description} />
+          {renderImageTask()}
           <div className="mt-[20px]">
-            <AvatarGroup users={MOCK_USERS} />
+            <AvatarGroup users={assignees.data} />
           </div>
         </div>
       )}
@@ -96,4 +106,4 @@ const TaskCard = ({
   );
 };
 
-export default TaskCard;
+export default memo(TaskCard);

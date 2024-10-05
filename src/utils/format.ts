@@ -172,6 +172,16 @@ export const aggregateProductQuantities = (
   return Object.values(quantityByProductId);
 };
 
+export const getSubarray = <T>(
+  data: T[],
+  startNumber: number,
+  endNumber: number,
+) => {
+  if (!data) return [];
+
+  return data.slice(startNumber, endNumber);
+};
+
 export const capitalizeFirstLetter = (value: string = '') => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };

@@ -5,15 +5,18 @@ import isEqual from 'react-fast-compare';
 // libs
 import { Droppable } from '@hello-pangea/dnd';
 
+// Constants
+import { TASK_STATUS } from '@/constants';
+
 // components
 import { Heading, TaskCard } from '@/components';
 
 // types
-import { Task, TaskStatus } from '@/types';
+import { StrapiModel, Task } from '@/types';
 
 type TColumnProps = {
-  status: TaskStatus;
-  tasks: Task[];
+  status: TASK_STATUS;
+  tasks: StrapiModel<Task>[];
 };
 
 const Column = ({ status, tasks }: TColumnProps) => {
@@ -30,16 +33,9 @@ const Column = ({ status, tasks }: TColumnProps) => {
             title={status}
           />
           <div className="space-y-6">
-            {tasks.map(({ id, title, description }, index) => (
-              <TaskCard
-                key={id}
-                id={id}
-                index={index}
-                title={title}
-                description={description}
-                status={status}
-              />
-            ))}
+            {tasks.map((task, index) => {
+              return <TaskCard key={task.id} index={index} task={task} />;
+            })}
             {provided.placeholder}
           </div>
         </div>

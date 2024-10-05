@@ -2,15 +2,13 @@
 import { Chip } from '@nextui-org/react';
 
 // Constants
-import { LevelCard } from '@/constants';
+import { Level } from '@/constants';
 
 type TLevelCardProps = {
-  variant?: LevelCard;
+  level: Level;
 };
 
-const LevelCardComponent = ({
-  variant = LevelCard.MEDIUM,
-}: TLevelCardProps): JSX.Element => {
+const LevelChip = ({ level }: TLevelCardProps): JSX.Element => {
   const chipClasses = {
     high: {
       bg: 'bg-gray-200',
@@ -31,17 +29,17 @@ const LevelCardComponent = ({
       classNames={{
         base: [
           'px-[22px] h-[45px] max-h-[45px] rounded-[22px]',
-          `${chipClasses[variant]?.bg}`,
+          `${chipClasses[level]?.bg}`,
         ],
         content: [
           'text-center text-md capitalize',
-          `${chipClasses[variant]?.color}`,
+          `${chipClasses[level]?.color}`,
         ],
       }}
     >
-      {variant}
+      {level}
     </Chip>
   );
 };
 
-export default LevelCardComponent;
+export default LevelChip;

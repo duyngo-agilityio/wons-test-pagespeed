@@ -1,4 +1,4 @@
-import { TasksState, TaskStatus } from '@/types';
+import { StrapiModel, Task, TasksState, TaskStatus } from '@/types';
 
 export const mapTaskStatusToStateKey = (
   status: TaskStatus,
@@ -15,4 +15,15 @@ export const mapTaskStatusToStateKey = (
     default:
       throw new Error('Unknown TaskStatus');
   }
+};
+
+export const convertTasksByStatus = (data: StrapiModel<Task>[]) => {
+  return {
+    todo: data.filter(({ attributes }) => attributes?.label === 'todo'),
+    inProgress: data.filter(
+      ({ attributes }) => attributes?.label === 'inProgress',
+    ),
+    inReview: data.filter(({ attributes }) => attributes?.label === 'inReview'),
+    done: data.filter(({ attributes }) => attributes?.label === 'done'),
+  };
 };
