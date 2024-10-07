@@ -119,11 +119,11 @@ const InvoiceForm = ({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: previewData || {
+    defaultValues: previewData ?? {
       imageUrl: '',
       invoiceId: '',
       date: '',
-      customerId: undefined,
+      customerId: '',
       email: '',
       address: '',
       status: undefined,
