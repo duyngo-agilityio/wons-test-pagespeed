@@ -304,11 +304,9 @@ const InvoiceForm = ({
               <Autocomplete
                 defaultSelectedKey={value}
                 isInvalid={!!error}
-                errorMessage={
-                  value == null ? ERROR_MESSAGES.FIELD_REQUIRED : error?.message
-                }
+                errorMessage={error?.message}
                 onSelectionChange={(key) => {
-                  onChange(key);
+                  onChange(key ?? '');
 
                   // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);
@@ -324,9 +322,6 @@ const InvoiceForm = ({
           <Controller
             name="status"
             control={control}
-            rules={{
-              required: ERROR_MESSAGES.FIELD_REQUIRED,
-            }}
             render={({
               field: { onChange, value, name, ...rest },
               fieldState: { error },
@@ -339,7 +334,7 @@ const InvoiceForm = ({
                 }
                 label="Status"
                 onSelectionChange={(key) => {
-                  onChange(key);
+                  onChange(key ?? '');
 
                   // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);
