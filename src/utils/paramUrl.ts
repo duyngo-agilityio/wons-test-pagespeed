@@ -1,3 +1,5 @@
+import { Selection } from '@nextui-org/react';
+
 export const formatQuery = (
   query: Record<string, string | undefined>,
 ): string => {
@@ -41,4 +43,44 @@ export const formatFilterIntervalDate = (
   });
 
   return urlParams.join('&');
+};
+
+/**
+ * Formats a filter URL for multiple users based on the input values.
+ *
+ * @param values - An array of usernames to filter by
+ * @returns - A formatted URL string with filters for each username
+ *
+ * @example
+ * @param - ['david', 'lionel'];
+ * @returns - filters[$and][0][assignees][username][$eq]=david&filters[$and][1][assignees][username][$eq]=lionel
+ */
+export const formatFilterMultipleUser = (values: string[]) => {
+  let url = '';
+
+  if (!values.length) return '';
+
+  values.forEach((value, index) => {
+    url += `&filters[$and][${index}][assignees][username][$eq]=${value.trim()}`;
+  });
+
+  return url.slice();
+};
+
+/**
+ * Formats a string of usernames into an array.
+ *
+ * @param value - A comma-separated string of usernames
+ * @returns - An array of usernames
+ *
+ * @example
+ * @param value - 'david,lionel';
+ * @returns - ['david', 'lionel']
+ */
+export const convertStringToArray = (value: string) => {
+  return value.split(',');
+};
+
+export const formatOptionsSelection = (object: Selection) => {
+  return Array.from(object).join(', ');
 };

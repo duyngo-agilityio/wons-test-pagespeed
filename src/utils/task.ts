@@ -1,4 +1,5 @@
-import { StrapiModel, Task, TasksState, TaskStatus } from '@/types';
+import { TUser } from '@/models';
+import { IFilter, StrapiModel, Task, TasksState, TaskStatus } from '@/types';
 
 export const mapTaskStatusToStateKey = (
   status: TaskStatus,
@@ -26,4 +27,21 @@ export const convertTasksByStatus = (data: StrapiModel<Task>[]) => {
     inReview: data.filter(({ attributes }) => attributes?.label === 'inReview'),
     done: data.filter(({ attributes }) => attributes?.label === 'done'),
   };
+};
+
+export const formatFilterOptions = (data: TUser[]): IFilter[] => {
+  if (!data) return [];
+
+  const userOptions = data.map(({ username, fullName }) => ({
+    id: username,
+    content: fullName,
+  }));
+
+  return [
+    {
+      id: 'list_1',
+      title: 'User',
+      items: userOptions,
+    },
+  ];
 };

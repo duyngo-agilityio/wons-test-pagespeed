@@ -11,4 +11,5 @@ export const SEARCH_QUERIES = {
   END_TIME: 'endTime',
   PAGE: 'page',
   ID: 'id',
+  FILTERS: 'filters',
 };

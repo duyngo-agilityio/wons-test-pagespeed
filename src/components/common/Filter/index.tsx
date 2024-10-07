@@ -1,6 +1,7 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import isEqual from 'react-fast-compare';
 import {
   Button,
@@ -15,6 +16,7 @@ import {
   ListboxProps,
   ListboxItemProps,
   PopoverContentProps,
+  Selection,
 } from '@nextui-org/react';
 
 // Types
@@ -23,8 +25,14 @@ import { IFilter } from '@/types';
 // Icons
 import { FilterIcon } from '../icons';
 
+// Utils
+import { formatOptionsSelection } from '@/utils';
+
+// Constants
+import { SEARCH_QUERIES } from '@/constants';
+
 // Components
-import { Checkbox, Text } from '@/components/common';
+import { Text } from '@/components/common';
 
 interface IFilterProps {
   items: IFilter[];
@@ -47,6 +55,30 @@ const Filter = ({
   listboxProps,
   listboxItemProps,
 }: IFilterProps) => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const [values, setValues] = useState<Selection>(new Set([]));
+
+  const { FILTERS } = SEARCH_QUERIES;
+
+  const handleSelect = useCallback(
+    (keys: Selection) => {
+      setValues(keys);
+      const params = new URLSearchParams(searchParams);
+      const value = formatOptionsSelection(keys);
+
+      if (value) {
+        params.set(FILTERS, value);
+      } else {
+        params.delete(FILTERS);
+      }
+
+      replace(`${pathname}?${params.toString()}`);
+    },
+    [searchParams, replace, pathname, FILTERS],
+  );
+
   return (
     <Popover {...popoverProps}>
       <PopoverTrigger {...popoverTriggerProps}>
@@ -67,10 +99,15 @@ const Filter = ({
               text={title}
               className="font-medium border-b-1 border-blue-800/50 pb-1"
             />
-            <Listbox {...listboxProps}>
+            <Listbox
+              selectionMode="multiple"
+              selectedKeys={values}
+              onSelectionChange={handleSelect}
+              {...listboxProps}
+            >
               {items.map(({ id, content, customElement }) => (
                 <ListboxItem key={id} className="px-0" {...listboxItemProps}>
-                  {customElement || <Checkbox>{content}</Checkbox>}
+                  {customElement || content}
                 </ListboxItem>
               ))}
             </Listbox>

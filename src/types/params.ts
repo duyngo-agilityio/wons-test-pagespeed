@@ -5,4 +5,5 @@ export interface ISearchParams {
   endTime?: string;
   page?: string;
   query?: string;
+  filters?: string;
 }
