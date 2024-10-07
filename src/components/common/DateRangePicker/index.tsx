@@ -116,7 +116,10 @@ const DateRangePicker = ({
                 )}
               </p>
               <div className="absolute flex items-center h-full right-0 px-2">
-                <button className="flex h-[15px] w-[15px] justify-center items-center rounded-full hover:bg-gray-100">
+                <button
+                  className="flex h-[15px] w-[15px] justify-center items-center rounded-full hover:bg-gray-100"
+                  aria-label={`${key} date`}
+                >
                   <FaChevronDown className="w-[8.43px]" />
                 </button>
               </div>

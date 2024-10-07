@@ -99,7 +99,7 @@ const SidebarFooter = ({
                 <Text text={fullName} className="text-sm capitalize" />
                 <Text
                   text={role === ROLE.USER ? 'View-only' : role}
-                  className="text-xs opacity-50 capitalize"
+                  className="text-xs opacity-60 capitalize"
                 />
               </div>
             )}

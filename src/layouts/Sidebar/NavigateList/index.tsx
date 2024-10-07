@@ -109,8 +109,8 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
         endContent: (
           <Chip
             classNames={{
-              base: 'bg-pink-500/10',
-              content: 'text-pink-500 text-xs',
+              base: 'bg-red-500',
+              content: 'text-white font-medium text-xs',
             }}
           >
             49
@@ -148,7 +148,7 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
               toggle === SIDE_BAR_STATE.CLOSED && 'max-w-fit',
               pathname === href
                 ? `text-blue-500 dark:text-purple-600 pointer-events-none before:block before:absolute before:h-12 before:-top-2 before:rounded-r-5 before:bg-gray-200/20 ${toggle === SIDE_BAR_STATE.OPEN ? 'before:w-[60px] before:-left-7' : 'before:w-[53px] before:-left-[22px]'}`
-                : 'text-blue-800 dark:text-white opacity-50',
+                : 'text-blue-800 dark:text-white opacity-80',
             )}
             classNames={{
               title: ['text-xl font-medium'],
