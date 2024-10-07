@@ -1,5 +1,16 @@
 .rbc-day-bg {
-  background-color: var(--c-calendar-white);
+  background-color: light-dark(
+    var(--c-calendar-white),
+    var(--c-calendar-date-cell-background-dark)
+  );
+}
+
+.rbc-day-bg + .rbc-day-bg {
+  border: 0.5px solid
+    light-dark(
+      var(--c-calendar-date-cell-light),
+      var(--c-calendar-date-cell-dark)
+    );
 }
 
 .rbc-date-cell {
@@ -18,6 +29,12 @@
 }
 
 .rbc-button-link {
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.rbc-date-cell {
   font-size: 25.63px;
 }
 
@@ -49,7 +66,7 @@
 }
 
 .rbc-row:not(.rbc-month-header) {
-  flex: 1;
+  flex: auto;
 }
 
 .rbc-row-content {
@@ -130,12 +147,6 @@
   border-top: none;
 }
 
-.rbc-button-link {
-  font-size: 16px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 .rbc-today {
   color: var(--c-calendar-date-cell-dark);
 }
@@ -145,4 +156,20 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+.rbc-event-content {
+  font-size: 10px;
+  line-height: 13.02px;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.rbc-event {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: auto;
+  background-color: var(--c-calendar-current-date-color);
 }
