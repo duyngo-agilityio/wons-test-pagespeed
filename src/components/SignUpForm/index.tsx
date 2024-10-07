@@ -26,7 +26,7 @@ const signUpSchema = z.object({
   email: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
-    .email(ERROR_MESSAGES.FIELD_INVALID('Email Address')),
+    .email(ERROR_MESSAGES.EMAIL_INVALID),
   password: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)

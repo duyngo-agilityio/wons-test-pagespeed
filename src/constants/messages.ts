@@ -1,4 +1,5 @@
 export const ERROR_MESSAGES = {
+  EMAIL_INVALID: 'Invalid email address format.',
   FIELD_REQUIRED: `This field is required.`,
   FIELD_INVALID: (fieldName: string) => `Invalid format of ${fieldName}.`,
   GENERAL_INVALID_PASSWORD: 'Invalid password',
