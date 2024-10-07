@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Link from 'next/link';
-import isEqual from 'react-fast-compare';
 import { useRouter } from 'next/navigation';
 
 // Constants
@@ -26,7 +25,6 @@ import {
   convertToCalendarDate,
   currentDate,
   formatDatePicker,
-  getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -114,8 +112,7 @@ const InvoiceForm = ({
 
   const {
     control,
-    formState: { dirtyFields, errors, defaultValues },
-    watch,
+    formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
   } = useForm<TInvoiceFormData>({
@@ -146,11 +143,7 @@ const InvoiceForm = ({
     [dirtyItems, errors],
   );
 
-  const isDisableSubmit = !(
-    enableSubmit ||
-    !getDirtyState(defaultValues ?? {}, watch()) ||
-    (!isEqual(previewInvoiceProducts, productsValues) && isEdit)
-  );
+  const isDisableSubmit = !enableSubmit;
 
   const handleSubmitButton = async (formData: TInvoiceFormData) => {
     const hasEmptyField = productsValues.some((obj) =>
