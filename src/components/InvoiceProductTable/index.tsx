@@ -34,6 +34,7 @@ const initInvoiceProduct = {
   product: {
     data: {
       id: 0,
+      name: '',
       price: 0,
       imageUrl: '',
       title: '',
@@ -97,7 +98,7 @@ const InvoiceProductTable = ({
         return (
           <Autocomplete
             disableClearable
-            defaultSelectedKey={data.product?.data?.id?.toString()}
+            selectedKey={data.product?.data?.id?.toString()}
             onSelectionChange={(key) =>
               handleChangeProductName(key, data.product.data.id)
             }

@@ -11,18 +11,22 @@ type TInvoiceStatusProps = {
 const InvoiceStatusComponent = ({
   variant = InvoiceStatus.COMPLETE,
 }: TInvoiceStatusProps): JSX.Element => {
-  const chipClasses = {
-    complete: {
+  const chipClasses: Record<InvoiceStatus, { bg: string; color: string }> = {
+    [InvoiceStatus.COMPLETE]: {
       bg: 'bg-blue-500/10 dark:bg-purple-600/10',
       color: 'text-blue-500 dark:text-purple-600',
     },
-    pending: {
+    [InvoiceStatus.PENDING]: {
       bg: 'bg-teal-500/10 dark:bg-teal-300/10',
       color: 'text-teal-500 dark:text-teal-300',
     },
-    cancel: {
+    [InvoiceStatus.CANCEL]: {
       bg: 'bg-pink-500/10',
       color: 'text-pink-500',
+    },
+    [InvoiceStatus.DEFAULT]: {
+      bg: 'bg-gray-500/10',
+      color: 'text-gray-500',
     },
   };
 

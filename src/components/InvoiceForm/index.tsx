@@ -11,6 +11,7 @@ import { useRouter } from 'next/navigation';
 import {
   ERROR_MESSAGES,
   INVOICE_STATUS,
+  InvoiceStatus,
   MESSAGE_STATUS,
   ROUTES,
   SUCCESS_MESSAGES,
@@ -123,10 +124,10 @@ const InvoiceForm = ({
       imageUrl: '',
       invoiceId: '',
       date: '',
-      customerId: undefined,
+      customerId: '',
       email: '',
       address: '',
-      status: undefined,
+      status: InvoiceStatus.DEFAULT,
     },
   });
 
