@@ -155,6 +155,7 @@ const EventFormModal = ({
       users_permissions_users: [Number(user.id), ...people],
       startTime: formattedStart,
       endTime: formattedEnd,
+      date: new Date(date),
     });
   });
 

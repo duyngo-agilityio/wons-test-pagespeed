@@ -3,6 +3,7 @@ export interface IEvent {
   status: string;
   location: string;
   visibility: string;
+  date: Date;
   startTime: string;
   endTime: string;
   eventType: string;
