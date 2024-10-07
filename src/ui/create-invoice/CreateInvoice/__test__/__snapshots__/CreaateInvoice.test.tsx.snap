@@ -221,7 +221,6 @@ exports[`CreateInvoice Component Test should render all content with resolved da
             data-filled="true"
             data-filled-within="true"
             data-has-elements="true"
-            data-has-helper="true"
             data-has-label="true"
             data-slot="base"
           >
@@ -325,10 +324,6 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   </div>
                 </div>
               </div>
-              <div
-                class="hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5"
-                data-slot="helper-wrapper"
-              />
             </div>
           </div>
           <div
@@ -1264,7 +1259,6 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
             data-filled="true"
             data-filled-within="true"
             data-has-elements="true"
-            data-has-helper="true"
             data-has-label="true"
             data-slot="base"
           >
@@ -1368,10 +1362,6 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   </div>
                 </div>
               </div>
-              <div
-                class="hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5"
-                data-slot="helper-wrapper"
-              />
             </div>
           </div>
           <div
