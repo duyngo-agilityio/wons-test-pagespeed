@@ -212,28 +212,30 @@ const InvoiceForm = ({
         className="w-full max-w-[700px] justify-center"
         onSubmit={handleSubmit(handleSubmitButton)}
       >
-        <div className="flex justify-center sm:mt-[21px]">
-          <Controller
-            control={control}
-            name="imageUrl"
-            render={({
-              field: { onChange, value, name },
-              fieldState: { error },
-            }) => (
-              <AvatarUpload
-                value={value}
-                error={error?.message}
-                onChange={(e) => {
-                  onChange(e);
+        {isEdit && (
+          <div className="flex justify-center sm:mt-[21px]">
+            <Controller
+              control={control}
+              name="imageUrl"
+              render={({
+                field: { onChange, value, name },
+                fieldState: { error },
+              }) => (
+                <AvatarUpload
+                  value={value}
+                  error={error?.message}
+                  onChange={(e) => {
+                    onChange(e);
 
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-                onFileChange={handleAvatarChange}
-              />
-            )}
-          />
-        </div>
+                    // Clear error message on change
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                  onFileChange={handleAvatarChange}
+                />
+              )}
+            />
+          </div>
+        )}
 
         <div className="flex flex-col sm:flex-row sm:gap-[30px] sm:mt-[30px]">
           {/* Invoice Id*/}
