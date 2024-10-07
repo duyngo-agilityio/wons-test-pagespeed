@@ -3,130 +3,187 @@
 exports[`TaskCard Component matches the snapshot 1`] = `
 <div>
   <div
-    data-rfd-droppable-context-id=":r0:"
-    data-rfd-droppable-id="droppable-1"
+    data-overlay-container="true"
   >
+    <script>
+      !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
+    </script>
     <div
-      aria-describedby="rfd-hidden-text-:r0:-hidden-text-:r1:"
-      class="w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md "
-      data-rfd-drag-handle-context-id=":r0:"
-      data-rfd-drag-handle-draggable-id="1"
-      data-rfd-draggable-context-id=":r0:"
-      data-rfd-draggable-id="1"
-      draggable="false"
-      role="button"
-      tabindex="0"
+      data-rfd-droppable-context-id=":r0:"
+      data-rfd-droppable-id="droppable-1"
     >
       <div
-        class="flex flex-row items-center justify-between mb-[15px]"
+        aria-describedby="rfd-hidden-text-:r0:-hidden-text-:r1:"
+        class="w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md "
+        data-rfd-drag-handle-context-id=":r0:"
+        data-rfd-drag-handle-draggable-id="1"
+        data-rfd-draggable-context-id=":r0:"
+        data-rfd-draggable-id="1"
+        draggable="false"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="text-md"
+          class="flex flex-row items-center justify-between mb-[15px]"
         >
-          Demo Task
-        </div>
-        <button
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 !transition-none data-[pressed=true]:scale-100 text-default-foreground h-10 data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone w-[15px] min-w-[15px]"
-          data-slot="trigger"
-          data-testid="actions-btn"
-          id="react-aria-:r4:"
-          type="button"
-        >
-          <svg
-            class="text-blue-800/30 dark:text-white/30"
-            fill="currentColor"
-            height="14"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 512 512"
-            width="14"
-            xmlns="http://www.w3.org/2000/svg"
+          <p
+            class="font-dm-sans text-blue-800 dark:text-white text-md text-md"
           >
-            <path
-              d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
-            />
-          </svg>
-        </button>
-      </div>
-      <div
-        class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[45px] max-h-[45px] rounded-[22px] bg-blue-500"
-      >
-        <span
-          class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
-        >
-          medium
-        </span>
-      </div>
-      <div
-        class="mt-[20px] text-sm"
-      >
-        This is a demo task description
-      </div>
-      <div
-        class="mt-[20px]"
-      >
-        <div
-          class="flex items-center"
-        >
-          <div
-            class="relative w-7 h-7 rounded-full "
-          >
-            <img
-              alt="user1"
-              src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
-            />
-          </div>
-          <div
-            class="relative w-7 h-7 rounded-full -ml-3"
-          >
-            <img
-              alt="user2"
-              src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
-            />
-          </div>
-          <div
-            class="relative w-7 h-7 rounded-full -ml-3"
-          >
-            <img
-              alt="user4"
-              src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
-            />
-          </div>
+            Dashboard Design
+          </p>
           <button
-            class="z-0 group box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] min-w-max !px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-small gap-2 rounded-medium px-0 !gap-0 !transition-none data-[pressed=true]:scale-100 text-default-foreground h-10 data-[hover=true]:opacity-hover z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased border-none bg-bone w-[15px] min-w-[15px]"
+            data-slot="trigger"
+            data-testid="actions-btn"
+            id="react-aria-:r4:"
             type="button"
           >
-            <div
-              class="flex items-center"
+            <svg
+              class="text-blue-800/30 dark:text-white/30"
+              fill="currentColor"
+              height="14"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="14"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line
-                  x1="12"
-                  x2="12"
-                  y1="5"
-                  y2="19"
-                />
-                <line
-                  x1="5"
-                  x2="19"
-                  y1="12"
-                  y2="12"
-                />
-              </svg>
-            </div>
+              <path
+                d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"
+              />
+            </svg>
           </button>
+        </div>
+        <div
+          class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[45px] max-h-[45px] rounded-[22px] bg-pink-500"
+        >
+          <span
+            class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
+          >
+            low
+          </span>
+        </div>
+        <p
+          class="font-dm-sans text-blue-800 dark:text-white text-md mt-[20px] text-sm"
+        >
+          Discussion for management dashboard ui design
+        </p>
+        <div
+          class="flex flex-row justify-between w-[235px] mt-[20px]"
+        >
+          <img
+            alt="imageTask_0"
+            data-nimg="1"
+            decoding="async"
+            height="90"
+            loading="lazy"
+            src="http://localhost/_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=256&q=75 2x"
+            style="color: transparent; border-radius: 10px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+            width="107"
+          />
+          <img
+            alt="imageTask_1"
+            data-nimg="1"
+            decoding="async"
+            height="90"
+            loading="lazy"
+            src="http://localhost/_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=256&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=256&q=75 2x"
+            style="color: transparent; border-radius: 10px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+            width="107"
+          />
+        </div>
+        <div
+          class="mt-[20px]"
+        >
+          <div
+            class="flex items-center"
+          >
+            <div
+              class="relative w-7 h-7 rounded-full "
+            >
+              <img
+                alt="ngocngo"
+                class="h-full w-full rounded-full object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="28"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=64&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=64&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="28"
+              />
+            </div>
+            <div
+              class="relative w-7 h-7 rounded-full -ml-3"
+            >
+              <img
+                alt="user"
+                class="h-full w-full rounded-full object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="28"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=64&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=64&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="28"
+              />
+            </div>
+            <div
+              class="relative w-7 h-7 rounded-full -ml-3"
+            >
+              <img
+                alt="user34"
+                class="h-full w-full rounded-full object-cover"
+                data-nimg="1"
+                decoding="async"
+                height="28"
+                loading="lazy"
+                src="http://localhost/_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=64&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F06%2F17%2F13%2F26%2F360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg&w=64&q=75 2x"
+                style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                width="28"
+              />
+            </div>
+            <button
+              class="z-0 group box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none bg-default data-[hover=true]:opacity-hover border-transparent dark:text-white px-5 pb-2.5 pt-[11px] text-md rounded-[10px] min-w-max !px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out"
+              type="button"
+            >
+              <div
+                class="flex items-center"
+              >
+                <svg
+                  fill="none"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    x1="12"
+                    x2="12"
+                    y1="5"
+                    y2="19"
+                  />
+                  <line
+                    x1="5"
+                    x2="19"
+                    y1="12"
+                    y2="12"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>

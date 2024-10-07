@@ -442,7 +442,7 @@ exports[`Customer List component should render all content with resolved data an
           >
             <img
               alt="Jane-Smith"
-              class="object-contain rounded-full"
+              class="object-cover rounded-full"
               data-nimg="fill"
               decoding="async"
               loading="lazy"
@@ -523,7 +523,7 @@ exports[`Customer List component should render all content with resolved data an
               <p
                 class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium"
               >
-                987-654-3210
+                (987) 654-3210
               </p>
             </div>
             <div

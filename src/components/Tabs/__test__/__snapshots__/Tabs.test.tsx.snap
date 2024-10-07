@@ -44,13 +44,14 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
           </div>
         </button>
         <button
+          aria-disabled="true"
           aria-selected="false"
           class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+          data-disabled="true"
           data-key="reminder"
           data-slot="tab"
           id="react-aria-:r0:-tab-reminder"
           role="tab"
-          tabindex="-1"
           type="button"
         >
           <div
@@ -61,13 +62,14 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
           </div>
         </button>
         <button
+          aria-disabled="true"
           aria-selected="false"
           class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+          data-disabled="true"
           data-key="task"
           data-slot="tab"
           id="react-aria-:r0:-tab-task"
           role="tab"
-          tabindex="-1"
           type="button"
         >
           <div
