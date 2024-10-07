@@ -1,3 +1,17 @@
+export const TASK_TABS = [
+  { key: 'list', label: 'List', content: 'This is the list content' },
+  {
+    key: 'board',
+    label: 'Board',
+    content: 'This is the board content',
+  },
+  {
+    key: 'timeLine',
+    label: 'Timeline',
+    content: 'This is the timeLine content',
+  },
+];
+
 export const EVENT_TABS = [
   {
     key: 'event',
@@ -16,20 +30,6 @@ export const EVENT_TABS = [
     label: 'Task',
     content: 'This is the task content',
     isDisable: true,
-  },
-];
-
-export const TASK_TABS = [
-  { key: 'list', label: 'List', content: 'This is the list content' },
-  {
-    key: 'board',
-    label: 'Board',
-    content: 'This is the board content',
-  },
-  {
-    key: 'timeLine',
-    label: 'Timeline',
-    content: 'This is the timeLine content',
   },
 ];
 

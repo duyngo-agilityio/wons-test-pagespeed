@@ -35,3 +35,4 @@ export { default as Tabs } from './Tabs';
 export { default as TaskCard } from './TaskCard';
 export { default as Column } from './ColumnTask';
 export { default as LevelChip } from './LevelChip';
+export { default as DateTimePickerModal } from './TimePicker';

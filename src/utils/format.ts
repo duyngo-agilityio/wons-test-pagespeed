@@ -192,3 +192,30 @@ export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
     start: dayjs(attributes.startTime).toDate(),
     end: dayjs(attributes.endTime).toDate(),
   })) as unknown as (Event & IEvent)[]; // TODO: Update type later;
+
+export const parseStringToNumberArray = (value: string): number[] => {
+  return value
+    .split(',')
+    .filter((item) => item !== '') // Remove empty strings
+    .map((item) => Number(item)); // Convert to numbers
+};
+
+/**
+ * @returns {string} The formatted ISO string (e.g., "2024-10-21T03:00:00Z").
+ */
+export const formatDateToISO = (dateString: Date, timeString: string) => {
+  // Create a Date object from the input date string
+  const date = new Date(dateString);
+
+  // Extract the hours and minutes from the timeString
+  const [hours, minutes] = timeString.split(':').map(Number);
+
+  // Set the time to the specified hours and minutes in local time
+  date.setHours(hours, minutes, 0, 0); // Set hours, minutes, seconds, milliseconds
+
+  // Adjust for the local timezone to UTC
+  const utcDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+
+  // Return the ISO string format
+  return utcDate.toISOString();
+};

@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import dayjs from 'dayjs';
+import { useDisclosure } from '@nextui-org/react';
 import {
   Calendar as CalendarBase,
   CalendarProps,
   dayjsLocalizer,
+  SlotInfo,
   Views,
 } from 'react-big-calendar';
 
@@ -14,13 +16,13 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './index.css';
 
 // Models
-import { IEvent } from '@/models';
+import { IEvent, TUser } from '@/models';
 
 // Constants
 import { ROUTES } from '@/constants';
 
 // Components
-import { Button, CustomCalendar } from '@/components';
+import { Button, CustomCalendar, EventFormModal } from '@/components';
 import CustomToolBar from '../CustomToolBar';
 
 const localizer = dayjsLocalizer(dayjs);
@@ -29,10 +31,48 @@ type ViewType = 'month' | 'week' | 'work_week' | 'day' | 'agenda';
 
 interface CalendarClientProps extends Omit<CalendarProps, 'localizer'> {
   events: (Event & IEvent)[];
+  user: TUser;
+  createEvent: (data: Partial<IEvent>) => void;
 }
 
-const CalendarClient = ({ events, ...rest }: CalendarClientProps) => {
+interface Slot {
+  start: Date;
+  end: Date;
+}
+
+const CalendarClient = ({
+  user,
+  events,
+  createEvent,
+  ...rest
+}: CalendarClientProps) => {
   const [view, setView] = useState<ViewType>(Views.MONTH);
+  const { isOpen: isOpenEventFormModal, onOpenChange: onToggleEventFormModal } =
+    useDisclosure();
+
+  const [slot, setSlot] = useState<Slot | null>(null);
+
+  const handleSelectSlot = useCallback(
+    (slotInfo: SlotInfo) => {
+      if (dayjs(slotInfo.start).isBefore(dayjs(), 'day')) {
+        return;
+      }
+
+      setSlot({
+        start: slotInfo.start,
+        end: slotInfo.end,
+      });
+
+      // Open the Add event form modal
+      onToggleEventFormModal();
+    },
+    [onToggleEventFormModal],
+  );
+
+  const handleFormSubmit = (data: Partial<IEvent>) => {
+    onToggleEventFormModal(); // Close modal after submission
+    createEvent(data);
+  };
 
   return (
     <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
@@ -54,8 +94,29 @@ const CalendarClient = ({ events, ...rest }: CalendarClientProps) => {
           localizer={localizer}
           startAccessor="start"
           endAccessor="end"
+          selectable
+          onSelectSlot={handleSelectSlot}
         />
       </div>
+
+      {isOpenEventFormModal && (
+        <EventFormModal
+          user={user}
+          title="Create Event"
+          eventTitle=""
+          date={slot?.start || new Date()}
+          timeRange={{
+            start: dayjs(slot?.start).format('HH:mm'),
+            end: dayjs(slot?.end).add(2, 'hour').format('HH:mm'),
+          }}
+          isOpen={isOpenEventFormModal}
+          onSubmit={handleFormSubmit}
+          onClose={onToggleEventFormModal}
+          status="free"
+          visibility="default"
+          notificationTime={0}
+        />
+      )}
     </div>
   );
 };

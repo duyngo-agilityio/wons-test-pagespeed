@@ -1,26 +1,39 @@
 'use client';
 
 import { memo, useState, useCallback } from 'react';
-
-// Libraries
-import isEqual from 'react-fast-compare';
-import { CalendarDate } from '@internationalized/date';
 import { Controller, useForm } from 'react-hook-form';
-
-// Icons
+import { CalendarDate } from '@internationalized/date';
 import { IoClose } from 'react-icons/io5';
+import isEqual from 'react-fast-compare';
+import {
+  Modal as NextModal,
+  ModalContent,
+  Calendar,
+  Select,
+  SelectItem,
+} from '@nextui-org/react';
+
+// Constants
+import { ERROR_MESSAGES, EVENT_TABS } from '@/constants';
 
 // Utils
 import {
+  capitalizeFirstLetter,
+  clearErrorOnChange,
+  formatDateToISO,
+  formatEventDate,
   formatToCalendarDate,
   formatToStandardDate,
-  capitalizeFirstLetter,
-  formatEventDate,
-  clearErrorOnChange,
+  parseStringToNumberArray,
 } from '@/utils';
 
+// Api
+import { getUsers } from '@/api'; // Import API to fetch users
+
+// Models
+import { IEvent, TUser } from '@/models';
+
 // Components
-import { Tabs } from '@/components';
 import {
   ClockIcon,
   CalendarIcon,
@@ -30,14 +43,10 @@ import {
   Input,
   Button,
   Text,
-} from '@/components/common';
-import { Modal as NextModal, ModalContent, Calendar } from '@nextui-org/react';
-
-// Constants
-import { ERROR_MESSAGES } from '@/constants';
-
-// Mocks
-import { EVENT_TABS } from '@/mocks';
+  DateTimePickerModal,
+  Tabs,
+  AddressInput,
+} from '@/components';
 
 interface TimeRangeProps {
   start: string;
@@ -46,7 +55,6 @@ interface TimeRangeProps {
 
 interface EventFormModalProps {
   title: string;
-  type: 'event' | 'reminder' | 'task';
   eventTitle: string;
   date: Date;
   timeRange: TimeRangeProps;
@@ -54,27 +62,59 @@ interface EventFormModalProps {
   visibility: 'default' | 'public' | 'private';
   notificationTime: number;
   isOpen: boolean;
-  onSubmit: (type: string, data: Pick<EventFormModalProps, 'title'>) => void;
+  onSubmit: (data: Partial<IEvent>) => void;
   onClose: () => void;
   repeatSetting?: string;
   guests?: string[];
   location?: string;
+  user: TUser;
+}
+
+interface EventForm {
+  title: string;
+  location?: string;
+  people?: string | number[];
 }
 
 const EventFormModal = ({
   title = '',
-  type = 'event',
   eventTitle = '',
   date,
   timeRange,
   isOpen,
+  user,
   onClose,
   onSubmit,
   repeatSetting = 'does not repeat',
 }: EventFormModalProps): JSX.Element => {
-  // States
   const [isOpenCalendar, setIsOpenCalendar] = useState(false);
+  const [isDateTimePickerOpen, setIsDateTimePickerOpen] = useState(false);
+  const [isOpenLocation, setIsOpenLocation] = useState(false);
   const [calendarDate, setCalendarDate] = useState(formatToCalendarDate(date));
+  const [startTime, setStartTime] = useState(timeRange.start);
+  const [endTime, setEndTime] = useState(timeRange.end);
+  const [isUserListOpen, setIsUserListOpen] = useState(false);
+  const [users, setUsers] = useState<TUser[]>([]); // State to store user list
+
+  const usersOptions = users
+    .filter((u) => u.id.toString() !== user.id.toString())
+    .map((user) => ({
+      label: user.username,
+      key: user.id,
+    }));
+
+  const toggleUserList = useCallback(async () => {
+    if (!isUserListOpen) {
+      const response = await getUsers(); // Call API to fetch users
+
+      if (response) {
+        setUsers(response);
+      } else {
+        console.error('No data found in the response');
+      }
+    }
+    setIsUserListOpen((prev) => !prev);
+  }, [isUserListOpen]);
 
   const {
     handleSubmit,
@@ -82,22 +122,22 @@ const EventFormModal = ({
     clearErrors,
     reset,
     formState: { errors, isValid },
-    //!TODO: update type for data object when submit (* Pick "title" is not enough *)
-  } = useForm<Pick<EventFormModalProps, 'title'>>({
+  } = useForm<EventForm>({
     mode: 'onBlur',
-    reValidateMode: 'onChange',
+    reValidateMode: 'onBlur',
     defaultValues: {
       title: eventTitle,
+      location: '',
+      people: '',
     },
   });
 
-  // Helper functions
   const standardDate = formatToStandardDate(calendarDate);
   const formattedDate = formatEventDate(standardDate);
 
-  const toggleCalendarVisibility = useCallback(() => {
-    setIsOpenCalendar((prev) => !prev);
-  }, [setIsOpenCalendar]);
+  const toggleDateTimePicker = useCallback(() => {
+    setIsDateTimePickerOpen((prev) => !prev);
+  }, [setIsDateTimePickerOpen]);
 
   const handleDateChange = (newDate: CalendarDate) => {
     setIsOpenCalendar(false);
@@ -105,8 +145,17 @@ const EventFormModal = ({
   };
 
   const handleFormSubmit = handleSubmit((data) => {
-    // TODO: update logic or sideEffects
-    onSubmit(type, data);
+    const people = parseStringToNumberArray(data.people as string);
+
+    const formattedStart = formatDateToISO(date, startTime);
+    const formattedEnd = formatDateToISO(date, endTime);
+
+    onSubmit({
+      ...data,
+      users_permissions_users: [Number(user.id), ...people],
+      startTime: formattedStart,
+      endTime: formattedEnd,
+    });
   });
 
   const handleModalClose = () => {
@@ -168,8 +217,6 @@ const EventFormModal = ({
                 errorMessage={error?.message}
                 onChange={(e) => {
                   onChange(e.target.value);
-
-                  // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);
                 }}
                 {...rest}
@@ -177,11 +224,14 @@ const EventFormModal = ({
             )}
           />
 
-          <div className="flex mt-[25px] gap-[0_15px]">
+          <div
+            className="flex mt-[25px] gap-[0_15px]"
+            onClick={toggleDateTimePicker}
+          >
             <Button
               className="!bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
               data-testid="time-button"
-              onClick={toggleCalendarVisibility}
+              onClick={toggleDateTimePicker}
             >
               <ClockIcon />
             </Button>
@@ -193,7 +243,7 @@ const EventFormModal = ({
               />
               <Text
                 className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-                text={`${timeRange.start} - ${timeRange.end}`} // Display time
+                text={`${startTime} - ${endTime}`} // Display time
               />
               <Text
                 className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal col-span-2"
@@ -202,21 +252,83 @@ const EventFormModal = ({
             </div>
           </div>
 
-          <div className="flex gap-[0_25px] m-[30px_0]">
-            <Button
-              color="primary"
-              startContent={<PeopleIcon />}
-              className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
-            >
-              Add People
-            </Button>
+          {isUserListOpen && (
+            <Controller
+              name="people"
+              control={control}
+              render={({ field: { onChange, value, name, ...rest } }) => (
+                <Select
+                  selectionMode="multiple"
+                  label="Add People"
+                  selectedKeys={value}
+                  placeholder=" "
+                  labelPlacement="outside"
+                  variant="flat"
+                  classNames={{
+                    trigger:
+                      'w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
+                    label: 'text-xl font-medium pb-1',
+                  }}
+                  onChange={(e) => {
+                    onChange(e.target.value);
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                  {...rest}
+                >
+                  {usersOptions.map((option) => (
+                    <SelectItem key={option.key}>{option.label}</SelectItem>
+                  ))}
+                </Select>
+              )}
+            />
+          )}
 
-            <Button
-              startContent={<LocationIcon />}
-              className="!bg-white font-medium dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] !rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"
-            >
-              Add Location
-            </Button>
+          {isOpenLocation && (
+            <Controller
+              name="location"
+              control={control}
+              render={({
+                field: { name, onChange, ...rest },
+                fieldState: { error },
+              }) => (
+                <AddressInput
+                  isInvalid={!!error}
+                  errorMessage={error?.message}
+                  label="Location"
+                  classNames={{ mainWrapper: 'mt-5' }}
+                  onChange={(e) => {
+                    onChange(e.target.value);
+
+                    // Clear error message on change
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                  {...rest}
+                />
+              )}
+            />
+          )}
+
+          <div className="flex gap-[0_25px] m-[30px_0]">
+            {!isUserListOpen && (
+              <Button
+                color="primary"
+                startContent={<PeopleIcon />}
+                className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
+                onClick={toggleUserList}
+              >
+                Add People
+              </Button>
+            )}
+
+            {!isOpenLocation && (
+              <Button
+                startContent={<LocationIcon />}
+                className="!bg-white font-medium dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] !rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"
+                onClick={() => setIsOpenLocation(true)}
+              >
+                Add Location
+              </Button>
+            )}
           </div>
 
           <div className="m-[0_0_40px] flex gap-[0_15px]">
@@ -230,7 +342,7 @@ const EventFormModal = ({
             <div className="flex flex-col gap-[0_30px]">
               <Text
                 className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-                text="John Deo" // Display name
+                text={user.fullName} // Display name
               />
               <Text
                 className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal"
@@ -257,6 +369,22 @@ const EventFormModal = ({
             </Button>
           </div>
         </form>
+
+        {/* DateTimePickerModal */}
+        {isDateTimePickerOpen && (
+          <DateTimePickerModal
+            isOpen={isDateTimePickerOpen}
+            onClose={toggleDateTimePicker}
+            selectedDate={calendarDate.toString().split('T')[0]}
+            selectedStartTime={startTime}
+            selectedEndTime={endTime}
+            onDateChange={(dateString) =>
+              setCalendarDate(formatToCalendarDate(new Date(dateString)))
+            }
+            onStartTimeChange={setStartTime}
+            onEndTimeChange={setEndTime}
+          />
+        )}
       </ModalContent>
     </NextModal>
   );
