@@ -6,8 +6,10 @@ jest.mock('@/layouts', () => ({
 }));
 
 describe('Schedule page', () => {
-  it('should match snapshot', () => {
-    const { container } = testLibJestUtils.render(<SchedulePage />);
+  it('should match snapshot', async () => {
+    const { container } = testLibJestUtils.render(
+      await SchedulePage({ searchParams: {} }),
+    );
 
     expect(container).toMatchSnapshot();
   });

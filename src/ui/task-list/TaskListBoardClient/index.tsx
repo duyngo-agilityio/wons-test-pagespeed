@@ -1,12 +1,11 @@
 'use client';
-import { useState } from 'react';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 
 // types
-import { StrapiModel, Task, TasksState, TaskStatus } from '@/types';
+import { StrapiModel, Task } from '@/types';
 
 // utils
-import { convertTasksByStatus, mapTaskStatusToStateKey } from '@/utils';
+import { convertTasksByStatus } from '@/utils';
 
 // Constants
 import { TASK_STATUS } from '@/constants';
@@ -19,38 +18,10 @@ interface ITaskListBoardProps {
 }
 
 const TaskListBoardClient = ({ data }: ITaskListBoardProps) => {
-  const [tasks, setTasks] = useState<TasksState>(convertTasksByStatus(data));
+  const tasks = convertTasksByStatus(data);
 
-  const onDragEnd = (result: DropResult) => {
-    const { source, destination } = result;
-
-    if (!destination) return;
-
-    const sourceColumn = mapTaskStatusToStateKey(
-      source.droppableId as TaskStatus,
-    );
-
-    const destinationColumn = mapTaskStatusToStateKey(
-      destination.droppableId as TaskStatus,
-    );
-
-    const sourceTasks = Array.from(tasks[sourceColumn]);
-    const destinationTasks = Array.from(tasks[destinationColumn]);
-
-    const [movedTask] = sourceTasks.splice(source.index, 1);
-
-    if (source.droppableId !== destination.droppableId) {
-      destinationTasks.splice(destination.index, 0, movedTask);
-    } else {
-      sourceTasks.splice(destination.index, 0, movedTask);
-    }
-
-    setTasks({
-      ...tasks,
-      [sourceColumn]: sourceTasks,
-      [destinationColumn]: destinationTasks,
-    });
-  };
+  // TODO: Update later
+  const onDragEnd = (_: DropResult) => {};
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>

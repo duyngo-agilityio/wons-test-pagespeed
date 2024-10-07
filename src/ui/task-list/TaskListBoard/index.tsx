@@ -2,13 +2,22 @@
 import { getTasks } from '@/api';
 
 // Types
-import { StrapiModel, Task } from '@/types';
+import { ISearchParams, StrapiModel, Task } from '@/types';
 
 // UI
 import TaskListBoardClient from '../TaskListBoardClient';
+import { convertStringToArray } from '@/utils';
 
-const TaskListBoard = async () => {
-  const result = await getTasks({});
+interface ITaskListBoard {
+  searchParams: ISearchParams;
+}
+
+const TaskListBoard = async ({ searchParams }: ITaskListBoard) => {
+  const { filters = '' } = searchParams ?? {};
+
+  const result = await getTasks({
+    filters: filters ? convertStringToArray(filters) : [],
+  });
 
   const data: StrapiModel<Task>[] = result.data ?? [];
 
