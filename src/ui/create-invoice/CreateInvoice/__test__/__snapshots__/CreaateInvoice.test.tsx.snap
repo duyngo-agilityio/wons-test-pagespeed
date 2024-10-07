@@ -574,9 +574,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
               </p>
               <button
                 aria-label="Add new product"
-                class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 opacity-50 cursor-not-allowed text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
-                data-disabled="true"
-                disabled=""
+                class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
                 type="button"
               >
                 <div
@@ -1607,9 +1605,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               </p>
               <button
                 aria-label="Add new product"
-                class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 pointer-events-none [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 opacity-50 cursor-not-allowed text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
-                data-disabled="true"
-                disabled=""
+                class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
                 type="button"
               >
                 <div
