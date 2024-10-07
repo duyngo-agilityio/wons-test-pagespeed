@@ -3,6 +3,9 @@ import { memo } from 'react';
 // Components
 import { EmailIcon, FaLocationDot, ImPhone, Text } from '@/components/common';
 
+// Utils
+import { formatPhoneNumberTyping } from '@/utils';
+
 interface ICustomerDetailsBody {
   email: string;
   phone: string;
@@ -29,7 +32,11 @@ const CustomerDetailsBody = ({
           className="text-blue-800/30 dark:text-white/30"
           fontSize={16}
         />
-        <Text text={phone} size="xl" className="opacity-70 font-medium" />
+        <Text
+          text={formatPhoneNumberTyping(phone)}
+          size="xl"
+          className="opacity-70 font-medium"
+        />
       </div>
       <div className="flex items-center gap-2 py-4">
         <FaLocationDot
