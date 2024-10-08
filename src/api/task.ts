@@ -14,15 +14,21 @@ type TaskConfigs = {
   cache?: RequestCache;
   nextOptions?: NextFetchRequestConfig;
   filters?: string[];
+  query?: string;
 };
 
 export const getTasks = async ({
   cache,
   nextOptions,
   filters,
+  query,
 }: TaskConfigs): Promise<TTasksResponse> => {
   const filterQuery: string = formatFilterMultipleUser(filters ?? []);
-  const endpoint = `${API_PATH.TASKS}?populate=assignees${filterQuery}`;
+  const searchBy: string = query
+    ? `&filters[$and][0][title][$contains]=${query}`
+    : '';
+
+  const endpoint = `${API_PATH.TASKS}?populate=assignees${filterQuery}${searchBy}`;
 
   try {
     const response = await httpClient.getRequest<TTasksResponse>({
