@@ -21,8 +21,19 @@ import { IEvent, TUser } from '@/models';
 // Constants
 import { ROUTES } from '@/constants';
 
+// Utils
+import { formattedEvents, formattedGuestInfo, getTimeFromISO } from '@/utils';
+
+// Types
+import { TEventResponse } from '@/types';
+
 // Components
-import { Button, CustomCalendar, EventFormModal } from '@/components';
+import {
+  Button,
+  CustomCalendar,
+  EventDetail,
+  EventFormModal,
+} from '@/components';
 import CustomToolBar from '../CustomToolBar';
 
 const localizer = dayjsLocalizer(dayjs);
@@ -52,6 +63,20 @@ const CalendarClient = ({
 
   const [slot, setSlot] = useState<Slot | null>(null);
 
+  const [selectedEvent, setSelectedEvent] = useState<TEventResponse | null>(
+    null,
+  );
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+  }, []);
+
+  const formattedEventData = formattedEvents(
+    events.map((event) => ({ id: event.id, attributes: event })),
+  );
+
   const handleSelectSlot = useCallback(
     (slotInfo: SlotInfo) => {
       if (dayjs(slotInfo.start).isBefore(dayjs(), 'day')) {
@@ -69,8 +94,16 @@ const CalendarClient = ({
     [onToggleEventFormModal],
   );
 
+  const handleSelectEvent = (event: unknown) => {
+    const selectedEvent = event as TEventResponse;
+
+    setSelectedEvent(selectedEvent);
+
+    setIsModalOpen(true);
+  };
+
   const handleFormSubmit = (data: Partial<IEvent>) => {
-    onToggleEventFormModal(); // Close modal after submission
+    onToggleEventFormModal();
     createEvent(data);
   };
 
@@ -89,15 +122,29 @@ const CalendarClient = ({
           onView={setView}
           views={[Views.MONTH, Views.WEEK, Views.DAY]}
           view={view}
-          events={events}
+          events={formattedEventData}
           components={{ toolbar: CustomToolBar }}
           localizer={localizer}
           startAccessor="start"
           endAccessor="end"
           selectable
           onSelectSlot={handleSelectSlot}
+          onSelectEvent={handleSelectEvent}
         />
       </div>
+
+      {selectedEvent && (
+        <div className="event-detail-container">
+          <EventDetail
+            title={selectedEvent.title}
+            time={`${dayjs(selectedEvent.date).format('YYYY-MM-DD')} ${getTimeFromISO(selectedEvent.startTime)} - ${getTimeFromISO(selectedEvent.endTime)}`}
+            location={selectedEvent.location || 'No location specified'}
+            isOpen={isModalOpen}
+            onCloseModal={handleCloseModal}
+            guests={formattedGuestInfo(selectedEvent)}
+          />
+        </div>
+      )}
 
       {isOpenEventFormModal && (
         <EventFormModal

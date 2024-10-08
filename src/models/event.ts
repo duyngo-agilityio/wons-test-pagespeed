@@ -1,4 +1,5 @@
 export interface IEvent {
+  id: number;
   title: string;
   status: string;
   location: string;

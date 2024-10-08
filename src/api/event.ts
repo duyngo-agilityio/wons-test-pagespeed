@@ -21,7 +21,7 @@ export const getEvents = async (): Promise<{
     const productsResponse = await httpClient.getRequest<
       StrapiResponse<StrapiModel<IEvent>[]>
     >({
-      endpoint: API_PATH.EVENTS,
+      endpoint: `${API_PATH.EVENTS}?populate=users_permissions_users`,
       configOptions: {
         next: {
           tags: [API_PATH.EVENTS],
