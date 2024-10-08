@@ -120,7 +120,7 @@ const InvoiceForm = ({
     resolver: zodResolver(invoiceSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: previewData || {
+    defaultValues: previewData ?? {
       imageUrl: '',
       invoiceId: '',
       date: '',
@@ -307,7 +307,7 @@ const InvoiceForm = ({
                 isInvalid={!!error}
                 errorMessage={error?.message}
                 onSelectionChange={(key) => {
-                  onChange(key);
+                  onChange(key ?? '');
 
                   // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);
@@ -330,10 +330,12 @@ const InvoiceForm = ({
               <Autocomplete
                 defaultSelectedKey={value}
                 isInvalid={!!error}
-                errorMessage={error?.message}
+                errorMessage={
+                  value == null ? ERROR_MESSAGES.FIELD_REQUIRED : error?.message
+                }
                 label="Status"
                 onSelectionChange={(key) => {
-                  onChange(key);
+                  onChange(key ?? '');
 
                   // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);
