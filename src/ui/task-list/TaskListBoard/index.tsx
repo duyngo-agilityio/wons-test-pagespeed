@@ -13,10 +13,11 @@ interface ITaskListBoard {
 }
 
 const TaskListBoard = async ({ searchParams }: ITaskListBoard) => {
-  const { filters = '' } = searchParams ?? {};
+  const { filters = '', query = '' } = searchParams ?? {};
 
   const result = await getTasks({
     filters: filters ? convertStringToArray(filters) : [],
+    query,
   });
 
   const data: StrapiModel<Task>[] = result.data ?? [];
