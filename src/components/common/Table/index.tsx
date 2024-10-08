@@ -22,7 +22,7 @@ import { TableColumnType, TTableAccessor } from '@/types';
 // Constants
 import { ORDER } from '@/constants';
 
-type VariantTable = 'primary' | 'secondary';
+type VariantTable = 'primary' | 'secondary' | 'tertiary';
 
 interface CustomTableProps<T> {
   columns: TableColumnType<T>[];
@@ -77,6 +77,14 @@ const TableCustom = <T extends { id: string }>({
       td: 'last:rounded-r-lg',
       cell: 'leading-[17px] py-[17px] px-[21px]',
     },
+    tertiary: {
+      header:
+        'bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-0',
+      table:
+        'px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 [&>tbody>*:nth-child(even)]:bg-gray-50/50 dark:[&>tbody>*:nth-child(even)]:bg-gray-600',
+      td: 'last:rounded-r-lg px-0',
+      cell: 'leading-[17px] py-[17px]',
+    },
   };
 
   const handleSelectChange = useCallback(
@@ -128,7 +136,7 @@ const TableCustom = <T extends { id: string }>({
     >
       <TableHeader className="border-spacing-y-0">
         {columns.map((columnConfig, index) => {
-          const { value, header, isSort } = columnConfig;
+          const { value, header, isSort, isCustomStyle } = columnConfig;
 
           const handleSort = () => {
             onSort?.(value as string);
@@ -146,7 +154,9 @@ const TableCustom = <T extends { id: string }>({
               onClick={handleSort}
               aria-hidden={!header ? 'true' : 'false'}
             >
-              <div className="flex items-center gap-2">
+              <div
+                className={`flex items-center gap-2 ${isCustomStyle ? 'justify-end' : ''}`}
+              >
                 {header}
                 {isSort && (
                   <IoCaretDown

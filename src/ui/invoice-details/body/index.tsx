@@ -62,10 +62,12 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
         ) => (
           <Text
             size="2xs"
+            className="text-right w-full"
             text={`${formatTotalAmount(data.attributes.price, data.attributes.quantity)} USD`}
           />
         ),
         header: 'AMOUNT',
+        isCustomStyle: true,
       },
     ],
     [],
@@ -75,12 +77,12 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
     <div className="base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
       <Table
         isStripedRow
-        variant="secondary"
+        variant="tertiary"
         columns={mappingContent}
         data={data}
       />
-      <div className="flex flex-col items-end">
-        <div className="flex justify-between w-[65%] py-[17px] border-b-1 border-gray-50 dark:border-gray-50/50">
+      <div className="flex flex-col justify-between items-end">
+        <div className="flex justify-between w-full sm:w-[56%] py-[17px] border-b-1 border-gray-50 dark:border-gray-50/50">
           <Text
             text="Subtotal"
             className="uppercase text-gray-200"
@@ -88,7 +90,7 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
           />
           <Text text={formatSubtotal({ data })} size="2xs" />
         </div>
-        <div className="flex justify-between w-[65%] py-[17px] border-b-1 border-gray-50 dark:border-gray-50/50">
+        <div className="flex justify-between w-full sm:w-[56%] py-[17px] border-b-1 border-gray-50 dark:border-gray-50/50">
           <Text
             text="Discount 5%"
             className="uppercase text-gray-200"
@@ -96,7 +98,7 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
           />
           <Text text={formatSubtotal({ data }, 5)} size="2xs" />
         </div>
-        <div className="flex justify-between w-[65%] py-[17px]">
+        <div className="flex justify-between w-full sm:w-[56%] py-[17px]">
           <Text text="Total" className="uppercase" size="2xs" />
           <Text
             text={formatAmountWithDiscount({ data }, 5)}
