@@ -3,7 +3,7 @@ import { CalendarDateTime, ZonedDateTime } from '@internationalized/date';
 import dayjs from 'dayjs';
 
 // Types
-import { StrapiModel, TProductInvoiceResponse } from '@/types';
+import { StrapiModel, TEventResponse, TProductInvoiceResponse } from '@/types';
 
 // Models
 import { IEvent, IProduct, TInvoiceProduct } from '@/models';
@@ -187,8 +187,9 @@ export const capitalizeFirstLetter = (value: string = '') => {
 };
 
 export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
-  events.map(({ attributes }) => ({
+  events.map(({ id, attributes }) => ({
     ...attributes,
+    id,
     start: dayjs(attributes.startTime).toDate(),
     end: dayjs(attributes.endTime).toDate(),
   })) as unknown as (Event & IEvent)[]; // TODO: Update type later;
@@ -218,4 +219,23 @@ export const formatDateToISO = (dateString: Date, timeString: string) => {
 
   // Return the ISO string format
   return utcDate.toISOString();
+};
+
+export const formattedGuestInfo = (guests: TEventResponse) =>
+  guests.users_permissions_users.data.map(({ attributes }) => ({
+    name: attributes.fullName,
+    avatar: attributes.avatar,
+  }));
+
+export const getTimeFromISO = (isoString: string): string => {
+  // Check if the provided string is a valid ISO date
+  const date = new Date(isoString);
+
+  // If the date is invalid, return an empty string or handle the error
+  if (isNaN(date.getTime())) {
+    throw new Error('Invalid ISO date string');
+  }
+
+  // Extract HH:mm from the date
+  return date.toISOString().substring(11, 16);
 };
