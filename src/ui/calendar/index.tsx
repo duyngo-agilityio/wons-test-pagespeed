@@ -1,7 +1,7 @@
 // Apis
 import { getEvents } from '@/api';
 
-import { formattedEvents } from '@/utils';
+import { formattedEvents, isAdmin } from '@/utils';
 
 // Configs
 import { auth } from '@/configs';
@@ -19,8 +19,11 @@ const Calendar = async () => {
   const { data: events = [] } = await getEvents();
   const { user = {} } = (await auth()) ?? {};
 
+  const isSuperAdmin = await isAdmin();
+
   return (
     <CalendarClient
+      isAdmin={isSuperAdmin}
       user={user as TUser}
       events={formattedEvents(events)}
       createEvent={createEvent}

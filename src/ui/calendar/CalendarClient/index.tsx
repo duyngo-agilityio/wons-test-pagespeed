@@ -42,6 +42,7 @@ type ViewType = 'month' | 'week' | 'work_week' | 'day' | 'agenda';
 
 interface CalendarClientProps extends Omit<CalendarProps, 'localizer'> {
   events: (Event & IEvent)[];
+  isAdmin: boolean;
   user: TUser;
   createEvent: (data: Partial<IEvent>) => void;
 }
@@ -54,6 +55,7 @@ interface Slot {
 const CalendarClient = ({
   user,
   events,
+  isAdmin,
   createEvent,
   ...rest
 }: CalendarClientProps) => {
@@ -128,7 +130,7 @@ const CalendarClient = ({
           startAccessor="start"
           endAccessor="end"
           selectable
-          onSelectSlot={handleSelectSlot}
+          onSelectSlot={isAdmin ? handleSelectSlot : undefined}
           onSelectEvent={handleSelectEvent}
         />
       </div>
