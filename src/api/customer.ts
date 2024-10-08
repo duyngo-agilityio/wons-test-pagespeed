@@ -1,5 +1,5 @@
 // Constants
-import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
+import { API_PATH, DEFAULT_PAGE, ORDER, PAGE_SIZE } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
@@ -28,7 +28,9 @@ export const getCustomers = async ({
   order,
   nextOptions,
 }: CustomerListConfigs = {}): Promise<TCustomerListResponse> => {
-  const sortValue = sortBy ? `&sort=${sortBy}:${order}` : '';
+  const sortValue = sortBy
+    ? `&sort=${sortBy}:${order}`
+    : `&sort=createdAt:${ORDER.DESC}`;
   const pageValue = `pagination[page]=${page}&pagination[pageSize]=${pageSize}${sortValue}`;
 
   const endpoint = `${API_PATH.CUSTOMERS}?${pageValue}`;
