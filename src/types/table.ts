@@ -9,4 +9,5 @@ export interface TableColumnType<T> {
   header?: string | ReactNode;
   isSort?: boolean;
   value?: string;
+  isCustomStyle?: boolean;
 }
