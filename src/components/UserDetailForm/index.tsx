@@ -5,6 +5,9 @@ import { memo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
 
+// Utils
+import { clearErrorOnChange } from '@/utils';
+
 // Components
 import { Input, AvatarUpload, Button } from '@/components';
 
@@ -24,7 +27,11 @@ interface UserDetailFormProps {
 }
 
 const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
-  const { control } = useForm<ProfileInfo>({
+  const {
+    control,
+    formState: { errors },
+    clearErrors,
+  } = useForm<ProfileInfo>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
@@ -36,6 +43,10 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
     },
   });
 
+  const handleFormSubmit = () => {
+    return;
+  };
+
   return (
     <form>
       <Controller
@@ -44,12 +55,18 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
         rules={{
           required: ERROR_MESSAGES.FIELD_REQUIRED,
         }}
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
+        render={({
+          field: { onChange, value, name },
+          fieldState: { error },
+        }) => (
           <AvatarUpload
             value={value}
             error={error?.message}
             onChange={(e) => {
               onChange(e);
+
+              // Clear error message on change
+              clearErrorOnChange(name, errors, clearErrors);
             }}
             onFileChange={() => {}}
           />
@@ -89,7 +106,10 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
           rules={{
             required: ERROR_MESSAGES.FIELD_REQUIRED,
           }}
-          render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { onChange, name, ...rest },
+            fieldState: { error },
+          }) => (
             <Input
               classNames={{
                 inputWrapper: 'bg-gray-200/30',
@@ -100,6 +120,9 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
               errorMessage={error?.message}
               onChange={(e) => {
                 onChange(e.target.value);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
               }}
               {...rest}
             />
@@ -112,7 +135,10 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
           rules={{
             required: ERROR_MESSAGES.FIELD_REQUIRED,
           }}
-          render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
+          render={({
+            field: { onChange, name, ...rest },
+            fieldState: { error },
+          }) => (
             <Input
               classNames={{
                 inputWrapper: 'bg-gray-200/30',
@@ -123,6 +149,9 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
               errorMessage={error?.message}
               onChange={(e) => {
                 onChange(e.target.value);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
               }}
               {...rest}
             />
@@ -142,7 +171,7 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
             type="submit"
             color="primary"
             className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
-            onClick={() => {}}
+            onClick={handleFormSubmit}
           >
             Save
           </Button>

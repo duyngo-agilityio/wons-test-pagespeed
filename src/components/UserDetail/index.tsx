@@ -1,9 +1,6 @@
 'use client';
 import { memo } from 'react';
 
-// Libraries
-import isEqual from 'react-fast-compare';
-
 // Components
 import { Text, Button, Image } from '@/components';
 
@@ -50,4 +47,4 @@ const UserDetail = ({ onClick }: UserDetailProps) => {
   );
 };
 
-export default memo(UserDetail, isEqual);
+export default memo(UserDetail);
