@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Draggable } from '@hello-pangea/dnd';
 
 // Types
@@ -15,6 +15,7 @@ import {
   ImageFallback,
 } from '@/components';
 import { Level } from '@/constants';
+import TaskDetail from '../TaskDetail';
 
 type TTaskCardProps = {
   index: number;
@@ -22,6 +23,8 @@ type TTaskCardProps = {
 };
 
 const TaskCard = ({ index, task }: TTaskCardProps) => {
+  const [isShowModal, setIsShowModal] = useState(false);
+
   const { id, attributes } = task ?? {};
   const {
     title = '',
@@ -29,6 +32,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     assignees = { data: [] },
     images = [],
     description = '',
+    label,
   } = attributes ?? {};
 
   // TODO:: Handle later
@@ -45,7 +49,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     // If images exist and has exactly two items
     if (hasTwoImages)
       return (
-        <div className="flex flex-row justify-between w-[235px] mt-[20px]">
+        <div className="flex flex-row justify-between w-[235px]">
           {images.map((image, indexImage) => (
             <ImageFallback
               key={`imageTask_${indexImage}`}
@@ -61,46 +65,64 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
 
     // If images exist and has exactly one item
     return (
-      <div className="mt-[20px]">
-        <ImageFallback
-          alt={`imageTask_${id}`}
-          src={images[0]}
-          width={235}
-          height={176}
-        />
-      </div>
+      <ImageFallback
+        alt={`imageTask_${id}`}
+        src={images[0]}
+        width={235}
+        height={176}
+      />
     );
   };
+
+  const handleToggleModal = useCallback(
+    () => setIsShowModal(!isShowModal),
+    [isShowModal],
+  );
 
   return (
     <Draggable draggableId={id.toString()} index={index}>
       {(provided, snapshot) => (
-        <div
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          className={`w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md ${
-            snapshot.isDragging ? 'opacity-50' : ''
-          }`}
-        >
-          <div className="flex flex-row items-center justify-between mb-[15px]">
-            <Text className="text-md" text={title} />
-            <DropdownActions
-              id={id}
-              onDelete={handleDelete}
-              onEdit={handleEdit}
-              isIconOnly
-              disableAnimation
-              customClassName="w-[15px] min-w-[15px]"
+        <>
+          <div
+            ref={provided.innerRef}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            className={`w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md ${
+              snapshot.isDragging ? 'opacity-50' : ''
+            }`}
+            onClick={handleToggleModal}
+          >
+            <div className="flex flex-row items-center justify-between mb-[15px]">
+              <Text className="text-md" text={title} />
+              <DropdownActions
+                id={id}
+                onDelete={handleDelete}
+                onEdit={handleEdit}
+                isIconOnly
+                disableAnimation
+                customClassName="w-[15px] min-w-[15px]"
+              />
+            </div>
+            <LevelChip level={level} />
+            <Text className="mt-[20px] text-sm" text={description} />
+            <div className="mt-[20px]">{renderImageTask()}</div>
+            <div className="mt-[20px]">
+              <AvatarGroup users={assignees.data} />
+            </div>
+          </div>
+          {isShowModal && (
+            <TaskDetail
+              title={title}
+              level={level}
+              description={description}
+              assignees={assignees}
+              renderImages={renderImageTask}
+              label={label}
+              isOpen={isShowModal}
+              onCloseModal={handleToggleModal}
             />
-          </div>
-          <LevelChip level={level} />
-          <Text className="mt-[20px] text-sm" text={description} />
-          {renderImageTask()}
-          <div className="mt-[20px]">
-            <AvatarGroup users={assignees.data} />
-          </div>
-        </div>
+          )}
+        </>
       )}
     </Draggable>
   );

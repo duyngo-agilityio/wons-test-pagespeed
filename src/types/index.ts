@@ -12,3 +12,4 @@ export * from './product';
 export * from './image';
 export * from './task';
 export * from './event';
+export * from './size';

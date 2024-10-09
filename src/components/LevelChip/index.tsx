@@ -4,11 +4,15 @@ import { Chip } from '@nextui-org/react';
 // Constants
 import { Level } from '@/constants';
 
+// Types
+import { TSize } from '@/types';
+
 type TLevelCardProps = {
   level: Level;
+  size?: TSize;
 };
 
-const LevelChip = ({ level }: TLevelCardProps): JSX.Element => {
+const LevelChip = ({ level, size = 'md' }: TLevelCardProps): JSX.Element => {
   const chipClasses = {
     high: {
       bg: 'bg-gray-200',
@@ -24,13 +28,19 @@ const LevelChip = ({ level }: TLevelCardProps): JSX.Element => {
     },
   };
 
+  const defaultChipSize = 'px-[22px] h-[45px] max-h-[45px] rounded-[22px]';
+
+  const chipSize: Partial<Record<TSize, string | undefined>> = {
+    md: defaultChipSize,
+    sm: 'px-2 rounded-[20px]',
+  };
+
+  const chipClass = chipSize[size] ?? defaultChipSize;
+
   return (
     <Chip
       classNames={{
-        base: [
-          'px-[22px] h-[45px] max-h-[45px] rounded-[22px]',
-          `${chipClasses[level]?.bg}`,
-        ],
+        base: [`${chipClass}`, `${chipClasses[level]?.bg}`],
         content: [
           'text-center text-md capitalize',
           `${chipClasses[level]?.color}`,
