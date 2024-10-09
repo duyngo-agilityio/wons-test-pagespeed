@@ -1,12 +1,26 @@
-import { Heading, Text } from '@/components';
+'use client';
+import { memo, useState } from 'react';
 
-const SettingsPage = () => {
+// Components
+import { Heading, UserDetailForm, UserDetail } from '@/components';
+
+const SettingsPage = async () => {
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  const toggleUserProfileForm = () => {
+    setShowEditForm((prevValue) => !prevValue);
+  };
+
   return (
-    <div>
-      <Heading size="lg" title="Settings page" />
-      <Text text="Coming soon!" className="mt-2" />
+    <div className="flex flex-col justify-center items-center p-[50px_30px] bg-white dark:bg-gray-800 rounded-lg">
+      <Heading size="lg" title="Profile Settings" className="self-start" />
+      {showEditForm ? (
+        <UserDetailForm onCancel={toggleUserProfileForm} />
+      ) : (
+        <UserDetail onClick={toggleUserProfileForm} />
+      )}
     </div>
   );
 };
 
-export default SettingsPage;
+export default memo(SettingsPage);

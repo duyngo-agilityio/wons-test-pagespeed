@@ -37,3 +37,5 @@ export { default as Column } from './ColumnTask';
 export { default as LevelChip } from './LevelChip';
 export { default as DateTimePickerModal } from './TimePicker';
 export { default as TaskStatus } from './TaskStatus';
+export { default as UserDetail } from './UserDetail';
+export { default as UserDetailForm } from './UserDetailForm';
