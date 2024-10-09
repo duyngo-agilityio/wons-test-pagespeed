@@ -32,6 +32,18 @@ describe('InvoicesTable Component', () => {
   it('match snapshot', () => {
     const { container } = renderComponent();
 
+    container.getElementsByClassName(
+      'group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny font-semibold rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none bg-gray-50 dark:bg-gray-600 px-[17px]',
+    );
+
+    container
+      .querySelector('th.bg-gray-50')
+      ?.setAttribute('data-key', 'row-header-column-tjima90t7ui');
+
+    container
+      .querySelector('th.bg-gray-50')
+      ?.setAttribute('id', 'react-aria-:r0:-row-header-column-tjima90t7ui');
+
     expect(container).toMatchSnapshot();
   });
 

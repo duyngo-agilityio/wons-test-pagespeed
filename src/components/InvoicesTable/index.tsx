@@ -143,11 +143,13 @@ const InvoicesTable = ({
               <div className="flex gap-3.5 items-center">
                 <div className="relative w-9 h-9 rounded-full">
                   <Image
+                    fill
                     src={avatar}
                     alt="customer avatar"
-                    fill
-                    objectFit="cover"
-                    className="rounded-full "
+                    className="rounded-full"
+                    style={{
+                      objectFit: 'cover',
+                    }}
                   />
                 </div>
 
@@ -282,7 +284,6 @@ const InvoicesTable = ({
     <div className="flex flex-col gap-10">
       <Table
         selectionMode={!isReadOnly ? 'multiple' : 'none'}
-        // Simulate data
         columns={mappingContentColumns}
         data={data}
         onSort={onSort}

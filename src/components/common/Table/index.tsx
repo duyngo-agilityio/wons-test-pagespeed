@@ -155,7 +155,10 @@ const TableCustom = <T extends { id: string }>({
               aria-hidden={!header ? 'true' : 'false'}
             >
               <div
-                className={`flex items-center gap-2 ${isCustomStyle ? 'justify-end' : ''}`}
+                className={clsx(
+                  'flex items-center gap-2',
+                  isCustomStyle && 'justify-end',
+                )}
               >
                 {header}
                 {isSort && (

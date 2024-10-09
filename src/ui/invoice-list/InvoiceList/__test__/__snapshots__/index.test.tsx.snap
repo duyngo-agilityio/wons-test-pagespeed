@@ -232,7 +232,7 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                     >
                       <img
                         alt="customer avatar"
-                        class="rounded-full "
+                        class="rounded-full"
                         data-nimg="fill"
                         decoding="async"
                         loading="lazy"
@@ -400,7 +400,7 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                     >
                       <img
                         alt="customer avatar"
-                        class="rounded-full "
+                        class="rounded-full"
                         data-nimg="fill"
                         decoding="async"
                         loading="lazy"
