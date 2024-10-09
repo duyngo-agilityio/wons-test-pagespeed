@@ -36,7 +36,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2"
+                  class="flex items-center gap-2 "
                 >
                   Name
                   <svg
@@ -64,7 +64,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2"
+                  class="flex items-center gap-2 "
                 >
                   Email
                   <svg
@@ -92,7 +92,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2"
+                  class="flex items-center gap-2 "
                 >
                   Phone Number
                   <svg
@@ -120,7 +120,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2"
+                  class="flex items-center gap-2 "
                 >
                   Gender
                   <svg
@@ -148,7 +148,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2"
+                  class="flex items-center gap-2 "
                 />
               </th>
             </tr>

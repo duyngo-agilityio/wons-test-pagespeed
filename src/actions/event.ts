@@ -37,3 +37,17 @@ export const createEvent = async (formData: Partial<IEvent>) => {
     return { error: message };
   }
 };
+
+export const deleteEvent = async (
+  id: number,
+): Promise<{ error?: string } | void> => {
+  try {
+    await httpClient.deleteRequest({
+      endpoint: `${API_PATH.EVENTS}/${id}`,
+    });
+    revalidateTag(API_PATH.EVENTS);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};

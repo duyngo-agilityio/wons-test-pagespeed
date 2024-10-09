@@ -15,6 +15,8 @@ import {
 
 // icons
 import { FaUsers } from 'react-icons/fa';
+import { RiEdit2Fill } from 'react-icons/ri';
+import { AiFillDelete } from 'react-icons/ai';
 
 // Constants
 import { IMAGES } from '@/constants';
@@ -32,6 +34,9 @@ export interface EventCardProps {
   link?: string;
   isOpen: boolean;
   onCloseModal: () => void;
+  onEdit?: (id: number) => void;
+  onDelete?: (id: number) => void;
+  id: number;
 }
 
 const EventDetail = ({
@@ -42,10 +47,21 @@ const EventDetail = ({
   link = '',
   isOpen,
   onCloseModal,
+  onEdit,
+  onDelete,
+  id,
 }: EventCardProps) => {
   const handleJoinGoogleMeet = () => {
     // TODO: will handle again later
     window.open('https://meet.google.com/', '_blank');
+  };
+
+  const handleEdit = () => {
+    onEdit?.(id);
+  };
+
+  const handleDelete = () => {
+    onDelete?.(id);
   };
 
   return (
@@ -54,7 +70,7 @@ const EventDetail = ({
       isOpen={isOpen}
       onOpenChange={onCloseModal}
     >
-      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
+      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
         <>
           <div className="p-4">
             <div className="mb-8">
@@ -137,6 +153,30 @@ const EventDetail = ({
             </ul>
           </div>
         </>
+
+        {/* Action Icons */}
+        <div className="flex justify-end py-4 border-t border-gray-150 dark:border-gray-350 gap-3">
+          <Button
+            onClick={handleEdit}
+            key="edit"
+            className="!bg-[#f5f5fc] dark:!bg-[#2f3268] !py-3 !text-[#605cf8]"
+            aria-label="Edit"
+            startContent={
+              <RiEdit2Fill className="!text-blue-500 dark:!text-purple-600 rounded-" />
+            }
+          >
+            Edit
+          </Button>
+          <Button
+            key="delete"
+            onClick={handleDelete}
+            className="!bg-[#fff7fb] dark:!bg-pink-600 !py-3 !text-pink-500"
+            startContent={<AiFillDelete className="!text-pink-500" />}
+            aria-label="Delete"
+          >
+            Delete
+          </Button>
+        </div>
       </ModalContent>
     </NextModal>
   );
