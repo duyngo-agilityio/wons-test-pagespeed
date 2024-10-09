@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useCallback } from 'react';
+import { cn } from '@nextui-org/react';
 import { Navigate, ToolbarProps, Views } from 'react-big-calendar';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 
@@ -25,11 +26,14 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
       <div className="flex gap-5 absolute right-0 top-[-66px]">
         <Button
           color="primary"
-          className={
-            view === Views.DAY
-              ? `bg-blue-500 `
-              : `bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30`
-          }
+          className={cn(
+            'sm:px-5 sm:pb-2.5 sm:pt-[11px] text-md rounded-[10px] border-[1px] h-auto min-w-max',
+            {
+              'bg-blue-500': view === Views.DAY,
+              'bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30':
+                view !== Views.DAY,
+            },
+          )}
           onClick={handleViewDay}
         >
           Day
@@ -39,8 +43,8 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
           onClick={handleViewWeek}
           className={
             view === Views.WEEK
-              ? `bg-blue-500 `
-              : `bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30`
+              ? 'bg-blue-500'
+              : 'bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30'
           }
         >
           Week
@@ -50,8 +54,8 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
           onClick={handleViewMonth}
           className={
             view === Views.MONTH
-              ? `bg-blue-500`
-              : `bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30`
+              ? 'bg-blue-500'
+              : 'bg-blue-500/5 text-blue-800/70 dark:text-white dark:bg-purple-600/30'
           }
         >
           Month

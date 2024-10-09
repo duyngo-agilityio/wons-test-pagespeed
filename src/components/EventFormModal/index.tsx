@@ -169,6 +169,7 @@ const EventFormModal = ({
       className="!max-w-[467px]"
       isOpen={isOpen}
       hideCloseButton={true}
+      placement="center"
     >
       <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
         {isOpenCalendar && (
@@ -314,7 +315,7 @@ const EventFormModal = ({
               <Button
                 color="primary"
                 startContent={<PeopleIcon />}
-                className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
+                className="text-[15px] font-medium w-auto  py-[10px] px-[25px] mt-10 mt-0"
                 onClick={toggleUserList}
               >
                 Add People
@@ -354,7 +355,7 @@ const EventFormModal = ({
 
           <div className="flex flex-row-reverse gap-[0_20px]">
             <Button
-              className="min-w-[93px] text-[15px] font-normal md:w-auto py-[10px] w-full mt-10 md:mt-0"
+              className="min-w-[93px] text-[15px] font-normal w-auto py-[10px] mt-10 mt-0"
               type="submit"
               color="primary"
               isDisabled={!isValid}
