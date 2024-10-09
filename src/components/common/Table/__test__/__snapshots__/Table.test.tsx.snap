@@ -39,7 +39,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   FirstName
                   <svg
@@ -67,7 +67,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   LastName
                   <svg
@@ -95,7 +95,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   Email
                   <svg
@@ -295,7 +295,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   FirstName
                   <svg
@@ -323,7 +323,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   LastName
                   <svg
@@ -351,7 +351,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   Email
                   <svg

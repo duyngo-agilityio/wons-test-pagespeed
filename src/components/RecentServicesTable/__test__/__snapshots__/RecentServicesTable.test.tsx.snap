@@ -39,7 +39,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   Order ID
                   <svg
@@ -67,7 +67,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   Service Name
                   <svg
@@ -95,7 +95,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   Price
                   <svg
@@ -123,7 +123,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   Total Order
                   <svg
@@ -151,7 +151,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <div
-                  class="flex items-center gap-2 "
+                  class="flex items-center gap-2"
                 >
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md !text-right block w-full"

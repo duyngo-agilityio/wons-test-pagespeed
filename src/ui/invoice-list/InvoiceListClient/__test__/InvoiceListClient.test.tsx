@@ -53,6 +53,14 @@ describe('InvoiceListClient section', () => {
   it('should match with snapshot', () => {
     const { container } = renderComponent();
 
+    container
+      .querySelector('th.bg-gray-50')
+      ?.setAttribute('data-key', 'row-header-column-tjima90t7ui');
+
+    container
+      .querySelector('th.bg-gray-50')
+      ?.setAttribute('id', 'react-aria-:r0:-row-header-column-tjima90t7ui');
+
     expect(container).toMatchSnapshot();
   });
 

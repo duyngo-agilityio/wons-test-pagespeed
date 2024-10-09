@@ -8,10 +8,7 @@ describe('Text Component', () => {
     const component = render(
       <Text
         className="text-[40px]"
-        text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
-        veniam doloribus dicta fuga sed soluta blanditiis sequi porro corrupti
-        voluptatum adipisci, dolorum, quae fugiat atque? Aliquid dolorum modi
-        architecto sapiente!"
+        text="Lorem, ipsum dolor sit amet consectetur adipisicing elit"
       />,
     );
     expect(component).toMatchSnapshot();
