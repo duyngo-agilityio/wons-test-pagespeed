@@ -19,7 +19,7 @@ import './index.css';
 import { IEvent, TUser } from '@/models';
 
 // Constants
-import { ROUTES } from '@/constants';
+import { MESSAGE_STATUS, ROUTES, SUCCESS_MESSAGES } from '@/constants';
 
 // Utils
 import { formattedEvents, formattedGuestInfo, getTimeFromISO } from '@/utils';
@@ -30,11 +30,19 @@ import { TEventResponse } from '@/types';
 // Components
 import {
   Button,
+  ConfirmModal,
   CustomCalendar,
   EventDetail,
   EventFormModal,
+  LoadingIndicator,
 } from '@/components';
 import CustomToolBar from '../CustomToolBar';
+
+// actions
+import { deleteEvent } from '@/actions';
+
+// hooks
+import { useToast } from '@/hooks';
 
 const localizer = dayjsLocalizer(dayjs);
 
@@ -70,6 +78,9 @@ const CalendarClient = ({
   );
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { showToast } = useToast();
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
@@ -109,6 +120,31 @@ const CalendarClient = ({
     createEvent(data);
   };
 
+  const handleDeleteEvent = () => {
+    setIsConfirmModalOpen(true);
+  };
+
+  const confirmDeleteEvent = useCallback(async () => {
+    if (selectedEvent && selectedEvent.id !== undefined) {
+      setIsLoading(true);
+      const response = await deleteEvent(selectedEvent.id);
+      setIsLoading(false);
+      const { error } = response || {};
+      showToast({
+        description: error || SUCCESS_MESSAGES.DELETE_EVENT,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+
+      if (!error) {
+        setSelectedEvent(null);
+        setIsModalOpen(false);
+        setIsConfirmModalOpen(false);
+      }
+    } else {
+      setIsConfirmModalOpen(false);
+    }
+  }, [selectedEvent, showToast]);
+
   return (
     <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
       <div className="bg-white dark:bg-gray-400 px-[28px] py-[32px] rounded-[5px] flex flex-col justify-between">
@@ -137,6 +173,7 @@ const CalendarClient = ({
 
       {selectedEvent && (
         <div className="event-detail-container">
+          {isLoading && <LoadingIndicator />}
           <EventDetail
             title={selectedEvent.title}
             time={`${dayjs(selectedEvent.date).format('YYYY-MM-DD')} ${getTimeFromISO(selectedEvent.startTime)} - ${getTimeFromISO(selectedEvent.endTime)}`}
@@ -144,9 +181,18 @@ const CalendarClient = ({
             isOpen={isModalOpen}
             onCloseModal={handleCloseModal}
             guests={formattedGuestInfo(selectedEvent)}
+            id={selectedEvent.id}
+            onDelete={isAdmin ? handleDeleteEvent : undefined}
           />
         </div>
       )}
+      <ConfirmModal
+        isOpen={isConfirmModalOpen}
+        onCancel={() => setIsConfirmModalOpen(false)}
+        title="Delete Events"
+        content="Are you sure you want to delete this events?"
+        onConfirm={confirmDeleteEvent}
+      />
 
       {isOpenEventFormModal && (
         <EventFormModal
