@@ -8,7 +8,7 @@ import { formatErrorMessage, formatFilterMultipleUser } from '@/utils';
 import { API_PATH } from '@/constants';
 
 // Types
-import { TTasksResponse } from '@/types';
+import { StrapiModel, StrapiResponse, Task, TTasksResponse } from '@/types';
 
 type TaskConfigs = {
   cache?: RequestCache;
@@ -44,5 +44,38 @@ export const getTasks = async ({
     const message = formatErrorMessage(error);
 
     throw new Error(message);
+  }
+};
+
+export const getTaskById = async ({
+  id,
+  cache,
+  nextOptions,
+}: {
+  id: number;
+  cache?: RequestCache;
+  nextOptions?: NextFetchRequestConfig;
+}): Promise<{
+  error?: string;
+  data?: StrapiModel<Task>;
+}> => {
+  const endpoint = `${API_PATH.TASKS}/${id}?populate=assignees`;
+
+  try {
+    const response = await httpClient.getRequest<
+      StrapiResponse<StrapiModel<Task>>
+    >({
+      endpoint,
+      configOptions: {
+        cache: cache ?? 'force-cache',
+        next: nextOptions,
+      },
+    });
+
+    return { data: response.data };
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
+    return { error: message };
   }
 };

@@ -14,6 +14,9 @@ import { StrapiModel, StrapiResponse, Task } from '@/types';
 // Utils
 import { formatErrorMessage } from '@/utils';
 
+// Apis
+import { getTaskById } from '@/api';
+
 export const updateTask = async (id: number, data: Task) => {
   try {
     await httpClient.putRequest<
@@ -32,6 +35,24 @@ export const updateTask = async (id: number, data: Task) => {
     return { success: true };
   } catch (error) {
     const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};
+
+export const getTaskDetails = async (id: number) => {
+  try {
+    const task = await getTaskById({
+      id,
+    });
+
+    if (!task) {
+      return { error: 'Task not found' };
+    }
+
+    return task;
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
     return { error: message };
   }
 };
