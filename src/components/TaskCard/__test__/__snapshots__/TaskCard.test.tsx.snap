@@ -71,30 +71,42 @@ exports[`TaskCard Component matches the snapshot 1`] = `
           Discussion for management dashboard ui design
         </p>
         <div
-          class="flex flex-row justify-between w-[235px] mt-[20px]"
+          class="mt-[20px]"
         >
-          <img
-            alt="imageTask_0"
-            data-nimg="1"
-            decoding="async"
-            height="90"
-            loading="lazy"
-            src="http://localhost/_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=256&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=256&q=75 2x"
-            style="color: transparent; border-radius: 10px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-            width="107"
-          />
-          <img
-            alt="imageTask_1"
-            data-nimg="1"
-            decoding="async"
-            height="90"
-            loading="lazy"
-            src="http://localhost/_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=256&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=256&q=75 2x"
-            style="color: transparent; border-radius: 10px; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-            width="107"
-          />
+          <div
+            class="flex flex-row justify-between w-[235px]"
+          >
+            <div
+              class="w-[107px] h-[90px] relative"
+            >
+              <img
+                alt="Dashboard Design"
+                class="rounded-[10px] object-cover"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=3840&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fstore.storeimages.cdn-apple.com%2F1%2Fas-images.apple.com%2Fis%2Fiphone-14-finish-select-202209-6-1inch-yellow_FMT_WHH%3Fwid%3D1280%26hei%3D492%26fmt%3Dp-jpg%26qlt%3D80%26.v%3DbjlYUjk1NXN2Uy9CTWFMaXBneUF0bEthL1VsNXgveGUwQ1JqNzA0ZHArbjRRVTNjZitXallzNXA5ZUIwM25xZHVqay8zY0s4VHBsVmhRS2dCdnNPUHBwYUdQQkdYL0crTjZtOXJzeHgrYU02WjdNRmRCc09Pek5waThFRitZTkR0NEZTY1VIaEpLYkJrOVY3am50SHB3PT0%3D%26traceId%3D1&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+              />
+            </div>
+            <div
+              class="w-[107px] h-[90px] relative"
+            >
+              <img
+                alt="Dashboard Design"
+                class="rounded-[10px] object-cover"
+                data-nimg="fill"
+                decoding="async"
+                loading="lazy"
+                sizes="100vw"
+                src="http://localhost/_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=3840&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fproduct.hstatic.net%2F1000300544%2Fproduct%2Fiphone-12-purple-select-2021_c2f1208cec9f4dcdab82932a1cc87c85.png&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+              />
+            </div>
+          </div>
         </div>
         <div
           class="mt-[20px]"
