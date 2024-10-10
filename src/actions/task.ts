@@ -56,3 +56,19 @@ export const getTaskDetails = async (id: number) => {
     return { error: message };
   }
 };
+
+export const deleteTask = async (
+  id: number,
+): Promise<{ error?: string } | void> => {
+  try {
+    await httpClient.deleteRequest({
+      endpoint: `${API_PATH.TASKS}/${id}`,
+    });
+
+    revalidateTag(API_PATH.TASKS);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+
+    return { error: message };
+  }
+};
