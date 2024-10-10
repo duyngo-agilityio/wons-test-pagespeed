@@ -24,9 +24,23 @@ const UserDetailContainer = () => {
   return (
     <div className="flex flex-col justify-center items-center p-[50px_30px] bg-white dark:bg-gray-800 rounded-lg">
       {showEditForm ? (
-        <UserDetailForm currentUser={user} onCancel={handleEditFormToggle} />
+        <UserDetailForm
+          avatar={user.avatar}
+          username={user.username}
+          role={user.role}
+          fullName={user.fullName}
+          email={user.email}
+          onCancel={handleEditFormToggle}
+        />
       ) : (
-        <UserDetail currentUser={user} onClick={handleEditFormToggle} />
+        <UserDetail
+          avatar={user.avatar}
+          username={user.username}
+          role={user.role}
+          fullName={user.fullName}
+          email={user.email}
+          onClick={handleEditFormToggle}
+        />
       )}
     </div>
   );

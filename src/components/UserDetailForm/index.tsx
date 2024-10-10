@@ -1,12 +1,14 @@
 'use client';
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 
 // Libraries
-import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
+import { Controller, useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 // Utils
-import { clearErrorOnChange } from '@/utils';
+import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
 
 // Components
 import { Input, AvatarUpload, Button } from '@/components';
@@ -15,32 +17,71 @@ import { Input, AvatarUpload, Button } from '@/components';
 import { ERROR_MESSAGES } from '@/constants';
 
 // Types
-import { TUser } from '@/models';
-
-interface UserProfileData
-  extends Pick<TUser, 'avatar' | 'username' | 'fullName' | 'email'> {
-  role: string;
-}
+import { UserProfileData } from '@/types';
 
 interface UserDetailFormProps {
-  currentUser: UserProfileData;
+  avatar: string;
+  username: string;
+  role: string;
+  fullName: string;
+  email: string;
   onCancel: () => void;
 }
 
-const UserDetailForm = ({ currentUser, onCancel }: UserDetailFormProps) => {
+const UserDetailForm = ({
+  avatar = '',
+  username = '',
+  role = '',
+  fullName = '',
+  email = '',
+  onCancel,
+}: UserDetailFormProps) => {
+  // Zod schema for validation
+  const userDetailFormSchema = z.object({
+    avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+    username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+    role: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+    fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+    email: z
+      .string()
+      .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+      .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
+  });
+
+  const REQUIRED_FIELDS = ['fullName', 'email'];
+
+  // Define config and props for useForm
   const {
     control,
-    formState: { errors },
+    formState: { dirtyFields, errors },
     clearErrors,
     handleSubmit,
   } = useForm<UserProfileData>({
+    resolver: zodResolver(userDetailFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
-      ...currentUser,
+      avatar,
+      username,
+      role,
+      fullName,
+      email,
     },
   });
 
+  // Checking to disable/enable submit button
+  const dirtyItems = Object.keys(dirtyFields);
+
+  const enableSubmit: boolean = useMemo(
+    () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
+    [dirtyFields, errors],
+  );
+
+  console.log('enableSubmit ========== ', enableSubmit);
+
+  const isDisableSubmit = !enableSubmit;
+
+  // TODO: update logic and sideEffects
   const handleFormSubmit = () => {
     onCancel();
   };
@@ -75,12 +116,12 @@ const UserDetailForm = ({ currentUser, onCancel }: UserDetailFormProps) => {
         <Controller
           name="username"
           control={control}
-          render={() => (
+          render={({ field: { value } }) => (
             <Input
               isDisabled
               label="User Name"
               classNames={{ base: 'h-[74px]' }}
-              value={currentUser.username}
+              value={value}
             />
           )}
         />
@@ -88,12 +129,12 @@ const UserDetailForm = ({ currentUser, onCancel }: UserDetailFormProps) => {
         <Controller
           name="role"
           control={control}
-          render={() => (
+          render={({ field: { value } }) => (
             <Input
               isDisabled
               label="Role"
               classNames={{ base: 'h-[74px]' }}
-              value={currentUser.role}
+              value={value}
             />
           )}
         />
@@ -168,6 +209,7 @@ const UserDetailForm = ({ currentUser, onCancel }: UserDetailFormProps) => {
           <Button
             type="submit"
             color="primary"
+            isDisabled={isDisableSubmit}
             className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
           >
             Save
