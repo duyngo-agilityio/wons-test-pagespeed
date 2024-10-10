@@ -77,8 +77,6 @@ const UserDetailForm = ({
     [dirtyFields, errors],
   );
 
-  console.log('enableSubmit ========== ', enableSubmit);
-
   const isDisableSubmit = !enableSubmit;
 
   // TODO: update logic and sideEffects
