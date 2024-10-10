@@ -39,4 +39,6 @@ export { default as DateTimePickerModal } from './TimePicker';
 export { default as TaskForm } from './TaskForm';
 export { default as TaskDrawer } from './TaskDrawer';
 export { default as TaskStatus } from './TaskStatus';
+export { default as UserDetail } from './UserDetail';
+export { default as UserDetailForm } from './UserDetailForm';
 export { default as AvatarUploadMultiple } from './AvatarUploadMultiple';

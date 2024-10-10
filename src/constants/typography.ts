@@ -26,6 +26,7 @@ export const PAGE_TITLES = {
   INVOICE: 'Invoice List',
   CALENDAR: 'Calendar',
   TASK_PREVIEW: 'Task Preview',
+  PROFILE: 'Profile Settings',
 };
 
 export const TABLE_TITLES = {

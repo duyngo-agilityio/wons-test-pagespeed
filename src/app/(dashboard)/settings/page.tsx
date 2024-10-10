@@ -1,12 +1,16 @@
-import { Heading, Text } from '@/components';
+// Layouts
+import { DashBoardLayout } from '@/layouts';
 
-const SettingsPage = () => {
-  return (
-    <div>
-      <Heading size="lg" title="Settings page" />
-      <Text text="Coming soon!" className="mt-2" />
-    </div>
-  );
-};
+// UIs
+import { UserDetailContainer } from '@/ui/setting';
+
+// Constants
+import { PAGE_TITLES } from '@/constants';
+
+const SettingsPage = () => (
+  <DashBoardLayout title={PAGE_TITLES.PROFILE}>
+    <UserDetailContainer />
+  </DashBoardLayout>
+);
 
 export default SettingsPage;
