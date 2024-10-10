@@ -127,7 +127,10 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
               />
             </div>
             <LevelChip level={level} />
-            <Text className="mt-[20px] text-sm" text={description} />
+            <Text
+              className="mt-[20px] text-sm text-justify"
+              text={description}
+            />
             <div className="mt-[20px]">{renderImageTask()}</div>
             <div className="mt-[20px]">
               <AvatarGroup users={assignees.data} />
@@ -143,6 +146,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
               label={label}
               isOpen={isShowModal}
               onCloseModal={handleCloseModal}
+              imageCount={images?.length}
             />
           )}
         </>

@@ -28,6 +28,7 @@ export interface TaskDetailProps {
   label: TLabelStatus;
   isOpen: boolean;
   onCloseModal: () => void;
+  imageCount: number;
 }
 
 const TaskDetail = ({
@@ -39,7 +40,10 @@ const TaskDetail = ({
   label,
   isOpen,
   onCloseModal,
+  imageCount,
 }: TaskDetailProps) => {
+  const renderLabelImage = imageCount > 1 ? 'Images' : 'Image';
+
   return (
     <NextModal
       className="!max-w-[467px]"
@@ -67,7 +71,10 @@ const TaskDetail = ({
           </div>
           <div className="flex flex-row justify-between w-full mb-5">
             <Text className="text-md sm:text-xl w-[35%]" text="Description" />
-            <Text className="text-md sm:text-xl w-[65%]" text={description} />
+            <Text
+              className="text-md sm:text-xl w-[65%] text-justify"
+              text={description}
+            />
           </div>
           <div className="flex flex-row justify-between w-full mb-5">
             <Text className="text-md sm:text-xl w-[35%]" text="Assignees" />
@@ -75,10 +82,15 @@ const TaskDetail = ({
               <AvatarGroup users={assignees.data} />
             </div>
           </div>
-          <div className="flex flex-row justify-between w-full mb-5">
-            <Text className="text-md sm:text-xl w-[35%]" text="Image(s)" />
-            <div className="text-md sm:text-xl w-[65%]">{renderImages()}</div>
-          </div>
+          {Boolean(imageCount) && (
+            <div className="flex flex-row justify-between w-full mb-5">
+              <Text
+                className="text-md sm:text-xl w-[35%]"
+                text={renderLabelImage}
+              />
+              <div className="text-md sm:text-xl w-[65%]">{renderImages()}</div>
+            </div>
+          )}
         </div>
       </ModalContent>
     </NextModal>

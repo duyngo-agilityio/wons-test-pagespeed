@@ -32,7 +32,7 @@ const Column = ({ status, tasks }: TColumnProps) => {
             className="text-base md:text-xl lg:text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
             title={status}
           />
-          <div className="space-y-6">
+          <div className="space-y-4">
             {tasks.map((task, index) => {
               return <TaskCard key={task.id} index={index} task={task} />;
             })}
