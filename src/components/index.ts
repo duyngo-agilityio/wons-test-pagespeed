@@ -36,4 +36,7 @@ export { default as TaskCard } from './TaskCard';
 export { default as Column } from './ColumnTask';
 export { default as LevelChip } from './LevelChip';
 export { default as DateTimePickerModal } from './TimePicker';
+export { default as TaskForm } from './TaskForm';
+export { default as TaskDrawer } from './TaskDrawer';
 export { default as TaskStatus } from './TaskStatus';
+export { default as AvatarUploadMultiple } from './AvatarUploadMultiple';
