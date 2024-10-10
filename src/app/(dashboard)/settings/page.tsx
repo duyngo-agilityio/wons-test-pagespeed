@@ -2,7 +2,7 @@
 import { DashBoardLayout } from '@/layouts';
 
 // UIs
-import { UserDetailContainer } from '@/ui/setting';
+import { UserDetailContainer } from '@/ui';
 
 // Constants
 import { PAGE_TITLES } from '@/constants';
