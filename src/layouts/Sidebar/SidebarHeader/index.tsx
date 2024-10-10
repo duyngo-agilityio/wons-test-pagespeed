@@ -5,7 +5,12 @@ import clsx from 'clsx';
 import { IMAGES } from '@/constants';
 
 // Components
-import { Button, FaChevronLeft, Heading, Image } from '@/components/common';
+import {
+  Button,
+  FaChevronLeft,
+  Heading,
+  ImageFallback,
+} from '@/components/common';
 
 interface ISidebarHeader {
   isToggle: boolean;
@@ -27,14 +32,7 @@ const SidebarHeader = ({ isToggle, onToggleSidebar }: ISidebarHeader) => (
       <FaChevronLeft />
     </Button>
     <div className="w-full flex flex-col items-center mb-12.5">
-      <Image
-        priority
-        src={IMAGES.LOGO}
-        placeholder="empty"
-        alt="wons-logo"
-        width={42}
-        height={26}
-      />
+      <ImageFallback src={IMAGES.LOGO} alt="wons-logo" width={42} height={26} />
       <Heading
         as="h1"
         title="Wons"

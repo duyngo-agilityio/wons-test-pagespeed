@@ -9,7 +9,11 @@ import { TUser } from '@/models';
 
 // icons
 import { FiPlus } from 'react-icons/fi';
+
+// Types
 import { StrapiModel } from '@/types';
+
+// Utils
 import { getSubarray } from '@/utils';
 
 type AvatarGroupProps = {
@@ -33,7 +37,7 @@ const AvatarGroup = ({ users }: AvatarGroupProps) => {
                 alt={username}
                 width={28}
                 height={28}
-                className="h-full w-full rounded-full object-cover"
+                className="h-full rounded-full object-cover"
               />
             </div>
           );

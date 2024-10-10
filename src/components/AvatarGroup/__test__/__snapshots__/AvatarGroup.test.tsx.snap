@@ -16,11 +16,11 @@ exports[`AvatarGroup Component should match snapshot 1`] = `
       >
         <img
           alt="user1"
-          class="h-full w-full rounded-full object-cover"
+          class="h-full rounded-full object-cover"
           data-nimg="1"
           decoding="async"
+          fetchpriority="high"
           height="28"
-          loading="lazy"
           src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
           srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
@@ -32,11 +32,11 @@ exports[`AvatarGroup Component should match snapshot 1`] = `
       >
         <img
           alt="user2"
-          class="h-full w-full rounded-full object-cover"
+          class="h-full rounded-full object-cover"
           data-nimg="1"
           decoding="async"
+          fetchpriority="high"
           height="28"
-          loading="lazy"
           src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
           srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
@@ -48,11 +48,11 @@ exports[`AvatarGroup Component should match snapshot 1`] = `
       >
         <img
           alt="user4"
-          class="h-full w-full rounded-full object-cover"
+          class="h-full rounded-full object-cover"
           data-nimg="1"
           decoding="async"
+          fetchpriority="high"
           height="28"
-          loading="lazy"
           src="http://localhost/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75"
           srcset="/_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fimg-cdn.pixlr.com%2Fimage-generator%2Fhistory%2F65bb506dcb310754719cf81f%2Fede935de-1138-4f66-8ed7-44bd16efc709%2Fmedium.webp&w=64&q=75 2x"
           style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"

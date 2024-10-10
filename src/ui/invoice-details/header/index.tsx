@@ -8,7 +8,7 @@ import { formatDate, formatPhoneNumber } from '@/utils';
 import { DAYJS_PATTERN, DEFAULT_VALUE_INVOICE, IMAGES } from '@/constants';
 
 // Components
-import { Image, Text } from '@/components';
+import { ImageFallback, Text } from '@/components';
 
 interface IInvoiceDetailsHeaderProps {
   fullName: string;
@@ -29,7 +29,7 @@ const InvoiceDetailsHeader = ({
   return (
     <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-600 base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
       <div className="flex flex-col gap-[37px]">
-        <Image
+        <ImageFallback
           src={IMAGES.LOGO_COMPANY}
           alt="logo-detail"
           width={30}

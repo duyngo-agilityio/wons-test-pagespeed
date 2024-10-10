@@ -35,7 +35,8 @@ const ProductDetails = ({ product }: IProductDetailsProps) => {
             fill
             src={imageUrl}
             alt={`${brand}+${imageUrl}`}
-            className="object-cover rounded-full"
+            sizes="112px"
+            className="object-cover rounded-full h-full"
           />
         </div>
         <div className="flex flex-col items-center">

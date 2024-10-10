@@ -85,9 +85,9 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
               key={`imageTask_${indexImage}`}
             >
               <ImageFallback
+                fill
                 alt={title}
                 src={image}
-                fill
                 className="rounded-[10px] object-cover"
               />
             </div>

@@ -15,7 +15,7 @@ import { useToast } from '@/hooks';
 import {
   Button,
   ConfirmModal,
-  Image,
+  ImageFallback,
   IoLogOut,
   LoadingIndicator,
   Text,
@@ -87,7 +87,8 @@ const SidebarFooter = ({
           )}
         >
           <div className="flex items-center gap-2.5">
-            <Image
+            <ImageFallback
+              priority={false}
               src={avatar}
               alt="admin"
               width={40}

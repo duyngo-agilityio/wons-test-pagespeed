@@ -17,7 +17,7 @@ import { TInvoiceProduct, IProduct } from '@/models';
 import { ORDER, SEARCH_QUERIES } from '@/constants';
 
 // Components
-import { Image, Table, Text } from '@/components/common';
+import { ImageFallback, Table, Text } from '@/components/common';
 
 interface IRecentServicesTable {
   data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[];
@@ -42,18 +42,15 @@ const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
         accessor: (
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
         ) => (
-          <div className="flex gap-2 items-center">
-            <div className="relative w-8 h-8 overflow-x-auto">
-              <Image
-                fill
-                src={data.attributes.product.data.attributes.imageUrl}
-                alt="ui-ux-design"
-                className="rounded-5"
-                style={{
-                  objectFit: 'cover',
-                }}
-              />
-            </div>
+          <div className="flex gap-2 items-center h-7.5">
+            <ImageFallback
+              width={30}
+              height={30}
+              src={data.attributes.product.data.attributes.imageUrl}
+              alt="ui-ux-design"
+              sizes="30px"
+              className="rounded-5 h-full object-cover"
+            />
             <Text
               size="sm"
               text={data.attributes.product.data.attributes.title}

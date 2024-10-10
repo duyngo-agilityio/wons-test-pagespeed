@@ -5,9 +5,7 @@ import { ChangeEvent, useCallback, useState } from 'react';
 // icons
 import { IoCamera } from 'react-icons/io5';
 
-import { Input } from '@/components';
-
-import Image from 'next/image';
+import { ImageFallback, Input } from '@/components';
 
 // constants
 import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
@@ -75,7 +73,7 @@ const AvatarUpload = ({
       >
         <div className="rounded-full w-32 h-32 bg-gray-50 dark:bg-gray-600 flex justify-center items-center">
           {previewURL || value ? (
-            <Image
+            <ImageFallback
               src={previewURL || value}
               alt="Avatar"
               width={128}

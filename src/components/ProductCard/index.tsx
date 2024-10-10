@@ -35,11 +35,12 @@ const ProductCard = ({
       <div className="flex flex-col sm:flex-row items-center">
         <div className="w-24 h-24 sm:w-24 sm:h-24 mb-4 sm:mb-0">
           <ImageFallback
+            width={96}
+            height={96}
             src={url}
             alt={alt}
-            width={100}
-            height={100}
-            className="rounded-lg object-cover !h-full"
+            sizes="96px"
+            className="rounded-lg h-full object-cover"
           />
         </div>
 
