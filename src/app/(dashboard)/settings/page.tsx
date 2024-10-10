@@ -7,7 +7,7 @@ import { UserDetailContainer } from '@/ui/setting';
 // Constants
 import { PAGE_TITLES } from '@/constants';
 
-const SettingsPage = async () => (
+const SettingsPage = () => (
   <DashBoardLayout title={PAGE_TITLES.PROFILE}>
     <UserDetailContainer />
   </DashBoardLayout>
