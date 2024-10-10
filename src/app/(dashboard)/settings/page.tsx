@@ -1,5 +1,8 @@
+import { Suspense } from 'react';
+
 // Layouts
 import { DashBoardLayout } from '@/layouts';
+import { SkeletonUserDetail } from '@/components';
 
 // UIs
 import { UserDetailContainer } from '@/ui';
@@ -9,7 +12,9 @@ import { PAGE_TITLES } from '@/constants';
 
 const SettingsPage = () => (
   <DashBoardLayout title={PAGE_TITLES.PROFILE}>
-    <UserDetailContainer />
+    <Suspense fallback={<SkeletonUserDetail />}>
+      <UserDetailContainer />
+    </Suspense>
   </DashBoardLayout>
 );
 
