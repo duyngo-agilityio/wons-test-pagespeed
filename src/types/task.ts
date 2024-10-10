@@ -23,6 +23,10 @@ export type Task = {
   assignees: { data: Array<StrapiModel<Omit<TUser, 'id'>>> };
 };
 
+export type TaskWithStringAssignees = Omit<Task, 'assignees'> & {
+  assignees: string | number[];
+};
+
 export type TasksState = {
   todo: StrapiModel<Task>[];
   inProgress: StrapiModel<Task>[];

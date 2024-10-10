@@ -43,6 +43,7 @@ interface IFilterProps {
   popoverContentProps?: PopoverContentProps;
   listboxProps?: ListboxProps;
   listboxItemProps?: ListboxItemProps;
+  className?: string;
 }
 
 const Filter = ({
@@ -54,6 +55,7 @@ const Filter = ({
   popoverContentProps,
   listboxProps,
   listboxItemProps,
+  className,
 }: IFilterProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -80,11 +82,11 @@ const Filter = ({
   );
 
   return (
-    <Popover {...popoverProps}>
+    <Popover {...popoverProps} className={className}>
       <PopoverTrigger {...popoverTriggerProps}>
         {title && (
           <Button
-            className="bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium"
+            className=" w-full bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium"
             endContent={<FilterIcon />}
             {...buttonProps}
           >

@@ -17,6 +17,7 @@ export const ERROR_MESSAGES = {
 
   UPDATE_INVOICE: 'Update invoice failed.',
   DELETE_INVOICE: 'Delete invoice failed.',
+  MAX_IMAGE: 'Maximum number of images is 2.',
 };
 
 export const SUCCESS_MESSAGES = {
