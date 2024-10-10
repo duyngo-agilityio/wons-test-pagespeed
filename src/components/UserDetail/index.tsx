@@ -2,7 +2,7 @@
 import { memo } from 'react';
 
 // Components
-import { Text, Button, Image } from '@/components';
+import { Text, Button, ImageFallback } from '@/components';
 
 // Types
 interface UserDetailProps {
@@ -26,7 +26,7 @@ const UserDetail = ({
     <div className="p-[0_30px_0] w-full gap-[5px_0]">
       <div className="m-[30px_0] flex justify-between items-center">
         <div className="flex gap-[0_20px]">
-          <Image
+          <ImageFallback
             className="rounded-full"
             width={128}
             height={128}
