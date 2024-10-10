@@ -22,7 +22,8 @@ const UserDetailContainer = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-[50px_30px] bg-white dark:bg-gray-800 rounded-lg">
+    <div className="flex flex-col justify-center items-center pb-[60px] bg-white dark:bg-gray-800 rounded-lg">
+      <div className="bg-blue-500 w-full h-20 rounded-tl-lg rounded-tr-lg bg-gradient-to-r from-blue-500 to-blue-300" />
       {showEditForm ? (
         <UserDetailForm
           avatar={user.avatar}

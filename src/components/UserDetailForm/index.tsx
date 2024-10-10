@@ -84,8 +84,11 @@ const UserDetailForm = ({
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <div className="mb-[30px] w-full flex justify-between items-center">
+    <form
+      className="p-[0_30px_0] w-full"
+      onSubmit={handleSubmit(handleFormSubmit)}
+    >
+      <div className="m-[30px_0] w-full flex justify-between items-center">
         <Controller
           control={control}
           name="avatar"
@@ -130,7 +133,7 @@ const UserDetailForm = ({
         </div>
       </div>
 
-      <div className="w-[900px] grid grid-cols-2 gap-[30px]">
+      <div className="grid grid-cols-2 gap-[30px]">
         <Controller
           name="username"
           control={control}
