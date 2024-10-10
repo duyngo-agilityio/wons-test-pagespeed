@@ -2,7 +2,6 @@
 import { memo, useMemo } from 'react';
 
 // Libraries
-import isEqual from 'react-fast-compare';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -210,4 +209,4 @@ const UserDetailForm = ({
   );
 };
 
-export default memo(UserDetailForm, isEqual);
+export default memo(UserDetailForm);
