@@ -50,7 +50,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
   const handleEdit = () => {};
 
   const renderImageTask = () => {
-    const hasTwoImages = images.length === 2;
+    const hasTwoImages = images?.length === 2;
 
     if (!images) return <></>;
 
