@@ -29,6 +29,7 @@ export const SUCCESS_MESSAGES = {
   UPDATE_CUSTOMER: 'Update customer successfully.',
   UPDATE_PRODUCT: 'Update product successfully.',
   UPDATE_TASK: 'Update task successfully.',
+  DELETE_TASK: 'Delete task successfully.',
   DELETE_EVENT: 'Delete event successfully.',
 };
 

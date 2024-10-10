@@ -28,7 +28,7 @@ const LevelChip = ({ level, size = 'md' }: TLevelCardProps): JSX.Element => {
     },
   };
 
-  const defaultChipSize = 'px-[22px] h-[45px] max-h-[45px] rounded-[22px]';
+  const defaultChipSize = 'px-[22px] h-[30px] max-h-[30px] rounded-[22px]';
 
   const chipSize: Partial<Record<TSize, string | undefined>> = {
     md: defaultChipSize,

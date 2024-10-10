@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Draggable } from '@hello-pangea/dnd';
 import dynamic from 'next/dynamic';
 
@@ -14,13 +14,17 @@ import {
   AvatarGroup,
   Text,
   ImageFallback,
+  LoadingIndicator,
 } from '@/components';
 
 // Constants
-import { Level } from '@/constants';
+import { Level, MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
 
 // Actions
-import { getTaskDetails } from '@/actions';
+import { deleteTask, getTaskDetails } from '@/actions';
+
+// Hooks
+import { useToast } from '@/hooks';
 
 const DynamicTaskDetails = dynamic(() => import('../TaskDetail'));
 
@@ -32,6 +36,8 @@ type TTaskCardProps = {
 const TaskCard = ({ index, task }: TTaskCardProps) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [taskByID, setTaskByID] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const { showToast } = useToast();
 
   const { id, attributes } = task ?? {};
   const {
@@ -43,8 +49,23 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     label = 'todo',
   } = attributes ?? {};
 
-  // TODO:: Handle later
-  const handleDelete = () => {};
+  const handleDelete = useCallback(
+    async (id: number) => {
+      setIsLoading(true);
+
+      const res = await deleteTask(id);
+
+      setIsLoading(false);
+
+      const { error } = res || {};
+
+      showToast({
+        description: error || SUCCESS_MESSAGES.DELETE_TASK,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+    },
+    [showToast],
+  );
 
   // TODO:: Handle later
   const handleEdit = () => {};
@@ -103,55 +124,58 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
   };
 
   return (
-    <Draggable draggableId={id.toString()} index={index}>
-      {(provided, snapshot) => (
-        <>
-          <div
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            className={`w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md ${
-              snapshot.isDragging ? 'opacity-50' : ''
-            }`}
-            onClick={handleOpenModal}
-          >
-            <div className="flex flex-row items-center justify-between mb-[15px]">
-              <Text className="text-md" text={title} />
-              <DropdownActions
-                id={id}
-                onDelete={handleDelete}
-                onEdit={handleEdit}
-                isIconOnly
-                disableAnimation
-                customClassName="w-[15px] min-w-[15px]"
+    <>
+      {isLoading && <LoadingIndicator />}
+      <Draggable draggableId={id.toString()} index={index}>
+        {(provided, snapshot) => (
+          <>
+            <div
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              className={`w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md ${
+                snapshot.isDragging ? 'opacity-50' : ''
+              }`}
+              onClick={handleOpenModal}
+            >
+              <div className="flex flex-row items-center justify-between mb-[15px]">
+                <Text className="text-md" text={title} />
+                <DropdownActions
+                  id={id}
+                  onDelete={handleDelete}
+                  onEdit={handleEdit}
+                  isIconOnly
+                  disableAnimation
+                  customClassName="w-[15px] min-w-[15px]"
+                />
+              </div>
+              <LevelChip level={level} />
+              <Text
+                className="mt-[20px] text-sm text-justify"
+                text={description}
               />
+              <div className="mt-[20px]">{renderImageTask()}</div>
+              <div className="mt-[20px]">
+                <AvatarGroup users={assignees.data} />
+              </div>
             </div>
-            <LevelChip level={level} />
-            <Text
-              className="mt-[20px] text-sm text-justify"
-              text={description}
-            />
-            <div className="mt-[20px]">{renderImageTask()}</div>
-            <div className="mt-[20px]">
-              <AvatarGroup users={assignees.data} />
-            </div>
-          </div>
-          {taskByID && (
-            <DynamicTaskDetails
-              title={title}
-              level={level}
-              description={description}
-              assignees={assignees}
-              renderImages={renderImageTask}
-              label={label}
-              isOpen={isShowModal}
-              onCloseModal={handleCloseModal}
-              imageCount={images?.length}
-            />
-          )}
-        </>
-      )}
-    </Draggable>
+            {taskByID && (
+              <DynamicTaskDetails
+                title={title}
+                level={level}
+                description={description}
+                assignees={assignees}
+                renderImages={renderImageTask}
+                label={label}
+                isOpen={isShowModal}
+                onCloseModal={handleCloseModal}
+                imageCount={images?.length}
+              />
+            )}
+          </>
+        )}
+      </Draggable>
+    </>
   );
 };
 
