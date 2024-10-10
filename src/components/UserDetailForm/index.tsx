@@ -14,41 +14,39 @@ import { Input, AvatarUpload, Button } from '@/components';
 // Constants
 import { ERROR_MESSAGES } from '@/constants';
 
-interface ProfileInfo {
-  avatar: string;
-  userName: string;
+// Types
+import { TUser } from '@/models';
+
+interface UserProfileData
+  extends Pick<TUser, 'avatar' | 'username' | 'fullName' | 'email'> {
   role: string;
-  fullName: string;
-  email: string;
 }
 
 interface UserDetailFormProps {
+  currentUser: UserProfileData;
   onCancel: () => void;
 }
 
-const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
+const UserDetailForm = ({ currentUser, onCancel }: UserDetailFormProps) => {
   const {
     control,
     formState: { errors },
     clearErrors,
-  } = useForm<ProfileInfo>({
+    handleSubmit,
+  } = useForm<UserProfileData>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
-      avatar: '',
-      userName: '',
-      role: '',
-      fullName: '',
-      email: '',
+      ...currentUser,
     },
   });
 
   const handleFormSubmit = () => {
-    return;
+    onCancel();
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(handleFormSubmit)}>
       <Controller
         control={control}
         name="avatar"
@@ -75,14 +73,14 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
 
       <div className="w-[500px] flex flex-col gap-[20px_0]">
         <Controller
-          name="userName"
+          name="username"
           control={control}
           render={() => (
             <Input
               isDisabled
               label="User Name"
               classNames={{ base: 'h-[74px]' }}
-              value={`Example Name`}
+              value={currentUser.username}
             />
           )}
         />
@@ -95,7 +93,7 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
               isDisabled
               label="Role"
               classNames={{ base: 'h-[74px]' }}
-              value={`Example Role`}
+              value={currentUser.role}
             />
           )}
         />
@@ -171,7 +169,6 @@ const UserDetailForm = ({ onCancel }: UserDetailFormProps) => {
             type="submit"
             color="primary"
             className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
-            onClick={handleFormSubmit}
           >
             Save
           </Button>
