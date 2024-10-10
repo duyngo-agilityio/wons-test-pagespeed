@@ -29,7 +29,6 @@ export { default as DatePicker } from './DatePicker';
 export { default as DateRangePicker } from './DateRangePicker';
 export { default as DropdownActions } from '../DropdownActions';
 export { default as Heading } from './Heading';
-export { default as Image } from './ImageFallback';
 export { default as ImageFallback } from './ImageFallback';
 export { default as Input } from './Input';
 export { default as LoadingIndicator } from './LoadingIndicator';

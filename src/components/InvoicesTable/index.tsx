@@ -17,7 +17,7 @@ import {
   InvoiceStatus as InvoiceStatusComponent,
   CalendarIcon,
   EmailIcon,
-  Image,
+  ImageFallback,
   Table,
   Text,
   DropdownActions,
@@ -140,19 +140,15 @@ const InvoicesTable = ({
             const { avatar = '', fullName = '' } = customerAttributes || {};
 
             return (
-              <div className="flex gap-3.5 items-center">
-                <div className="relative w-9 h-9 rounded-full">
-                  <Image
-                    fill
-                    src={avatar}
-                    alt="customer avatar"
-                    className="rounded-full"
-                    style={{
-                      objectFit: 'cover',
-                    }}
-                  />
-                </div>
-
+              <div className="flex gap-3.5 items-center h-9">
+                <ImageFallback
+                  src={avatar}
+                  alt="customer avatar"
+                  width={36}
+                  height={36}
+                  sizes="36px"
+                  className="rounded-full h-full object-cover"
+                />
                 <Text size="md" text={fullName} className="text-nowrap" />
               </div>
             );

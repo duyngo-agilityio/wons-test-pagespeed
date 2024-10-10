@@ -22,11 +22,14 @@ const CustomerDetailsHeader = ({
     <div className="relative w-[70px] h-[70px]">
       <ImageFallback
         fill
+        priority={false}
         src={avatar}
         alt={`${firstName}-${lastName}`}
-        className="object-cover rounded-full"
+        sizes="70px"
+        className="object-cover rounded-full h-full"
       />
     </div>
+
     <div className="flex flex-col items-center">
       <Text text={fullName} size="3xl" className="font-bold" />
       {job && <Text text={job} size="md" />}

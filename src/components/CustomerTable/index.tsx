@@ -12,7 +12,7 @@ import {
   Text,
   DropdownActions,
   GenderStatusComponent,
-  Image,
+  ImageFallback,
 } from '@/components';
 
 // Types
@@ -32,7 +32,6 @@ type CustomersTableProps = {
   onEdit: (id: number) => void;
   onSort: (field: string) => void;
   onDelete: (id: number) => void;
-  onToggleSelectStar: (id: string) => void;
   onRowAction?: (key: Key) => void;
 };
 
@@ -61,17 +60,15 @@ const CustomersTable = ({
             } = attributes || {};
 
             return (
-              <div className="flex gap-3.5 items-center">
-                <div className="relative w-9 h-9 rounded-full">
-                  <Image
-                    src={avatar}
-                    alt="customer avatar"
-                    fill
-                    objectFit="cover"
-                    className="rounded-full "
-                  />
-                </div>
-
+              <div className="flex gap-3.5 items-center h-9">
+                <ImageFallback
+                  width={36}
+                  height={36}
+                  src={avatar}
+                  alt="customer avatar"
+                  className="rounded-full h-full object-cover"
+                  sizes="36px"
+                />
                 <Text
                   size="md"
                   text={`${firstName} ${lastName}`}
@@ -144,7 +141,7 @@ const CustomersTable = ({
           }),
         },
       ].filter((item) => Object.keys(item).length !== 0),
-    [onDelete, onEdit],
+    [isReadOnly, onDelete, onEdit],
   );
 
   return (

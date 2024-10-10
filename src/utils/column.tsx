@@ -9,7 +9,7 @@ import {
 } from '@/utils';
 
 // Components
-import { DropdownActions, Text, Image } from '@/components';
+import { DropdownActions, Text, ImageFallback } from '@/components';
 
 type TColumn = {
   data: TProductInvoiceResponse[];
@@ -43,16 +43,15 @@ export const mappingContentColumns = ({
         const { imageUrl = '', title = '' } = attributesProduct || {};
 
         return (
-          <div className="flex gap-3.5 items-center">
-            <div className="relative w-9 h-9 rounded-full">
-              <Image
-                src={imageUrl}
-                alt="customer avatar"
-                fill
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
+          <div className="flex gap-3.5 items-center h-9">
+            <ImageFallback
+              width={36}
+              height={36}
+              sizes="36px"
+              src={imageUrl}
+              alt="customer avatar"
+              className="rounded-full h-full object-cover"
+            />
             <Text
               size="md"
               text={title}

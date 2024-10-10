@@ -129,9 +129,6 @@ const CustomerListClient = ({
     replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  // TODO: Update later
-  const handleToggleSelectStart = useCallback(() => {}, []);
-
   const handleCloseDrawer = () => {
     setToggleDetails(false);
   };
@@ -195,7 +192,6 @@ const CustomerListClient = ({
         pageCount={pageCount}
         onEdit={handleEdit}
         onDelete={handleDelete}
-        onToggleSelectStar={handleToggleSelectStart}
         onRowAction={handleRowAction}
       />
       {/* Customer Form Edit Drawer */}

@@ -31,20 +31,22 @@ const ImageFallback = ({
     [fallbackSrc],
   );
 
-  const handleLoadingComplete = useCallback(
-    (result: HTMLImageElement) => {
-      if (result.naturalWidth === 0) setImgSrc(fallbackSrc);
+  const handleLoad = useCallback(
+    (event: React.SyntheticEvent<HTMLImageElement>) => {
+      const img = event.currentTarget;
+      if (img.naturalWidth === 0) setImgSrc(fallbackSrc);
     },
     [fallbackSrc],
   );
 
   return (
     <Image
+      priority
       src={imgSrc}
       alt={alt}
       placeholder="blur"
       blurDataURL={blurDataURL}
-      onLoadingComplete={handleLoadingComplete}
+      onLoad={handleLoad}
       onError={handleFallbackImage}
       {...rest}
     />

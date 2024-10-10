@@ -1,7 +1,7 @@
 import { Skeleton } from '@nextui-org/react';
 
 // Components
-import { Image, Text } from '@/components';
+import { ImageFallback, Text } from '@/components';
 
 // Constants
 import { IMAGES } from '@/constants';
@@ -9,7 +9,7 @@ import { IMAGES } from '@/constants';
 const InvoiceDetailsHeaderSkeleton = () => (
   <div className="flex items-center justify-between bg-gray-50 dark:bg-blue-800 base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
     <div className="flex flex-col gap-[37px]">
-      <Image
+      <ImageFallback
         src={IMAGES.LOGO_COMPANY}
         alt="logo-detail"
         width={30}
