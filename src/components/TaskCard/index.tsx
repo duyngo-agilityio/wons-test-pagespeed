@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useState } from 'react';
 import { Draggable } from '@hello-pangea/dnd';
+import dynamic from 'next/dynamic';
 
 // Types
 import { StrapiModel, Task } from '@/types';
@@ -13,9 +14,19 @@ import {
   AvatarGroup,
   Text,
   ImageFallback,
+  LoadingIndicator,
 } from '@/components';
-import { Level } from '@/constants';
-import TaskDetail from '../TaskDetail';
+
+// Constants
+import { Level, MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
+
+// Actions
+import { deleteTask, getTaskDetails } from '@/actions';
+
+// Hooks
+import { useToast } from '@/hooks';
+
+const DynamicTaskDetails = dynamic(() => import('../TaskDetail'));
 
 type TTaskCardProps = {
   index: number;
@@ -24,6 +35,9 @@ type TTaskCardProps = {
 
 const TaskCard = ({ index, task }: TTaskCardProps) => {
   const [isShowModal, setIsShowModal] = useState(false);
+  const [taskByID, setTaskByID] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const { showToast } = useToast();
 
   const { id, attributes } = task ?? {};
   const {
@@ -32,17 +46,32 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     assignees = { data: [] },
     images = [],
     description = '',
-    label,
+    label = 'todo',
   } = attributes ?? {};
 
-  // TODO:: Handle later
-  const handleDelete = () => {};
+  const handleDelete = useCallback(
+    async (id: number) => {
+      setIsLoading(true);
+
+      const res = await deleteTask(id);
+
+      setIsLoading(false);
+
+      const { error } = res || {};
+
+      showToast({
+        description: error || SUCCESS_MESSAGES.DELETE_TASK,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+    },
+    [showToast],
+  );
 
   // TODO:: Handle later
   const handleEdit = () => {};
 
   const renderImageTask = () => {
-    const hasTwoImages = images.length === 2;
+    const hasTwoImages = images?.length === 2;
 
     if (!images) return <></>;
 
@@ -51,80 +80,102 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
       return (
         <div className="flex flex-row justify-between w-[235px]">
           {images.map((image, indexImage) => (
-            <ImageFallback
+            <div
+              className="w-[107px] h-[90px] relative"
               key={`imageTask_${indexImage}`}
-              alt={`imageTask_${indexImage}`}
-              src={image}
-              width={107}
-              height={90}
-              style={{ borderRadius: '10px' }}
-            />
+            >
+              <ImageFallback
+                alt={title}
+                src={image}
+                fill
+                className="rounded-[10px] object-cover"
+              />
+            </div>
           ))}
         </div>
       );
 
     // If images exist and has exactly one item
     return (
-      <ImageFallback
-        alt={`imageTask_${id}`}
-        src={images[0]}
-        width={235}
-        height={176}
-      />
+      <div className="w-[235px] h-[176px] relative">
+        <ImageFallback
+          alt={title}
+          src={images[0]}
+          fill
+          className="object-cover"
+        />
+      </div>
     );
   };
 
-  const handleToggleModal = useCallback(
-    () => setIsShowModal(!isShowModal),
-    [isShowModal],
-  );
+  const handleOpenModal = async () => {
+    if (id) {
+      const task = await getTaskDetails(id);
+      setTaskByID(task);
+    }
+
+    if (taskByID) {
+      setIsShowModal(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsShowModal(false);
+  };
 
   return (
-    <Draggable draggableId={id.toString()} index={index}>
-      {(provided, snapshot) => (
-        <>
-          <div
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            className={`w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md ${
-              snapshot.isDragging ? 'opacity-50' : ''
-            }`}
-            onClick={handleToggleModal}
-          >
-            <div className="flex flex-row items-center justify-between mb-[15px]">
-              <Text className="text-md" text={title} />
-              <DropdownActions
-                id={id}
-                onDelete={handleDelete}
-                onEdit={handleEdit}
-                isIconOnly
-                disableAnimation
-                customClassName="w-[15px] min-w-[15px]"
+    <>
+      {isLoading && <LoadingIndicator />}
+      <Draggable draggableId={id.toString()} index={index}>
+        {(provided, snapshot) => (
+          <>
+            <div
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              className={`w-full bg-white dark:bg-gray-400 p-[20px] rounded-5 shadow-md ${
+                snapshot.isDragging ? 'opacity-50' : ''
+              }`}
+              onClick={handleOpenModal}
+            >
+              <div className="flex flex-row items-center justify-between mb-[15px]">
+                <Text className="text-md" text={title} />
+                <DropdownActions
+                  id={id}
+                  onDelete={handleDelete}
+                  onEdit={handleEdit}
+                  isIconOnly
+                  disableAnimation
+                  customClassName="w-[15px] min-w-[15px]"
+                />
+              </div>
+              <LevelChip level={level} />
+              <Text
+                className="mt-[20px] text-sm text-justify"
+                text={description}
               />
+              <div className="mt-[20px]">{renderImageTask()}</div>
+              <div className="mt-[20px]">
+                <AvatarGroup users={assignees.data} />
+              </div>
             </div>
-            <LevelChip level={level} />
-            <Text className="mt-[20px] text-sm" text={description} />
-            <div className="mt-[20px]">{renderImageTask()}</div>
-            <div className="mt-[20px]">
-              <AvatarGroup users={assignees.data} />
-            </div>
-          </div>
-          {isShowModal && (
-            <TaskDetail
-              title={title}
-              level={level}
-              description={description}
-              assignees={assignees}
-              renderImages={renderImageTask}
-              label={label}
-              isOpen={isShowModal}
-              onCloseModal={handleToggleModal}
-            />
-          )}
-        </>
-      )}
-    </Draggable>
+            {taskByID && (
+              <DynamicTaskDetails
+                title={title}
+                level={level}
+                description={description}
+                assignees={assignees}
+                renderImages={renderImageTask}
+                label={label}
+                isOpen={isShowModal}
+                onCloseModal={handleCloseModal}
+                imageCount={images?.length}
+              />
+            )}
+          </>
+        )}
+      </Draggable>
+    </>
   );
 };
 
