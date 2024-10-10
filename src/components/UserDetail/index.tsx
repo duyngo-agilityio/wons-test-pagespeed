@@ -26,7 +26,7 @@ const UserDetail = ({
   onClick,
 }: UserDetailProps) => {
   return (
-    <div className="m-[50px_0_0] max-w-[500px] p-[50px_100px] flex flex-col items-center text-left gap-[5px_0] border-3 border-gray-100">
+    <div className="max-w-[500px] p-[50px_100px] flex flex-col items-center text-left gap-[5px_0] border-3 border-gray-100">
       <Image
         className="rounded-full"
         width={128}
@@ -36,7 +36,7 @@ const UserDetail = ({
       />
 
       <Text
-        className="m-[10px_0_0] font-medium"
+        className="mt-[30px] font-medium"
         size="4xl"
         as="dd"
         text={fullName}

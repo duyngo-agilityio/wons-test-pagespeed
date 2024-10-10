@@ -68,7 +68,7 @@ const AvatarUpload = ({
   };
 
   return (
-    <div className="flex flex-col justify-center items-center my-20">
+    <div className="!m-0 flex flex-col justify-center items-center my-20">
       <label
         htmlFor="file"
         className="cursor-pointer hover:scale-110 transition-transform"

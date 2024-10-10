@@ -86,41 +86,57 @@ const UserDetailForm = ({
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <Controller
-        control={control}
-        name="avatar"
-        rules={{
-          required: ERROR_MESSAGES.FIELD_REQUIRED,
-        }}
-        render={({
-          field: { onChange, value, name },
-          fieldState: { error },
-        }) => (
-          <AvatarUpload
-            value={value}
-            error={error?.message}
-            onChange={(e) => {
-              onChange(e);
+      <div className="mb-[30px] w-full flex justify-between items-center">
+        <Controller
+          control={control}
+          name="avatar"
+          rules={{
+            required: ERROR_MESSAGES.FIELD_REQUIRED,
+          }}
+          render={({
+            field: { onChange, value, name },
+            fieldState: { error },
+          }) => (
+            <AvatarUpload
+              value={value}
+              error={error?.message}
+              onChange={(e) => {
+                onChange(e);
 
-              // Clear error message on change
-              clearErrorOnChange(name, errors, clearErrors);
-            }}
-            onFileChange={() => {}}
-          />
-        )}
-      />
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+              onFileChange={() => {}}
+            />
+          )}
+        />
 
-      <div className="w-[500px] flex flex-col gap-[20px_0]">
+        <div className="flex gap-[0_15px]">
+          <Button
+            className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
+            type="button"
+            onClick={onCancel}
+          >
+            Cancel
+          </Button>
+
+          <Button
+            type="submit"
+            color="primary"
+            isDisabled={isDisableSubmit}
+            className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
+          >
+            Save
+          </Button>
+        </div>
+      </div>
+
+      <div className="w-[900px] grid grid-cols-2 gap-[30px]">
         <Controller
           name="username"
           control={control}
           render={({ field: { value } }) => (
-            <Input
-              isDisabled
-              label="User Name"
-              classNames={{ base: 'h-[74px]' }}
-              value={value}
-            />
+            <Input isDisabled label="User Name" value={value} />
           )}
         />
 
@@ -128,12 +144,7 @@ const UserDetailForm = ({
           name="role"
           control={control}
           render={({ field: { value } }) => (
-            <Input
-              isDisabled
-              label="Role"
-              classNames={{ base: 'h-[74px]' }}
-              value={value}
-            />
+            <Input isDisabled label="Role" value={value} />
           )}
         />
 
@@ -194,25 +205,6 @@ const UserDetailForm = ({
             />
           )}
         />
-
-        <div className="self-end flex gap-[0_15px]">
-          <Button
-            className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
-            type="button"
-            onClick={onCancel}
-          >
-            Cancel
-          </Button>
-
-          <Button
-            type="submit"
-            color="primary"
-            isDisabled={isDisableSubmit}
-            className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
-          >
-            Save
-          </Button>
-        </div>
       </div>
     </form>
   );
