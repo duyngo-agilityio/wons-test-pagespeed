@@ -16,9 +16,9 @@ export type Task = {
   label: TLabelStatus;
   level: Level;
   description: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
+  createdAt?: string;
+  updatedAt?: string;
+  publishedAt?: string;
   images?: string[];
   assignees: { data: Array<StrapiModel<Omit<TUser, 'id'>>> };
 };

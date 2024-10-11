@@ -1,7 +1,7 @@
 'use client';
 
 import { UseFormReset } from 'react-hook-form';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
@@ -14,12 +14,32 @@ import { BsPlus, Button, TaskForm } from '@/components';
 // types
 import { TaskWithStringAssignees } from '@/types';
 
+// hooks
+import { useToast } from '@/hooks';
+
+// actions
+import { createTask } from '@/actions';
+
+// constants
+import { MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
+
+// api
+import { uploadImage } from '@/api/image';
+
+// utils
+import { formatErrorMessage } from '@/utils';
+
 interface TaskDrawerProps {
   user: TUser;
 }
 
 const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const [avatarFiles, setAvatarFiles] = useState<File[]>([]);
+  const [isAvatarDirty, setIsAvatarDirty] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const { showToast } = useToast();
 
   let formReset: UseFormReset<Partial<TaskWithStringAssignees>> | null = null;
 
@@ -34,11 +54,66 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
     setIsDrawerOpen(false);
   };
 
-  // TODO: handle later
-  const handleFormSubmit = () => {};
+  // TODO: handle later const handleFormSubmit = useCallback(
+  const handleFormSubmit = useCallback(
+    async (formData: TaskWithStringAssignees) => {
+      if (avatarFiles && avatarFiles.length && isAvatarDirty) {
+        try {
+          const uploadImageResponses = await Promise.all(
+            avatarFiles.map((file) => uploadImage(file)),
+          );
 
-  // TODO: handle later
-  const handleAvatarChange = () => {};
+          const downloadURLs = uploadImageResponses
+            .map((response) => response?.downloadURL)
+            .filter(Boolean);
+
+          if (downloadURLs.length !== avatarFiles.length) {
+            return;
+          }
+
+          formData.images = downloadURLs as string[];
+        } catch (error) {
+          const message = formatErrorMessage(error);
+
+          return { error: message };
+        }
+      }
+
+      startTransition(async () => {
+        const { title, ...restFormData } = formData;
+
+        const { error } = await createTask({
+          title,
+          ...restFormData,
+        });
+
+        if (error) {
+          showToast({
+            description: error,
+            status: MESSAGE_STATUS.ERROR,
+          });
+        } else {
+          showToast({
+            description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
+            status: MESSAGE_STATUS.SUCCESS,
+          });
+        }
+      });
+
+      if (!isPending) {
+        setIsDrawerOpen(false);
+        setAvatarFiles([]);
+      }
+    },
+    [avatarFiles, isAvatarDirty, isPending, showToast],
+  );
+
+  const handleAvatarChange = useCallback((files: File[]) => {
+    if (files && files.length > 0) {
+      setAvatarFiles(files);
+      setIsAvatarDirty(true);
+    }
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row justify-between md:items-center w-full md:w-fit">

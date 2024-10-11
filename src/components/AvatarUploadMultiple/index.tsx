@@ -1,13 +1,9 @@
 'use client';
+
 import { ChangeEvent, useCallback, useState } from 'react';
-
-// icons
 import { IoCamera, IoClose } from 'react-icons/io5';
-
-import { Button, Input, Text } from '@/components';
-
+import { Input, Button, Text } from '@/components';
 import Image from 'next/image';
-
 // constants
 import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 
@@ -25,37 +21,52 @@ const AvatarUploadMultiple = ({
   const [previewURLs, setPreviewURLs] = useState<string[]>(value);
   const [errorMessage, setErrorMessage] = useState<string>(error);
 
-  const handleChangeFile = useCallback(
+  const handleChangeFiles = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      const files = Array.from(e.target.files || []);
+      const files = e.target.files;
+      const validFiles: File[] = [];
+      const newPreviewURLs: string[] = [];
 
-      if (files.length > 2 || previewURLs.length + files.length > 2) {
-        const error = ERROR_MESSAGES.MAX_IMAGE;
-        setErrorMessage(error);
+      if (!files) {
         return;
       }
 
-      const validFiles: File[] = [];
-      const newPreviews: string[] = [...previewURLs];
+      // Reset error message for multiple files processing
+      setErrorMessage('');
 
-      files.forEach((file) => {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+
         if (!REGEX.IMG.test(file.name)) {
-          setErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE);
-        } else if (file.size > MAX_SIZE) {
-          setErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
-        } else {
-          validFiles.push(file);
-          newPreviews.push(URL.createObjectURL(file));
+          const error = ERROR_MESSAGES.UPLOAD_IMAGE;
+          setErrorMessage(error);
+          return;
         }
-      });
 
-      if (validFiles.length > 0) {
-        setErrorMessage('');
-        setPreviewURLs(newPreviews);
-        onFileChange(validFiles);
+        if (file.size > MAX_SIZE) {
+          const error = ERROR_MESSAGES.UPLOAD_IMAGE_SIZE;
+          setErrorMessage(error);
+          return;
+        }
+
+        // Add valid file to array
+        validFiles.push(file);
+
+        // Create preview URL for the valid file
+        const previewImage = URL.createObjectURL(file);
+        newPreviewURLs.push(previewImage);
       }
+
+      // Update preview URLs (append new ones)
+      setPreviewURLs((prev) => [...prev, ...newPreviewURLs]);
+
+      // Ensure no error message after valid files
+      setErrorMessage('');
+
+      // Pass the valid files to onFileChange
+      onFileChange(validFiles);
     },
-    [onFileChange, previewURLs],
+    [onFileChange],
   );
 
   const handleRemoveImage = (index: number) => {
@@ -86,7 +97,7 @@ const AvatarUploadMultiple = ({
         className="hidden"
         accept="image/*"
         multiple
-        onChange={handleChangeFile}
+        onChange={handleChangeFiles}
         disabled={isUploadDisabled}
       />
 
