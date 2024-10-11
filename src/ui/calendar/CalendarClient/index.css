@@ -32,6 +32,8 @@
   font-size: 16px;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-weight: 700;
+  opacity: 70%;
 }
 
 .rbc-date-cell {
