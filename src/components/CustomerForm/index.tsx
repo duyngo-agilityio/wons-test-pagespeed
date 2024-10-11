@@ -246,13 +246,14 @@ const CustomerForm = ({
         name="phone"
         control={control}
         render={({
-          field: { name, onChange, ...rest },
+          field: { name, onChange, value, ...rest },
           fieldState: { error },
         }) => (
           <Input
             label="Phone Number"
             className="mb-12"
             type="text"
+            value={formatPhoneNumberTyping(value ?? '')}
             isInvalid={!!error}
             errorMessage={error?.message}
             isDisabled={isDisabledField}
