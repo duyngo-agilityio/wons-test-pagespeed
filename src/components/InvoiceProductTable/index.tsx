@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, Dispatch, Key, SetStateAction, MouseEvent } from 'react';
+import { ChangeEvent, Dispatch, Key, SetStateAction } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
 
@@ -52,7 +52,20 @@ const InvoiceProductTable = ({
 }: InvoiceProductTableProps) => {
   const handleAddProduct = () => {
     setErrorProducts('');
-    setProductsValues((prev) => [...prev, initInvoiceProduct]);
+    setProductsValues((prev) => [
+      ...prev,
+      {
+        ...initInvoiceProduct,
+        id: Date.now(),
+        product: {
+          ...initInvoiceProduct.product,
+          data: {
+            ...initInvoiceProduct.product.data,
+            id: Date.now(),
+          },
+        },
+      },
+    ]);
   };
 
   const handleChangeProductName = (key: Key | null, id: number) => {
@@ -153,7 +166,7 @@ const InvoiceProductTable = ({
           className="rounded-[100%] block p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
           data-id={product.data.id}
           endContent={<FaTrash className="text-pink-500" />}
-          onClick={handleRemoveProduct}
+          onClick={() => handleRemoveProduct(product.data.id)}
           aria-label="Remove product"
         />
       ),
@@ -193,15 +206,10 @@ const InvoiceProductTable = ({
     }
   };
 
-  const handleRemoveProduct = (event: MouseEvent<HTMLElement>) => {
-    const currentTarget = event.currentTarget as HTMLElement;
-
-    const id = currentTarget.dataset.id;
-
-    id &&
-      setProductsValues((prev) =>
-        prev.filter((product) => product.product.data.id !== Number(id)),
-      );
+  const handleRemoveProduct = (id: number) => {
+    setProductsValues((prev) =>
+      prev.filter((product) => product.product.data.id !== id),
+    );
   };
 
   const dataTable =

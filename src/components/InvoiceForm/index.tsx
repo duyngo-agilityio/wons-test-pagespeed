@@ -6,6 +6,10 @@ import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import clsx from 'clsx';
+
+// libs
+import { Select, SelectItem } from '@nextui-org/react';
 
 // Constants
 import {
@@ -41,7 +45,6 @@ import {
 // Components
 import {
   AddressInput,
-  Autocomplete,
   AvatarUpload,
   Button,
   DatePicker,
@@ -309,23 +312,47 @@ const InvoiceForm = ({
             name="customerId"
             control={control}
             render={({
-              field: { onChange, value, name, ...rest },
+              field: { name, onChange, value, onBlur },
               fieldState: { error },
             }) => (
-              <Autocomplete
-                defaultSelectedKey={value}
-                isInvalid={!!error}
-                errorMessage={error?.message}
-                onSelectionChange={(key) => {
-                  onChange(key ?? '');
+              <div className="flex flex-col w-full h-[71px] mb-12">
+                <Select
+                  name={name}
+                  id="customerId"
+                  defaultSelectedKeys={[value as string]}
+                  labelPlacement="outside"
+                  onClose={onBlur}
+                  placeholder=" "
+                  label="Name"
+                  className={clsx('w-full rounded-md', {
+                    'border-red-500': error,
+                    'border-gray-300': !error,
+                  })}
+                  classNames={{
+                    trigger: clsx(
+                      'w-full py-[26px] mt-5',
+                      error
+                        ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
+                        : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                    ),
+                    label: 'text-xl font-medium pb-1',
+                  }}
+                  onChange={(e) => {
+                    onChange(e.target.value);
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                >
+                  {optionsCustomers.map((customer) => (
+                    <SelectItem key={customer.value} value={customer.value}>
+                      {customer.label}
+                    </SelectItem>
+                  ))}
+                </Select>
 
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-                label="Name"
-                options={optionsCustomers}
-                {...rest}
-              />
+                {error && (
+                  <p className="text-red-500 text-xs mt-1">{error.message}</p>
+                )}
+              </div>
             )}
           />
 
@@ -334,25 +361,47 @@ const InvoiceForm = ({
             name="status"
             control={control}
             render={({
-              field: { onChange, value, name, ...rest },
+              field: { name, onChange, value, onBlur },
               fieldState: { error },
             }) => (
-              <Autocomplete
-                defaultSelectedKey={value}
-                isInvalid={!!error}
-                errorMessage={
-                  value == null ? ERROR_MESSAGES.FIELD_REQUIRED : error?.message
-                }
-                label="Status"
-                onSelectionChange={(key) => {
-                  onChange(key ?? '');
+              <div className="flex flex-col w-full h-[71px] mb-12">
+                <Select
+                  name={name}
+                  id="status"
+                  defaultSelectedKeys={[value as string]}
+                  labelPlacement="outside"
+                  onClose={onBlur}
+                  placeholder=" "
+                  label="Status"
+                  className={clsx('w-full rounded-md', {
+                    'border-red-500': error,
+                    'border-gray-300': !error,
+                  })}
+                  classNames={{
+                    trigger: clsx(
+                      'w-full py-[26px] mt-5',
+                      error
+                        ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
+                        : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                    ),
+                    label: 'text-xl font-medium pb-1',
+                  }}
+                  onChange={(e) => {
+                    onChange(e.target.value);
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                >
+                  {INVOICE_STATUS.map((status) => (
+                    <SelectItem key={status.key} value={status.key}>
+                      {status.label}
+                    </SelectItem>
+                  ))}
+                </Select>
 
-                  // Clear error message on change
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-                options={INVOICE_STATUS}
-                {...rest}
-              />
+                {error && (
+                  <p className="text-red-500 text-xs mt-1">{error.message}</p>
+                )}
+              </div>
             )}
           />
         </div>

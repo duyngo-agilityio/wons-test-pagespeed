@@ -1,5 +1,3 @@
-'use client';
-
 import { Key, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
