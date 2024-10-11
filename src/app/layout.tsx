@@ -9,6 +9,7 @@ import { DM_SANS_FONT, IMAGES } from '@/constants';
 
 // Styles
 import '@/styles/index.css';
+import { Sidebar } from '@/layouts';
 
 export const metadata: Metadata = {
   title: 'Wons Dashboard',
@@ -42,7 +43,14 @@ const RootLayout = ({
     <html lang="en">
       <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
         <main>
-          <LayoutProvider>{children}</LayoutProvider>
+          <LayoutProvider>
+            <div className="lg:flex">
+              <Sidebar />
+              <div className="flex-1 pt-7.5 base:px-6 md:pl-7.5 md:pr-7 mb-8 max-w-[1324px] mx-auto">
+                {children}
+              </div>
+            </div>
+          </LayoutProvider>
         </main>
       </body>
     </html>

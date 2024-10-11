@@ -42,3 +42,4 @@ export { default as TaskStatus } from './TaskStatus';
 export { default as UserDetail } from './UserDetail';
 export { default as UserDetailForm } from './UserDetailForm';
 export { default as AvatarUploadMultiple } from './AvatarUploadMultiple';
+export { default as NotFoundComponent } from './NotFoundComponent';
