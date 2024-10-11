@@ -1,5 +1,5 @@
 'use client';
-import { memo, useMemo } from 'react';
+import { memo, useMemo, useTransition } from 'react';
 
 // Libraries
 import { Controller, useForm } from 'react-hook-form';
@@ -7,7 +7,11 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Utils
-import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+import {
+  clearErrorOnChange,
+  isEnableSubmitButton,
+  getDirtyState,
+} from '@/utils';
 
 // Components
 import { Input, AvatarUpload, Button } from '@/components';
@@ -19,25 +23,31 @@ import { ERROR_MESSAGES } from '@/constants';
 import { UserProfileData } from '@/types';
 
 interface UserDetailFormProps {
-  avatar: string;
+  id: string;
+  imageUrl: string;
   username: string;
   role: string;
   fullName: string;
   email: string;
+  onAvatarChange: (file: File) => void;
+  onSubmit: (data: Partial<UserProfileData>, id: string) => void;
   onCancel: () => void;
 }
 
 const UserDetailForm = ({
-  avatar = '',
+  id = '',
+  imageUrl = '',
   username = '',
   role = '',
   fullName = '',
   email = '',
+  onAvatarChange,
+  onSubmit,
   onCancel,
 }: UserDetailFormProps) => {
   // Zod schema for validation
   const userDetailFormSchema = z.object({
-    avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+    imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
     username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
     role: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
     fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
@@ -47,20 +57,23 @@ const UserDetailForm = ({
       .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
   });
 
-  const REQUIRED_FIELDS = ['fullName', 'email'];
+  const [isPending, startTransition] = useTransition();
+
+  const REQUIRED_FIELDS = ['imageUrl', 'fullName', 'email'];
 
   // Define config and props for useForm
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues },
     clearErrors,
     handleSubmit,
-  } = useForm<UserProfileData>({
+    watch,
+  } = useForm<Partial<UserProfileData>>({
     resolver: zodResolver(userDetailFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
-      avatar,
+      imageUrl,
       username,
       role,
       fullName,
@@ -69,17 +82,41 @@ const UserDetailForm = ({
   });
 
   // Checking to disable/enable submit button
+  const previewData = {
+    imageUrl,
+    username,
+    role,
+    fullName,
+    email,
+  };
+
   const dirtyItems = Object.keys(dirtyFields);
 
   const enableSubmit: boolean = useMemo(
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
-    [dirtyFields, errors],
+    [dirtyItems, errors],
   );
 
-  const isDisableSubmit = !enableSubmit;
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
 
-  // TODO: update logic and sideEffects
-  const handleFormSubmit = () => {
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<UserProfileData>];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = previewData
+    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
+    : !allFieldsFilled;
+
+  const handleFormSubmit = async (formData: Partial<UserProfileData>) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { role, ...rest } = formData;
+
+    startTransition(() => {
+      onSubmit({ ...rest }, id);
+    });
+
     onCancel();
   };
 
@@ -91,7 +128,7 @@ const UserDetailForm = ({
       <div className="m-[30px_0] w-full flex justify-between items-center">
         <Controller
           control={control}
-          name="avatar"
+          name="imageUrl"
           rules={{
             required: ERROR_MESSAGES.FIELD_REQUIRED,
           }}
@@ -100,7 +137,7 @@ const UserDetailForm = ({
             fieldState: { error },
           }) => (
             <AvatarUpload
-              value={value}
+              value={value ?? ''}
               error={error?.message}
               onChange={(e) => {
                 onChange(e);
@@ -108,7 +145,7 @@ const UserDetailForm = ({
                 // Clear error message on change
                 clearErrorOnChange(name, errors, clearErrors);
               }}
-              onFileChange={() => {}}
+              onFileChange={onAvatarChange}
             />
           )}
         />
@@ -124,6 +161,7 @@ const UserDetailForm = ({
 
           <Button
             type="submit"
+            isLoading={isPending}
             color="primary"
             isDisabled={isDisableSubmit}
             className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
@@ -153,9 +191,6 @@ const UserDetailForm = ({
         <Controller
           name="fullName"
           control={control}
-          rules={{
-            required: ERROR_MESSAGES.FIELD_REQUIRED,
-          }}
           render={({
             field: { onChange, name, ...rest },
             fieldState: { error },
@@ -182,9 +217,6 @@ const UserDetailForm = ({
         <Controller
           name="email"
           control={control}
-          rules={{
-            required: ERROR_MESSAGES.FIELD_REQUIRED,
-          }}
           render={({
             field: { onChange, name, ...rest },
             fieldState: { error },
