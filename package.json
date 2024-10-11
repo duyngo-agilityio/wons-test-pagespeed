@@ -76,5 +76,10 @@
     "ts-jest": "^29.1.3",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "react-big-calendar@1.14.1": "patches/react-big-calendar@1.14.1.patch"
+    }
   }
 }
