@@ -22,7 +22,7 @@ const EditInvoicePage = async ({
 
   const { id } = searchParams;
 
-  if (!isSuperAdmin) return notFound();
+  if (!isSuperAdmin) notFound();
 
   return (
     <DashBoardLayout title="Edit Invoice">

@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateInvoice Page render should render and match with snapshot 1`] = `<div />`;
+exports[`CreateInvoice Page render should render and match with snapshot 1`] = `
+<div>
+  <section>
+    <div
+      class="base:mb-6 md:mb-7.5 w-full md:flex justify-between md:items-center"
+    >
+      <h2
+        aria-level="2"
+        class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl w-full"
+      >
+        Create New Invoice
+      </h2>
+    </div>
+    <div
+      data-testid="create-invoice"
+    >
+      Create Invoice
+    </div>
+  </section>
+</div>
+`;

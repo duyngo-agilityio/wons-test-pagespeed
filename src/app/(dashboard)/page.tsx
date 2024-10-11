@@ -7,7 +7,12 @@ import { DashBoardLayout, TableLayout } from '@/layouts';
 const LazyRecentServicesSection = lazy(
   () => import('@/ui/main-dashboard/RecentServicesSection'),
 );
-import { TopSellingProducts, StatisticSection } from '@/ui/main-dashboard';
+const LazyStatisticSection = lazy(
+  () => import('@/ui/main-dashboard/StatisticSection'),
+);
+const LazyTopSellingProducts = lazy(
+  () => import('@/ui/main-dashboard/TopSellingProduct'),
+);
 
 // Constants
 import { MAPPING_RECENT_SERVICES_SKELETON } from '@/constants/skeleton';
@@ -30,13 +35,13 @@ interface IDashboardPage {
   searchParams: ISearchParams;
 }
 
-const DashboardPage = async ({ searchParams }: IDashboardPage) => {
+const DashboardPage = ({ searchParams = {} }: IDashboardPage) => {
   const {
     sortBy = '',
     order = '',
     startTime = '',
     endTime = '',
-  } = searchParams || {};
+  } = searchParams;
 
   return (
     <DashBoardLayout
@@ -45,7 +50,7 @@ const DashboardPage = async ({ searchParams }: IDashboardPage) => {
     >
       <div className="mb-8">
         <Suspense fallback={<SkeletonStatistic />}>
-          <StatisticSection />
+          <LazyStatisticSection />
         </Suspense>
       </div>
 
@@ -64,7 +69,7 @@ const DashboardPage = async ({ searchParams }: IDashboardPage) => {
         </div>
         <div className="xl:col-span-4">
           <Suspense fallback={<SkeletonProductCard />}>
-            <TopSellingProducts />
+            <LazyTopSellingProducts />
           </Suspense>
         </div>
       </div>

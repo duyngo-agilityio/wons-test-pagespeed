@@ -28,13 +28,9 @@ type TInvoiceListPageProps = {
 };
 
 const ProductListPage = ({
-  searchParams,
+  searchParams = {},
 }: TInvoiceListPageProps): JSX.Element => {
-  const {
-    page = DEFAULT_PAGE,
-    startTime = '',
-    endTime = '',
-  } = searchParams || {};
+  const { page = DEFAULT_PAGE, startTime = '', endTime = '' } = searchParams;
 
   return (
     <main>
