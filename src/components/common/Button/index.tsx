@@ -55,11 +55,7 @@ interface ButtonProps extends Omit<NextUIButtonProps, 'size'> {
 
 const Button = ({ isLoading = false, children, ...props }: ButtonProps) => {
   return (
-    <ButtonCustom
-      {...props}
-      isLoading={undefined}
-      disabled={isLoading || props.disabled}
-    >
+    <ButtonCustom {...props} disabled={isLoading || props.disabled}>
       <div className="flex items-center">
         {isLoading && <FaSpinner className="animate-spin mr-2" />}
         {children}
