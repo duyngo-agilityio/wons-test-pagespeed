@@ -55,6 +55,7 @@ const AvatarUpload = ({
 
       const previewImage = URL.createObjectURL(file);
       setPreviewURL(previewImage);
+
       onFileChange(file);
     },
     [onFileChange, previewURL],

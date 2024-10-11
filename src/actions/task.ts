@@ -9,7 +9,12 @@ import { httpClient } from '@/services';
 import { API_PATH } from '@/constants';
 
 // Types
-import { StrapiModel, StrapiResponse, Task } from '@/types';
+import {
+  StrapiModel,
+  StrapiResponse,
+  Task,
+  TaskWithStringAssignees,
+} from '@/types';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
@@ -53,6 +58,31 @@ export const getTaskDetails = async (id: number) => {
   } catch (error) {
     const message = formatErrorMessage(error);
 
+    return { error: message };
+  }
+};
+
+export const createTask = async (
+  formData: Partial<TaskWithStringAssignees>,
+) => {
+  try {
+    const { title, ...restFormData } = formData;
+
+    const formattedData = {
+      ...restFormData,
+      title,
+    };
+
+    await httpClient.postRequest({
+      endpoint: API_PATH.TASKS,
+      body: { data: formattedData },
+    });
+
+    revalidateTag(API_PATH.TASKS);
+
+    return { success: true };
+  } catch (error) {
+    const message = formatErrorMessage(error);
     return { error: message };
   }
 };

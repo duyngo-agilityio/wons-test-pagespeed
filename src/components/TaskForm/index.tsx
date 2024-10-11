@@ -1,5 +1,4 @@
 'use client';
-
 import {
   useCallback,
   useEffect,
@@ -7,6 +6,8 @@ import {
   useState,
   useTransition,
 } from 'react';
+
+// libs
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
 import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
@@ -21,6 +22,7 @@ import {
   clearErrorOnChange,
   getDirtyState,
   isEnableSubmitButton,
+  parseStringToNumberArray,
 } from '@/utils';
 
 // Components
@@ -41,17 +43,17 @@ import { getUsers } from '@/api';
 // Zod schema for validation
 const taskFormSchema = z.object({
   title: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-  label: z.enum(['To Do', 'In Progress', 'In Review', 'Done'], {
+  label: z.enum(['todo', 'inProgress', 'inReview', 'done'], {
     errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED }),
   }),
   level: z.enum(['Low', 'Medium', 'High'], {
     errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED }),
   }),
+  assignees: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
   description: z
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
     .max(10000, ERROR_MESSAGES.FIELD_INVALID('Description')),
-  assignees: z.array(z.string()).nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
   images: z
     .array(z.string())
     .max(2, ERROR_MESSAGES.FIELD_INVALID('You can upload up to 2 images'))
@@ -59,7 +61,6 @@ const taskFormSchema = z.object({
 });
 
 const REQUIRED_FIELDS = ['title', 'label', 'level', 'description'];
-
 export interface ITaskFormProps {
   isDisabledField?: boolean;
   onSubmit: (data: TaskWithStringAssignees) => void;
@@ -69,7 +70,6 @@ export interface ITaskFormProps {
   onAvatarChange: (files: File[]) => void;
   user: TUser;
 }
-
 const TaskForm = ({
   isDisabledField = false,
   onSubmit,
@@ -86,15 +86,17 @@ const TaskForm = ({
     handleSubmit,
     reset,
     watch,
+    setValue,
   } = useForm<Partial<TaskWithStringAssignees>>({
     resolver: zodResolver(taskFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: previewData || {
       title: '',
-      label: 'todo',
+      label: undefined,
       level: Level.MEDIUM,
       description: '',
+      assignees: '',
     },
   });
 
@@ -105,7 +107,6 @@ const TaskForm = ({
       setReset(reset);
     }
   }, [setReset, reset]);
-
   // Checking to disable/enable submit button
   const dirtyItems = Object.keys(dirtyFields);
 
@@ -114,9 +115,8 @@ const TaskForm = ({
     [dirtyItems, errors],
   );
 
-  const requiredField = REQUIRED_FIELDS.filter(
-    (field) => field !== 'assignees',
-  );
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'images');
+
   const allFieldsFilled = requiredField.every((field) => {
     const isDirty = dirtyItems.includes(field);
     const hasError = errors[field as keyof Partial<TaskWithStringAssignees>];
@@ -129,8 +129,19 @@ const TaskForm = ({
 
   const saveData = useCallback(
     async (formData: Partial<TaskWithStringAssignees>) => {
+      const assignees = formData.assignees
+        ? parseStringToNumberArray(formData.assignees as string)
+        : [];
       startTransition(async () => {
-        await onSubmit(formData as TaskWithStringAssignees);
+        const dataToSubmit: TaskWithStringAssignees = {
+          assignees,
+          images: formData.images ?? [],
+          title: formData.title || '',
+          label: formData.label || 'todo',
+          level: formData.level || Level.MEDIUM,
+          description: formData.description || '',
+        };
+        await onSubmit(dataToSubmit);
         reset();
       });
     },
@@ -142,7 +153,6 @@ const TaskForm = ({
   const handleGetUserList = useCallback(async () => {
     try {
       const response = await getUsers();
-
       if (response) {
         setUsers(response);
       }
@@ -188,7 +198,17 @@ const TaskForm = ({
             <AvatarUploadMultiple
               value={Array.isArray(value) ? value : []}
               error={error?.message}
-              onFileChange={(files) => onAvatarChange(files)}
+              onFileChange={(files) => {
+                const currentFileURLs = Array.isArray(value) ? value : [];
+
+                const combinedFileURLs = [...currentFileURLs, ...files];
+
+                const stringURLs = combinedFileURLs.filter(
+                  (file): file is string => typeof file === 'string',
+                );
+                setValue('images', stringURLs);
+                onAvatarChange(files);
+              }}
             />
           )}
         />
@@ -217,6 +237,7 @@ const TaskForm = ({
             </div>
           )}
         />
+
         <Controller
           name="label"
           control={control}
@@ -252,19 +273,19 @@ const TaskForm = ({
                   clearErrorOnChange(name, errors, clearErrors);
                 }}
               >
-                {STATUS.map((level) => (
-                  <SelectItem key={level} value={level}>
-                    {level}
+                {STATUS.map((status) => (
+                  <SelectItem key={status.key} value={status.key}>
+                    {status.label}
                   </SelectItem>
                 ))}
               </Select>
-
               {error && (
                 <p className="text-red-500 text-xs mt-1">{error.message}</p>
               )}
             </div>
           )}
         />
+
         <Controller
           name="level"
           control={control}
@@ -306,7 +327,6 @@ const TaskForm = ({
                   </SelectItem>
                 ))}
               </Select>
-
               {error && (
                 <p className="text-red-500 text-xs mt-1">{error.message}</p>
               )}
@@ -352,18 +372,14 @@ const TaskForm = ({
           render={({ field: { onChange, value, name, ...rest } }) => (
             <Select
               selectionMode="multiple"
-              label="Add People"
+              label="Assignees"
               selectedKeys={value}
               placeholder=" "
               labelPlacement="outside"
               variant="flat"
               classNames={{
-                trigger: clsx(
-                  'w-full py-[26px] mt-5',
-                  'bg-gray-50 dark:bg-gray-600',
-                  'hover:!bg-gray-200/50 dark:hover:!bg-gray-900',
-                  'focus:bg-gray-50 dark:focus:bg-gray-600',
-                ),
+                trigger:
+                  'w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
                 label: 'text-xl font-medium pb-1',
               }}
               onChange={(e) => {
@@ -393,5 +409,4 @@ const TaskForm = ({
     </form>
   );
 };
-
 export default TaskForm;
