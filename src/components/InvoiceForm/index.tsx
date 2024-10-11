@@ -26,6 +26,7 @@ import {
   convertToCalendarDate,
   currentDate,
   formatDatePicker,
+  getDirtyState,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -113,8 +114,9 @@ const InvoiceForm = ({
 
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues },
     clearErrors,
+    watch,
     handleSubmit,
   } = useForm<TInvoiceFormData>({
     resolver: zodResolver(invoiceSchema),
@@ -143,8 +145,16 @@ const InvoiceForm = ({
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
     [dirtyItems, errors],
   );
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<TInvoiceFormData>];
+    return isDirty && !hasError;
+  });
 
-  const isDisableSubmit = !enableSubmit;
+  const isDisableSubmit = previewData
+    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
+    : !allFieldsFilled;
 
   const handleSubmitButton = async (formData: TInvoiceFormData) => {
     const hasEmptyField = productsValues.some((obj) =>
