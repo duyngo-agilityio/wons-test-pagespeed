@@ -25,6 +25,12 @@ const config: Config = {
     '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(css|svg|jpg)$': 'identity-obj-proxy',
   },
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/app/(error|layout|global-error|loading|not-found|robots|sitemap).*',
+    '<rootDir>/src/app/api/*',
+    '<rootDir>/src/app/\\(dashboard\\)/(error|layout|loading|not-found).*',
+    '<rootDir>/src/app/\\(dashboard\\)/.+/(error|layout|loading|not-found).*',
+  ],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

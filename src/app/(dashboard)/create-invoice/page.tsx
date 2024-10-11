@@ -13,7 +13,7 @@ import { CreateInvoice } from '@/ui';
 const CreateInvoicePage = async (): Promise<JSX.Element> => {
   const isSuperAdmin = await isAdmin();
 
-  if (!isSuperAdmin) return notFound();
+  if (!isSuperAdmin) notFound();
 
   return (
     <DashBoardLayout title="Create New Invoice">
