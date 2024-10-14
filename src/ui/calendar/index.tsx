@@ -10,7 +10,7 @@ import { auth } from '@/configs';
 import { TUser } from '@/models';
 
 // Actions
-import { createEvent } from '@/actions';
+import { createEvent, updateEvent } from '@/actions';
 
 // Components
 import CalendarClient from './CalendarClient';
@@ -27,6 +27,7 @@ const Calendar = async () => {
       user={user as TUser}
       events={formattedEvents(events)}
       createEvent={createEvent}
+      updateEvent={updateEvent}
     />
   );
 };

@@ -51,3 +51,20 @@ export const deleteEvent = async (
     return { error: message };
   }
 };
+
+export const updateEvent = async (
+  id: number,
+  data: Partial<IEvent>,
+): Promise<{ error?: string } | void> => {
+  try {
+    await httpClient.putRequest({
+      endpoint: `${API_PATH.EVENTS}/${id}`,
+      body: { data },
+    });
+
+    revalidateTag(API_PATH.EVENTS);
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};

@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback, useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { CalendarDate } from '@internationalized/date';
 import { IoClose } from 'react-icons/io5';
@@ -16,6 +16,9 @@ import {
 // Constants
 import { ERROR_MESSAGES, EVENT_TABS } from '@/constants';
 
+// Types
+import { TEventResponse } from '@/types';
+
 // Utils
 import {
   capitalizeFirstLetter,
@@ -24,6 +27,7 @@ import {
   formatEventDate,
   formatToCalendarDate,
   formatToStandardDate,
+  getUserIds,
   parseStringToNumberArray,
 } from '@/utils';
 
@@ -58,16 +62,14 @@ interface EventFormModalProps {
   eventTitle: string;
   date: Date;
   timeRange: TimeRangeProps;
-  status: 'free' | 'busy';
-  visibility: 'default' | 'public' | 'private';
-  notificationTime: number;
   isOpen: boolean;
-  onSubmit: (data: Partial<IEvent>) => void;
-  onClose: () => void;
   repeatSetting?: string;
   guests?: string[];
   location?: string;
   user: TUser;
+  previewData?: EventForm | null;
+  onSubmit: (data: Partial<IEvent>) => void;
+  onClose: () => void;
 }
 
 interface EventForm {
@@ -83,6 +85,7 @@ const EventFormModal = ({
   timeRange,
   isOpen,
   user,
+  previewData = null,
   onClose,
   onSubmit,
   repeatSetting = 'does not repeat',
@@ -104,17 +107,18 @@ const EventFormModal = ({
     }));
 
   const toggleUserList = useCallback(async () => {
-    if (!isUserListOpen) {
-      const response = await getUsers(); // Call API to fetch users
+    const response = await getUsers(); // Call API to fetch users
 
-      if (response) {
-        setUsers(response);
-      } else {
-        console.error('No data found in the response');
-      }
+    if (response) {
+      setUsers(response);
+    } else {
+      console.error('No data found in the response');
     }
-    setIsUserListOpen((prev) => !prev);
-  }, [isUserListOpen]);
+  }, []);
+
+  useEffect(() => {
+    toggleUserList(); // Automatically fetch users when component mounts
+  }, [toggleUserList]);
 
   const {
     handleSubmit,
@@ -125,11 +129,17 @@ const EventFormModal = ({
   } = useForm<EventForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: {
-      title: eventTitle,
-      location: '',
-      people: '',
-    },
+    defaultValues: previewData
+      ? {
+          title: previewData?.title || '',
+          location: previewData?.location,
+          people: getUserIds(previewData as TEventResponse) || '',
+        }
+      : {
+          title: eventTitle,
+          location: '',
+          people: '',
+        },
   });
 
   const standardDate = formatToStandardDate(calendarDate);
@@ -254,7 +264,7 @@ const EventFormModal = ({
             </div>
           </div>
 
-          {isUserListOpen && (
+          {(isUserListOpen || previewData) && (
             <Controller
               name="people"
               control={control}
@@ -262,7 +272,7 @@ const EventFormModal = ({
                 <Select
                   selectionMode="multiple"
                   label="Add People"
-                  selectedKeys={value}
+                  defaultSelectedKeys={value}
                   placeholder=" "
                   labelPlacement="outside"
                   variant="flat"
@@ -285,7 +295,7 @@ const EventFormModal = ({
             />
           )}
 
-          {isOpenLocation && (
+          {(isOpenLocation || previewData?.location) && (
             <Controller
               name="location"
               control={control}
@@ -311,18 +321,18 @@ const EventFormModal = ({
           )}
 
           <div className="flex gap-[0_25px] m-[30px_0]">
-            {!isUserListOpen && (
+            {!isUserListOpen && !previewData && (
               <Button
                 color="primary"
                 startContent={<PeopleIcon />}
                 className="text-[15px] font-medium w-auto  py-[10px] px-[25px] mt-10 mt-0"
-                onClick={toggleUserList}
+                onClick={() => setIsUserListOpen((prev) => !prev)}
               >
                 Add People
               </Button>
             )}
 
-            {!isOpenLocation && (
+            {!isOpenLocation && !previewData?.location && (
               <Button
                 startContent={<LocationIcon />}
                 className="!bg-white font-medium dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] !rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"

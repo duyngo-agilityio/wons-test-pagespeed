@@ -227,6 +227,9 @@ export const formattedGuestInfo = (guests: TEventResponse) =>
     avatar: attributes.avatar,
   }));
 
+export const getUserIds = (eventResponse: TEventResponse): string =>
+  eventResponse.users_permissions_users.data.map((user) => user.id).join(',');
+
 export const getTimeFromISO = (isoString: string): string => {
   // Check if the provided string is a valid ISO date
   const date = new Date(isoString);
