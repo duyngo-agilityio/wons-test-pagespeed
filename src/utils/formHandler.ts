@@ -1,5 +1,5 @@
 // APIs
-import { uploadImage } from '@/api/image';
+import { uploadImage } from '@/api';
 
 // Models
 import { IProductDetail } from '@/models';

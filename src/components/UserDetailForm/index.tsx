@@ -1,5 +1,6 @@
 'use client';
 import { memo, useMemo } from 'react';
+import isEqual from 'react-fast-compare';
 
 // Libraries
 import { Controller, useForm } from 'react-hook-form';
@@ -23,22 +24,14 @@ import { ERROR_MESSAGES } from '@/constants';
 import { IUserFormData } from '@/types';
 
 interface UserDetailFormProps {
-  avatar: string;
-  username: string;
-  role: string;
-  fullName: string;
-  email: string;
+  user: IUserFormData;
   onAvatarChange: (file: File) => void;
   onSubmit: (formData: IUserFormData) => Promise<void>;
   onCancel: () => void;
 }
 
 const UserDetailForm = ({
-  avatar = '',
-  username = '',
-  role = '',
-  fullName = '',
-  email = '',
+  user,
   onAvatarChange,
   onSubmit,
   onCancel,
@@ -68,23 +61,8 @@ const UserDetailForm = ({
     resolver: zodResolver(userDetailFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: {
-      avatar,
-      username,
-      role,
-      fullName,
-      email,
-    },
+    defaultValues: user,
   });
-
-  // Checking to disable/enable submit button
-  const previewData = {
-    avatar,
-    username,
-    role,
-    fullName,
-    email,
-  };
 
   const dirtyItems = Object.keys(dirtyFields);
 
@@ -101,7 +79,7 @@ const UserDetailForm = ({
     return isDirty && !hasError;
   });
 
-  const isDisableSubmit = previewData
+  const isDisableSubmit = user
     ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
     : !allFieldsFilled;
 
@@ -239,4 +217,4 @@ const UserDetailForm = ({
   );
 };
 
-export default memo(UserDetailForm);
+export default memo(UserDetailForm, isEqual);

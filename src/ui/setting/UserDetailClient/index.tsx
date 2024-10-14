@@ -13,21 +13,19 @@ import { handleUpdateImageProfile } from '@/utils';
 // Components
 import { UserDetailForm, UserDetail, LoadingIndicator } from '@/components';
 
-// Models
-import { TUser } from '@/models';
-
 // Types
 import { IUserFormData } from '@/types';
 
 interface UserDetailClientProps {
-  user?: TUser;
+  user: IUserFormData;
+  id: number;
   onEdit: (
     payload: Omit<IUserFormData, 'role'>,
     id: number,
   ) => Promise<{ success?: boolean; error?: string }>;
 }
 
-const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
+const UserDetailClient = ({ user, id, onEdit }: UserDetailClientProps) => {
   // States
   const [showEditForm, setShowEditForm] = useState(false);
   const { showToast } = useToast();
@@ -40,7 +38,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
     fullName = '',
     username = '',
     email = '',
-    role = ROLES[0],
+    role = ROLES[0].name,
   } = user ?? {};
 
   const handleEditFormToggle = () => {
@@ -53,8 +51,8 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
   }, []);
 
   const handleEditUserDetail = useCallback(
-    // Handle update User's avatar
     async (formData: IUserFormData) => {
+      // Handle update User's avatar
       if (avatarFile && isAvatarDirty) {
         formData = (await handleUpdateImageProfile(
           avatarFile,
@@ -71,12 +69,12 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
             email: formData.email,
             username: formData.username,
           },
-          Number(user?.id),
+          id,
         );
 
         showToast({
           description: error ?? SUCCESS_MESSAGES.UPDATE_PROFILE,
-          status: error ?? MESSAGE_STATUS.SUCCESS,
+          status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
         });
       });
 
@@ -85,7 +83,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
         setIsAvatarDirty(false);
       }
     },
-    [avatarFile, isAvatarDirty, isPending, onEdit, showToast, user?.id],
+    [avatarFile, id, isAvatarDirty, isPending, onEdit, showToast],
   );
 
   return (
@@ -97,11 +95,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
           <div className="bg-blue-500 w-full h-20 rounded-tl-lg rounded-tr-lg bg-gradient-to-r from-blue-500 to-blue-300" />
           {showEditForm ? (
             <UserDetailForm
-              avatar={avatar}
-              username={username}
-              role={role.name}
-              fullName={fullName}
-              email={email}
+              user={user}
               onAvatarChange={handleAvatarChange}
               onSubmit={handleEditUserDetail}
               onCancel={handleEditFormToggle}
@@ -110,7 +104,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
             <UserDetail
               avatar={avatar}
               username={username}
-              role={role.name}
+              role={role}
               fullName={fullName}
               email={email}
               onButtonEditClick={handleEditFormToggle}

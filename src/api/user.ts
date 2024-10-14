@@ -15,10 +15,6 @@ import { formatErrorMessage } from '@/utils';
 // Types
 import { TProfileResponse } from '@/types';
 
-interface UserProfile extends UserListConfigs {
-  id: number;
-}
-
 export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
   try {
     const data = await httpClient.getRequest<TProfileResponse>({
@@ -28,6 +24,9 @@ export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
           Authorization: `Bearer ${jwt}`,
         },
         cache: 'no-store',
+        next: {
+          tags: [API_PATH.USERS],
+        },
       },
     });
 
@@ -60,30 +59,6 @@ export const getUsers = async ({
     });
 
     return customerResponse;
-  } catch (error) {
-    const message = formatErrorMessage(error);
-
-    throw new Error(message);
-  }
-};
-
-export const getUserById = async ({
-  id,
-  cache,
-  nextOptions,
-}: UserProfile): Promise<TUser> => {
-  const endpoint = `${API_PATH.USERS}/${id}`;
-
-  try {
-    const userResponse = await httpClient.getRequest<TUser>({
-      endpoint,
-      configOptions: {
-        cache: cache ?? 'force-cache',
-        next: nextOptions,
-      },
-    });
-
-    return userResponse;
   } catch (error) {
     const message = formatErrorMessage(error);
 

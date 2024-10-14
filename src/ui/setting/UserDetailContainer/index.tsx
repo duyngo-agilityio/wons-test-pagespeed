@@ -4,27 +4,36 @@ import { auth } from '@/configs';
 import { updateUser } from '@/actions';
 
 // APIs
-import { getUserById } from '@/api';
+import { getProfile } from '@/api';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { ROLES } from '@/constants';
 
 // Components
 import UserDetailClient from '../UserDetailClient';
+import { IUserFormData } from '@/types';
 
 const UserDetailContainer = async () => {
   const { user } = (await auth()) ?? {};
-
+  const jwt: string = user?.token as string;
   const id = Number(user?.id);
+  const data = await getProfile(jwt);
+  const {
+    avatar = '',
+    email = '',
+    role = ROLES[0],
+    fullName = '',
+    username = '',
+  } = data ?? {};
+  const newUser: IUserFormData = {
+    avatar,
+    fullName,
+    email,
+    username,
+    role: role.name,
+  };
 
-  const data = await getUserById({
-    id,
-    nextOptions: {
-      tags: [API_PATH.USERS],
-    },
-  });
-
-  return <UserDetailClient user={data} onEdit={updateUser} />;
+  return <UserDetailClient user={newUser} id={id} onEdit={updateUser} />;
 };
 
 export default UserDetailContainer;
