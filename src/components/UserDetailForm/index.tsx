@@ -94,7 +94,7 @@ const UserDetailForm = ({
       className="p-[0_30px_0] w-full"
       onSubmit={handleSubmit(handleFormSubmit)}
     >
-      <div className="m-[30px_0] w-full flex justify-between items-center">
+      {/* <div className="m-[30px_0] w-full flex justify-between items-center">
         <Controller
           control={control}
           name="avatar"
@@ -122,7 +122,7 @@ const UserDetailForm = ({
 
         <div className="flex gap-[0_15px]">
           <Button
-            className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
+            className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
             type="button"
             onClick={onCancel}
             isDisabled={isSubmitting}
@@ -135,14 +135,61 @@ const UserDetailForm = ({
             isLoading={isSubmitting}
             color="primary"
             isDisabled={isDisableSubmit || isSubmitting}
-            className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
+            className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full"
           >
             Save
           </Button>
         </div>
-      </div>
+      </div> */}
 
-      <div className="grid grid-cols-2 gap-[30px]">
+      <div className="m-[30px_0_0] grid grid-cols-1 md:grid-cols-2 gap-[30px]">
+        <Controller
+          control={control}
+          name="avatar"
+          rules={{
+            required: ERROR_MESSAGES.FIELD_REQUIRED,
+          }}
+          render={({
+            field: { onChange, value, name },
+            fieldState: { error },
+          }) => (
+            <AvatarUpload
+              additionalClass="md:justify-self-start"
+              value={value ?? ''}
+              error={error?.message}
+              isDisabled={isSubmitting}
+              onChange={(e) => {
+                onChange(e);
+
+                // Clear error message on change
+                clearErrorOnChange(name, errors, clearErrors);
+              }}
+              onFileChange={onAvatarChange}
+            />
+          )}
+        />
+
+        <div className="flex gap-[0_15px] items-center justify-end row-start-7 row-end--1 md:row-start-auto  md:row-end-auto">
+          <Button
+            className="min-w-[93px] h-fit !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
+            type="button"
+            onClick={onCancel}
+            isDisabled={isSubmitting}
+          >
+            Cancel
+          </Button>
+
+          <Button
+            className="min-w-[93px] h-fit text-[15px] font-medium py-[10px] px-[25px]"
+            type="submit"
+            isLoading={isSubmitting}
+            color="primary"
+            isDisabled={isDisableSubmit || isSubmitting}
+          >
+            Save
+          </Button>
+        </div>
+
         <Controller
           name="username"
           control={control}
