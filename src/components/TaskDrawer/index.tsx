@@ -94,7 +94,7 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
           });
         } else {
           showToast({
-            description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
+            description: SUCCESS_MESSAGES.CREATE_TASK,
             status: MESSAGE_STATUS.SUCCESS,
           });
         }
