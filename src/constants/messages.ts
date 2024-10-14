@@ -33,6 +33,7 @@ export const SUCCESS_MESSAGES = {
   UPDATE_TASK: 'Update task successfully.',
   DELETE_TASK: 'Delete task successfully.',
   DELETE_EVENT: 'Delete event successfully.',
+  UPDATE_PROFILE: 'Update profile successfully.',
 };
 
 export const MESSAGE_STATUS: Record<string, string> = {

@@ -1,15 +1,29 @@
+import { auth } from '@/configs';
+
 // Actions
 import { updateUser } from '@/actions';
+
+// APIs
+import { getUserById } from '@/api';
+
+// Constants
+import { API_PATH } from '@/constants';
 
 // Components
 import UserDetailClient from '../UserDetailClient';
 
-import { auth } from '@/configs';
-
 const UserDetailContainer = async () => {
   const { user } = (await auth()) ?? {};
+  const id = Number(user?.id);
 
-  return <UserDetailClient user={user} onEdit={updateUser} />;
+  const data = await getUserById({
+    id,
+    nextOptions: {
+      tags: [API_PATH.USERS],
+    },
+  });
+
+  return <UserDetailClient user={data} onEdit={updateUser} />;
 };
 
 export default UserDetailContainer;

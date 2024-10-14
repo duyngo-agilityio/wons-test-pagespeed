@@ -13,25 +13,21 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 // Types
-import { UserProfileData } from '@/types';
+import { IUserFormData } from '@/types';
+import { TUser } from '@/models';
 
 export const updateUser = async (
-  profileData: Partial<UserProfileData>,
+  profileData: Omit<IUserFormData, 'role'>,
   id: number,
 ) => {
   try {
-    const formattedData = {
-      avatar: profileData.imageUrl,
-      fullName: profileData.fullName,
-      email: profileData.email,
-    };
-
-    await httpClient.patchRequest({
+    await httpClient.putRequest<Omit<IUserFormData, 'role'>, TUser>({
       endpoint: `${API_PATH.USERS}/${id}`,
-      body: { data: formattedData },
+      body: profileData,
     });
 
     revalidateTag(API_PATH.USERS);
+
     return { success: true };
   } catch (error) {
     const message = formatErrorMessage(error);
