@@ -76,6 +76,7 @@ const AvatarUploadMultiple = ({
   };
 
   const isUploadDisabled = previewURLs.length >= 2;
+  const isShowErrorImage = previewURLs.length > 2;
 
   return (
     <div className="flex flex-col items-center mt-5">
@@ -90,7 +91,6 @@ const AvatarUploadMultiple = ({
         <IoCamera size={24} className="text-blue-800/70" />
         <Text className="ml-2" text="Upload Image" />
       </label>
-
       <Input
         aria-label="Upload Avatar"
         type="file"
@@ -99,11 +99,17 @@ const AvatarUploadMultiple = ({
         accept="image/*"
         multiple
         onChange={handleChangeFiles}
-        disabled={isUploadDisabled}
+        isDisabled={isUploadDisabled}
       />
 
       {errorMessage && (
         <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
+      )}
+
+      {isShowErrorImage && (
+        <p className="text-red-500 text-sm mt-2">
+          You can upload up to 2 images
+        </p>
       )}
 
       <div className="grid grid-cols-2 gap-4 mt-4">
