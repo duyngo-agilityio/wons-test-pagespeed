@@ -20,53 +20,54 @@ const AvatarUploadMultiple = ({
 }: TAvatarUploadMultipleProps) => {
   const [previewURLs, setPreviewURLs] = useState<string[]>(value);
   const [errorMessage, setErrorMessage] = useState<string>(error);
+  const [_, setFilesList] = useState<File[]>([]);
 
   const handleChangeFiles = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files;
+      if (!files) return;
+
+      // Reset error message
+      setErrorMessage('');
+
+      // Array to hold valid files and preview URLs
       const validFiles: File[] = [];
       const newPreviewURLs: string[] = [];
 
-      if (!files) {
-        return;
-      }
-
-      // Reset error message for multiple files processing
-      setErrorMessage('');
-
+      // Validate files
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
 
+        // Validate file name and size
         if (!REGEX.IMG.test(file.name)) {
-          const error = ERROR_MESSAGES.UPLOAD_IMAGE;
-          setErrorMessage(error);
+          setErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE);
           return;
         }
-
         if (file.size > MAX_SIZE) {
-          const error = ERROR_MESSAGES.UPLOAD_IMAGE_SIZE;
-          setErrorMessage(error);
+          setErrorMessage(ERROR_MESSAGES.UPLOAD_IMAGE_SIZE);
           return;
         }
 
-        // Add valid file to array
+        // Add valid file
         validFiles.push(file);
-
-        // Create preview URL for the valid file
         const previewImage = URL.createObjectURL(file);
         newPreviewURLs.push(previewImage);
       }
 
-      // Update preview URLs (append new ones)
-      setPreviewURLs((prev) => [...prev, ...newPreviewURLs]);
+      // Use the callback version of setState to ensure we have the latest value
+      setFilesList((prevFiles) => {
+        const updatedFiles = [...prevFiles, ...validFiles];
 
-      // Ensure no error message after valid files
-      setErrorMessage('');
+        // Pass the updated files list to the parent component
+        onFileChange(updatedFiles);
 
-      // Pass the valid files to onFileChange
-      onFileChange(validFiles);
+        return updatedFiles; // Update the filesList state
+      });
+
+      // Update preview URLs
+      setPreviewURLs((prevURLs) => [...prevURLs, ...newPreviewURLs]);
     },
-    [onFileChange],
+    [onFileChange], // Remove filesList from dependency array
   );
 
   const handleRemoveImage = (index: number) => {
