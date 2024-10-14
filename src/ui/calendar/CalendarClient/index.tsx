@@ -52,7 +52,11 @@ interface CalendarClientProps extends Omit<CalendarProps, 'localizer'> {
   events: (Event & IEvent)[];
   isAdmin: boolean;
   user: TUser;
-  createEvent: (data: Partial<IEvent>) => void;
+  createEvent: (data: Partial<IEvent>) => Promise<{ error?: string } | void>;
+  updateEvent: (
+    id: number,
+    data: Partial<IEvent>,
+  ) => Promise<{ error?: string } | void>;
 }
 
 interface Slot {
@@ -65,17 +69,24 @@ const CalendarClient = ({
   events,
   isAdmin,
   createEvent,
+  updateEvent,
   ...rest
 }: CalendarClientProps) => {
   const [view, setView] = useState<ViewType>(Views.MONTH);
   const { isOpen: isOpenEventFormModal, onOpenChange: onToggleEventFormModal } =
     useDisclosure();
+  const [previewData, setPreviewData] = useState<TEventResponse | null>();
 
   const [slot, setSlot] = useState<Slot | null>(null);
 
   const [selectedEvent, setSelectedEvent] = useState<TEventResponse | null>(
     null,
   );
+
+  const onCloseFormModal = () => {
+    onToggleEventFormModal();
+    setPreviewData(null);
+  };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
@@ -115,13 +126,53 @@ const CalendarClient = ({
     setIsModalOpen(true);
   };
 
-  const handleFormSubmit = (data: Partial<IEvent>) => {
+  const handleFormSubmit = async (data: Partial<IEvent>) => {
     onToggleEventFormModal();
-    createEvent(data);
+
+    if (previewData) {
+      if (selectedEvent && selectedEvent.id !== undefined) {
+        setIsLoading(true);
+
+        const response = await updateEvent(selectedEvent.id, data);
+
+        setIsLoading(false);
+
+        const { error } = response || {};
+        showToast({
+          description: error || SUCCESS_MESSAGES.UPDATE_EVENT,
+          status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+        });
+
+        if (!error) {
+          setSelectedEvent(null);
+          setSelectedEvent(null);
+          setIsModalOpen(false);
+        }
+      }
+    } else {
+      setIsLoading(true);
+
+      const response = await createEvent(data);
+
+      setIsLoading(false);
+
+      const { error } = response || {};
+      showToast({
+        description: error || SUCCESS_MESSAGES.CREATE_EVENT,
+        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+      });
+    }
   };
 
   const handleDeleteEvent = () => {
     setIsConfirmModalOpen(true);
+  };
+
+  const handleEditEvent = async () => {
+    setIsModalOpen(false);
+    setPreviewData(selectedEvent);
+
+    onToggleEventFormModal();
   };
 
   const confirmDeleteEvent = useCallback(async () => {
@@ -136,6 +187,7 @@ const CalendarClient = ({
       });
 
       if (!error) {
+        setPreviewData(null);
         setSelectedEvent(null);
         setIsModalOpen(false);
         setIsConfirmModalOpen(false);
@@ -183,6 +235,7 @@ const CalendarClient = ({
             guests={formattedGuestInfo(selectedEvent)}
             id={selectedEvent.id}
             onDelete={isAdmin ? handleDeleteEvent : undefined}
+            onEdit={handleEditEvent}
           />
         </div>
       )}
@@ -197,19 +250,23 @@ const CalendarClient = ({
       {isOpenEventFormModal && (
         <EventFormModal
           user={user}
-          title="Create Event"
+          title={previewData ? 'Update Event' : 'Create Event'}
           eventTitle=""
-          date={slot?.start || new Date()}
+          date={
+            previewData ? new Date(previewData.date) : slot?.start || new Date()
+          }
           timeRange={{
-            start: dayjs(slot?.start).format('HH:mm'),
-            end: dayjs(slot?.end).add(2, 'hour').format('HH:mm'),
+            start: previewData
+              ? dayjs(previewData.startTime).format('HH:mm')
+              : dayjs(slot?.start).format('HH:mm'),
+            end: previewData
+              ? dayjs(previewData.endTime).format('HH:mm')
+              : dayjs(slot?.end).add(2, 'hour').format('HH:mm'),
           }}
+          previewData={previewData}
           isOpen={isOpenEventFormModal}
           onSubmit={handleFormSubmit}
-          onClose={onToggleEventFormModal}
-          status="free"
-          visibility="default"
-          notificationTime={0}
+          onClose={onCloseFormModal}
         />
       )}
     </div>
