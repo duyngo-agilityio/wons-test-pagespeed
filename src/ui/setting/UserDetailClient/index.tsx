@@ -1,15 +1,8 @@
 'use client';
 import { memo, useState, useCallback, useTransition } from 'react';
-import isEqual from 'react-fast-compare';
 
 // Constants
 import { IMAGES, ROLES, SUCCESS_MESSAGES, MESSAGE_STATUS } from '@/constants';
-
-// Actions
-// import { updateUser } from '@/actions';
-
-// APIs
-// import { uploadImage } from '@/api/image';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -22,12 +15,12 @@ import { UserDetailForm, UserDetail, LoadingIndicator } from '@/components';
 
 // Types
 import { TUser } from '@/models';
-import { UserProfileData } from '@/types';
+import { IUserFormData } from '@/types';
 
 interface UserDetailClientProps {
   user?: TUser;
   onEdit: (
-    payload: Partial<UserProfileData>,
+    payload: Omit<IUserFormData, 'role'>,
     id: number,
   ) => Promise<
     | {
@@ -51,7 +44,6 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
   const [isPending, startTransition] = useTransition();
 
   const {
-    id = '',
     avatar = IMAGES.AVATAR_DEFAULT,
     fullName = '',
     username = '',
@@ -63,24 +55,34 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
     setShowEditForm((prevValue) => !prevValue);
   };
 
-  const handleAvatarChange = useCallback((avatarFile: File) => {
-    setAvatarFile(avatarFile);
+  const handleAvatarChange = useCallback((file: File) => {
+    setAvatarFile(file);
     setIsAvatarDirty(true);
   }, []);
 
   const handleEditUserDetail = useCallback(
-    async (formData: Partial<UserProfileData>, id: string) => {
+    // Update User's avatar
+    async (formData: IUserFormData) => {
       setIsLoading(true);
 
       if (avatarFile && isAvatarDirty) {
         formData = (await handleUpdateImageProfile(
           avatarFile,
           formData,
-        )) as UserProfileData;
+        )) as IUserFormData;
       }
 
+      // Update user's profile
       startTransition(async () => {
-        const { error } = await onEdit(formData, Number(id));
+        const { error } = await onEdit(
+          {
+            avatar: formData.avatar,
+            fullName: formData.fullName,
+            email: formData.email,
+            username: formData.username,
+          },
+          Number(user?.id),
+        );
 
         if (error) {
           return showToast({
@@ -89,7 +91,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
           });
         } else {
           showToast({
-            description: SUCCESS_MESSAGES.UPDATE_PRODUCT,
+            description: SUCCESS_MESSAGES.UPDATE_PROFILE,
             status: MESSAGE_STATUS.SUCCESS,
           });
         }
@@ -102,7 +104,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
 
       setIsLoading(false);
     },
-    [avatarFile, isAvatarDirty, isPending, onEdit, showToast],
+    [avatarFile, isAvatarDirty, isPending, onEdit, showToast, user?.id],
   );
 
   return (
@@ -114,8 +116,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
           <div className="bg-blue-500 w-full h-20 rounded-tl-lg rounded-tr-lg bg-gradient-to-r from-blue-500 to-blue-300" />
           {showEditForm ? (
             <UserDetailForm
-              id={id}
-              imageUrl={avatar}
+              avatar={avatar}
               username={username}
               role={role.name}
               fullName={fullName}
@@ -140,4 +141,4 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
   );
 };
 
-export default memo(UserDetailClient, isEqual);
+export default memo(UserDetailClient);
