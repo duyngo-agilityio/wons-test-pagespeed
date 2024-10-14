@@ -26,13 +26,14 @@ const UserDetail = ({
     <div className="p-[0_30px_0] w-full gap-[5px_0]">
       <div className="m-[30px_0] flex justify-between items-center">
         <div className="flex gap-[0_20px]">
-          <ImageFallback
-            className="rounded-full"
-            width={128}
-            height={128}
-            alt="User Avatar"
-            src={avatar}
-          />
+          <div className="relative w-[128px] h-[128px]">
+            <ImageFallback
+              fill
+              className="rounded-full object-cover h-full"
+              alt="User Avatar"
+              src={avatar}
+            />
+          </div>
 
           <div className="flex flex-col justify-center">
             <Text className="font-bold" size="2xl" as="dd" text={fullName} />
