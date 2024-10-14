@@ -1,5 +1,5 @@
 'use client';
-import { memo, useMemo, useTransition } from 'react';
+import { memo, useMemo } from 'react';
 
 // Libraries
 import { Controller, useForm } from 'react-hook-form';
@@ -55,14 +55,12 @@ const UserDetailForm = ({
       .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
   });
 
-  const [isPending, startTransition] = useTransition();
-
-  const REQUIRED_FIELDS = ['avatar', 'fullName', 'email'];
+  const REQUIRED_FIELDS = ['fullName', 'email'];
 
   // Define config and props for useForm
   const {
     control,
-    formState: { dirtyFields, errors, defaultValues },
+    formState: { dirtyFields, errors, defaultValues, isSubmitting },
     clearErrors,
     handleSubmit,
     watch,
@@ -108,9 +106,7 @@ const UserDetailForm = ({
     : !allFieldsFilled;
 
   const handleFormSubmit = async (formData: IUserFormData) => {
-    startTransition(async () => {
-      onSubmit(formData);
-    });
+    await onSubmit(formData);
 
     onCancel();
   };
@@ -134,6 +130,7 @@ const UserDetailForm = ({
             <AvatarUpload
               value={value ?? ''}
               error={error?.message}
+              isDisabled={isSubmitting}
               onChange={(e) => {
                 onChange(e);
 
@@ -150,15 +147,16 @@ const UserDetailForm = ({
             className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
             type="button"
             onClick={onCancel}
+            isDisabled={isSubmitting}
           >
             Cancel
           </Button>
 
           <Button
             type="submit"
-            isLoading={isPending}
+            isLoading={isSubmitting}
             color="primary"
-            isDisabled={isDisableSubmit}
+            isDisabled={isDisableSubmit || isSubmitting}
             className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
           >
             Save
@@ -198,6 +196,7 @@ const UserDetailForm = ({
               type="text"
               isInvalid={!!error}
               errorMessage={error?.message}
+              isDisabled={isSubmitting}
               onChange={(e) => {
                 onChange(e.target.value);
 
@@ -224,6 +223,7 @@ const UserDetailForm = ({
               type="email"
               isInvalid={!!error}
               errorMessage={error?.message}
+              isDisabled={isSubmitting}
               onChange={(e) => {
                 onChange(e.target.value);
 

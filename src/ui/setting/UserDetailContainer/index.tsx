@@ -14,6 +14,7 @@ import UserDetailClient from '../UserDetailClient';
 
 const UserDetailContainer = async () => {
   const { user } = (await auth()) ?? {};
+
   const id = Number(user?.id);
 
   const data = await getUserById({

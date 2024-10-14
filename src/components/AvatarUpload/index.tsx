@@ -15,6 +15,7 @@ export type TUpdateProfileProps = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   value: string;
   error?: string;
+  isDisabled?: boolean;
 };
 
 const AvatarUpload = ({
@@ -22,6 +23,7 @@ const AvatarUpload = ({
   error = '',
   onChange,
   onFileChange,
+  isDisabled = false,
 }: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>(error);
@@ -99,6 +101,7 @@ const AvatarUpload = ({
         onChange={handleOnchange}
         isInvalid={!errorMessage}
         errorMessage={errorMessage}
+        isDisabled={isDisabled}
       />
 
       {(errorMessage || error) && (

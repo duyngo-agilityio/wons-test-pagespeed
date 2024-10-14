@@ -13,8 +13,10 @@ import { handleUpdateImageProfile } from '@/utils';
 // Components
 import { UserDetailForm, UserDetail, LoadingIndicator } from '@/components';
 
-// Types
+// Models
 import { TUser } from '@/models';
+
+// Types
 import { IUserFormData } from '@/types';
 
 interface UserDetailClientProps {
@@ -22,21 +24,11 @@ interface UserDetailClientProps {
   onEdit: (
     payload: Omit<IUserFormData, 'role'>,
     id: number,
-  ) => Promise<
-    | {
-        success: boolean;
-        error: undefined;
-      }
-    | {
-        error: string;
-        success: undefined;
-      }
-  >;
+  ) => Promise<{ success?: boolean; error?: string }>;
 }
 
 const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
   // States
-  const [isLoading, setIsLoading] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
   const { showToast } = useToast();
   const [avatarFile, setAvatarFile] = useState<File>();
@@ -61,10 +53,8 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
   }, []);
 
   const handleEditUserDetail = useCallback(
-    // Update User's avatar
+    // Handle update User's avatar
     async (formData: IUserFormData) => {
-      setIsLoading(true);
-
       if (avatarFile && isAvatarDirty) {
         formData = (await handleUpdateImageProfile(
           avatarFile,
@@ -72,7 +62,7 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
         )) as IUserFormData;
       }
 
-      // Update user's profile
+      // Update update user's profile
       startTransition(async () => {
         const { error } = await onEdit(
           {
@@ -84,32 +74,23 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
           Number(user?.id),
         );
 
-        if (error) {
-          return showToast({
-            description: error,
-            status: MESSAGE_STATUS.ERROR,
-          });
-        } else {
-          showToast({
-            description: SUCCESS_MESSAGES.UPDATE_PROFILE,
-            status: MESSAGE_STATUS.SUCCESS,
-          });
-        }
+        showToast({
+          description: error ?? SUCCESS_MESSAGES.UPDATE_PROFILE,
+          status: error ?? MESSAGE_STATUS.SUCCESS,
+        });
       });
 
       if (!isPending) {
         setAvatarFile(undefined);
         setIsAvatarDirty(false);
       }
-
-      setIsLoading(false);
     },
     [avatarFile, isAvatarDirty, isPending, onEdit, showToast, user?.id],
   );
 
   return (
     <>
-      {isLoading ? (
+      {isPending ? (
         <LoadingIndicator />
       ) : (
         <div className="flex flex-col justify-center items-center pb-[60px] bg-white dark:bg-gray-800 rounded-lg">
@@ -127,12 +108,12 @@ const UserDetailClient = ({ user, onEdit }: UserDetailClientProps) => {
             />
           ) : (
             <UserDetail
-              imageUrl={avatar}
+              avatar={avatar}
               username={username}
               role={role.name}
               fullName={fullName}
               email={email}
-              onClick={handleEditFormToggle}
+              onButtonEditClick={handleEditFormToggle}
             />
           )}
         </div>

@@ -6,21 +6,21 @@ import { Text, Button, ImageFallback } from '@/components';
 
 // Types
 interface UserDetailProps {
-  imageUrl: string;
+  avatar: string;
   username: string;
   role: string;
   fullName: string;
   email: string;
-  onClick: () => void;
+  onButtonEditClick: () => void;
 }
 
 const UserDetail = ({
-  imageUrl,
+  avatar,
   username,
   role,
   fullName,
   email,
-  onClick,
+  onButtonEditClick,
 }: UserDetailProps) => {
   return (
     <div className="p-[0_30px_0] w-full gap-[5px_0]">
@@ -31,7 +31,7 @@ const UserDetail = ({
             width={128}
             height={128}
             alt="User Avatar"
-            src={imageUrl}
+            src={avatar}
           />
 
           <div className="flex flex-col justify-center">
@@ -44,7 +44,7 @@ const UserDetail = ({
           className="h-fit text-[15px] font-medium md:w-auto py-[10px] px-[25px] mt-10 md:mt-0"
           type="button"
           color="primary"
-          onClick={onClick}
+          onClick={onButtonEditClick}
         >
           Edit Profile
         </Button>
