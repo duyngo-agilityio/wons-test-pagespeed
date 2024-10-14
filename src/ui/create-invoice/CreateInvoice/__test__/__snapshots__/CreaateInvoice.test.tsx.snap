@@ -125,7 +125,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   aria-labelledby="react-aria-:rm: react-aria-:re: react-aria-:r9:"
                   aria-valuemax="31"
                   aria-valuemin="1"
-                  aria-valuenow="11"
+                  aria-valuenow="14"
                   aria-valuetext="Empty"
                   autocorrect="off"
                   class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
@@ -214,238 +214,204 @@ exports[`CreateInvoice Component Test should render all content with resolved da
         class="flex flex-col sm:flex-row mt-8 sm:mt-0 gap-[30px]"
       >
         <div
-          class="group inline-flex flex-column w-full"
+          class="flex flex-col w-full h-[71px] mb-12"
         >
           <div
-            class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+            class="group flex flex-col transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] w-full rounded-md border-gray-300"
             data-filled="true"
-            data-filled-within="true"
-            data-has-elements="true"
             data-has-label="true"
             data-slot="base"
           >
             <div
-              class="h-full flex flex-col"
-              data-slot="main-wrapper"
+              aria-hidden="true"
+              data-a11y-ignore="aria-hidden-focus"
+              data-testid="hidden-select-container"
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background h-[50px] bg-gray-50 dark:bg-gray-600 mt-1 rounded-[10px]"
-                data-slot="input-wrapper"
-                style="cursor: text;"
+              <input
+                style="font-size: 16px;"
+                tabindex="-1"
+                type="text"
+                value=""
+              />
+              <label>
+                Name
+                <select
+                  name="customerId"
+                  size="3"
+                  tabindex="-1"
+                  title=""
+                >
+                  <option />
+                  <option
+                    value="1"
+                  />
+                  <option
+                    value="2"
+                  />
+                  <option
+                    value="3"
+                  />
+                </select>
+              </label>
+            </div>
+            <div
+              class="w-full flex flex-col"
+              data-slot="mainWrapper"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="react-aria-:r13: react-aria-:rv:"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                data-slot="trigger"
+                id="customerId"
+                type="button"
               >
                 <label
-                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium font-dm-sans pb-[5px]"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
                   data-slot="label"
-                  for="react-aria-:ru:"
-                  id="react-aria-:r16:"
+                  id="react-aria-:rv:"
                 >
                   Name
                 </label>
                 <div
-                  class="inline-flex w-full items-center h-full box-border"
-                  data-slot="inner-wrapper"
+                  class="inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border"
+                  data-slot="innerWrapper"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-label="Name"
-                    aria-labelledby="react-aria-:rv:"
-                    autocomplete="off"
-                    class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
-                    data-has-end-content="true"
-                    data-slot="input"
-                    id="react-aria-:ru:"
-                    placeholder=" "
-                    role="combobox"
-                    spellcheck="false"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    class="relative flex h-full items-center -mr-2"
+                  <span
+                    class="text-foreground-500 font-normal w-full text-left rtl:text-right text-small truncate group-data-[has-value=true]:text-default-foreground"
+                    data-slot="value"
+                    id="react-aria-:r13:"
                   >
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:rs: react-aria-:rv:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium translate-x-1 cursor-text opacity-0 text-default-500 group-data-[invalid=true]:text-danger data-[visible=true]:opacity-100 data-[visible=true]:cursor-pointer sm:data-[visible=true]:opacity-0 sm:group-data-[hover=true]:data-[visible=true]:opacity-100"
-                      data-visible="false"
-                      id="react-aria-:rs:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="M18 6L6 18M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:rs: react-aria-:rv:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-gray-50 dark:text-gray-600"
-                      id="react-aria-:rs:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="m6 9 6 6 6-6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                     
+                  </span>
                 </div>
-              </div>
+                <svg
+                  aria-hidden="true"
+                  class="absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180"
+                  data-slot="selectorIcon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="presentation"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <path
+                    d="m6 9 6 6 6-6"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
-          <div
-            class="hidden"
-          />
         </div>
         <div
-          class="group inline-flex flex-column w-full"
+          class="flex flex-col w-full h-[71px] mb-12"
         >
           <div
-            class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+            class="group flex flex-col transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] w-full rounded-md border-gray-300"
             data-filled="true"
-            data-filled-within="true"
-            data-has-elements="true"
             data-has-label="true"
             data-slot="base"
           >
             <div
-              class="h-full flex flex-col"
-              data-slot="main-wrapper"
+              aria-hidden="true"
+              data-a11y-ignore="aria-hidden-focus"
+              data-testid="hidden-select-container"
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background h-[50px] bg-gray-50 dark:bg-gray-600 mt-1 rounded-[10px]"
-                data-slot="input-wrapper"
-                style="cursor: text;"
+              <input
+                style="font-size: 16px;"
+                tabindex="-1"
+                type="text"
+                value=""
+              />
+              <label>
+                Status
+                <select
+                  name="status"
+                  size="3"
+                  tabindex="-1"
+                  title=""
+                >
+                  <option />
+                  <option
+                    value="complete"
+                  >
+                    Complete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="cancel"
+                  >
+                    Cancel
+                  </option>
+                </select>
+              </label>
+            </div>
+            <div
+              class="w-full flex flex-col"
+              data-slot="mainWrapper"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="react-aria-:r1b: react-aria-:r17:"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                data-slot="trigger"
+                id="status"
+                type="button"
               >
                 <label
-                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium font-dm-sans pb-[5px]"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
                   data-slot="label"
-                  for="react-aria-:r1d:"
-                  id="react-aria-:r1l:"
+                  id="react-aria-:r17:"
                 >
                   Status
                 </label>
                 <div
-                  class="inline-flex w-full items-center h-full box-border"
-                  data-slot="inner-wrapper"
+                  class="inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border"
+                  data-slot="innerWrapper"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-label="Status"
-                    aria-labelledby="react-aria-:r1e:"
-                    autocomplete="off"
-                    class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
-                    data-has-end-content="true"
-                    data-slot="input"
-                    id="react-aria-:r1d:"
-                    placeholder=" "
-                    role="combobox"
-                    spellcheck="false"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    class="relative flex h-full items-center -mr-2"
+                  <span
+                    class="text-foreground-500 font-normal w-full text-left rtl:text-right text-small truncate group-data-[has-value=true]:text-default-foreground"
+                    data-slot="value"
+                    id="react-aria-:r1b:"
                   >
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:r1b: react-aria-:r1e:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium translate-x-1 cursor-text opacity-0 text-default-500 group-data-[invalid=true]:text-danger data-[visible=true]:opacity-100 data-[visible=true]:cursor-pointer sm:data-[visible=true]:opacity-0 sm:group-data-[hover=true]:data-[visible=true]:opacity-100"
-                      data-visible="false"
-                      id="react-aria-:r1b:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="M18 6L6 18M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:r1b: react-aria-:r1e:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-gray-50 dark:text-gray-600"
-                      id="react-aria-:r1b:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="m6 9 6 6 6-6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                     
+                  </span>
                 </div>
-              </div>
+                <svg
+                  aria-hidden="true"
+                  class="absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180"
+                  data-slot="selectorIcon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="presentation"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <path
+                    d="m6 9 6 6 6-6"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
-          <div
-            class="hidden"
-          />
         </div>
       </div>
       <div
@@ -471,8 +437,8 @@ exports[`CreateInvoice Component Test should render all content with resolved da
               <label
                 class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                 data-slot="label"
-                for="react-aria-:r1q:"
-                id="react-aria-:r1r:"
+                for="react-aria-:r1c:"
+                id="react-aria-:r1d:"
               >
                 Email
               </label>
@@ -482,10 +448,10 @@ exports[`CreateInvoice Component Test should render all content with resolved da
               >
                 <input
                   aria-label="Email"
-                  aria-labelledby="react-aria-:r1q: react-aria-:r1r:"
+                  aria-labelledby="react-aria-:r1c: react-aria-:r1d:"
                   class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                   data-slot="input"
-                  id="react-aria-:r1q:"
+                  id="react-aria-:r1c:"
                   placeholder=" "
                   type="email"
                   value=""
@@ -517,8 +483,8 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 <label
                   class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                   data-slot="label"
-                  for="react-aria-:r1v:"
-                  id="react-aria-:r20:"
+                  for="react-aria-:r1h:"
+                  id="react-aria-:r1i:"
                 >
                   Address
                 </label>
@@ -528,11 +494,11 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 >
                   <input
                     aria-label="Address"
-                    aria-labelledby="react-aria-:r1v: react-aria-:r20:"
+                    aria-labelledby="react-aria-:r1h: react-aria-:r1i:"
                     class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                     data-has-end-content="true"
                     data-slot="input"
-                    id="react-aria-:r1v:"
+                    id="react-aria-:r1h:"
                     placeholder=" "
                     type="text"
                     value=""
@@ -615,7 +581,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   <table
                     aria-describedby=""
                     class="min-w-full h-auto table-auto w-full px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 [&>tbody>*:nth-child(even)]:bg-gray-50/50 dark:[&>tbody>*:nth-child(even)]:bg-gray-600"
-                    id="react-aria-:r24:"
+                    id="react-aria-:r1m:"
                     role="grid"
                     tabindex="0"
                   >
@@ -632,7 +598,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined0"
                           data-testid="sort-btn"
-                          id="react-aria-:r24:-undefined0"
+                          id="react-aria-:r1m:-undefined0"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -660,7 +626,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined1"
                           data-testid="sort-btn"
-                          id="react-aria-:r24:-undefined1"
+                          id="react-aria-:r1m:-undefined1"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -688,7 +654,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined2"
                           data-testid="sort-btn"
-                          id="react-aria-:r24:-undefined2"
+                          id="react-aria-:r1m:-undefined2"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -716,7 +682,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined3"
                           data-testid="sort-btn"
-                          id="react-aria-:r24:-undefined3"
+                          id="react-aria-:r1m:-undefined3"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -744,7 +710,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined4"
                           data-testid="sort-btn"
-                          id="react-aria-:r24:-undefined4"
+                          id="react-aria-:r1m:-undefined4"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -764,7 +730,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                       role="rowgroup"
                     >
                       <tr
-                        aria-labelledby="react-aria-:r24:-$.5.0-undefined0"
+                        aria-labelledby="react-aria-:r1m:-$.5.0-undefined0"
                         class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400 bg-white dark:bg-gray-400"
                         data-first="true"
                         data-key="$.5.0"
@@ -775,7 +741,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                         <td
                           class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                           data-key="table-cell-0"
-                          id="react-aria-:r24:-$.5.0-undefined0"
+                          id="react-aria-:r1m:-$.5.0-undefined0"
                           role="rowheader"
                           tabindex="-1"
                         >
@@ -809,7 +775,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                                       class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
                                       data-has-end-content="true"
                                       data-slot="input"
-                                      id="react-aria-:r28:"
+                                      id="react-aria-:r1q:"
                                       placeholder=" "
                                       role="combobox"
                                       spellcheck="false"
@@ -825,7 +791,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                                         aria-label="Show suggestions"
                                         class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium translate-x-1 cursor-text opacity-0 text-default-500 group-data-[invalid=true]:text-danger data-[visible=true]:opacity-100 data-[visible=true]:cursor-pointer sm:data-[visible=true]:opacity-0 sm:group-data-[hover=true]:data-[visible=true]:opacity-100 hidden"
                                         data-visible="false"
-                                        id="react-aria-:r26:"
+                                        id="react-aria-:r1o:"
                                         tabindex="-1"
                                         type="button"
                                       >
@@ -852,7 +818,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                                         aria-haspopup="listbox"
                                         aria-label="Show suggestions"
                                         class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-gray-50 dark:text-gray-600"
-                                        id="react-aria-:r26:"
+                                        id="react-aria-:r1o:"
                                         tabindex="-1"
                                         type="button"
                                       >
@@ -929,7 +895,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                                     data-filled-within="true"
                                     data-has-end-content="true"
                                     data-slot="input"
-                                    id="react-aria-:r2l:"
+                                    id="react-aria-:r27:"
                                     placeholder=" "
                                     type="text"
                                     value="0"
@@ -1066,8 +1032,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               <label
                 class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block pointer-events-none will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                 data-slot="label"
-                for="react-aria-:r2q:"
-                id="react-aria-:r2r:"
+                for="react-aria-:r2c:"
+                id="react-aria-:r2d:"
               >
                 Invoice Id
               </label>
@@ -1077,13 +1043,13 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               >
                 <input
                   aria-label="Invoice Id"
-                  aria-labelledby="react-aria-:r2q: react-aria-:r2r:"
+                  aria-labelledby="react-aria-:r2c: react-aria-:r2d:"
                   class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
                   data-filled="true"
                   data-filled-within="true"
                   data-slot="input"
                   disabled=""
-                  id="react-aria-:r2q:"
+                  id="react-aria-:r2c:"
                   placeholder=" "
                   type="text"
                   value="#1000000"
@@ -1100,15 +1066,15 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
           <span
             class="block subpixel-antialiased group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5 group-data-[invalid=true]:text-danger w-full text-foreground !ease-out !duration-200 will-change-auto motion-reduce:transition-none transition-[color,opacity] text-xl font-medium font-dm-sans"
             data-slot="label"
-            id="react-aria-:r33:"
+            id="react-aria-:r2l:"
           >
             Date
           </span>
           <div
-            aria-labelledby="react-aria-:r33:"
+            aria-labelledby="react-aria-:r2l:"
             class="relative gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-sm hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium w-full transition-background motion-reduce:transition-none !duration-150 px-5 pt-[17px] pb-[14px] h-12.5 rounded-10 bg-gray-50 dark:bg-gray-600"
             data-slot="input-wrapper"
-            id="react-aria-:r32:"
+            id="react-aria-:r2k:"
             role="group"
           >
             <div
@@ -1118,12 +1084,12 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               <div
                 class="flex h-full gap-x-0.5 w-full font-normal text-md font-dm-sans color-blue-800 dark:color-white"
                 data-slot="input-field"
-                id="react-aria-:r31:"
+                id="react-aria-:r2j:"
                 role="presentation"
               >
                 <div
                   aria-label="month, "
-                  aria-labelledby="react-aria-:r3c: react-aria-:r38: react-aria-:r33:"
+                  aria-labelledby="react-aria-:r2u: react-aria-:r2q: react-aria-:r2l:"
                   aria-valuemax="12"
                   aria-valuemin="1"
                   aria-valuenow="10"
@@ -1136,7 +1102,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   data-slot="segment"
                   data-type="month"
                   enterkeyhint="next"
-                  id="react-aria-:r3c:"
+                  id="react-aria-:r2u:"
                   inputmode="numeric"
                   role="spinbutton"
                   spellcheck="false"
@@ -1155,10 +1121,10 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 </div>
                 <div
                   aria-label="day, "
-                  aria-labelledby="react-aria-:r3g: react-aria-:r38: react-aria-:r33:"
+                  aria-labelledby="react-aria-:r32: react-aria-:r2q: react-aria-:r2l:"
                   aria-valuemax="31"
                   aria-valuemin="1"
-                  aria-valuenow="11"
+                  aria-valuenow="14"
                   aria-valuetext="Empty"
                   autocorrect="off"
                   class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
@@ -1168,7 +1134,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   data-slot="segment"
                   data-type="day"
                   enterkeyhint="next"
-                  id="react-aria-:r3g:"
+                  id="react-aria-:r32:"
                   inputmode="numeric"
                   role="spinbutton"
                   spellcheck="false"
@@ -1187,7 +1153,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 </div>
                 <div
                   aria-label="year, "
-                  aria-labelledby="react-aria-:r3k: react-aria-:r38: react-aria-:r33:"
+                  aria-labelledby="react-aria-:r36: react-aria-:r2q: react-aria-:r2l:"
                   aria-valuemax="9999"
                   aria-valuemin="1"
                   aria-valuenow="2024"
@@ -1200,7 +1166,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   data-slot="segment"
                   data-type="year"
                   enterkeyhint="next"
-                  id="react-aria-:r3k:"
+                  id="react-aria-:r36:"
                   inputmode="numeric"
                   role="spinbutton"
                   spellcheck="false"
@@ -1218,10 +1184,10 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 aria-expanded="false"
                 aria-haspopup="dialog"
                 aria-label="Calendar"
-                aria-labelledby="react-aria-:r2v: react-aria-:r33:"
+                aria-labelledby="react-aria-:r2h: react-aria-:r2l:"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 -mr-2 text-inherit"
                 data-slot="selector-button"
-                id="react-aria-:r2v:"
+                id="react-aria-:r2h:"
                 type="button"
               >
                 <svg
@@ -1247,238 +1213,194 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
         class="flex flex-col sm:flex-row mt-8 sm:mt-0 gap-[30px]"
       >
         <div
-          class="group inline-flex flex-column w-full"
+          class="flex flex-col w-full h-[71px] mb-12"
         >
           <div
-            class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+            class="group flex flex-col transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] w-full rounded-md border-gray-300"
             data-filled="true"
-            data-filled-within="true"
-            data-has-elements="true"
             data-has-label="true"
             data-slot="base"
           >
             <div
-              class="h-full flex flex-col"
-              data-slot="main-wrapper"
+              aria-hidden="true"
+              data-a11y-ignore="aria-hidden-focus"
+              data-testid="hidden-select-container"
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background h-[50px] bg-gray-50 dark:bg-gray-600 mt-1 rounded-[10px]"
-                data-slot="input-wrapper"
-                style="cursor: text;"
+              <input
+                style="font-size: 16px;"
+                tabindex="-1"
+                type="text"
+                value=""
+              />
+              <label>
+                Name
+                <select
+                  name="customerId"
+                  tabindex="-1"
+                  title=""
+                >
+                  <option />
+                </select>
+              </label>
+            </div>
+            <div
+              class="w-full flex flex-col"
+              data-slot="mainWrapper"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="react-aria-:r3f: react-aria-:r3b:"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                data-slot="trigger"
+                id="customerId"
+                type="button"
               >
                 <label
-                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium font-dm-sans pb-[5px]"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
                   data-slot="label"
-                  for="react-aria-:r3o:"
-                  id="react-aria-:r40:"
+                  id="react-aria-:r3b:"
                 >
                   Name
                 </label>
                 <div
-                  class="inline-flex w-full items-center h-full box-border"
-                  data-slot="inner-wrapper"
+                  class="inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border"
+                  data-slot="innerWrapper"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-label="Name"
-                    aria-labelledby="react-aria-:r3p:"
-                    autocomplete="off"
-                    class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
-                    data-has-end-content="true"
-                    data-slot="input"
-                    id="react-aria-:r3o:"
-                    placeholder=" "
-                    role="combobox"
-                    spellcheck="false"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    class="relative flex h-full items-center -mr-2"
+                  <span
+                    class="text-foreground-500 font-normal w-full text-left rtl:text-right text-small truncate group-data-[has-value=true]:text-default-foreground"
+                    data-slot="value"
+                    id="react-aria-:r3f:"
                   >
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:r3m: react-aria-:r3p:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium translate-x-1 cursor-text opacity-0 text-default-500 group-data-[invalid=true]:text-danger data-[visible=true]:opacity-100 data-[visible=true]:cursor-pointer sm:data-[visible=true]:opacity-0 sm:group-data-[hover=true]:data-[visible=true]:opacity-100"
-                      data-visible="false"
-                      id="react-aria-:r3m:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="M18 6L6 18M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:r3m: react-aria-:r3p:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-gray-50 dark:text-gray-600"
-                      id="react-aria-:r3m:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="m6 9 6 6 6-6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                     
+                  </span>
                 </div>
-              </div>
+                <svg
+                  aria-hidden="true"
+                  class="absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180"
+                  data-slot="selectorIcon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="presentation"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <path
+                    d="m6 9 6 6 6-6"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
-          <div
-            class="hidden"
-          />
         </div>
         <div
-          class="group inline-flex flex-column w-full"
+          class="flex flex-col w-full h-[71px] mb-12"
         >
           <div
-            class="group flex flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]"
+            class="group flex flex-col transition-background motion-reduce:transition-none !duration-150 group relative justify-end data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)] w-full rounded-md border-gray-300"
             data-filled="true"
-            data-filled-within="true"
-            data-has-elements="true"
             data-has-label="true"
             data-slot="base"
           >
             <div
-              class="h-full flex flex-col"
-              data-slot="main-wrapper"
+              aria-hidden="true"
+              data-a11y-ignore="aria-hidden-focus"
+              data-testid="hidden-select-container"
+              style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
             >
-              <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 min-h-10 transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background h-[50px] bg-gray-50 dark:bg-gray-600 mt-1 rounded-[10px]"
-                data-slot="input-wrapper"
-                style="cursor: text;"
+              <input
+                style="font-size: 16px;"
+                tabindex="-1"
+                type="text"
+                value=""
+              />
+              <label>
+                Status
+                <select
+                  name="status"
+                  size="3"
+                  tabindex="-1"
+                  title=""
+                >
+                  <option />
+                  <option
+                    value="complete"
+                  >
+                    Complete
+                  </option>
+                  <option
+                    value="pending"
+                  >
+                    Pending
+                  </option>
+                  <option
+                    value="cancel"
+                  >
+                    Cancel
+                  </option>
+                </select>
+              </label>
+            </div>
+            <div
+              class="w-full flex flex-col"
+              data-slot="mainWrapper"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="react-aria-:r3n: react-aria-:r3j:"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                data-slot="trigger"
+                id="status"
+                type="button"
               >
                 <label
-                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block text-foreground-500 will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] group-data-[filled-within=true]:text-foreground group-data-[filled-within=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium font-dm-sans pb-[5px]"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
                   data-slot="label"
-                  for="react-aria-:r47:"
-                  id="react-aria-:r4f:"
+                  id="react-aria-:r3j:"
                 >
                   Status
                 </label>
                 <div
-                  class="inline-flex w-full items-center h-full box-border"
-                  data-slot="inner-wrapper"
+                  class="inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border"
+                  data-slot="innerWrapper"
                 >
-                  <input
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-label="Status"
-                    aria-labelledby="react-aria-:r48:"
-                    autocomplete="off"
-                    class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
-                    data-has-end-content="true"
-                    data-slot="input"
-                    id="react-aria-:r47:"
-                    placeholder=" "
-                    role="combobox"
-                    spellcheck="false"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    class="relative flex h-full items-center -mr-2"
+                  <span
+                    class="text-foreground-500 font-normal w-full text-left rtl:text-right text-small truncate group-data-[has-value=true]:text-default-foreground"
+                    data-slot="value"
+                    id="react-aria-:r3n:"
                   >
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:r45: react-aria-:r48:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium translate-x-1 cursor-text opacity-0 text-default-500 group-data-[invalid=true]:text-danger data-[visible=true]:opacity-100 data-[visible=true]:cursor-pointer sm:data-[visible=true]:opacity-0 sm:group-data-[hover=true]:data-[visible=true]:opacity-100"
-                      data-visible="false"
-                      id="react-aria-:r45:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="M18 6L6 18M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-label="Show suggestions"
-                      aria-labelledby="react-aria-:r45: react-aria-:r48:"
-                      class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-gray-50 dark:text-gray-600"
-                      id="react-aria-:r45:"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        fill="none"
-                        focusable="false"
-                        height="1em"
-                        role="presentation"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        viewBox="0 0 24 24"
-                        width="1em"
-                      >
-                        <path
-                          d="m6 9 6 6 6-6"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+                     
+                  </span>
                 </div>
-              </div>
+                <svg
+                  aria-hidden="true"
+                  class="absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4 transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180"
+                  data-slot="selectorIcon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="presentation"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                >
+                  <path
+                    d="m6 9 6 6 6-6"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
-          <div
-            class="hidden"
-          />
         </div>
       </div>
       <div
@@ -1504,8 +1426,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               <label
                 class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                 data-slot="label"
-                for="react-aria-:r4k:"
-                id="react-aria-:r4l:"
+                for="react-aria-:r3o:"
+                id="react-aria-:r3p:"
               >
                 Email
               </label>
@@ -1515,10 +1437,10 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               >
                 <input
                   aria-label="Email"
-                  aria-labelledby="react-aria-:r4k: react-aria-:r4l:"
+                  aria-labelledby="react-aria-:r3o: react-aria-:r3p:"
                   class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                   data-slot="input"
-                  id="react-aria-:r4k:"
+                  id="react-aria-:r3o:"
                   placeholder=" "
                   type="email"
                   value=""
@@ -1550,8 +1472,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 <label
                   class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
                   data-slot="label"
-                  for="react-aria-:r4p:"
-                  id="react-aria-:r4q:"
+                  for="react-aria-:r3t:"
+                  id="react-aria-:r3u:"
                 >
                   Address
                 </label>
@@ -1561,11 +1483,11 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 >
                   <input
                     aria-label="Address"
-                    aria-labelledby="react-aria-:r4p: react-aria-:r4q:"
+                    aria-labelledby="react-aria-:r3t: react-aria-:r3u:"
                     class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                     data-has-end-content="true"
                     data-slot="input"
-                    id="react-aria-:r4p:"
+                    id="react-aria-:r3t:"
                     placeholder=" "
                     type="text"
                     value=""
@@ -1648,7 +1570,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   <table
                     aria-describedby=""
                     class="min-w-full h-auto table-auto w-full px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 [&>tbody>*:nth-child(even)]:bg-gray-50/50 dark:[&>tbody>*:nth-child(even)]:bg-gray-600"
-                    id="react-aria-:r4u:"
+                    id="react-aria-:r42:"
                     role="grid"
                     tabindex="0"
                   >
@@ -1665,7 +1587,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined0"
                           data-testid="sort-btn"
-                          id="react-aria-:r4u:-undefined0"
+                          id="react-aria-:r42:-undefined0"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -1693,7 +1615,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined1"
                           data-testid="sort-btn"
-                          id="react-aria-:r4u:-undefined1"
+                          id="react-aria-:r42:-undefined1"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -1721,7 +1643,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined2"
                           data-testid="sort-btn"
-                          id="react-aria-:r4u:-undefined2"
+                          id="react-aria-:r42:-undefined2"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -1749,7 +1671,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined3"
                           data-testid="sort-btn"
-                          id="react-aria-:r4u:-undefined3"
+                          id="react-aria-:r42:-undefined3"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -1777,7 +1699,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                           class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-white dark:bg-gray-400 border-b-[1px] border-blue-800/5 dark:border-white/5 px-[21px] border-none"
                           data-key="undefined4"
                           data-testid="sort-btn"
-                          id="react-aria-:r4u:-undefined4"
+                          id="react-aria-:r42:-undefined4"
                           role="columnheader"
                           tabindex="-1"
                         >
@@ -1797,7 +1719,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                       role="rowgroup"
                     >
                       <tr
-                        aria-labelledby="react-aria-:r4u:-$.5.0-undefined0"
+                        aria-labelledby="react-aria-:r42:-$.5.0-undefined0"
                         class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400 bg-white dark:bg-gray-400"
                         data-first="true"
                         data-key="$.5.0"
@@ -1808,7 +1730,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                         <td
                           class="relative align-middle whitespace-normal text-small font-normal [&>*]:z-1 [&>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 group-data-[disabled=true]:cursor-not-allowed before:bg-default/60 data-[selected=true]:text-default-foreground first:before:rounded-l-lg rtl:first:before:rounded-r-lg rtl:first:before:rounded-l-[unset] last:before:rounded-r-lg rtl:last:before:rounded-l-lg rtl:last:before:rounded-r-[unset] text-start first:rounded-l-lg first:group-data-[middle=true]:before:rounded-l-lg last:rounded-r-lg leading-[17px] py-[17px] px-[21px]"
                           data-key="table-cell-0"
-                          id="react-aria-:r4u:-$.5.0-undefined0"
+                          id="react-aria-:r42:-$.5.0-undefined0"
                           role="rowheader"
                           tabindex="-1"
                         >
@@ -1842,7 +1764,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                                       class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground"
                                       data-has-end-content="true"
                                       data-slot="input"
-                                      id="react-aria-:r52:"
+                                      id="react-aria-:r46:"
                                       placeholder=" "
                                       role="combobox"
                                       spellcheck="false"
@@ -1858,7 +1780,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                                         aria-label="Show suggestions"
                                         class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium translate-x-1 cursor-text opacity-0 text-default-500 group-data-[invalid=true]:text-danger data-[visible=true]:opacity-100 data-[visible=true]:cursor-pointer sm:data-[visible=true]:opacity-0 sm:group-data-[hover=true]:data-[visible=true]:opacity-100 hidden"
                                         data-visible="false"
-                                        id="react-aria-:r50:"
+                                        id="react-aria-:r44:"
                                         tabindex="-1"
                                         type="button"
                                       >
@@ -1885,7 +1807,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                                         aria-haspopup="listbox"
                                         aria-label="Show suggestions"
                                         class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 text-medium transition-transform duration-150 ease motion-reduce:transition-none data-[open=true]:rotate-180 text-gray-50 dark:text-gray-600"
-                                        id="react-aria-:r50:"
+                                        id="react-aria-:r44:"
                                         tabindex="-1"
                                         type="button"
                                       >
@@ -1962,7 +1884,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                                     data-filled-within="true"
                                     data-has-end-content="true"
                                     data-slot="input"
-                                    id="react-aria-:r5f:"
+                                    id="react-aria-:r4j:"
                                     placeholder=" "
                                     type="text"
                                     value="0"
