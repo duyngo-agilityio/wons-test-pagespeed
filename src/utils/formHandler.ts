@@ -1,5 +1,11 @@
-import { uploadImage } from '@/api/image';
+// APIs
+import { uploadImage } from '@/api';
+
+// Models
 import { IProductDetail } from '@/models';
+
+// Types
+import { IUserFormData } from '@/types';
 
 export const handleUpdateImage = async (
   avatarFile: File,
@@ -11,6 +17,26 @@ export const handleUpdateImage = async (
 
     if (uploadImageResponse?.downloadURL) {
       data.imageUrl = uploadImageResponse.downloadURL;
+    } else {
+      return { error: uploadImageResponse.error };
+    }
+  } catch (error) {
+    return error;
+  }
+
+  return data;
+};
+
+export const handleUpdateImageProfile = async (
+  avatarFile: File,
+  formData: IUserFormData,
+) => {
+  const data = formData;
+  try {
+    const uploadImageResponse = await uploadImage(avatarFile);
+
+    if (uploadImageResponse?.downloadURL) {
+      data.avatar = uploadImageResponse.downloadURL;
     } else {
       return { error: uploadImageResponse.error };
     }

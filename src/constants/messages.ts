@@ -35,6 +35,7 @@ export const SUCCESS_MESSAGES = {
   DELETE_EVENT: 'Delete event successfully.',
   UPDATE_EVENT: 'Update event successfully.',
   CREATE_EVENT: 'Create event successfully.',
+  UPDATE_PROFILE: 'Update profile successfully.',
 };
 
 export const MESSAGE_STATUS: Record<string, string> = {

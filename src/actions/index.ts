@@ -5,3 +5,4 @@ export * from './customer';
 export * from './product';
 export * from './event';
 export * from './task';
+export * from './user';

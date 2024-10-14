@@ -9,7 +9,7 @@ export type TUserDataResponse = StrapiModel<TUser>;
 
 export type TUserListResponse = StrapiResponse<TUserDataResponse[]>;
 
-export interface UserProfileData
+export interface IUserFormData
   extends Pick<TUser, 'avatar' | 'username' | 'fullName' | 'email'> {
   role: string;
 }

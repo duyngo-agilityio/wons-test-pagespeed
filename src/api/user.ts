@@ -9,11 +9,11 @@ import { TUser } from '@/models';
 // Services
 import { httpClient } from '@/services';
 
-// Types
-import { TProfileResponse } from '@/types';
-
 // Utils
 import { formatErrorMessage } from '@/utils';
+
+// Types
+import { TProfileResponse } from '@/types';
 
 export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
   try {
@@ -24,6 +24,9 @@ export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
           Authorization: `Bearer ${jwt}`,
         },
         cache: 'no-store',
+        next: {
+          tags: [API_PATH.USERS],
+        },
       },
     });
 

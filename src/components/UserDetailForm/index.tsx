@@ -1,5 +1,6 @@
 'use client';
 import { memo, useMemo } from 'react';
+import isEqual from 'react-fast-compare';
 
 // Libraries
 import { Controller, useForm } from 'react-hook-form';
@@ -7,7 +8,11 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Utils
-import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+import {
+  clearErrorOnChange,
+  isEnableSubmitButton,
+  getDirtyState,
+} from '@/utils';
 
 // Components
 import { Input, AvatarUpload, Button } from '@/components';
@@ -16,23 +21,19 @@ import { Input, AvatarUpload, Button } from '@/components';
 import { ERROR_MESSAGES } from '@/constants';
 
 // Types
-import { UserProfileData } from '@/types';
+import { IUserFormData } from '@/types';
 
 interface UserDetailFormProps {
-  avatar: string;
-  username: string;
-  role: string;
-  fullName: string;
-  email: string;
+  user: IUserFormData;
+  onAvatarChange: (file: File) => void;
+  onSubmit: (formData: IUserFormData) => Promise<void>;
   onCancel: () => void;
 }
 
 const UserDetailForm = ({
-  avatar = '',
-  username = '',
-  role = '',
-  fullName = '',
-  email = '',
+  user,
+  onAvatarChange,
+  onSubmit,
   onCancel,
 }: UserDetailFormProps) => {
   // Zod schema for validation
@@ -52,34 +53,39 @@ const UserDetailForm = ({
   // Define config and props for useForm
   const {
     control,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, defaultValues, isSubmitting },
     clearErrors,
     handleSubmit,
-  } = useForm<UserProfileData>({
+    watch,
+  } = useForm<IUserFormData>({
     resolver: zodResolver(userDetailFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: {
-      avatar,
-      username,
-      role,
-      fullName,
-      email,
-    },
+    defaultValues: user,
   });
 
-  // Checking to disable/enable submit button
   const dirtyItems = Object.keys(dirtyFields);
 
   const enableSubmit: boolean = useMemo(
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
-    [dirtyFields, errors],
+    [REQUIRED_FIELDS, dirtyItems, errors],
   );
 
-  const isDisableSubmit = !enableSubmit;
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'avatar');
 
-  // TODO: update logic and sideEffects
-  const handleFormSubmit = () => {
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof IUserFormData];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = user
+    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
+    : !allFieldsFilled;
+
+  const handleFormSubmit = async (formData: IUserFormData) => {
+    await onSubmit(formData);
+
     onCancel();
   };
 
@@ -100,15 +106,16 @@ const UserDetailForm = ({
             fieldState: { error },
           }) => (
             <AvatarUpload
-              value={value}
+              value={value ?? ''}
               error={error?.message}
+              isDisabled={isSubmitting}
               onChange={(e) => {
                 onChange(e);
 
                 // Clear error message on change
                 clearErrorOnChange(name, errors, clearErrors);
               }}
-              onFileChange={() => {}}
+              onFileChange={onAvatarChange}
             />
           )}
         />
@@ -118,14 +125,16 @@ const UserDetailForm = ({
             className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
             type="button"
             onClick={onCancel}
+            isDisabled={isSubmitting}
           >
             Cancel
           </Button>
 
           <Button
             type="submit"
+            isLoading={isSubmitting}
             color="primary"
-            isDisabled={isDisableSubmit}
+            isDisabled={isDisableSubmit || isSubmitting}
             className="text-[15px] font-medium md:w-auto py-[10px] px-[25px] w-full mt-10 md:mt-0"
           >
             Save
@@ -153,9 +162,6 @@ const UserDetailForm = ({
         <Controller
           name="fullName"
           control={control}
-          rules={{
-            required: ERROR_MESSAGES.FIELD_REQUIRED,
-          }}
           render={({
             field: { onChange, name, ...rest },
             fieldState: { error },
@@ -168,6 +174,7 @@ const UserDetailForm = ({
               type="text"
               isInvalid={!!error}
               errorMessage={error?.message}
+              isDisabled={isSubmitting}
               onChange={(e) => {
                 onChange(e.target.value);
 
@@ -182,9 +189,6 @@ const UserDetailForm = ({
         <Controller
           name="email"
           control={control}
-          rules={{
-            required: ERROR_MESSAGES.FIELD_REQUIRED,
-          }}
           render={({
             field: { onChange, name, ...rest },
             fieldState: { error },
@@ -197,6 +201,7 @@ const UserDetailForm = ({
               type="email"
               isInvalid={!!error}
               errorMessage={error?.message}
+              isDisabled={isSubmitting}
               onChange={(e) => {
                 onChange(e.target.value);
 
@@ -212,4 +217,4 @@ const UserDetailForm = ({
   );
 };
 
-export default memo(UserDetailForm);
+export default memo(UserDetailForm, isEqual);
