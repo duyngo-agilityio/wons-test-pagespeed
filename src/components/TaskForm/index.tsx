@@ -54,13 +54,9 @@ const taskFormSchema = z.object({
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
     .max(10000, ERROR_MESSAGES.FIELD_INVALID('Description')),
-  images: z
-    .array(z.string())
-    .max(2, ERROR_MESSAGES.FIELD_INVALID('You can upload up to 2 images'))
-    .min(0, ERROR_MESSAGES.FIELD_REQUIRED),
 });
 
-const REQUIRED_FIELDS = ['title', 'label', 'level', 'description'];
+const REQUIRED_FIELDS = ['title', 'label', 'level', 'description', 'assignees'];
 export interface ITaskFormProps {
   isDisabledField?: boolean;
   onSubmit: (data: TaskWithStringAssignees) => void;
@@ -369,12 +365,15 @@ const TaskForm = ({
         <Controller
           name="assignees"
           control={control}
-          render={({ field: { onChange, value, name, ...rest } }) => (
+          render={({
+            field: { onChange, value, name, onBlur, ...rest },
+            fieldState: { error },
+          }) => (
             <Select
               selectionMode="multiple"
               label="Assignees"
               selectedKeys={value}
-              placeholder=" "
+              onClose={onBlur}
               labelPlacement="outside"
               variant="flat"
               classNames={{
@@ -386,6 +385,8 @@ const TaskForm = ({
                 onChange(e.target.value);
                 clearErrorOnChange(name, errors, clearErrors);
               }}
+              isInvalid={!!error}
+              errorMessage={error?.message}
               {...rest}
             >
               {usersOptions.map((option) => (
