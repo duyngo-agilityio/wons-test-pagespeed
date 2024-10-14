@@ -12,20 +12,22 @@ import { httpClient } from '@/services';
 // Utils
 import { formatErrorMessage } from '@/utils';
 
-export const getProfile = async (
-  jwt: string,
-): Promise<Omit<TUser, 'password'>> => {
+// Types
+import { TProfileResponse } from '@/types';
+
+interface UserProfile extends UserListConfigs {
+  id: number;
+}
+
+export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
   try {
-    const data = await httpClient.getRequest<Omit<TUser, 'password'>>({
+    const data = await httpClient.getRequest<TProfileResponse>({
       endpoint: `${API_PATH.USERS}/me?populate=role`,
       configOptions: {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
         cache: 'no-store',
-        next: {
-          tags: [API_PATH.USERS],
-        },
       },
     });
 
@@ -65,19 +67,15 @@ export const getUsers = async ({
   }
 };
 
-interface Details extends UserListConfigs {
-  id: number;
-}
-
 export const getUserById = async ({
   id,
   cache,
   nextOptions,
-}: Details): Promise<TUser> => {
+}: UserProfile): Promise<TUser> => {
   const endpoint = `${API_PATH.USERS}/${id}`;
 
   try {
-    const customerResponse = await httpClient.getRequest<TUser>({
+    const userResponse = await httpClient.getRequest<TUser>({
       endpoint,
       configOptions: {
         cache: cache ?? 'force-cache',
@@ -85,7 +83,7 @@ export const getUserById = async ({
       },
     });
 
-    return customerResponse;
+    return userResponse;
   } catch (error) {
     const message = formatErrorMessage(error);
 

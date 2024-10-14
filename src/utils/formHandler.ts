@@ -1,5 +1,10 @@
+// APIs
 import { uploadImage } from '@/api/image';
+
+// Models
 import { IProductDetail } from '@/models';
+
+// Types
 import { IUserFormData } from '@/types';
 
 export const handleUpdateImage = async (

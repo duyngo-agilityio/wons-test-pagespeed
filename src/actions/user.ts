@@ -19,7 +19,7 @@ import { TUser } from '@/models';
 export const updateUser = async (
   profileData: Omit<IUserFormData, 'role'>,
   id: number,
-) => {
+): Promise<{ success?: boolean; error?: string }> => {
   try {
     await httpClient.putRequest<Omit<IUserFormData, 'role'>, TUser>({
       endpoint: `${API_PATH.USERS}/${id}`,
