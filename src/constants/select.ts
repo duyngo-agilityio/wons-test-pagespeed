@@ -3,15 +3,15 @@ import { IFilter } from '@/types';
 export const INVOICE_STATUS = [
   {
     label: 'Complete',
-    value: 'complete',
+    key: 'complete',
   },
   {
     label: 'Pending',
-    value: 'pending',
+    key: 'pending',
   },
   {
     label: 'Cancel',
-    value: 'cancel',
+    key: 'cancel',
   },
 ];
 
