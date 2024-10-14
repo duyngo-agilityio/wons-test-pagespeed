@@ -108,7 +108,7 @@ export const formatAmountWithDiscount = (
   return `${formatPrice(total, true)} USD`;
 };
 export const formatDateString = (date: DateValue) =>
-  `${date.year}-${date.month}-${date.day}`;
+  `${date.year}-${date.month}-${date.day + 1}`;
 
 export const formatDatePicker = (
   date: CalendarDate | CalendarDateTime | ZonedDateTime,

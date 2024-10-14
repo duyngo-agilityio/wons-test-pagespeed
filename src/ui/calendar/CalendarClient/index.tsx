@@ -257,11 +257,11 @@ const CalendarClient = ({
           }
           timeRange={{
             start: previewData
-              ? dayjs(previewData.startTime).format('HH:mm')
-              : dayjs(slot?.start).format('HH:mm'),
+              ? dayjs(previewData.startTime).utc().format('hh:mma')
+              : dayjs(slot?.end).add(5, 'hour').format('hh:mma'),
             end: previewData
-              ? dayjs(previewData.endTime).format('HH:mm')
-              : dayjs(slot?.end).add(2, 'hour').format('HH:mm'),
+              ? dayjs(previewData.endTime).utc().format('hh:mma')
+              : dayjs(slot?.end).add(7, 'hour').format('hh:mma'),
           }}
           previewData={previewData}
           isOpen={isOpenEventFormModal}
