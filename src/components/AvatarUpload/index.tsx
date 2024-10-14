@@ -16,6 +16,7 @@ export type TUpdateProfileProps = {
   value: string;
   error?: string;
   isDisabled?: boolean;
+  additionalClass?: string;
 };
 
 const AvatarUpload = ({
@@ -24,6 +25,7 @@ const AvatarUpload = ({
   onChange,
   onFileChange,
   isDisabled = false,
+  additionalClass = '',
 }: TUpdateProfileProps) => {
   const [previewURL, setPreviewURL] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>(error);
@@ -69,7 +71,9 @@ const AvatarUpload = ({
   };
 
   return (
-    <div className="!m-0 flex flex-col justify-center items-center my-20">
+    <div
+      className={`!m-0 flex flex-col justify-center items-center my-20 ${additionalClass}`}
+    >
       <label
         htmlFor="file"
         className="cursor-pointer hover:scale-110 transition-transform"
