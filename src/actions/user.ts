@@ -14,6 +14,8 @@ import { formatErrorMessage } from '@/utils';
 
 // Types
 import { IUserFormData } from '@/types';
+
+// Models
 import { TUser } from '@/models';
 
 export const updateUser = async (
