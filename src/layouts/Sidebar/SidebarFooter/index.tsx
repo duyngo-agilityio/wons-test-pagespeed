@@ -87,14 +87,15 @@ const SidebarFooter = ({
           )}
         >
           <div className="flex items-center gap-2.5">
-            <ImageFallback
-              priority={false}
-              src={avatar}
-              alt="admin"
-              width={40}
-              height={40}
-              className="rounded-10"
-            />
+            <div className="relative w-[40px] h-[40px]">
+              <ImageFallback
+                className="rounded-full object-cover h-full"
+                fill
+                priority={false}
+                src={avatar}
+                alt="User Avatar"
+              />
+            </div>
             {toggle === SIDE_BAR_STATE.OPEN && (
               <div>
                 <Text text={fullName} className="text-sm capitalize" />
