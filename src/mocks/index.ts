@@ -6,3 +6,4 @@ export * from './tabs';
 export * from './response';
 export * from './users';
 export * from './task';
+export * from './event';
