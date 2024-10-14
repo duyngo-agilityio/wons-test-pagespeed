@@ -140,7 +140,7 @@ const EventDetail = ({
                     src={guest.avatar}
                     width={30}
                     height={30}
-                    className="rounded-full mr-2"
+                    className="rounded-full mr-2 !h-[30px]"
                     alt={`${guest.name}'s avatar`}
                   />
                   <Text

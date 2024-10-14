@@ -1,5 +1,5 @@
 import { Level, ROLES } from '@/constants';
-import { TasksState } from '@/types';
+import { TasksState, TaskWithStringAssignees, TLabelStatus } from '@/types';
 
 export const MOCK_TASKS: TasksState = {
   todo: [
@@ -122,4 +122,68 @@ export const MOCK_TASKS: TasksState = {
   ],
   inReview: [],
   done: [],
+};
+
+export const MOCK_TASK_WITH_STRING_ASSIGNEES: Partial<TaskWithStringAssignees> =
+  {
+    title: 'Test Task',
+    label: 'inProgress',
+    level: Level.MEDIUM,
+    description: 'This is a test task',
+    createdAt: '2024-10-13T10:00:00Z',
+    updatedAt: '2024-10-13T12:00:00Z',
+    publishedAt: '2024-10-13T12:00:00Z',
+    images: ['image1.png', 'image2.png'],
+    assignees: [123, 456],
+  };
+
+export const MOCK_DATA_TASKS_WITHOUT_STRAPI_MODEL = {
+  title: 'Updated Task',
+  label: 'inReview' as TLabelStatus,
+  level: 'High' as Level,
+  description: 'This is an updated test task',
+  images: ['image1.png', 'image3.png'],
+  assignees: {
+    data: [
+      {
+        id: 4,
+        attributes: {
+          username: 'ngocngo',
+          email: 'user1@gmail.com',
+          fullName: 'Ngoc Ngo',
+          role: ROLES[1],
+          token: '',
+          avatar:
+            'https://t3.ftcdn.net/jpg/06/17/13/26/360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg',
+          password: '',
+        },
+      },
+      {
+        id: 5,
+        attributes: {
+          username: 'user',
+          email: 'user@gmail.com',
+          fullName: 'User User',
+          avatar:
+            'https://t3.ftcdn.net/jpg/06/17/13/26/360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg',
+          password: '',
+          role: ROLES[1],
+          token: '',
+        },
+      },
+      {
+        id: 9,
+        attributes: {
+          username: 'user34',
+          email: 'user34@gmail.com',
+          fullName: 'user',
+          role: ROLES[1],
+          token: '',
+          avatar:
+            'https://t3.ftcdn.net/jpg/06/17/13/26/360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg',
+          password: '',
+        },
+      },
+    ],
+  },
 };
