@@ -5,6 +5,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { CalendarDate } from '@internationalized/date';
 import { IoClose } from 'react-icons/io5';
 import isEqual from 'react-fast-compare';
+import dayjs from 'dayjs';
+
 import {
   Modal as NextModal,
   ModalContent,
@@ -23,6 +25,7 @@ import { TEventResponse } from '@/types';
 import {
   capitalizeFirstLetter,
   clearErrorOnChange,
+  formatDateString,
   formatDateToISO,
   formatEventDate,
   formatToCalendarDate,
@@ -157,8 +160,14 @@ const EventFormModal = ({
   const handleFormSubmit = handleSubmit((data) => {
     const people = parseStringToNumberArray(data.people as string);
 
-    const formattedStart = formatDateToISO(date, startTime);
-    const formattedEnd = formatDateToISO(date, endTime);
+    const formattedStart = formatDateToISO(
+      date,
+      dayjs(startTime, 'hh:mma').format('HH:mm'),
+    );
+    const formattedEnd = formatDateToISO(
+      date,
+      dayjs(endTime, 'hh:mma').format('HH:mm'),
+    );
 
     onSubmit({
       ...data,
@@ -387,7 +396,7 @@ const EventFormModal = ({
           <DateTimePickerModal
             isOpen={isDateTimePickerOpen}
             onClose={toggleDateTimePicker}
-            selectedDate={calendarDate.toString().split('T')[0]}
+            selectedDate={formatDateString(calendarDate)}
             selectedStartTime={startTime}
             selectedEndTime={endTime}
             onDateChange={(dateString) =>
