@@ -86,7 +86,7 @@ const Filter = ({
       <PopoverTrigger {...popoverTriggerProps}>
         {title && (
           <Button
-            className=" w-full bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium"
+            className=" w-full bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium z-auto"
             endContent={<FilterIcon />}
             {...buttonProps}
           >
