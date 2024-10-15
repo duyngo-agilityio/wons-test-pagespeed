@@ -302,8 +302,8 @@ const CustomerForm = ({
             errorMessage={error?.message}
             isDisabled={isDisabledField}
             className="flex-1"
-            onChange={(e) => {
-              onChange(e.target.value);
+            onChange={(value) => {
+              onChange(value);
 
               // Clear error message on change
               clearErrorOnChange(name, errors, clearErrors);

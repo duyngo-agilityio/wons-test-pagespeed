@@ -21,7 +21,9 @@ jest.mock('@/services', () => ({
 
 describe('AddressInput component', () => {
   it('matches snapshot', () => {
-    const { container } = render(<AddressInput label="Address" />);
+    const { container } = render(
+      <AddressInput onChange={jest.fn()} label="Address" />,
+    );
 
     expect(container).toMatchSnapshot();
   });

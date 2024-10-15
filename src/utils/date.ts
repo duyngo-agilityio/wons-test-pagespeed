@@ -127,5 +127,5 @@ export const formatEventDate = (date: Date) => {
 
   const selectedDateNumber = date.getDate();
 
-  return `${selectedDate}. ${selectedMonth} ${selectedDateNumber}`;
+  return `${selectedDate}, ${selectedMonth} ${selectedDateNumber}`;
 };
