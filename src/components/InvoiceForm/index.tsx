@@ -149,6 +149,7 @@ const InvoiceForm = ({
     [dirtyItems, errors],
   );
   const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+
   const allFieldsFilled = requiredField.every((field) => {
     const isDirty = dirtyItems.includes(field);
     const hasError = errors[field as keyof Partial<TInvoiceFormData>];
@@ -159,12 +160,16 @@ const InvoiceForm = ({
     ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
     : !allFieldsFilled;
 
-  const handleSubmitButton = async (formData: TInvoiceFormData) => {
-    const hasEmptyField = productsValues.some((obj) =>
-      Object.values(obj).some((value) => value === ''),
+  const hasEmptyField =
+    productsValues.length === 0 ||
+    productsValues.some((obj) =>
+      Object.values(obj).some((value) => {
+        return value === 0;
+      }),
     );
 
-    if (productsValues.length === 0 || hasEmptyField) {
+  const handleSubmitButton = async (formData: TInvoiceFormData) => {
+    if (hasEmptyField) {
       return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED);
     }
 
@@ -475,7 +480,7 @@ const InvoiceForm = ({
           </Button>
           <Button
             type="submit"
-            isDisabled={isDisableSubmit}
+            isDisabled={isDisableSubmit || hasEmptyField}
             isLoading={isPending}
             size="lg"
             color="primary"
