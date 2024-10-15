@@ -5,7 +5,7 @@ import { FaTrash } from 'react-icons/fa';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
 
 // Components
-import { Autocomplete, Button, Input, Table, Text } from '@/components';
+import { Button, Input, Table, Text } from '@/components';
 
 // Constants
 import { MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
@@ -18,6 +18,8 @@ import { formatTotalAmount } from '@/utils';
 
 // Types
 import { TInvoiceProductTable } from '@/types';
+import { Select, SelectItem } from '@nextui-org/react';
+import clsx from 'clsx';
 
 interface InvoiceProductTableProps {
   products: (IProduct & { id: number })[];
@@ -109,15 +111,30 @@ const InvoiceProductTable = ({
         );
 
         return (
-          <Autocomplete
-            disableClearable
-            selectedKey={data.product?.data?.id?.toString()}
-            onSelectionChange={(key) =>
-              handleChangeProductName(key, data.product.data.id)
+          <Select
+            classNames={{
+              trigger: clsx(
+                'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+              ),
+            }}
+            selectedKeys={
+              data.product?.data?.id?.toString()
+                ? [data.product.data.id.toString()]
+                : []
             }
-            options={[...current, ...optionsElse]}
+            onChange={(event) => {
+              // Extract the selected value from the event
+              const selectedValue = event.target.value;
+              handleChangeProductName(selectedValue, data.product.data.id);
+            }}
             aria-label="Product Name field"
-          />
+          >
+            {[...current, ...optionsElse].map(({ value, label }) => (
+              <SelectItem key={value} value={value}>
+                {label}
+              </SelectItem>
+            ))}
+          </Select>
         );
       },
       isSort: true,
