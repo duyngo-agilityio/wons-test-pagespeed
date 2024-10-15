@@ -75,7 +75,7 @@ const invoiceSchema = z.object({
     .string()
     .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
     .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
-  imageUrl: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  imageUrl: z.string(),
 });
 
 const REQUIRED_FIELDS = ['date', 'customerId', 'email', 'address', 'status'];
@@ -160,6 +160,7 @@ const InvoiceForm = ({
     : !allFieldsFilled;
 
   const handleSubmitButton = async (formData: TInvoiceFormData) => {
+    console.log('aab', formData);
     const hasEmptyField = productsValues.some((obj) =>
       Object.values(obj).some((value) => value === ''),
     );
@@ -169,20 +170,12 @@ const InvoiceForm = ({
     }
 
     if (isAvatarDirty && avatarFile) {
-      try {
-        const imageUrl = await uploadImage(avatarFile);
+      const imageUrl = await uploadImage(avatarFile);
 
-        if (imageUrl?.downloadURL) {
-          formData.imageUrl = imageUrl.downloadURL;
-        } else {
-          return { error: imageUrl.error };
-        }
-      } catch (error) {
-        return setErrorProducts(error as string);
-      }
-    } else {
-      if (!formData.imageUrl) {
-        return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED);
+      if (imageUrl?.downloadURL) {
+        formData.imageUrl = imageUrl.downloadURL;
+      } else {
+        return { error: imageUrl.error };
       }
     }
 
@@ -445,8 +438,8 @@ const InvoiceForm = ({
                 isInvalid={!!error}
                 errorMessage={error?.message}
                 className="flex-1"
-                onChange={(e) => {
-                  onChange(e.target.value);
+                onChange={(value) => {
+                  onChange(value);
 
                   // Clear error message on change
                   clearErrorOnChange(name, errors, clearErrors);

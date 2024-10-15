@@ -11,7 +11,9 @@ import { HiLocationMarker } from 'react-icons/hi';
 import { Input, Text } from '@/components';
 import { getLocationSuggestion } from '@/services';
 
-interface AddressInputProps extends InputProps {}
+interface AddressInputProps extends Omit<InputProps, 'onChange'> {
+  onChange: (value: string) => void;
+}
 
 interface LocationItem {
   properties: {
@@ -33,13 +35,13 @@ const AddressInput = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // Debounce searchAddress with a delay of 500ms
-  const [debouncedSearchAddress] = useDebounce(searchAddress, 500);
+  const [debouncedSearchAddress] = useDebounce(searchAddress, 300);
 
   const handleOnChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setIsOpen(true);
 
     const value = event.target.value;
-    onChange && onChange(event);
+    onChange && onChange(value);
     setSearchAddress(value);
   };
 
@@ -63,6 +65,7 @@ const AddressInput = ({
     setSearchAddress(value);
     setLocationsSuggestion([]);
     setIsOpen(false);
+    onChange && onChange(value);
   };
 
   return (

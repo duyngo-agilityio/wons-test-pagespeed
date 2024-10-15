@@ -257,14 +257,14 @@ const EventFormModal = ({
               <ClockIcon />
             </Button>
 
-            <div className="grid grid-rows-2 grid-cols-2 max-w-[350px] gap-[0_30px]">
+            <div className="grid grid-rows-2 grid-cols-2 max-w-[350px] gap-[0_10px]">
               <Text
                 className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
                 text={formattedDate} // Display date
               />
               <Text
                 className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-                text={`${startTime} - ${endTime}`} // Display time
+                text={`- \u00A0 ${startTime} - ${endTime}`} // Display time
               />
               <Text
                 className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal col-span-2"
@@ -317,8 +317,8 @@ const EventFormModal = ({
                   errorMessage={error?.message}
                   label="Location"
                   classNames={{ mainWrapper: 'mt-5' }}
-                  onChange={(e) => {
-                    onChange(e.target.value);
+                  onChange={(value) => {
+                    onChange(value);
 
                     // Clear error message on change
                     clearErrorOnChange(name, errors, clearErrors);
