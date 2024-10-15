@@ -375,6 +375,7 @@ const TaskForm = ({
               selectedKeys={value}
               onClose={onBlur}
               labelPlacement="outside"
+              placeholder=" "
               variant="flat"
               classNames={{
                 trigger:

@@ -2,8 +2,8 @@
 
 import { ChangeEvent, useCallback, useState } from 'react';
 import { IoCamera, IoClose } from 'react-icons/io5';
-import { Input, Button, Text } from '@/components';
-import Image from 'next/image';
+import { Input, Button, Text, ImageFallback } from '@/components';
+
 // constants
 import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
 
@@ -29,6 +29,11 @@ const AvatarUploadMultiple = ({
 
       // Reset error message
       setErrorMessage('');
+
+      if (files.length > 2) {
+        setErrorMessage(ERROR_MESSAGES.MAX_IMAGE);
+        return;
+      }
 
       // Array to hold valid files and preview URLs
       const validFiles: File[] = [];
@@ -71,12 +76,20 @@ const AvatarUploadMultiple = ({
   );
 
   const handleRemoveImage = (index: number) => {
+    // Remove the image from previewURLs
     const updatedPreviews = previewURLs.filter((_, i) => i !== index);
     setPreviewURLs(updatedPreviews);
+
+    // Also remove the corresponding file from filesList
+    setFilesList((prevFiles) => {
+      const updatedFiles = prevFiles.filter((_, i) => i !== index);
+      // Pass the updated files list to the parent component
+      onFileChange(updatedFiles);
+      return updatedFiles;
+    });
   };
 
   const isUploadDisabled = previewURLs.length >= 2;
-  const isShowErrorImage = previewURLs.length > 2;
 
   return (
     <div className="flex flex-col items-center mt-5">
@@ -91,6 +104,7 @@ const AvatarUploadMultiple = ({
         <IoCamera size={24} className="text-blue-800/70" />
         <Text className="ml-2" text="Upload Image" />
       </label>
+
       <Input
         aria-label="Upload Avatar"
         type="file"
@@ -99,23 +113,17 @@ const AvatarUploadMultiple = ({
         accept="image/*"
         multiple
         onChange={handleChangeFiles}
-        isDisabled={isUploadDisabled}
+        disabled={isUploadDisabled}
       />
 
       {errorMessage && (
         <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
       )}
 
-      {isShowErrorImage && (
-        <p className="text-red-500 text-sm mt-2">
-          You can upload up to 2 images
-        </p>
-      )}
-
       <div className="grid grid-cols-2 gap-4 mt-4">
         {previewURLs.map((url, index) => (
           <div key={index} className="relative w-24 h-24">
-            <Image
+            <ImageFallback
               src={url}
               alt={`Uploaded image ${index + 1}`}
               width={96}
