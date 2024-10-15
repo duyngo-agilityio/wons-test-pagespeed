@@ -162,11 +162,7 @@ const InvoiceForm = ({
 
   const hasEmptyField =
     !productsValues.length ||
-    productsValues.some((obj) =>
-      Object.values(obj).some((value) => {
-        return value === 0;
-      }),
-    );
+    productsValues.some((obj) => Object.values(obj).some((value) => !value));
 
   const handleSubmitButton = async (formData: TInvoiceFormData) => {
     if (hasEmptyField) {
