@@ -160,7 +160,6 @@ const InvoiceForm = ({
     : !allFieldsFilled;
 
   const handleSubmitButton = async (formData: TInvoiceFormData) => {
-    console.log('aab', formData);
     const hasEmptyField = productsValues.some((obj) =>
       Object.values(obj).some((value) => value === ''),
     );
