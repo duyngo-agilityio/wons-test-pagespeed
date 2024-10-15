@@ -109,10 +109,8 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
   );
 
   const handleAvatarChange = useCallback((files: File[]) => {
-    if (files && files.length > 0) {
-      setAvatarFiles(files);
-      setIsAvatarDirty(true);
-    }
+    setAvatarFiles(files);
+    setIsAvatarDirty(true);
   }, []);
 
   return (

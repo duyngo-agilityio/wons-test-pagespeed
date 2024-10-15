@@ -154,7 +154,11 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
                 className="mt-[20px] text-sm text-justify"
                 text={description}
               />
-              <div className="mt-[20px]">{renderImageTask()}</div>
+
+              {images.length !== 0 && (
+                <div className="mt-[20px]">{renderImageTask()}</div>
+              )}
+
               <div className="mt-[20px]">
                 <AvatarGroup users={assignees.data} />
               </div>
