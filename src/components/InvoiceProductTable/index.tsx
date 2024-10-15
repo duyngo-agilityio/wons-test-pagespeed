@@ -114,7 +114,7 @@ const InvoiceProductTable = ({
           <Select
             classNames={{
               trigger: clsx(
-                'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40',
               ),
             }}
             selectedKeys={
