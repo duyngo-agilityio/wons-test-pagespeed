@@ -161,7 +161,7 @@ const InvoiceForm = ({
     : !allFieldsFilled;
 
   const hasEmptyField =
-    productsValues.length === 0 ||
+    !productsValues.length ||
     productsValues.some((obj) =>
       Object.values(obj).some((value) => {
         return value === 0;
