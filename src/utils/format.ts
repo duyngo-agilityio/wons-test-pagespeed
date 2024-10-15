@@ -253,9 +253,10 @@ export const getTimeFromISO = (isoString: string): string => {
   // Convert to 12-hour format
   hours = hours % 12 || 12; // Adjust 0 hours to 12 for midnight
 
-  // Format minutes with leading zero if needed
+  // Format hours and minutes with leading zero if needed
+  const formattedHours = hours < 10 ? `0${hours}` : hours;
   const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
 
   // Return the time in 12-hour format with am/pm
-  return `${hours}:${formattedMinutes}${ampm}`;
+  return `${formattedHours}:${formattedMinutes}${ampm}`;
 };
