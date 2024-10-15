@@ -258,7 +258,7 @@ const EventFormModal = ({
             </Button>
 
             <div>
-              <div className="flex gap-2.5">
+              <div className="flex gap-2">
                 <Text
                   className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
                   text={`${formattedDate}`} // Display date
