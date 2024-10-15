@@ -78,7 +78,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     // If images exist and has exactly two items
     if (hasTwoImages)
       return (
-        <div className="flex flex-row justify-between w-[235px]">
+        <div className="flex flex-row justify-between max-w-[235px] gap-[0_12px] xl:gap-[0_21px]">
           {images.map((image, indexImage) => (
             <div
               className="w-[107px] h-[90px] relative"
@@ -97,7 +97,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
 
     // If images exist and has exactly one item
     return (
-      <div className="w-[235px] h-[176px] relative">
+      <div className="max-w-[235px] h-[176px] relative">
         <ImageFallback
           alt={title}
           src={images[0]}
