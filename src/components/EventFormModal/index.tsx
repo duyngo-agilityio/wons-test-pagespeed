@@ -161,12 +161,12 @@ const EventFormModal = ({
     const people = parseStringToNumberArray(data.people as string);
 
     const formattedStart = formatDateToISO(
-      date,
-      dayjs(startTime, 'hh:mma').format('HH:mm'),
+      new Date(formatDateString(calendarDate)),
+      dayjs(startTime, 'hh:mma').utc(true).format('HH:mm'),
     );
     const formattedEnd = formatDateToISO(
-      date,
-      dayjs(endTime, 'hh:mma').format('HH:mm'),
+      new Date(formatDateString(calendarDate)),
+      dayjs(endTime, 'hh:mma').utc(true).format('HH:mm'),
     );
 
     onSubmit({
@@ -174,7 +174,7 @@ const EventFormModal = ({
       users_permissions_users: [Number(user.id), ...people],
       startTime: formattedStart,
       endTime: formattedEnd,
-      date: new Date(date),
+      date: new Date(formatDateString(calendarDate)),
     });
   });
 

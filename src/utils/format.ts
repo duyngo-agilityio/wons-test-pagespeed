@@ -111,7 +111,7 @@ export const formatAmountWithDiscount = (
   return `${formatPrice(total, true)} USD`;
 };
 export const formatDateString = (date: DateValue) =>
-  `${date.year}-${date.month}-${date.day + 1}`;
+  `${date.year}-${date.month}-${date.day}`;
 
 export const formatDatePicker = (
   date: CalendarDate | CalendarDateTime | ZonedDateTime,
@@ -193,6 +193,7 @@ export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
   events.map(({ id, attributes }) => ({
     ...attributes,
     id,
+    date: dayjs(attributes.date).utc(true).toDate(),
     start: dayjs(attributes.startTime).utc(true).toDate(),
     end: dayjs(attributes.endTime).utc(true).toDate(),
   })) as unknown as (Event & IEvent)[]; // TODO: Update type later;
@@ -242,6 +243,19 @@ export const getTimeFromISO = (isoString: string): string => {
     throw new Error('Invalid ISO date string');
   }
 
-  // Extract HH:mm from the date
-  return date.toISOString().substring(11, 16);
+  // Extract hours and minutes
+  let hours = date.getUTCHours();
+  const minutes = date.getUTCMinutes();
+
+  // Determine AM/PM suffix
+  const ampm = hours >= 12 ? 'pm' : 'am';
+
+  // Convert to 12-hour format
+  hours = hours % 12 || 12; // Adjust 0 hours to 12 for midnight
+
+  // Format minutes with leading zero if needed
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+  // Return the time in 12-hour format with am/pm
+  return `${hours}:${formattedMinutes}${ampm}`;
 };
