@@ -127,5 +127,8 @@ export const formatEventDate = (date: Date) => {
 
   const selectedDateNumber = date.getDate();
 
-  return `${selectedDate}, ${selectedMonth} ${selectedDateNumber}`;
+  // Get the year
+  const selectedYear = date.getFullYear();
+
+  return `${selectedDate}, ${selectedMonth} ${selectedDateNumber}, ${selectedYear}`;
 };

@@ -257,15 +257,19 @@ const EventFormModal = ({
               <ClockIcon />
             </Button>
 
-            <div className="grid grid-rows-2 grid-cols-2 max-w-[350px] gap-[0_10px]">
-              <Text
-                className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-                text={formattedDate} // Display date
-              />
-              <Text
-                className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-                text={`- \u00A0 ${startTime} - ${endTime}`} // Display time
-              />
+            <div>
+              <div className="flex gap-2.5">
+                <Text
+                  className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
+                  text={`${formattedDate}`} // Display date
+                />
+                <Text as="span" text="-" />
+                <Text
+                  className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
+                  text={`${startTime} - ${endTime}`} // Display time
+                />
+              </div>
+
               <Text
                 className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal col-span-2"
                 text={`Time zone - ${capitalizeFirstLetter(repeatSetting)}`}
