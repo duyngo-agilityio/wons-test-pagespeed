@@ -92,13 +92,12 @@ export const formatDateCalendar = (calendarDate: DateValue) => {
   }).format(date);
 };
 
-/**
- * Converts a JavaScript Date object to a CalendarDate format by parsing the ISO date string.
- * @param value - A JavaScript Date object
- * @returns A parsed CalendarDate object
- */
 export const formatToCalendarDate = (value: Date) => {
-  return parseDate(value.toISOString().split('T')[0]);
+  // Convert to UTC and format to 'YYYY-MM-DD'
+  const utcDate = dayjs(value).utc(true).format('YYYY-MM-DD');
+
+  // Parse the UTC date string
+  return parseDate(utcDate);
 };
 
 /**
@@ -107,7 +106,7 @@ export const formatToCalendarDate = (value: Date) => {
  * @returns A JavaScript Date object
  */
 export const formatToStandardDate = (value: CalendarDate) => {
-  return new Date(value.year, value.month - 1, value.day + 1);
+  return new Date(value.year, value.month - 1, value.day);
 };
 
 /**

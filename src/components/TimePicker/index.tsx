@@ -42,20 +42,24 @@ const DateTimePickerModal = ({
         <Input
           label="Start Time"
           type="time"
-          value={dayjs(selectedStartTime, 'hh:mma').format('HH:mm')}
+          value={dayjs(selectedStartTime, 'hh:mma').utc(true).format('HH:mm')}
           onChange={(e) => {
             const selectedTime = e.target.value; // get the time value from input
-            const formattedTime = dayjs(selectedTime, 'HH:mm').format('hh:mma'); // Convert to 12h format
+            const formattedTime = dayjs(selectedTime, 'HH:mm')
+              .utc(true)
+              .format('hh:mma'); // Convert to 12h format
             onStartTimeChange(formattedTime); // Call the handler with the new formatted value
           }}
         />
         <Input
           label="End Time"
           type="time"
-          value={dayjs(selectedEndTime, 'hh:mma').format('HH:mm')}
+          value={dayjs(selectedEndTime, 'hh:mma').utc(true).format('HH:mm')}
           onChange={(e) => {
             const selectedTime = e.target.value; // get the time value from input
-            const formattedTime = dayjs(selectedTime, 'HH:mm').format('hh:mma'); // Convert to 12h format
+            const formattedTime = dayjs(selectedTime, 'HH:mm')
+              .utc(true)
+              .format('hh:mma'); // Convert to 12h format
             onEndTimeChange(formattedTime); // Call the handler with the new formatted value
           }}
         />
