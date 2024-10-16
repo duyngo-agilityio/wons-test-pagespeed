@@ -74,7 +74,7 @@ exports[`TaskCard Component matches the snapshot 1`] = `
           class="mt-[20px]"
         >
           <div
-            class="flex flex-row justify-between w-[235px]"
+            class="flex flex-row justify-between max-w-[235px] gap-[0_12px] xl:gap-[0_21px]"
           >
             <div
               class="w-[107px] h-[90px] relative"
