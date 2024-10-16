@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, memo, useEffect, useState } from 'react';
 import { InputProps } from '@nextui-org/react';
 import { useDebounce } from 'use-debounce';
 
@@ -65,6 +65,7 @@ const AddressInput = ({
     setSearchAddress(value);
     setLocationsSuggestion([]);
     setIsOpen(false);
+
     onChange && onChange(value);
   };
 
@@ -102,4 +103,4 @@ const AddressInput = ({
   );
 };
 
-export default AddressInput;
+export default memo(AddressInput);

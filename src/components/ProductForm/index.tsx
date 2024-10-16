@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useTransition } from 'react';
+import { memo, useCallback, useMemo, useTransition } from 'react';
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -86,7 +86,6 @@ const ProductForm = ({
     formState: { dirtyFields, errors, defaultValues },
     clearErrors,
     handleSubmit,
-    reset,
     watch,
     setError,
   } = useForm<Partial<IProductDetail>>({
@@ -131,15 +130,15 @@ const ProductForm = ({
           type: 'manual',
           message: ERROR_MESSAGES.FIELD_REQUIRED,
         });
+
         return;
       }
 
       startTransition(async () => {
         await onSubmit(formData as IProductDetail);
-        reset();
       });
     },
-    [onSubmit, reset, setError],
+    [onSubmit, setError],
   );
 
   return (
@@ -353,4 +352,4 @@ const ProductForm = ({
   );
 };
 
-export default ProductForm;
+export default memo(ProductForm);

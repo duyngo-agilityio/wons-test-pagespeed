@@ -67,22 +67,22 @@ const CustomerDrawer = (): JSX.Element => {
         });
 
         if (error) {
-          return showToast({
+          showToast({
             description: error,
             status: MESSAGE_STATUS.ERROR,
           });
-        } else {
-          showToast({
-            description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
-            status: MESSAGE_STATUS.SUCCESS,
-          });
+
+          return;
         }
       });
 
-      if (!isPending) {
-        setIsDrawerOpen(false);
-        setAvatarFile(undefined);
-      }
+      showToast({
+        description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
+        status: MESSAGE_STATUS.SUCCESS,
+      });
+
+      setIsDrawerOpen(false);
+      setAvatarFile(undefined);
     },
     [avatarFile, isAvatarDirty, isPending, showToast],
   );

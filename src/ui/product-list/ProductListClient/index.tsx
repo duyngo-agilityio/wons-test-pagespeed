@@ -155,10 +155,12 @@ const ProductListClient = ({
         );
 
         if (error) {
-          return showToast({
+          showToast({
             description: error,
             status: MESSAGE_STATUS.ERROR,
           });
+
+          return;
         } else {
           showToast({
             description: SUCCESS_MESSAGES.UPDATE_PRODUCT,
@@ -167,11 +169,9 @@ const ProductListClient = ({
         }
       });
 
-      if (!isPending) {
-        setToggleEditProduct(false);
-        setAvatarFile(undefined);
-        setIsAvatarDirty(false);
-      }
+      setToggleEditProduct(false);
+      setAvatarFile(undefined);
+      setIsAvatarDirty(false);
     },
     [avatarFile, idProduct, isAvatarDirty, isPending, onEdit, showToast],
   );
