@@ -61,10 +61,12 @@ const ProductDrawer = (): JSX.Element => {
         });
 
         if (error) {
-          return showToast({
+          showToast({
             description: error,
             status: MESSAGE_STATUS.ERROR,
           });
+
+          return;
         } else {
           showToast({
             description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
@@ -73,11 +75,9 @@ const ProductDrawer = (): JSX.Element => {
         }
       });
 
-      if (!isPending) {
-        setIsDrawerOpen(false);
-        setAvatarFile(undefined);
-        setIsAvatarDirty(false);
-      }
+      setIsDrawerOpen(false);
+      setAvatarFile(undefined);
+      setIsAvatarDirty(false);
     },
     [avatarFile, isAvatarDirty, isPending, showToast],
   );

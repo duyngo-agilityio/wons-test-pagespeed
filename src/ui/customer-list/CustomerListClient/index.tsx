@@ -196,6 +196,8 @@ const CustomerListClient = ({
           });
         }
       });
+
+      setToggleForm(false);
     },
     [idCustomer, showToast, avatarFile, isAvatarDirty],
   );
@@ -216,7 +218,7 @@ const CustomerListClient = ({
       />
 
       {/* Customer Form Edit Drawer */}
-      {customerForm && toggleForm && (
+      {(customerForm || toggleForm) && (
         <Drawer
           open={toggleForm}
           onClose={handleCloseFormDrawer}
