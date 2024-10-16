@@ -75,7 +75,11 @@ const EventDetail = ({
           <div className="p-4">
             <div className="mb-8">
               <Heading title={title} className="mb-2" />
-              <Text size="2xl" className="opacity-70 font-medium" text={time} />
+              <Text
+                size="2xl"
+                className="opacity-70 font-medium uppercase"
+                text={time}
+              />
             </div>
             <div className="flex items-center mt-4">
               <FaLocationDot
