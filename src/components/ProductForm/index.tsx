@@ -1,8 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useTransition } from 'react';
+import { useCallback, useMemo, useTransition } from 'react';
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
-import { Controller, useForm, UseFormReset } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -70,7 +70,6 @@ export interface IProductFormProps {
   isDisabledField?: boolean;
   onAvatarChange: (file: File) => void;
   onSubmit: (data: IProductDetail) => void;
-  setReset: (reset: UseFormReset<Partial<IProductDetail>>) => void;
   previewData?: IProductDetail | null;
   onCloseDrawer?: () => void;
 }
@@ -79,7 +78,6 @@ const ProductForm = ({
   isDisabledField = false,
   onAvatarChange,
   onSubmit,
-  setReset,
   previewData = null,
   onCloseDrawer,
 }: IProductFormProps) => {
@@ -106,12 +104,6 @@ const ProductForm = ({
   });
 
   const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    if (setReset) {
-      setReset(reset);
-    }
-  }, [setReset, reset]);
 
   // Checking to disable/enable submit button
   const dirtyItems = Object.keys(dirtyFields);

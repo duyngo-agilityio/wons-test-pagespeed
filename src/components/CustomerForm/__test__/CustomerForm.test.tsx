@@ -23,7 +23,6 @@ const renderComponent = (props = {}) => {
     <CustomerForm
       onSubmit={mockOnSubmit}
       onAvatarChange={mockOnAvatarChange}
-      setReset={jest.fn()}
       {...props}
     />,
   );
