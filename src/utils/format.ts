@@ -1,7 +1,8 @@
 import { CalendarDate, DateValue } from '@nextui-org/react';
 import { CalendarDateTime, ZonedDateTime } from '@internationalized/date';
-import utc from 'dayjs/plugin/utc';
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import toObject from 'dayjs/plugin/toObject';
 
 // Types
 import { StrapiModel, TEventResponse, TProductInvoiceResponse } from '@/types';
@@ -13,6 +14,7 @@ import { IEvent, IProduct, TInvoiceProduct } from '@/models';
 import { REGEX } from '@/constants';
 
 dayjs.extend(utc);
+dayjs.extend(toObject);
 
 export const formatPrice = (price: number, isDigits: boolean = false) => {
   const numPrice = typeof price === 'string' ? parseFloat(price) : price;
@@ -189,14 +191,36 @@ export const capitalizeFirstLetter = (value: string = '') => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
+export const formatDate = (value: string) => {
+  const object = dayjs(value).toObject();
+
+  const {
+    years = 2014,
+    months = 10,
+    date = 15,
+    hours = 18,
+    minutes = 39,
+    milliseconds = 15,
+  } = object ?? {};
+
+  return new Date(years, months, date, hours - 7, minutes, milliseconds);
+};
+
 export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
-  events.map(({ id, attributes }) => ({
-    ...attributes,
-    id,
-    date: dayjs(attributes.date).utc(true).toDate(),
-    start: dayjs(attributes.startTime).utc(true).toDate(),
-    end: dayjs(attributes.endTime).utc(true).toDate(),
-  })) as unknown as (Event & IEvent)[]; // TODO: Update type later;
+  events.map(({ id, attributes }) => {
+    const { startTime = '', endTime = '' } = attributes ?? {};
+
+    const start = formatDate(startTime);
+    const end = formatDate(endTime);
+
+    return {
+      ...attributes,
+      id,
+      date: dayjs(attributes.date).utc(true).toDate(),
+      start,
+      end,
+    };
+  }) as unknown as (Event & IEvent)[]; // TODO: Update type later
 
 export const parseStringToNumberArray = (value: string): number[] => {
   return value
