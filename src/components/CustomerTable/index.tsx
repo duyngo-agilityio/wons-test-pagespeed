@@ -16,7 +16,6 @@ import {
 // Types
 import { TCustomerDataResponse } from '@/types';
 import Link from 'next/link';
-import WithAuthHOC from '@/hocs/withAuth';
 
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 
@@ -129,18 +128,18 @@ const CustomersTable = ({
           value: 'gender',
         },
         {
-          accessor: (customerData: TCustomerData) => {
-            const { id } = customerData || {};
+          ...(!isReadOnly && {
+            accessor: (customerData: TCustomerData) => {
+              const { id } = customerData || {};
 
-            return (
-              <WithAuthHOC>
+              return (
                 <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
-              </WithAuthHOC>
-            );
-          },
+              );
+            },
+          }),
         },
       ].filter((item) => Object.keys(item).length !== 0),
-    [onDelete, onEdit],
+    [isReadOnly, onDelete, onEdit],
   );
 
   return (
