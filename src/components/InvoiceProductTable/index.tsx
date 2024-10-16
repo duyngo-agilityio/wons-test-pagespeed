@@ -1,11 +1,13 @@
 'use client';
 
-import { ChangeEvent, Dispatch, Key, SetStateAction } from 'react';
+import { ChangeEvent, Dispatch, Key, SetStateAction, useEffect } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
+import clsx from 'clsx';
 
 // Components
 import { Button, Input, Table, Text } from '@/components';
+import { Select, SelectItem } from '@nextui-org/react';
 
 // Constants
 import { MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
@@ -18,8 +20,6 @@ import { formatTotalAmount } from '@/utils';
 
 // Types
 import { TInvoiceProductTable } from '@/types';
-import { Select, SelectItem } from '@nextui-org/react';
-import clsx from 'clsx';
 
 interface InvoiceProductTableProps {
   products: (IProduct & { id: number })[];
@@ -52,22 +52,27 @@ const InvoiceProductTable = ({
   errorProducts,
   productsValues,
 }: InvoiceProductTableProps) => {
+  useEffect(() => {
+    if (!productsValues.length) {
+      setProductsValues([initInvoiceProduct]);
+    }
+  }, [productsValues.length, setProductsValues]);
+
   const handleAddProduct = () => {
     setErrorProducts('');
-    setProductsValues((prev) => [
-      ...prev,
-      {
-        ...initInvoiceProduct,
-        id: Date.now(),
-        product: {
-          ...initInvoiceProduct.product,
-          data: {
-            ...initInvoiceProduct.product.data,
-            id: Date.now(),
-          },
+    const newProduct = {
+      ...initInvoiceProduct,
+      id: Date.now(),
+      product: {
+        ...initInvoiceProduct.product,
+        data: {
+          ...initInvoiceProduct.product.data,
+          id: Date.now(),
         },
       },
-    ]);
+    };
+
+    setProductsValues((prev) => [...prev, newProduct]);
   };
 
   const handleChangeProductName = (key: Key | null, id: number) => {
@@ -229,10 +234,9 @@ const InvoiceProductTable = ({
     );
   };
 
+  // If `productsValues` is empty, we fallback to showing the initial invoice product.
   const dataTable =
-    productsValues.length === 0 && initInvoiceProduct
-      ? [initInvoiceProduct]
-      : productsValues;
+    productsValues.length > 0 ? productsValues : [initInvoiceProduct];
 
   return (
     <div>
