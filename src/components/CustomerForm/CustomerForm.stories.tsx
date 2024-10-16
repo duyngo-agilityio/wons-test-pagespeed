@@ -18,6 +18,5 @@ type Story = StoryObj<typeof CustomerForm>;
 export const Default: Story = {
   args: {
     onSubmit: fn(),
-    setReset: fn(),
   },
 };

@@ -1,8 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useTransition } from 'react';
+import { useCallback, useMemo, useTransition } from 'react';
 import { Select, SelectItem } from '@nextui-org/react';
-import { Controller, useForm, UseFormReset } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -68,7 +68,6 @@ export interface ICustomerFormProps {
   isDisabledField?: boolean;
   onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
-  setReset: (reset: UseFormReset<Partial<ICustomer>>) => void;
   previewData?: ICustomer;
 }
 
@@ -76,7 +75,6 @@ const CustomerForm = ({
   isDisabledField = false,
   onAvatarChange,
   onSubmit,
-  setReset,
   previewData,
 }: ICustomerFormProps) => {
   const {
@@ -103,12 +101,6 @@ const CustomerForm = ({
     },
     values: previewData,
   });
-
-  useEffect(() => {
-    if (setReset) {
-      setReset(reset);
-    }
-  }, [setReset, reset]);
 
   const [isPending, startTransition] = useTransition();
 

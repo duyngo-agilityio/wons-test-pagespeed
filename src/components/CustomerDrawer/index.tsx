@@ -1,6 +1,5 @@
 'use client';
 
-import { UseFormReset } from 'react-hook-form';
 import { useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
@@ -35,16 +34,12 @@ const CustomerDrawer = (): JSX.Element => {
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
-  let formReset: UseFormReset<Partial<ICustomer>> | null = null;
 
   const handleOpenDrawer = useCallback(() => {
     setIsDrawerOpen(true);
   }, []);
 
   const handleCloseDrawer = () => {
-    if (formReset) {
-      formReset();
-    }
     setIsDrawerOpen(false);
   };
 
@@ -107,33 +102,30 @@ const CustomerDrawer = (): JSX.Element => {
       >
         Add Customer
       </Button>
-      <Drawer
-        open={isDrawerOpen}
-        onClose={handleCloseDrawer}
-        direction="right"
-        size={400}
-        className="!w-full md:!w-[450px] max-h-screen"
-      >
-        <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
-          <Button
-            onClick={handleCloseDrawer}
-            className="absolute top-5 right-5 !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
-            data-testid="close-button"
-          >
-            <IoClose size={20} />
-          </Button>
-          <CustomerForm
-            isDisabledField={isPending}
-            onSubmit={handleFormSubmit}
-            onAvatarChange={handleAvatarChange}
-            setReset={(
-              resetFn: UseFormReset<Partial<ICustomer>> | null,
-            ): void => {
-              formReset = resetFn;
-            }}
-          />
-        </div>
-      </Drawer>
+      {isDrawerOpen && (
+        <Drawer
+          open={isDrawerOpen}
+          onClose={handleCloseDrawer}
+          direction="right"
+          size={400}
+          className="!w-full md:!w-[450px] max-h-screen"
+        >
+          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
+            <Button
+              onClick={handleCloseDrawer}
+              className="absolute top-5 right-5 !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+              data-testid="close-button"
+            >
+              <IoClose size={20} />
+            </Button>
+            <CustomerForm
+              isDisabledField={isPending}
+              onSubmit={handleFormSubmit}
+              onAvatarChange={handleAvatarChange}
+            />
+          </div>
+        </Drawer>
+      )}
     </div>
   );
 };

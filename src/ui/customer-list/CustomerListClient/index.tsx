@@ -43,6 +43,7 @@ import { IoClose } from 'react-icons/io5';
 
 // Utils
 import { formatPhoneNumberTyping } from '@/utils';
+import { uploadImage } from '@/api';
 
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
@@ -64,6 +65,8 @@ const CustomerListClient = ({
   const [customerDetails, setCustomerDetails] = useState<ICustomer>(
     CUSTOMER_MOCK[1],
   );
+  const [avatarFile, setAvatarFile] = useState<File>();
+  const [isAvatarDirty, setIsAvatarDirty] = useState(false);
 
   const [isPending, startTransition] = useTransition();
 
@@ -148,8 +151,27 @@ const CustomerListClient = ({
     [customerList],
   );
 
+  const handleAvatarChange = useCallback((avatarFile: File) => {
+    setAvatarFile(avatarFile);
+    setIsAvatarDirty(true);
+  }, []);
+
   const handleFormSubmit = useCallback(
-    (payload: ICustomer) => {
+    async (payload: ICustomer) => {
+      if (avatarFile && isAvatarDirty) {
+        try {
+          const uploadImageResponse = await uploadImage(avatarFile);
+
+          if (uploadImageResponse?.downloadURL) {
+            payload.avatar = uploadImageResponse.downloadURL;
+          } else {
+            return { error: uploadImageResponse.error };
+          }
+        } catch (error) {
+          return error;
+        }
+      }
+
       startTransition(async () => {
         if (idCustomer) {
           const formattedPayload = {
@@ -175,10 +197,8 @@ const CustomerListClient = ({
         }
       });
     },
-    [idCustomer, showToast],
+    [idCustomer, showToast, avatarFile, isAvatarDirty],
   );
-
-  const handleAvatarChange = useCallback(() => {}, []);
 
   return (
     <>
@@ -194,9 +214,9 @@ const CustomerListClient = ({
         onDelete={handleDelete}
         onRowAction={handleRowAction}
       />
-      {/* Customer Form Edit Drawer */}
 
-      {customerForm && (
+      {/* Customer Form Edit Drawer */}
+      {customerForm && toggleForm && (
         <Drawer
           open={toggleForm}
           onClose={handleCloseFormDrawer}
@@ -216,24 +236,25 @@ const CustomerListClient = ({
               isDisabledField={isPending}
               onAvatarChange={handleAvatarChange}
               onSubmit={handleFormSubmit}
-              setReset={() => {}}
             />
           </div>
         </Drawer>
       )}
 
       {/* Customer Details Drawer */}
-      <Drawer
-        open={toggleDetails}
-        onClose={handleCloseDrawer}
-        direction="right"
-        className="!w-[302px] !max-w-[302px]"
-      >
-        <CustomerDetails
-          customer={customerDetails}
-          isLoading={isLoadingDetails}
-        />
-      </Drawer>
+      {toggleDetails && (
+        <Drawer
+          open={toggleDetails}
+          onClose={handleCloseDrawer}
+          direction="right"
+          className="!w-[302px] !max-w-[302px]"
+        >
+          <CustomerDetails
+            customer={customerDetails}
+            isLoading={isLoadingDetails}
+          />
+        </Drawer>
+      )}
     </>
   );
 };
