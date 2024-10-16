@@ -2,7 +2,6 @@
 
 import isEqual from 'react-fast-compare';
 import { Key, memo, useCallback, useState, useTransition } from 'react';
-import { UseFormReset } from 'react-hook-form';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
@@ -35,26 +34,14 @@ export type TProductListClientProps = {
   onEdit: (
     payload: Partial<IProductDetail>,
     id: number,
-  ) => Promise<
-    | {
-        success: boolean;
-        error: undefined;
-      }
-    | {
-        error: string;
-        success: undefined;
-      }
-  >;
-  onDelete: (id: number) => Promise<
-    | {
-        success: boolean;
-        error?: undefined;
-      }
-    | {
-        error: string;
-        success?: undefined;
-      }
-  >;
+  ) => Promise<{
+    success?: boolean;
+    error?: string;
+  }>;
+  onDelete: (id: number) => Promise<{
+    success?: boolean;
+    error?: string;
+  }>;
 };
 
 const ProductListClient = ({
@@ -67,7 +54,6 @@ const ProductListClient = ({
     useState<boolean>(false);
   const [productDetailsByID, setProductDetailsByID] =
     useState<TProductInvoiceResponse>();
-  let formReset: UseFormReset<Partial<IProductDetail>> | null = null;
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [toggleEditProduct, setToggleEditProduct] = useState<boolean>(false);
@@ -141,12 +127,9 @@ const ProductListClient = ({
   );
 
   const handleCloseEditProduct = useCallback(() => {
-    if (formReset) {
-      formReset();
-    }
     setToggleEditProduct(false);
     setProductDetailsByID(undefined);
-  }, [formReset]);
+  }, []);
 
   const handleAvatarChange = useCallback((avatarFile: File) => {
     setAvatarFile(avatarFile);
@@ -203,7 +186,7 @@ const ProductListClient = ({
         onEdit={handleOpenEditProduct}
         onRowAction={handleOpenProductDetails}
       />
-      {productDetailsByID && (
+      {productDetailsByID && toggleProductDetails && (
         <Drawer
           open={toggleProductDetails}
           onClose={handleCloseProductDetails}
@@ -227,11 +210,6 @@ const ProductListClient = ({
               }
               onAvatarChange={handleAvatarChange}
               onSubmit={handleEditProduct}
-              setReset={(
-                resetFn: UseFormReset<Partial<IProductDetail>> | null,
-              ): void => {
-                formReset = resetFn;
-              }}
               onCloseDrawer={handleCloseEditProduct}
             />
           </div>

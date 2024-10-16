@@ -1,6 +1,5 @@
 'use client';
 
-import { UseFormReset } from 'react-hook-form';
 import { useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
@@ -33,16 +32,12 @@ const ProductDrawer = (): JSX.Element => {
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
-  let formReset: UseFormReset<Partial<IProductDetail>> | null = null;
 
   const handleOpenDrawer = useCallback(() => {
     setIsDrawerOpen(true);
   }, []);
 
   const handleCloseDrawer = () => {
-    if (formReset) {
-      formReset();
-    }
     setAvatarFile(undefined);
     setIsAvatarDirty(false);
     setIsDrawerOpen(false);
@@ -114,27 +109,24 @@ const ProductDrawer = (): JSX.Element => {
         >
           Add Product
         </Button>
-        <Drawer
-          open={isDrawerOpen}
-          onClose={handleCloseDrawer}
-          direction="right"
-          size={400}
-          className="!w-full md:!w-[450px]"
-        >
-          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
-            <ProductForm
-              onCloseDrawer={handleCloseDrawer}
-              key={isDrawerOpen ? 'open' : 'closed'}
-              onSubmit={handleFormSubmit}
-              onAvatarChange={handleAvatarChange}
-              setReset={(
-                resetFn: UseFormReset<Partial<IProductDetail>> | null,
-              ): void => {
-                formReset = resetFn;
-              }}
-            />
-          </div>
-        </Drawer>
+        {isDrawerOpen && (
+          <Drawer
+            open={isDrawerOpen}
+            onClose={handleCloseDrawer}
+            direction="right"
+            size={400}
+            className="!w-full md:!w-[450px]"
+          >
+            <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
+              <ProductForm
+                onCloseDrawer={handleCloseDrawer}
+                key={isDrawerOpen ? 'open' : 'closed'}
+                onSubmit={handleFormSubmit}
+                onAvatarChange={handleAvatarChange}
+              />
+            </div>
+          </Drawer>
+        )}
       </div>
     </div>
   );
