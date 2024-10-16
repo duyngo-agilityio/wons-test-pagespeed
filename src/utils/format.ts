@@ -191,7 +191,7 @@ export const capitalizeFirstLetter = (value: string = '') => {
   return value.charAt(0).toUpperCase() + value.slice(1);
 };
 
-export const formatDate = (value: string) => {
+export const formatTimeCalendar = (value: string) => {
   const object = dayjs(value).toObject();
 
   const {
@@ -210,8 +210,8 @@ export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
   events.map(({ id, attributes }) => {
     const { startTime = '', endTime = '' } = attributes ?? {};
 
-    const start = formatDate(startTime);
-    const end = formatDate(endTime);
+    const start = formatTimeCalendar(startTime);
+    const end = formatTimeCalendar(endTime);
 
     return {
       ...attributes,
