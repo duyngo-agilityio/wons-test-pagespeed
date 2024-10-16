@@ -258,14 +258,14 @@ const EventFormModal = ({
             </Button>
 
             <div>
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 <Text
                   className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
                   text={`${formattedDate}`} // Display date
                 />
                 <Text as="span" text="-" />
                 <Text
-                  className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
+                  className="text-blue-800 text-[12px] font-normal leading-normal col-span-1 uppercase"
                   text={`${startTime} - ${endTime}`} // Display time
                 />
               </div>

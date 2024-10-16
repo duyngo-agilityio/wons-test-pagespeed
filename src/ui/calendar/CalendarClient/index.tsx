@@ -257,7 +257,10 @@ const CalendarClient = ({
           }
           timeRange={{
             start: previewData
-              ? dayjs(previewData.startTime).utc().format('hh:mma')
+              ? dayjs(previewData.startTime)
+                  .utc()
+                  .format('hh:mma')
+                  .toUpperCase()
               : dayjs(slot?.end).add(5, 'hour').format('hh:mma'),
             end: previewData
               ? dayjs(previewData.endTime).utc().format('hh:mma')
