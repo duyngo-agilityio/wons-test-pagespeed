@@ -102,13 +102,18 @@ const Filter = ({
               className="font-medium border-b-1 border-blue-800/50 pb-1"
             />
             <Listbox
+              className="pt-2"
               selectionMode="multiple"
               selectedKeys={values}
               onSelectionChange={handleSelect}
               {...listboxProps}
             >
               {items.map(({ id, content, customElement }) => (
-                <ListboxItem key={id} className="px-0" {...listboxItemProps}>
+                <ListboxItem
+                  key={id}
+                  className="px-0 p-[8px_10px]"
+                  {...listboxItemProps}
+                >
                   {customElement || content}
                 </ListboxItem>
               ))}
