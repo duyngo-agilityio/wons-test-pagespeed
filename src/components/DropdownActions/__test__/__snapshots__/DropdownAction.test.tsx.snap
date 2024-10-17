@@ -19,6 +19,7 @@ exports[`Dropdown Component should match the snapshot 1`] = `
       type="button"
     >
       <svg
+        aria-label="Dropdown Actions"
         class="text-blue-800/30 dark:text-white/30"
         fill="currentColor"
         height="14"

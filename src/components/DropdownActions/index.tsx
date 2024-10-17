@@ -69,6 +69,7 @@ const DropdownActions = ({
             disableAnimation={disableAnimation}
           >
             <FaEllipsisH
+              aria-label="Dropdown Actions"
               size={14}
               className="text-blue-800/30 dark:text-white/30"
             />
