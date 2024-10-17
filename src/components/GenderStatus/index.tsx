@@ -9,11 +9,11 @@ const GenderStatusComponent = ({ gender }: TGenderStatusProps): JSX.Element => {
   const chipClasses = {
     male: {
       bg: 'bg-teal-500/10 dark:bg-green-200',
-      color: 'text-teal-500 dark:text-teal-300',
+      color: 'text-teal-650 dark:text-teal-300',
     },
     female: {
       bg: 'bg-pink-500/10 dark:bg-gray-900',
-      color: 'text-pink-500',
+      color: 'text-pink-800 dark:text-pink-450',
     },
   };
 

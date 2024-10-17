@@ -514,6 +514,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                     type="button"
                   >
                     <svg
+                      aria-label="Dropdown Actions"
                       class="text-blue-800/30 dark:text-white/30"
                       fill="currentColor"
                       height="14"
@@ -759,6 +760,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                     type="button"
                   >
                     <svg
+                      aria-label="Dropdown Actions"
                       class="text-blue-800/30 dark:text-white/30"
                       fill="currentColor"
                       height="14"
