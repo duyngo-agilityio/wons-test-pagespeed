@@ -16,13 +16,18 @@ import { ICustomer } from '@/models';
 import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
 
 // actions
-import { createCustomer, deleteCustomer } from '@/actions/customer';
+import {
+  createCustomer,
+  deleteCustomer,
+  updateCustomer,
+} from '@/actions/customer';
 
 jest.mock('@/services', () => ({
   httpClient: {
     getRequest: jest.fn(),
     postRequest: jest.fn(),
     deleteRequest: jest.fn(),
+    putRequest: jest.fn(),
   },
 }));
 
@@ -142,5 +147,46 @@ describe('deleteCustomer', () => {
 
     expect(revalidateTag).not.toHaveBeenCalled();
     expect(result).toEqual({ error: 'Something went wrong.' });
+  });
+});
+
+describe('updateCustomer', () => {
+  const newData = { email: 'test@gmai.com' };
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should successfully update customer', async () => {
+    const MOCK_RESPONSE = {
+      id: 4,
+      attributes: {
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'test@gmai.com',
+        phone: '1234567890',
+      },
+    };
+
+    (httpClient.putRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
+
+    await updateCustomer(1, newData);
+
+    expect(httpClient.putRequest).toHaveBeenCalledTimes(1);
+  });
+
+  it('should return an error with formatted message when update customer fails', async () => {
+    const MOCK_ERROR = new Error('Request failed');
+    const FORMATTED_ERROR_MESSAGE = 'Something went wrong.';
+
+    (httpClient.putRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+
+    (formatErrorMessage as jest.Mock).mockReturnValue(FORMATTED_ERROR_MESSAGE);
+
+    const result = await updateCustomer(1, newData);
+
+    expect(result).toEqual({ error: FORMATTED_ERROR_MESSAGE });
+    expect(httpClient.putRequest).toHaveBeenCalled();
+    expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
   });
 });
