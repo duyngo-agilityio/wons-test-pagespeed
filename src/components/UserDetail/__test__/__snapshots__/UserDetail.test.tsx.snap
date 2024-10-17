@@ -30,7 +30,7 @@ exports[`UserDetail render successful 1`] = `
           class="flex flex-col justify-center text-center sm:text-left m-[20px_0] sm:m-0"
         >
           <dd
-            class="font-dm-sans text-blue-800 dark:text-white text-2xl font-bold"
+            class="font-dm-sans text-blue-800 dark:text-white text-2xl font-bold capitalize"
           >
             Super Admin
           </dd>
