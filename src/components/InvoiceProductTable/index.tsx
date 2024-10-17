@@ -1,22 +1,32 @@
 'use client';
 
-import { ChangeEvent, Dispatch, Key, SetStateAction, useEffect } from 'react';
+import {
+  ChangeEvent,
+  Dispatch,
+  Key,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
+import clsx from 'clsx';
+
+// icons
 import { FaTrash } from 'react-icons/fa';
 import { TbSquareRoundedPlusFilled } from 'react-icons/tb';
-import clsx from 'clsx';
 
 // Components
 import { Button, Input, Table, Text } from '@/components';
 import { Select, SelectItem } from '@nextui-org/react';
 
 // Constants
-import { MAX_QUANTITY_PRODUCTS, REGEX } from '@/constants';
+import { MAX_QUANTITY_PRODUCTS, ORDER, REGEX } from '@/constants';
 
 // Models
 import { IProduct } from '@/models';
 
 // Utils
-import { formatTotalAmount } from '@/utils';
+import { formatTotalAmount, sortProducts } from '@/utils';
 
 // Types
 import { TInvoiceProductTable } from '@/types';
@@ -142,6 +152,7 @@ const InvoiceProductTable = ({
           </Select>
         );
       },
+      value: 'title',
       isSort: true,
     },
     {
@@ -149,6 +160,7 @@ const InvoiceProductTable = ({
       accessor: ({ product }: TInvoiceProductTable) => {
         return <Text text={`$${product.data.price}`} />;
       },
+      value: 'price',
       isSort: true,
     },
     {
@@ -166,6 +178,7 @@ const InvoiceProductTable = ({
         />
       ),
       isSort: true,
+      value: 'quantity',
     },
     {
       header: 'Amount',
@@ -179,6 +192,7 @@ const InvoiceProductTable = ({
           }
         />
       ),
+      value: 'amount',
       isSort: true,
     },
     {
@@ -238,6 +252,26 @@ const InvoiceProductTable = ({
   const dataTable =
     productsValues.length > 0 ? productsValues : [initInvoiceProduct];
 
+  const { ASC, DESC } = ORDER;
+  const [order, setOrder] = useState<string>(ASC);
+  const [sortBy, setSortBy] = useState<string>('');
+
+  const handleSort = useCallback(
+    (sortBy: string) => {
+      setSortBy(sortBy);
+      const newOrder = sortProducts(
+        order,
+        sortBy,
+        ASC,
+        DESC,
+        productsValues,
+        setProductsValues,
+      );
+      setOrder(newOrder);
+    },
+    [ASC, DESC, order, productsValues, setProductsValues],
+  );
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -267,6 +301,9 @@ const InvoiceProductTable = ({
           variant="secondary"
           columns={columnTable}
           data={dataTable}
+          onSort={handleSort}
+          sortBy={sortBy}
+          order={order}
         />
         {errorProducts && (
           <Text text={errorProducts} className="text-red-400" />
