@@ -175,7 +175,7 @@ describe('updateCustomer', () => {
     expect(httpClient.putRequest).toHaveBeenCalledTimes(1);
   });
 
-  it('should return an error with formatted message when editInvoice fails', async () => {
+  it('should return an error with formatted message when update customer fails', async () => {
     const MOCK_ERROR = new Error('Request failed');
     const FORMATTED_ERROR_MESSAGE = 'Something went wrong.';
 
