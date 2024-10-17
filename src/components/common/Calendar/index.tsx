@@ -10,17 +10,29 @@ import { formatDateCalendar } from '@/utils';
 // Components
 import { Text } from '@/components';
 
+interface CalendarCustomProps extends CalendarProps {
+  onDateSelect: (value: DateValue) => void;
+}
+
 const CalendarCustom = ({
   value = today(getLocalTimeZone()),
+  onDateSelect,
   ...props
-}: CalendarProps) => {
+}: CalendarCustomProps) => {
   const [selectedDate, setSelectedDate] = useState<DateValue | null>(value);
+
+  const handleDateChange = (date: DateValue) => {
+    setSelectedDate(date);
+    if (onDateSelect) {
+      onDateSelect(date);
+    }
+  };
 
   return (
     <Calendar
       aria-label="Calendar"
       value={selectedDate}
-      onFocusChange={setSelectedDate}
+      onFocusChange={handleDateChange}
       prevButtonProps={{ className: 'absolute right-10' }}
       nextButtonProps={{ className: 'dark:text-white' }}
       classNames={{
