@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import dayjs from 'dayjs';
-import { useDisclosure } from '@nextui-org/react';
+import { DateValue, useDisclosure } from '@nextui-org/react';
 import {
   Calendar as CalendarBase,
   CalendarProps,
@@ -11,6 +11,7 @@ import {
   SlotInfo,
   Views,
 } from 'react-big-calendar';
+import { getLocalTimeZone, today, CalendarDate } from '@internationalized/date';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './index.css';
@@ -76,12 +77,12 @@ const CalendarClient = ({
   const { isOpen: isOpenEventFormModal, onOpenChange: onToggleEventFormModal } =
     useDisclosure();
   const [previewData, setPreviewData] = useState<TEventResponse | null>();
-
   const [slot, setSlot] = useState<Slot | null>(null);
-
   const [selectedEvent, setSelectedEvent] = useState<TEventResponse | null>(
     null,
   );
+  const [selectedDate, setSelectedDate] = useState(today(getLocalTimeZone())); // Sử dụng DateValue
+  const timeZone = getLocalTimeZone();
 
   const onCloseFormModal = () => {
     onToggleEventFormModal();
@@ -145,7 +146,6 @@ const CalendarClient = ({
 
         if (!error) {
           setSelectedEvent(null);
-          setSelectedEvent(null);
           setIsModalOpen(false);
         }
       }
@@ -197,10 +197,16 @@ const CalendarClient = ({
     }
   }, [selectedEvent, showToast]);
 
+  const handleDateSelect = (date: DateValue) => {
+    const calendarDate = new CalendarDate(date.year, date.month, date.day);
+    setSelectedDate(calendarDate);
+    setView(Views.DAY);
+  };
+
   return (
     <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
       <div className="hidden md:flex bg-white dark:bg-gray-400 px-[18px] md:px-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
-        <CustomCalendar />
+        <CustomCalendar onDateSelect={handleDateSelect} />
         <Button color="secondary" as={Link} href={ROUTES.SCHEDULE}>
           My Schedule
         </Button>
@@ -220,6 +226,7 @@ const CalendarClient = ({
           selectable
           onSelectSlot={isAdmin ? handleSelectSlot : undefined}
           onSelectEvent={handleSelectEvent}
+          date={selectedDate.toDate(timeZone)}
         />
       </div>
 
@@ -257,10 +264,7 @@ const CalendarClient = ({
           }
           timeRange={{
             start: previewData
-              ? dayjs(previewData.startTime)
-                  .utc()
-                  .format('hh:mma')
-                  .toUpperCase()
+              ? dayjs(previewData.startTime).utc().format('hh:mma')
               : dayjs(slot?.end).add(5, 'hour').format('hh:mma'),
             end: previewData
               ? dayjs(previewData.endTime).utc().format('hh:mma')
