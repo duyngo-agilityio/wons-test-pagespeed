@@ -2,7 +2,10 @@
 import { MedalIcon, Text } from '@/components';
 
 // Types
-import { TProductInvoiceWithTotalSaleResponse } from '@/types';
+import {
+  TInvoiceProductTable,
+  TProductInvoiceWithTotalSaleResponse,
+} from '@/types';
 
 /**
  * Returns a MedalIcon if the product is among the top three items,
@@ -61,3 +64,63 @@ export const getDataByID = <T extends { id: number }>(
 
 export const calcTotalAmount = (price: number, quantity: number): number =>
   price * quantity;
+
+export const sortProducts = (
+  order: string,
+  sortBy: string,
+  ASC: string,
+  DESC: string,
+  productsValues: TInvoiceProductTable[],
+  setProductsValues: (updatedProducts: TInvoiceProductTable[]) => void,
+) => {
+  const newOrder = order === ASC ? DESC : ASC;
+
+  const sortedProducts = [...productsValues].sort(
+    (currentProduct, newProduct) => {
+      const isASC = newOrder === ASC;
+
+      switch (sortBy) {
+        case 'title':
+          return isASC
+            ? currentProduct.product.data.title.localeCompare(
+                newProduct.product.data.title,
+              )
+            : newProduct.product.data.title.localeCompare(
+                currentProduct.product.data.title,
+              );
+
+        case 'price':
+          return isASC
+            ? Number(currentProduct.product.data.price) -
+                Number(newProduct.product.data.price)
+            : Number(newProduct.product.data.price) -
+                Number(currentProduct.product.data.price);
+
+        case 'quantity':
+          return isASC
+            ? currentProduct.quantity - newProduct.quantity
+            : newProduct.quantity - currentProduct.quantity;
+
+        case 'amount': {
+          const totalAmountA = calcTotalAmount(
+            currentProduct.product.data.price,
+            currentProduct.quantity,
+          );
+          const totalAmountB = calcTotalAmount(
+            newProduct.product.data.price,
+            newProduct.quantity,
+          );
+          return isASC
+            ? totalAmountA - totalAmountB
+            : totalAmountB - totalAmountA;
+        }
+
+        default:
+          return 0;
+      }
+    },
+  );
+
+  setProductsValues(sortedProducts);
+  return newOrder;
+};
