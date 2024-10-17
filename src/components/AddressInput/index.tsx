@@ -8,7 +8,7 @@ import { useDebounce } from 'use-debounce';
 import { HiLocationMarker } from 'react-icons/hi';
 
 // Components
-import { Input, Text } from '@/components';
+import { Input, LocationSuggestion } from '@/components';
 import { getLocationSuggestion } from '@/services';
 
 interface AddressInputProps extends Omit<InputProps, 'onChange'> {
@@ -84,17 +84,11 @@ const AddressInput = ({
             const { formatted, name } = properties;
 
             return (
-              <button
+              <LocationSuggestion
+                formatted={formatted}
                 key={name}
-                className="flex w-full text-left py-[10px] px-[4px] gap-4 items-center relative cursor-pointer dark:text-white/80"
-                onClick={() => handleClickSuggestion(formatted)}
-              >
-                <div className="w-[16px] h-[16px]">
-                  <HiLocationMarker />
-                </div>
-
-                <Text text={formatted} className="dark:text-white/80" />
-              </button>
+                onClickSuggestion={handleClickSuggestion}
+              />
             );
           })}
         </div>
