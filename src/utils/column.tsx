@@ -55,7 +55,7 @@ export const mappingContentColumns = ({
             <Text
               size="md"
               text={title}
-              className="!text-blue-500 text-nowrap dark:!text-purple-600"
+              className="!text-blue-500 text-nowrap dark:!text-purple-500"
             />
           </div>
         );
@@ -116,7 +116,7 @@ export const mappingContentColumns = ({
             text={
               quantity === 0 ? '$0' : `$${formatTotalAmount(price, quantity)}`
             }
-            className="text-nowrap text-teal-500 dark:!text-teal-300"
+            className="text-nowrap text-teal-600 dark:!text-teal-300"
           />
         );
       },

@@ -62,7 +62,7 @@ const DropdownActions = ({
       >
         <DropdownTrigger>
           <Button
-            aria-label="Actions"
+            aria-label="More actions for item"
             data-testid="actions-btn"
             className={`border-none bg-bone ${customClassName}`}
             isIconOnly={isIconOnly}
