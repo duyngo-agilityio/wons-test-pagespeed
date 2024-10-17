@@ -86,6 +86,7 @@ const AvatarUpload = ({
               width={128}
               height={128}
               className="rounded-full object-cover w-full h-full"
+              data-testid="avatar-preview"
             />
           ) : (
             <IoCamera
@@ -106,6 +107,7 @@ const AvatarUpload = ({
         isInvalid={!errorMessage}
         errorMessage={errorMessage}
         isDisabled={isDisabled}
+        data-testid="avatar-upload"
       />
 
       {(errorMessage || error) && (

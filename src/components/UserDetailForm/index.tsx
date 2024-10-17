@@ -53,7 +53,7 @@ const UserDetailForm = ({
   // Define config and props for useForm
   const {
     control,
-    formState: { dirtyFields, errors, defaultValues, isSubmitting },
+    formState: { dirtyFields, errors, defaultValues, isSubmitting, isValid },
     clearErrors,
     handleSubmit,
     watch,
@@ -71,17 +71,9 @@ const UserDetailForm = ({
     [REQUIRED_FIELDS, dirtyItems, errors],
   );
 
-  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'avatar');
-
-  const allFieldsFilled = requiredField.every((field) => {
-    const isDirty = dirtyItems.includes(field);
-    const hasError = errors[field as keyof IUserFormData];
-    return isDirty && !hasError;
-  });
-
-  const isDisableSubmit = user
-    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
-    : !allFieldsFilled;
+  const isDisableSubmit = !(
+    enableSubmit || !getDirtyState(defaultValues ?? {}, watch())
+  );
 
   const handleFormSubmit = async (formData: IUserFormData) => {
     await onSubmit(formData);
@@ -93,6 +85,7 @@ const UserDetailForm = ({
     <form
       className="p-[0_30px_0] w-full"
       onSubmit={handleSubmit(handleFormSubmit)}
+      data-testid="user-detail-form"
     >
       <div className="m-[30px_0_0] grid grid-cols-1 md:grid-cols-2 gap-[30px]">
         <Controller
@@ -136,7 +129,7 @@ const UserDetailForm = ({
             type="submit"
             isLoading={isSubmitting}
             color="primary"
-            isDisabled={isDisableSubmit || isSubmitting}
+            isDisabled={isDisableSubmit || isSubmitting || !isValid}
           >
             Save
           </Button>
