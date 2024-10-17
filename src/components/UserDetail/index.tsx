@@ -36,7 +36,12 @@ const UserDetail = ({
           </div>
 
           <div className="flex flex-col justify-center text-center sm:text-left m-[20px_0] sm:m-0">
-            <Text className="font-bold" size="2xl" as="dd" text={fullName} />
+            <Text
+              className="font-bold capitalize"
+              size="2xl"
+              as="dd"
+              text={fullName}
+            />
             <Text className="text-gray-900/70" size="md" as="dd" text={role} />
           </div>
         </div>
