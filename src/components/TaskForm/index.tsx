@@ -103,6 +103,14 @@ const TaskForm = ({
       setReset(reset);
     }
   }, [setReset, reset]);
+
+  const isAssigneesValid = (assignees: string | undefined): boolean => {
+    if (!assignees || assignees.trim() === '' || assignees.trim() === ',') {
+      return false;
+    }
+    return true;
+  };
+
   // Checking to disable/enable submit button
   const dirtyItems = Object.keys(dirtyFields);
 
@@ -121,7 +129,8 @@ const TaskForm = ({
 
   const isDisableSubmit = previewData
     ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
-    : !allFieldsFilled;
+    : !allFieldsFilled ||
+      !isAssigneesValid(watch('assignees') as string | undefined);
 
   const saveData = useCallback(
     async (formData: Partial<TaskWithStringAssignees>) => {
@@ -366,10 +375,11 @@ const TaskForm = ({
           name="assignees"
           control={control}
           render={({
-            field: { onChange, value, name, onBlur, ...rest },
+            field: { onChange, value, name, onBlur },
             fieldState: { error },
           }) => (
             <Select
+              name={name}
               selectionMode="multiple"
               label="Assignees"
               selectedKeys={value}
@@ -377,18 +387,22 @@ const TaskForm = ({
               labelPlacement="outside"
               placeholder=" "
               variant="flat"
+              isDisabled={isDisabledField}
               classNames={{
                 trigger:
                   'w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
                 label: 'text-xl font-medium pb-1',
               }}
               onChange={(e) => {
-                onChange(e.target.value);
+                const selectedValues = e.target.value;
+
+                const finalValue =
+                  selectedValues.length > 0 ? selectedValues : '';
+                onChange(finalValue);
                 clearErrorOnChange(name, errors, clearErrors);
               }}
               isInvalid={!!error}
               errorMessage={error?.message}
-              {...rest}
             >
               {usersOptions.map((option) => (
                 <SelectItem key={option.key}>{option.label}</SelectItem>
