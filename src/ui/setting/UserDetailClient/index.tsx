@@ -3,7 +3,7 @@
 import { memo, useState, useCallback, useTransition } from 'react';
 
 // Constants
-import { IMAGES, ROLES, SUCCESS_MESSAGES, MESSAGE_STATUS } from '@/constants';
+import { IMAGES, ROLES, MESSAGE_STATUS, MESSAGES } from '@/constants';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -74,7 +74,7 @@ const UserDetailClient = ({ user, id, onEdit }: UserDetailClientProps) => {
         );
 
         showToast({
-          description: error ?? SUCCESS_MESSAGES.UPDATE_PROFILE,
+          description: error ?? MESSAGES.SUCCESS.UPDATE_PROFILE,
           status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
         });
       });

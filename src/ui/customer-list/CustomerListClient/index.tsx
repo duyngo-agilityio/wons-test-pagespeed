@@ -25,12 +25,7 @@ import { CUSTOMER_MOCK } from '@/mocks';
 import { useToast } from '@/hooks';
 
 // Constants
-import {
-  MESSAGE_STATUS,
-  ORDER,
-  SEARCH_QUERIES,
-  SUCCESS_MESSAGES,
-} from '@/constants';
+import { MESSAGE_STATUS, MESSAGES, ORDER, SEARCH_QUERIES } from '@/constants';
 
 // Actions
 import { deleteCustomer, updateCustomer } from '@/actions';
@@ -111,7 +106,7 @@ const CustomerListClient = ({
       const { error } = res || {};
 
       showToast({
-        description: error || SUCCESS_MESSAGES.DELETE_CUSTOMER,
+        description: error || MESSAGES.SUCCESS.DELETE_CUSTOMER,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
@@ -191,7 +186,7 @@ const CustomerListClient = ({
           }
 
           showToast({
-            description: SUCCESS_MESSAGES.UPDATE_CUSTOMER,
+            description: MESSAGES.SUCCESS.UPDATE_CUSTOMER,
             status: MESSAGE_STATUS.SUCCESS,
           });
         }

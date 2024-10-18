@@ -17,7 +17,7 @@ import {
 import { TProductInvoiceResponse } from '@/types';
 
 // Constants
-import { MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
+import { MESSAGE_STATUS, MESSAGES } from '@/constants';
 
 // Utils
 import { getDataByID, handleUpdateImage } from '@/utils';
@@ -74,7 +74,7 @@ const ProductListClient = ({
       const { error } = res || {};
 
       showToast({
-        description: error || SUCCESS_MESSAGES.DELETE_CUSTOMER,
+        description: error || MESSAGES.SUCCESS.DELETE_CUSTOMER,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     },
@@ -162,7 +162,7 @@ const ProductListClient = ({
           return;
         } else {
           showToast({
-            description: SUCCESS_MESSAGES.UPDATE_PRODUCT,
+            description: MESSAGES.SUCCESS.UPDATE_PRODUCT,
             status: MESSAGE_STATUS.SUCCESS,
           });
         }

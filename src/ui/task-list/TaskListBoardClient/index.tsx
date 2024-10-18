@@ -10,7 +10,7 @@ import { StrapiModel, Task, TasksState, TaskStatus } from '@/types';
 import { convertTasksByStatus, mapTaskStatusToStateKey } from '@/utils';
 
 // Constants
-import { MESSAGE_STATUS, SUCCESS_MESSAGES, TASK_STATUS } from '@/constants';
+import { MESSAGE_STATUS, MESSAGES, TASK_STATUS } from '@/constants';
 
 // components
 import { Column } from '@/components';
@@ -71,7 +71,7 @@ const TaskListBoardClient = ({ data }: ITaskListBoardProps) => {
       const { ERROR, SUCCESS } = MESSAGE_STATUS;
 
       showToast({
-        description: error ?? SUCCESS_MESSAGES.UPDATE_TASK,
+        description: error ?? MESSAGES.SUCCESS.UPDATE_TASK,
         status: error ? ERROR : SUCCESS,
       });
     });

@@ -7,18 +7,19 @@ import { IoCamera, IoClose } from 'react-icons/io5';
 
 // Components
 import { Input, Button, Text, ImageFallback } from '@/components';
-import { ERROR_MESSAGES } from '@/constants';
 
-export interface IAvatarUploadMultipleProps {
+// constants
+import { MESSAGES } from '@/constants';
+
+export type TAvatarUploadMultipleProps = {
   previewFiles?: string[];
   onFileChange: (files: File[]) => void;
-}
+};
 
 const AvatarUploadMultiple = ({
   previewFiles = [],
   onFileChange,
-}: IAvatarUploadMultipleProps) => {
-  // const [payload, setPayload] = useState<File[]>([]);
+}: TAvatarUploadMultipleProps) => {
   const [files, setFiles] = useState<string[]>(previewFiles);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const isUploadDisabled = files?.length >= 2;
@@ -29,9 +30,8 @@ const AvatarUploadMultiple = ({
 
       const values = Array.from(event.target.files);
 
-      if (values.length > 2) {
-        setErrorMessage(ERROR_MESSAGES.MAX_IMAGE);
-
+      if (files.length > 2) {
+        setErrorMessage(MESSAGES.ERROR.MAX_IMAGE);
         return;
       }
 
@@ -45,7 +45,7 @@ const AvatarUploadMultiple = ({
 
       onFileChange(values);
     },
-    [onFileChange],
+    [files.length, onFileChange],
   );
 
   const clickInput = useCallback((event: MouseEvent<HTMLInputElement>) => {

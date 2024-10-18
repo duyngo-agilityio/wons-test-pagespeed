@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
-import { ERROR_MESSAGES, MESSAGES, REGEX } from '@/constants';
+import { MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import {
@@ -42,7 +42,7 @@ const customerFormSchema = z.object({
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .transform((value) => clearPhoneNumberFormat(value))
-    .refine((value) => REGEX.PHONE.test(value), ERROR_MESSAGES.INVALID_PHONE),
+    .refine((value) => REGEX.PHONE.test(value), MESSAGES.ERROR.INVALID_PHONE),
   gender: z.enum(['male', 'female'], {
     errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
