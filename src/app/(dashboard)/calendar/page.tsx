@@ -9,14 +9,12 @@ import { DashBoardLayout } from '@/layouts';
 // UI
 const LazyCalendar = lazy(() => import('@/ui/calendar'));
 
-const CalendarPage = () => {
-  return (
-    <DashBoardLayout title={PAGE_TITLES.CALENDAR}>
-      <Suspense>
-        <LazyCalendar />
-      </Suspense>
-    </DashBoardLayout>
-  );
-};
+const CalendarPage = () => (
+  <DashBoardLayout title={PAGE_TITLES.CALENDAR}>
+    <Suspense>
+      <LazyCalendar />
+    </Suspense>
+  </DashBoardLayout>
+);
 
 export default CalendarPage;

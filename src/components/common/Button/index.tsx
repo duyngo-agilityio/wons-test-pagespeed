@@ -1,4 +1,5 @@
 'use client';
+
 import { ReactNode } from 'react';
 
 // icons
@@ -53,15 +54,13 @@ interface ButtonProps extends Omit<NextUIButtonProps, 'size'> {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const Button = ({ isLoading = false, children, ...props }: ButtonProps) => {
-  return (
-    <ButtonCustom {...props} disabled={isLoading || props.disabled}>
-      <div className="flex items-center">
-        {isLoading && <FaSpinner className="animate-spin mr-2" />}
-        {children}
-      </div>
-    </ButtonCustom>
-  );
-};
+const Button = ({ isLoading = false, children, ...props }: ButtonProps) => (
+  <ButtonCustom {...props} disabled={isLoading || props.disabled}>
+    <div className="flex items-center">
+      {isLoading && <FaSpinner className="animate-spin mr-2" />}
+      {children}
+    </div>
+  </ButtonCustom>
+);
 
 export default Button;
