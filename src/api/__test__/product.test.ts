@@ -29,7 +29,7 @@ describe('getAllProducts', () => {
 
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);
 
-    const result = await getAllProducts();
+    const result = await getAllProducts(2);
 
     expect(result.data).toHaveLength(2);
 
@@ -47,7 +47,7 @@ describe('getAllProducts', () => {
 
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);
 
-    const result = await getAllProducts();
+    const result = await getAllProducts(2);
 
     expect(result.data).toHaveLength(0);
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
@@ -57,7 +57,7 @@ describe('getAllProducts', () => {
 
     (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
 
-    const result = await getAllProducts();
+    const result = await getAllProducts(2);
 
     expect(result.error).toBeDefined();
 
