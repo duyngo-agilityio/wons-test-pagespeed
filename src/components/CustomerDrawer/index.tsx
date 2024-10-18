@@ -71,7 +71,6 @@ const CustomerDrawer = (): JSX.Element => {
             description: error,
             status: MESSAGE_STATUS.ERROR,
           });
-
           return;
         }
       });
@@ -84,7 +83,7 @@ const CustomerDrawer = (): JSX.Element => {
       setIsDrawerOpen(false);
       setAvatarFile(undefined);
     },
-    [avatarFile, isAvatarDirty, isPending, showToast],
+    [avatarFile, isAvatarDirty, showToast],
   );
 
   const handleAvatarChange = useCallback((avatarFile: File) => {

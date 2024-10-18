@@ -159,7 +159,6 @@ const ProductListClient = ({
             description: error,
             status: MESSAGE_STATUS.ERROR,
           });
-
           return;
         } else {
           showToast({

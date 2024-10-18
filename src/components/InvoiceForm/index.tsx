@@ -190,15 +190,16 @@ const InvoiceForm = ({
       );
 
       if (error) {
-        return showToast({
+        showToast({
           description: error,
           status: MESSAGE_STATUS.ERROR,
         });
+        return;
       }
 
       data && router.push(`${ROUTES.INVOICE}/${data.id}`);
 
-      return showToast({
+      showToast({
         description: previewData
           ? SUCCESS_MESSAGES.UPDATE_INVOICE
           : SUCCESS_MESSAGES.CREATE_INVOICE,
