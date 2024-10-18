@@ -14,7 +14,7 @@ import { useToast } from '@/hooks';
 import { ISignUpFormData } from '@/types';
 
 // Constants
-import { IMAGES, MESSAGE_STATUS, ROUTES } from '@/constants';
+import { IMAGES, MESSAGES, ROUTES } from '@/constants';
 
 // Components
 import { SignUpForm as SignUpFormComponent } from '@/components';
@@ -41,7 +41,7 @@ const SignUpForm = (): JSX.Element => {
 
         return showToast({
           description: signUpError,
-          status: MESSAGE_STATUS.ERROR,
+          status: MESSAGES.STATUS.ERROR,
         });
       }
 
@@ -53,7 +53,7 @@ const SignUpForm = (): JSX.Element => {
 
         return showToast({
           description: loginRes,
-          status: MESSAGE_STATUS.ERROR,
+          status: MESSAGES.STATUS.ERROR,
         });
       }
 

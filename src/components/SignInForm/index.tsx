@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import { SignInFormData } from '@/types';
 
 // Constants
-import { MESSAGE_STATUS, ROUTES, REGEX, MESSAGES } from '@/constants';
+import { ROUTES, REGEX, MESSAGES } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -73,7 +73,7 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
       if (typeof res === 'string') {
         return showToast({
           status: 'error',
-          title: MESSAGE_STATUS.ERROR,
+          title: MESSAGES.STATUS.ERROR,
           description: res,
         });
       }

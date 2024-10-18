@@ -20,7 +20,7 @@ import { useToast } from '@/hooks';
 import { createTask } from '@/actions';
 
 // constants
-import { MESSAGE_STATUS, MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // api
 import { uploadImage } from '@/api/image';
@@ -81,12 +81,12 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
         if (error) {
           showToast({
             description: error,
-            status: MESSAGE_STATUS.ERROR,
+            status: MESSAGES.STATUS.ERROR,
           });
         } else {
           showToast({
             description: MESSAGES.SUCCESS.CREATE_TASK,
-            status: MESSAGE_STATUS.SUCCESS,
+            status: MESSAGES.STATUS.SUCCESS,
           });
         }
       });

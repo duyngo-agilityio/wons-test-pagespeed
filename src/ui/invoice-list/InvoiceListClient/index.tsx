@@ -13,7 +13,6 @@ import {
   ORDER,
   DEFAULT_PAGE,
   SEARCH_QUERIES,
-  MESSAGE_STATUS,
   ROUTES,
   MESSAGES,
 } from '@/constants';
@@ -92,7 +91,7 @@ const InvoiceListClient = ({
 
       showToast({
         description: error || MESSAGES.SUCCESS.DELETE_INVOICE,
-        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+        status: error ? MESSAGES.STATUS.ERROR : MESSAGES.STATUS.SUCCESS,
       });
     },
     [showToast],
@@ -109,7 +108,7 @@ const InvoiceListClient = ({
 
       showToast({
         description: error || MESSAGES.SUCCESS.DELETE_INVOICE,
-        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+        status: error ? MESSAGES.STATUS.ERROR : MESSAGES.STATUS.SUCCESS,
       });
     },
     [showToast],
@@ -126,7 +125,7 @@ const InvoiceListClient = ({
 
       showToast({
         description: error || MESSAGES.SUCCESS.UPDATE_INVOICE,
-        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+        status: error ? MESSAGES.STATUS.ERROR : MESSAGES.STATUS.SUCCESS,
       });
     },
     [showToast],

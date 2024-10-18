@@ -7,7 +7,7 @@ import { memo, useCallback } from 'react';
 import { TToast } from '@/types';
 
 // Constants
-import { MESSAGE_STATUS } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Components
 import { Button, IoIosClose } from '@/components';
@@ -20,16 +20,16 @@ const Toast = ({
   id,
   title,
   description,
-  status = MESSAGE_STATUS.SUCCESS,
+  status = MESSAGES.STATUS.SUCCESS,
   onClose,
 }: TToastProps): JSX.Element => {
   const handleClose = useCallback(() => onClose(id), [id, onClose]);
 
   const getStatusColor = () => {
     switch (status) {
-      case MESSAGE_STATUS.ERROR:
+      case MESSAGES.STATUS.ERROR:
         return '!bg-red-600 dark:!bg-red-600  text-white';
-      case MESSAGE_STATUS.SUCCESS:
+      case MESSAGES.STATUS.SUCCESS:
         return '!bg-green-700 dark:!bg-green-700 text-white';
       default:
         return '!bg-green-700 dark:!bg-green-700 text-white';

@@ -20,7 +20,7 @@ import {
 } from '@/components';
 
 // Constants
-import { Level, MESSAGE_STATUS, MESSAGES } from '@/constants';
+import { Level, MESSAGES } from '@/constants';
 
 // Actions
 import { deleteTask, getTaskDetails, updateTaskWithAssignees } from '@/actions';
@@ -79,7 +79,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
 
       showToast({
         description: error || MESSAGES.SUCCESS.DELETE_TASK,
-        status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
+        status: error ? MESSAGES.STATUS.ERROR : MESSAGES.STATUS.SUCCESS,
       });
     },
     [showToast],
@@ -193,7 +193,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
           if (error) {
             showToast({
               description: error,
-              status: MESSAGE_STATUS.ERROR,
+              status: MESSAGES.STATUS.ERROR,
             });
 
             return;
@@ -201,7 +201,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
 
           showToast({
             description: MESSAGES.SUCCESS.UPDATE_TASK,
-            status: MESSAGE_STATUS.SUCCESS,
+            status: MESSAGES.STATUS.SUCCESS,
           });
         }
       });

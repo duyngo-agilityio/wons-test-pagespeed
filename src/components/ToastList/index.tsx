@@ -8,7 +8,7 @@ import { TToast } from '@/types';
 import { Toast } from '@/components/common';
 
 // Constants
-import { MESSAGE_STATUS } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 interface IToastListProps {
   toasts: TToast[];
@@ -22,7 +22,7 @@ const ToastList = ({ toasts, onClose }: IToastListProps) => (
         id = '',
         title = '',
         description = '',
-        status = MESSAGE_STATUS.SUCCESS,
+        status = MESSAGES.STATUS.SUCCESS,
       } = toast || {};
 
       return (
