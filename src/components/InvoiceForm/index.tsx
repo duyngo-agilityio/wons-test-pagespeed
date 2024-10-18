@@ -13,13 +13,7 @@ import clsx from 'clsx';
 import { Select, SelectItem } from '@nextui-org/react';
 
 // Constants
-import {
-  INVOICE_STATUS,
-  InvoiceStatus,
-  MESSAGE_STATUS,
-  MESSAGES,
-  ROUTES,
-} from '@/constants';
+import { INVOICE_STATUS, InvoiceStatus, MESSAGES, ROUTES } from '@/constants';
 
 // Models
 import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
@@ -192,7 +186,7 @@ const InvoiceForm = ({
       if (error) {
         showToast({
           description: error,
-          status: MESSAGE_STATUS.ERROR,
+          status: MESSAGES.STATUS.ERROR,
         });
         return;
       }
@@ -203,7 +197,7 @@ const InvoiceForm = ({
         description: previewData
           ? MESSAGES.SUCCESS.UPDATE_INVOICE
           : MESSAGES.SUCCESS.CREATE_INVOICE,
-        status: MESSAGE_STATUS.SUCCESS,
+        status: MESSAGES.STATUS.SUCCESS,
       });
     });
   };

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 
 // Constants
-import { MESSAGE_STATUS, ROLE, ROUTES, SIDE_BAR_STATE } from '@/constants';
+import { MESSAGES, ROLE, ROUTES, SIDE_BAR_STATE } from '@/constants';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -63,7 +63,7 @@ const SidebarFooter = ({
     if (typeof res === 'string') {
       return showToast({
         status: 'error',
-        title: MESSAGE_STATUS.ERROR,
+        title: MESSAGES.STATUS.ERROR,
         description: res,
       });
     }

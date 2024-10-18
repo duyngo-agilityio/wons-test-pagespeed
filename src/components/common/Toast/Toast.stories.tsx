@@ -5,7 +5,7 @@ import { fn } from '@storybook/test';
 import Toast from './index';
 
 // Constants
-import { MESSAGE_STATUS } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 const meta: Meta<typeof Toast> = {
   title: 'Components/Common/Toast',
@@ -20,7 +20,7 @@ export const Default: Story = {
     id: '1',
     title: 'Title',
     description: 'Success toast description',
-    status: MESSAGE_STATUS.SUCCESS,
+    status: MESSAGES.STATUS.SUCCESS,
     onClose: fn(),
   },
 };
@@ -30,7 +30,7 @@ export const Success: Story = {
     id: '1',
     title: 'Title',
     description: 'Success toast description',
-    status: MESSAGE_STATUS.SUCCESS,
+    status: MESSAGES.STATUS.SUCCESS,
     onClose: fn(),
   },
 };
@@ -40,7 +40,7 @@ export const Error: Story = {
     id: '1',
     title: 'Title',
     description: 'Error toast description',
-    status: MESSAGE_STATUS.ERROR,
+    status: MESSAGES.STATUS.ERROR,
     onClose: fn(),
   },
 };

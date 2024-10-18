@@ -45,6 +45,10 @@ export const MESSAGES = {
     CREATE_EVENT: 'Create event successfully.',
     UPDATE_PROFILE: 'Update profile successfully.',
   },
+  STATUS: {
+    SUCCESS: 'success',
+    ERROR: 'error',
+  },
 };
 
 export const ErrorMapper: Record<string, string> = {

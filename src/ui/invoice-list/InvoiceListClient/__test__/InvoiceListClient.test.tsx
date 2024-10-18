@@ -5,7 +5,7 @@ import InvoiceListClient, { TInvoiceListClientProps } from '../index';
 import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
 
 // Constants
-import { MESSAGE_STATUS, MESSAGES, ORDER } from '@/constants';
+import { MESSAGES, ORDER } from '@/constants';
 
 // Actions
 import { deleteInvoice, updateInvoice } from '@/actions';
@@ -68,7 +68,7 @@ describe('InvoiceListClient section', () => {
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
         description: MESSAGES.SUCCESS.DELETE_INVOICE,
-        status: MESSAGE_STATUS.SUCCESS,
+        status: MESSAGES.STATUS.SUCCESS,
       }),
     );
   });
@@ -84,7 +84,7 @@ describe('InvoiceListClient section', () => {
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
         description: MESSAGES.SUCCESS.DELETE_INVOICE,
-        status: MESSAGE_STATUS.ERROR,
+        status: MESSAGES.STATUS.ERROR,
       }),
     );
   });
@@ -134,7 +134,7 @@ describe('InvoiceListClient section', () => {
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
         description: MESSAGES.SUCCESS.DELETE_INVOICE,
-        status: MESSAGE_STATUS.SUCCESS,
+        status: MESSAGES.STATUS.SUCCESS,
       }),
     );
   });
@@ -159,7 +159,7 @@ describe('InvoiceListClient section', () => {
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
         description: MESSAGES.ERROR.DELETE_INVOICE,
-        status: MESSAGE_STATUS.ERROR,
+        status: MESSAGES.STATUS.ERROR,
       }),
     );
   });
