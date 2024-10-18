@@ -12,30 +12,28 @@ interface IToastListProps {
   onClose: (id: string) => void;
 }
 
-const ToastList = ({ toasts, onClose }: IToastListProps) => {
-  return (
-    <div className="fixed top-4 right-4">
-      {toasts.map((toast) => {
-        const {
-          id = '',
-          title = '',
-          description = '',
-          status = MESSAGE_STATUS.SUCCESS,
-        } = toast || {};
+const ToastList = ({ toasts, onClose }: IToastListProps) => (
+  <div className="fixed top-4 right-4">
+    {toasts.map((toast) => {
+      const {
+        id = '',
+        title = '',
+        description = '',
+        status = MESSAGE_STATUS.SUCCESS,
+      } = toast || {};
 
-        return (
-          <Toast
-            key={id}
-            id={id}
-            title={title}
-            description={description}
-            status={status}
-            onClose={onClose}
-          />
-        );
-      })}
-    </div>
-  );
-};
+      return (
+        <Toast
+          key={id}
+          id={id}
+          title={title}
+          description={description}
+          status={status}
+          onClose={onClose}
+        />
+      );
+    })}
+  </div>
+);
 
 export default ToastList;

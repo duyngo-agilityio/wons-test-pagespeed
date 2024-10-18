@@ -27,16 +27,12 @@ const ConfirmModal = ({
   onCancel,
 }: ConfirmModalProps) => {
   const handleSubmit = (onClose: () => void) => {
-    if (onConfirm) {
-      onConfirm();
-    }
+    onConfirm?.();
     onClose();
   };
 
   const handleCancel = (onClose: () => void) => {
-    if (onCancel) {
-      onCancel();
-    }
+    onCancel?.();
     onClose();
   };
 

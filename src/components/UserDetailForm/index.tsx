@@ -1,4 +1,5 @@
 'use client';
+
 import { memo, useMemo } from 'react';
 import isEqual from 'react-fast-compare';
 

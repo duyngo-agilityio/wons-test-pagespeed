@@ -26,6 +26,7 @@ const InvoiceDetailsHeader = ({
   date,
 }: IInvoiceDetailsHeaderProps) => {
   const { EMAIL, PHONE } = DEFAULT_VALUE_INVOICE;
+
   return (
     <div className="flex items-center justify-between bg-gray-50 dark:bg-gray-600 base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
       <div className="flex flex-col gap-[37px]">

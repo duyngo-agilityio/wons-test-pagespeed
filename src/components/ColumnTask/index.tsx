@@ -1,4 +1,5 @@
 'use client';
+
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -19,30 +20,28 @@ type TColumnProps = {
   tasks: StrapiModel<Task>[];
 };
 
-const Column = ({ status, tasks }: TColumnProps) => {
-  return (
-    <Droppable droppableId={status}>
-      {(provided) => (
-        <div
-          className="w-full  md:w-1/4 flex-grow "
-          {...provided.droppableProps}
-          ref={provided.innerRef}
-        >
-          <Heading
-            className="text-base md:text-xl lg:text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
-            title={status}
-          />
-          <div className="space-y-4">
-            {tasks.map((task, index) => {
-              return <TaskCard key={task.id} index={index} task={task} />;
-            })}
-            {provided.placeholder}
-          </div>
+const Column = ({ status, tasks }: TColumnProps) => (
+  <Droppable droppableId={status}>
+    {(provided) => (
+      <div
+        className="w-full  md:w-1/4 flex-grow "
+        {...provided.droppableProps}
+        ref={provided.innerRef}
+      >
+        <Heading
+          className="text-base md:text-xl lg:text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
+          title={status}
+        />
+        <div className="space-y-4">
+          {tasks.map((task, index) => {
+            return <TaskCard key={task.id} index={index} task={task} />;
+          })}
+          {provided.placeholder}
         </div>
-      )}
-    </Droppable>
-  );
-};
+      </div>
+    )}
+  </Droppable>
+);
 
 export default memo(Column, isEqual) as <T>(
   props: TColumnProps & T,

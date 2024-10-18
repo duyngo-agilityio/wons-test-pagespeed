@@ -37,16 +37,14 @@ const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) => {
-  return (
-    <html lang="en">
-      <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
-        <main>
-          <LayoutProvider>{children}</LayoutProvider>
-        </main>
-      </body>
-    </html>
-  );
-};
+}>) => (
+  <html lang="en">
+    <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
+      <main>
+        <LayoutProvider>{children}</LayoutProvider>
+      </main>
+    </body>
+  </html>
+);
 
 export default RootLayout;
