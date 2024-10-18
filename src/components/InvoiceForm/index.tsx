@@ -1,6 +1,7 @@
 'use client';
 
-import { useCallback, useMemo, useState, useTransition } from 'react';
+import { memo, useCallback, useMemo, useState, useTransition } from 'react';
+import isEqual from 'react-fast-compare';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -492,4 +493,6 @@ const InvoiceForm = ({
   );
 };
 
-export default InvoiceForm;
+export default memo(InvoiceForm, isEqual) as <T>(
+  props: InvoiceFormProps & T,
+) => JSX.Element;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useState, useTransition } from 'react';
+import { memo, useCallback, useMemo, useState, useTransition } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -180,4 +180,4 @@ const SignInForm = ({ onSubmit }: SignInFormProps) => {
   );
 };
 
-export default SignInForm;
+export default memo(SignInForm);

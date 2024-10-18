@@ -68,7 +68,7 @@ const ProductDrawer = (): JSX.Element => {
           return;
         } else {
           showToast({
-            description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
+            description: SUCCESS_MESSAGES.CREATE_PRODUCT,
             status: MESSAGE_STATUS.SUCCESS,
           });
         }

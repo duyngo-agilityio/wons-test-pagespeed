@@ -1,6 +1,5 @@
 'use client';
-
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 
 // icons
 import { FaSpinner } from 'react-icons/fa';
@@ -63,4 +62,4 @@ const Button = ({ isLoading = false, children, ...props }: ButtonProps) => (
   </ButtonCustom>
 );
 
-export default Button;
+export default memo(Button);

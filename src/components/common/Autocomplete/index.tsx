@@ -1,4 +1,6 @@
-import React from 'react';
+import isEqual from 'react-fast-compare';
+import { memo } from 'react';
+
 import {
   Autocomplete as AutocompleteBase,
   AutocompleteItem,
@@ -39,4 +41,6 @@ const Autocomplete = ({
   </AutocompleteBase>
 );
 
-export default Autocomplete;
+export default memo(Autocomplete, isEqual) as <T>(
+  props: AutocompleteProps & T,
+) => JSX.Element;

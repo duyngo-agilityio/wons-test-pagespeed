@@ -1,3 +1,6 @@
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
+
 // Types
 import { TToast } from '@/types';
 
@@ -36,4 +39,6 @@ const ToastList = ({ toasts, onClose }: IToastListProps) => (
   </div>
 );
 
-export default ToastList;
+export default memo(ToastList, isEqual) as <T>(
+  props: IToastListProps & T,
+) => JSX.Element;

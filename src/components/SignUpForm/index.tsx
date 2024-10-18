@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -264,4 +264,4 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
   );
 };
 
-export default SignUpForm;
+export default memo(SignUpForm);

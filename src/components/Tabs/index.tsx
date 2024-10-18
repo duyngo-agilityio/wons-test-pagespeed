@@ -1,5 +1,8 @@
 'use client';
 
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
+
 import { cn, Tabs as NextUITabs, Tab, TabsProps } from '@nextui-org/react';
 
 interface TabType {
@@ -67,4 +70,6 @@ const Tabs = ({
   );
 };
 
-export default Tabs;
+export default memo(Tabs, isEqual) as <T>(
+  props: CustomTabsProps & T,
+) => JSX.Element;

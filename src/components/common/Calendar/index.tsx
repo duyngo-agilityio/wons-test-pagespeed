@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Calendar, CalendarProps, DateValue } from '@nextui-org/react';
 import { getLocalTimeZone, today } from '@internationalized/date';
 
@@ -61,4 +61,4 @@ const CalendarCustom = ({
   );
 };
 
-export default CalendarCustom;
+export default memo(CalendarCustom);

@@ -1,4 +1,4 @@
-import { Key, useMemo } from 'react';
+import { Key, memo, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
 // Utils
@@ -158,4 +158,4 @@ const CustomersTable = ({
   );
 };
 
-export default CustomersTable;
+export default memo(CustomersTable);

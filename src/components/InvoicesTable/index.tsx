@@ -1,7 +1,9 @@
 'use client';
 
 // Libs
-import { Key, useCallback, useMemo, useState } from 'react';
+import { Key, memo, useCallback, useMemo, useState } from 'react';
+import isEqual from 'react-fast-compare';
+
 import { Selection } from '@nextui-org/react';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
@@ -302,4 +304,6 @@ const InvoicesTable = ({
   );
 };
 
-export default InvoicesTable;
+export default memo(InvoicesTable, isEqual) as <T>(
+  props: TInvoicesTableProps & T,
+) => JSX.Element;

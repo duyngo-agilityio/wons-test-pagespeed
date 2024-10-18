@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useState } from 'react';
 
 // icons
 import { IoCamera } from 'react-icons/io5';
@@ -119,4 +119,4 @@ const AvatarUpload = ({
   );
 };
 
-export default AvatarUpload;
+export default memo(AvatarUpload);

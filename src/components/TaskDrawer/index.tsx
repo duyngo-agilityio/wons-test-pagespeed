@@ -1,7 +1,7 @@
 'use client';
 
 import { UseFormReset } from 'react-hook-form';
-import { useCallback, useState, useTransition } from 'react';
+import { memo, useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
@@ -151,4 +151,4 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
   );
 };
 
-export default TaskDrawer;
+export default memo(TaskDrawer);

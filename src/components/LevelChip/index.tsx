@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Libs
 import { Chip } from '@nextui-org/react';
 
@@ -52,4 +54,4 @@ const LevelChip = ({ level, size = 'md' }: TLevelCardProps): JSX.Element => {
   );
 };
 
-export default LevelChip;
+export default memo(LevelChip);

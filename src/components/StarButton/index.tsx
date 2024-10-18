@@ -1,6 +1,7 @@
+import { memo, useCallback } from 'react';
+
 // Libs
 import clsx from 'clsx';
-import { useCallback } from 'react';
 
 // Components
 import { Button, FaStar } from '@/components';
@@ -40,4 +41,4 @@ const StartButton = ({
   );
 };
 
-export default StartButton;
+export default memo(StartButton);
