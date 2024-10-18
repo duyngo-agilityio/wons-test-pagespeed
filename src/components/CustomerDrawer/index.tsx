@@ -17,7 +17,7 @@ import { ICustomer } from '@/models';
 import { CustomerForm, Button, BsPlus } from '@/components';
 
 // Constants
-import { MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
+import { MESSAGE_STATUS, MESSAGES } from '@/constants';
 
 // Actions
 import { createCustomer } from '@/actions';
@@ -76,7 +76,7 @@ const CustomerDrawer = (): JSX.Element => {
       });
 
       showToast({
-        description: SUCCESS_MESSAGES.CREATE_CUSTOMER,
+        description: MESSAGES.SUCCESS.CREATE_CUSTOMER,
         status: MESSAGE_STATUS.SUCCESS,
       });
 

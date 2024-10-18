@@ -20,7 +20,7 @@ import './index.css';
 import { IEvent, TUser } from '@/models';
 
 // Constants
-import { MESSAGE_STATUS, ROUTES, SUCCESS_MESSAGES } from '@/constants';
+import { MESSAGE_STATUS, MESSAGES, ROUTES } from '@/constants';
 
 // Utils
 import { formattedEvents, formattedGuestInfo, getTimeFromISO } from '@/utils';
@@ -140,7 +140,7 @@ const CalendarClient = ({
 
         const { error } = response || {};
         showToast({
-          description: error || SUCCESS_MESSAGES.UPDATE_EVENT,
+          description: error || MESSAGES.SUCCESS.UPDATE_EVENT,
           status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
         });
 
@@ -158,7 +158,7 @@ const CalendarClient = ({
 
       const { error } = response || {};
       showToast({
-        description: error || SUCCESS_MESSAGES.CREATE_EVENT,
+        description: error || MESSAGES.SUCCESS.CREATE_EVENT,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
     }
@@ -182,7 +182,7 @@ const CalendarClient = ({
       setIsLoading(false);
       const { error } = response || {};
       showToast({
-        description: error || SUCCESS_MESSAGES.DELETE_EVENT,
+        description: error || MESSAGES.SUCCESS.DELETE_EVENT,
         status: error ? MESSAGE_STATUS.ERROR : MESSAGE_STATUS.SUCCESS,
       });
 

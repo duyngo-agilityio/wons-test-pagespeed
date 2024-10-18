@@ -8,7 +8,7 @@ import { IoCamera } from 'react-icons/io5';
 import { ImageFallback, Input } from '@/components';
 
 // constants
-import { ERROR_MESSAGES, MAX_SIZE, REGEX } from '@/constants';
+import { MAX_SIZE, MESSAGES, REGEX } from '@/constants';
 
 export type TUpdateProfileProps = {
   onFileChange: (file: File) => void;
@@ -39,13 +39,13 @@ const AvatarUpload = ({
       }
 
       if (!REGEX.IMG.test(file.name)) {
-        const error = ERROR_MESSAGES.UPLOAD_IMAGE;
+        const error = MESSAGES.ERROR.UPLOAD_IMAGE;
         setErrorMessage(error);
         return;
       }
 
       if (file.size > MAX_SIZE) {
-        const error = ERROR_MESSAGES.UPLOAD_IMAGE_SIZE;
+        const error = MESSAGES.ERROR.UPLOAD_IMAGE_SIZE;
         setErrorMessage(error);
         return;
       }

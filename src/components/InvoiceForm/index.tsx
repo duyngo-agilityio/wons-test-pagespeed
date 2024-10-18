@@ -19,7 +19,6 @@ import {
   MESSAGE_STATUS,
   MESSAGES,
   ROUTES,
-  SUCCESS_MESSAGES,
 } from '@/constants';
 
 // Models
@@ -202,8 +201,8 @@ const InvoiceForm = ({
 
       showToast({
         description: previewData
-          ? SUCCESS_MESSAGES.UPDATE_INVOICE
-          : SUCCESS_MESSAGES.CREATE_INVOICE,
+          ? MESSAGES.SUCCESS.UPDATE_INVOICE
+          : MESSAGES.SUCCESS.CREATE_INVOICE,
         status: MESSAGE_STATUS.SUCCESS,
       });
     });

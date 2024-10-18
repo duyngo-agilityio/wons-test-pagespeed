@@ -5,12 +5,7 @@ import InvoiceListClient, { TInvoiceListClientProps } from '../index';
 import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
 
 // Constants
-import {
-  ERROR_MESSAGES,
-  MESSAGE_STATUS,
-  ORDER,
-  SUCCESS_MESSAGES,
-} from '@/constants';
+import { MESSAGE_STATUS, MESSAGES, ORDER } from '@/constants';
 
 // Actions
 import { deleteInvoice, updateInvoice } from '@/actions';
@@ -72,7 +67,7 @@ describe('InvoiceListClient section', () => {
 
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
-        description: SUCCESS_MESSAGES.DELETE_INVOICE,
+        description: MESSAGES.SUCCESS.DELETE_INVOICE,
         status: MESSAGE_STATUS.SUCCESS,
       }),
     );
@@ -80,7 +75,7 @@ describe('InvoiceListClient section', () => {
 
   it('should show a error message when select invoice failed.', async () => {
     (updateInvoice as jest.MockedFn<typeof updateInvoice>).mockResolvedValue({
-      error: ERROR_MESSAGES.UPDATE_INVOICE,
+      error: MESSAGES.ERROR.UPDATE_INVOICE,
     });
     const { getAllByTestId } = renderComponent();
 
@@ -88,7 +83,7 @@ describe('InvoiceListClient section', () => {
 
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
-        description: SUCCESS_MESSAGES.DELETE_INVOICE,
+        description: MESSAGES.SUCCESS.DELETE_INVOICE,
         status: MESSAGE_STATUS.ERROR,
       }),
     );
@@ -138,7 +133,7 @@ describe('InvoiceListClient section', () => {
 
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
-        description: SUCCESS_MESSAGES.DELETE_INVOICE,
+        description: MESSAGES.SUCCESS.DELETE_INVOICE,
         status: MESSAGE_STATUS.SUCCESS,
       }),
     );
@@ -146,7 +141,7 @@ describe('InvoiceListClient section', () => {
 
   it.skip('should show a error message when delete invoice failed.', async () => {
     (deleteInvoice as jest.MockedFn<typeof deleteInvoice>).mockResolvedValue({
-      error: ERROR_MESSAGES.DELETE_INVOICE,
+      error: MESSAGES.ERROR.DELETE_INVOICE,
     });
     const { getAllByTestId, getByText, getByRole } = renderComponent();
 
@@ -163,7 +158,7 @@ describe('InvoiceListClient section', () => {
 
     testLibJestUtils.waitFor(() =>
       expect(mockShowToast).toHaveBeenCalledWith({
-        description: ERROR_MESSAGES.DELETE_INVOICE,
+        description: MESSAGES.ERROR.DELETE_INVOICE,
         status: MESSAGE_STATUS.ERROR,
       }),
     );

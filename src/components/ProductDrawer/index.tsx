@@ -15,7 +15,7 @@ import Tabs from '../Tabs';
 import { productTabs } from '@/mocks';
 
 // constants
-import { MESSAGE_STATUS, SUCCESS_MESSAGES, RATING_PRODUCT } from '@/constants';
+import { MESSAGE_STATUS, RATING_PRODUCT, MESSAGES } from '@/constants';
 
 // hooks
 import { useToast } from '@/hooks';
@@ -68,7 +68,7 @@ const ProductDrawer = (): JSX.Element => {
           return;
         } else {
           showToast({
-            description: SUCCESS_MESSAGES.CREATE_PRODUCT,
+            description: MESSAGES.SUCCESS.CREATE_PRODUCT,
             status: MESSAGE_STATUS.SUCCESS,
           });
         }
