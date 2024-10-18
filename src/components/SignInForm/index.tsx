@@ -10,13 +10,7 @@ import { useRouter } from 'next/navigation';
 import { SignInFormData } from '@/types';
 
 // Constants
-import {
-  ERROR_MESSAGES,
-  MESSAGE_STATUS,
-  ROUTES,
-  REGEX,
-  MESSAGES,
-} from '@/constants';
+import { MESSAGE_STATUS, ROUTES, REGEX, MESSAGES } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -43,7 +37,7 @@ const signInSchema = z.object({
   password: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .regex(REGEX.PASSWORD, ERROR_MESSAGES.GENERAL_INVALID_PASSWORD),
+    .regex(REGEX.PASSWORD, MESSAGES.ERROR.GENERAL_INVALID_PASSWORD),
 });
 
 const REQUIRED_FIELDS = ['identifier', 'password'];

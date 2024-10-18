@@ -1,5 +1,5 @@
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
@@ -23,7 +23,7 @@ describe('getProfile', () => {
     jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
 
     await expect(getProfile(mockJWT)).rejects.toThrow(
-      ERROR_MESSAGES.UNKNOWN_ERROR,
+      MESSAGES.ERROR.UNKNOWN_ERROR,
     );
   });
 });

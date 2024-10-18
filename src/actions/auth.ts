@@ -6,12 +6,7 @@ import { AuthError } from 'next-auth';
 import { signIn, signOut as signOutAuth } from '@/configs';
 
 // Constants
-import {
-  API_PATH,
-  AUTH_METHODS,
-  ERROR_MESSAGES,
-  ERROR_TYPES,
-} from '@/constants';
+import { API_PATH, AUTH_METHODS, ERROR_TYPES, MESSAGES } from '@/constants';
 
 // Types
 import { SignInFormData, TSignUpPayload, TSignUpResponse } from '@/types';
@@ -31,9 +26,9 @@ export const authenticate = async (
     if (error instanceof AuthError) {
       switch (error.type) {
         case ERROR_TYPES.CREDENTIALS_SIGN_IN:
-          return ERROR_MESSAGES.EMAIL_PASSWORD_INVALID;
+          return MESSAGES.ERROR.EMAIL_PASSWORD_INVALID;
         default:
-          return ERROR_MESSAGES.UNKNOWN_ERROR;
+          return MESSAGES.ERROR.UNKNOWN_ERROR;
       }
     }
     throw error;

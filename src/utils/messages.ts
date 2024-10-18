@@ -2,7 +2,7 @@
 import { z } from 'zod';
 
 // Constants
-import { ERROR_MESSAGES, ErrorMapper } from '@/constants';
+import { ErrorMapper, MESSAGES } from '@/constants';
 
 export type TStrapiErrorResponse = {
   data: null;
@@ -32,12 +32,12 @@ export const formatErrorMessage = (errorResponse: unknown): string => {
 
     const { message } = strapiErrorResponse?.error || {};
 
-    errorMessage = ErrorMapper[message] || ERROR_MESSAGES.UNKNOWN_ERROR;
+    errorMessage = ErrorMapper[message] || MESSAGES.ERROR.UNKNOWN_ERROR;
   }
 
   // Set default message if unknown error
   if (!errorMessage) {
-    errorMessage = ERROR_MESSAGES.UNKNOWN_ERROR;
+    errorMessage = MESSAGES.ERROR.UNKNOWN_ERROR;
   }
 
   return errorMessage;

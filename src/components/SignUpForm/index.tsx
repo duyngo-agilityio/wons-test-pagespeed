@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 // Constants
-import { ERROR_MESSAGES, IMAGES, MESSAGES, REGEX } from '@/constants';
+import { IMAGES, MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -30,7 +30,7 @@ const signUpSchema = z.object({
   password: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .regex(REGEX.PASSWORD, ERROR_MESSAGES.INVALID_PASSWORD),
+    .regex(REGEX.PASSWORD, MESSAGES.ERROR.INVALID_PASSWORD),
 });
 
 const REQUIRED_FIELDS = ['fullName', 'username', 'email', 'password'];

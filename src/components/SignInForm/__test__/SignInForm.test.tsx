@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Components
 import SignInForm from '../index';
@@ -73,7 +73,7 @@ describe('SignInForm', () => {
 
     // Check for validation messages
     expect(
-      await findByText(ERROR_MESSAGES.FIELD_INVALID('Email')),
+      await findByText(MESSAGES.ERROR.FIELD_INVALID('Email')),
     ).toBeInTheDocument();
   });
 });

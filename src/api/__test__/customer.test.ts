@@ -1,5 +1,5 @@
 // Constants
-import { DEFAULT_PAGE, ERROR_MESSAGES, PAGE_SIZE } from '@/constants';
+import { DEFAULT_PAGE, MESSAGES, PAGE_SIZE } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
@@ -29,7 +29,7 @@ describe('Customer APIs', () => {
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
       await expect(getCustomers()).rejects.toThrow(
-        ERROR_MESSAGES.UNKNOWN_ERROR,
+        MESSAGES.ERROR.UNKNOWN_ERROR,
       );
     });
   });

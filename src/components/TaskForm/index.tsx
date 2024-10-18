@@ -17,7 +17,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 
 // Constants
-import { LEVELS, ERROR_MESSAGES, Level, STATUS, MESSAGES } from '@/constants';
+import { LEVELS, Level, STATUS, MESSAGES } from '@/constants';
 
 // Utils
 import {
@@ -56,7 +56,7 @@ const taskFormSchema = z.object({
   description: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .max(10000, ERROR_MESSAGES.FIELD_INVALID('Description')),
+    .max(10000, MESSAGES.ERROR.FIELD_INVALID('Description')),
 });
 
 const REQUIRED_FIELDS = ['title', 'label', 'level', 'description', 'assignees'];
