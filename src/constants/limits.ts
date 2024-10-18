@@ -1,0 +1,3 @@
+export const LIMIT_NUMBERS = {
+  TOP_SELLING_PRODUCTS: 2,
+};

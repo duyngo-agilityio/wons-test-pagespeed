@@ -13,11 +13,15 @@ import { httpClient } from '@/services';
 // utils
 import { formatErrorMessage } from '@/utils';
 
-export const getAllProducts = async (): Promise<{
+export const getAllProducts = async ({
+  limitNumber,
+}: {
+  limitNumber: number;
+}): Promise<{
   error?: string;
   data?: StrapiModel<IProduct>[];
 }> => {
-  const url = `${API_PATH.PRODUCTS}?sort=rating:desc&pagination[limit]=2`;
+  const url = `${API_PATH.PRODUCTS}?sort=rating:desc&pagination[limit]=${limitNumber}`;
 
   try {
     const productsResponse = await httpClient.getRequest<
