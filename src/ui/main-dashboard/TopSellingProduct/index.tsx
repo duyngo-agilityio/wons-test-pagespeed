@@ -6,7 +6,7 @@ import { NoProductAvailable, ProductCard } from '@/components';
 import { TableLayout } from '@/layouts';
 
 const TopSellingProducts = async () => {
-  const { data: topProducts } = await getAllProducts(2);
+  const { data: topProducts } = await getAllProducts({ limitNumber: 2 });
 
   return (
     <TableLayout title="Top Selling Products" className="h-full md:!p-5">
