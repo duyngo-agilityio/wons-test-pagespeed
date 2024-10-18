@@ -1,11 +1,12 @@
 'use client';
 
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState, useTransition } from 'react';
 import { Draggable } from '@hello-pangea/dnd';
+import Drawer from 'react-modern-drawer';
 import dynamic from 'next/dynamic';
 
 // Types
-import { StrapiModel, Task } from '@/types';
+import { StrapiModel, Task, TaskWithStringAssignees } from '@/types';
 
 // Components
 import {
@@ -15,16 +16,26 @@ import {
   Text,
   ImageFallback,
   LoadingIndicator,
+  TaskForm,
 } from '@/components';
 
 // Constants
 import { Level, MESSAGE_STATUS, SUCCESS_MESSAGES } from '@/constants';
 
 // Actions
-import { deleteTask, getTaskDetails } from '@/actions';
+import { deleteTask, getTaskDetails, updateTaskWithAssignees } from '@/actions';
 
 // Hooks
 import { useToast } from '@/hooks';
+
+// Models
+import { TUser } from '@/models';
+
+// Apis
+import { uploadImage } from '@/api/image';
+
+// Utils
+import { formatErrorMessage } from '@/utils';
 
 const DynamicTaskDetails = dynamic(() => import('../TaskDetail'));
 
@@ -38,6 +49,13 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
   const [taskByID, setTaskByID] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { showToast } = useToast();
+
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [taskForm, setTaskForm] = useState<TaskWithStringAssignees>();
+  const [isPending, startTransition] = useTransition();
+  const [idTask, setIdCustomer] = useState<number>();
+  const [avatarFiles, setAvatarFiles] = useState<File[]>();
+  const [isAvatarDirty, setIsAvatarDirty] = useState(false);
 
   const { id, attributes } = task ?? {};
   const {
@@ -67,8 +85,20 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     [showToast],
   );
 
-  // TODO:: Handle later
-  const handleEdit = () => {};
+  const handleEdit = async (id: number) => {
+    if (attributes) {
+      setIdCustomer(id);
+
+      const taskWithStringAssignees: TaskWithStringAssignees = {
+        ...attributes,
+        assignees: attributes.assignees.data.map((assignee) => assignee.id),
+      };
+
+      setTaskForm(taskWithStringAssignees);
+    }
+
+    setIsDrawerOpen(true);
+  };
 
   const renderImageTask = () => {
     const hasTwoImages = images?.length === 2;
@@ -119,9 +149,65 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     }
   };
 
-  const handleCloseModal = () => {
+  const handleCloseDetailsModal = () => {
     setIsShowModal(false);
   };
+
+  const handleAvatarChange = useCallback((files: File[]) => {
+    setAvatarFiles(files);
+    setIsAvatarDirty(true);
+  }, []);
+
+  const handleCloseFormModal = () => {
+    setIsDrawerOpen(false);
+  };
+
+  const handleFormSubmit = useCallback(
+    async (formData: TaskWithStringAssignees) => {
+      if (avatarFiles && isAvatarDirty) {
+        try {
+          const uploadImageResponses = await Promise.all(
+            Array.from(avatarFiles).map((file: File) => uploadImage(file)),
+          );
+
+          const downloadURLs = uploadImageResponses
+            .map((response) => response?.downloadURL)
+            .filter(Boolean);
+
+          if (downloadURLs.length !== avatarFiles.length) {
+            return;
+          }
+
+          formData.images = downloadURLs as string[];
+        } catch (error) {
+          const message = formatErrorMessage(error);
+
+          return { error: message };
+        }
+      }
+
+      startTransition(async () => {
+        if (idTask) {
+          const { error } = await updateTaskWithAssignees(idTask, formData);
+
+          if (error) {
+            showToast({
+              description: error,
+              status: MESSAGE_STATUS.ERROR,
+            });
+
+            return;
+          }
+
+          showToast({
+            description: SUCCESS_MESSAGES.UPDATE_TASK,
+            status: MESSAGE_STATUS.SUCCESS,
+          });
+        }
+      });
+    },
+    [avatarFiles, idTask, isAvatarDirty, showToast],
+  );
 
   return (
     <>
@@ -172,9 +258,30 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
                 renderImages={renderImageTask}
                 label={label}
                 isOpen={isShowModal}
-                onCloseModal={handleCloseModal}
+                onCloseModal={handleCloseDetailsModal}
                 imageCount={images?.length}
               />
+            )}
+            {taskForm && isDrawerOpen && (
+              <Drawer
+                open={isDrawerOpen}
+                onClose={handleCloseFormModal}
+                direction="right"
+                size={400}
+                className="!w-full md:!w-[450px]"
+              >
+                <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
+                  <TaskForm
+                    previewData={taskForm}
+                    onAvatarChange={handleAvatarChange}
+                    user={{} as TUser}
+                    isDisabledField={isPending}
+                    onCloseDrawer={handleCloseFormModal}
+                    onSubmit={handleFormSubmit}
+                    setReset={() => {}}
+                  />
+                </div>
+              </Drawer>
             )}
           </>
         )}

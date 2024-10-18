@@ -5,7 +5,12 @@ import utc from 'dayjs/plugin/utc';
 import toObject from 'dayjs/plugin/toObject';
 
 // Types
-import { StrapiModel, TEventResponse, TProductInvoiceResponse } from '@/types';
+import {
+  StrapiModel,
+  Task,
+  TEventResponse,
+  TProductInvoiceResponse,
+} from '@/types';
 
 // Models
 import { IEvent, IProduct, TInvoiceProduct } from '@/models';
@@ -283,4 +288,16 @@ export const getTimeFromISO = (isoString: string): string => {
 
   // Return the time in 12-hour format with am/pm
   return `${formattedHours}:${formattedMinutes}${ampm}`;
+};
+
+export const getUserIdsForTask = (taskResponse: Task): string => {
+  const result = {
+    ...taskResponse,
+    assignees: taskResponse.assignees.data
+      .map((assignee) => assignee.id)
+      .join(','),
+  };
+
+  // return taskResponse.assignees.data.map((user) => user.id).join(',');
+  return result.assignees;
 };
