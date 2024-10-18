@@ -6,7 +6,7 @@ import { getTaskById } from '../task';
 import { MOCK_TASKS } from '@/mocks';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
@@ -46,7 +46,7 @@ describe('getTaskById', () => {
       error: MOCK_ERROR,
     });
     (formatErrorMessage as jest.Mock).mockReturnValue(
-      ERROR_MESSAGES.UNKNOWN_ERROR,
+      MESSAGES.ERROR.UNKNOWN_ERROR,
     );
 
     const result = await getTaskById({ id: 0 });
@@ -54,6 +54,6 @@ describe('getTaskById', () => {
     expect(formatErrorMessage).toHaveBeenCalledWith({
       error: MOCK_ERROR,
     });
-    expect(result).toEqual({ error: ERROR_MESSAGES.UNKNOWN_ERROR });
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
   });
 });

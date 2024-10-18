@@ -1,12 +1,4 @@
 export const ERROR_MESSAGES = {
-  FIELD_INVALID: (fieldName: string) => `Invalid format of ${fieldName}.`,
-  GENERAL_INVALID_PASSWORD: 'Invalid password',
-  INVALID_PASSWORD:
-    'Password must be between 8 and 32 characters, and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.',
-  EMAIL_PASSWORD_INVALID:
-    'Incorrect email and password. Please help to try again.',
-
-  EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
   UNKNOWN_ERROR: 'Something went wrong.',
   INVALID_PHONE: 'Invalid phone number.',
   UPLOAD_IMAGE: 'Wrong image format. Only "jpg", "png" and "webp" are allowed',
@@ -47,14 +39,22 @@ export const ERROR_API_MESSAGES = {
   EMAIL_OR_USERNAME_EXIST: 'Email or Username are already taken',
 };
 
-export const ErrorMapper: Record<string, string> = {
-  [ERROR_API_MESSAGES.EMAIL_OR_USERNAME_EXIST]:
-    ERROR_MESSAGES.EMAIL_OR_USERNAME_EXIST,
-};
-
 export const MESSAGES = {
   ERROR: {
     EMAIL_INVALID: 'Invalid email address format.',
     FIELD_REQUIRED: 'This field is required.',
+    FIELD_INVALID: (fieldName: string) => `Invalid format of ${fieldName}.`,
+    GENERAL_INVALID_PASSWORD: 'Invalid password',
+    INVALID_PASSWORD:
+      'Password must be between 8 and 32 characters, and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.',
+    EMAIL_PASSWORD_INVALID:
+      'Incorrect email and password. Please help to try again.',
+    EMAIL_OR_USERNAME_EXIST: 'Email or username already exists.',
+    UNKNOWN_ERROR: 'Something went wrong.',
   },
+};
+
+export const ErrorMapper: Record<string, string> = {
+  [ERROR_API_MESSAGES.EMAIL_OR_USERNAME_EXIST]:
+    MESSAGES.ERROR.EMAIL_OR_USERNAME_EXIST,
 };

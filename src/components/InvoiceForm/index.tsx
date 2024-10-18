@@ -13,7 +13,6 @@ import { Select, SelectItem } from '@nextui-org/react';
 
 // Constants
 import {
-  ERROR_MESSAGES,
   INVOICE_STATUS,
   InvoiceStatus,
   MESSAGE_STATUS,
@@ -75,7 +74,7 @@ const invoiceSchema = z.object({
   email: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
+    .email(MESSAGES.ERROR.FIELD_INVALID('Email')),
   imageUrl: z.string(),
 });
 

@@ -37,7 +37,7 @@ const customerFormSchema = z.object({
   email: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(ERROR_MESSAGES.FIELD_INVALID('Email Address')),
+    .email(MESSAGES.ERROR.FIELD_INVALID('Email Address')),
   phone: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)

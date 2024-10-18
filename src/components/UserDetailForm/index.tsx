@@ -19,7 +19,7 @@ import {
 import { Input, AvatarUpload, Button } from '@/components';
 
 // Constants
-import { ERROR_MESSAGES, MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Types
 import { IUserFormData } from '@/types';
@@ -46,7 +46,7 @@ const UserDetailForm = ({
     email: z
       .string()
       .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-      .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
+      .email(MESSAGES.ERROR.FIELD_INVALID('Email')),
   });
 
   const REQUIRED_FIELDS = ['fullName', 'email'];

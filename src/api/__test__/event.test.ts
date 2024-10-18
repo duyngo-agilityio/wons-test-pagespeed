@@ -5,7 +5,7 @@ import { httpClient } from '@/services';
 import { EVENTS_MOCKS } from '@/mocks';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
@@ -46,7 +46,7 @@ describe('Events', () => {
       error: MOCK_ERROR,
     });
     (formatErrorMessage as jest.Mock).mockReturnValue(
-      ERROR_MESSAGES.UNKNOWN_ERROR,
+      MESSAGES.ERROR.UNKNOWN_ERROR,
     );
 
     const result = await getEvents();
@@ -54,6 +54,6 @@ describe('Events', () => {
     expect(formatErrorMessage).toHaveBeenCalledWith({
       error: MOCK_ERROR,
     });
-    expect(result).toEqual({ error: ERROR_MESSAGES.UNKNOWN_ERROR });
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
   });
 });

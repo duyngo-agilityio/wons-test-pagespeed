@@ -8,7 +8,7 @@ import { SIGN_UP_FORM_DATA_MOCK } from '@/mocks';
 import { ISignUpFormData } from '@/types';
 
 // Constants
-import { ERROR_MESSAGES, IMAGES, MESSAGES } from '@/constants';
+import { IMAGES, MESSAGES } from '@/constants';
 
 // Components
 import SignUpForm, { ISignUpFormProps } from '../index';
@@ -91,8 +91,8 @@ describe('SignUpForm', () => {
     await testLibJestUtils.waitFor(() => {
       expect(MESSAGES.ERROR.FIELD_REQUIRED).toBeTruthy();
       expect(MESSAGES.ERROR.FIELD_REQUIRED).toBeTruthy();
-      expect(ERROR_MESSAGES.FIELD_INVALID('Email Address')).toBeTruthy();
-      expect(ERROR_MESSAGES.INVALID_PASSWORD).toBeTruthy();
+      expect(MESSAGES.ERROR.FIELD_INVALID('Email Address')).toBeTruthy();
+      expect(MESSAGES.ERROR.INVALID_PASSWORD).toBeTruthy();
     });
   });
 });

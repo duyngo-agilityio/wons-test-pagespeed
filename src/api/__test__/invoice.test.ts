@@ -15,7 +15,7 @@ import { httpClient } from '@/services';
 import {
   API_PATH,
   DEFAULT_PAGE,
-  ERROR_MESSAGES,
+  MESSAGES,
   ORDER,
   PAGE_SIZE,
 } from '@/constants';
@@ -55,7 +55,7 @@ describe('Invoice APIs', () => {
   it('should get the invoice list failed', async () => {
     jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-    await expect(getInvoices()).rejects.toThrow(ERROR_MESSAGES.UNKNOWN_ERROR);
+    await expect(getInvoices()).rejects.toThrow(MESSAGES.ERROR.UNKNOWN_ERROR);
   });
 
   describe('getInvoiceProducts', () => {
@@ -137,7 +137,7 @@ describe('getInvoiceById', () => {
     jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
 
     await expect(getInvoiceById({})).rejects.toThrow(
-      ERROR_MESSAGES.UNKNOWN_ERROR,
+      MESSAGES.ERROR.UNKNOWN_ERROR,
     );
   });
 });

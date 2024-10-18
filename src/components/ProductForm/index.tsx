@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
-import { BRANDS, ERROR_MESSAGES, MESSAGES, REGEX } from '@/constants';
+import { BRANDS, MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import {
@@ -51,16 +51,16 @@ const productFormSchema = z.object({
       return value;
     },
     z
-      .number({ invalid_type_error: ERROR_MESSAGES.FIELD_INVALID('Price') })
-      .min(0, ERROR_MESSAGES.FIELD_INVALID('Price'))
+      .number({ invalid_type_error: MESSAGES.ERROR.FIELD_INVALID('Price') })
+      .min(0, MESSAGES.ERROR.FIELD_INVALID('Price'))
       .refine((val) => String(Math.floor(val)).length <= 9, {
-        message: ERROR_MESSAGES.FIELD_INVALID('Price cannot exceed 7 digits'),
+        message: MESSAGES.ERROR.FIELD_INVALID('Price cannot exceed 7 digits'),
       }),
   ),
   description: z
     .string()
     .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .max(10000, ERROR_MESSAGES.FIELD_INVALID('Description')),
+    .max(10000, MESSAGES.ERROR.FIELD_INVALID('Description')),
   negotiable: z.boolean(),
 });
 
