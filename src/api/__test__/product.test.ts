@@ -7,6 +7,9 @@ import { httpClient } from '@/services';
 // mocks
 import { mockProducts } from '@/mocks';
 
+// Constants
+import { LIMIT_NUMBERS } from '@/constants';
+
 jest.mock('next/navigation', () => ({
   notFound: jest.fn(),
 }));
@@ -29,7 +32,9 @@ describe('getAllProducts', () => {
 
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);
 
-    const result = await getAllProducts({ limitNumber: 2 });
+    const result = await getAllProducts({
+      limitNumber: LIMIT_NUMBERS.TOP_SELLING_PRODUCTS,
+    });
 
     expect(result.data).toHaveLength(2);
 
@@ -47,7 +52,9 @@ describe('getAllProducts', () => {
 
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);
 
-    const result = await getAllProducts({ limitNumber: 2 });
+    const result = await getAllProducts({
+      limitNumber: LIMIT_NUMBERS.TOP_SELLING_PRODUCTS,
+    });
 
     expect(result.data).toHaveLength(0);
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
@@ -57,7 +64,9 @@ describe('getAllProducts', () => {
 
     (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
 
-    const result = await getAllProducts({ limitNumber: 2 });
+    const result = await getAllProducts({
+      limitNumber: LIMIT_NUMBERS.TOP_SELLING_PRODUCTS,
+    });
 
     expect(result.error).toBeDefined();
 

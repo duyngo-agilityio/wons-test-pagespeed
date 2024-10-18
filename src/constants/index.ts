@@ -24,3 +24,4 @@ export * from './task';
 export * from './tabs';
 export * from './level';
 export * from './taskStatus';
+export * from './limits';
