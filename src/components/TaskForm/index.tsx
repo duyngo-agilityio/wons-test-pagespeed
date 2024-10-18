@@ -16,7 +16,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 
 // Constants
-import { LEVELS, ERROR_MESSAGES, Level, STATUS } from '@/constants';
+import { LEVELS, ERROR_MESSAGES, Level, STATUS, MESSAGES } from '@/constants';
 
 // Utils
 import {
@@ -43,17 +43,17 @@ import { getUsers } from '@/api';
 
 // Zod schema for validation
 const taskFormSchema = z.object({
-  title: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   label: z.enum(['todo', 'inProgress', 'inReview', 'done'], {
-    errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED }),
+    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
   level: z.enum(['Low', 'Medium', 'High'], {
-    errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED }),
+    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
-  assignees: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  assignees: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   description: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .max(10000, ERROR_MESSAGES.FIELD_INVALID('Description')),
 });
 

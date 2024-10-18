@@ -1,6 +1,4 @@
 export const ERROR_MESSAGES = {
-  EMAIL_INVALID: 'Invalid email address format.',
-  FIELD_REQUIRED: `This field is required.`,
   FIELD_INVALID: (fieldName: string) => `Invalid format of ${fieldName}.`,
   GENERAL_INVALID_PASSWORD: 'Invalid password',
   INVALID_PASSWORD:
@@ -52,4 +50,11 @@ export const ERROR_API_MESSAGES = {
 export const ErrorMapper: Record<string, string> = {
   [ERROR_API_MESSAGES.EMAIL_OR_USERNAME_EXIST]:
     ERROR_MESSAGES.EMAIL_OR_USERNAME_EXIST,
+};
+
+export const MESSAGES = {
+  ERROR: {
+    EMAIL_INVALID: 'Invalid email address format.',
+    FIELD_REQUIRED: 'This field is required.',
+  },
 };

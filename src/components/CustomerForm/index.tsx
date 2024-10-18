@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
-import { ERROR_MESSAGES, REGEX } from '@/constants';
+import { ERROR_MESSAGES, MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import {
@@ -32,21 +32,21 @@ import { ICustomer } from '@/models';
 
 // Zod schema for validation
 const customerFormSchema = z.object({
-  firstName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-  lastName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  firstName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  lastName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   email: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .email(ERROR_MESSAGES.FIELD_INVALID('Email Address')),
   phone: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .transform((value) => clearPhoneNumberFormat(value))
     .refine((value) => REGEX.PHONE.test(value), ERROR_MESSAGES.INVALID_PHONE),
   gender: z.enum(['male', 'female'], {
-    errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED }),
+    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
-  avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  avatar: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   address: z.string().optional(),
   job: z.string().optional(),
 });
