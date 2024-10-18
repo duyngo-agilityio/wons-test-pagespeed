@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 // Constants
-import { ERROR_MESSAGES, IMAGES, REGEX } from '@/constants';
+import { ERROR_MESSAGES, IMAGES, MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
@@ -21,15 +21,15 @@ import { Button, Input, Text, Checkbox } from '@/components';
 
 // Zod schema for validation
 const signUpSchema = z.object({
-  fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-  username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  fullName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  username: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   email: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
-    .email(ERROR_MESSAGES.EMAIL_INVALID),
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
+    .email(MESSAGES.ERROR.EMAIL_INVALID),
   password: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .regex(REGEX.PASSWORD, ERROR_MESSAGES.INVALID_PASSWORD),
 });
 

@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
-import { BRANDS, ERROR_MESSAGES, REGEX } from '@/constants';
+import { BRANDS, ERROR_MESSAGES, MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import {
@@ -35,12 +35,12 @@ import { GrPrevious } from 'react-icons/gr';
 
 // Zod schema for validation
 const productFormSchema = z.object({
-  title: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   brand: z.enum(['apple', 'samsung', 'huawei', 'xioami', 'oppo', 'google'], {
-    errorMap: () => ({ message: ERROR_MESSAGES.FIELD_REQUIRED }),
+    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
   imageUrl: z.string().nonempty({
-    message: ERROR_MESSAGES.FIELD_REQUIRED,
+    message: MESSAGES.ERROR.FIELD_REQUIRED,
   }),
   price: z.preprocess(
     (value) => {
@@ -59,7 +59,7 @@ const productFormSchema = z.object({
   ),
   description: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .max(10000, ERROR_MESSAGES.FIELD_INVALID('Description')),
   negotiable: z.boolean(),
 });
@@ -128,7 +128,7 @@ const ProductForm = ({
       if (!formData.imageUrl) {
         setError('imageUrl', {
           type: 'manual',
-          message: ERROR_MESSAGES.FIELD_REQUIRED,
+          message: MESSAGES.ERROR.FIELD_REQUIRED,
         });
 
         return;

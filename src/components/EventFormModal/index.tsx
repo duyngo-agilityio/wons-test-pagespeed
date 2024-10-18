@@ -16,7 +16,7 @@ import {
 } from '@nextui-org/react';
 
 // Constants
-import { ERROR_MESSAGES, EVENT_TABS } from '@/constants';
+import { EVENT_TABS, MESSAGES } from '@/constants';
 
 // Types
 import { TEventResponse } from '@/types';
@@ -220,7 +220,7 @@ const EventFormModal = ({
             name="title"
             control={control}
             rules={{
-              required: ERROR_MESSAGES.FIELD_REQUIRED,
+              required: MESSAGES.ERROR.FIELD_REQUIRED,
             }}
             render={({
               field: { name, onChange, ...rest },

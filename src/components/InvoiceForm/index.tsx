@@ -17,6 +17,7 @@ import {
   INVOICE_STATUS,
   InvoiceStatus,
   MESSAGE_STATUS,
+  MESSAGES,
   ROUTES,
   SUCCESS_MESSAGES,
 } from '@/constants';
@@ -67,13 +68,13 @@ import {
 // Zod schema for validation
 const invoiceSchema = z.object({
   invoiceId: z.string(),
-  customerId: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-  status: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-  address: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+  customerId: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  status: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  address: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
   date: z.any(),
   email: z
     .string()
-    .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
     .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
   imageUrl: z.string(),
 });
@@ -166,7 +167,7 @@ const InvoiceForm = ({
 
   const handleSubmitButton = async (formData: TInvoiceFormData) => {
     if (hasEmptyField) {
-      return setErrorProducts(ERROR_MESSAGES.FIELD_REQUIRED);
+      return setErrorProducts(MESSAGES.ERROR.FIELD_REQUIRED);
     }
 
     if (isAvatarDirty && avatarFile) {

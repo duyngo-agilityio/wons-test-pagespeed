@@ -19,7 +19,7 @@ import {
 import { Input, AvatarUpload, Button } from '@/components';
 
 // Constants
-import { ERROR_MESSAGES } from '@/constants';
+import { ERROR_MESSAGES, MESSAGES } from '@/constants';
 
 // Types
 import { IUserFormData } from '@/types';
@@ -39,13 +39,13 @@ const UserDetailForm = ({
 }: UserDetailFormProps) => {
   // Zod schema for validation
   const userDetailFormSchema = z.object({
-    avatar: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-    username: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-    role: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
-    fullName: z.string().nonempty(ERROR_MESSAGES.FIELD_REQUIRED),
+    avatar: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+    username: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+    role: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+    fullName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
     email: z
       .string()
-      .nonempty(ERROR_MESSAGES.FIELD_REQUIRED)
+      .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
       .email(ERROR_MESSAGES.FIELD_INVALID('Email')),
   });
 
@@ -93,7 +93,7 @@ const UserDetailForm = ({
           control={control}
           name="avatar"
           rules={{
-            required: ERROR_MESSAGES.FIELD_REQUIRED,
+            required: MESSAGES.ERROR.FIELD_REQUIRED,
           }}
           render={({
             field: { onChange, value, name },
