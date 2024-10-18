@@ -1,7 +1,8 @@
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 // Constants
-import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
+import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
 import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
 
 // Types
@@ -15,6 +16,23 @@ import { InvoiceListActions, InvoiceList } from '@/ui';
 
 // Components
 import { TableSkeleton } from '@/components';
+
+export const metadata: Metadata = {
+  title: 'Wons Invoice',
+  description:
+    'Manage all invoices, go to create, edit and invoice details page, and delete one or more products',
+  openGraph: {
+    title: 'Wons Invoice',
+    description:
+      'Manage all invoices, go to create, edit and invoice details page, and delete one or more products',
+    images: [
+      {
+        url: IMAGES.PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
+};
 
 export type TInvoiceListPageProps = {
   searchParams: ISearchParams;

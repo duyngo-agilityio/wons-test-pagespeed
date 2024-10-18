@@ -1,10 +1,11 @@
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 // Mocks
 import { TASK_TABS } from '@/mocks';
 
 // Constants
-import { PAGE_TITLES } from '@/constants';
+import { IMAGES, PAGE_TITLES } from '@/constants';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
@@ -17,6 +18,23 @@ import { ScheduleListFilter, TaskListBoard, ScheduleListActions } from '@/ui';
 
 // Types
 import { ISearchParams } from '@/types';
+
+export const metadata: Metadata = {
+  title: 'Wons Schedule',
+  description:
+    'Manage pending, ongoing, and completed tasks. And save the details of that project.',
+  openGraph: {
+    title: 'Wons Schedule',
+    description:
+      'Manage pending, ongoing, and completed tasks. And save the details of that project.',
+    images: [
+      {
+        url: IMAGES.PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
+};
 
 interface ISchedulePage {
   searchParams: ISearchParams;

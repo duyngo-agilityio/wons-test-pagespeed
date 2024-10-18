@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { DateRangePicker, ProductDrawer, TableSkeleton } from '@/components';
 
 // Constants
-import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
+import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
 import { MAPPING_PRODUCT_SKELETON } from '@/constants/skeleton';
 
 // Layouts
@@ -18,9 +18,20 @@ import { ProductList } from '@/ui/product-list';
 import { ISearchParams } from '@/types';
 
 export const metadata: Metadata = {
-  title: 'Product Directory - View All Products',
+  title: 'Wons Product',
   description:
     'Browse the list of all products, including titles, contact price, and branch, description. Stay connected and access essential products information.',
+  openGraph: {
+    title: 'Wons Product',
+    description:
+      'Browse the list of all products, including titles, contact price, and branch, description. Stay connected and access essential products information.',
+    images: [
+      {
+        url: IMAGES.PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
 };
 
 type TInvoiceListPageProps = {
