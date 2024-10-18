@@ -65,7 +65,6 @@ const ProductDrawer = (): JSX.Element => {
             description: error,
             status: MESSAGE_STATUS.ERROR,
           });
-
           return;
         } else {
           showToast({
