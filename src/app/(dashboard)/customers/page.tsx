@@ -12,15 +12,26 @@ import { TableSkeleton } from '@/components';
 
 // constants
 import { MAPPING_CUSTOMER_LIST_SKELETON } from '@/constants/skeleton';
-import { DEFAULT_PAGE, PAGE_TITLES } from '@/constants';
+import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
 
 // types
 import { ISearchParams } from '@/types';
 
 export const metadata: Metadata = {
-  title: 'Customer Directory - View All Customers',
+  title: 'Wons Customer',
   description:
     'Browse the list of all customers, including names, contact emails, and genders, phone numbers. Stay connected and access essential customers information.',
+  openGraph: {
+    title: 'Wons Customer',
+    description:
+      'Browse the list of all customers, including names, contact emails, and genders, phone numbers. Stay connected and access essential customers information.',
+    images: [
+      {
+        url: IMAGES.PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
 };
 
 type TInvoiceListPageProps = {

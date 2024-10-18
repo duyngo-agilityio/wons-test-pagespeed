@@ -1,4 +1,4 @@
-// Libs
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 // Utils
@@ -9,6 +9,24 @@ import { DashBoardLayout } from '@/layouts';
 
 // UI
 import { CreateInvoice } from '@/ui';
+
+// Constants
+import { IMAGES } from '@/constants';
+
+export const metadata: Metadata = {
+  title: 'Wons Create New Invoice',
+  description: 'Add a new invoice with multiple products',
+  openGraph: {
+    title: 'Wons Create New Invoice',
+    description: 'Add a new invoice with multiple products',
+    images: [
+      {
+        url: IMAGES.PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
+};
 
 const CreateInvoicePage = async (): Promise<JSX.Element> => {
   const isSuperAdmin = await isAdmin();

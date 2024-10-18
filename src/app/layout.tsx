@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       'Wons dashboard managing user-contributed templates and daily personal tasks.',
     images: [
       {
-        url: IMAGES.LOGO,
+        url: IMAGES.PREVIEW_IMAGE,
         alt: 'preview image',
       },
     ],
