@@ -102,3 +102,28 @@ export const deleteTask = async (
     return { error: message };
   }
 };
+
+export const updateTaskWithAssignees = async (
+  id: number,
+  data: TaskWithStringAssignees,
+) => {
+  try {
+    await httpClient.putRequest<
+      { data: TaskWithStringAssignees },
+      StrapiResponse<StrapiModel<TaskWithStringAssignees>>
+    >({
+      endpoint: `${API_PATH.TASKS}/${id}?populate=assignees`,
+      body: { data },
+      configOptions: {
+        cache: 'no-store',
+      },
+    });
+
+    revalidateTag(API_PATH.TASKS);
+
+    return { success: true };
+  } catch (error) {
+    const message = formatErrorMessage(error);
+    return { error: message };
+  }
+};

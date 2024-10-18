@@ -23,6 +23,8 @@ import { LEVELS, Level, STATUS, MESSAGES } from '@/constants';
 import {
   clearErrorOnChange,
   getDirtyState,
+  // getUserIds,
+  // getUserIdsForTask,
   isEnableSubmitButton,
   parseStringToNumberArray,
 } from '@/utils';
@@ -73,7 +75,7 @@ const TaskForm = ({
   isDisabledField = false,
   onSubmit,
   setReset,
-  previewData = null,
+  previewData,
   onCloseDrawer,
   user,
   onAvatarChange,
@@ -85,17 +87,17 @@ const TaskForm = ({
     handleSubmit,
     reset,
     watch,
-    setValue,
   } = useForm<Partial<TaskWithStringAssignees>>({
     resolver: zodResolver(taskFormSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: previewData || {
-      title: '',
-      label: undefined,
-      level: Level.MEDIUM,
-      description: '',
-      assignees: '',
+    defaultValues: {
+      ...previewData,
+      assignees: previewData?.assignees
+        ? Array.isArray(previewData.assignees)
+          ? previewData.assignees.join(',')
+          : previewData.assignees
+        : '',
     },
   });
 
@@ -140,6 +142,7 @@ const TaskForm = ({
       const assignees = formData.assignees
         ? parseStringToNumberArray(formData.assignees as string)
         : [];
+
       startTransition(async () => {
         const dataToSubmit: TaskWithStringAssignees = {
           assignees,
@@ -149,6 +152,7 @@ const TaskForm = ({
           level: formData.level || Level.MEDIUM,
           description: formData.description || '',
         };
+
         await onSubmit(dataToSubmit);
         reset();
       });
@@ -202,19 +206,11 @@ const TaskForm = ({
         <Controller
           control={control}
           name="images"
-          render={({ field: { value }, fieldState: { error } }) => (
+          render={({ field: { value, onChange } }) => (
             <AvatarUploadMultiple
-              value={Array.isArray(value) ? value : []}
-              error={error?.message}
-              onFileChange={(files) => {
-                const currentFileURLs = Array.isArray(value) ? value : [];
-
-                const combinedFileURLs = [...currentFileURLs, ...files];
-
-                const stringURLs = combinedFileURLs.filter(
-                  (file): file is string => typeof file === 'string',
-                );
-                setValue('images', stringURLs);
+              previewFiles={value}
+              onFileChange={(files: File[]) => {
+                onChange(files);
                 onAvatarChange(files);
               }}
             />
@@ -227,7 +223,7 @@ const TaskForm = ({
           name="title"
           control={control}
           render={({
-            field: { name, onChange, ...rest },
+            field: { name, onChange, value, ...rest },
             fieldState: { error },
           }) => (
             <div className="flex flex-col w-full h-[71px] mb-5">
@@ -236,6 +232,7 @@ const TaskForm = ({
                 isInvalid={!!error}
                 errorMessage={error?.message}
                 isDisabled={isDisabledField}
+                value={value}
                 onChange={(e) => {
                   onChange(e.target.value);
                   clearErrorOnChange(name, errors, clearErrors);
@@ -300,46 +297,48 @@ const TaskForm = ({
           render={({
             field: { name, onChange, value, onBlur },
             fieldState: { error },
-          }) => (
-            <div className="flex flex-col w-full h-[71px] mb-16">
-              <Select
-                name={name}
-                id="level"
-                defaultSelectedKeys={[value as string]}
-                labelPlacement="outside"
-                onClose={onBlur}
-                placeholder=" "
-                label="Priority Level"
-                className={clsx('w-full rounded-md', {
-                  'border-red-500': error,
-                  'border-gray-300': !error,
-                })}
-                classNames={{
-                  trigger: clsx(
-                    'w-full py-[26px] mt-5',
-                    error
-                      ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                      : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
-                  ),
-                  label: 'text-xl font-medium pb-1',
-                }}
-                isDisabled={isDisabledField}
-                onChange={(e) => {
-                  onChange(e.target.value);
-                  clearErrorOnChange(name, errors, clearErrors);
-                }}
-              >
-                {LEVELS.map((level) => (
-                  <SelectItem key={level} value={level}>
-                    {level}
-                  </SelectItem>
-                ))}
-              </Select>
-              {error && (
-                <p className="text-red-500 text-xs mt-1">{error.message}</p>
-              )}
-            </div>
-          )}
+          }) => {
+            return (
+              <div className="flex flex-col w-full h-[71px] mb-16">
+                <Select
+                  name={name}
+                  id="level"
+                  defaultSelectedKeys={[value as string]}
+                  labelPlacement="outside"
+                  onClose={onBlur}
+                  placeholder=" "
+                  label="Priority Level"
+                  className={clsx('w-full rounded-md', {
+                    'border-red-500': error,
+                    'border-gray-300': !error,
+                  })}
+                  classNames={{
+                    trigger: clsx(
+                      'w-full py-[26px] mt-5',
+                      error
+                        ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
+                        : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                    ),
+                    label: 'text-xl font-medium pb-1',
+                  }}
+                  isDisabled={isDisabledField}
+                  onChange={(e) => {
+                    onChange(e.target.value);
+                    clearErrorOnChange(name, errors, clearErrors);
+                  }}
+                >
+                  {LEVELS.map(({ label, key }) => (
+                    <SelectItem key={key} value={key}>
+                      {label}
+                    </SelectItem>
+                  ))}
+                </Select>
+                {error && (
+                  <p className="text-red-500 text-xs mt-1">{error.message}</p>
+                )}
+              </div>
+            );
+          }}
         />
 
         <div className="flex flex-col">

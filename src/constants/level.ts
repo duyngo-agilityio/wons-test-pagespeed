@@ -1,1 +1,14 @@
-export const LEVELS = ['Low', 'Medium', 'High'];
+export const LEVELS = [
+  {
+    key: 'low',
+    label: 'Low',
+  },
+  {
+    key: 'medium',
+    label: 'Medium',
+  },
+  {
+    key: 'high',
+    label: 'High',
+  },
+];

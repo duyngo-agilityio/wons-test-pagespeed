@@ -1,6 +1,5 @@
 'use client';
 
-import { UseFormReset } from 'react-hook-form';
 import { memo, useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
@@ -35,22 +34,16 @@ interface TaskDrawerProps {
 
 const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
   const [avatarFiles, setAvatarFiles] = useState<File[]>([]);
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
-
-  let formReset: UseFormReset<Partial<TaskWithStringAssignees>> | null = null;
 
   const handleOpenDrawer = useCallback(() => {
     setIsDrawerOpen(true);
   }, []);
 
   const handleCloseDrawer = () => {
-    if (formReset) {
-      formReset();
-    }
     setIsDrawerOpen(false);
   };
 
@@ -74,14 +67,12 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
           formData.images = downloadURLs as string[];
         } catch (error) {
           const message = formatErrorMessage(error);
-
           return { error: message };
         }
       }
 
       startTransition(async () => {
         const { title, ...restFormData } = formData;
-
         const { error } = await createTask({
           title,
           ...restFormData,
@@ -123,30 +114,28 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
       >
         Add New Task
       </Button>
-      <div>
-        <Drawer
-          open={isDrawerOpen}
-          onClose={handleCloseDrawer}
-          direction="right"
-          size={400}
-          className="!w-full md:!w-[450px]"
-        >
-          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
-            <TaskForm
-              onAvatarChange={handleAvatarChange}
-              user={user}
-              onCloseDrawer={handleCloseDrawer}
-              key={isDrawerOpen ? 'open' : 'closed'}
-              onSubmit={handleFormSubmit}
-              setReset={(
-                resetFn: UseFormReset<Partial<TaskWithStringAssignees>> | null,
-              ): void => {
-                formReset = resetFn;
-              }}
-            />
-          </div>
-        </Drawer>
-      </div>
+      {isDrawerOpen && (
+        <div>
+          <Drawer
+            open={isDrawerOpen}
+            onClose={handleCloseDrawer}
+            direction="right"
+            size={400}
+            className="!w-full md:!w-[450px]"
+          >
+            <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
+              <TaskForm
+                onAvatarChange={handleAvatarChange}
+                user={user}
+                onCloseDrawer={handleCloseDrawer}
+                key={isDrawerOpen ? 'open' : 'closed'}
+                onSubmit={handleFormSubmit}
+                setReset={() => {}}
+              />
+            </div>
+          </Drawer>
+        </div>
+      )}
     </div>
   );
 };
