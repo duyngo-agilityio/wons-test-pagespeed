@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Libs
 import { Chip } from '@nextui-org/react';
 
@@ -32,4 +34,4 @@ const GenderStatusComponent = ({ gender }: TGenderStatusProps): JSX.Element => {
   );
 };
 
-export default GenderStatusComponent;
+export default memo(GenderStatusComponent);

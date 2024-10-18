@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Libs
 import { Chip } from '@nextui-org/react';
 
@@ -48,4 +50,4 @@ const InvoiceStatusComponent = ({
   );
 };
 
-export default InvoiceStatusComponent;
+export default memo(InvoiceStatusComponent);

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Modal as NextModal, ModalContent } from '@nextui-org/react';
 import dayjs from 'dayjs';
 
@@ -76,4 +78,4 @@ const DateTimePickerModal = ({
   </NextModal>
 );
 
-export default DateTimePickerModal;
+export default memo(DateTimePickerModal);

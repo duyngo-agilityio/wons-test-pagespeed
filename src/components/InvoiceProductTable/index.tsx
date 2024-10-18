@@ -4,6 +4,7 @@ import {
   ChangeEvent,
   Dispatch,
   Key,
+  memo,
   SetStateAction,
   useCallback,
   useEffect,
@@ -30,6 +31,7 @@ import { formatTotalAmount, sortProducts } from '@/utils';
 
 // Types
 import { TInvoiceProductTable } from '@/types';
+import isEqual from 'react-fast-compare';
 
 interface InvoiceProductTableProps {
   products: (IProduct & { id: number })[];
@@ -313,4 +315,6 @@ const InvoiceProductTable = ({
   );
 };
 
-export default InvoiceProductTable;
+export default memo(InvoiceProductTable, isEqual) as <T>(
+  props: InvoiceProductTableProps & T,
+) => JSX.Element;

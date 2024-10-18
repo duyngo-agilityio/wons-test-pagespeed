@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, memo, useCallback, useState } from 'react';
 import { IoCamera, IoClose } from 'react-icons/io5';
 import { Input, Button, Text, ImageFallback } from '@/components';
 
@@ -143,4 +143,6 @@ const AvatarUploadMultiple = ({
   );
 };
 
-export default AvatarUploadMultiple;
+export default memo(AvatarUploadMultiple) as <T>(
+  props: TAvatarUploadMultipleProps & T,
+) => JSX.Element;

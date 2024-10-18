@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  memo,
   useCallback,
   useEffect,
   useMemo,
@@ -40,6 +41,7 @@ import { TUser } from '@/models';
 
 // apis
 import { getUsers } from '@/api';
+import isEqual from 'react-fast-compare';
 
 // Zod schema for validation
 const taskFormSchema = z.object({
@@ -380,13 +382,12 @@ const TaskForm = ({
             fieldState: { error },
           }) => (
             <Select
-              name={name}
               selectionMode="multiple"
               label="Assignees"
-              selectedKeys={value}
+              defaultSelectedKeys={value}
+              placeholder=" "
               onClose={onBlur}
               labelPlacement="outside"
-              placeholder=" "
               variant="flat"
               isDisabled={isDisabledField}
               classNames={{
@@ -395,11 +396,7 @@ const TaskForm = ({
                 label: 'text-xl font-medium pb-1',
               }}
               onChange={(e) => {
-                const selectedValues = e.target.value;
-
-                const finalValue =
-                  selectedValues.length > 0 ? selectedValues : '';
-                onChange(finalValue);
+                onChange(e.target.value);
                 clearErrorOnChange(name, errors, clearErrors);
               }}
               isInvalid={!!error}
@@ -426,4 +423,6 @@ const TaskForm = ({
     </form>
   );
 };
-export default TaskForm;
+export default memo(TaskForm, isEqual) as <T>(
+  props: ITaskFormProps & T,
+) => JSX.Element;

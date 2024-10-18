@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useTransition } from 'react';
+import { memo, useCallback, useMemo, useTransition } from 'react';
 import { Select, SelectItem } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -366,4 +366,4 @@ const CustomerForm = ({
   );
 };
 
-export default CustomerForm;
+export default memo(CustomerForm);

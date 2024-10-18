@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import {
   Dropdown as NextUIDropdown,
@@ -111,4 +111,4 @@ const DropdownActions = ({
   );
 };
 
-export default DropdownActions;
+export default memo(DropdownActions);

@@ -1,5 +1,7 @@
 'use client';
 
+import { memo } from 'react';
+
 import {
   Modal as NextUIModal,
   ModalContent,
@@ -82,4 +84,4 @@ const ConfirmModal = ({
   );
 };
 
-export default ConfirmModal;
+export default memo(ConfirmModal);

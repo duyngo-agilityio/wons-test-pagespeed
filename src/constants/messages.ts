@@ -24,6 +24,7 @@ export const SUCCESS_MESSAGES = {
   SIGN_IN: 'Sign in successfully.',
   DELETE_INVOICE: 'Delete invoice successfully.',
   CREATE_INVOICE: 'Create invoice successfully.',
+  CREATE_PRODUCT: 'Create product successfully.',
   CREATE_TASK: 'Create task successfully.',
   UPDATE_INVOICE: 'Update invoice successfully.',
   CREATE_CUSTOMER: 'Create customer successfully.',

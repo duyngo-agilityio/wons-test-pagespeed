@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Card } from '@nextui-org/react';
 
 // icons
@@ -67,4 +69,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

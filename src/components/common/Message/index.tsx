@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface NoProductAvailableProps {
   message?: string;
   className?: string;
@@ -12,4 +14,4 @@ const NoProductAvailable = ({
   </div>
 );
 
-export default NoProductAvailable;
+export default memo(NoProductAvailable);
