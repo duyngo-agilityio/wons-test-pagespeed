@@ -22,7 +22,7 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
   const handleNext = useCallback(() => onNavigate(Navigate.NEXT), [onNavigate]);
 
   return (
-    <div>
+    <>
       <div className="flex gap-5 absolute right-0 top-[-66px]">
         <Button
           color="primary"
@@ -76,7 +76,7 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
