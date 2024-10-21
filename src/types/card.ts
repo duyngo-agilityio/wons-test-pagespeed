@@ -1,4 +1,4 @@
-export const enum Level {
+export enum Level {
   Low = 'low',
   Medium = 'medium',
   High = 'high',

@@ -48,7 +48,7 @@ export type TRecentInvoiceProductResponse = StrapiResponse<
   StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
 >;
 
-export const enum InvoiceStatus {
+export enum InvoiceStatus {
   Default = '',
   Complete = 'complete',
   Pending = 'pending',

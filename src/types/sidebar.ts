@@ -1,4 +1,4 @@
-export const enum SidebarState {
+export enum SidebarState {
   Open = 'open',
   Closed = 'closed',
 }

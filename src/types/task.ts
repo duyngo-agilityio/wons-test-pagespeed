@@ -32,7 +32,7 @@ export type TasksState = {
 
 export type TTasksResponse = StrapiResponse<StrapiModel<Task>[]>;
 
-export const enum TaskStatus {
+export enum TaskStatus {
   Todo = 'ToDo',
   InProgress = 'In Progress',
   InReview = 'In Review',

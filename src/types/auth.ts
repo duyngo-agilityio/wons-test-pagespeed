@@ -33,7 +33,7 @@ export type TRole = {
   name: Role;
 };
 
-export const enum Role {
+export enum Role {
   Admin = 'Admin',
   User = 'User',
 }
