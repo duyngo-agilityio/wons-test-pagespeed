@@ -30,12 +30,11 @@ export const authenticate = async (
     await signIn(AUTH_METHODS.CREDENTIALS, formData);
   } catch (error) {
     if (error instanceof AuthError) {
-      switch (error.type) {
-        case ERROR_TYPES.CREDENTIALS_SIGN_IN:
-          return MESSAGES.ERROR.EMAIL_PASSWORD_INVALID;
-        default:
-          return MESSAGES.ERROR.UNKNOWN_ERROR;
-      }
+      const errorMessages: { [key: string]: string } = {
+        [ERROR_TYPES.CREDENTIALS_SIGN_IN]:
+          MESSAGES.ERROR.EMAIL_PASSWORD_INVALID,
+      };
+      return errorMessages[error.type] || MESSAGES.ERROR.UNKNOWN_ERROR;
     }
     throw error;
   }
