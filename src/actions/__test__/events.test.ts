@@ -7,7 +7,7 @@ import { createEvent, deleteEvent, updateEvent } from '../event';
 import { httpClient } from '@/services';
 
 // constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // utils
 import { formatErrorMessage } from '@/utils';
@@ -17,9 +17,7 @@ import { EVENT_MOCKS } from '@/mocks';
 
 jest.mock('@/services', () => ({
   httpClient: {
-    postRequest: jest.fn(),
-    deleteRequest: jest.fn(),
-    putRequest: jest.fn(),
+    genericRequest: jest.fn(),
   },
 }));
 
@@ -33,7 +31,7 @@ jest.mock('@/utils', () => ({
 
 describe('createEvent', () => {
   it('calls success', async () => {
-    (httpClient.postRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       data: {
         id: 1,
         ...EVENT_MOCKS,
@@ -46,7 +44,8 @@ describe('createEvent', () => {
 
     const result = await createEvent(EVENT_MOCKS);
 
-    expect(httpClient.postRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.POST,
       endpoint: API_PATH.EVENTS,
       body: {
         data: {
@@ -65,7 +64,7 @@ describe('createEvent', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Request failed');
-    (httpClient.postRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await createEvent(EVENT_MOCKS);
@@ -79,13 +78,14 @@ describe('deleteEvent', () => {
   const eventID = 7;
 
   it('calls success', async () => {
-    (httpClient.deleteRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       endpoint: `${API_PATH.EVENTS}/${eventID}`,
     });
 
     await deleteEvent(eventID);
 
-    expect(httpClient.deleteRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.EVENTS}/${eventID}`,
     });
     expect(revalidateTag).toHaveBeenCalledWith(API_PATH.EVENTS);
@@ -93,7 +93,7 @@ describe('deleteEvent', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Request failed');
-    (httpClient.deleteRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await deleteEvent(eventID);
@@ -107,7 +107,7 @@ describe('updateEvent', () => {
   const eventID = 1;
 
   it('calls success', async () => {
-    (httpClient.putRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       data: {
         id: eventID,
         ...EVENT_MOCKS,
@@ -116,7 +116,8 @@ describe('updateEvent', () => {
 
     await updateEvent(eventID, EVENT_MOCKS);
 
-    expect(httpClient.putRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.EVENTS}/${eventID}`,
       body: { data: EVENT_MOCKS },
     });
@@ -126,7 +127,7 @@ describe('updateEvent', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Update failed');
-    (httpClient.putRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await updateEvent(eventID, EVENT_MOCKS);

@@ -6,7 +6,13 @@ import { AuthError } from 'next-auth';
 import { signIn, signOut as signOutAuth } from '@/configs';
 
 // Constants
-import { API_PATH, AUTH_METHODS, ERROR_TYPES, MESSAGES } from '@/constants';
+import {
+  API_PATH,
+  AUTH_METHODS,
+  ERROR_TYPES,
+  MESSAGES,
+  METHOD,
+} from '@/constants';
 
 // Types
 import { SignInFormData, TSignUpPayload, TSignUpResponse } from '@/types';
@@ -43,7 +49,11 @@ export const signUp = async (
   payload: TSignUpPayload,
 ): Promise<{ error?: string; data?: TSignUpResponse }> => {
   try {
-    const res = await httpClient.postRequest<TSignUpPayload, TSignUpResponse>({
+    const res = await httpClient.genericRequest<
+      TSignUpPayload,
+      TSignUpResponse
+    >({
+      method: METHOD.POST,
       endpoint: API_PATH.SIGN_UP,
       body: payload,
     });

@@ -7,7 +7,7 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 // constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // models
 import { ICustomer } from '@/models';
@@ -25,9 +25,7 @@ import {
 jest.mock('@/services', () => ({
   httpClient: {
     getRequest: jest.fn(),
-    postRequest: jest.fn(),
-    deleteRequest: jest.fn(),
-    putRequest: jest.fn(),
+    genericRequest: jest.fn(),
   },
 }));
 
@@ -54,7 +52,7 @@ describe('createCustomer', () => {
   });
 
   it('should create a new customer successfully', async () => {
-    (httpClient.postRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       data: {
         id: 1,
         ...CUSTOMER_FORM_DATA_MOCK,
@@ -63,7 +61,8 @@ describe('createCustomer', () => {
 
     const result = await createCustomer(CUSTOMER_FORM_DATA_MOCK);
 
-    expect(httpClient.postRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.POST,
       endpoint: MOCK_API_PATH,
       body: {
         data: {
@@ -79,12 +78,13 @@ describe('createCustomer', () => {
 
   it('should return an error message when creating a customer fails', async () => {
     const MOCK_ERROR = new Error('Request failed');
-    (httpClient.postRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await createCustomer(CUSTOMER_FORM_DATA_MOCK);
 
-    expect(httpClient.postRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.POST,
       endpoint: MOCK_API_PATH,
       body: {
         data: {
@@ -112,10 +112,10 @@ describe('deleteCustomer', () => {
     (httpClient.getRequest as jest.Mock).mockResolvedValue({
       data: MOCK_INVOICES_WITH_CUSTOMER,
     });
-    (httpClient.deleteRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       endpoint: `${API_PATH.INVOICES}/${invoiceID}`,
     });
-    (httpClient.deleteRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       endpoint: `${API_PATH.CUSTOMERS}/${customerID}`,
     });
 
@@ -123,10 +123,12 @@ describe('deleteCustomer', () => {
       MOCK_INVOICES_WITH_CUSTOMER[0].attributes.customer.data.id,
     );
 
-    expect(httpClient.deleteRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.INVOICES}/${invoiceID}`,
     });
-    expect(httpClient.deleteRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.CUSTOMERS}/${customerID}`,
     });
 
@@ -140,7 +142,7 @@ describe('deleteCustomer', () => {
     (httpClient.getRequest as jest.Mock).mockResolvedValue({
       data: undefined,
     });
-    (httpClient.deleteRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await deleteCustomer(customerID);
@@ -168,25 +170,25 @@ describe('updateCustomer', () => {
       },
     };
 
-    (httpClient.putRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
 
     await updateCustomer(1, newData);
 
-    expect(httpClient.putRequest).toHaveBeenCalledTimes(1);
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(1);
   });
 
   it('should return an error with formatted message when update customer fails', async () => {
     const MOCK_ERROR = new Error('Request failed');
     const FORMATTED_ERROR_MESSAGE = 'Something went wrong.';
 
-    (httpClient.putRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
 
     (formatErrorMessage as jest.Mock).mockReturnValue(FORMATTED_ERROR_MESSAGE);
 
     const result = await updateCustomer(1, newData);
 
     expect(result).toEqual({ error: FORMATTED_ERROR_MESSAGE });
-    expect(httpClient.putRequest).toHaveBeenCalled();
+    expect(httpClient.genericRequest).toHaveBeenCalled();
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
   });
 });

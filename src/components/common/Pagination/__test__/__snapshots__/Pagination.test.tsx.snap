@@ -37,6 +37,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           class="flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
           data-disabled="true"
           data-slot="prev"
+          role="button"
           tabindex="-1"
         >
           <svg
@@ -63,6 +64,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
           data-active="true"
           data-slot="item"
+          role="button"
           tabindex="0"
         >
           1
@@ -71,6 +73,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           aria-label="pagination item 2"
           class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
           data-slot="item"
+          role="button"
           tabindex="0"
         >
           2
@@ -79,6 +82,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           aria-label="pagination item 3"
           class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
           data-slot="item"
+          role="button"
           tabindex="0"
         >
           3
@@ -87,6 +91,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           aria-label="pagination item 4"
           class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
           data-slot="item"
+          role="button"
           tabindex="0"
         >
           4
@@ -95,6 +100,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           aria-label="pagination item 5"
           class="tap-highlight-transparent select-none touch-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium text-foreground hover:bg-primary hover:bg-opacity-25"
           data-slot="item"
+          role="button"
           tabindex="0"
         >
           5
@@ -103,6 +109,7 @@ exports[`Pagination test cases should render correctly 1`] = `
           aria-label="next page button"
           class="flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
           data-slot="next"
+          role="button"
           tabindex="0"
         >
           <svg

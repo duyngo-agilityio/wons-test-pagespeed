@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Mocks
 import {
@@ -22,9 +22,7 @@ import { formatErrorMessage } from '@/utils';
 jest.mock('@/services', () => ({
   httpClient: {
     getRequest: jest.fn(),
-    deleteRequest: jest.fn(),
-    postRequest: jest.fn(),
-    putRequest: jest.fn(),
+    genericRequest: jest.fn(),
   },
 }));
 
@@ -40,13 +38,15 @@ describe('deleteTask', () => {
   const taskID = MOCK_TASKS.todo[0].id;
 
   it('calls success', async () => {
-    (httpClient.deleteRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.TASKS}/${taskID}`,
     });
 
     await deleteTask(taskID);
 
-    expect(httpClient.deleteRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.TASKS}/${taskID}`,
     });
     expect(revalidateTag).toHaveBeenCalledWith(API_PATH.TASKS);
@@ -54,7 +54,7 @@ describe('deleteTask', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Request failed');
-    (httpClient.deleteRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await deleteTask(taskID);
@@ -66,7 +66,7 @@ describe('deleteTask', () => {
 
 describe('createTask', () => {
   it('calls success', async () => {
-    (httpClient.postRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       data: {
         id: 1,
         ...MOCK_TASK_WITH_STRING_ASSIGNEES,
@@ -75,7 +75,8 @@ describe('createTask', () => {
 
     const result = await createTask(MOCK_TASK_WITH_STRING_ASSIGNEES);
 
-    expect(httpClient.postRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.POST,
       endpoint: API_PATH.TASKS,
       body: { data: MOCK_TASK_WITH_STRING_ASSIGNEES },
     });
@@ -86,7 +87,7 @@ describe('createTask', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Request failed');
-    (httpClient.postRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await createTask(MOCK_TASK_WITH_STRING_ASSIGNEES);
@@ -100,7 +101,7 @@ describe('updateTask', () => {
   const taskID = 1;
 
   it('calls success', async () => {
-    (httpClient.putRequest as jest.Mock).mockResolvedValue({
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
       data: {
         id: taskID,
         ...MOCK_DATA_TASKS_WITHOUT_STRAPI_MODEL,
@@ -112,7 +113,8 @@ describe('updateTask', () => {
       MOCK_DATA_TASKS_WITHOUT_STRAPI_MODEL,
     );
 
-    expect(httpClient.putRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.TASKS}/${taskID}?populate=assignees`,
       body: { data: MOCK_DATA_TASKS_WITHOUT_STRAPI_MODEL },
       configOptions: {
@@ -126,7 +128,7 @@ describe('updateTask', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Update failed');
-    (httpClient.putRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await updateTask(

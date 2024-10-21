@@ -6,7 +6,7 @@ import { revalidateTag } from 'next/cache';
 import { httpClient } from '@/services';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Types
 import {
@@ -24,10 +24,11 @@ import { getTaskById } from '@/api';
 
 export const updateTask = async (id: number, data: Task) => {
   try {
-    await httpClient.putRequest<
+    await httpClient.genericRequest<
       { data: Task },
       StrapiResponse<StrapiModel<Task>>
     >({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.TASKS}/${id}?populate=assignees`,
       body: { data },
       configOptions: {
@@ -73,7 +74,8 @@ export const createTask = async (
       title,
     };
 
-    await httpClient.postRequest({
+    await httpClient.genericRequest({
+      method: METHOD.POST,
       endpoint: API_PATH.TASKS,
       body: { data: formattedData },
     });
@@ -91,7 +93,8 @@ export const deleteTask = async (
   id: number,
 ): Promise<{ error?: string } | void> => {
   try {
-    await httpClient.deleteRequest({
+    await httpClient.genericRequest({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.TASKS}/${id}`,
     });
 
@@ -108,10 +111,11 @@ export const updateTaskWithAssignees = async (
   data: TaskWithStringAssignees,
 ) => {
   try {
-    await httpClient.putRequest<
+    await httpClient.genericRequest<
       { data: TaskWithStringAssignees },
       StrapiResponse<StrapiModel<TaskWithStringAssignees>>
     >({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.TASKS}/${id}?populate=assignees`,
       body: { data },
       configOptions: {

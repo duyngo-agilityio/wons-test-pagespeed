@@ -3,7 +3,7 @@
 import { revalidateTag } from 'next/cache';
 
 // constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // models
 import { IProductDetail } from '@/models';
@@ -22,7 +22,8 @@ export const createProduct = async (formData: Partial<IProductDetail>) => {
       title: `${formData.title}`,
     };
 
-    await httpClient.postRequest({
+    await httpClient.genericRequest({
+      method: METHOD.POST,
       endpoint: API_PATH.PRODUCTS,
       body: { data: formattedData },
     });
@@ -46,7 +47,8 @@ export const updateProduct = async (
       title: `${formData.title}`,
     };
 
-    await httpClient.putRequest({
+    await httpClient.genericRequest({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
       body: { data: formattedData },
     });
@@ -68,14 +70,15 @@ export const deleteProduct = async (id: number) => {
       });
 
     const queryString = responseInvoiceProducts
-      .map(
+      ?.map(
         (item, index) =>
           `filters[$or][${index}][invoice_products][id]=${item.id}`,
       )
       .join('&');
 
-    responseInvoiceProducts.map(async (invoice) => {
-      return await httpClient.deleteRequest({
+    responseInvoiceProducts?.forEach(async (invoice) => {
+      return await httpClient.genericRequest({
+        method: METHOD.DELETE,
         endpoint: `${API_PATH.INVOICE_PRODUCTS}/${invoice.id}`,
       });
     });
@@ -86,14 +89,16 @@ export const deleteProduct = async (id: number) => {
           endpoint: `${API_PATH.INVOICES}?${queryString}`,
         });
 
-      responseInvoices.data.map(async (invoice) => {
-        await httpClient.deleteRequest({
+      responseInvoices?.data?.forEach(async (invoice) => {
+        await httpClient.genericRequest({
+          method: METHOD.DELETE,
           endpoint: `${API_PATH.INVOICES}/${invoice.id}`,
         });
       });
     }
 
-    await httpClient.deleteRequest({
+    await httpClient.genericRequest({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
     });
 

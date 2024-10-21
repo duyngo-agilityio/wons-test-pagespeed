@@ -14,12 +14,11 @@ import { MOCK_PRODUCTS_WITHOUT_ATTRIBUTES } from '@/mocks';
 import { createInvoiceProducts, editInvoice } from '@/actions';
 
 // Constants
-import { InvoiceStatus } from '@/constants';
+import { InvoiceStatus, METHOD } from '@/constants';
 
 jest.mock('@/services', () => ({
   httpClient: {
-    postRequest: jest.fn(),
-    putRequest: jest.fn(),
+    genericRequest: jest.fn(),
   },
 }));
 
@@ -49,15 +48,18 @@ describe('createInvoiceProducts', () => {
 
   it('should successfully create invoice products and return product ids', async () => {
     const MOCK_RESPONSE = { data: { id: 123 } };
-    (httpClient.postRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
 
     const result = await createInvoiceProducts(PRODUCTS_MOCK);
 
-    expect(httpClient.postRequest).toHaveBeenCalledTimes(PRODUCTS_MOCK.length);
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(
+      PRODUCTS_MOCK.length,
+    );
 
     // Verify that the correct arguments are passed in the API call
     PRODUCTS_MOCK.forEach((product, index) => {
-      expect(httpClient.postRequest).toHaveBeenNthCalledWith(index + 1, {
+      expect(httpClient.genericRequest).toHaveBeenNthCalledWith(index + 1, {
+        method: METHOD.POST,
         endpoint: '/invoice-products', // Corrected endpoint
         body: {
           data: {
@@ -77,7 +79,7 @@ describe('createInvoiceProducts', () => {
     const MOCK_ERROR = new Error('Request failed');
     const FORMATTED_ERROR_MESSAGE = 'Something went wrong.';
 
-    (httpClient.postRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
 
     (formatErrorMessage as jest.Mock).mockReturnValue(FORMATTED_ERROR_MESSAGE);
 
@@ -85,7 +87,7 @@ describe('createInvoiceProducts', () => {
       FORMATTED_ERROR_MESSAGE,
     );
 
-    expect(httpClient.postRequest).toHaveBeenCalled();
+    expect(httpClient.genericRequest).toHaveBeenCalled();
 
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
   });
@@ -112,25 +114,25 @@ describe('editInvoice', () => {
       },
     };
 
-    (httpClient.putRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
 
     await editInvoice(1, newData, []);
 
-    expect(httpClient.putRequest).toHaveBeenCalledTimes(1);
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(1);
   });
 
   it('should return an error with formatted message when editInvoice fails', async () => {
     const MOCK_ERROR = new Error('Request failed');
     const FORMATTED_ERROR_MESSAGE = 'Something went wrong.';
 
-    (httpClient.putRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
 
     (formatErrorMessage as jest.Mock).mockReturnValue(FORMATTED_ERROR_MESSAGE);
 
     const result = await editInvoice(1, newData, []);
 
     expect(result).toEqual({ error: FORMATTED_ERROR_MESSAGE });
-    expect(httpClient.putRequest).toHaveBeenCalled();
+    expect(httpClient.genericRequest).toHaveBeenCalled();
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
   });
 });

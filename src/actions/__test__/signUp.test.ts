@@ -29,7 +29,7 @@ describe('signUp', () => {
 
   test('should sign up a new account successfully', async () => {
     jest
-      .spyOn(httpClient, 'postRequest')
+      .spyOn(httpClient, 'genericRequest')
       .mockResolvedValue(MOCK_SUCCESS_SIGN_UP_RES);
 
     const user = await signUp(SIGN_UP_FORM_DATA_MOCK);
@@ -39,7 +39,7 @@ describe('signUp', () => {
 
   test('should sign up a new account failed', async () => {
     jest
-      .spyOn(httpClient, 'postRequest')
+      .spyOn(httpClient, 'genericRequest')
       .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
     const res = await signUp(SIGN_UP_FORM_DATA_MOCK);

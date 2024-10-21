@@ -5,7 +5,7 @@ import { httpClient } from '@/services';
 import { updateUser } from '../user';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
@@ -15,7 +15,7 @@ import { MOCK_USERS } from '@/mocks';
 
 jest.mock('@/services', () => ({
   httpClient: {
-    putRequest: jest.fn(),
+    genericRequest: jest.fn(),
   },
 }));
 
@@ -31,11 +31,12 @@ describe('updateUser', () => {
   const userID = 1;
 
   it('calls success', async () => {
-    (httpClient.putRequest as jest.Mock).mockResolvedValue(MOCK_USERS[0]);
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(MOCK_USERS[0]);
 
     const result = await updateUser(MOCK_USERS[0], userID);
 
-    expect(httpClient.putRequest).toHaveBeenCalledWith({
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.USERS}/${userID}`,
       body: MOCK_USERS[0],
     });
@@ -46,7 +47,7 @@ describe('updateUser', () => {
 
   it('calls failed', async () => {
     const MOCK_ERROR = new Error('Update failed');
-    (httpClient.putRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await updateUser(MOCK_USERS[0], userID);
