@@ -5,16 +5,13 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 // types
-import { TInvoiceProductTable } from '@/types';
+import { TInvoiceProductTable, InvoiceStatus } from '@/types';
 
 // mocks
 import { MOCK_PRODUCTS_WITHOUT_ATTRIBUTES } from '@/mocks';
 
 // actions
 import { createInvoiceProducts, editInvoice } from '@/actions';
-
-// Constants
-import { InvoiceStatus } from '@/constants';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -104,7 +101,7 @@ describe('editInvoice', () => {
       attributes: {
         email: 'test@gmai.com',
         date: '2024-09-10',
-        status: InvoiceStatus.COMPLETE,
+        status: InvoiceStatus.Complete,
         address: '1254 Xo Viet Nghe Tinh, Da Nang',
         isSelected: true,
         invoiceId: '871345',
