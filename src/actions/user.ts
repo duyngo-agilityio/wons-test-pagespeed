@@ -4,7 +4,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
@@ -23,7 +23,8 @@ export const updateUser = async (
   id: number,
 ): Promise<{ success?: boolean; error?: string }> => {
   try {
-    await httpClient.putRequest<Omit<IUserFormData, 'role'>, TUser>({
+    await httpClient.genericRequest<Omit<IUserFormData, 'role'>, TUser>({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.USERS}/${id}`,
       body: profileData,
     });

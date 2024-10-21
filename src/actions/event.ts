@@ -3,7 +3,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Models
 import { IEvent } from '@/models';
@@ -24,7 +24,8 @@ export const createEvent = async (formData: Partial<IEvent>) => {
       notificationTime: 10,
     };
 
-    await httpClient.postRequest({
+    await httpClient.genericRequest({
+      method: METHOD.POST,
       endpoint: API_PATH.EVENTS,
       body: { data: formattedData },
     });
@@ -42,7 +43,8 @@ export const deleteEvent = async (
   id: number,
 ): Promise<{ error?: string } | void> => {
   try {
-    await httpClient.deleteRequest({
+    await httpClient.genericRequest({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.EVENTS}/${id}`,
     });
     revalidateTag(API_PATH.EVENTS);
@@ -57,7 +59,8 @@ export const updateEvent = async (
   data: Partial<IEvent>,
 ): Promise<{ error?: string } | void> => {
   try {
-    await httpClient.putRequest({
+    await httpClient.genericRequest({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.EVENTS}/${id}`,
       body: { data },
     });

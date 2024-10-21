@@ -16,7 +16,7 @@ import { getProfile } from '@/api';
 import { AuthResponse } from '@/types';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 declare module 'next-auth' {
   interface Session {
@@ -40,7 +40,8 @@ export const CredentialsProvider = Credentials({
     if (parsedCredentials.success) {
       const { identifier, password } = parsedCredentials.data;
 
-      const data = await httpClient.postRequest({
+      const data = await httpClient.genericRequest({
+        method: METHOD.POST,
         endpoint: API_PATH.SIGN_IN,
         body: {
           identifier,

@@ -12,7 +12,7 @@ import { ICustomer } from '@/models';
 import { formatErrorMessage } from '@/utils';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Types
 import { TInvoiceListResponse } from '@/types';
@@ -24,7 +24,8 @@ export const createCustomer = async (formData: Partial<ICustomer>) => {
       fullName: `${formData.firstName} ${formData.lastName}`,
     };
 
-    await httpClient.postRequest({
+    await httpClient.genericRequest({
+      method: METHOD.POST,
       endpoint: API_PATH.CUSTOMERS,
       body: { data: formattedData },
     });
@@ -44,13 +45,15 @@ export const deleteCustomer = async (id: number) => {
       endpoint: `${API_PATH.INVOICES}?filters[customer][$eq]=${id}`,
     });
 
-    response.data.map(async (invoice) => {
-      return await httpClient.deleteRequest({
+    response?.data?.forEach(async (invoice) => {
+      return await httpClient.genericRequest({
+        method: METHOD.DELETE,
         endpoint: `${API_PATH.INVOICES}/${invoice.id}`,
       });
     });
 
-    await httpClient.deleteRequest({
+    await httpClient.genericRequest({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.CUSTOMERS}/${id}`,
     });
 
@@ -70,7 +73,8 @@ export const updateCustomer = async (
   data: Partial<ICustomer>,
 ): Promise<{ error?: string }> => {
   try {
-    await httpClient.putRequest({
+    await httpClient.genericRequest({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.CUSTOMERS}/${id}`,
       body: { data },
     });

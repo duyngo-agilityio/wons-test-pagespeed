@@ -3,7 +3,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, METHOD } from '@/constants';
 
 // Models
 import { IProduct, TInvoice, TInvoiceProduct } from '@/models';
@@ -35,15 +35,16 @@ export const createInvoiceProducts = async (
           product: product.data.id,
         };
 
-        const { data } = await httpClient.postRequest<
+        const { data } = await httpClient.genericRequest<
           { data: TInvoiceProductRequest },
           TInvoiceProductResponse
         >({
+          method: METHOD.POST,
           endpoint: API_PATH.INVOICE_PRODUCTS,
           body: { data: productData },
         });
 
-        return data.id;
+        return data?.id;
       }),
     );
 
@@ -67,15 +68,16 @@ export const updateInvoiceProducts = async (
           id,
         };
 
-        const { data } = await httpClient.putRequest<
+        const { data } = await httpClient.genericRequest<
           { data: TInvoiceProductRequest },
           TInvoiceProductResponse
         >({
+          method: METHOD.PUT,
           endpoint: `${API_PATH.INVOICE_PRODUCTS}/${productData.id}`,
           body: { data: productData },
         });
 
-        return data.id;
+        return data?.id;
       }),
     );
 
@@ -92,7 +94,8 @@ export const deleteInvoiceProducts = async (
   try {
     await Promise.all(
       ids.map((id) =>
-        httpClient.deleteRequest({
+        httpClient.genericRequest({
+          method: METHOD.DELETE,
           endpoint: `${API_PATH.INVOICE_PRODUCTS}/${id}`,
         }),
       ),
@@ -120,10 +123,11 @@ export const createInvoice = async (
       invoice_products: resProducts,
     };
 
-    const res = await httpClient.postRequest<
+    const res = await httpClient.genericRequest<
       { data: Partial<TInvoiceFormData> },
       TInvoiceDetailsResponse
     >({
+      method: METHOD.POST,
       endpoint: API_PATH.INVOICES,
       body: { data: formattedInvoiceData },
     });
@@ -158,15 +162,16 @@ export const editInvoice = async (
     const data = {
       ...newData,
       customer: Number(newData.customerId),
-      invoice_products: postNewInvoiceProducts.concat(
+      invoice_products: postNewInvoiceProducts?.concat(
         updatePrevInvoiceProducts,
       ),
     };
 
-    const res = await httpClient.putRequest<
+    const res = await httpClient.genericRequest<
       { data: Partial<TInvoiceFormData> },
       TInvoiceDetailsResponse
     >({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.INVOICES}/${id}`,
       body: { data },
     });
@@ -186,7 +191,8 @@ export const updateInvoice = async (
   data: Partial<TInvoice>,
 ): Promise<{ error?: string } | void> => {
   try {
-    await httpClient.putRequest({
+    await httpClient.genericRequest({
+      method: METHOD.PUT,
       endpoint: `${API_PATH.INVOICES}/${id}`,
       body: { data },
     });
@@ -208,7 +214,8 @@ export const deleteInvoice = async (
     await deleteInvoiceProducts(invoiceProductIds);
 
     // Delete an invoice
-    await httpClient.deleteRequest({
+    await httpClient.genericRequest({
+      method: METHOD.DELETE,
       endpoint: `${API_PATH.INVOICES}/${invoiceId}`,
     });
 
@@ -231,7 +238,8 @@ export const deleteMultipleInvoice = async (
     // Delete invoices
     await Promise.all(
       invoiceIds.map((id) =>
-        httpClient.deleteRequest({
+        httpClient.genericRequest({
+          method: METHOD.DELETE,
           endpoint: `${API_PATH.INVOICES}/${id}`,
         }),
       ),

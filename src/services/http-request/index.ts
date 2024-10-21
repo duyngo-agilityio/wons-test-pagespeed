@@ -1,20 +1,13 @@
 // Constants
-import { API_BASE_URL } from '@/constants';
+import { API_BASE_URL, METHOD } from '@/constants';
 
 type TRequest = {
   endpoint: string;
   configOptions?: RequestInit;
 };
 
-type TPostRequest<T> = TRequest & {
-  body: T;
-};
-
-type TPutRequest<T> = TRequest & {
-  body: T;
-};
-
-type TDeleteRequest<T> = TRequest & {
+type TGenericRequest<T> = TRequest & {
+  method: METHOD;
   body?: T;
 };
 
@@ -49,65 +42,21 @@ class HttpClient {
 
   async getRequest<T>({ endpoint, configOptions }: TRequest): Promise<T> {
     const options: RequestInit = {
-      method: 'GET',
+      method: METHOD.GET,
       ...configOptions,
     };
 
     return this.request<T>({ endpoint, configOptions: options });
   }
 
-  async postRequest<T, K>({
+  async genericRequest<T, K>({
+    method,
     endpoint,
     body,
     configOptions,
-  }: TPostRequest<T>): Promise<K> {
+  }: TGenericRequest<T>): Promise<K> {
     const options: RequestInit = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      ...configOptions,
-    };
-
-    return this.request({ endpoint, configOptions: options });
-  }
-
-  async putRequest<T, K>({
-    endpoint,
-    body,
-    configOptions,
-  }: TPutRequest<T>): Promise<K> {
-    const options: RequestInit = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      ...configOptions,
-    };
-
-    return this.request<K>({ endpoint, configOptions: options });
-  }
-
-  async patchRequest<T, K>({
-    endpoint,
-    body,
-    configOptions,
-  }: TPutRequest<T>): Promise<K> {
-    const options: RequestInit = {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-      ...configOptions,
-    };
-
-    return this.request<K>({ endpoint, configOptions: options });
-  }
-
-  async deleteRequest<T, K>({
-    endpoint,
-    body,
-    configOptions,
-  }: TDeleteRequest<T>): Promise<K> {
-    const options: RequestInit = {
-      method: 'DELETE',
+      method: method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
       ...configOptions,
