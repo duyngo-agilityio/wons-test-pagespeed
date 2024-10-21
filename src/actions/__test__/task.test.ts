@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH, METHOD } from '@/constants';
+import { API_PATH } from '@/constants';
 
 // Mocks
 import {
@@ -18,6 +18,9 @@ import { createTask, deleteTask, updateTask } from '../task';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
+
+// Types
+import { Method } from '@/types';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -39,14 +42,14 @@ describe('deleteTask', () => {
 
   it('calls success', async () => {
     (httpClient.genericRequest as jest.Mock).mockResolvedValue({
-      method: METHOD.DELETE,
+      method: Method.Delete,
       endpoint: `${API_PATH.TASKS}/${taskID}`,
     });
 
     await deleteTask(taskID);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.DELETE,
+      method: Method.Delete,
       endpoint: `${API_PATH.TASKS}/${taskID}`,
     });
     expect(revalidateTag).toHaveBeenCalledWith(API_PATH.TASKS);
@@ -76,7 +79,7 @@ describe('createTask', () => {
     const result = await createTask(MOCK_TASK_WITH_STRING_ASSIGNEES);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.POST,
+      method: Method.Post,
       endpoint: API_PATH.TASKS,
       body: { data: MOCK_TASK_WITH_STRING_ASSIGNEES },
     });
@@ -114,7 +117,7 @@ describe('updateTask', () => {
     );
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.PUT,
+      method: Method.Put,
       endpoint: `${API_PATH.TASKS}/${taskID}?populate=assignees`,
       body: { data: MOCK_DATA_TASKS_WITHOUT_STRAPI_MODEL },
       configOptions: {

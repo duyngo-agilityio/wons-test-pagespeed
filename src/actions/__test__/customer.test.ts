@@ -7,7 +7,7 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 // constants
-import { API_PATH, METHOD } from '@/constants';
+import { API_PATH } from '@/constants';
 
 // models
 import { ICustomer } from '@/models';
@@ -21,6 +21,9 @@ import {
   deleteCustomer,
   updateCustomer,
 } from '@/actions/customer';
+
+// Types
+import { Method } from '@/types';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -62,7 +65,7 @@ describe('createCustomer', () => {
     const result = await createCustomer(CUSTOMER_FORM_DATA_MOCK);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.POST,
+      method: Method.Post,
       endpoint: MOCK_API_PATH,
       body: {
         data: {
@@ -84,7 +87,7 @@ describe('createCustomer', () => {
     const result = await createCustomer(CUSTOMER_FORM_DATA_MOCK);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.POST,
+      method: Method.Post,
       endpoint: MOCK_API_PATH,
       body: {
         data: {
@@ -124,11 +127,11 @@ describe('deleteCustomer', () => {
     );
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.DELETE,
+      method: Method.Delete,
       endpoint: `${API_PATH.INVOICES}/${invoiceID}`,
     });
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.DELETE,
+      method: Method.Delete,
       endpoint: `${API_PATH.CUSTOMERS}/${customerID}`,
     });
 
