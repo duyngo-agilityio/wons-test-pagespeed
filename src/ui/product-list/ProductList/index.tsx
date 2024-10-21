@@ -7,8 +7,10 @@ import ProductListClient from '../ProductListClient';
 // utils
 import {
   aggregateProductQuantities,
+  filterProductsNotInInvoice,
+  formatProduct,
   isAdmin,
-  sortByTotalSaleDescending,
+  sortProductsByTotalSale,
 } from '@/utils';
 
 // types
@@ -58,20 +60,13 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
   const invoiceProductIds = new Set(
     result.data.map((invoice) => invoice.attributes.product.data.id),
   );
-  const productsNotInInvoice = resultProducts.filter(
-    (product) => !invoiceProductIds.has(product.id),
+
+  const resultFilterProductsNotInInvoice = filterProductsNotInInvoice(
+    invoiceProductIds,
+    resultProducts,
   );
 
-  const formatProduct = productsNotInInvoice.map((product) => {
-    return {
-      id: product.id,
-      attributes: {
-        price: 0,
-        quantity: 0,
-        product: { data: product },
-      },
-    };
-  });
+  const resultFormatProduct = formatProduct(resultFilterProductsNotInInvoice);
 
   const isSuperAdmin = await isAdmin();
 
@@ -79,27 +74,13 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
   const formattedProducts: TProductInvoiceResponse[] =
     aggregateProductQuantities(result.data);
 
-  const sortProductsByTotalSale = (products: TProductInvoiceResponse[]) => {
-    if (!Array.isArray(products) || !products.length) return [];
-
-    const productsWithTotalSale = products.map((product) => ({
-      ...product,
-      attributes: {
-        ...product.attributes,
-        totalSale:
-          product.attributes.product.data.attributes.price *
-          product.attributes.quantity,
-      },
-    }));
-
-    return sortByTotalSaleDescending(productsWithTotalSale);
-  };
-
   return (
     <TableLayout title="Top Selling Products">
       <ProductListClient
         productList={sortProductsByTotalSale(
-          formatProduct.concat(formattedProducts) as TProductInvoiceResponse[],
+          resultFormatProduct.concat(
+            formattedProducts,
+          ) as TProductInvoiceResponse[],
         )}
         isReadOnly={!isSuperAdmin}
         onEdit={updateProduct}

@@ -1,9 +1,12 @@
 // Components
 import { MedalIcon, Text } from '@/components';
+import { IProduct } from '@/models';
 
 // Types
 import {
+  StrapiModel,
   TInvoiceProductTable,
+  TProductInvoiceResponse,
   TProductInvoiceWithTotalSaleResponse,
 } from '@/types';
 
@@ -40,6 +43,45 @@ export const sortByTotalSaleDescending = (
   products.toSorted(
     (a, b) => (b.attributes.totalSale ?? 0) - (a.attributes.totalSale ?? 0),
   );
+
+export const sortProductsByTotalSale = (
+  products: TProductInvoiceResponse[],
+) => {
+  if (!Array.isArray(products) || !products.length) return [];
+
+  const productsWithTotalSale = products.map((product) => ({
+    ...product,
+    attributes: {
+      ...product.attributes,
+      totalSale:
+        product.attributes.product.data.attributes.price *
+        product.attributes.quantity,
+    },
+  }));
+
+  return sortByTotalSaleDescending(productsWithTotalSale);
+};
+
+export const filterProductsNotInInvoice = (
+  invoiceProductIds: Set<number>,
+  products: StrapiModel<IProduct>[],
+) => {
+  if (!Array.isArray(products) || !products.length) return [];
+
+  return products.filter((product) => !invoiceProductIds.has(product.id));
+};
+
+export const formatProduct = (productsNotInInvoice: StrapiModel<IProduct>[]) =>
+  productsNotInInvoice.map((product) => {
+    return {
+      id: product.id,
+      attributes: {
+        price: 0,
+        quantity: 0,
+        product: { data: product },
+      },
+    };
+  });
 
 /**
  *
