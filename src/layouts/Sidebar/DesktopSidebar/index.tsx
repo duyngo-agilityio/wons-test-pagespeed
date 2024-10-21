@@ -26,44 +26,43 @@ const DesktopSidebar = ({
   fullName,
   role,
   onToggleDesktopSidebar,
-}: IDesktopSidebar) => (
-  <section
-    className={clsx(
-      'relative',
-      toggleDesktopSidebar === SidebarState.Open ? 'left-0' : 'm-7.5',
-    )}
-  >
-    <div
-      className={clsx(
-        'bg-white dark:bg-gray-400 px-6.25 py-7.5 flex flex-col min-h-full',
-        toggleDesktopSidebar === SidebarState.Open
-          ? 'max-w-60 duration-700'
-          : 'max-w-20 items-center rounded-10',
-      )}
-    >
-      <SidebarHeader
-        isToggle={toggleDesktopSidebar === SidebarState.Open}
-        onToggleSidebar={onToggleDesktopSidebar}
-      />
+}: IDesktopSidebar) => {
+  const isOpenSidebar = toggleDesktopSidebar === SidebarState.Open;
+
+  return (
+    <section className={clsx('relative', isOpenSidebar ? 'left-0' : 'm-7.5')}>
       <div
         className={clsx(
-          'flex flex-1 flex-col justify-between',
-          toggleDesktopSidebar === SidebarState.Open
-            ? 'min-h-[calc(100vh-170px)]'
-            : 'min-h-[calc(100vh-230px)]',
+          'bg-white dark:bg-gray-400 px-6.25 py-7.5 flex flex-col min-h-full',
+          isOpenSidebar
+            ? 'max-w-60 duration-700'
+            : 'max-w-20 items-center rounded-10',
         )}
       >
-        <NavigateList toggle={toggleDesktopSidebar} />
-        <SidebarFooter
-          toggle={toggleDesktopSidebar}
-          onLogout={signOut}
-          avatar={avatar}
-          fullName={fullName}
-          role={role}
+        <SidebarHeader
+          isToggle={isOpenSidebar}
+          onToggleSidebar={onToggleDesktopSidebar}
         />
+        <div
+          className={clsx(
+            'flex flex-1 flex-col justify-between',
+            isOpenSidebar
+              ? 'min-h-[calc(100vh-170px)]'
+              : 'min-h-[calc(100vh-230px)]',
+          )}
+        >
+          <NavigateList toggle={toggleDesktopSidebar} />
+          <SidebarFooter
+            toggle={toggleDesktopSidebar}
+            onLogout={signOut}
+            avatar={avatar}
+            fullName={fullName}
+            role={role}
+          />
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default memo(DesktopSidebar);

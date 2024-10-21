@@ -52,6 +52,8 @@ const NavigateList = ({ toggle = SidebarState.Open }: INavigateList) => {
     [DARK]: colors.white,
     [LIGHT]: colors.blue[800],
   };
+  const isOpenSidebar = toggle === SidebarState.Open;
+  const isClosedSidebar = toggle === SidebarState.Closed;
 
   const mappingIconColor = (url: string): Record<string, string | number> => {
     if (pathname === url) return { color: colors.purple[600], opacity: 1 };
@@ -144,20 +146,20 @@ const NavigateList = ({ toggle = SidebarState.Open }: INavigateList) => {
             as={Link}
             key={id}
             href={href}
-            startContent={toggle === SidebarState.Open && startContent}
-            endContent={toggle === SidebarState.Open && endContent}
+            startContent={isOpenSidebar && startContent}
+            endContent={isOpenSidebar && endContent}
             className={clsx(
               'dark:hover:bg-blue-800 mb-5 gap-4 items-center',
-              toggle === SidebarState.Closed && 'max-w-fit',
+              isClosedSidebar && 'max-w-fit',
               pathname === href
-                ? `text-blue-500 dark:text-purple-600 pointer-events-none before:block before:absolute before:h-12 before:-top-2 before:rounded-r-5 before:bg-gray-200/20 ${toggle === SidebarState.Open ? 'before:w-[60px] before:-left-7' : 'before:w-[53px] before:-left-[22px]'}`
+                ? `text-blue-500 dark:text-purple-600 pointer-events-none before:block before:absolute before:h-12 before:-top-2 before:rounded-r-5 before:bg-gray-200/20 ${isOpenSidebar ? 'before:w-[60px] before:-left-7' : 'before:w-[53px] before:-left-[22px]'}`
                 : 'text-blue-800 dark:text-white opacity-80',
             )}
             classNames={{
               title: ['text-xl font-medium'],
             }}
           >
-            {toggle === SidebarState.Open ? content : startContent}
+            {isOpenSidebar ? content : startContent}
           </ListboxItem>
         ),
       )}
