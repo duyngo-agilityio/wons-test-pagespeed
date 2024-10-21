@@ -6,16 +6,15 @@ import { AuthError } from 'next-auth';
 import { signIn, signOut as signOutAuth } from '@/configs';
 
 // Constants
-import {
-  API_PATH,
-  AUTH_METHODS,
-  ERROR_TYPES,
-  MESSAGES,
-  METHOD,
-} from '@/constants';
+import { API_PATH, AUTH_METHODS, ERROR_TYPES, MESSAGES } from '@/constants';
 
 // Types
-import { SignInFormData, TSignUpPayload, TSignUpResponse } from '@/types';
+import {
+  SignInFormData,
+  TSignUpPayload,
+  TSignUpResponse,
+  Method,
+} from '@/types';
 
 // Services
 import { httpClient } from '@/services';
@@ -53,7 +52,7 @@ export const signUp = async (
       TSignUpPayload,
       TSignUpResponse
     >({
-      method: METHOD.POST,
+      method: Method.Post,
       endpoint: API_PATH.SIGN_UP,
       body: payload,
     });

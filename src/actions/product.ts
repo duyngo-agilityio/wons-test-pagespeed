@@ -2,18 +2,20 @@
 
 import { revalidateTag } from 'next/cache';
 
-// constants
-import { API_PATH, METHOD } from '@/constants';
+// Constants
+import { API_PATH } from '@/constants';
 
-// models
+// Models
 import { IProductDetail } from '@/models';
 
-// services
+// Services
 import { httpClient } from '@/services';
 
-// utils
+// Utils
 import { formatErrorMessage } from '@/utils';
-import { TProductInvoiceListResponse } from '@/types';
+
+// Types
+import { TProductInvoiceListResponse, Method } from '@/types';
 
 export const createProduct = async (formData: Partial<IProductDetail>) => {
   try {
@@ -23,7 +25,7 @@ export const createProduct = async (formData: Partial<IProductDetail>) => {
     };
 
     await httpClient.genericRequest({
-      method: METHOD.POST,
+      method: Method.Post,
       endpoint: API_PATH.PRODUCTS,
       body: { data: formattedData },
     });
@@ -48,7 +50,7 @@ export const updateProduct = async (
     };
 
     await httpClient.genericRequest({
-      method: METHOD.PUT,
+      method: Method.Put,
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
       body: { data: formattedData },
     });
@@ -78,7 +80,7 @@ export const deleteProduct = async (id: number) => {
 
     responseInvoiceProducts?.forEach(async (invoice) => {
       return await httpClient.genericRequest({
-        method: METHOD.DELETE,
+        method: Method.Delete,
         endpoint: `${API_PATH.INVOICE_PRODUCTS}/${invoice.id}`,
       });
     });
@@ -91,14 +93,14 @@ export const deleteProduct = async (id: number) => {
 
       responseInvoices?.data?.forEach(async (invoice) => {
         await httpClient.genericRequest({
-          method: METHOD.DELETE,
+          method: Method.Delete,
           endpoint: `${API_PATH.INVOICES}/${invoice.id}`,
         });
       });
     }
 
     await httpClient.genericRequest({
-      method: METHOD.DELETE,
+      method: Method.Delete,
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
     });
 
