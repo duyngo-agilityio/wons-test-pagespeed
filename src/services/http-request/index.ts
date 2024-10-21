@@ -1,5 +1,8 @@
 // Constants
-import { API_BASE_URL, METHOD } from '@/constants';
+import { API_BASE_URL } from '@/constants';
+
+// Types
+import { Method } from '@/types';
 
 type TRequest = {
   endpoint: string;
@@ -7,7 +10,7 @@ type TRequest = {
 };
 
 type TGenericRequest<T> = TRequest & {
-  method: METHOD;
+  method: Method;
   body?: T;
 };
 
@@ -42,7 +45,7 @@ class HttpClient {
 
   async getRequest<T>({ endpoint, configOptions }: TRequest): Promise<T> {
     const options: RequestInit = {
-      method: METHOD.GET,
+      method: Method.Get,
       ...configOptions,
     };
 
