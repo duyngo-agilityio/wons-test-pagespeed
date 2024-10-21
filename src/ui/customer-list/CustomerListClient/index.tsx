@@ -1,7 +1,8 @@
 'use client';
 
 // Libs
-import { Key, useCallback, useState, useTransition } from 'react';
+import { Key, memo, useCallback, useState, useTransition } from 'react';
+import isEqual from 'react-fast-compare';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -256,4 +257,6 @@ const CustomerListClient = ({
   );
 };
 
-export default CustomerListClient;
+export default memo(CustomerListClient, isEqual) as <T>(
+  props: TCustomerListClientProps & T,
+) => JSX.Element;

@@ -1,3 +1,6 @@
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
+
 import { Avatar, Select, SelectItem } from '@nextui-org/react';
 
 // Models
@@ -55,4 +58,6 @@ const UserClient: React.FC<UserSelectProps> = ({ users }) => (
   </Select>
 );
 
-export default UserClient;
+export default memo(UserClient, isEqual) as <T>(
+  props: UserSelectProps & T,
+) => JSX.Element;

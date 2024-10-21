@@ -1,4 +1,6 @@
 'use client';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 
 // Models
 import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
@@ -51,4 +53,6 @@ const EditInvoiceClient = ({
   );
 };
 
-export default EditInvoiceClient;
+export default memo(EditInvoiceClient, isEqual) as <T>(
+  props: EditInvoiceClientProps & T,
+) => JSX.Element;
