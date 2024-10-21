@@ -5,13 +5,10 @@ import isEqual from 'react-fast-compare';
 import { Modal as NextModal, ModalContent } from '@nextui-org/react';
 
 // Types
-import { StrapiModel, TLabelStatus } from '@/types';
+import { StrapiModel, TLabelStatus, Level } from '@/types';
 
 // Models
 import { TUser } from '@/models';
-
-// Constants
-import { Level } from '@/constants';
 
 // Components
 import { Heading, Text } from '../common';

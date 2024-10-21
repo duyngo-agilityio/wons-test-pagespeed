@@ -17,7 +17,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 
 // Constants
-import { LEVELS, Level, STATUS, MESSAGES } from '@/constants';
+import { LEVELS, STATUS, MESSAGES } from '@/constants';
 
 // Utils
 import {
@@ -32,8 +32,8 @@ import {
 // Components
 import { Button, Heading, Input, AvatarUploadMultiple } from '@/components';
 
-// Models
-import { TaskWithStringAssignees } from '@/types';
+// Types
+import { TaskWithStringAssignees, Level } from '@/types';
 
 // icons
 import { GrPrevious } from 'react-icons/gr';
@@ -149,7 +149,7 @@ const TaskForm = ({
           images: formData.images ?? [],
           title: formData.title || '',
           label: formData.label || 'todo',
-          level: formData.level || Level.MEDIUM,
+          level: formData.level || Level.Medium,
           description: formData.description || '',
         };
 

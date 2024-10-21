@@ -3,11 +3,8 @@ import { memo } from 'react';
 // Libs
 import { Chip } from '@nextui-org/react';
 
-// Constants
-import { Level } from '@/constants';
-
 // Types
-import { TSize } from '@/types';
+import { TSize, Level } from '@/types';
 
 type TLevelCardProps = {
   level: Level;

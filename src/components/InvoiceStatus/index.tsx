@@ -3,30 +3,29 @@ import { memo } from 'react';
 // Libs
 import { Chip } from '@nextui-org/react';
 
-// Constants
-import { InvoiceStatus } from '@/constants';
-
+// Types
+import { InvoiceStatus } from '@/types';
 type TInvoiceStatusProps = {
   variant?: InvoiceStatus;
 };
 
 const InvoiceStatusComponent = ({
-  variant = InvoiceStatus.COMPLETE,
+  variant = InvoiceStatus.Complete,
 }: TInvoiceStatusProps): JSX.Element => {
   const chipClasses: Record<InvoiceStatus, { bg: string; color: string }> = {
-    [InvoiceStatus.COMPLETE]: {
+    [InvoiceStatus.Complete]: {
       bg: 'bg-blue-500/10 dark:bg-purple-600/10',
       color: 'text-blue-500 dark:text-purple-600',
     },
-    [InvoiceStatus.PENDING]: {
+    [InvoiceStatus.Pending]: {
       bg: 'bg-teal-500/10 dark:bg-teal-300/10',
       color: 'text-teal-500 dark:text-teal-300',
     },
-    [InvoiceStatus.CANCEL]: {
+    [InvoiceStatus.Cancel]: {
       bg: 'bg-pink-500/10',
       color: 'text-pink-500',
     },
-    [InvoiceStatus.DEFAULT]: {
+    [InvoiceStatus.Default]: {
       bg: 'bg-gray-500/10',
       color: 'text-gray-500',
     },

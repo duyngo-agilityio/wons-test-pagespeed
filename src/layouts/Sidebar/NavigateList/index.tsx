@@ -11,7 +11,7 @@ import clsx from 'clsx';
 import { colors } from '@/themes';
 
 // Constants
-import { ROUTES, SIDE_BAR_STATE, THEME_MODES } from '@/constants';
+import { ROUTES, THEME_MODES } from '@/constants';
 
 // Components
 import {
@@ -26,11 +26,14 @@ import {
   SettingIcon,
 } from '@/components/common';
 
+// Types
+import { SidebarState } from '@/types';
+
 interface INavigateList {
   toggle?: string;
 }
 
-const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
+const NavigateList = ({ toggle = SidebarState.Open }: INavigateList) => {
   const pathname = usePathname();
   const { theme } = useTheme();
   const {
@@ -141,20 +144,20 @@ const NavigateList = ({ toggle = SIDE_BAR_STATE.OPEN }: INavigateList) => {
             as={Link}
             key={id}
             href={href}
-            startContent={toggle === SIDE_BAR_STATE.OPEN && startContent}
-            endContent={toggle === SIDE_BAR_STATE.OPEN && endContent}
+            startContent={toggle === SidebarState.Open && startContent}
+            endContent={toggle === SidebarState.Open && endContent}
             className={clsx(
               'dark:hover:bg-blue-800 mb-5 gap-4 items-center',
-              toggle === SIDE_BAR_STATE.CLOSED && 'max-w-fit',
+              toggle === SidebarState.Closed && 'max-w-fit',
               pathname === href
-                ? `text-blue-500 dark:text-purple-600 pointer-events-none before:block before:absolute before:h-12 before:-top-2 before:rounded-r-5 before:bg-gray-200/20 ${toggle === SIDE_BAR_STATE.OPEN ? 'before:w-[60px] before:-left-7' : 'before:w-[53px] before:-left-[22px]'}`
+                ? `text-blue-500 dark:text-purple-600 pointer-events-none before:block before:absolute before:h-12 before:-top-2 before:rounded-r-5 before:bg-gray-200/20 ${toggle === SidebarState.Open ? 'before:w-[60px] before:-left-7' : 'before:w-[53px] before:-left-[22px]'}`
                 : 'text-blue-800 dark:text-white opacity-80',
             )}
             classNames={{
               title: ['text-xl font-medium'],
             }}
           >
-            {toggle === SIDE_BAR_STATE.OPEN ? content : startContent}
+            {toggle === SidebarState.Open ? content : startContent}
           </ListboxItem>
         ),
       )}
