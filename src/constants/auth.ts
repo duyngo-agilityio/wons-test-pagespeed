@@ -1,5 +1,5 @@
 // Types
-import { TRole } from '@/types';
+import { TRole, Role } from '@/types';
 
 export const AUTH_METHODS = {
   CREDENTIALS: 'credentials',
@@ -9,18 +9,13 @@ export const ERROR_TYPES = {
   CREDENTIALS_SIGN_IN: 'CallbackRouteError',
 };
 
-export const enum ROLE {
-  ADMIN = 'Admin',
-  USER = 'User',
-}
-
 export const ROLES: TRole[] = [
   {
     id: 3,
-    name: ROLE.ADMIN,
+    name: Role.Admin,
   },
   {
     id: 4,
-    name: ROLE.USER,
+    name: Role.User,
   },
 ];

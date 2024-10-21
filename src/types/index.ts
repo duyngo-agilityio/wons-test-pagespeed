@@ -13,3 +13,5 @@ export * from './image';
 export * from './task';
 export * from './event';
 export * from './size';
+export * from './card';
+export * from './sidebar';
