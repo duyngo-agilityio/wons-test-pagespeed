@@ -1,10 +1,12 @@
-import { ROLE } from '@/constants';
+// Models
 import { TUser } from '@/models';
-import { StrapiModel, TRole } from '@/types';
+
+// Types
+import { StrapiModel, TRole, Role } from '@/types';
 
 const mockRoles: TRole[] = [
-  { id: 1, name: ROLE.ADMIN },
-  { id: 2, name: ROLE.USER },
+  { id: 1, name: Role.Admin },
+  { id: 2, name: Role.User },
 ];
 export const MOCK_USERS: TUser[] = [
   {

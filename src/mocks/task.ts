@@ -1,5 +1,13 @@
-import { Level, ROLES } from '@/constants';
-import { TasksState, TaskWithStringAssignees, TLabelStatus } from '@/types';
+// Constants
+import { ROLES } from '@/constants';
+
+// Types
+import {
+  TasksState,
+  TaskWithStringAssignees,
+  TLabelStatus,
+  Level,
+} from '@/types';
 
 export const MOCK_TASKS: TasksState = {
   todo: [
@@ -8,7 +16,7 @@ export const MOCK_TASKS: TasksState = {
       attributes: {
         title: 'Dashboard Design',
         label: 'todo',
-        level: Level.LOW,
+        level: Level.Low,
         description: 'Discussion for management dashboard ui design',
         createdAt: '2024-09-23T03:07:18.697Z',
         updatedAt: '2024-10-04T02:02:44.110Z',
@@ -70,7 +78,7 @@ export const MOCK_TASKS: TasksState = {
         title: 'API Development',
         description: 'Create APIs',
         label: 'inProgress',
-        level: Level.LOW,
+        level: Level.Low,
         createdAt: '2024-09-23T03:07:18.697Z',
         updatedAt: '2024-10-04T02:02:44.110Z',
         publishedAt: '2024-09-23T03:07:19.719Z',
@@ -128,7 +136,7 @@ export const MOCK_TASK_WITH_STRING_ASSIGNEES: Partial<TaskWithStringAssignees> =
   {
     title: 'Test Task',
     label: 'inProgress',
-    level: Level.MEDIUM,
+    level: Level.Medium,
     description: 'This is a test task',
     createdAt: '2024-10-13T10:00:00Z',
     updatedAt: '2024-10-13T12:00:00Z',

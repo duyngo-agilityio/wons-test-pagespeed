@@ -1,8 +1,9 @@
-// Constants
-import { InvoiceStatus } from '@/constants';
-
 // Types
-import { TInvoiceDataResponse, TInvoiceListResponse } from '@/types';
+import {
+  TInvoiceDataResponse,
+  TInvoiceListResponse,
+  InvoiceStatus,
+} from '@/types';
 
 export const MOCK_INVOICES = [
   {
@@ -63,7 +64,7 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
     attributes: {
       email: 'arroragaur@gmail.com',
       date: '2024-09-10',
-      status: InvoiceStatus.COMPLETE,
+      status: InvoiceStatus.Complete,
       address: '1254 Xo Viet Nghe Tinh, Da Nang',
       isSelected: true,
       invoiceId: '871345',
@@ -92,9 +93,9 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
             id: 6,
             attributes: {
               price: 454354,
-              createdAt: "2024-09-22T22:21:05.920Z",
-              updatedAt: "2024-09-22T22:21:05.920Z",
-              publishedAt: "2024-09-22T22:21:05.914Z",
+              createdAt: '2024-09-22T22:21:05.920Z',
+              updatedAt: '2024-09-22T22:21:05.920Z',
+              publishedAt: '2024-09-22T22:21:05.914Z',
               quantity: 1,
               product: {
                 data: {
@@ -106,14 +107,12 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
                   title: 'Macbook',
                   imageUrl:
                     'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
-                }
-
-              }
-            }
-          }
-        ]
-      }
-
+                },
+              },
+            },
+          },
+        ],
+      },
     },
   },
   {
@@ -121,7 +120,7 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
     attributes: {
       email: 'annejacob@gmail.com',
       date: '2024-09-10',
-      status: InvoiceStatus.COMPLETE,
+      status: InvoiceStatus.Complete,
       address: 'danang',
       isSelected: false,
       invoiceId: '32434',
@@ -150,9 +149,9 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
             id: 5,
             attributes: {
               price: 454354,
-              createdAt: "2024-09-22T22:21:05.920Z",
-              updatedAt: "2024-09-22T22:21:05.920Z",
-              publishedAt: "2024-09-22T22:21:05.914Z",
+              createdAt: '2024-09-22T22:21:05.920Z',
+              updatedAt: '2024-09-22T22:21:05.920Z',
+              publishedAt: '2024-09-22T22:21:05.914Z',
               quantity: 1,
               product: {
                 data: {
@@ -164,13 +163,12 @@ export const MOCK_INVOICES_WITH_CUSTOMER: TInvoiceDataResponse[] = [
                   title: 'I phone',
                   imageUrl:
                     'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
-                }
-
-              }
-            }
-          }
-        ]
-      }
+                },
+              },
+            },
+          },
+        ],
+      },
     },
   },
 ];
