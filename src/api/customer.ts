@@ -40,7 +40,7 @@ export const getCustomers = async ({
       {
         endpoint,
         configOptions: {
-          cache: cache ?? 'force-cache',
+          cache: cache,
           next: nextOptions,
         },
       },

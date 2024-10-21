@@ -40,7 +40,7 @@ export const getInvoiceProducts = async ({
       {
         endpoint: endpoint,
         configOptions: {
-          cache: cache ?? 'force-cache',
+          cache: cache,
           next: nextOptions,
         },
       },
@@ -83,7 +83,7 @@ export const getInvoices = async ({
     const response = await httpClient.getRequest<TInvoiceListResponse>({
       endpoint,
       configOptions: {
-        cache: cache ?? 'force-cache',
+        cache: cache,
         next: nextOptions,
       },
     });
@@ -107,7 +107,7 @@ export const getInvoiceById = async ({
     const response = await httpClient.getRequest<TInvoiceDetailsResponse>({
       endpoint,
       configOptions: {
-        cache: cache ?? 'force-cache',
+        cache: cache,
         next: nextOptions,
       },
     });

@@ -34,7 +34,7 @@ export const getTasks = async ({
     const response = await httpClient.getRequest<TTasksResponse>({
       endpoint,
       configOptions: {
-        cache: cache ?? 'force-cache',
+        cache: cache,
         next: nextOptions,
       },
     });
@@ -67,7 +67,7 @@ export const getTaskById = async ({
     >({
       endpoint,
       configOptions: {
-        cache: cache ?? 'force-cache',
+        cache: cache,
         next: nextOptions,
       },
     });
