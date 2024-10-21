@@ -5,13 +5,9 @@ import { Suspense } from 'react';
 import { DashBoardLayout } from '@/layouts';
 
 // uis
-import { CustomerActions, CustomerList } from '@/ui';
-
-// components
-import { TableSkeleton } from '@/components';
+import { CustomerActions, CustomerList, CustomerListSkeleton } from '@/ui';
 
 // constants
-import { MAPPING_CUSTOMER_LIST_SKELETON } from '@/constants/skeleton';
 import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
 
 // types
@@ -50,16 +46,7 @@ const CustomerListPage = ({
         title={PAGE_TITLES.CUSTOMER}
         rightContent={<CustomerActions />}
       >
-        <Suspense
-          key={page}
-          fallback={
-            <TableSkeleton
-              variant="primary"
-              isStriped={false}
-              columns={MAPPING_CUSTOMER_LIST_SKELETON}
-            />
-          }
-        >
+        <Suspense key={page} fallback={<CustomerListSkeleton />}>
           <CustomerList page={+page} order={order} sortBy={sortBy} />
         </Suspense>
       </DashBoardLayout>

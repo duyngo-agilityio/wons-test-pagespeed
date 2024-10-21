@@ -58,7 +58,7 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
   const { data: resultProducts = [] } = await getProducts();
 
   const invoiceProductIds = new Set(
-    result.data.map((invoice) => invoice.attributes.product.data.id),
+    result?.data?.map((invoice) => invoice.attributes.product.data.id),
   );
 
   const resultFilterProductsNotInInvoice = filterProductsNotInInvoice(

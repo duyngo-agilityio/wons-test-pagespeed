@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 
 // Layouts
-import { DashBoardLayout, TableLayout } from '@/layouts';
+import { DashBoardLayout } from '@/layouts';
 
 // UI
 const LazyRecentServicesSection = lazy(
@@ -14,19 +14,18 @@ const LazyTopSellingProducts = lazy(
   () => import('@/ui/main-dashboard/TopSellingProduct'),
 );
 
-// Constants
-import { MAPPING_RECENT_SERVICES_SKELETON } from '@/constants/skeleton';
-
 // Types
 import { ISearchParams } from '@/types';
 
 // Components
 import {
   SkeletonProductCard,
-  TableSkeleton,
   SkeletonStatistic,
   DateRangePicker,
 } from '@/components';
+
+// UIs
+import { RecentServicesSkeleton } from '@/ui';
 
 // Constants
 import { PAGE_TITLES } from '@/constants';
@@ -58,11 +57,7 @@ const DashboardPage = ({ searchParams = {} }: IDashboardPage) => {
         <div className="xl:col-span-6">
           <Suspense
             key={sortBy + order + startTime + endTime}
-            fallback={
-              <TableLayout>
-                <TableSkeleton columns={MAPPING_RECENT_SERVICES_SKELETON} />
-              </TableLayout>
-            }
+            fallback={<RecentServicesSkeleton />}
           >
             <LazyRecentServicesSection searchParams={searchParams} />
           </Suspense>

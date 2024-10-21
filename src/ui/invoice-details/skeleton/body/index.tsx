@@ -1,10 +1,26 @@
 import { Skeleton } from '@nextui-org/react';
 
-// Constants
-import { MAPPING_PRODUCT_DESCRIPTIONS_SKELETON } from '@/constants/skeleton';
-
 // Components
 import { TableSkeleton, Text } from '@/components';
+
+const MAPPING_PRODUCT_DESCRIPTIONS_SKELETON = [
+  {
+    header: 'PRODUCT DESCRIPTION',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+  {
+    header: 'QUANTITY',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+  {
+    header: 'RATE',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+  {
+    header: 'AMOUNT',
+    accessor: () => <Skeleton className="h-2 w-3/5 rounded-5" />,
+  },
+];
 
 const InvoiceDetailsBodySkeleton = () => (
   <div className="base:px-2 md:pl-7.5 md:pr-5 pb-6.5 pt-10">
