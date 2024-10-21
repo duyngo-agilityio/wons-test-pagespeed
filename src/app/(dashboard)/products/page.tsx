@@ -2,17 +2,16 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 // Components
-import { DateRangePicker, ProductDrawer, TableSkeleton } from '@/components';
+import { DateRangePicker, ProductDrawer } from '@/components';
 
 // Constants
 import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
-import { MAPPING_PRODUCT_SKELETON } from '@/constants/skeleton';
 
 // Layouts
-import { DashBoardLayout, TableLayout } from '@/layouts';
+import { DashBoardLayout } from '@/layouts';
 
 // UIs
-import { ProductList } from '@/ui/product-list';
+import { ProductList, ProductListSkeleton } from '@/ui/product-list';
 
 // Types
 import { ISearchParams } from '@/types';
@@ -52,11 +51,7 @@ const ProductListPage = ({
         <ProductDrawer />
         <Suspense
           key={page + startTime + endTime}
-          fallback={
-            <TableLayout>
-              <TableSkeleton columns={MAPPING_PRODUCT_SKELETON} />
-            </TableLayout>
-          }
+          fallback={<ProductListSkeleton />}
         >
           <ProductList searchParams={searchParams} />
         </Suspense>

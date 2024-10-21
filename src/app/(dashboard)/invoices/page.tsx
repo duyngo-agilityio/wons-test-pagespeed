@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 
 // Constants
 import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
-import { MAPPING_INVOICE_LIST_SKELETON } from '@/constants/skeleton';
 
 // Types
 import { ISearchParams } from '@/types';
@@ -12,10 +11,7 @@ import { ISearchParams } from '@/types';
 import { DashBoardLayout } from '@/layouts';
 
 // Sections
-import { InvoiceListActions, InvoiceList } from '@/ui';
-
-// Components
-import { TableSkeleton } from '@/components';
+import { InvoiceListActions, InvoiceList, InvoiceListSkeleton } from '@/ui';
 
 export const metadata: Metadata = {
   title: 'Wons Invoice',
@@ -57,14 +53,7 @@ const InvoiceListPage = ({
       >
         <Suspense
           key={order + sortBy + query + page}
-          fallback={
-            <TableSkeleton
-              variant="primary"
-              quantity={10}
-              isStriped={false}
-              columns={MAPPING_INVOICE_LIST_SKELETON}
-            />
-          }
+          fallback={<InvoiceListSkeleton />}
         >
           <InvoiceList
             sortBy={sortBy}
