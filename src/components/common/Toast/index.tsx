@@ -40,10 +40,11 @@ const Toast = ({
     <div
       className={`min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start ${getStatusColor()}`}
     >
-      <div>
+      <div className="flex flex-col">
         <h4 className="font-bold capitalize">{title}</h4>
         <p>{description}</p>
       </div>
+
       <Button
         isIconOnly
         className={`ml-2 p-0 hover:!bg-transparent dark:hover:!bg-transparent ${getStatusColor()}`}
