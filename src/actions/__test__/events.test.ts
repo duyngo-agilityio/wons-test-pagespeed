@@ -7,13 +7,16 @@ import { createEvent, deleteEvent, updateEvent } from '../event';
 import { httpClient } from '@/services';
 
 // constants
-import { API_PATH, METHOD } from '@/constants';
+import { API_PATH } from '@/constants';
 
 // utils
 import { formatErrorMessage } from '@/utils';
 
 // Mocks
 import { EVENT_MOCKS } from '@/mocks';
+
+// Types
+import { Method } from '@/types';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -45,7 +48,7 @@ describe('createEvent', () => {
     const result = await createEvent(EVENT_MOCKS);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.POST,
+      method: Method.Post,
       endpoint: API_PATH.EVENTS,
       body: {
         data: {
@@ -85,7 +88,7 @@ describe('deleteEvent', () => {
     await deleteEvent(eventID);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.DELETE,
+      method: Method.Delete,
       endpoint: `${API_PATH.EVENTS}/${eventID}`,
     });
     expect(revalidateTag).toHaveBeenCalledWith(API_PATH.EVENTS);
@@ -117,7 +120,7 @@ describe('updateEvent', () => {
     await updateEvent(eventID, EVENT_MOCKS);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.PUT,
+      method: Method.Put,
       endpoint: `${API_PATH.EVENTS}/${eventID}`,
       body: { data: EVENT_MOCKS },
     });

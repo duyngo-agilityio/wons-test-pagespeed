@@ -6,17 +6,14 @@ import isEqual from 'react-fast-compare';
 // libs
 import { Droppable } from '@hello-pangea/dnd';
 
-// Constants
-import { TASK_STATUS } from '@/constants';
-
 // components
 import { Heading, TaskCard } from '@/components';
 
 // types
-import { StrapiModel, Task } from '@/types';
+import { StrapiModel, Task, TaskStatus } from '@/types';
 
 type TColumnProps = {
-  status: TASK_STATUS;
+  status: TaskStatus;
   tasks: StrapiModel<Task>[];
 };
 

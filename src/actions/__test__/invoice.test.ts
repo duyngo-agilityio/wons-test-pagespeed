@@ -5,16 +5,13 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 // types
-import { TInvoiceProductTable } from '@/types';
+import { TInvoiceProductTable, InvoiceStatus, Method } from '@/types';
 
 // mocks
 import { MOCK_PRODUCTS_WITHOUT_ATTRIBUTES } from '@/mocks';
 
 // actions
 import { createInvoiceProducts, editInvoice } from '@/actions';
-
-// Constants
-import { InvoiceStatus, METHOD } from '@/constants';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -59,7 +56,7 @@ describe('createInvoiceProducts', () => {
     // Verify that the correct arguments are passed in the API call
     PRODUCTS_MOCK.forEach((product, index) => {
       expect(httpClient.genericRequest).toHaveBeenNthCalledWith(index + 1, {
-        method: METHOD.POST,
+        method: Method.Post,
         endpoint: '/invoice-products', // Corrected endpoint
         body: {
           data: {
@@ -106,7 +103,7 @@ describe('editInvoice', () => {
       attributes: {
         email: 'test@gmai.com',
         date: '2024-09-10',
-        status: InvoiceStatus.COMPLETE,
+        status: InvoiceStatus.Complete,
         address: '1254 Xo Viet Nghe Tinh, Da Nang',
         isSelected: true,
         invoiceId: '871345',

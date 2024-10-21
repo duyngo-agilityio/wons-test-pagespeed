@@ -4,7 +4,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH, METHOD } from '@/constants';
+import { API_PATH } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
@@ -13,7 +13,7 @@ import { httpClient } from '@/services';
 import { formatErrorMessage } from '@/utils';
 
 // Types
-import { IUserFormData } from '@/types';
+import { IUserFormData, Method } from '@/types';
 
 // Models
 import { TUser } from '@/models';
@@ -24,7 +24,7 @@ export const updateUser = async (
 ): Promise<{ success?: boolean; error?: string }> => {
   try {
     await httpClient.genericRequest<Omit<IUserFormData, 'role'>, TUser>({
-      method: METHOD.PUT,
+      method: Method.Put,
       endpoint: `${API_PATH.USERS}/${id}`,
       body: profileData,
     });

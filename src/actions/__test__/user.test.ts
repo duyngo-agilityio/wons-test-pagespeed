@@ -5,13 +5,16 @@ import { httpClient } from '@/services';
 import { updateUser } from '../user';
 
 // Constants
-import { API_PATH, METHOD } from '@/constants';
+import { API_PATH } from '@/constants';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
 
 // Mocks
 import { MOCK_USERS } from '@/mocks';
+
+// Types
+import { Method } from '@/types';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -36,7 +39,7 @@ describe('updateUser', () => {
     const result = await updateUser(MOCK_USERS[0], userID);
 
     expect(httpClient.genericRequest).toHaveBeenCalledWith({
-      method: METHOD.PUT,
+      method: Method.Put,
       endpoint: `${API_PATH.USERS}/${userID}`,
       body: MOCK_USERS[0],
     });

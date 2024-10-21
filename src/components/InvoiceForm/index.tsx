@@ -13,7 +13,7 @@ import clsx from 'clsx';
 import { Select, SelectItem } from '@nextui-org/react';
 
 // Constants
-import { INVOICE_STATUS, InvoiceStatus, MESSAGES, ROUTES } from '@/constants';
+import { INVOICE_STATUS, MESSAGES, ROUTES } from '@/constants';
 
 // Models
 import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
@@ -34,6 +34,7 @@ import {
   TInvoiceDetail,
   TInvoiceFormData,
   TInvoiceProductTable,
+  InvoiceStatus,
 } from '@/types';
 
 // Components
@@ -126,7 +127,7 @@ const InvoiceForm = ({
       customerId: '',
       email: '',
       address: '',
-      status: InvoiceStatus.DEFAULT,
+      status: InvoiceStatus.Default,
     },
   });
 

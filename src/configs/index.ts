@@ -13,10 +13,10 @@ import { TUser } from '@/models';
 import { getProfile } from '@/api';
 
 // Types
-import { AuthResponse } from '@/types';
+import { AuthResponse, Method } from '@/types';
 
 // Constants
-import { API_PATH, METHOD } from '@/constants';
+import { API_PATH } from '@/constants';
 
 declare module 'next-auth' {
   interface Session {
@@ -41,7 +41,7 @@ export const CredentialsProvider = Credentials({
       const { identifier, password } = parsedCredentials.data;
 
       const data = await httpClient.genericRequest({
-        method: METHOD.POST,
+        method: Method.Post,
         endpoint: API_PATH.SIGN_IN,
         body: {
           identifier,

@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import clsx from 'clsx';
 
 // Constants
-import { MESSAGES, ROLE, ROUTES, SIDE_BAR_STATE } from '@/constants';
+import { MESSAGES, ROUTES } from '@/constants';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -21,6 +21,9 @@ import {
   Text,
 } from '@/components';
 
+// Types
+import { Role, SidebarState } from '@/types';
+
 const DynamicThemeSwitcher = dynamic(
   () => import('@/components/ThemeSwitcher'),
   {
@@ -32,12 +35,12 @@ interface ISidebarFooter {
   toggle?: string;
   avatar: string;
   fullName: string;
-  role: ROLE;
+  role: Role;
   onLogout: () => Promise<void>;
 }
 
 const SidebarFooter = ({
-  toggle = SIDE_BAR_STATE.OPEN,
+  toggle = SidebarState.Open,
   avatar,
   fullName,
   role,
@@ -81,9 +84,7 @@ const SidebarFooter = ({
         <div
           className={clsx(
             'flex',
-            toggle === SIDE_BAR_STATE.OPEN
-              ? 'justify-between'
-              : 'flex-col gap-3',
+            toggle === SidebarState.Open ? 'justify-between' : 'flex-col gap-3',
           )}
         >
           <div className="flex items-center gap-2.5">
@@ -96,11 +97,11 @@ const SidebarFooter = ({
                 alt="User Avatar"
               />
             </div>
-            {toggle === SIDE_BAR_STATE.OPEN && (
+            {toggle === SidebarState.Open && (
               <div>
                 <Text text={fullName} className="text-sm capitalize" />
                 <Text
-                  text={role === ROLE.USER ? 'View-only' : role}
+                  text={role === Role.User ? 'View-only' : role}
                   className="text-xs opacity-60 capitalize"
                 />
               </div>

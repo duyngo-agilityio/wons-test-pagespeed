@@ -8,11 +8,8 @@ import { Selection } from '@nextui-org/react';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 
-// Constants
-import { InvoiceStatus } from '@/constants';
-
 // Types
-import { TInvoiceDataResponse } from '@/types';
+import { TInvoiceDataResponse, InvoiceStatus } from '@/types';
 
 // Components
 import {
@@ -204,7 +201,7 @@ const InvoicesTable = ({
           header: 'Status',
           accessor: (invoice: TInvoiceData) => {
             const { attributes: invoiceAttributes } = invoice || {};
-            const { status = InvoiceStatus.PENDING } = invoiceAttributes || {};
+            const { status = InvoiceStatus.Pending } = invoiceAttributes || {};
 
             return <InvoiceStatusComponent variant={status} />;
           },
