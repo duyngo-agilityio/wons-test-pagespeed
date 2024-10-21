@@ -53,7 +53,7 @@ export const getUsers = async ({
     const customerResponse = await httpClient.getRequest<TUser[]>({
       endpoint,
       configOptions: {
-        cache: cache ?? 'force-cache',
+        cache: cache,
         next: nextOptions,
       },
     });
