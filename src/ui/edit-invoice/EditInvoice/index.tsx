@@ -18,12 +18,15 @@ interface EditInvoiceProps {
 }
 
 const EditInvoice = async ({ id }: EditInvoiceProps) => {
-  const { data: products } = await getProducts();
-  const { data: customers } = await getCustomers();
-  const { data: invoice } = await getInvoiceById({
-    id,
-    nextOptions: { tags: [API_PATH.INVOICE] },
-  });
+  const [{ data: products }, { data: customers }, { data: invoice }] =
+    await Promise.all([
+      getProducts(),
+      getCustomers(),
+      getInvoiceById({
+        id,
+        nextOptions: { tags: [API_PATH.INVOICE] },
+      }),
+    ]);
 
   const productInvoice = formattedResponseData(
     invoice.attributes.invoice_products?.data || [],
