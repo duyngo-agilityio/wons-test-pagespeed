@@ -1,5 +1,5 @@
-// Constants
-import { InvoiceStatus } from '@/constants';
+// Types
+import { InvoiceStatus } from '@/types';
 
 export type TInvoiceProduct<T> = {
   id?: number;
