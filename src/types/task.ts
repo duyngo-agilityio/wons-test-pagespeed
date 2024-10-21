@@ -1,13 +1,9 @@
 // Models
 import { TUser } from '@/models';
 
-// Constants
-import { Level } from '@/constants';
-
 // Types
 import { StrapiModel, StrapiResponse } from './strapi';
-
-export type TaskStatus = 'ToDo' | 'In Progress' | 'In Review' | 'Done';
+import { Level } from './card';
 
 export type TLabelStatus = 'todo' | 'inProgress' | 'inReview' | 'done';
 
@@ -35,3 +31,10 @@ export type TasksState = {
 };
 
 export type TTasksResponse = StrapiResponse<StrapiModel<Task>[]>;
+
+export const enum TaskStatus {
+  Todo = 'ToDo',
+  InProgress = 'In Progress',
+  InReview = 'In Review',
+  Done = 'Done',
+}

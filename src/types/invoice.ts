@@ -4,9 +4,6 @@ import { StrapiModel, StrapiResponse } from '@/types';
 // Models
 import { ICustomer, IProduct, TInvoice, TInvoiceProduct } from '@/models';
 
-// Constants
-import { InvoiceStatus } from '@/constants';
-
 export type TInvoiceDataResponse = StrapiModel<
   Omit<TInvoice, 'customerId'> & {
     customer: { data: StrapiModel<ICustomer> };
@@ -50,3 +47,10 @@ export type TInvoiceFormData = {
 export type TRecentInvoiceProductResponse = StrapiResponse<
   StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
 >;
+
+export const enum InvoiceStatus {
+  Default = '',
+  Complete = 'complete',
+  Pending = 'pending',
+  Cancel = 'cancel',
+}
