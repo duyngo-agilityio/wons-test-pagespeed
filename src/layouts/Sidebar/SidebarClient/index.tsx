@@ -2,9 +2,6 @@
 
 import { memo, useCallback, useEffect, useState } from 'react';
 
-// Constants
-import { ROLE, SIDE_BAR_STATE } from '@/constants';
-
 // Hooks
 import { useBreakPoints } from '@/hooks';
 
@@ -12,10 +9,13 @@ import { useBreakPoints } from '@/hooks';
 import DesktopSidebar from '@/layouts/Sidebar/DesktopSidebar';
 import MobileSidebar from '@/layouts/Sidebar/MobileSidebar';
 
+// Types
+import { Role, SidebarState } from '@/types';
+
 interface ISidebarClientProps {
   avatar: string;
   fullName: string;
-  role: ROLE;
+  role: Role;
 }
 
 const SidebarClient = ({ avatar, fullName, role }: ISidebarClientProps) => {
@@ -38,9 +38,7 @@ const SidebarClient = ({ avatar, fullName, role }: ISidebarClientProps) => {
     () =>
       setToggleDesktopSidebar((prev) => {
         const nextState =
-          prev === SIDE_BAR_STATE.OPEN
-            ? SIDE_BAR_STATE.CLOSED
-            : SIDE_BAR_STATE.OPEN;
+          prev === SidebarState.Open ? SidebarState.Closed : SidebarState.Open;
         localStorage.setItem('showSidebar', nextState);
 
         return nextState;

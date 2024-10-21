@@ -4,19 +4,19 @@ import clsx from 'clsx';
 // Actions
 import { signOut } from '@/actions';
 
-// Constants
-import { ROLE } from '@/constants';
-
 // Components
 import NavigateList from '@/layouts/Sidebar/NavigateList';
 import SidebarFooter from '@/layouts/Sidebar/SidebarFooter';
 import SidebarHeader from '@/layouts/Sidebar/SidebarHeader';
 
+// Types
+import { Role } from '@/types';
+
 interface IMobileSidebar {
   isToggleMobileSidebar: boolean;
   avatar: string;
   fullName: string;
-  role: ROLE;
+  role: Role;
   onOutsideClick: () => void;
   onToggleSidebar: () => void;
 }

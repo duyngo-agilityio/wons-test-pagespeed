@@ -6,7 +6,7 @@ import Drawer from 'react-modern-drawer';
 import dynamic from 'next/dynamic';
 
 // Types
-import { StrapiModel, Task, TaskWithStringAssignees } from '@/types';
+import { StrapiModel, Task, TaskWithStringAssignees, Level } from '@/types';
 
 // Components
 import {
@@ -20,7 +20,7 @@ import {
 } from '@/components';
 
 // Constants
-import { Level, MESSAGES } from '@/constants';
+import { MESSAGES } from '@/constants';
 
 // Actions
 import { deleteTask, getTaskDetails, updateTaskWithAssignees } from '@/actions';
@@ -60,7 +60,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
   const { id, attributes } = task ?? {};
   const {
     title = '',
-    level = Level.LOW,
+    level = Level.Low,
     assignees = { data: [] },
     images = [],
     description = '',

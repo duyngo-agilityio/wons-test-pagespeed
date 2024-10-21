@@ -3,16 +3,13 @@
 import { useEffect, useState, useTransition } from 'react';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 
-// types
-import { StrapiModel, Task, TasksState, TaskStatus } from '@/types';
-
-// utils
+// Utils
 import { convertTasksByStatus, mapTaskStatusToStateKey } from '@/utils';
 
 // Constants
-import { MESSAGE_STATUS, MESSAGES, TASK_STATUS } from '@/constants';
+import { MESSAGE_STATUS, MESSAGES } from '@/constants';
 
-// components
+// Components
 import { Column } from '@/components';
 
 // hooks
@@ -20,6 +17,9 @@ import { useToast } from '@/hooks';
 
 // Actions
 import { updateTask } from '@/actions';
+
+// Types
+import { StrapiModel, Task, TasksState, TaskStatus } from '@/types';
 
 interface ITaskListBoardProps {
   data: StrapiModel<Task>[];
@@ -84,10 +84,10 @@ const TaskListBoardClient = ({ data }: ITaskListBoardProps) => {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-full h-full mt-8">
-        <Column status={TASK_STATUS.TODO} tasks={tasks.todo} />
-        <Column status={TASK_STATUS.IN_PROGRESS} tasks={tasks.inProgress} />
-        <Column status={TASK_STATUS.IN_REVIEW} tasks={tasks.inReview} />
-        <Column status={TASK_STATUS.DONE} tasks={tasks.done} />
+        <Column status={TaskStatus.Todo} tasks={tasks.todo} />
+        <Column status={TaskStatus.InProgress} tasks={tasks.inProgress} />
+        <Column status={TaskStatus.InReview} tasks={tasks.inReview} />
+        <Column status={TaskStatus.Done} tasks={tasks.done} />
       </div>
     </DragDropContext>
   );
