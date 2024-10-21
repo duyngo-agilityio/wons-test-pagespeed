@@ -1,6 +1,9 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
+import isEqual from 'react-fast-compare';
+
+// libs
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import { DateValue, useDisclosure } from '@nextui-org/react';
@@ -81,7 +84,7 @@ const CalendarClient = ({
   const [selectedEvent, setSelectedEvent] = useState<TEventResponse | null>(
     null,
   );
-  const [selectedDate, setSelectedDate] = useState(today(getLocalTimeZone())); // Sử dụng DateValue
+  const [selectedDate, setSelectedDate] = useState(today(getLocalTimeZone()));
   const timeZone = getLocalTimeZone();
 
   const onCloseFormModal = () => {
@@ -280,4 +283,6 @@ const CalendarClient = ({
   );
 };
 
-export default CalendarClient;
+export default memo(CalendarClient, isEqual) as <T>(
+  props: CalendarClientProps & T,
+) => JSX.Element;

@@ -1,7 +1,8 @@
 'use client';
 
 // Libs
-import { Key, useCallback, useState } from 'react';
+import { Key, memo, useCallback, useState } from 'react';
+import isEqual from 'react-fast-compare';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
@@ -154,4 +155,6 @@ const InvoiceListClient = ({
   );
 };
 
-export default InvoiceListClient;
+export default memo(InvoiceListClient, isEqual) as <T>(
+  props: TInvoiceListClientProps & T,
+) => JSX.Element;

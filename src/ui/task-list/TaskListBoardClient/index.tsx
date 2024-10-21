@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import { memo, useEffect, useState, useTransition } from 'react';
+import isEqual from 'react-fast-compare';
 import { DragDropContext, DropResult } from '@hello-pangea/dnd';
 
 // types
@@ -93,4 +94,6 @@ const TaskListBoardClient = ({ data }: ITaskListBoardProps) => {
   );
 };
 
-export default TaskListBoardClient;
+export default memo(TaskListBoardClient, isEqual) as <T>(
+  props: ITaskListBoardProps & T,
+) => JSX.Element;
