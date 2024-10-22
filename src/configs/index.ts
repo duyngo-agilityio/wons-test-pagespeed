@@ -16,7 +16,7 @@ import { getProfile } from '@/api';
 import { AuthResponse, Method } from '@/types';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, PROCESS_ENV } from '@/constants';
 
 declare module 'next-auth' {
   interface Session {
@@ -66,6 +66,6 @@ export const CredentialsProvider = Credentials({
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
-  secret: process.env.AUTH_SECRET,
+  secret: PROCESS_ENV.AUTH_SECRET,
   providers: [CredentialsProvider],
 });

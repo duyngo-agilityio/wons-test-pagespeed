@@ -1,3 +1,7 @@
+// Constants
+import { PROCESS_ENV } from '@/constants';
+
+// Types
 import { UploadImageResponse } from '@/types';
 
 export const uploadImage = async (file: File): Promise<UploadImageResponse> => {
@@ -5,16 +9,13 @@ export const uploadImage = async (file: File): Promise<UploadImageResponse> => {
     const formData = new FormData();
     formData.append('file', file);
 
-    const uploadImageRequest = await fetch(
-      process.env.NEXT_PUBLIC_UPLOAD_URL || '',
-      {
-        headers: {
-          'API-Key': process.env.NEXT_PUBLIC_UPLOAD_KEY || '',
-        },
-        method: 'POST',
-        body: formData,
+    const uploadImageRequest = await fetch(PROCESS_ENV.UPLOAD_URL, {
+      headers: {
+        'API-Key': PROCESS_ENV.UPLOAD_KEY,
       },
-    );
+      method: 'POST',
+      body: formData,
+    });
 
     return await uploadImageRequest.json();
   } catch (error) {
