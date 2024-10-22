@@ -98,7 +98,7 @@ const SidebarFooter = ({
               />
             </div>
             {toggle === SidebarState.Open && (
-              <div>
+              <div className="flex flex-col">
                 <Text text={fullName} className="text-sm capitalize" />
                 <Text
                   text={role === Role.User ? 'View-only' : role}

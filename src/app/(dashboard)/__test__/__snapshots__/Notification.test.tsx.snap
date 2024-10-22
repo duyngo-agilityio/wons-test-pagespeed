@@ -8,15 +8,17 @@ exports[`Notification page should match snapshot 1`] = `
     <script>
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
-    <div>
-      <h2
-        aria-level="2"
-        class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
-      >
-        Notification page
-      </h2>
+    <h2
+      aria-level="2"
+      class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
+    >
+      Notification page
+    </h2>
+    <div
+      class="flex justify-center items-center h-full"
+    >
       <p
-        class="font-dm-sans text-blue-800 dark:text-white text-md mt-2"
+        class="font-dm-sans text-blue-800 dark:text-white text-2xl mt-2"
       >
         Coming soon!
       </p>

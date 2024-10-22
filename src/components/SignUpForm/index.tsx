@@ -202,7 +202,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           aria-label="Policy"
         />
 
-        <div>
+        <div className="flex flex-wrap items-center">
           <Text
             text="By creating an account you agree to the"
             size="xl"

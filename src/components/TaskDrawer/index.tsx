@@ -115,26 +115,24 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
         Add New Task
       </Button>
       {isDrawerOpen && (
-        <div>
-          <Drawer
-            open={isDrawerOpen}
-            onClose={handleCloseDrawer}
-            direction="right"
-            size={400}
-            className="!w-full md:!w-[450px]"
-          >
-            <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
-              <TaskForm
-                onAvatarChange={handleAvatarChange}
-                user={user}
-                onCloseDrawer={handleCloseDrawer}
-                key={isDrawerOpen ? 'open' : 'closed'}
-                onSubmit={handleFormSubmit}
-                setReset={() => {}}
-              />
-            </div>
-          </Drawer>
-        </div>
+        <Drawer
+          open={isDrawerOpen}
+          onClose={handleCloseDrawer}
+          direction="right"
+          size={400}
+          className="!w-full md:!w-[450px]"
+        >
+          <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
+            <TaskForm
+              onAvatarChange={handleAvatarChange}
+              user={user}
+              onCloseDrawer={handleCloseDrawer}
+              key={isDrawerOpen ? 'open' : 'closed'}
+              onSubmit={handleFormSubmit}
+              setReset={() => {}}
+            />
+          </div>
+        </Drawer>
       )}
     </div>
   );

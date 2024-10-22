@@ -38,7 +38,7 @@ const InvoiceDetailsHeader = ({
         />
         <div className="flex flex-col gap-[15px]">
           <Text text="Recipient" size="3xs" className="uppercase font-bold" />
-          <div>
+          <div className="flex flex-col">
             <Text
               text={fullName}
               size="2xs"
@@ -55,7 +55,8 @@ const InvoiceDetailsHeader = ({
               className="text-gray-200"
             />
           </div>
-          <div>
+
+          <div className="flex flex-col">
             <div className="flex items-center gap-2.5">
               <Text
                 text="@"
@@ -86,8 +87,9 @@ const InvoiceDetailsHeader = ({
           </div>
         </div>
       </div>
+
       <div className="flex flex-col items-end gap-[26px]">
-        <div>
+        <div className="flex flex-col">
           <div className="flex items-center gap-2.5">
             <Text
               text="@"
@@ -98,6 +100,7 @@ const InvoiceDetailsHeader = ({
               <Text text={EMAIL} size="2xs" />
             </Link>
           </div>
+
           <div className="flex items-center gap-2.5">
             <Text
               text="m"
@@ -109,13 +112,15 @@ const InvoiceDetailsHeader = ({
             </Link>
           </div>
         </div>
+
         <div className="flex flex-col gap-[15px]">
           <Text text="Invoice" size="3xl" className="font-bold" />
-          <div>
+          <div className="flex flex-col">
             <Text text="invoice no." size="2xs" />
             <Text text="001/2021" size="3xs" className="text-gray-200" />
           </div>
-          <div>
+
+          <div className="flex flex-col">
             <Text text="Invoice date" size="2xs" />
             <Text
               text={formatDate(date, DAYJS_PATTERN['MMMM D, YYYY'])}

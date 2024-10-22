@@ -24,10 +24,12 @@ export const metadata: Metadata = {
 };
 
 const NotificationPage = () => (
-  <div>
+  <>
     <Heading size="lg" title="Notification page" />
-    <Text text="Coming soon!" className="mt-2" />
-  </div>
+    <div className="flex justify-center items-center h-full">
+      <Text size="2xl" text="Coming soon!" className="mt-2" />
+    </div>
+  </>
 );
 
 export default NotificationPage;

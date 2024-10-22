@@ -275,7 +275,7 @@ const InvoiceProductTable = ({
   );
 
   return (
-    <div>
+    <>
       <div className="flex items-center justify-between">
         <Text
           text="Product Description"
@@ -311,7 +311,7 @@ const InvoiceProductTable = ({
           <Text text={errorProducts} className="text-red-400" />
         )}
       </div>
-    </div>
+    </>
   );
 };
 
