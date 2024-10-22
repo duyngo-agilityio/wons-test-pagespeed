@@ -6,6 +6,7 @@ import { IMAGES, PAGE_TITLES } from '@/constants';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
+import { CalendarSkeleton } from '@/components';
 
 // UI
 const LazyCalendar = lazy(() => import('@/ui/calendar'));
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 const CalendarPage = () => (
   <DashBoardLayout title={PAGE_TITLES.CALENDAR}>
-    <Suspense>
+    <Suspense fallback={<CalendarSkeleton />}>
       <LazyCalendar />
     </Suspense>
   </DashBoardLayout>
