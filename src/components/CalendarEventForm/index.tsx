@@ -41,8 +41,8 @@ import {
   Input,
   Button,
   Text,
-  DateTimePickerModal,
   AddressInput,
+  DateTimeRangePickerModal,
 } from '@/components';
 
 interface TimeRangeProps {
@@ -57,7 +57,6 @@ interface EventForm {
 }
 
 interface CalendarEventFormProps {
-  title: string;
   previewData?: EventForm | null;
   timeRange: TimeRangeProps;
   eventTitle: string;
@@ -70,7 +69,6 @@ interface CalendarEventFormProps {
 
 const CalendarEventForm = ({
   previewData,
-  title = '',
   timeRange,
   eventTitle,
   date,
@@ -85,12 +83,12 @@ const CalendarEventForm = ({
   const [calendarDate, setCalendarDate] = useState(formatToCalendarDate(date));
   const [startTime, setStartTime] = useState(timeRange.start);
   const [endTime, setEndTime] = useState(timeRange.end);
+  const [isOpenLocation, setIsOpenLocation] = useState(false);
 
   const {
     handleSubmit,
     control,
     clearErrors,
-    reset,
     formState: { errors, isValid },
   } = useForm<EventForm>({
     mode: 'onBlur',
@@ -137,7 +135,6 @@ const CalendarEventForm = ({
   });
 
   const handleModalClose = () => {
-    reset({ title });
     onClose();
   };
 
@@ -154,8 +151,6 @@ const CalendarEventForm = ({
   useEffect(() => {
     toggleUserList(); // Automatically fetch users when component mounts
   }, [toggleUserList]);
-
-  const [isOpenLocation, setIsOpenLocation] = useState(false);
 
   const usersOptions = users
     .filter((u) => u.id.toString() !== user.id.toString())
@@ -348,7 +343,7 @@ const CalendarEventForm = ({
 
       {/* DateTimePickerModal */}
       {isDateTimePickerOpen && (
-        <DateTimePickerModal
+        <DateTimeRangePickerModal
           isOpen={isDateTimePickerOpen}
           onClose={toggleDateTimePicker}
           selectedDate={formatDateString(calendarDate)}

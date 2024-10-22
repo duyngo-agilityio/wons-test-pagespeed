@@ -14,8 +14,13 @@ import { formatToCalendarDate } from '@/utils';
 import { IEvent, TUser } from '@/models';
 
 // Components
-import { Heading, Button, Tabs, CalendarEventForm } from '@/components';
-import CalendarTaskForm from '../CalendarTaskForm';
+import {
+  Heading,
+  Button,
+  Tabs,
+  CalendarEventForm,
+  CalendarTaskForm,
+} from '@/components';
 
 interface TimeRangeProps {
   start: string;
@@ -73,7 +78,6 @@ const CalendarModal = ({
       content: (
         <CalendarEventForm
           previewData={previewData}
-          title={title}
           timeRange={timeRange}
           eventTitle={eventTitle}
           date={date}
@@ -87,7 +91,13 @@ const CalendarModal = ({
     {
       key: 'task',
       label: 'Task',
-      content: <CalendarTaskForm />,
+      content: (
+        <CalendarTaskForm
+          date={date}
+          onClose={onClose}
+          time={timeRange.start}
+        />
+      ),
       isDisable: false,
     },
     {
