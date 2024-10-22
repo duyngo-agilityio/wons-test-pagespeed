@@ -7,11 +7,11 @@ import { isAdmin } from '@/utils';
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
-// UI
-import { CreateInvoice } from '@/ui';
+const LazyCreateInvoice = lazy(() => import('@/ui/create-invoice'));
 
 // Constants
 import { IMAGES } from '@/constants';
+import { lazy, Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Wons Create New Invoice',
@@ -35,7 +35,9 @@ const CreateInvoicePage = async (): Promise<JSX.Element> => {
 
   return (
     <DashBoardLayout title="Create New Invoice">
-      <CreateInvoice />
+      <Suspense>
+        <LazyCreateInvoice />
+      </Suspense>
     </DashBoardLayout>
   );
 };

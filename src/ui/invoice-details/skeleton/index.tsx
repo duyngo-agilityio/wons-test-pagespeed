@@ -1,3 +1,5 @@
+'use client';
+
 // Components
 import InvoiceDetailsBodySkeleton from './body';
 import InvoiceDetailsFooterSkeleton from './footer';
