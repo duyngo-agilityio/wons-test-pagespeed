@@ -12,4 +12,5 @@ export const SEARCH_QUERIES = {
   PAGE: 'page',
   ID: 'id',
   FILTERS: 'filters',
+  LOCATION: 'location',
 };

@@ -49,6 +49,7 @@ export const MESSAGES = {
     SUCCESS: 'success',
     ERROR: 'error',
   },
+  LOCATION: 'Error: Please provide at least a location!',
 };
 
 export const ErrorMapper: Record<string, string> = {
