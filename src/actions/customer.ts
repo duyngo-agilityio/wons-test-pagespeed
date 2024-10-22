@@ -68,10 +68,7 @@ export const deleteCustomer = async (id: number) => {
   }
 };
 
-export const updateCustomer = async (
-  id: number,
-  data: Partial<ICustomer>,
-): Promise<{ error?: string }> => {
+export const updateCustomer = async (id: number, data: Partial<ICustomer>) => {
   try {
     await httpClient.genericRequest({
       method: Method.Put,
@@ -81,7 +78,7 @@ export const updateCustomer = async (
 
     revalidateTag(API_PATH.CUSTOMERS);
 
-    return { error: undefined };
+    return { success: true };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };

@@ -19,13 +19,6 @@ export interface ISignUpFormData extends Pick<TUser, 'avatar'> {
   password: string;
 }
 
-export interface TSignUpPayload extends Pick<TUser, 'avatar'> {
-  fullName: string;
-  username: string;
-  email: string;
-  password: string;
-}
-
 export type TSignUpResponse = { jwt: string; user: Omit<TUser, 'password'> };
 
 export type TRole = {

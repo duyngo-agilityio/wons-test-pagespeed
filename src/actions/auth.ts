@@ -11,7 +11,7 @@ import { API_PATH, AUTH_METHODS, ERROR_TYPES, MESSAGES } from '@/constants';
 // Types
 import {
   SignInFormData,
-  TSignUpPayload,
+  ISignUpFormData,
   TSignUpResponse,
   Method,
 } from '@/types';
@@ -44,11 +44,11 @@ export const signOut = async () => {
 };
 
 export const signUp = async (
-  payload: TSignUpPayload,
+  payload: ISignUpFormData,
 ): Promise<{ error?: string; data?: TSignUpResponse }> => {
   try {
     const res = await httpClient.genericRequest<
-      TSignUpPayload,
+      ISignUpFormData,
       TSignUpResponse
     >({
       method: Method.Post,
