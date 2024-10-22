@@ -2,9 +2,9 @@ import { NextRequest } from 'next/server';
 
 // Constants
 import {
-  API_LOCATION_URL,
   API_PATH,
   MESSAGES,
+  PROCESS_ENV,
   SEARCH_QUERIES,
   STATUS_CODE,
 } from '@/constants';
@@ -38,10 +38,10 @@ export const getLocationRequest = async (request: NextRequest) => {
   }
   const dataQuery = {
     text: locationValue,
-    apiKey: process.env.NEXT_API_LOCATION_API_KEY,
+    apiKey: PROCESS_ENV.API_LOCATION_KEY,
   };
   const locationRequest = await fetch(
-    `${API_LOCATION_URL}?${formatQuery(dataQuery)}`,
+    `${PROCESS_ENV.API_LOCATION_URL}?${formatQuery(dataQuery)}`,
   );
 
   const locationResponse = await locationRequest.json();
