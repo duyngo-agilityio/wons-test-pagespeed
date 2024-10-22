@@ -4,6 +4,6 @@ import { authenticate } from '@/actions';
 // UI
 import { SignInForm } from '@/ui';
 
-const SignUpPage = () => <SignInForm signIn={authenticate} />;
+const SignInPage = () => <SignInForm signIn={authenticate} />;
 
-export default SignUpPage;
+export default SignInPage;
