@@ -22,10 +22,12 @@ export const metadata: Metadata = {
 };
 
 const MessagesPage = () => (
-  <div>
+  <>
     <Heading size="lg" title="Messages page" />
-    <Text text="Coming soon!" className="mt-2" />
-  </div>
+    <div className="flex justify-center items-center h-full">
+      <Text size="2xl" text="Coming soon!" className="mt-2" />
+    </div>
+  </>
 );
 
 export default MessagesPage;

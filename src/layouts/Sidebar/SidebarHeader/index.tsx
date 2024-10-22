@@ -18,7 +18,7 @@ interface ISidebarHeader {
 }
 
 const SidebarHeader = ({ isToggle, onToggleSidebar }: ISidebarHeader) => (
-  <div>
+  <>
     <Button
       isIconOnly
       color="primary"
@@ -42,7 +42,7 @@ const SidebarHeader = ({ isToggle, onToggleSidebar }: ISidebarHeader) => (
         )}
       />
     </div>
-  </div>
+  </>
 );
 
 export default memo(SidebarHeader);
