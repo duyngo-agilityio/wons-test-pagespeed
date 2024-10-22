@@ -63,7 +63,7 @@ const ProductListClient = ({
   const [isLoading, setIsLoading] = useState(false);
 
   // Func
-  const handleDelete = useCallback(
+  const handleDeleteProduct = useCallback(
     async (id: number) => {
       setIsLoading(true);
 
@@ -81,12 +81,12 @@ const ProductListClient = ({
     [onDelete, showToast],
   );
 
-  const handleCloseProductDetails = useCallback(
+  const handleCloseProductDetail = useCallback(
     () => setToggleProductDetails(false),
     [],
   );
 
-  const handleOpenProductDetails = useCallback(
+  const handleOpenProductDetail = useCallback(
     (key: Key) => {
       const productByID = getDataByID<TProductInvoiceResponse>(
         productList,
@@ -98,7 +98,7 @@ const ProductListClient = ({
     [productList],
   );
 
-  const handleOpenEditProduct = useCallback(
+  const handleOpenDrawer = useCallback(
     (id: number) => {
       const productByID = getDataByID<TProductInvoiceResponse>(productList, id);
       const idProduct = productByID?.attributes?.product?.data?.id;
@@ -126,7 +126,7 @@ const ProductListClient = ({
     [productList],
   );
 
-  const handleCloseEditProduct = useCallback(() => {
+  const handleCloseDrawer = useCallback(() => {
     setToggleEditProduct(false);
     setProductDetailsByID(undefined);
   }, []);
@@ -181,14 +181,14 @@ const ProductListClient = ({
       <ProductTable
         data={productList}
         isReadOnly={isReadOnly}
-        onDelete={handleDelete}
-        onEdit={handleOpenEditProduct}
-        onRowAction={handleOpenProductDetails}
+        onDelete={handleDeleteProduct}
+        onEdit={handleOpenDrawer}
+        onRowAction={handleOpenProductDetail}
       />
       {productDetailsByID && toggleProductDetails && (
         <Drawer
           open={toggleProductDetails}
-          onClose={handleCloseProductDetails}
+          onClose={handleCloseProductDetail}
           direction="right"
           className="base:!w-[302px] lg:!w-[369px] !max-w-[369px]"
         >
@@ -198,7 +198,7 @@ const ProductListClient = ({
       {toggleEditProduct && (
         <Drawer
           open={toggleEditProduct}
-          onClose={handleCloseEditProduct}
+          onClose={handleCloseDrawer}
           direction="right"
           className="base:!w-[302px] lg:!w-[369px] !max-w-[369px]"
         >
@@ -209,7 +209,7 @@ const ProductListClient = ({
               }
               onAvatarChange={handleAvatarChange}
               onSubmit={handleEditProduct}
-              onCloseDrawer={handleCloseEditProduct}
+              onCloseDrawer={handleCloseDrawer}
             />
           </div>
         </Drawer>
