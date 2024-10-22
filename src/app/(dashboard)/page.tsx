@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { lazy, Suspense } from 'react';
 
 // Layouts
@@ -28,7 +29,30 @@ import {
 import { RecentServicesSkeleton } from '@/ui';
 
 // Constants
-import { PAGE_TITLES } from '@/constants';
+import { IMAGES, PAGE_TITLES } from '@/constants';
+
+export const metadata: Metadata = {
+  title: 'Wons Dashboard',
+  description:
+    'Wons dashboard managing user-contributed templates and daily personal tasks.',
+  openGraph: {
+    title: 'Wons Dashboard',
+    description:
+      'Wons dashboard managing user-contributed templates and daily personal tasks.',
+    images: [
+      {
+        url: IMAGES.PREVIEW_IMAGE,
+        alt: 'preview image',
+      },
+    ],
+  },
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon.ico',
+    },
+  ],
+};
 
 interface IDashboardPage {
   searchParams: ISearchParams;
