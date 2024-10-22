@@ -13,7 +13,7 @@ interface SignInLayoutProps {
   children: ReactNode;
 }
 
-const SignInPage = ({ children }: SignInLayoutProps) => (
+const SignInLayout = ({ children }: SignInLayoutProps) => (
   <AuthLayout
     image={
       <ImageFallback
@@ -34,4 +34,4 @@ const SignInPage = ({ children }: SignInLayoutProps) => (
   </AuthLayout>
 );
 
-export default SignInPage;
+export default SignInLayout;
