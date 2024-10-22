@@ -6,7 +6,7 @@ jest.mock('@/layouts', () => ({
 }));
 
 describe('Setting Page', () => {
-  it('should match sanpshot', () => {
+  it('should match snapshot', () => {
     const { container } = testLibJestUtils.render(<SettingsPage />);
 
     expect(container).toMatchSnapshot();
