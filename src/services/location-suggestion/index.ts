@@ -1,7 +1,13 @@
 import { NextRequest } from 'next/server';
 
 // Constants
-import { API_LOCATION_URL, API_PATH } from '@/constants';
+import {
+  API_LOCATION_URL,
+  API_PATH,
+  MESSAGES,
+  SEARCH_QUERIES,
+  STATUS_CODE,
+} from '@/constants';
 
 // Utils
 import { formatQuery } from '@/utils';
@@ -23,11 +29,11 @@ export const getLocationSuggestion = async (keyword: string) => {
 export const getLocationRequest = async (request: NextRequest) => {
   const searchParams = request.nextUrl?.searchParams;
 
-  const locationValue = searchParams.get('location');
+  const locationValue = searchParams.get(SEARCH_QUERIES.LOCATION);
 
   if (!locationValue) {
-    return new Response('Error: Please provide at least a location!', {
-      status: 400,
+    return new Response(MESSAGES.LOCATION, {
+      status: STATUS_CODE.INVALID_PARAM,
     });
   }
   const dataQuery = {
