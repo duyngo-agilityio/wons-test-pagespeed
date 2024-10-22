@@ -174,4 +174,9 @@
   margin-right: 8px;
   width: auto;
   background-color: var(--c-calendar-current-date-color);
+  color: black;
+}
+
+.rbc-event.rbc-selected {
+  color: white;
 }
