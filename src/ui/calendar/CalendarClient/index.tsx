@@ -37,7 +37,7 @@ import {
   ConfirmModal,
   CustomCalendar,
   EventDetail,
-  EventFormModal,
+  CalendarModal,
   LoadingIndicator,
 } from '@/components';
 import CustomToolBar from '../CustomToolBar';
@@ -258,7 +258,7 @@ const CalendarClient = ({
       />
 
       {isOpenEventFormModal && (
-        <EventFormModal
+        <CalendarModal
           user={user}
           title={previewData ? 'Update Event' : 'Create Event'}
           eventTitle=""
