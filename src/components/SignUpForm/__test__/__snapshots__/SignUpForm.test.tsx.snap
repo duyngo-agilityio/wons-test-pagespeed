@@ -240,13 +240,13 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
         </label>
         <div>
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-xl color-blue.900 font-medium inline"
+            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-900 font-medium inline"
           >
             By creating an account you agree to the
           </p>
            
           <a
-            href="#"
+            href="/terms-of-use"
           >
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
@@ -256,18 +256,18 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
           </a>
            
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-xl color-blue-900 font-medium inline"
+            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-900 font-medium inline"
           >
             and our
           </p>
            
           <a
-            href="#"
+            href="/privacy-policy"
           >
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
             >
-              privacy policy.
+               privacy policy.
             </p>
           </a>
         </div>

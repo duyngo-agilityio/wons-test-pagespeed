@@ -23,7 +23,8 @@ const SignUpLayout = ({ children }: SignUpLayoutProps): JSX.Element => (
         width={0}
         height={0}
         sizes="100vw"
-        className="h-[200px] lg:h-[427px] w-auto"
+        className="h-[200px] lg:h-[427px] w-auto object-cover"
+        loading="lazy"
       />
     }
   >
