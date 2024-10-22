@@ -1,8 +1,8 @@
-export * from './account-success';
+export { default as AccountSuccess } from './account-success';
+export { default as SignInForm } from './sign-in';
+export { default as SignUpForm } from './sign-up';
 export * from './main-dashboard';
 export * from './create-invoice';
-export * from './sign-in';
-export * from './sign-up';
 export * from './invoice-list';
 export * from './customer-list';
 export * from './customer-list';
