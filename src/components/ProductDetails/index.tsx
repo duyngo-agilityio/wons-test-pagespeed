@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { notFound } from 'next/navigation';
 
 // Types
 import { TProductInvoiceResponse } from '@/types';
@@ -16,16 +15,21 @@ interface IProductDetailsProps {
 }
 
 const ProductDetails = ({ product }: IProductDetailsProps) => {
-  const { quantity = 0, price = 0 } = product?.attributes ?? {};
   const {
-    imageUrl = '',
-    title = '',
-    negotiable = false,
-    brand = '',
-    description = '',
-  } = product?.attributes?.product?.data?.attributes ?? {};
-
-  if (!product) notFound();
+    quantity = 0,
+    price = 0,
+    product: {
+      data: {
+        attributes: {
+          imageUrl = '',
+          title = '',
+          negotiable = false,
+          brand = '',
+          description = '',
+        } = {},
+      } = {},
+    } = {},
+  } = product?.attributes ?? {};
 
   return (
     <div className="min-h-full base:w-[302px] lg:w-[369px] max-w-[369px] bg-white dark:bg-gray-400 py-[62px] px-6">
