@@ -35,13 +35,10 @@ export const getAllProducts = async ({
       },
     });
 
-    if (!productsResponse?.data?.length) {
-      return { error: undefined, data: [] };
-    }
-
-    return { error: undefined, data: productsResponse.data };
+    return { data: productsResponse.data ?? [] };
   } catch (error) {
     const message = formatErrorMessage(error);
+
     return { error: message };
   }
 };
@@ -62,13 +59,10 @@ export const getProducts = async (): Promise<{
       },
     });
 
-    if (!productsResponse?.data?.length) {
-      return { error: undefined, data: [] };
-    }
-
-    return { error: undefined, data: productsResponse.data };
+    return { data: productsResponse.data ?? [] };
   } catch (error) {
     const message = formatErrorMessage(error);
+
     return { error: message };
   }
 };
