@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import { Input } from '@/components';
 
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { DAYJS_PATTERN } from '@/constants';
 dayjs.extend(customParseFormat);
 
 interface DateTimePickerModalProps {
@@ -44,24 +45,28 @@ const DateTimeRangePickerModal = ({
         <Input
           label="Start Time"
           type="time"
-          value={dayjs(selectedStartTime, 'hh:mma').utc(true).format('HH:mm')}
+          value={dayjs(selectedStartTime, DAYJS_PATTERN['hh:mma'])
+            .utc(true)
+            .format(DAYJS_PATTERN['HH:mm'])}
           onChange={(e) => {
             const selectedTime = e.target.value; // get the time value from input
-            const formattedTime = dayjs(selectedTime, 'HH:mm')
+            const formattedTime = dayjs(selectedTime, DAYJS_PATTERN['HH:mm'])
               .utc(true)
-              .format('hh:mma'); // Convert to 12h format
+              .format(DAYJS_PATTERN['hh:mma']); // Convert to 12h format
             onStartTimeChange(formattedTime); // Call the handler with the new formatted value
           }}
         />
         <Input
           label="End Time"
           type="time"
-          value={dayjs(selectedEndTime, 'hh:mma').utc(true).format('HH:mm')}
+          value={dayjs(selectedEndTime, DAYJS_PATTERN['hh:mma'])
+            .utc(true)
+            .format(DAYJS_PATTERN['HH:mm'])}
           onChange={(e) => {
             const selectedTime = e.target.value; // get the time value from input
-            const formattedTime = dayjs(selectedTime, 'HH:mm')
+            const formattedTime = dayjs(selectedTime, DAYJS_PATTERN['HH:mm'])
               .utc(true)
-              .format('hh:mma'); // Convert to 12h format
+              .format(DAYJS_PATTERN['hh:mma']); // Convert to 12h format
             onEndTimeChange(formattedTime); // Call the handler with the new formatted value
           }}
         />

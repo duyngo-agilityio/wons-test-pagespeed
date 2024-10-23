@@ -23,7 +23,7 @@ import './index.css';
 import { IEvent, TUser } from '@/models';
 
 // Constants
-import { MESSAGES, ROUTES } from '@/constants';
+import { DAYJS_PATTERN, MESSAGES, ROUTES } from '@/constants';
 
 // Utils
 import { formattedEvents, formattedGuestInfo, getTimeFromISO } from '@/utils';
@@ -238,7 +238,7 @@ const CalendarClient = ({
           {isLoading && <LoadingIndicator />}
           <EventDetail
             title={selectedEvent.title}
-            time={`${dayjs(selectedEvent.date).format('YYYY-MM-DD')} ${getTimeFromISO(selectedEvent.startTime)} - ${getTimeFromISO(selectedEvent.endTime)}`}
+            time={`${dayjs(selectedEvent.date).format(DAYJS_PATTERN['YYYY-MM-DD'])} ${getTimeFromISO(selectedEvent.startTime)} - ${getTimeFromISO(selectedEvent.endTime)}`}
             location={selectedEvent.location || 'No location specified'}
             isOpen={isModalOpen}
             onCloseModal={handleCloseModal}
@@ -267,11 +267,13 @@ const CalendarClient = ({
           }
           timeRange={{
             start: previewData
-              ? dayjs(previewData.startTime).utc().format('hh:mma')
-              : dayjs(slot?.end).add(5, 'hour').format('hh:mma'),
+              ? dayjs(previewData.startTime)
+                  .utc()
+                  .format(DAYJS_PATTERN['hh:mma'])
+              : dayjs(slot?.end).add(5, 'hour').format(DAYJS_PATTERN['hh:mma']),
             end: previewData
-              ? dayjs(previewData.endTime).utc().format('hh:mma')
-              : dayjs(slot?.end).add(7, 'hour').format('hh:mma'),
+              ? dayjs(previewData.endTime).utc().format(DAYJS_PATTERN['hh:mma'])
+              : dayjs(slot?.end).add(7, 'hour').format(DAYJS_PATTERN['hh:mma']),
           }}
           previewData={previewData}
           isOpen={isOpenEventFormModal}
