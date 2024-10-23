@@ -51,7 +51,7 @@ const taskFormSchema = z.object({
   label: z.enum(['todo', 'inProgress', 'inReview', 'done'], {
     errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
-  level: z.enum(['Low', 'Medium', 'High'], {
+  level: z.enum(['low', 'medium', 'high'], {
     errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
   }),
   assignees: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
