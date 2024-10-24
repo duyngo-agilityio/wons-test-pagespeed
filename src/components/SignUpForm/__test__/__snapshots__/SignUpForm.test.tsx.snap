@@ -251,7 +251,7 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
             href="/terms-of-use"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+              class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
             >
               terms of use
             </p>
@@ -267,7 +267,7 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
             href="/privacy-policy"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+              class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
             >
                privacy policy.
             </p>
@@ -299,7 +299,7 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
           href="/sign-in"
         >
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
           >
             Sign in
           </p>
