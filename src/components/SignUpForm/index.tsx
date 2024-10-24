@@ -206,7 +206,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           <Text
             text="By creating an account you agree to the"
             size="xl"
-            className="color-blue.900 font-medium inline"
+            className="!text-blue-900 font-medium inline"
           />
           &nbsp;
           <Link href="#">
@@ -220,7 +220,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           <Text
             text="and our"
             size="xl"
-            className="color-blue-900 font-medium inline"
+            className="!text-blue-900 font-medium inline"
           />
           &nbsp;
           <Link href="#">
