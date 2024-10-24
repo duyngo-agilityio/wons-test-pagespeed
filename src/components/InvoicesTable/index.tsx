@@ -234,6 +234,7 @@ const InvoicesTable = ({
                 onClick={handleOpenConfirmModal}
               >
                 <MdDelete
+                  aria-label="Delete Button"
                   size={20}
                   className="text-blue-800/30 dark:text-white/40"
                 />
