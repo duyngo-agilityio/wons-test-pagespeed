@@ -317,3 +317,6 @@ export const getUserIdsForTask = (taskResponse: Task): string => {
   // return taskResponse.assignees.data.map((user) => user.id).join(',');
   return result.assignees;
 };
+
+export const filterDataByIndex = <T>(data: T[], indexItem: number) =>
+  data?.filter((_, index: number) => index !== indexItem);

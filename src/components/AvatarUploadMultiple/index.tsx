@@ -10,42 +10,50 @@ import { Input, Button, Text, ImageFallback } from '@/components';
 
 // constants
 import { MESSAGES } from '@/constants';
+import { filterDataByIndex } from '@/utils';
 
 export type TAvatarUploadMultipleProps = {
   previewFiles?: string[];
-  onFileChange: (files: File[]) => void;
+  onFileChange: (previewFiles?: string[], selectedFiles?: File[]) => void;
 };
 
 const AvatarUploadMultiple = ({
   previewFiles = [],
   onFileChange,
 }: TAvatarUploadMultipleProps) => {
-  const [files, setFiles] = useState<string[]>(previewFiles);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [currentPreviewFiles, setCurrentPreviewFiles] =
+    useState<string[]>(previewFiles);
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const isUploadDisabled = files?.length >= 2;
+  const isUploadDisabled = currentPreviewFiles?.length >= 2;
 
   const uploadMultipleFile = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      if (!event.target.files) return [];
+      const values = Array.from(event.target.files ?? []);
+      const allSelectedFiles = [...selectedFiles, ...values];
 
-      const values = Array.from(event.target.files);
-
-      if (files.length > 2) {
+      if (currentPreviewFiles.length > 2) {
         setErrorMessage(MESSAGES.ERROR.MAX_IMAGE);
         return;
       }
 
+      if (currentPreviewFiles.length === 1 && values.length > 2) {
+        setErrorMessage(MESSAGES.ERROR.UPLOAD_IMAGE_SIZE);
+        return;
+      }
+
       setErrorMessage('');
+      setSelectedFiles(allSelectedFiles);
 
-      const newFiles: string[] = values.map((value) =>
-        URL.createObjectURL(value),
-      );
+      const newPreviewFiles: string[] = [
+        ...currentPreviewFiles,
+        ...values.map((value) => URL.createObjectURL(value)),
+      ];
 
-      setFiles(newFiles);
-
-      onFileChange(values);
+      setCurrentPreviewFiles(newPreviewFiles);
+      onFileChange(newPreviewFiles, allSelectedFiles);
     },
-    [files.length, onFileChange],
+    [currentPreviewFiles, onFileChange, selectedFiles],
   );
 
   const clickInput = useCallback((event: MouseEvent<HTMLInputElement>) => {
@@ -54,11 +62,13 @@ const AvatarUploadMultiple = ({
 
   const deleteFile = useCallback(
     (indexFile: number) => {
-      const updatedFiles = files.filter((_, index) => index !== indexFile);
+      const updatedPreviewFiles = filterDataByIndex(previewFiles, indexFile);
+      const updatedSelectedFiles = filterDataByIndex(selectedFiles, indexFile);
 
-      setFiles(updatedFiles);
+      setCurrentPreviewFiles(updatedPreviewFiles);
+      onFileChange(updatedPreviewFiles, updatedSelectedFiles);
     },
-    [files],
+    [onFileChange, previewFiles, selectedFiles],
   );
 
   return (
@@ -92,7 +102,7 @@ const AvatarUploadMultiple = ({
       )}
 
       <div className="grid grid-cols-2 gap-4 mt-4">
-        {files?.map((file, index) => {
+        {currentPreviewFiles?.map((file, index) => {
           const handleChangeDelete = () => {
             deleteFile(index);
           };

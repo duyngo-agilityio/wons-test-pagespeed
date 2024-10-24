@@ -132,6 +132,8 @@ const TaskForm = ({
     return isDirty && !hasError;
   });
 
+  const [formDataImages, setFormDataImages] = useState(previewData?.images);
+
   const isDisableSubmit = previewData
     ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
     : !allFieldsFilled ||
@@ -146,7 +148,7 @@ const TaskForm = ({
       startTransition(async () => {
         const dataToSubmit: TaskWithStringAssignees = {
           assignees,
-          images: formData.images ?? [],
+          images: formData.images ?? formDataImages,
           title: formData.title || '',
           label: formData.label || 'todo',
           level: formData.level || Level.Medium,
@@ -157,7 +159,7 @@ const TaskForm = ({
         reset();
       });
     },
-    [onSubmit, reset],
+    [formDataImages, onSubmit, reset],
   );
 
   const [users, setUsers] = useState<TUser[]>([]);
@@ -206,12 +208,15 @@ const TaskForm = ({
         <Controller
           control={control}
           name="images"
-          render={({ field: { value, onChange } }) => (
+          render={({ field: { value } }) => (
             <AvatarUploadMultiple
               previewFiles={value}
-              onFileChange={(files: File[]) => {
-                onChange(files);
-                onAvatarChange(files);
+              onFileChange={(
+                previewFiles: string[] = [],
+                payload: File[] = [],
+              ) => {
+                setFormDataImages(previewFiles);
+                onAvatarChange(payload);
               }}
             />
           )}
