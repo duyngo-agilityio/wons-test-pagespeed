@@ -21,7 +21,7 @@ const Column = ({ status, tasks }: TColumnProps) => (
   <Droppable droppableId={status}>
     {(provided) => (
       <div
-        className="w-full  md:w-1/4 flex-grow "
+        className="w-full md:w-1/4 flex-grow"
         {...provided.droppableProps}
         ref={provided.innerRef}
       >
@@ -29,7 +29,7 @@ const Column = ({ status, tasks }: TColumnProps) => (
           className="text-base md:text-xl lg:text-2xl !text-blue-400 dark:!text-gray-850 font-bold mb-4"
           title={status}
         />
-        <div className="space-y-4">
+        <div className="space-y-4 max-h-[calc(100vh-300px)] overflow-auto">
           {tasks.map((task, index) => {
             return <TaskCard key={task.id} index={index} task={task} />;
           })}
