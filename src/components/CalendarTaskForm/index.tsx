@@ -3,14 +3,20 @@
 import { memo, useCallback, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
+import dayjs from 'dayjs';
+import { Textarea } from '@nextui-org/react';
 
 // Constants
 import { MESSAGES } from '@/constants';
+
+// Models
+import { ICalendarTask } from '@/models';
 
 // Utils
 import {
   clearErrorOnChange,
   formatDateString,
+  formatDateToISO,
   formatEventDate,
   formatToCalendarDate,
   formatToStandardDate,
@@ -24,20 +30,27 @@ import {
   Input,
   Text,
 } from '@/components';
-import { Textarea } from '@nextui-org/react';
 
 interface TaskForm {
   title: string;
-  description: string;
+  descriptions: string;
 }
 
 interface CalendarTaskFormProps {
   time: string;
   date: Date;
+  previewData?: Partial<ICalendarTask> | null;
   onClose: () => void;
+  onSubmit: (data: Partial<ICalendarTask>) => void;
 }
 
-const CalendarTaskForm = ({ time, date, onClose }: CalendarTaskFormProps) => {
+const CalendarTaskForm = ({
+  previewData,
+  time,
+  date,
+  onClose,
+  onSubmit,
+}: CalendarTaskFormProps) => {
   const [timeDate, setTimeDate] = useState(time);
   const [calendarDate, setCalendarDate] = useState(formatToCalendarDate(date));
   const [isDateTimePickerOpen, setIsDateTimePickerOpen] = useState(false);
@@ -50,9 +63,9 @@ const CalendarTaskForm = ({ time, date, onClose }: CalendarTaskFormProps) => {
   } = useForm<TaskForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
-    defaultValues: {
+    defaultValues: previewData || {
       title: '',
-      description: '',
+      descriptions: '',
     },
   });
 
@@ -61,7 +74,16 @@ const CalendarTaskForm = ({ time, date, onClose }: CalendarTaskFormProps) => {
   }, [setIsDateTimePickerOpen]);
 
   const handleFormSubmit = handleSubmit((data) => {
-    console.log('Task form submitted:', data);
+    const formattedTime = formatDateToISO(
+      new Date(formatDateString(calendarDate)),
+      dayjs(time, 'hh:mma').utc(true).format('HH:mm'),
+    );
+
+    onSubmit({
+      ...data,
+      time: formattedTime,
+      date: new Date(formatDateString(calendarDate)),
+    });
   });
 
   const handleModalClose = () => {
@@ -137,9 +159,9 @@ const CalendarTaskForm = ({ time, date, onClose }: CalendarTaskFormProps) => {
         </div>
 
         <div className="flex flex-col pt-8">
-          <label className="text-xl font-medium pb-2">Descriptions</label>
+          <label className="text-xl font-medium pb-2">Description</label>
           <Controller
-            name="description"
+            name="descriptions"
             control={control}
             render={({
               field: { name, onChange, ...rest },

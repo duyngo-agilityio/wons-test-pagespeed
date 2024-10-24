@@ -13,7 +13,7 @@ import {
 } from '@/types';
 
 // Models
-import { IEvent, IProduct, TInvoiceProduct } from '@/models';
+import { ICalendarTask, IEvent, IProduct, TInvoiceProduct } from '@/models';
 
 // Constants
 import { REGEX } from '@/constants';
@@ -225,7 +225,23 @@ export const formattedEvents = (events: StrapiModel<IEvent>[]) =>
       start,
       end,
     };
-  }) as unknown as (Event & IEvent)[]; // TODO: Update type later
+  }) as unknown as (Event & IEvent & ICalendarTask)[]; // TODO: Update type later
+
+export const formattedTasks = (events: StrapiModel<ICalendarTask>[]) =>
+  events.map(({ id, attributes }) => {
+    const { time = '' } = attributes ?? {};
+
+    const start = formatTimeCalendar(time);
+    const end = formatTimeCalendar(time);
+
+    return {
+      ...attributes,
+      id,
+      date: dayjs(attributes.date).utc(true).toDate(),
+      start,
+      end,
+    };
+  }) as unknown as (Event & IEvent & ICalendarTask)[]; // TODO: Update type later
 
 export const parseStringToNumberArray = (value: string): number[] => {
   return value

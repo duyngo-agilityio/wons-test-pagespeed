@@ -1,5 +1,6 @@
 export const API_PATH = {
   INVOICE_PRODUCTS: '/invoice-products',
+  CALENDAR_TASKS: '/calendar-tasks',
   LOCATION_SUGGESTION: '/api/location-suggestion',
   PRODUCTS: '/products',
   SIGN_IN: '/auth/local',

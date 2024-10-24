@@ -33,17 +33,26 @@ interface EventForm {
   people?: string | number[];
 }
 
+interface TaskForm {
+  title: string;
+  description: string;
+}
+
 interface EventFormModalProps {
   title: string;
   eventTitle: string;
   date: Date;
-  timeRange: TimeRangeProps;
+  timeRange?: TimeRangeProps;
+  time?: string;
   isOpen: boolean;
   repeatSetting?: string;
   guests?: string[];
   location?: string;
-  user: TUser;
-  previewData?: EventForm | null;
+  user?: TUser;
+  previewData?: EventForm | TaskForm | null;
+  isEdit?: boolean;
+  isTask?: boolean;
+  setIsTask?: (value: boolean) => void;
   onSubmit: (data: Partial<IEvent>) => void;
   onClose: () => void;
 }
@@ -53,9 +62,13 @@ const CalendarModal = ({
   eventTitle = '',
   date,
   timeRange,
+  isEdit = false,
+  isTask = false,
+  time,
   isOpen,
   user,
   previewData = null,
+  setIsTask,
   onClose,
   onSubmit,
 }: EventFormModalProps): JSX.Element => {
@@ -71,7 +84,13 @@ const CalendarModal = ({
     onClose();
   };
 
-  const EVENT_TABS = [
+  const handleSelectionChange = (key: React.Key) => {
+    if (key === 'task') {
+      setIsTask && setIsTask(true);
+    }
+  };
+
+  const calendarTabs = [
     {
       key: 'event',
       label: 'Event',
@@ -86,19 +105,21 @@ const CalendarModal = ({
           onClose={onClose}
         />
       ),
-      isDisable: false,
+      isDisable: isEdit && isTask,
     },
     {
       key: 'task',
       label: 'Task',
       content: (
         <CalendarTaskForm
+          previewData={previewData}
           date={date}
           onClose={onClose}
-          time={timeRange.start}
+          time={time ?? ''}
+          onSubmit={onSubmit}
         />
       ),
-      isDisable: false,
+      isDisable: isEdit && !isTask,
     },
     {
       key: 'reminder',
@@ -136,7 +157,12 @@ const CalendarModal = ({
           <IoClose size={20} />
         </Button>
 
-        <Tabs style={{ padding: 0, margin: '40px 0 18px' }} tabs={EVENT_TABS} />
+        <Tabs
+          style={{ padding: 0, margin: '40px 0 18px' }}
+          tabs={calendarTabs}
+          defaultSelectedKey={isEdit && isTask ? 'task' : 'event'}
+          onSelectionChange={handleSelectionChange}
+        />
       </ModalContent>
     </NextModal>
   );
