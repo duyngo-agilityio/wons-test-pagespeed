@@ -5,6 +5,7 @@ import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
 import {
   TInvoiceDetailsResponse,
   TInvoiceListResponse,
+  TInvoiceProductData,
   TRecentInvoiceProductResponse,
 } from '@/types';
 
@@ -30,7 +31,7 @@ export const getInvoiceProducts = async ({
   pageSize = PAGE_SIZE[4],
 }: IParameters): Promise<{
   error?: string;
-  data?: Partial<TRecentInvoiceProductResponse>;
+  data?: TInvoiceProductData;
 }> => {
   const sortValue: string = sort ? `&sort=${sort}` : '';
   const filterQuery: string = formatFilterIntervalDate(
@@ -49,7 +50,7 @@ export const getInvoiceProducts = async ({
       },
     );
 
-    return { data: response };
+    return { data: response.data ?? [] };
   } catch (error) {
     const message = formatErrorMessage(error);
 

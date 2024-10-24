@@ -236,7 +236,7 @@ exports[`SignUp Page render should render and match with snapshot 1`] = `
         class="flex flex-wrap items-center"
       >
         <p
-          class="font-dm-sans text-blue-800 dark:text-white text-xl color-blue.900 font-medium inline"
+          class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-900 font-medium inline"
         >
           By creating an account you agree to the
         </p>
@@ -245,14 +245,14 @@ exports[`SignUp Page render should render and match with snapshot 1`] = `
           href="#"
         >
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
           >
             terms of use
           </p>
         </a>
          
         <p
-          class="font-dm-sans text-blue-800 dark:text-white text-xl color-blue-900 font-medium inline"
+          class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-900 font-medium inline"
         >
           and our
         </p>
@@ -261,7 +261,7 @@ exports[`SignUp Page render should render and match with snapshot 1`] = `
           href="#"
         >
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
           >
             privacy policy.
           </p>
@@ -293,7 +293,7 @@ exports[`SignUp Page render should render and match with snapshot 1`] = `
         href="/sign-in"
       >
         <p
-          class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+          class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
         >
           Sign in
         </p>
