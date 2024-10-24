@@ -22,9 +22,6 @@ import { LEVELS, STATUS, MESSAGES } from '@/constants';
 // Utils
 import {
   clearErrorOnChange,
-  getDirtyState,
-  // getUserIds,
-  // getUserIdsForTask,
   isEnableSubmitButton,
   parseStringToNumberArray,
 } from '@/utils';
@@ -82,7 +79,7 @@ const TaskForm = ({
 }: ITaskFormProps) => {
   const {
     control,
-    formState: { dirtyFields, errors, defaultValues },
+    formState: { dirtyFields, errors, isValid, isDirty },
     clearErrors,
     handleSubmit,
     reset,
@@ -135,7 +132,7 @@ const TaskForm = ({
   const [formDataImages, setFormDataImages] = useState(previewData?.images);
 
   const isDisableSubmit = previewData
-    ? !(enableSubmit || !getDirtyState(defaultValues ?? {}, watch()))
+    ? !(enableSubmit || (isDirty && isValid))
     : !allFieldsFilled ||
       !isAssigneesValid(watch('assignees') as string | undefined);
 
@@ -161,7 +158,7 @@ const TaskForm = ({
         onCloseDrawer?.();
       });
     },
-    [formDataImages, onSubmit, reset],
+    [formDataImages, onCloseDrawer, onSubmit, reset],
   );
 
   const [users, setUsers] = useState<TUser[]>([]);
