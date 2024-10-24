@@ -289,7 +289,7 @@ const CalendarClient = ({
     } else {
       setIsConfirmModalOpen(false);
     }
-  }, [selectedEvent, showToast]);
+  }, [isTask, selectedEvent, showToast]);
 
   const handleDateSelect = (date: DateValue) => {
     const calendarDate = new CalendarDate(date.year, date.month, date.day);
@@ -301,6 +301,15 @@ const CalendarClient = ({
     setIsConfirmModalOpen(false);
     setIsTask(false);
     setIsEdit(false);
+  };
+
+  const handleNavigateCalendar = (newDate: Date) => {
+    const updatedDate = new CalendarDate(
+      newDate.getFullYear(),
+      newDate.getMonth() + 1,
+      newDate.getDate(),
+    );
+    setSelectedDate(updatedDate);
   };
 
   return (
@@ -327,6 +336,7 @@ const CalendarClient = ({
           onSelectSlot={isAdmin ? handleSelectSlot : undefined}
           onSelectEvent={handleSelectEvent}
           date={selectedDate.toDate(timeZone)}
+          onNavigate={handleNavigateCalendar}
         />
       </div>
 
