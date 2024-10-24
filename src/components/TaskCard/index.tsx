@@ -53,7 +53,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [taskForm, setTaskForm] = useState<TaskWithStringAssignees>();
   const [isPending, startTransition] = useTransition();
-  const [idTask, setIdCustomer] = useState<number>();
+  const [idTask, setIdTask] = useState<number>();
   const [avatarFiles, setAvatarFiles] = useState<File[]>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
 
@@ -87,7 +87,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
 
   const handleEdit = async (id: number) => {
     if (attributes) {
-      setIdCustomer(id);
+      setIdTask(id);
 
       const taskWithStringAssignees: TaskWithStringAssignees = {
         ...attributes,

@@ -157,6 +157,8 @@ const TaskForm = ({
 
         await onSubmit(dataToSubmit);
         reset();
+
+        onCloseDrawer?.();
       });
     },
     [formDataImages, onSubmit, reset],
