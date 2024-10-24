@@ -248,7 +248,7 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
                 text={description}
               />
 
-              {images.length !== 0 && (
+              {images?.length !== 0 && (
                 <div className="mt-[20px]">{renderImageTask()}</div>
               )}
 
