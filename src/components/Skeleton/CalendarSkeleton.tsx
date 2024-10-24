@@ -1,5 +1,4 @@
-'use client';
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { Skeleton } from '@nextui-org/react';
 
@@ -48,4 +47,4 @@ const CalendarSkeleton = () => {
   );
 };
 
-export default memo(CalendarSkeleton);
+export default CalendarSkeleton;
