@@ -76,7 +76,7 @@ const CalendarTaskForm = ({
   const handleFormSubmit = handleSubmit((data) => {
     const formattedTime = formatDateToISO(
       new Date(formatDateString(calendarDate)),
-      dayjs(time, 'hh:mma').utc(true).format('HH:mm'),
+      dayjs(timeDate, 'hh:mma').utc(true).format('HH:mm'),
     );
 
     onSubmit({
@@ -147,7 +147,7 @@ const CalendarTaskForm = ({
               <Text as="span" text="-" />
               <Text
                 className="text-blue-800 text-[12px] font-normal leading-normal col-span-1 uppercase"
-                text={`${time}`} // Display time
+                text={`${timeDate}`} // Display time
               />
             </div>
 
