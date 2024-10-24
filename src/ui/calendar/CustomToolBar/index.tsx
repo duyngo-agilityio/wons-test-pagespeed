@@ -61,7 +61,7 @@ const CustomToolBar = ({ label, view, onView, onNavigate }: ToolbarProps) => {
           Month
         </Button>
       </div>
-      <div className="flex pl-[15px] pr-[21px] py-[15px] rounded-tl-[10px] rounded-tr-[10px] bg-white justify-between dark:bg-gray-400">
+      <div className="mb-5 flex pl-[15px] pr-[21px] py-[15px] rounded-tl-[10px] rounded-tr-[10px] bg-white justify-between dark:bg-gray-400">
         <Text text={label} />
 
         <div className="flex gap-[15px] justify-between">
