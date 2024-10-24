@@ -182,10 +182,17 @@
 }
 
 .rbc-day-slot .rbc-event {
-  height: 100% !important;
-  max-height: 100px !important;
+  min-height: 43px !important;
 }
 
 .rbc-event-label {
   width: 100% !important;
+}
+
+.rbc-time-header {
+  display: none !important;
+}
+
+.rbc-month-header {
+  display: none !important;
 }
