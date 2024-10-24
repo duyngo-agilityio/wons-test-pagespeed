@@ -31,7 +31,7 @@ export const getInvoiceProducts = async ({
   pageSize = PAGE_SIZE[4],
 }: IParameters): Promise<{
   error?: string;
-  data?: Partial<TInvoiceProductData>;
+  data?: TInvoiceProductData;
 }> => {
   const sortValue: string = sort ? `&sort=${sort}` : '';
   const filterQuery: string = formatFilterIntervalDate(

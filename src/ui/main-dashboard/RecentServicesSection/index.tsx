@@ -7,7 +7,7 @@ import { getInvoiceProducts } from '@/api';
 import { TableLayout } from '@/layouts';
 
 // Types
-import { ISearchParams, TInvoiceProductData } from '@/types';
+import { ISearchParams } from '@/types';
 
 // Components
 import { ErrorBoundary, RecentServicesTable } from '@/components';
@@ -43,11 +43,9 @@ const RecentServicesSection = async ({
 
   if (!data) notFound();
 
-  const result: TInvoiceProductData = data?.data ?? [];
-
   return (
     <TableLayout>
-      <RecentServicesTable data={result} order={order} />
+      <RecentServicesTable data={data} order={order} />
     </TableLayout>
   );
 };
