@@ -40,6 +40,7 @@ export const colors = {
     800: '#9E005F',
   },
   purple: {
+    400: '#DCDBFF',
     500: '#A5A3FF',
     600: '#605CFF', // Light Purple
   },
