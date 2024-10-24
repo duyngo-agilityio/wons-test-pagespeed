@@ -180,3 +180,12 @@
 .rbc-event.rbc-selected {
   color: white;
 }
+
+.rbc-day-slot .rbc-event {
+  height: 100% !important;
+  max-height: 100px !important;
+}
+
+.rbc-event-label {
+  width: 100% !important;
+}
