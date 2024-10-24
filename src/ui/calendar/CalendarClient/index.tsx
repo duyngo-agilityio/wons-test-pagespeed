@@ -114,13 +114,23 @@ const CalendarClient = ({
 
   const handleSelectSlot = useCallback(
     (slotInfo: SlotInfo) => {
+      // Check for duplicate time range (12:00 AM - 12:00 AM) on date click in month view
+      const isTimeRangeDuplicate =
+        slotInfo.start.getHours() === slotInfo.end.getHours() &&
+        slotInfo.start.getMinutes() === slotInfo.end.getMinutes();
+
+      // Add 30 minutes to slotInfo when time range is duplicate
+      const adjustedEndTime = isTimeRangeDuplicate
+        ? new Date(slotInfo.end.getTime() + 30 * 60 * 1000)
+        : slotInfo.end;
+
       if (dayjs(slotInfo.start).isBefore(dayjs(), 'day')) {
         return;
       }
 
       setSlot({
         start: slotInfo.start,
-        end: slotInfo.end,
+        end: adjustedEndTime,
       });
 
       // Open the Add event form modal
@@ -391,10 +401,10 @@ const CalendarClient = ({
             timeRange={{
               start: previewData
                 ? dayjs(previewData.startTime).utc().format('hh:mma')
-                : dayjs(slot?.start).add(5, 'hour').format('hh:mma'),
+                : dayjs(slot?.start).format('hh:mma'),
               end: previewData
                 ? dayjs(previewData.endTime).utc().format('hh:mma')
-                : dayjs(slot?.end).add(7, 'hour').format('hh:mma'),
+                : dayjs(slot?.end).format('hh:mma'),
             }}
             time={
               previewData
@@ -427,10 +437,10 @@ const CalendarClient = ({
             timeRange={{
               start: previewData
                 ? dayjs(previewData.startTime).utc().format('hh:mma')
-                : dayjs(slot?.start).add(5, 'hour').format('hh:mma'),
+                : dayjs(slot?.start).format('hh:mma'),
               end: previewData
                 ? dayjs(previewData.endTime).utc().format('hh:mma')
-                : dayjs(slot?.end).add(7, 'hour').format('hh:mma'),
+                : dayjs(slot?.end).format('hh:mma'),
             }}
             isTask={isTask}
             isEdit={isEdit}
