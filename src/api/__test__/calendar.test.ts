@@ -11,7 +11,7 @@ import { MESSAGES } from '@/constants';
 import { formatErrorMessage } from '@/utils';
 
 // Api
-import { getEvents } from '../event';
+import { getCalendarEvents } from '../calendar';
 
 jest.mock('@/utils', () => ({
   formatErrorMessage: jest.fn(),
@@ -35,7 +35,7 @@ describe('Events', () => {
       .spyOn(httpClient, 'getRequest')
       .mockResolvedValue({ data: mocksEvents });
 
-    const response = await getEvents();
+    const response = await getCalendarEvents();
 
     expect(response).toEqual({ data: mocksEvents });
   });
@@ -49,7 +49,7 @@ describe('Events', () => {
       MESSAGES.ERROR.UNKNOWN_ERROR,
     );
 
-    const result = await getEvents();
+    const result = await getCalendarEvents();
 
     expect(formatErrorMessage).toHaveBeenCalledWith({
       error: MOCK_ERROR,

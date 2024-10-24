@@ -6,7 +6,7 @@ import CalendarPage from '../calendar/page';
 
 jest.mock('@/api', () => ({
   ...jest.requireActual('@/api'),
-  getEvents: jest.fn(() => ({
+  getCalendarEvents: jest.fn(() => ({
     data: EVENT_TABS,
   })),
 }));

@@ -58,10 +58,10 @@ interface EventForm {
 
 interface CalendarEventFormProps {
   previewData?: EventForm | null;
-  timeRange: TimeRangeProps;
+  timeRange?: TimeRangeProps;
   eventTitle: string;
   date: Date;
-  user: TUser;
+  user?: TUser;
   repeatSetting?: string;
   onSubmit: (data: Partial<IEvent>) => void;
   onClose: () => void;
@@ -81,8 +81,8 @@ const CalendarEventForm = ({
   const [users, setUsers] = useState<TUser[]>([]); // State to store user list
   const [isDateTimePickerOpen, setIsDateTimePickerOpen] = useState(false);
   const [calendarDate, setCalendarDate] = useState(formatToCalendarDate(date));
-  const [startTime, setStartTime] = useState(timeRange.start);
-  const [endTime, setEndTime] = useState(timeRange.end);
+  const [startTime, setStartTime] = useState(timeRange?.start);
+  const [endTime, setEndTime] = useState(timeRange?.end);
   const [isOpenLocation, setIsOpenLocation] = useState(false);
 
   const {
@@ -127,7 +127,7 @@ const CalendarEventForm = ({
 
     onSubmit({
       ...data,
-      users_permissions_users: [Number(user.id), ...people],
+      users_permissions_users: [Number(user?.id), ...people],
       startTime: formattedStart,
       endTime: formattedEnd,
       date: new Date(formatDateString(calendarDate)),
@@ -153,7 +153,7 @@ const CalendarEventForm = ({
   }, [toggleUserList]);
 
   const usersOptions = users
-    .filter((u) => u.id.toString() !== user.id.toString())
+    .filter((u) => u.id.toString() !== user?.id.toString())
     .map((user) => ({
       label: user.username,
       key: user.id,
@@ -313,7 +313,7 @@ const CalendarEventForm = ({
           <div className="flex flex-col gap-[0_30px]">
             <Text
               className="text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-              text={user.fullName} // Display name
+              text={user?.fullName || ''} // Display name
             />
             <Text
               className="text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal"
@@ -347,8 +347,8 @@ const CalendarEventForm = ({
           isOpen={isDateTimePickerOpen}
           onClose={toggleDateTimePicker}
           selectedDate={formatDateString(calendarDate)}
-          selectedStartTime={startTime}
-          selectedEndTime={endTime}
+          selectedStartTime={startTime ?? ''}
+          selectedEndTime={endTime ?? ''}
           onDateChange={(dateString) =>
             setCalendarDate(formatToCalendarDate(new Date(dateString)))
           }
