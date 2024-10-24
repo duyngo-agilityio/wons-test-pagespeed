@@ -184,9 +184,6 @@ const CalendarClient = ({
   const handleFormSubmitTask = async (data: Partial<IEvent>) => {
     onToggleEventFormModal();
 
-    console.log('previewData', previewData);
-    console.log('data', data);
-
     if (previewData) {
       if (selectedEvent && selectedEvent.id !== undefined) {
         setIsLoading(true);
@@ -209,7 +206,6 @@ const CalendarClient = ({
     } else {
       setIsLoading(true);
 
-      console.log(',,,,,,,', data);
       const response = await createCalenderTask(data);
 
       setIsLoading(false);
