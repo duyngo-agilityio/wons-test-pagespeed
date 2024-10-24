@@ -22,8 +22,9 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
         role="tablist"
       >
         <button
+          aria-controls="react-aria-:r0:-tabpanel-event"
           aria-selected="true"
-          class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+          class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px]"
           data-key="event"
           data-selected="true"
           data-slot="tab"
@@ -46,7 +47,7 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
         <button
           aria-disabled="true"
           aria-selected="false"
-          class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+          class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px]"
           data-disabled="true"
           data-key="reminder"
           data-slot="tab"
@@ -64,7 +65,7 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
         <button
           aria-disabled="true"
           aria-selected="false"
-          class="z-0 w-full flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px] px-4 py-2"
+          class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small my-[2px] mx-[2px]"
           data-disabled="true"
           data-key="task"
           data-slot="tab"
@@ -80,6 +81,18 @@ exports[`CustomTabs component renders correctly and matches snapshot 1`] = `
           </div>
         </button>
       </div>
+    </div>
+    <div
+      aria-labelledby="react-aria-:r0:-tab-event"
+      class="py-3 px-1 data-[inert=true]:hidden outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+      data-focus="false"
+      data-focus-visible="false"
+      data-slot="panel"
+      id="react-aria-:r0:-tabpanel-event"
+      role="tabpanel"
+      tabindex="0"
+    >
+      This is the event content
     </div>
   </div>
 </div>

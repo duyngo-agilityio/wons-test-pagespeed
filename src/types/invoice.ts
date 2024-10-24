@@ -21,7 +21,7 @@ export type TInvoiceListResponse = StrapiResponse<TInvoiceDataResponse[]>;
 export interface TInvoiceDetail extends Omit<TInvoice, 'customer'> {
   customer: { data: StrapiModel<ICustomer> };
   invoice_products: {
-    data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[];
+    data: TInvoiceProductData;
   };
 }
 
@@ -44,9 +44,11 @@ export type TInvoiceFormData = {
   invoice_products: number[];
 };
 
-export type TRecentInvoiceProductResponse = StrapiResponse<
-  StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[]
->;
+export type TRecentInvoiceProductResponse = StrapiResponse<TInvoiceProductData>;
+
+export type TInvoiceProductData = StrapiModel<
+  TInvoiceProduct<StrapiModel<IProduct>>
+>[];
 
 export enum InvoiceStatus {
   Default = '',

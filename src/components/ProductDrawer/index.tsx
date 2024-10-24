@@ -99,7 +99,7 @@ const ProductDrawer = (): JSX.Element => {
         }}
         className="p-0 rounded-[10px]"
       />
-      <div>
+      <div className="flex">
         <Button
           color="primary"
           startContent={<BsPlus size={22} className="text-white" />}

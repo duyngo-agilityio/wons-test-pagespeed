@@ -1,5 +1,5 @@
 // Constants
-import { API_BASE_URL } from '@/constants';
+import { PROCESS_ENV } from '@/constants';
 
 // Types
 import { Method } from '@/types';
@@ -69,4 +69,4 @@ class HttpClient {
   }
 }
 
-export const httpClient = new HttpClient(API_BASE_URL);
+export const httpClient = new HttpClient(PROCESS_ENV.API_BASE_URL);

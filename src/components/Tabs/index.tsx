@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import isEqual from 'react-fast-compare';
 
 import { cn, Tabs as NextUITabs, Tab, TabsProps } from '@nextui-org/react';
@@ -8,7 +8,7 @@ import { cn, Tabs as NextUITabs, Tab, TabsProps } from '@nextui-org/react';
 interface TabType {
   key: string;
   label: string;
-  content?: string;
+  content?: ReactNode;
   isDisable?: boolean;
 }
 
@@ -58,18 +58,22 @@ const Tabs = ({
       }}
       {...props}
     >
-      {tabs.map((tab) => (
-        <Tab
-          key={tab.key}
-          title={tab.label}
-          isDisabled={tab.isDisable}
-          className="px-4 py-2"
-        />
-      ))}
+      {tabs.map((tab) => {
+        const { key, label, isDisable, content } = tab;
+
+        return (
+          <Tab
+            key={key}
+            title={label}
+            isDisabled={isDisable}
+            // className="px-4 py-2"
+          >
+            {content}
+          </Tab>
+        );
+      })}
     </NextUITabs>
   );
 };
 
-export default memo(Tabs, isEqual) as <T>(
-  props: CustomTabsProps & T,
-) => JSX.Element;
+export default memo(Tabs, isEqual);

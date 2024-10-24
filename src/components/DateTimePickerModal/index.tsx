@@ -13,56 +13,39 @@ interface DateTimePickerModalProps {
   isOpen: boolean;
   onClose: () => void;
   selectedDate: string;
-  selectedStartTime: string;
-  selectedEndTime: string;
+  selectedTime: string;
   onDateChange: (date: string) => void;
-  onStartTimeChange: (time: string) => void;
-  onEndTimeChange: (time: string) => void;
+  onTimeChange: (time: string) => void;
 }
 
 const DateTimePickerModal = ({
   isOpen,
   onClose,
   selectedDate,
-  selectedStartTime,
-  selectedEndTime,
+  selectedTime,
   onDateChange,
-  onStartTimeChange,
-  onEndTimeChange,
+  onTimeChange,
 }: DateTimePickerModalProps) => (
   <NextModal isOpen={isOpen} onClose={onClose} closeButton>
     <ModalContent className="p-6">
-      <div className="mb-4">
+      <div className="mb-4 flex gap-4">
         <Input
           label="Date"
           type="date"
           value={selectedDate}
           onChange={(e) => onDateChange(e.target.value)}
         />
-      </div>
-      <div className="grid grid-cols-2 gap-4">
+
         <Input
-          label="Start Time"
+          label="Time"
           type="time"
-          value={dayjs(selectedStartTime, 'hh:mma').utc(true).format('HH:mm')}
+          value={dayjs(selectedTime, 'hh:mma').utc(true).format('HH:mm')}
           onChange={(e) => {
             const selectedTime = e.target.value; // get the time value from input
             const formattedTime = dayjs(selectedTime, 'HH:mm')
               .utc(true)
               .format('hh:mma'); // Convert to 12h format
-            onStartTimeChange(formattedTime); // Call the handler with the new formatted value
-          }}
-        />
-        <Input
-          label="End Time"
-          type="time"
-          value={dayjs(selectedEndTime, 'hh:mma').utc(true).format('HH:mm')}
-          onChange={(e) => {
-            const selectedTime = e.target.value; // get the time value from input
-            const formattedTime = dayjs(selectedTime, 'HH:mm')
-              .utc(true)
-              .format('hh:mma'); // Convert to 12h format
-            onEndTimeChange(formattedTime); // Call the handler with the new formatted value
+            onTimeChange(formattedTime); // Call the handler with the new formatted value
           }}
         />
       </div>

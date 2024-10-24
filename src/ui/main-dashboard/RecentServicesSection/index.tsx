@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 // Api
 import { getInvoiceProducts } from '@/api';
 
@@ -5,10 +7,10 @@ import { getInvoiceProducts } from '@/api';
 import { TableLayout } from '@/layouts';
 
 // Types
-import { ISearchParams, TRecentInvoiceProductResponse } from '@/types';
+import { ISearchParams, TInvoiceProductData } from '@/types';
 
 // Components
-import { RecentServicesTable } from '@/components';
+import { ErrorBoundary, RecentServicesTable } from '@/components';
 
 interface IRecentServicesSection {
   searchParams: ISearchParams;
@@ -28,16 +30,24 @@ const RecentServicesSection = async ({
     'createdAt[$gte]': startTime,
     'createdAt[$lte]': endTime,
   };
-  const result: TRecentInvoiceProductResponse = (await getInvoiceProducts({
+  const { error, data } = await getInvoiceProducts({
     sort: searchParams.sortBy
       ? `${sortBy === 'title' ? `product.${sortBy}` : sortBy}:${order}`
       : '',
     filters,
-  })) as TRecentInvoiceProductResponse;
+  });
+
+  if (error) {
+    return <ErrorBoundary error={error} className="max-h-[400px]" />;
+  }
+
+  if (!data) notFound();
+
+  const result: TInvoiceProductData = data?.data ?? [];
 
   return (
     <TableLayout>
-      <RecentServicesTable data={result.data} order={order} />
+      <RecentServicesTable data={result} order={order} />
     </TableLayout>
   );
 };

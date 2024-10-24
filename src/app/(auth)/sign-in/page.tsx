@@ -16,6 +16,6 @@ export const metadata = {
   },
 };
 
-const SignUpPage = () => <SignInForm signIn={authenticate} />;
+const SignInPage = () => <SignInForm signIn={authenticate} />;
 
-export default SignUpPage;
+export default SignInPage;

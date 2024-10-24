@@ -28,7 +28,10 @@ export const getInvoiceProducts = async ({
   sort,
   filters,
   pageSize = PAGE_SIZE[4],
-}: IParameters) => {
+}: IParameters): Promise<{
+  error?: string;
+  data?: Partial<TRecentInvoiceProductResponse>;
+}> => {
   const sortValue: string = sort ? `&sort=${sort}` : '';
   const filterQuery: string = formatFilterIntervalDate(
     filters as Record<string, string>,
@@ -46,9 +49,11 @@ export const getInvoiceProducts = async ({
       },
     );
 
-    return response;
+    return { data: response };
   } catch (error) {
-    return error;
+    const message = formatErrorMessage(error);
+
+    return { error: message };
   }
 };
 

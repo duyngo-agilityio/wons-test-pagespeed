@@ -12,7 +12,7 @@ const InvoiceDetailsFooter = () => {
 
   return (
     <div className="flex base:flex-col lg:flex-row base:gap-5 lg:justify-between base:px-2 md:pl-7.5 md:pr-5">
-      <div>
+      <div className="flex flex-col">
         <Text
           text="Your company"
           size="4xs"
@@ -24,7 +24,8 @@ const InvoiceDetailsFooter = () => {
           className="text-gray-200"
         />
       </div>
-      <div>
+
+      <div className="flex flex-col">
         <div className="flex items-center gap-2.5">
           <Text
             text="@"
@@ -46,14 +47,15 @@ const InvoiceDetailsFooter = () => {
           </Link>
         </div>
       </div>
-      <div className="flex lg:flex-col lg:items-end">
+
+      <div className="flex lg:flex-col lg:items-end text-gray-200 text-[6px] leading-[10px]">
         <Text
-          text="The company is registered in the "
+          text="The company is registered in the"
           size="4xs"
           className="text-gray-200"
         />
         <Text
-          text="business register under no. 87650000"
+          text="&nbsp;business register under no. 87650000"
           size="4xs"
           className="text-gray-200"
         />

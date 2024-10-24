@@ -6,15 +6,15 @@ export const EVENT_TABS = [
     isDisable: false,
   },
   {
-    key: 'reminder',
-    label: 'Reminder',
-    content: 'This is the reminder content',
-    isDisable: true,
-  },
-  {
     key: 'task',
     label: 'Task',
     content: 'This is the task content',
+    isDisable: false,
+  },
+  {
+    key: 'reminder',
+    label: 'Reminder',
+    content: 'This is the reminder content',
     isDisable: true,
   },
 ];

@@ -238,7 +238,9 @@ exports[`SignUpForm should match snapshot for SignInForm 1`] = `
             </svg>
           </span>
         </label>
-        <div>
+        <div
+          class="flex flex-wrap items-center"
+        >
           <p
             class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-900 font-medium inline"
           >

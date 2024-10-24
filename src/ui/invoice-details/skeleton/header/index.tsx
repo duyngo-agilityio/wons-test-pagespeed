@@ -17,16 +17,19 @@ const InvoiceDetailsHeaderSkeleton = () => (
       />
       <div className="flex flex-col gap-[15px]">
         <Text text="Recipient" size="3xs" className="uppercase font-bold" />
+
         <div className="flex flex-col gap-1">
           <Skeleton className="flex w-16 h-3 rounded-5" />
           <Skeleton className="flex w-16 h-3 rounded-5" />
           <Skeleton className="flex w-16 h-3 rounded-5" />
         </div>
+
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-2.5">
             <Text text="@" size="3xs" className="text text-blue-500" />
             <Skeleton className="flex w-16 h-3 rounded-5" />
           </div>
+
           <div className="flex items-center gap-2.5">
             <Text text="m" size="3xs" className="text text-blue-500" />
             <Skeleton className="flex w-16 h-3 rounded-5" />
@@ -34,24 +37,29 @@ const InvoiceDetailsHeaderSkeleton = () => (
         </div>
       </div>
     </div>
+
     <div className="flex flex-col items-end gap-[26px]">
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2.5">
           <Text text="@" size="3xs" className="text text-blue-500" />
           <Skeleton className="flex w-16 h-3 rounded-5" />
         </div>
+
         <div className="flex items-center gap-2.5">
           <Text text="m" size="3xs" className="text text-blue-500" />
           <Skeleton className="flex w-16 h-3 rounded-5" />
         </div>
       </div>
+
       <div className="flex flex-col gap-[15px]">
         <Text text="Invoice" size="3xl" className="font-bold" />
-        <div>
+
+        <div className="flex flex-col">
           <Text text="invoice no." size="2xs" />
           <Skeleton className="flex w-16 h-3 rounded-5" />
         </div>
-        <div>
+
+        <div className="flex flex-col">
           <Text text="Invoice date" size="2xs" />
           <Skeleton className="flex w-16 h-3 rounded-5" />
         </div>

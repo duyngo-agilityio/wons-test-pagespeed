@@ -49,6 +49,8 @@ const SchedulePage = async ({ searchParams }: ISchedulePage) => (
     >
       <div className="md:flex md:justify-between md:items-center">
         <Tabs
+          defaultSelectedKey={TASK_TABS[1].key}
+          disabledKeys={[TASK_TABS[0].key, TASK_TABS[2].key]}
           tabs={TASK_TABS}
           customVariant="secondary"
           className="px-0 base:w-full md:w-fit"

@@ -25,6 +25,7 @@ import {
   StarButton,
 } from '@/components';
 import Link from 'next/link';
+import { DAYJS_PATTERN } from '@/constants';
 
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
@@ -188,7 +189,7 @@ const InvoicesTable = ({
                 />
                 <Text
                   size="md"
-                  text={dayjs(date).format('DD MMM, YYYY')}
+                  text={dayjs(date).format(DAYJS_PATTERN['DD MMM, YYYY'])}
                   className="text-nowrap"
                 />
               </div>
@@ -233,6 +234,7 @@ const InvoicesTable = ({
                 onClick={handleOpenConfirmModal}
               >
                 <MdDelete
+                  aria-label="Delete Button"
                   size={20}
                   className="text-blue-800/30 dark:text-white/40"
                 />

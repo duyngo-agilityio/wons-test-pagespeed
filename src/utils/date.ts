@@ -94,7 +94,7 @@ export const formatDateCalendar = (calendarDate: DateValue) => {
 
 export const formatToCalendarDate = (value: Date) => {
   // Convert to UTC and format to 'YYYY-MM-DD'
-  const utcDate = dayjs(value).utc(true).format('YYYY-MM-DD');
+  const utcDate = dayjs(value).utc(true).format(DAYJS_PATTERN['YYYY-MM-DD']);
 
   // Parse the UTC date string
   return parseDate(utcDate);

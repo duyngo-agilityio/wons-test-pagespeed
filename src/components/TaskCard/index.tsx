@@ -166,19 +166,23 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
     async (formData: TaskWithStringAssignees) => {
       if (avatarFiles && isAvatarDirty) {
         try {
-          const uploadImageResponses = await Promise.all(
-            Array.from(avatarFiles).map((file: File) => uploadImage(file)),
+          const dirtyFiles = avatarFiles.filter(
+            (file) => typeof file !== 'string',
           );
 
-          const downloadURLs = uploadImageResponses
+          const uploadImageResponses = await Promise.all(
+            Array.from(dirtyFiles).map((file: File) => uploadImage(file)),
+          );
+
+          const downloadURLs: string[] = uploadImageResponses
             .map((response) => response?.downloadURL)
-            .filter(Boolean);
+            .filter(Boolean) as string[];
 
           if (downloadURLs.length !== avatarFiles.length) {
             return;
           }
 
-          formData.images = downloadURLs as string[];
+          downloadURLs.forEach((url: string) => formData.images?.push(url));
         } catch (error) {
           const message = formatErrorMessage(error);
 
@@ -188,7 +192,10 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
 
       startTransition(async () => {
         if (idTask) {
-          const { error } = await updateTaskWithAssignees(idTask, formData);
+          const { error } = await updateTaskWithAssignees(idTask, {
+            ...formData,
+            images: formData.images?.filter((image) => !image.includes('blob')),
+          });
 
           if (error) {
             showToast({

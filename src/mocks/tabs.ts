@@ -1,14 +1,12 @@
 export const TASK_TABS = [
-  { key: 'list', label: 'List', content: 'This is the list content' },
+  { key: 'list', label: 'List' },
   {
     key: 'board',
     label: 'Board',
-    content: 'This is the board content',
   },
   {
     key: 'timeLine',
     label: 'Timeline',
-    content: 'This is the timeLine content',
   },
 ];
 

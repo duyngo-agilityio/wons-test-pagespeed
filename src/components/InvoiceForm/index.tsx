@@ -447,16 +447,14 @@ const InvoiceForm = ({
           />
         </div>
 
-        <div>
-          <div className="mt-[30px] sm:mt-[17px]">
-            <InvoiceProductTable
-              products={products}
-              productsValues={productsValues}
-              errorProducts={errorProducts}
-              setErrorProducts={setErrorProducts}
-              setProductsValues={setProductsValues}
-            />
-          </div>
+        <div className="mt-[30px] sm:mt-[17px]">
+          <InvoiceProductTable
+            products={products}
+            productsValues={productsValues}
+            errorProducts={errorProducts}
+            setErrorProducts={setErrorProducts}
+            setProductsValues={setProductsValues}
+          />
         </div>
 
         <div className="flex flex-col sm:flex-row sm:gap-[30px]">

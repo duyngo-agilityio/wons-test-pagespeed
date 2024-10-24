@@ -12,3 +12,11 @@ export interface IEvent {
   notificationTime: string;
   users_permissions_users: number[];
 }
+
+export interface ICalendarTask {
+  id: number;
+  title: string;
+  date: Date;
+  time: string;
+  descriptions: string;
+}

@@ -56,7 +56,7 @@ const TableCustom = <T extends { id: string }>({
     if (!accessor) return;
 
     if (typeof accessor === 'string')
-      return <div>{item[accessor] as ReactNode}</div>;
+      return <span>{item[accessor] as ReactNode}</span>;
 
     if (typeof accessor === 'function') return accessor(item);
   };
@@ -186,7 +186,7 @@ const TableCustom = <T extends { id: string }>({
           >
             {columns.map((columnConfig, indexColumn) => (
               <TableCell
-                key={`table-cell-${indexColumn}`}
+                key={`${columnConfig.value}-table-cell-${indexColumn}`}
                 className={TableClasses[variant].cell}
               >
                 {renderCell(item, columnConfig.accessor)}
