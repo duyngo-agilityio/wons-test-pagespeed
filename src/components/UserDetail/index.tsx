@@ -35,15 +35,15 @@ const UserDetail = ({
           />
         </div>
 
-        <div className="flex flex-col justify-center text-center sm:text-left m-[20px_0] sm:m-0">
+        <dl className="flex flex-col justify-center text-center sm:text-left m-[20px_0] sm:m-0">
           <Text
             className="font-bold capitalize"
             size="2xl"
-            as="dd"
+            as="dt"
             text={fullName}
           />
-          <Text className="text-gray-900/70" size="md" as="dd" text={role} />
-        </div>
+          <Text className="text-gray-900/80" size="md" as="dd" text={role} />
+        </dl>
       </div>
 
       <Button
@@ -58,12 +58,12 @@ const UserDetail = ({
 
     <dl className="flex flex-col gap-[2px_0] p-[15px_0] border-solid border-b-1 border-gray-100">
       <Text className="font-medium" size="xl" as="dt" text="User Name" />
-      <Text className="text-gray-900/70" size="md" as="dd" text={username} />
+      <Text className="text-gray-900/80" size="md" as="dd" text={username} />
     </dl>
 
     <dl className="flex flex-col gap-[2px_0] p-[15px_0] border-solid border-b-1 border-gray-100">
       <Text className="font-medium" size="xl" as="dt" text="Email" />
-      <Text className="text-gray-900/70" size="md" as="dd" text={email} />
+      <Text className="text-gray-900/80" size="md" as="dd" text={email} />
     </dl>
   </div>
 );
