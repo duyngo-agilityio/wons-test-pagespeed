@@ -40,7 +40,7 @@ export const formatFilterOptions = (data: TUser[]): IFilter[] => {
   return [
     {
       id: 'list_1',
-      title: 'User',
+      title: 'Assignees',
       items: userOptions,
     },
   ];

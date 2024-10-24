@@ -99,7 +99,7 @@ const Filter = ({
           <div className="w-full" key={id}>
             <Text
               text={title}
-              className="font-medium border-b-1 border-blue-800/50 pb-1"
+              className="m-[8px_14px_0] font-medium border-b-1 border-blue-800/50 pb-2"
             />
             <Listbox
               className="pt-2"
