@@ -201,6 +201,7 @@ const CalendarClient = ({
         if (!error) {
           setSelectedEvent(null);
           setIsModalOpen(false);
+          setPreviewData(null);
         }
       }
     } else {
