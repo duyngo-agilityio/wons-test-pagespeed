@@ -1,10 +1,12 @@
 'use client';
 
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
 import dayjs from 'dayjs';
 import { Textarea } from '@nextui-org/react';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
 import { MESSAGES } from '@/constants';
@@ -20,6 +22,8 @@ import {
   formatEventDate,
   formatToCalendarDate,
   formatToStandardDate,
+  getDirtyState,
+  isEnableSubmitButton,
 } from '@/utils';
 
 // Components
@@ -44,6 +48,14 @@ interface CalendarTaskFormProps {
   onSubmit: (data: Partial<ICalendarTask>) => void;
 }
 
+// Zod schema for validation
+const taskSchema = z.object({
+  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  descriptions: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+});
+
+const REQUIRED_FIELDS = ['title', 'descriptions'];
+
 const CalendarTaskForm = ({
   previewData,
   time,
@@ -59,8 +71,10 @@ const CalendarTaskForm = ({
     handleSubmit,
     control,
     clearErrors,
-    formState: { errors, isValid },
+    watch,
+    formState: { errors, defaultValues, dirtyFields },
   } = useForm<TaskForm>({
+    resolver: zodResolver(taskSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: previewData || {
@@ -68,6 +82,30 @@ const CalendarTaskForm = ({
       descriptions: '',
     },
   });
+
+  // Checking to disable/enable submit button
+  const dirtyItems = Object.keys(dirtyFields);
+
+  const enableSubmit: boolean = useMemo(
+    () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
+    [dirtyItems, errors],
+  );
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<TaskForm>];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = previewData
+    ? !(
+        enableSubmit ||
+        !getDirtyState(defaultValues ?? {}, watch()) ||
+        !isEqual(time, timeDate) ||
+        !isEqual(formatToCalendarDate(date), calendarDate)
+      )
+    : !allFieldsFilled;
 
   const toggleDateTimePicker = useCallback(() => {
     setIsDateTimePickerOpen((prev) => !prev);
@@ -194,7 +232,7 @@ const CalendarTaskForm = ({
             className="min-w-[93px] text-[15px] font-normal w-auto py-[10px] mt-10 mt-0"
             type="submit"
             color="primary"
-            isDisabled={!isValid}
+            isDisabled={isDisableSubmit}
           >
             Save
           </Button>

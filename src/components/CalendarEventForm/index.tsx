@@ -1,9 +1,11 @@
 'use client';
 
-import { memo, useState, useCallback, useEffect } from 'react';
+import { memo, useState, useCallback, useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
 import dayjs from 'dayjs';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Select, SelectItem } from '@nextui-org/react';
 
@@ -22,7 +24,9 @@ import {
   formatEventDate,
   formatToCalendarDate,
   formatToStandardDate,
+  getDirtyState,
   getUserIds,
+  isEnableSubmitButton,
   parseStringToNumberArray,
 } from '@/utils';
 
@@ -67,6 +71,15 @@ interface CalendarEventFormProps {
   onClose: () => void;
 }
 
+// Zod schema for validation
+const eventSchema = z.object({
+  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  location: z.string(),
+  people: z.string(),
+});
+
+const REQUIRED_FIELDS = ['title'];
+
 const CalendarEventForm = ({
   previewData,
   timeRange,
@@ -89,8 +102,10 @@ const CalendarEventForm = ({
     handleSubmit,
     control,
     clearErrors,
-    formState: { errors, isValid },
+    watch,
+    formState: { errors, dirtyFields, defaultValues },
   } = useForm<EventForm>({
+    resolver: zodResolver(eventSchema),
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: previewData
@@ -158,6 +173,31 @@ const CalendarEventForm = ({
       label: user.username,
       key: user.id,
     }));
+
+  // Checking to disable/enable submit button
+  const dirtyItems = Object.keys(dirtyFields);
+
+  const enableSubmit: boolean = useMemo(
+    () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
+    [dirtyItems, errors],
+  );
+  const requiredField = REQUIRED_FIELDS.filter((field) => field !== 'imageUrl');
+
+  const allFieldsFilled = requiredField.every((field) => {
+    const isDirty = dirtyItems.includes(field);
+    const hasError = errors[field as keyof Partial<EventForm>];
+    return isDirty && !hasError;
+  });
+
+  const isDisableSubmit = previewData
+    ? !(
+        enableSubmit ||
+        !getDirtyState(defaultValues ?? {}, watch()) ||
+        !isEqual(timeRange?.start, startTime) ||
+        !isEqual(timeRange?.end, endTime) ||
+        !isEqual(formatToCalendarDate(date), calendarDate)
+      )
+    : !allFieldsFilled;
 
   return (
     <>
@@ -327,7 +367,7 @@ const CalendarEventForm = ({
             className="min-w-[93px] text-[15px] font-normal w-auto py-[10px] mt-10 mt-0"
             type="submit"
             color="primary"
-            isDisabled={!isValid}
+            isDisabled={isDisableSubmit}
           >
             Save
           </Button>
