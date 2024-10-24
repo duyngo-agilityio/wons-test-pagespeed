@@ -213,7 +213,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
             <Text
               text="terms of use"
               size="xl"
-              className="!text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+              className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
             />
           </Link>
           &nbsp;
@@ -227,7 +227,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
             <Text
               text="privacy policy."
               size="xl"
-              className="!text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+              className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
             />
           </Link>
         </div>
@@ -256,7 +256,7 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           <Text
             text="Sign in"
             size="xl"
-            className="!text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+            className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
           />
         </Link>
       </div>

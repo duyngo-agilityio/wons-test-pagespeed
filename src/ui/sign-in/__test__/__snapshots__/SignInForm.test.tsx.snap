@@ -141,7 +141,7 @@ exports[`SignInForm Component should match with snapshot 1`] = `
             href="/sign-up"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+              class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
             >
               New Account
             </p>
@@ -287,7 +287,7 @@ exports[`SignInForm Component should match with snapshot 1`] = `
           href="/sign-up"
         >
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-600 font-medium inline hover:underline"
+            class="font-dm-sans text-blue-800 dark:text-white text-xl !text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
           >
             New Account
           </p>
