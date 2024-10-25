@@ -41,6 +41,4 @@ const Autocomplete = ({
   </AutocompleteBase>
 );
 
-export default memo(Autocomplete, isEqual) as <T>(
-  props: AutocompleteProps & T,
-) => JSX.Element;
+export default memo(Autocomplete, isEqual);
