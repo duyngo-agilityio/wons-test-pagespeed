@@ -416,7 +416,9 @@ const TaskForm = ({
       <Button
         type="submit"
         isLoading={isPending}
-        isDisabled={isDisableSubmit || isPending}
+        isDisabled={
+          isDisableSubmit && isEqual(previewData?.images, formDataImages)
+        }
         size="lg"
         color="primary"
         className="w-full mt-8 text-xl font-medium cursor-pointer"
