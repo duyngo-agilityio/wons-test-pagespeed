@@ -24,6 +24,8 @@ export const MESSAGES = {
     UPDATE_INVOICE: 'Update invoice failed.',
     DELETE_INVOICE: 'Delete invoice failed.',
     MAX_IMAGE: 'Maximum number of images is 2.',
+    START_TIME: 'Start time cannot be later than the selected end time',
+    END_TIME: 'End time cannot be earlier than the selected start time',
   },
   ERROR_API: {
     EMAIL_OR_USERNAME_EXIST: 'Email or Username are already taken',

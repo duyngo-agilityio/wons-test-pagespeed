@@ -132,3 +132,8 @@ export const formatEventDate = (date: Date) => {
 
   return `${selectedDate}, ${selectedMonth} ${selectedDateNumber}, ${selectedYear}`;
 };
+
+export const formatTo12HourTime = (selectedTime: string) =>
+  dayjs(selectedTime, DAYJS_PATTERN['HH:mm'])
+    .utc(true)
+    .format(DAYJS_PATTERN['hh:mma']);
