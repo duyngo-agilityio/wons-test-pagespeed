@@ -306,6 +306,7 @@ const InvoiceForm = ({
             }) => (
               <div className="flex flex-col w-full h-[71px] mb-12">
                 <Select
+                  selectionMode="single"
                   name={name}
                   id="customerId"
                   defaultSelectedKeys={[value as string]}
@@ -324,12 +325,15 @@ const InvoiceForm = ({
                         ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
                         : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
-                    label: 'text-xl font-medium pb-1',
+                    label:
+                      'text-xl font-medium pb-1 !text-dark dark:!text-white',
                   }}
                   onChange={(e) => {
                     onChange(e.target.value);
                     clearErrorOnChange(name, errors, clearErrors);
                   }}
+                  isInvalid={!!error}
+                  errorMessage={error?.message}
                 >
                   {optionsCustomers.map((customer) => (
                     <SelectItem key={customer.value} value={customer.value}>
@@ -337,10 +341,6 @@ const InvoiceForm = ({
                     </SelectItem>
                   ))}
                 </Select>
-
-                {error && (
-                  <p className="text-red-500 text-xs mt-1">{error.message}</p>
-                )}
               </div>
             )}
           />
@@ -355,6 +355,7 @@ const InvoiceForm = ({
             }) => (
               <div className="flex flex-col w-full h-[71px] mb-12">
                 <Select
+                  selectionMode="single"
                   name={name}
                   id="status"
                   defaultSelectedKeys={[value as string]}
@@ -373,12 +374,15 @@ const InvoiceForm = ({
                         ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
                         : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
-                    label: 'text-xl font-medium pb-1',
+                    label:
+                      'text-xl font-medium pb-1 !text-dark dark:!text-white',
                   }}
                   onChange={(e) => {
                     onChange(e.target.value);
                     clearErrorOnChange(name, errors, clearErrors);
                   }}
+                  isInvalid={!!error}
+                  errorMessage={error?.message}
                 >
                   {INVOICE_STATUS.map((status) => (
                     <SelectItem key={status.key} value={status.key}>
@@ -386,10 +390,6 @@ const InvoiceForm = ({
                     </SelectItem>
                   ))}
                 </Select>
-
-                {error && (
-                  <p className="text-red-500 text-xs mt-1">{error.message}</p>
-                )}
               </div>
             )}
           />
