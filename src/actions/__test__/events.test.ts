@@ -1,7 +1,12 @@
 import { revalidateTag } from 'next/cache';
 
 // api
-import { createEvent, deleteEvent, updateEvent } from '../event';
+import {
+  createEvent,
+  deleteEvent,
+  updateEvent,
+  deleteCalendarTask,
+} from '../event';
 
 // services
 import { httpClient } from '@/services';
@@ -134,6 +139,37 @@ describe('updateEvent', () => {
     (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
 
     const result = await updateEvent(eventID, EVENT_MOCKS);
+
+    expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
+    expect(result).toEqual({ error: 'Something went wrong.' });
+  });
+});
+
+describe('delete calendar task', () => {
+  const mockTaskId = 1;
+
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      endpoint: `${API_PATH.CALENDAR_TASKS}/${mockTaskId}`,
+    });
+
+    await deleteCalendarTask(mockTaskId);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Delete,
+      endpoint: `${API_PATH.CALENDAR_TASKS}/${mockTaskId}`,
+    });
+
+    expect(revalidateTag).toHaveBeenCalledWith(API_PATH.EVENTS);
+  });
+
+  it('calls failed', async () => {
+    const MOCK_ERROR = new Error('Delete failed');
+
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(MOCK_ERROR);
+    (formatErrorMessage as jest.Mock).mockReturnValue('Something went wrong.');
+
+    const result = await deleteCalendarTask(mockTaskId);
 
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
     expect(result).toEqual({ error: 'Something went wrong.' });
