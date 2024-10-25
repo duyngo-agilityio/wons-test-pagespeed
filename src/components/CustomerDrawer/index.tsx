@@ -4,9 +4,6 @@ import { useCallback, useState, useTransition } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
-// Api
-import { uploadImage } from '@/api/image';
-
 // icons
 import { IoClose } from 'react-icons/io5';
 
@@ -26,7 +23,7 @@ import { createCustomer } from '@/actions';
 import { useToast } from '@/hooks';
 
 // Utils
-import { formatPhoneNumberTyping } from '@/utils';
+import { formatPhoneNumberTyping, handleUpdateImage } from '@/utils';
 
 const CustomerDrawer = (): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -46,17 +43,9 @@ const CustomerDrawer = (): JSX.Element => {
   const handleFormSubmit = useCallback(
     async (formData: ICustomer) => {
       if (avatarFile && isAvatarDirty) {
-        try {
-          const uploadImageResponse = await uploadImage(avatarFile);
+        const { url = '' } = await handleUpdateImage(avatarFile);
 
-          if (uploadImageResponse?.downloadURL) {
-            formData.avatar = uploadImageResponse.downloadURL;
-          } else {
-            return { error: uploadImageResponse.error };
-          }
-        } catch (error) {
-          return error;
-        }
+        formData.avatar = url;
       }
 
       startTransition(async () => {
@@ -71,6 +60,7 @@ const CustomerDrawer = (): JSX.Element => {
             description: error,
             status: MESSAGES.STATUS.ERROR,
           });
+
           return;
         }
       });

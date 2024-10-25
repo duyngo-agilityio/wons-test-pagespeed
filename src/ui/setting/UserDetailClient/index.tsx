@@ -9,7 +9,7 @@ import { IMAGES, ROLES, MESSAGES } from '@/constants';
 import { useToast } from '@/hooks';
 
 // Utils
-import { handleUpdateImageProfile } from '@/utils';
+import { handleUpdateImage } from '@/utils';
 
 // Components
 import { UserDetailForm, UserDetail, LoadingIndicator } from '@/components';
@@ -55,10 +55,9 @@ const UserDetailClient = ({ user, id, onEdit }: UserDetailClientProps) => {
     async (formData: IUserFormData) => {
       // Handle update User's avatar
       if (avatarFile && isAvatarDirty) {
-        formData = (await handleUpdateImageProfile(
-          avatarFile,
-          formData,
-        )) as IUserFormData;
+        const { url = '' } = await handleUpdateImage(avatarFile);
+
+        formData.avatar = url;
       }
 
       // Update update user's profile
