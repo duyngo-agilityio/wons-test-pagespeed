@@ -47,10 +47,9 @@ const ProductDrawer = (): JSX.Element => {
       formData.rating = RATING_PRODUCT;
 
       if (avatarFile && isAvatarDirty) {
-        formData = (await handleUpdateImage(
-          avatarFile,
-          formData,
-        )) as IProductDetail;
+        const { url = '' } = await handleUpdateImage(avatarFile);
+
+        formData.imageUrl = url;
       }
 
       const { error } = await createProduct({

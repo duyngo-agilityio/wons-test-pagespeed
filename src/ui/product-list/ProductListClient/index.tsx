@@ -142,10 +142,9 @@ const ProductListClient = ({
   const handleEditProduct = useCallback(
     async (formData: IProductDetail) => {
       if (avatarFile && isAvatarDirty) {
-        formData = (await handleUpdateImage(
-          avatarFile,
-          formData,
-        )) as IProductDetail;
+        const { url = '' } = await handleUpdateImage(avatarFile);
+
+        formData.imageUrl = url;
       }
 
       const { error } = await onEdit(

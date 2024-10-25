@@ -38,8 +38,7 @@ import { ICustomer } from '@/models';
 import { IoClose } from 'react-icons/io5';
 
 // Utils
-import { formatPhoneNumberTyping } from '@/utils';
-import { uploadImage } from '@/api';
+import { formatPhoneNumberTyping, handleUpdateImage } from '@/utils';
 
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
@@ -155,17 +154,9 @@ const CustomerListClient = ({
   const handleFormSubmit = useCallback(
     async (payload: ICustomer) => {
       if (avatarFile && isAvatarDirty) {
-        try {
-          const uploadImageResponse = await uploadImage(avatarFile);
+        const { url = '' } = await handleUpdateImage(avatarFile);
 
-          if (uploadImageResponse?.downloadURL) {
-            payload.avatar = uploadImageResponse.downloadURL;
-          } else {
-            return { error: uploadImageResponse.error };
-          }
-        } catch (error) {
-          return error;
-        }
+        payload.avatar = url;
       }
 
       startTransition(async () => {
