@@ -15,7 +15,6 @@ describe('CalendarEventForm', () => {
   it('render successful', () => {
     const { container } = render(
       <CalendarEventForm
-        title="example title"
         eventTitle="example title"
         date={mockDate}
         timeRange={mockTimeRange}

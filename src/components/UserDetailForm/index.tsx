@@ -31,26 +31,26 @@ interface UserDetailFormProps {
   onCancel: () => void;
 }
 
+// Zod schema for validation
+const userDetailFormSchema = z.object({
+  avatar: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  username: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  role: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  fullName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
+  email: z
+    .string()
+    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
+    .email(MESSAGES.ERROR.FIELD_INVALID('Email')),
+});
+
+const REQUIRED_FIELDS = ['fullName', 'email'];
+
 const UserDetailForm = ({
   user,
   onAvatarChange,
   onSubmit,
   onCancel,
 }: UserDetailFormProps) => {
-  // Zod schema for validation
-  const userDetailFormSchema = z.object({
-    avatar: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-    username: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-    role: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-    fullName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-    email: z
-      .string()
-      .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-      .email(MESSAGES.ERROR.FIELD_INVALID('Email')),
-  });
-
-  const REQUIRED_FIELDS = ['fullName', 'email'];
-
   // Define config and props for useForm
   const {
     control,
@@ -69,7 +69,7 @@ const UserDetailForm = ({
 
   const enableSubmit: boolean = useMemo(
     () => isEnableSubmitButton(REQUIRED_FIELDS, dirtyItems, errors),
-    [REQUIRED_FIELDS, dirtyItems, errors],
+    [dirtyItems, errors],
   );
 
   const isDisableSubmit = !(

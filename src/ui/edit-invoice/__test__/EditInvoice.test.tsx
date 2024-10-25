@@ -14,14 +14,6 @@ import {
 } from '@/mocks';
 import { EditInvoice } from '@/ui';
 
-// Mock Autocomplete component
-jest.mock('@/components/common/Autocomplete', () => {
-  return {
-    __esModule: true,
-    default: jest.fn((props) => <input {...props} />),
-  };
-});
-
 jest.mock('@/api', () => ({
   ...jest.requireActual('@/api'),
   getProducts: jest.fn(),

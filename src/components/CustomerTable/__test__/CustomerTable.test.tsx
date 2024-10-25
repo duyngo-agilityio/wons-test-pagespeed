@@ -26,7 +26,6 @@ const mockCustomersData: TCustomerDataResponse[] = [
 describe('CustomersTable Component', () => {
   const mockOnEdit = jest.fn();
   const mockOnDelete = jest.fn();
-  const mockOnToggleSelectStar = jest.fn();
 
   it('renders the table headers and customer data correctly', () => {
     const { container } = render(
@@ -36,7 +35,6 @@ describe('CustomersTable Component', () => {
         data={mockCustomersData}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
-        onToggleSelectStar={mockOnToggleSelectStar}
         pageCount={DEFAULT_PAGE}
       />,
     );
@@ -51,7 +49,6 @@ describe('CustomersTable Component', () => {
         data={undefined as unknown as TCustomerDataResponse[]}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
-        onToggleSelectStar={mockOnToggleSelectStar}
         pageCount={DEFAULT_PAGE}
       />,
     );
@@ -66,7 +63,6 @@ describe('CustomersTable Component', () => {
         data={[]}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}
-        onToggleSelectStar={mockOnToggleSelectStar}
         pageCount={DEFAULT_PAGE}
       />,
     );

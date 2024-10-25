@@ -39,7 +39,6 @@ export { default as Spinner } from './Spinner';
 export { default as Text } from './Text';
 export { default as Toast } from './Toast';
 export * from '../Skeleton';
-export { default as Autocomplete } from './Autocomplete';
 export { default as Pagination } from './Pagination';
 export { default as CustomCalendar } from './Calendar';
 export { default as Filter } from './Filter';

@@ -17,7 +17,6 @@ import { httpClient } from '@/services';
 
 interface IParameters {
   cache?: RequestCache;
-  nextOptions?: NextFetchRequestConfig;
   sort?: string;
   filters?: Record<string, string>;
   pageSize?: number;
@@ -25,7 +24,6 @@ interface IParameters {
 
 export const getInvoiceProducts = async ({
   cache,
-  nextOptions,
   sort,
   filters,
   pageSize = PAGE_SIZE[4],
@@ -45,7 +43,7 @@ export const getInvoiceProducts = async ({
         endpoint: endpoint,
         configOptions: {
           cache: cache,
-          next: nextOptions,
+          next: { tags: [API_PATH.INVOICE_PRODUCTS] },
         },
       },
     );

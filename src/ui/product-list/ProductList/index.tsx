@@ -21,7 +21,7 @@ import {
 } from '@/types';
 
 // Constants
-import { API_PATH, PAGE_SIZE } from '@/constants';
+import { PAGE_SIZE } from '@/constants';
 
 // services
 import { getInvoiceProducts, getProducts } from '@/api';
@@ -51,7 +51,6 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
       ? `${sortBy === 'title' ? `product.${sortBy}` : sortBy}:${order}`
       : '',
     filters,
-    nextOptions: { tags: [API_PATH.INVOICE_PRODUCTS] },
     pageSize: PAGE_SIZE[10],
   })) as TProductInvoiceListResponse;
 

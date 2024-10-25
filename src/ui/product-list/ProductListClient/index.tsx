@@ -1,7 +1,7 @@
 'use client';
 
 import isEqual from 'react-fast-compare';
-import { Key, memo, useCallback, useState, useTransition } from 'react';
+import { Key, memo, useCallback, useState } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
@@ -58,7 +58,6 @@ const ProductListClient = ({
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [toggleEditProduct, setToggleEditProduct] = useState<boolean>(false);
   const [idProduct, setIdProduct] = useState<number>(0);
-  const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -101,26 +100,30 @@ const ProductListClient = ({
   const handleOpenDrawer = useCallback(
     (id: number) => {
       const productByID = getDataByID<TProductInvoiceResponse>(productList, id);
-      const idProduct = productByID?.attributes?.product?.data?.id;
+      const { attributes } = productByID || {};
+      const { product } = attributes || {};
+      const { data } = product || {};
+      const { attributes: productAttributes } = data || {};
+
+      const brand = productAttributes?.brand?.toLowerCase();
 
       setProductDetailsByID({
         ...productByID,
         attributes: {
-          ...productByID.attributes,
+          ...attributes,
           product: {
             data: {
-              ...productByID?.attributes?.product?.data,
+              ...data,
               attributes: {
-                ...productByID?.attributes?.product?.data?.attributes,
-                brand:
-                  productByID?.attributes?.product?.data?.attributes?.brand?.toLowerCase(),
+                ...productAttributes,
+                brand,
               },
             },
           },
         },
       });
 
-      setIdProduct(idProduct);
+      setIdProduct(data.id);
       setToggleEditProduct(true);
     },
     [productList],
@@ -145,34 +148,32 @@ const ProductListClient = ({
         )) as IProductDetail;
       }
 
-      startTransition(async () => {
-        const { error } = await onEdit(
-          {
-            ...formData,
-            title: `${formData.title}`,
-          },
-          idProduct,
-        );
+      const { error } = await onEdit(
+        {
+          ...formData,
+          title: `${formData.title}`,
+        },
+        idProduct,
+      );
 
-        if (error) {
-          showToast({
-            description: error,
-            status: MESSAGES.STATUS.ERROR,
-          });
-          return;
-        } else {
-          showToast({
-            description: MESSAGES.SUCCESS.UPDATE_PRODUCT,
-            status: MESSAGES.STATUS.SUCCESS,
-          });
-        }
-      });
+      if (error) {
+        showToast({
+          description: error,
+          status: MESSAGES.STATUS.ERROR,
+        });
+        return;
+      } else {
+        showToast({
+          description: MESSAGES.SUCCESS.UPDATE_PRODUCT,
+          status: MESSAGES.STATUS.SUCCESS,
+        });
+      }
 
       setToggleEditProduct(false);
       setAvatarFile(undefined);
       setIsAvatarDirty(false);
     },
-    [avatarFile, idProduct, isAvatarDirty, isPending, onEdit, showToast],
+    [avatarFile, idProduct, isAvatarDirty, onEdit, showToast],
   );
 
   return (

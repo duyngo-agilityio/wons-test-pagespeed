@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState, useTransition } from 'react';
+import { useCallback, useState } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 
@@ -30,7 +30,6 @@ const ProductDrawer = (): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
-  const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
 
   const handleOpenDrawer = useCallback(() => {
@@ -54,31 +53,29 @@ const ProductDrawer = (): JSX.Element => {
         )) as IProductDetail;
       }
 
-      startTransition(async () => {
-        const { error } = await createProduct({
-          ...formData,
-          title: `${formData.title}`,
-        });
-
-        if (error) {
-          showToast({
-            description: error,
-            status: MESSAGES.STATUS.ERROR,
-          });
-          return;
-        } else {
-          showToast({
-            description: MESSAGES.SUCCESS.CREATE_PRODUCT,
-            status: MESSAGES.STATUS.SUCCESS,
-          });
-        }
+      const { error } = await createProduct({
+        ...formData,
+        title: `${formData.title}`,
       });
+
+      if (error) {
+        showToast({
+          description: error,
+          status: MESSAGES.STATUS.ERROR,
+        });
+        return;
+      } else {
+        showToast({
+          description: MESSAGES.SUCCESS.CREATE_PRODUCT,
+          status: MESSAGES.STATUS.SUCCESS,
+        });
+      }
 
       setIsDrawerOpen(false);
       setAvatarFile(undefined);
       setIsAvatarDirty(false);
     },
-    [avatarFile, isAvatarDirty, isPending, showToast],
+    [avatarFile, isAvatarDirty, showToast],
   );
 
   const handleAvatarChange = useCallback((avatarFile: File) => {

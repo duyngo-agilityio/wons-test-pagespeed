@@ -19,6 +19,10 @@ const config: Config = {
     '!**/*.d.ts',
     '!<rootDir>/src/**/*.stories.{js,jsx,ts,tsx}',
     '!<rootDir>/node_modules/',
+    '!<rootDir>/src/models/',
+    '!<rootDir>/src/types/',
+    '!<rootDir>/src/middleware.ts',
+    '!<rootDir>/src/contexts/',
   ],
   collectCoverage: true,
   moduleNameMapper: {

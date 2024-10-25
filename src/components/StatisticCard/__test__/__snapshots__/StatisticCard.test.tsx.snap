@@ -19,7 +19,7 @@ exports[`Text Component renders correctly with all custom props 1`] = `
             class="flex items-center flex-wrap"
           >
             <div
-              class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] undefined undefined"
+              class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] #fff #ff0"
               style="width: 60px; height: 60px; min-width: 45px;"
             >
               <svg
@@ -42,7 +42,9 @@ exports[`Text Component renders correctly with all custom props 1`] = `
             >
               <p
                 class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
-              />
+              >
+                statistic
+              </p>
               <p
                 class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
               >
@@ -69,7 +71,7 @@ exports[`Text Component renders correctly with all custom props 1`] = `
           class="flex items-center flex-wrap"
         >
           <div
-            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] undefined undefined"
+            class="mr-2 sm:mr-4 rounded-full flex items-center justify-center w-[50px] sm:w-[63px] h-[50px] sm:h-[63px] min-w-[40px] sm:min-w-[50px] #fff #ff0"
             style="width: 60px; height: 60px; min-width: 45px;"
           >
             <svg
@@ -92,7 +94,9 @@ exports[`Text Component renders correctly with all custom props 1`] = `
           >
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
-            />
+            >
+              statistic
+            </p>
             <p
               class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
             >
