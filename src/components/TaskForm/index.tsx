@@ -15,6 +15,7 @@ import { Controller, useForm, UseFormReset } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
+import isEqual from 'react-fast-compare';
 
 // Constants
 import { LEVELS, STATUS, MESSAGES } from '@/constants';
@@ -40,7 +41,6 @@ import { TUser } from '@/models';
 
 // apis
 import { getUsers } from '@/api';
-import isEqual from 'react-fast-compare';
 
 // Zod schema for validation
 const taskFormSchema = z.object({
@@ -396,7 +396,7 @@ const TaskForm = ({
               classNames={{
                 trigger:
                   'w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
-                label: 'text-xl font-medium pb-1',
+                label: 'text-xl font-medium pb-1 !text-gray-900',
               }}
               onChange={(e) => {
                 onChange(e.target.value);
@@ -426,6 +426,4 @@ const TaskForm = ({
     </form>
   );
 };
-export default memo(TaskForm, isEqual) as <T>(
-  props: ITaskFormProps & T,
-) => JSX.Element;
+export default memo(TaskForm, isEqual);
