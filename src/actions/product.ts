@@ -56,6 +56,7 @@ export const updateProduct = async (
     });
 
     revalidateTag(API_PATH.PRODUCTS);
+    revalidateTag(API_PATH.INVOICE_PRODUCTS);
 
     return { success: true };
   } catch (error) {

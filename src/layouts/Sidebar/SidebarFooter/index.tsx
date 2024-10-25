@@ -74,7 +74,7 @@ const SidebarFooter = ({
     router.push(ROUTES.SIGN_IN);
 
     setIsPending(false);
-  }, [router, showToast]);
+  }, [onLogout, router, showToast]);
 
   return (
     <>

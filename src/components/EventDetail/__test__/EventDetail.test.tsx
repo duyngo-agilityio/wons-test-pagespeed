@@ -9,6 +9,7 @@ describe('EventDetail Component', () => {
         title="Upcoming Event"
         time="10:00 AM"
         location="123 Main St"
+        id={1}
         link="https://meet.google.com/"
         guests={[
           { name: 'John Doe', avatar: '/avatars/john.png' },

@@ -8,9 +8,11 @@ describe('Text Component', () => {
   it('renders correctly with all custom props', () => {
     const component = testLibJestUtils.render(
       <StatisticCard
-        value="100+"
+        statistic="statistic"
         label="Favorite Services"
         icon={<FaHeart className="h-8 w-8 text-blue-500" />}
+        lightBgColor="#fff"
+        darkBgColor="#ff0"
       />,
     );
     expect(component).toMatchSnapshot();
