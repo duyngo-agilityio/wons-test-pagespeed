@@ -234,7 +234,11 @@ const TaskForm = ({
               <Input
                 label="Task Name"
                 isInvalid={!!error}
-                errorMessage={error?.message}
+                errorMessage={
+                  error?.message === 'Required'
+                    ? MESSAGES.ERROR.FIELD_REQUIRED
+                    : error?.message
+                }
                 isDisabled={isDisabledField}
                 value={value}
                 onChange={(e) => {
@@ -365,7 +369,11 @@ const TaskForm = ({
                   ),
                 }}
                 isInvalid={!!error}
-                errorMessage={error?.message}
+                errorMessage={
+                  error?.message === 'Required'
+                    ? MESSAGES.ERROR.FIELD_REQUIRED
+                    : error?.message
+                }
                 isDisabled={isDisabledField}
                 onChange={(e) => {
                   onChange(e.target.value);
