@@ -256,7 +256,6 @@ const TaskForm = ({
           }) => (
             <div className="flex flex-col w-full h-[71px] mb-12">
               <Select
-                selectionMode="single"
                 name={name}
                 id="label"
                 defaultSelectedKeys={[value as string]}
@@ -275,7 +274,8 @@ const TaskForm = ({
                       ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
                       : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                   ),
-                  label: 'text-xl font-medium pb-1 !text-dark dark:!text-white',
+                  label:
+                    'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
                 }}
                 isDisabled={isDisabledField}
                 onChange={(e) => {
@@ -305,7 +305,6 @@ const TaskForm = ({
             return (
               <div className="flex flex-col w-full h-[71px] mb-16">
                 <Select
-                  selectionMode="single"
                   name={name}
                   id="level"
                   defaultSelectedKeys={[value as string]}
@@ -325,7 +324,7 @@ const TaskForm = ({
                         : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
                     label:
-                      'text-xl font-medium pb-1 !text-dark dark:!text-white',
+                      'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
                   }}
                   isDisabled={isDisabledField}
                   onChange={(e) => {
@@ -401,7 +400,8 @@ const TaskForm = ({
                     ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
                     : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                 ),
-                label: 'text-xl font-medium pb-1 !text-dark dark:!text-white',
+                label:
+                  'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
               }}
               onChange={(e) => {
                 onChange(e.target.value);

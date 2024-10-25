@@ -306,7 +306,6 @@ const InvoiceForm = ({
             }) => (
               <div className="flex flex-col w-full h-[71px] mb-12">
                 <Select
-                  selectionMode="single"
                   name={name}
                   id="customerId"
                   defaultSelectedKeys={[value as string]}
@@ -326,7 +325,7 @@ const InvoiceForm = ({
                         : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
                     label:
-                      'text-xl font-medium pb-1 !text-dark dark:!text-white',
+                      'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
                   }}
                   onChange={(e) => {
                     onChange(e.target.value);
@@ -355,7 +354,6 @@ const InvoiceForm = ({
             }) => (
               <div className="flex flex-col w-full h-[71px] mb-12">
                 <Select
-                  selectionMode="single"
                   name={name}
                   id="status"
                   defaultSelectedKeys={[value as string]}
@@ -375,7 +373,7 @@ const InvoiceForm = ({
                         : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
                     label:
-                      'text-xl font-medium pb-1 !text-dark dark:!text-white',
+                      'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
                   }}
                   onChange={(e) => {
                     onChange(e.target.value);
