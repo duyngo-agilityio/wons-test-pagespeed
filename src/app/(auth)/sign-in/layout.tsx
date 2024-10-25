@@ -23,7 +23,6 @@ const SignInLayout = ({ children }: SignInLayoutProps) => (
         height={0}
         sizes="100vw"
         className="h-[380px] lg:h-[584px] w-auto object-cover"
-        loading="lazy"
       />
     }
   >
