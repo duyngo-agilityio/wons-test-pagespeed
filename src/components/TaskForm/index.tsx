@@ -278,13 +278,16 @@ const TaskForm = ({
                       ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
                       : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                   ),
-                  label: 'text-xl font-medium pb-1',
+                  label:
+                    'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
                 }}
                 isDisabled={isDisabledField}
                 onChange={(e) => {
                   onChange(e.target.value);
                   clearErrorOnChange(name, errors, clearErrors);
                 }}
+                isInvalid={!!error}
+                errorMessage={error?.message}
               >
                 {STATUS.map((status) => (
                   <SelectItem key={status.key} value={status.key}>
@@ -292,9 +295,6 @@ const TaskForm = ({
                   </SelectItem>
                 ))}
               </Select>
-              {error && (
-                <p className="text-red-500 text-xs mt-1">{error.message}</p>
-              )}
             </div>
           )}
         />
@@ -327,13 +327,16 @@ const TaskForm = ({
                         ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
                         : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
-                    label: 'text-xl font-medium pb-1',
+                    label:
+                      'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
                   }}
                   isDisabled={isDisabledField}
                   onChange={(e) => {
                     onChange(e.target.value);
                     clearErrorOnChange(name, errors, clearErrors);
                   }}
+                  isInvalid={!!error}
+                  errorMessage={error?.message}
                 >
                   {LEVELS.map(({ label, key }) => (
                     <SelectItem key={key} value={key}>
@@ -341,9 +344,6 @@ const TaskForm = ({
                     </SelectItem>
                   ))}
                 </Select>
-                {error && (
-                  <p className="text-red-500 text-xs mt-1">{error.message}</p>
-                )}
               </div>
             );
           }}
@@ -402,9 +402,14 @@ const TaskForm = ({
               variant="flat"
               isDisabled={isDisabledField}
               classNames={{
-                trigger:
-                  'w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
-                label: 'text-xl font-medium pb-1 !text-gray-900',
+                trigger: clsx(
+                  'w-full py-[26px] mt-5',
+                  error
+                    ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
+                    : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                ),
+                label:
+                  'text-xl font-medium pb-1 !text-gray-900 dark:!text-white',
               }}
               onChange={(e) => {
                 onChange(e.target.value);

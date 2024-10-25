@@ -269,7 +269,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 type="button"
               >
                 <label
-                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1 !text-gray-900 dark:!text-white"
                   data-slot="label"
                   id="react-aria-:rv:"
                 >
@@ -372,7 +372,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 type="button"
               >
                 <label
-                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1 !text-gray-900 dark:!text-white"
                   data-slot="label"
                   id="react-aria-:r17:"
                 >
@@ -1219,7 +1219,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 type="button"
               >
                 <label
-                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1 !text-gray-900 dark:!text-white"
                   data-slot="label"
                   id="react-aria-:r34:"
                 >
@@ -1322,7 +1322,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 type="button"
               >
                 <label
-                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1"
+                  class="block absolute subpixel-antialiased text-foreground-500 pointer-events-none will-change-auto origin-top-left rtl:origin-top-right !duration-200 !ease-out transition-[transform,color,left,opacity] motion-reduce:transition-none group-data-[filled=true]:text-foreground group-data-[filled=true]:pointer-events-auto z-20 top-1/2 -translate-y-1/2 group-data-[filled=true]:left-0 rtl:group-data-[filled=true]:right-0 rtl:group-data-[filled=true]:left-[unset] left-3 rtl:right-3 rtl:left-[unset] group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden text-xl font-medium pb-1 !text-gray-900 dark:!text-white"
                   data-slot="label"
                   id="react-aria-:r3c:"
                 >
