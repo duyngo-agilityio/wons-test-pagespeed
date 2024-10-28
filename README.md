@@ -6,7 +6,7 @@ This document provides an overview of the system, detailing its functionality in
 
 - Design: [here](<https://www.figma.com/design/REurjW8goPRDZn3cMMeQZY/Admin-Dashboard-Web-(Community)-(Copy)?node-id=2-3&m=dev&t=b6s6n2xpqUU8qsbV-1>)
 - Requirements & Scope: [here](https://docs.google.com/document/d/1m2-HJrk2ecMf4919sprfFy8VvmQzTlfx/edit?usp=sharing&ouid=103083083655563138202&rtpof=true&sd=true)
-- Deployment: [Vercel](https://wons.vercel.app/sign-in)
+- Deployment: [Vercel](https://wons.vercel.app)
   - Account:
     - <admin1@gmail.com>
     - Abcd@1234
