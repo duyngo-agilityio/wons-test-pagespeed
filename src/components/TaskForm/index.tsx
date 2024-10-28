@@ -412,7 +412,13 @@ const TaskForm = ({
                   'text-xl font-medium pb-1 !text-blue-800 dark:!text-white',
               }}
               onChange={(e) => {
-                onChange(e.target.value);
+                const selectedValues = e.target.value;
+
+                // Check if selected values are empty and convert "," to an empty array
+                const cleanedValues =
+                  selectedValues === ',' ? '' : selectedValues;
+                onChange(cleanedValues);
+
                 clearErrorOnChange(name, errors, clearErrors);
               }}
               isInvalid={!!error}
