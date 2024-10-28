@@ -1,3 +1,5 @@
+'use server';
+
 // Constants
 import { API_PATH } from '@/constants';
 

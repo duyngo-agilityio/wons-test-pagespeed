@@ -41,7 +41,6 @@ const CustomerListPage = ({
 
   return (
     <main>
-      {/* TODO: Update later, add suspense for CustomerDrawer */}
       <DashBoardLayout
         title={PAGE_TITLES.CUSTOMER}
         rightContent={<CustomerActions />}
