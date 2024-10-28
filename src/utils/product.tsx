@@ -47,8 +47,6 @@ export const sortByTotalSaleDescending = (
 export const sortProductsByTotalSale = (
   products: TProductInvoiceResponse[],
 ) => {
-  if (!Array.isArray(products) || !products.length) return [];
-
   const productsWithTotalSale = products.map((product) => ({
     ...product,
     attributes: {
@@ -65,13 +63,11 @@ export const sortProductsByTotalSale = (
 export const filterProductsNotInInvoice = (
   invoiceProductIds: Set<number>,
   products: StrapiModel<IProduct>[],
-) => {
-  if (!Array.isArray(products) || !products.length) return [];
+) => products.filter((product) => !invoiceProductIds.has(product.id));
 
-  return products.filter((product) => !invoiceProductIds.has(product.id));
-};
-
-export const formatProduct = (productsNotInInvoice: StrapiModel<IProduct>[]) =>
+export const formatProduct = (
+  productsNotInInvoice: StrapiModel<IProduct>[] = [],
+) =>
   productsNotInInvoice.map((product) => {
     return {
       id: product.id,

@@ -72,7 +72,7 @@ const TaskForm = ({
   isDisabledField = false,
   onSubmit,
   setReset,
-  previewData,
+  previewData = null,
   onCloseDrawer,
   user,
   onAvatarChange,
@@ -447,4 +447,5 @@ const TaskForm = ({
     </form>
   );
 };
+
 export default memo(TaskForm, isEqual);

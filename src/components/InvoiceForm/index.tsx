@@ -93,8 +93,8 @@ interface InvoiceFormProps {
 
 const InvoiceForm = ({
   invoiceId,
-  products,
-  customers,
+  products = [],
+  customers = [],
   isEdit = false,
   previewData = null,
   previewInvoiceProducts,

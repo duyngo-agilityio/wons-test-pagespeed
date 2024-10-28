@@ -47,7 +47,7 @@ interface IFilterProps {
 }
 
 const Filter = ({
-  items,
+  items = [],
   title = '',
   buttonProps,
   popoverProps,
