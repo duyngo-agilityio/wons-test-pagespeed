@@ -143,6 +143,7 @@ const NavigateList = ({ toggle = SidebarState.Open }: INavigateList) => {
       {MAPPING_SIDEBAR_CONTENTS.map(
         ({ id, href, startContent, endContent, content }) => (
           <ListboxItem
+            aria-label="list items"
             as={Link}
             key={id}
             href={href}

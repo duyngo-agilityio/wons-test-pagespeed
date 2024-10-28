@@ -12,8 +12,8 @@ describe('EventDetail Component', () => {
         id={1}
         link="https://meet.google.com/"
         guests={[
-          { name: 'John Doe', avatar: '/avatars/john.png' },
-          { name: 'Jane Doe', avatar: '/avatars/jane.png' },
+          { id: 1, name: 'John Doe', avatar: '/avatars/john.png' },
+          { id: 2, name: 'Jane Doe', avatar: '/avatars/jane.png' },
         ]}
       />,
     );
