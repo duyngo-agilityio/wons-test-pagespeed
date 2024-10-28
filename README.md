@@ -10,7 +10,7 @@ This document provides an overview of the system, detailing its functionality in
   - Account:
     - <admin1@gmail.com>
     - Abcd@1234
-- Storybook: [Link](https://wons-storybook.vercel.app/)
+- Storybook: [Link](https://wons-storybook.vercel.app)
 
 ## Timeline
 
