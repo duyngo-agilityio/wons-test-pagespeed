@@ -24,7 +24,10 @@ interface IRecentServicesTable {
   order?: string;
 }
 
-const RecentServicesTable = ({ data, order = '' }: IRecentServicesTable) => {
+const RecentServicesTable = ({
+  data = [],
+  order = '',
+}: IRecentServicesTable) => {
   const { ASC, DESC } = ORDER;
 
   const mappingContentColumns = useMemo(

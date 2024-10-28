@@ -17,7 +17,7 @@ type TColumnProps = {
   tasks: StrapiModel<Task>[];
 };
 
-const Column = ({ status, tasks }: TColumnProps) => (
+const Column = ({ status, tasks = [] }: TColumnProps) => (
   <Droppable droppableId={status}>
     {(provided) => (
       <div

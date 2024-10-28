@@ -68,14 +68,14 @@ export interface ICustomerFormProps {
   isDisabledField?: boolean;
   onAvatarChange: (file: File) => void;
   onSubmit: (data: ICustomer) => void;
-  previewData?: ICustomer;
+  previewData?: ICustomer | null;
 }
 
 const CustomerForm = ({
   isDisabledField = false,
   onAvatarChange,
   onSubmit,
-  previewData,
+  previewData = null,
 }: ICustomerFormProps) => {
   const {
     control,
@@ -99,7 +99,6 @@ const CustomerForm = ({
       address: '',
       avatar: '',
     },
-    values: previewData,
   });
 
   const [isPending, startTransition] = useTransition();

@@ -316,7 +316,6 @@ export const getUserIdsForTask = (taskResponse: Task): string => {
       .join(','),
   };
 
-  // return taskResponse.assignees.data.map((user) => user.id).join(',');
   return result.assignees;
 };
 
