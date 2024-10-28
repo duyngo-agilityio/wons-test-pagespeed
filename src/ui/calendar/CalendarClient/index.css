@@ -29,7 +29,7 @@
 }
 
 .rbc-button-link {
-  font-size: 16px;
+  font-size: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-weight: 700;
@@ -147,6 +147,7 @@
 
 .rbc-time-content {
   border-top: none;
+  background-color: white;
 }
 
 .rbc-today {
@@ -187,4 +188,32 @@
 
 .rbc-event-label {
   width: 100% !important;
+}
+
+@media screen and (min-width: 768px) {
+  /* Time view */
+  .rbc-time-header-content .rbc-button-link {
+    font-size: 0.625rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  /* Time view */
+  .rbc-time-header-content .rbc-button-link {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* Time view */
+  .rbc-time-header-content .rbc-button-link {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* Time view */
+  .rbc-time-header-content .rbc-button-link {
+    font-size: 0.875rem;
+  }
 }
