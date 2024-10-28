@@ -54,7 +54,7 @@ export const MESSAGES = {
   LOCATION: 'Error: Please provide at least a location!',
 };
 
-export const ErrorMapper: Record<string, string> = {
+export const ERROR_MAPPER: Record<string, string> = {
   [MESSAGES.ERROR_API.EMAIL_OR_USERNAME_EXIST]:
     MESSAGES.ERROR.EMAIL_OR_USERNAME_EXIST,
 };
