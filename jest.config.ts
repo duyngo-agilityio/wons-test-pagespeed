@@ -34,6 +34,13 @@ const config: Config = {
     '<rootDir>/src/app/api/*',
     '<rootDir>/src/app/\\(dashboard\\)/(error|layout|loading|not-found).*',
     '<rootDir>/src/app/\\(dashboard\\)/.+/(error|layout|loading|not-found).*',
+    '<rootDir>/src/app/\\(auth\\)/.+/(error|layout|loading|not-found).*',
+    '<rootDir>/src/types/*',
+    '<rootDir>/src/models/*',
+    '<rootDir>/src/mocks/*',
+    '<rootDir>/src/constants/*',
+    '<rootDir>/src/contexts/',
+    '<rootDir>/src/themes/*',
   ],
 };
 
