@@ -10,16 +10,12 @@ import { API_PATH } from '@/constants';
 // Types
 import { StrapiModel, StrapiResponse, Task, TTasksResponse } from '@/types';
 
-type TaskConfigs = {
-  cache?: RequestCache;
-  nextOptions?: NextFetchRequestConfig;
+interface TaskConfigs {
   filters?: string[];
   query?: string;
-};
+}
 
 export const getTasks = async ({
-  cache,
-  nextOptions,
   filters,
   query,
 }: TaskConfigs): Promise<TTasksResponse> => {
@@ -34,8 +30,9 @@ export const getTasks = async ({
     const response = await httpClient.getRequest<TTasksResponse>({
       endpoint,
       configOptions: {
-        cache: cache,
-        next: nextOptions,
+        next: {
+          tags: [API_PATH.TASKS],
+        },
       },
     });
 
@@ -49,8 +46,6 @@ export const getTasks = async ({
 
 export const getTaskById = async ({
   id,
-  cache,
-  nextOptions,
 }: {
   id: number;
   cache?: RequestCache;
@@ -67,8 +62,7 @@ export const getTaskById = async ({
     >({
       endpoint,
       configOptions: {
-        cache: cache,
-        next: nextOptions,
+        next: { tags: [API_PATH.TASKS] },
       },
     });
 

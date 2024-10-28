@@ -11,7 +11,7 @@ import { getUsers } from '@/api';
 import { TUser } from '@/models';
 
 const ScheduleListFilter = async (): Promise<JSX.Element> => {
-  const users: TUser[] = await getUsers({});
+  const users: TUser[] = await getUsers();
   const filterOptions = formatFilterOptions(users);
 
   return (

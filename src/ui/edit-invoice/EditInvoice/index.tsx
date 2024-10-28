@@ -1,6 +1,3 @@
-// Constants
-import { API_PATH } from '@/constants';
-
 // Actions
 import { editInvoice } from '@/actions';
 
@@ -24,7 +21,6 @@ const EditInvoice = async ({ id }: EditInvoiceProps) => {
       getCustomers(),
       getInvoiceById({
         id,
-        nextOptions: { tags: [API_PATH.INVOICE] },
       }),
     ]);
 

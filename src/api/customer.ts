@@ -10,23 +10,20 @@ import { TCustomerListResponse } from '@/types';
 // Utils
 import { formatErrorMessage } from '@/utils';
 
-type CustomerListConfigs = {
+interface CustomerListConfigs {
   id?: number;
   page?: number;
   pageSize?: number;
   sortBy?: string;
   order?: string;
   cache?: RequestCache;
-  nextOptions?: NextFetchRequestConfig;
-};
+}
 
 export const getCustomers = async ({
   page = DEFAULT_PAGE,
   pageSize = PAGE_SIZE[10],
-  cache,
   sortBy,
   order,
-  nextOptions,
 }: CustomerListConfigs = {}): Promise<TCustomerListResponse> => {
   const sortValue = sortBy
     ? `&sort=${sortBy}:${order}`
@@ -40,8 +37,7 @@ export const getCustomers = async ({
       {
         endpoint,
         configOptions: {
-          cache: cache,
-          next: nextOptions,
+          next: { tags: [API_PATH.CUSTOMERS] },
         },
       },
     );

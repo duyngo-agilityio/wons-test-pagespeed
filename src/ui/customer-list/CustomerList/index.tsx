@@ -1,9 +1,6 @@
 // apis
 import { getCustomers } from '@/api';
 
-// constants
-import { API_PATH } from '@/constants';
-
 // uis
 import { CustomerListClient } from '@/ui';
 
@@ -25,7 +22,6 @@ const CustomerList = async ({
     page,
     sortBy,
     order,
-    nextOptions: { tags: [API_PATH.CUSTOMERS] },
   });
 
   const isSuperAdmin = await isAdmin();
