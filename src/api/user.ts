@@ -1,5 +1,3 @@
-'use server';
-
 // Constants
 import { API_PATH } from '@/constants';
 
@@ -38,23 +36,14 @@ export const getProfile = async (jwt: string): Promise<TProfileResponse> => {
   }
 };
 
-type UserListConfigs = {
-  cache?: RequestCache;
-  nextOptions?: NextFetchRequestConfig;
-};
-
-export const getUsers = async ({
-  cache,
-  nextOptions,
-}: UserListConfigs = {}): Promise<TUser[]> => {
+export const getUsers = async (): Promise<TUser[]> => {
   const endpoint = API_PATH.USERS;
 
   try {
     const customerResponse = await httpClient.getRequest<TUser[]>({
       endpoint,
       configOptions: {
-        cache: cache,
-        next: nextOptions,
+        next: { tags: [API_PATH.USERS] },
       },
     });
 

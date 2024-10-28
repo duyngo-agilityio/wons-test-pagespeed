@@ -16,9 +16,6 @@ import {
   InvoiceDetailsFooter,
 } from '@/ui/invoice-details';
 
-// Constants
-import { API_PATH } from '@/constants';
-
 interface IInvoiceDetailsSectionProps {
   id: number;
 }
@@ -26,7 +23,6 @@ interface IInvoiceDetailsSectionProps {
 const InvoiceDetailsSection = async ({ id }: IInvoiceDetailsSectionProps) => {
   const { data } = await getInvoiceById({
     id: id,
-    nextOptions: { tags: [API_PATH.INVOICE] },
   });
   const invoices: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>[] =
     data.attributes.invoice_products.data;

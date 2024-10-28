@@ -31,6 +31,7 @@ export const createProduct = async (formData: Partial<IProductDetail>) => {
     });
 
     revalidateTag(API_PATH.PRODUCTS);
+    revalidateTag(API_PATH.INVOICE_PRODUCTS);
 
     return { success: true };
   } catch (error) {
