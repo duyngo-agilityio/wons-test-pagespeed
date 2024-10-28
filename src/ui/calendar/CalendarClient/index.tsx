@@ -325,7 +325,7 @@ const CalendarClient = ({
   };
 
   return (
-    <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
+    <div className="flex h-[calc(100vh-120px)]  gap-4 md:gap-6 lg:gap-[37px] xl:gap-10 relative">
       <div className="hidden md:flex bg-white dark:bg-gray-400 px-[18px] md:px-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
         <CustomCalendar
           key={`${selectedDate.month}+${selectedDate.day}+${selectedDate.year}`}
