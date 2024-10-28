@@ -23,6 +23,7 @@ import { MdOutlineDescription } from 'react-icons/md';
 import { IMAGES } from '@/constants';
 
 export interface Guest {
+  id: number;
   name: string;
   avatar: string;
 }
@@ -142,22 +143,22 @@ const EventDetail = ({
           {guests.length > 0 && (
             <div className="px-8 ml-4">
               <ul className="list-none">
-                {guests?.map((guest, index) => (
+                {guests?.map(({ id, avatar, name }) => (
                   <li
-                    key={index}
+                    key={id}
                     className="flex items-center mb-2 text-gray-600 dark:text-gray-300"
                   >
                     <ImageFallback
-                      src={guest.avatar}
+                      src={avatar}
                       width={30}
                       height={30}
                       className="rounded-full mr-2 !h-[30px]"
-                      alt={`${guest.name}'s avatar`}
+                      alt={`${name}'s avatar`}
                     />
                     <Text
                       size="xl"
                       className="opacity-70 font-medium"
-                      text={guest.name}
+                      text={name}
                     />
                   </li>
                 ))}

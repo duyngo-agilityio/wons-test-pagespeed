@@ -15,8 +15,8 @@ const meta: Meta<typeof EventDetail> = {
     time: '10:00 AM',
     location: '123 Main St',
     guests: [
-      { name: 'John Doe', avatar: '/avatars/john.png' },
-      { name: 'Jane Doe', avatar: '/avatars/jane.png' },
+      { id: 1, name: 'John Doe', avatar: '/avatars/john.png' },
+      { id: 2, name: 'Jane Doe', avatar: '/avatars/jane.png' },
     ],
   },
 };

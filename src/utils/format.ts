@@ -271,7 +271,8 @@ export const formatDateToISO = (dateString: Date, timeString: string) => {
 };
 
 export const formattedGuestInfo = (guests: TEventResponse) =>
-  guests.users_permissions_users.data.map(({ attributes }) => ({
+  guests.users_permissions_users.data.map(({ id, attributes }) => ({
+    id,
     name: attributes.fullName,
     avatar: attributes.avatar,
   }));
