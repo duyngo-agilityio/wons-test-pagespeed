@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Calendar, CalendarProps, DateValue } from '@nextui-org/react';
 import { getLocalTimeZone, today } from '@internationalized/date';
 
@@ -16,16 +16,25 @@ const CalendarCustom = ({
   onDateSelect,
   ...props
 }: CalendarCustomProps) => {
-  const [selectedDate, setSelectedDate] = useState<DateValue | null>(value);
+  const todayDate = today(getLocalTimeZone());
 
+  // Initialize selected date, current month, and current year
+  const [selectedDate, setSelectedDate] = useState<DateValue | null>(value);
   const [currentMonth, setCurrentMonth] = useState<number>(
-    value?.month ?? today(getLocalTimeZone()).month,
+    value ? value.month : todayDate.month, // Check for null here
   );
   const [currentYear, setCurrentYear] = useState<number>(
-    value?.year ?? today(getLocalTimeZone()).year,
+    value ? value.year : todayDate.year, // Check for null here
   );
 
-  const todayDate = today(getLocalTimeZone());
+  useEffect(() => {
+    // Update internal state whenever the `value` prop changes
+    if (value) {
+      setSelectedDate(value);
+      setCurrentMonth(value.month);
+      setCurrentYear(value.year);
+    }
+  }, [value]);
 
   const handleDateChange = (date: DateValue) => {
     setSelectedDate(date);
@@ -34,15 +43,18 @@ const CalendarCustom = ({
     }
   };
 
-  // Handler for focus changes to track the displayed month
   const handleFocusChange = (date: DateValue | null) => {
     if (date) {
       const { month, year } = date;
-      if (month !== currentMonth || year !== currentYear) {
-        setCurrentMonth(month);
-        setCurrentYear(year);
-      }
+      setCurrentMonth(month);
+      setCurrentYear(year);
     }
+  };
+
+  // Function to handle month navigation
+  const handleMonthChange = (month: number, year: number) => {
+    setCurrentMonth(month);
+    setCurrentYear(year);
   };
 
   const isCurrentMonth =
@@ -66,8 +78,22 @@ const CalendarCustom = ({
       value={selectedDate}
       onChange={handleDateChange}
       onFocusChange={handleFocusChange}
-      prevButtonProps={{ className: 'absolute right-10' }}
-      nextButtonProps={{ className: 'dark:text-white' }}
+      prevButtonProps={{
+        className: 'absolute right-10',
+        onClick: () => {
+          const newMonth = currentMonth === 1 ? 12 : currentMonth - 1;
+          const newYear = currentMonth === 1 ? currentYear - 1 : currentYear;
+          handleMonthChange(newMonth, newYear);
+        },
+      }}
+      nextButtonProps={{
+        className: 'dark:text-white',
+        onClick: () => {
+          const newMonth = currentMonth === 12 ? 1 : currentMonth + 1;
+          const newYear = currentMonth === 12 ? currentYear + 1 : currentYear;
+          handleMonthChange(newMonth, newYear);
+        },
+      }}
       classNames={{
         base: `dark:bg-gray-400 bg-white border border-white solid overflow-hidden ${
           isCurrentMonth ? 'current-month' : 'other-month'

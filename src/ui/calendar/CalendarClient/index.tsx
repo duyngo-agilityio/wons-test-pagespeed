@@ -303,7 +303,9 @@ const CalendarClient = ({
 
   const handleDateSelect = (date: DateValue) => {
     const calendarDate = new CalendarDate(date.year, date.month, date.day);
+
     setSelectedDate(calendarDate);
+
     setView(Views.DAY);
   };
 
@@ -325,7 +327,11 @@ const CalendarClient = ({
   return (
     <div className="flex h-[calc(100vh-120px)] gap-[37px] relative">
       <div className="hidden md:flex bg-white dark:bg-gray-400 px-[18px] md:px-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
-        <CustomCalendar onDateSelect={handleDateSelect} />
+        <CustomCalendar
+          key={`${selectedDate.month}+${selectedDate.day}+${selectedDate.year}`}
+          onDateSelect={handleDateSelect}
+          value={selectedDate}
+        />
         <Button color="secondary" as={Link} href={ROUTES.SCHEDULE}>
           My Schedule
         </Button>
@@ -347,6 +353,11 @@ const CalendarClient = ({
           onSelectEvent={handleSelectEvent}
           date={selectedDate.toDate(timeZone)}
           onNavigate={handleNavigateCalendar}
+          onDrillDown={(date) => {
+            handleNavigateCalendar(date);
+
+            setView(Views.DAY); // Set to the day view after clicking on the header date if needed
+          }}
         />
       </div>
 
