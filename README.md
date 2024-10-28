@@ -6,6 +6,11 @@ This document provides an overview of the system, detailing its functionality in
 
 - Design: [here](<https://www.figma.com/design/REurjW8goPRDZn3cMMeQZY/Admin-Dashboard-Web-(Community)-(Copy)?node-id=2-3&m=dev&t=b6s6n2xpqUU8qsbV-1>)
 - Requirements & Scope: [here](https://docs.google.com/document/d/1m2-HJrk2ecMf4919sprfFy8VvmQzTlfx/edit?usp=sharing&ouid=103083083655563138202&rtpof=true&sd=true)
+- Deployment: [Vercel](https://wons.vercel.app)
+  - Account:
+    - <admin1@gmail.com>
+    - Abcd@1234
+- Storybook: [Link](https://wons-storybook.vercel.app)
 
 ## Timeline
 
@@ -70,9 +75,9 @@ Make sure you install packages with correct version below:
 | :----------------- | :----------------------------------------- | :-------------------- |
 | `$ pnpm install`   | Install packages dependencies              | N/A                   |
 | `$ pnpm build`     | Build app with optimized production mode   | N/A                   |
-| `$ pnpm start`     | Starts the application in production mode. | http://localhost:3000 |
-| `$ pnpm dev`       | Run the app in development mode            | http://localhost:3000 |
-| `$ pnpm storybook` | Run Storybook.                             | http://localhost:6006 |
+| `$ pnpm start`     | Starts the application in production mode. | <http://localhost:3000> |
+| `$ pnpm dev`       | Run the app in development mode            | <http://localhost:3000> |
+| `$ pnpm storybook` | Run Storybook.                             | <http://localhost:6006> |
 | `$ pnpm test`      | Run Unit Test                              | N/A                   |
 | `$ pnpm coverage`  | Generate code coverage                     | N/A                   |
 
