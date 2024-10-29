@@ -346,7 +346,6 @@ const CalendarClient = ({
       <div className="hidden md:flex bg-white dark:bg-gray-400 px-[18px] md:px-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
         <CustomCalendar
           key={`${selectedDate.month}+${selectedDate.day}+${selectedDate.year}`}
-          calendarWidth={204}
           onDateSelect={handleDateSelect}
           value={selectedDate}
         />
