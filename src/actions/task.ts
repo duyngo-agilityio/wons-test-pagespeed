@@ -68,17 +68,12 @@ export const createTask = async (
   formData: Partial<TaskWithStringAssignees>,
 ) => {
   try {
-    const { title, ...restFormData } = formData;
-
-    const formattedData = {
-      ...restFormData,
-      title,
-    };
-
     await httpClient.genericRequest({
       method: Method.Post,
       endpoint: API_PATH.TASKS,
-      body: { data: formattedData },
+      body: {
+        data: formData,
+      },
     });
 
     revalidateTag(API_PATH.TASKS);

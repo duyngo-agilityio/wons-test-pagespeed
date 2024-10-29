@@ -19,15 +19,12 @@ import { TProductInvoiceListResponse, Method } from '@/types';
 
 export const createProduct = async (formData: Partial<IProductDetail>) => {
   try {
-    const formattedData = {
-      ...formData,
-      title: `${formData.title}`,
-    };
-
     await httpClient.genericRequest({
       method: Method.Post,
       endpoint: API_PATH.PRODUCTS,
-      body: { data: formattedData },
+      body: {
+        data: formData,
+      },
     });
 
     revalidateTag(API_PATH.PRODUCTS);
@@ -45,15 +42,12 @@ export const updateProduct = async (
   id: number,
 ) => {
   try {
-    const formattedData = {
-      ...formData,
-      title: `${formData.title}`,
-    };
-
     await httpClient.genericRequest({
       method: Method.Put,
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
-      body: { data: formattedData },
+      body: {
+        data: formData,
+      },
     });
 
     revalidateTag(API_PATH.PRODUCTS);
