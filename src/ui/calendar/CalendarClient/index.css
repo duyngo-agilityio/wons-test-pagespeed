@@ -105,6 +105,10 @@
     );
 }
 
+.rbc-time-view {
+  border: none;
+}
+
 .rbc-date-cell.rbc-now {
   color: var(--c-calendar-current-date-color);
   line-height: 33.37px;
@@ -221,6 +225,14 @@
 .rbc-row-segment {
   padding-left: 8px;
   padding-right: 8px;
+}
+
+.rbc-time-header-content {
+  border: none;
+}
+
+.rbc-time-header.rbc-overflowing {
+  border: none;
 }
 
 .rbc-button-link.rbc-show-more {
