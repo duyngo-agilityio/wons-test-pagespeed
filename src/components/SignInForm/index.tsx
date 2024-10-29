@@ -2,7 +2,6 @@
 
 import { memo, useCallback, useMemo, useState, useTransition } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
@@ -10,10 +9,14 @@ import { useRouter } from 'next/navigation';
 import { SignInFormData } from '@/types';
 
 // Constants
-import { ROUTES, REGEX, MESSAGES } from '@/constants';
+import { ROUTES, MESSAGES } from '@/constants';
 
 // Utils
-import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+import {
+  clearErrorOnChange,
+  isEnableSubmitButton,
+  signInSchema,
+} from '@/utils';
 
 // Hooks
 import { useToast } from '@/hooks';
@@ -27,18 +30,6 @@ import { Button, Input } from '@/components';
 interface SignInFormProps {
   onSubmit: (data: SignInFormData) => Promise<void | string>;
 }
-
-// Zod schema for validation
-const signInSchema = z.object({
-  identifier: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(MESSAGES.ERROR.EMAIL_INVALID),
-  password: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .regex(REGEX.PASSWORD, MESSAGES.ERROR.GENERAL_INVALID_PASSWORD),
-});
 
 const REQUIRED_FIELDS = ['identifier', 'password'];
 

@@ -4,7 +4,6 @@ import { memo, useState, useCallback, useEffect, useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
 import dayjs from 'dayjs';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Select, SelectItem } from '@nextui-org/react';
@@ -19,6 +18,7 @@ import { TEventResponse } from '@/types';
 import {
   capitalizeFirstLetter,
   clearErrorOnChange,
+  eventSchema,
   formatDateString,
   formatDateToISO,
   formatEventDate,
@@ -70,13 +70,6 @@ interface CalendarEventFormProps {
   onSubmit: (data: Partial<IEvent>) => void;
   onClose: () => void;
 }
-
-// Zod schema for validation
-const eventSchema = z.object({
-  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  location: z.string(),
-  people: z.string(),
-});
 
 const REQUIRED_FIELDS = ['title'];
 

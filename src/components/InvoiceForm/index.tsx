@@ -4,7 +4,6 @@ import { memo, useCallback, useMemo, useState, useTransition } from 'react';
 import isEqual from 'react-fast-compare';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import clsx from 'clsx';
@@ -25,6 +24,7 @@ import {
   currentDate,
   formatDatePicker,
   getDirtyState,
+  invoiceSchema,
   isEnableSubmitButton,
 } from '@/utils';
 
@@ -58,20 +58,6 @@ import {
   CalendarDateTime,
   ZonedDateTime,
 } from '@internationalized/date';
-
-// Zod schema for validation
-const invoiceSchema = z.object({
-  invoiceId: z.string(),
-  customerId: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  status: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  address: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  date: z.any(),
-  email: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(MESSAGES.ERROR.FIELD_INVALID('Email')),
-  imageUrl: z.string(),
-});
 
 const REQUIRED_FIELDS = ['date', 'customerId', 'email', 'address', 'status'];
 

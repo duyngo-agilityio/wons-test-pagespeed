@@ -5,7 +5,6 @@ import { Controller, useForm } from 'react-hook-form';
 import isEqual from 'react-fast-compare';
 import dayjs from 'dayjs';
 import { Textarea } from '@nextui-org/react';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
@@ -24,6 +23,7 @@ import {
   formatToStandardDate,
   getDirtyState,
   isEnableSubmitButton,
+  taskSchema,
 } from '@/utils';
 
 // Components
@@ -47,12 +47,6 @@ interface CalendarTaskFormProps {
   onClose: () => void;
   onSubmit: (data: Partial<ICalendarTask>) => void;
 }
-
-// Zod schema for validation
-const taskSchema = z.object({
-  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  descriptions: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-});
 
 const REQUIRED_FIELDS = ['title', 'descriptions'];
 
