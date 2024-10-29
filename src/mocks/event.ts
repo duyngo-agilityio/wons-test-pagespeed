@@ -21,4 +21,17 @@ export const EVENTS_MOCKS = [
       users_permissions_users: [1, 2],
     },
   },
+
+  {
+    id: 2,
+    attributes: {
+      title: 'Implement Component',
+      descriptions: 'Implement for all component',
+      date: '2024-10-20T01:30:00Z',
+      time: '2024-10-20T01:30:00Z',
+      createdAt: '2024-10-22T09:46:11.546Z',
+      updatedAt: '2024-10-22T09:46:16.769Z',
+      publishedAt: '2024-10-22T09:46:16.768Z',
+    },
+  },
 ];

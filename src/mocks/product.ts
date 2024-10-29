@@ -148,3 +148,56 @@ export const MOCK_PRODUCTS_TOP_SELLING = [
     },
   },
 ];
+
+export const MOCK_INVOICE_PRODUCTS = [
+  {
+    id: 5,
+    attributes: {
+      price: 1600,
+      createdAt: '2024-09-22T22:21:05.920Z',
+      updatedAt: '2024-09-23T02:58:57.822Z',
+      publishedAt: '2024-09-22T22:21:05.914Z',
+      quantity: 1,
+    },
+  },
+  {
+    id: 6,
+    attributes: {
+      price: 1000,
+      createdAt: '2024-09-22T22:22:39.895Z',
+      updatedAt: '2024-09-22T22:22:39.895Z',
+      publishedAt: '2024-09-22T22:22:39.893Z',
+      quantity: 1,
+    },
+  },
+  {
+    id: 7,
+    attributes: {
+      price: 1600,
+      createdAt: '2024-09-22T22:23:25.215Z',
+      updatedAt: '2024-09-23T02:59:05.936Z',
+      publishedAt: '2024-09-22T22:23:25.212Z',
+      quantity: 1,
+    },
+  },
+  {
+    id: 8,
+    attributes: {
+      price: 1400,
+      createdAt: '2024-09-22T22:24:22.140Z',
+      updatedAt: '2024-09-23T02:59:14.013Z',
+      publishedAt: '2024-09-22T22:24:22.139Z',
+      quantity: 2,
+    },
+  },
+  {
+    id: 9,
+    attributes: {
+      price: 1000,
+      createdAt: '2024-09-22T22:25:15.043Z',
+      updatedAt: '2024-09-22T22:25:15.043Z',
+      publishedAt: '2024-09-22T22:25:15.041Z',
+      quantity: 1,
+    },
+  },
+];

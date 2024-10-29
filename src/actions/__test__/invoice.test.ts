@@ -1,3 +1,5 @@
+import { revalidateTag } from 'next/cache';
+
 // services
 import { httpClient } from '@/services';
 
@@ -8,10 +10,22 @@ import { formatErrorMessage } from '@/utils';
 import { TInvoiceProductTable, InvoiceStatus, Method } from '@/types';
 
 // mocks
-import { MOCK_PRODUCTS_WITHOUT_ATTRIBUTES } from '@/mocks';
+import {
+  MOCK_INVOICES_WITH_CUSTOMER,
+  MOCK_PRODUCTS_WITHOUT_ATTRIBUTES,
+} from '@/mocks';
 
 // actions
-import { createInvoiceProducts, editInvoice } from '@/actions';
+import {
+  createInvoice,
+  createInvoiceProducts,
+  deleteInvoice,
+  deleteMultipleInvoice,
+  editInvoice,
+  updateInvoice,
+  updateInvoiceProducts,
+} from '@/actions';
+import { API_PATH, MESSAGES } from '@/constants';
 
 jest.mock('@/services', () => ({
   httpClient: {
@@ -22,6 +36,46 @@ jest.mock('@/services', () => ({
 jest.mock('@/utils', () => ({
   formatErrorMessage: jest.fn(),
 }));
+
+jest.mock('next/cache', () => ({
+  revalidateTag: jest.fn(),
+}));
+
+const { attributes } = MOCK_INVOICES_WITH_CUSTOMER[0];
+const {
+  customer,
+  isSelected,
+  imageUrl,
+  status,
+  address,
+  date,
+  email,
+  invoiceId,
+  invoice_products,
+} = attributes;
+const { id, attributes: attributesInvoiceProducts } = invoice_products.data[0];
+const { price, quantity, product } = attributesInvoiceProducts;
+const mockProducts = [
+  {
+    id,
+    price,
+    quantity,
+    product: {
+      data: { ...product.data, id: 1 },
+    },
+  },
+];
+const formData = {
+  invoiceId,
+  customerId: String(customer.data.id),
+  imageUrl,
+  status,
+  address,
+  isSelected,
+  date,
+  email,
+};
+const mockError = new Error(MESSAGES.ERROR.UNKNOWN_ERROR);
 
 describe('createInvoiceProducts', () => {
   const PRODUCTS_MOCK: TInvoiceProductTable[] =
@@ -90,32 +144,102 @@ describe('createInvoiceProducts', () => {
   });
 });
 
-describe('editInvoice', () => {
+describe('update invoice products', () => {
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      data: MOCK_INVOICES_WITH_CUSTOMER[0],
+    });
+
+    const result = await updateInvoiceProducts(mockProducts);
+
+    expect(result).toEqual([MOCK_INVOICES_WITH_CUSTOMER[0].id]);
+  });
+
+  it('calls failed', async () => {
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = updateInvoiceProducts(mockProducts);
+
+    expect(result).rejects.toThrow(MESSAGES.ERROR.UNKNOWN_ERROR);
+  });
+});
+
+describe('Create invoice', () => {
+  it('calls success', async () => {
+    // (createInvoiceProducts as jest.Mock).mockResolvedValue(mockProducts);
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      data: MOCK_INVOICES_WITH_CUSTOMER[0],
+    });
+
+    const result = await createInvoice(formData, mockProducts);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(2);
+    expect(revalidateTag).toHaveBeenCalledTimes(2);
+    expect(result).toEqual({
+      data: MOCK_INVOICES_WITH_CUSTOMER[0],
+    });
+  });
+
+  it('calls success with undefined', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      data: undefined,
+    });
+
+    const result = await createInvoice({}, []);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(1);
+    expect(revalidateTag).toHaveBeenCalledTimes(2);
+    expect(result).toEqual({
+      data: {},
+    });
+  });
+
+  it('calls failed', async () => {
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await createInvoice({}, []);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(1);
+    expect(result).toEqual({
+      error: MESSAGES.ERROR.UNKNOWN_ERROR,
+    });
+  });
+});
+
+describe('Edit Invoice', () => {
   const newData = { email: 'test@gmai.com' };
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should successfully update invoice', async () => {
-    const MOCK_RESPONSE = {
-      id: 4,
-      attributes: {
-        email: 'test@gmai.com',
-        date: '2024-09-10',
-        status: InvoiceStatus.Complete,
-        address: '1254 Xo Viet Nghe Tinh, Da Nang',
-        isSelected: true,
-        invoiceId: '871345',
-        imageUrl: '',
-      },
-    };
+  const MOCK_RESPONSE = {
+    id: 4,
+    attributes: {
+      email: 'test@gmai.com',
+      date: '2024-09-10',
+      status: InvoiceStatus.Complete,
+      address: '1254 Xo Viet Nghe Tinh, Da Nang',
+      isSelected: true,
+      invoiceId: '871345',
+      imageUrl: '',
+    },
+  };
 
+  it('should successfully update invoice', async () => {
     (httpClient.genericRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
 
     await editInvoice(1, newData, []);
 
     expect(httpClient.genericRequest).toHaveBeenCalledTimes(1);
+  });
+
+  it('should successfully update invoice', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(MOCK_RESPONSE);
+
+    await editInvoice(1, newData, mockProducts);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledTimes(2);
   });
 
   it('should return an error with formatted message when editInvoice fails', async () => {
@@ -131,5 +255,93 @@ describe('editInvoice', () => {
     expect(result).toEqual({ error: FORMATTED_ERROR_MESSAGE });
     expect(httpClient.genericRequest).toHaveBeenCalled();
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
+  });
+});
+
+describe('Update Invoice', () => {
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(
+      MOCK_INVOICES_WITH_CUSTOMER[0],
+    );
+
+    await updateInvoice(MOCK_INVOICES_WITH_CUSTOMER[0].id, formData);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Put,
+      endpoint: `${API_PATH.INVOICES}/${MOCK_INVOICES_WITH_CUSTOMER[0].id}`,
+      body: { data: formData },
+    });
+    expect(revalidateTag).toHaveBeenCalledTimes(2);
+  });
+
+  it('calls failed', async () => {
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await updateInvoice(
+      MOCK_INVOICES_WITH_CUSTOMER[0].id,
+      formData,
+    );
+
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
+  });
+});
+
+describe('Delete Invoice', () => {
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(
+      MOCK_INVOICES_WITH_CUSTOMER[0],
+    );
+
+    await deleteInvoice(
+      Number(MOCK_INVOICES_WITH_CUSTOMER[0].attributes.invoiceId),
+      [invoice_products.data[0].id],
+    );
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Delete,
+      endpoint: `${API_PATH.INVOICES}/${invoiceId}`,
+    });
+    expect(revalidateTag).toHaveBeenCalledTimes(2);
+  });
+
+  it('calls failed', async () => {
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await deleteInvoice(
+      Number(MOCK_INVOICES_WITH_CUSTOMER[0].attributes.invoiceId),
+      [invoice_products.data[0].id],
+    );
+
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
+  });
+});
+
+describe('Delete multiple invoices', () => {
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue(
+      MOCK_INVOICES_WITH_CUSTOMER[0],
+    );
+
+    await deleteMultipleInvoice(
+      [Number(MOCK_INVOICES_WITH_CUSTOMER[0].attributes.invoiceId)],
+      [invoice_products.data[0].id],
+    );
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Delete,
+      endpoint: `${API_PATH.INVOICES}/${invoiceId}`,
+    });
+    expect(revalidateTag).toHaveBeenCalledTimes(2);
+  });
+
+  it('calls failed', async () => {
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await deleteMultipleInvoice(
+      [Number(MOCK_INVOICES_WITH_CUSTOMER[0].attributes.invoiceId)],
+      [invoice_products.data[0].id],
+    );
+
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
   });
 });
