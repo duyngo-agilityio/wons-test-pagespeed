@@ -1,6 +1,7 @@
 'use client';
 
 // Libs
+import { forwardRef } from 'react';
 import {
   extendVariants,
   InputProps,
@@ -72,14 +73,17 @@ const CustomInput = extendVariants(NextUIInput, {
   },
 });
 
-const Input = ({ ...props }: InputProps): JSX.Element => (
+const Input = forwardRef<HTMLInputElement, InputProps>(({ ...props }, ref) => (
   <CustomInput
+    ref={ref}
     classNames={{
       inputWrapper:
         'group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500',
     }}
     {...props}
   />
-);
+));
+
+Input.displayName = 'Input';
 
 export default Input;
