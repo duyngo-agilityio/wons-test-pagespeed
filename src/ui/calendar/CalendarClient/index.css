@@ -32,8 +32,7 @@
   font-size: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-weight: 700;
-  opacity: 70%;
+  font-weight: 500;
 }
 
 .rbc-date-cell {
@@ -80,12 +79,18 @@
 .rbc-header {
   font-weight: 500;
   font-size: 16px;
-  line-height: 20.83px;
+  line-height: 28px;
   color: light-dark(var(--c-calendar-header-light), var(--c-calendar-white));
+  white-space: pre-line;
+  text-align: center;
 }
 
 .rbc-header + .rbc-header {
   border-left: none;
+}
+
+.rbc-header span {
+  opacity: 70%;
 }
 
 .rbc-month-row {
@@ -150,10 +155,6 @@
   background-color: white;
 }
 
-.rbc-today {
-  color: var(--c-calendar-date-cell-dark);
-}
-
 .rbc-time-slot {
   justify-content: flex-end;
   display: flex;
@@ -171,8 +172,6 @@
 }
 
 .rbc-event {
-  margin-left: 8px;
-  margin-right: 8px;
   width: auto;
   background-color: var(--c-calendar-current-date-color);
   color: black;
@@ -190,10 +189,70 @@
   width: 100% !important;
 }
 
+.rbc-header.rbc-today {
+  background-color: transparent;
+}
+
+.rbc-header.rbc-today [role='columnheader'] {
+  position: relative;
+}
+
+.rbc-header.rbc-today [role='columnheader']::after {
+  content: '';
+  position: absolute;
+  top: 23px;
+  right: -5px;
+  background-color: #a5a3ff;
+  padding: 3px 8px;
+  border-radius: 50%;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  z-index: -1;
+  width: 25px;
+  height: 25px;
+}
+
+.rbc-events-container {
+  bottom: 20px !important;
+}
+
+.rbc-row-segment {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.rbc-button-link.rbc-show-more {
+  background-color: transparent;
+  border: 1px solid #dcd4f7;
+  border-radius: 5px;
+  color: #4a3aff;
+  padding: 6.5px 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  width: 100%;
+}
+
+.rbc-button-link.rbc-show-more:hover {
+  background-color: #f0f0ff;
+}
+
 @media screen and (min-width: 768px) {
   /* Time view */
   .rbc-time-header-content .rbc-button-link {
     font-size: 0.625rem;
+  }
+
+  .rbc-header.rbc-today [role='columnheader']::after {
+    top: 18px;
+    right: -11.5px;
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -202,12 +261,9 @@
   .rbc-time-header-content .rbc-button-link {
     font-size: 0.75rem;
   }
-}
 
-@media screen and (min-width: 1024px) {
-  /* Time view */
-  .rbc-time-header-content .rbc-button-link {
-    font-size: 0.5rem;
+  .rbc-header.rbc-today [role='columnheader']::after {
+    right: -10.5px;
   }
 }
 
@@ -215,5 +271,10 @@
   /* Time view */
   .rbc-time-header-content .rbc-button-link {
     font-size: 0.875rem;
+  }
+
+  .rbc-header.rbc-today [role='columnheader']::after {
+    top: 19px;
+    right: -8.5px;
   }
 }
