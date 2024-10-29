@@ -3,35 +3,24 @@
 import { memo, useCallback, useState } from 'react';
 import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 // Constants
-import { IMAGES, MESSAGES, REGEX } from '@/constants';
+import { IMAGES } from '@/constants';
 
 // Utils
-import { clearErrorOnChange, isEnableSubmitButton } from '@/utils';
+import {
+  clearErrorOnChange,
+  isEnableSubmitButton,
+  signUpSchema,
+} from '@/utils';
 
 // Types
 import { ISignUpFormData } from '@/types';
 
 // Components
 import { Button, Input, Text, Checkbox } from '@/components';
-
-// Zod schema for validation
-const signUpSchema = z.object({
-  fullName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  username: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  email: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(MESSAGES.ERROR.EMAIL_INVALID),
-  password: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .regex(REGEX.PASSWORD, MESSAGES.ERROR.INVALID_PASSWORD),
-});
 
 const REQUIRED_FIELDS = ['fullName', 'username', 'email', 'password'];
 

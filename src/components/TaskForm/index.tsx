@@ -12,7 +12,6 @@ import {
 // libs
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
 import { Controller, useForm, UseFormReset } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import clsx from 'clsx';
 import isEqual from 'react-fast-compare';
@@ -25,6 +24,7 @@ import {
   clearErrorOnChange,
   isEnableSubmitButton,
   parseStringToNumberArray,
+  taskFormSchema,
 } from '@/utils';
 
 // Components
@@ -41,22 +41,6 @@ import { TUser } from '@/models';
 
 // apis
 import { getUsers } from '@/api';
-
-// Zod schema for validation
-const taskFormSchema = z.object({
-  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  label: z.enum(['todo', 'inProgress', 'inReview', 'done'], {
-    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
-  }),
-  level: z.enum(['low', 'medium', 'high'], {
-    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
-  }),
-  assignees: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  description: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .max(10000, MESSAGES.ERROR.FIELD_INVALID('Description')),
-});
 
 const REQUIRED_FIELDS = ['title', 'label', 'level', 'description', 'assignees'];
 export interface ITaskFormProps {

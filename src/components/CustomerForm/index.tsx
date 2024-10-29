@@ -3,16 +3,12 @@
 import { memo, useCallback, useMemo, useTransition } from 'react';
 import { Select, SelectItem } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-// Constants
-import { MESSAGES, REGEX } from '@/constants';
 
 // Utils
 import {
   clearErrorOnChange,
-  clearPhoneNumberFormat,
+  customerFormSchema,
   formatPhoneNumberTyping,
   getDirtyState,
   isEnableSubmitButton,
@@ -29,27 +25,6 @@ import {
 
 // Models
 import { ICustomer } from '@/models';
-
-// Zod schema for validation
-const customerFormSchema = z.object({
-  firstName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  lastName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  email: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(MESSAGES.ERROR.FIELD_INVALID('Email Address')),
-  phone: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .transform((value) => clearPhoneNumberFormat(value))
-    .refine((value) => REGEX.PHONE.test(value), MESSAGES.ERROR.INVALID_PHONE),
-  gender: z.enum(['male', 'female'], {
-    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
-  }),
-  avatar: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  address: z.string().optional(),
-  job: z.string().optional(),
-});
 
 const REQUIRED_FIELDS = [
   'firstName',

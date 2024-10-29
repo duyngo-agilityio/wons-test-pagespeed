@@ -3,11 +3,10 @@
 import { memo, useCallback, useMemo, useTransition } from 'react';
 import { Select, SelectItem, Textarea } from '@nextui-org/react';
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Constants
-import { BRANDS, MESSAGES, REGEX } from '@/constants';
+import { BRANDS, MESSAGES } from '@/constants';
 
 // Utils
 import {
@@ -15,6 +14,7 @@ import {
   formatPriceTyping,
   getDirtyState,
   isEnableSubmitButton,
+  productFormSchema,
 } from '@/utils';
 
 // Components
@@ -32,37 +32,6 @@ import { IProductDetail } from '@/models';
 
 // icons
 import { GrPrevious } from 'react-icons/gr';
-
-// Zod schema for validation
-const productFormSchema = z.object({
-  title: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  brand: z.enum(['apple', 'samsung', 'huawei', 'xioami', 'oppo', 'google'], {
-    errorMap: () => ({ message: MESSAGES.ERROR.FIELD_REQUIRED }),
-  }),
-  imageUrl: z.string().nonempty({
-    message: MESSAGES.ERROR.FIELD_REQUIRED,
-  }),
-  price: z.preprocess(
-    (value) => {
-      if (typeof value === 'string') {
-        const numericValue = value.replace(REGEX.PRICE_PRODUCT, '');
-        return parseFloat(numericValue);
-      }
-      return value;
-    },
-    z
-      .number({ invalid_type_error: MESSAGES.ERROR.FIELD_INVALID('Price') })
-      .min(0, MESSAGES.ERROR.FIELD_INVALID('Price'))
-      .refine((val) => String(Math.floor(val)).length <= 9, {
-        message: MESSAGES.ERROR.FIELD_INVALID('Price cannot exceed 7 digits'),
-      }),
-  ),
-  description: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .max(10000, MESSAGES.ERROR.FIELD_INVALID('Description')),
-  negotiable: z.boolean(),
-});
 
 const REQUIRED_FIELDS = ['title', 'brand', 'imageUrl', 'description', 'price'];
 

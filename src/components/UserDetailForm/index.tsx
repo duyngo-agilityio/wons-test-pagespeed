@@ -5,7 +5,6 @@ import isEqual from 'react-fast-compare';
 
 // Libraries
 import { Controller, useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 // Utils
@@ -13,6 +12,7 @@ import {
   clearErrorOnChange,
   isEnableSubmitButton,
   getDirtyState,
+  userDetailFormSchema,
 } from '@/utils';
 
 // Components
@@ -30,18 +30,6 @@ interface UserDetailFormProps {
   onSubmit: (formData: IUserFormData) => Promise<void>;
   onCancel: () => void;
 }
-
-// Zod schema for validation
-const userDetailFormSchema = z.object({
-  avatar: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  username: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  role: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  fullName: z.string().nonempty(MESSAGES.ERROR.FIELD_REQUIRED),
-  email: z
-    .string()
-    .nonempty(MESSAGES.ERROR.FIELD_REQUIRED)
-    .email(MESSAGES.ERROR.FIELD_INVALID('Email')),
-});
 
 const REQUIRED_FIELDS = ['fullName', 'email'];
 
