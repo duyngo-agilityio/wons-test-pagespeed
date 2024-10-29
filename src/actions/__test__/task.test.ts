@@ -1,7 +1,7 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH, MESSAGES } from '@/constants';
 
 // Mocks
 import {
@@ -13,18 +13,26 @@ import {
 // Services
 import { httpClient } from '@/services';
 
-// Apis
-import { createTask, deleteTask, updateTask } from '../task';
+// Actions
+import {
+  createTask,
+  deleteTask,
+  getTaskDetails,
+  updateTask,
+  updateTaskWithAssignees,
+} from '../task';
 
 // Utils
 import { formatErrorMessage } from '@/utils';
 
 // Types
-import { Method } from '@/types';
+import { Method, TaskWithStringAssignees } from '@/types';
+
+// Api
+import { getTaskById } from '@/api';
 
 jest.mock('@/services', () => ({
   httpClient: {
-    getRequest: jest.fn(),
     genericRequest: jest.fn(),
   },
 }));
@@ -35,6 +43,10 @@ jest.mock('next/cache', () => ({
 
 jest.mock('@/utils', () => ({
   formatErrorMessage: jest.fn(),
+}));
+
+jest.mock('@/api', () => ({
+  getTaskById: jest.fn(),
 }));
 
 describe('deleteTask', () => {
@@ -141,5 +153,85 @@ describe('updateTask', () => {
 
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
     expect(result).toEqual({ error: 'Something went wrong.' });
+  });
+});
+
+describe('Get task details', () => {
+  const mockTaskID = 1;
+  it('Calls success', async () => {
+    (getTaskById as jest.Mock).mockResolvedValue({
+      data: MOCK_TASKS.todo[0],
+    });
+
+    const result = await getTaskDetails(mockTaskID);
+
+    expect(result).toEqual({
+      data: MOCK_TASKS.todo[0],
+    });
+  });
+
+  it('Calls success with undefined', async () => {
+    (getTaskById as jest.Mock).mockResolvedValue({ error: 'Task not found' });
+
+    const result = await getTaskDetails(mockTaskID);
+
+    expect(result).toEqual({ error: 'Task not found' });
+  });
+
+  it('Calls failed', async () => {
+    const mockError = new Error(MESSAGES.ERROR.UNKNOWN_ERROR);
+    (getTaskById as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await getTaskDetails(mockTaskID);
+
+    expect(formatErrorMessage).toHaveBeenCalledWith(mockError);
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
+  });
+});
+
+describe('Update task with assignees', () => {
+  const mockTaskID = 1;
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      success: true,
+    });
+
+    const result = await updateTaskWithAssignees(
+      mockTaskID,
+      MOCK_TASK_WITH_STRING_ASSIGNEES as TaskWithStringAssignees,
+    );
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Put,
+      endpoint: `${API_PATH.TASKS}/${mockTaskID}?populate=assignees`,
+      configOptions: {
+        cache: 'no-store',
+      },
+      body: { data: MOCK_TASK_WITH_STRING_ASSIGNEES },
+    });
+
+    expect(revalidateTag).toHaveBeenLastCalledWith(API_PATH.TASKS);
+    expect(result).toEqual({ success: true });
+  });
+
+  it('calls failed', async () => {
+    const mockError = new Error(MESSAGES.ERROR.UNKNOWN_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await updateTaskWithAssignees(
+      mockTaskID,
+      MOCK_TASK_WITH_STRING_ASSIGNEES as TaskWithStringAssignees,
+    );
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Put,
+      endpoint: `${API_PATH.TASKS}/${mockTaskID}?populate=assignees`,
+      configOptions: {
+        cache: 'no-store',
+      },
+      body: { data: MOCK_TASK_WITH_STRING_ASSIGNEES },
+    });
+
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
   });
 });

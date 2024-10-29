@@ -52,7 +52,7 @@ export const getTaskDetails = async (id: number) => {
       id,
     });
 
-    if (!task) {
+    if (!task.data) {
       return { error: 'Task not found' };
     }
 

@@ -6,19 +6,21 @@ import {
   deleteEvent,
   updateEvent,
   deleteCalendarTask,
+  updateCalendarTask,
+  createCalenderTask,
 } from '../event';
 
 // services
 import { httpClient } from '@/services';
 
 // constants
-import { API_PATH } from '@/constants';
+import { API_PATH, MESSAGES } from '@/constants';
 
 // utils
 import { formatErrorMessage } from '@/utils';
 
 // Mocks
-import { EVENT_MOCKS } from '@/mocks';
+import { EVENT_MOCKS, EVENTS_MOCKS } from '@/mocks';
 
 // Types
 import { Method } from '@/types';
@@ -173,5 +175,63 @@ describe('delete calendar task', () => {
 
     expect(formatErrorMessage).toHaveBeenCalledWith(MOCK_ERROR);
     expect(result).toEqual({ error: 'Something went wrong.' });
+  });
+});
+
+describe('Update Calendar Event', () => {
+  const mockEventID = 1;
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      data: EVENTS_MOCKS[1],
+    });
+
+    await updateCalendarTask(mockEventID, EVENTS_MOCKS[1]);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Put,
+      endpoint: `${API_PATH.CALENDAR_TASKS}/${mockEventID}`,
+      body: { data: EVENTS_MOCKS[1] },
+    });
+
+    expect(revalidateTag).toHaveBeenCalledWith(API_PATH.EVENTS);
+  });
+
+  it('calls failed', async () => {
+    const mockError = new Error(MESSAGES.ERROR.UNKNOWN_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await updateCalendarTask(mockEventID, EVENTS_MOCKS[1]);
+
+    expect(formatErrorMessage).toHaveBeenCalledWith(mockError);
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
+  });
+});
+
+describe('Create Calendar Event', () => {
+  it('calls success', async () => {
+    (httpClient.genericRequest as jest.Mock).mockResolvedValue({
+      data: EVENTS_MOCKS[1],
+    });
+
+    const result = await createCalenderTask(EVENTS_MOCKS[1]);
+
+    expect(httpClient.genericRequest).toHaveBeenCalledWith({
+      method: Method.Post,
+      endpoint: API_PATH.CALENDAR_TASKS,
+      body: { data: EVENTS_MOCKS[1] },
+    });
+
+    expect(revalidateTag).toHaveBeenCalledWith(API_PATH.EVENTS);
+    expect(result).toEqual({ success: true });
+  });
+
+  it('calls failed', async () => {
+    const mockError = new Error(MESSAGES.ERROR.UNKNOWN_ERROR);
+    (httpClient.genericRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await createCalenderTask(EVENTS_MOCKS[1]);
+
+    expect(formatErrorMessage).toHaveBeenCalledWith(mockError);
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
   });
 });
