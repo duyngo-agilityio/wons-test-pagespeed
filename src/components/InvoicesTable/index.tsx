@@ -141,14 +141,15 @@ const InvoicesTable = ({
 
             return (
               <div className="flex gap-3.5 items-center h-9">
-                <ImageFallback
-                  src={avatar}
-                  alt="customer avatar"
-                  width={36}
-                  height={36}
-                  sizes="36px"
-                  className="rounded-full h-full object-cover"
-                />
+                <div className="relative h-9 w-9">
+                  <ImageFallback
+                    src={avatar}
+                    alt="customer avatar"
+                    fill
+                    className="rounded-full h-full object-cover"
+                    sizes="(min-width: 768px) 100px, 36px"
+                  />
+                </div>
                 <Text size="md" text={fullName} className="text-nowrap" />
               </div>
             );

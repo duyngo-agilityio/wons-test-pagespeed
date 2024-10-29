@@ -92,6 +92,7 @@ const SidebarFooter = ({
               <ImageFallback
                 className="rounded-xl object-cover h-full"
                 fill
+                sizes="(min-width: 768px) 100px, 45px"
                 priority={false}
                 src={avatar}
                 alt="User Avatar"
