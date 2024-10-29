@@ -1,5 +1,4 @@
 'use client';
-
 import { memo, useEffect, useState } from 'react';
 import { Calendar, CalendarProps, DateValue } from '@nextui-org/react';
 import { getLocalTimeZone, today } from '@internationalized/date';
@@ -17,7 +16,6 @@ const CalendarCustom = ({
   ...props
 }: CalendarCustomProps) => {
   const todayDate = today(getLocalTimeZone());
-
   // Initialize selected date, current month, and current year
   const [selectedDate, setSelectedDate] = useState<DateValue | null>(value);
   const [currentMonth, setCurrentMonth] = useState<number>(
@@ -101,6 +99,7 @@ const CalendarCustom = ({
         title: 'text-white dark:text-white/80 z-[-1]',
         gridBody: 'bg-white dark:bg-gray-400',
         cellButton: `
+        flex w-6 h-6 items-center justify-center
         data-[selected=true]:bg-blue-500
         dark:data-[selected=true]:bg-purple-600
         dark:data-[selected=true]:text-black
@@ -108,9 +107,11 @@ const CalendarCustom = ({
         `,
         gridHeader: 'dark:bg-gray-400',
         header: 'z-[-1]',
+        gridHeaderRow: 'pb-0',
         gridHeaderCell:
-          'text-blue-800 dark:text-white/80 font-normal dark:bg-gray-400',
-        cell: 'text-[12.64px] leading-[16.46px]',
+          'text-blue-800 text-[12.64px] leading-[16.46px] dark:text-white/80 font-normal dark:bg-gray-400',
+        cell: 'text-[12.64px] leading-[16.46px] size-6 text-center',
+        grid: 'table-fixed',
       }}
       topContent={
         <div className="flex absolute w-4/5 justify-between top-[17px] right-[24px] z-100 bg-white dark:bg-gray-400">

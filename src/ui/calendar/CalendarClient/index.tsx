@@ -10,6 +10,7 @@ import { DateValue, useDisclosure } from '@nextui-org/react';
 import {
   Calendar as CalendarBase,
   CalendarProps,
+  DateLocalizer,
   dayjsLocalizer,
   SlotInfo,
   Views,
@@ -26,7 +27,12 @@ import { ICalendarTask, IEvent, TUser } from '@/models';
 import { MESSAGES, ROUTES } from '@/constants';
 
 // Utils
-import { formattedGuestInfo, getTimeFromISO } from '@/utils';
+import {
+  formattedGuestInfo,
+  getDayOfMonth,
+  getDayOfWeek,
+  getTimeFromISO,
+} from '@/utils';
 
 // Types
 import { TEventResponse } from '@/types';
@@ -324,11 +330,23 @@ const CalendarClient = ({
     setSelectedDate(updatedDate);
   };
 
+  const dayFormat = (
+    date: Date,
+    culture: string | undefined,
+    localizer: DateLocalizer | undefined,
+  ): string => {
+    const dayOfWeek = getDayOfWeek(date, culture, localizer);
+    const dayOfMonth = getDayOfMonth(date, culture, localizer);
+
+    return `${dayOfWeek}\n${dayOfMonth}`;
+  };
+
   return (
     <div className="flex h-[calc(100vh-120px)]  gap-4 md:gap-6 lg:gap-[37px] xl:gap-10 relative">
       <div className="hidden md:flex bg-white dark:bg-gray-400 px-[18px] md:px-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
         <CustomCalendar
           key={`${selectedDate.month}+${selectedDate.day}+${selectedDate.year}`}
+          calendarWidth={204}
           onDateSelect={handleDateSelect}
           value={selectedDate}
         />
@@ -336,9 +354,13 @@ const CalendarClient = ({
           My Schedule
         </Button>
       </div>
-      <div className="flex-1">
+
+      <div className="flex-1 overflow-auto">
         <CalendarBase
           {...rest}
+          formats={{
+            dayFormat,
+          }}
           defaultView={Views.MONTH}
           onView={setView}
           views={[Views.MONTH, Views.WEEK, Views.DAY]}

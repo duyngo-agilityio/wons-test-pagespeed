@@ -1,3 +1,4 @@
+import { DateLocalizer } from 'react-big-calendar';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import {
@@ -137,3 +138,23 @@ export const formatTo12HourTime = (selectedTime: string) =>
   dayjs(selectedTime, DAYJS_PATTERN['HH:mm'])
     .utc(true)
     .format(DAYJS_PATTERN['hh:mma']);
+
+export const getDayOfWeek = (
+  date: Date,
+  culture: string | undefined,
+  localizer: DateLocalizer | undefined,
+): string => {
+  return localizer
+    ? localizer.format(date, 'ddd', culture ?? '')
+    : dayjs(date).format('ddd');
+};
+
+export const getDayOfMonth = (
+  date: Date,
+  culture: string | undefined,
+  localizer: DateLocalizer | undefined,
+): string => {
+  return localizer
+    ? localizer.format(date, 'DD', culture ?? '')
+    : dayjs(date).format('DD');
+};
