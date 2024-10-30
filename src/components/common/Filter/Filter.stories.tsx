@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FILTER_OPTIONS } from '@/constants';
 
 // Components
-import Filter from '.';
+import Filter from './index';
 
 const meta: Meta<typeof Filter> = {
   title: 'Components/Common/Filter',

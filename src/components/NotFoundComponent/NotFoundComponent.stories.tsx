@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import NotFoundComponent from '.';
+import NotFoundComponent from './index';
 
 const meta: Meta<typeof NotFoundComponent> = {
   title: 'Components/NotFoundComponent',

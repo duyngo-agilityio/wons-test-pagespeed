@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import AddressInput from '.';
+import AddressInput from './index';
 
 const meta: Meta<typeof AddressInput> = {
   title: 'Components/AddressInput',

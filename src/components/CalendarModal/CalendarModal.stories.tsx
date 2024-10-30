@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 // Components
-import CalendarModal from '.';
+import CalendarModal from './index';
 import { Button } from '../common';
 
 const meta: Meta<typeof CalendarModal> = {

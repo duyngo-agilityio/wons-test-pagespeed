@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 // Components
-import ProductForm from '.';
+import ProductForm from './index';
 
 const meta: Meta<typeof ProductForm> = {
   title: 'Components/ProductForm',

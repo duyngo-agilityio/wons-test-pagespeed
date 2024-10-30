@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CUSTOMER_MOCK } from '@/mocks';
 
 // Components
-import CustomerDetails from '.';
+import CustomerDetails from './index';
 
 const meta: Meta<typeof CustomerDetails> = {
   title: 'Components/CustomerDetails',

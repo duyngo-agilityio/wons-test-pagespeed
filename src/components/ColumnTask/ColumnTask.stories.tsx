@@ -8,7 +8,7 @@ import { DragDropContext } from '@hello-pangea/dnd';
 import { MOCK_TASKS } from '@/mocks';
 
 // Components
-import ColumnTask from '.';
+import ColumnTask from './index';
 
 // Types
 import { TaskStatus } from '@/types';

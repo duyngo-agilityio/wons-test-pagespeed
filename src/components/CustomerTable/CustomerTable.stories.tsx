@@ -5,7 +5,7 @@ import { fn } from '@storybook/test';
 import { MOCK_CUSTOMERS_WITH_ATTRIBUTES } from '@/mocks';
 
 // Components
-import CustomerTable from '.';
+import CustomerTable from './index';
 
 const meta: Meta<typeof CustomerTable> = {
   title: 'Components/CustomerTable',

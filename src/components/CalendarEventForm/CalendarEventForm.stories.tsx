@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 // Components
-import CalendarEventForm from '.';
+import CalendarEventForm from './index';
 
 const meta: Meta<typeof CalendarEventForm> = {
   title: 'Components/CalendarEventForm',

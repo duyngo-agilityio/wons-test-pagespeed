@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import LevelChip from '.';
+import LevelChip from './index';
 
 // Types
 import { Level } from '@/types';
