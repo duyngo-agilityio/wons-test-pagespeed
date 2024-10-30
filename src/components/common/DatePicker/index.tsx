@@ -12,6 +12,7 @@ import { FaCalendarAlt } from '@/components/common';
 
 const DatePicker = ({ ...props }: DatePickerProps) => (
   <DatePickerNextUI
+    aria-label="Date Picker"
     labelPlacement="outside"
     endContent={<FaCalendarAlt className="w-[18px] h-5 text-blue-500" />}
     dateInputClassNames={{

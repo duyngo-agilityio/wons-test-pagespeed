@@ -34,8 +34,7 @@ export const CUSTOMER_MOCK: ICustomer[] = [
     gender: 'male',
     job: 'Software Engineer',
     address: '123 Main St, Anytown, USA',
-    avatar:
-      'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
+    avatar: 'https://dev.perlinks.com/api/get-image/WGpHZ',
   },
   {
     id: 2,
@@ -47,8 +46,7 @@ export const CUSTOMER_MOCK: ICustomer[] = [
     gender: 'female',
     job: 'Product Manager',
     address: '456 Market St, Anytown, USA',
-    avatar:
-      'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
+    avatar: 'https://dev.perlinks.com/api/get-image/WGpHZ',
   },
   {
     id: 3,
@@ -60,8 +58,7 @@ export const CUSTOMER_MOCK: ICustomer[] = [
     gender: 'female',
     job: 'Designer',
     address: '789 Broadway St, Anytown, USA',
-    avatar:
-      'https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp',
+    avatar: 'https://dev.perlinks.com/api/get-image/WGpHZ',
   },
 ];
 

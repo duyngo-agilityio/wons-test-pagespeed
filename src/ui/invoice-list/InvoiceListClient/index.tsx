@@ -155,6 +155,4 @@ const InvoiceListClient = ({
   );
 };
 
-export default memo(InvoiceListClient, isEqual) as <T>(
-  props: TInvoiceListClientProps & T,
-) => JSX.Element;
+export default memo(InvoiceListClient, isEqual);
