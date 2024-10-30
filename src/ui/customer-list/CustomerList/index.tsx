@@ -4,9 +4,6 @@ import { getCustomers } from '@/api';
 // uis
 import { CustomerListClient } from '@/ui';
 
-// Utils
-import { isAdmin } from '@/utils';
-
 type TCustomerListProps = {
   page?: number;
   sortBy?: string;
@@ -24,8 +21,6 @@ const CustomerList = async ({
     order,
   });
 
-  const isSuperAdmin = await isAdmin();
-
   const { pagination } = meta || {};
   const { pageCount = 0 } = pagination || {};
 
@@ -34,7 +29,6 @@ const CustomerList = async ({
       order={order}
       customerList={customerRes}
       pageCount={pageCount}
-      isReadOnly={!isSuperAdmin}
     />
   );
 };

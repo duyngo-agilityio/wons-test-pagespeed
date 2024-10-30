@@ -9,7 +9,6 @@ import {
   aggregateProductQuantities,
   filterProductsNotInInvoice,
   formatProduct,
-  isAdmin,
   sortProductsByTotalSale,
 } from '@/utils';
 
@@ -67,8 +66,6 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
 
   const resultFormatProduct = formatProduct(resultFilterProductsNotInInvoice);
 
-  const isSuperAdmin = await isAdmin();
-
   // Aggregate and sort products by total sales
   const formattedProducts: TProductInvoiceResponse[] =
     aggregateProductQuantities(result.data);
@@ -81,7 +78,6 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
             formattedProducts,
           ) as TProductInvoiceResponse[],
         )}
-        isReadOnly={!isSuperAdmin}
         onEdit={updateProduct}
         onDelete={deleteProduct}
       />

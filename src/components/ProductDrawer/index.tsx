@@ -1,32 +1,39 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
+
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
 
 // Models
 import { IProductDetail } from '@/models';
 
-// components
-import { BsPlus, Button, ProductForm } from '@/components';
-import Tabs from '../Tabs';
-
 // Mocks
 import { productTabs } from '@/mocks';
 
-// constants
+// Constants
 import { RATING_PRODUCT, MESSAGES } from '@/constants';
 
-// hooks
+// Hooks
 import { useToast } from '@/hooks';
 
-// actions
+// Actions
 import { createProduct } from '@/actions';
 
-// utils
+// Utils
 import { handleUpdateImage } from '@/utils/formHandler';
 
-const ProductDrawer = (): JSX.Element => {
+// Components
+import { BsPlus, Button, ProductForm } from '@/components';
+import Tabs from '../Tabs';
+
+interface ProductDrawerProps {
+  isAdmin: boolean;
+}
+
+const ProductDrawer = ({ isAdmin }: ProductDrawerProps): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
@@ -96,14 +103,17 @@ const ProductDrawer = (): JSX.Element => {
         className="p-0 rounded-[10px]"
       />
       <div className="flex">
-        <Button
-          color="primary"
-          startContent={<BsPlus size={22} className="text-white" />}
-          className="text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-7 md:mt-0"
-          onClick={handleOpenDrawer}
-        >
-          Add Product
-        </Button>
+        {isAdmin && (
+          <Button
+            color="primary"
+            startContent={<BsPlus size={22} className="text-white" />}
+            className="text-xl font-medium md:w-auto h-10 px-2.5 w-full mt-7 md:mt-0"
+            onClick={handleOpenDrawer}
+          >
+            Add Product
+          </Button>
+        )}
+
         {isDrawerOpen && (
           <Drawer
             open={isDrawerOpen}
@@ -127,4 +137,4 @@ const ProductDrawer = (): JSX.Element => {
   );
 };
 
-export default ProductDrawer;
+export default withAccountState<ProductDrawerProps>(memo(ProductDrawer));

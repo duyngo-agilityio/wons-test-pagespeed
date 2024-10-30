@@ -2,9 +2,6 @@
 import { getInvoices } from '@/api/invoice';
 
 // Utils
-import { isAdmin } from '@/utils/auth';
-
-// Utils
 import { InvoiceListClient } from '@/ui';
 
 export type TInvoiceListProps = {
@@ -31,11 +28,8 @@ const InvoiceList = async ({
   const { pagination } = meta || {};
   const { pageCount = 0 } = pagination || {};
 
-  const isSuperAdmin = await isAdmin();
-
   return (
     <InvoiceListClient
-      isReadOnly={!isSuperAdmin}
       invoiceList={invoices}
       pageCount={pageCount}
       sortOrder={sortOrder}

@@ -7,8 +7,8 @@ import 'react-modern-drawer/dist/index.css';
 // Models
 import { TUser } from '@/models';
 
-// components
-import { BsPlus, Button, TaskForm } from '@/components';
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
 
 // types
 import { TaskWithStringAssignees } from '@/types';
@@ -28,11 +28,15 @@ import { uploadImage } from '@/api/image';
 // utils
 import { formatErrorMessage } from '@/utils';
 
+// components
+import { BsPlus, Button, TaskForm } from '@/components';
+
 interface TaskDrawerProps {
   user: TUser;
+  isAdmin: boolean;
 }
 
-const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
+const TaskDrawer = ({ user, isAdmin }: TaskDrawerProps): JSX.Element => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [avatarFiles, setAvatarFiles] = useState<File[]>([]);
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
@@ -106,14 +110,17 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
 
   return (
     <div className="flex flex-col md:flex-row justify-between md:items-center w-full md:w-fit">
-      <Button
-        startContent={<BsPlus size={22} className="text-white" />}
-        color="primary"
-        className="base:w-full md:w-[122px] h-10 base:gap-2 md:gap-0.5"
-        onClick={handleOpenDrawer}
-      >
-        Add New Task
-      </Button>
+      {isAdmin && (
+        <Button
+          startContent={<BsPlus size={22} className="text-white" />}
+          color="primary"
+          className="base:w-full md:w-[122px] h-10 base:gap-2 md:gap-0.5"
+          onClick={handleOpenDrawer}
+        >
+          Add New Task
+        </Button>
+      )}
+
       {isDrawerOpen && (
         <Drawer
           open={isDrawerOpen}
@@ -138,4 +145,4 @@ const TaskDrawer = ({ user }: TaskDrawerProps): JSX.Element => {
   );
 };
 
-export default memo(TaskDrawer);
+export default withAccountState<TaskDrawerProps>(memo(TaskDrawer));

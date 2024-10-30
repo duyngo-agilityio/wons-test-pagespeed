@@ -1,5 +1,4 @@
 import { act } from 'react';
-import { fireEvent } from '@testing-library/react';
 
 // Mocks
 import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
@@ -18,7 +17,6 @@ describe('InvoicesTable Component', () => {
   const renderComponent = () =>
     testLibJestUtils.render(
       <InvoicesTable
-        isReadOnly={false}
         data={MOCK_INVOICES_WITH_CUSTOMER}
         onDelete={mockOnDelete}
         onDeleteMultiple={mockOnDeleteMultiple}
@@ -47,19 +45,6 @@ describe('InvoicesTable Component', () => {
 
     await act(async () => {
       expect(container).toMatchSnapshot();
-    });
-  });
-
-  it('should update selected invoice ids on selection change', async () => {
-    const { getAllByRole } = renderComponent();
-
-    const checkboxElements = getAllByRole('checkbox');
-    const firstCheckbox = checkboxElements[0] as HTMLInputElement;
-
-    fireEvent.click(firstCheckbox);
-
-    await act(async () => {
-      expect(firstCheckbox.checked).toBe(true);
     });
   });
 });

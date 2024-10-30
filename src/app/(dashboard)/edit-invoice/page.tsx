@@ -1,10 +1,5 @@
 import { Metadata } from 'next';
 
-import { notFound } from 'next/navigation';
-
-// Utils
-import { isAdmin } from '@/utils';
-
 // Layouts
 import { DashBoardLayout } from '@/layouts';
 
@@ -38,11 +33,7 @@ interface CustomersProps {
 const EditInvoicePage = async ({
   searchParams,
 }: CustomersProps): Promise<JSX.Element> => {
-  const isSuperAdmin = await isAdmin();
-
   const { id } = searchParams;
-
-  if (!isSuperAdmin) notFound();
 
   return (
     <DashBoardLayout title="Edit Invoice">

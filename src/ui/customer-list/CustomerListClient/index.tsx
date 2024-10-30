@@ -43,7 +43,6 @@ import { formatPhoneNumberTyping, handleUpdateImage } from '@/utils';
 export type TCustomerListClientProps = {
   customerList: TCustomerDataResponse[];
   pageCount: number;
-  isReadOnly?: boolean;
   order?: string;
 };
 
@@ -51,7 +50,6 @@ const CustomerListClient = ({
   customerList,
   pageCount,
   order = '',
-  isReadOnly = true,
 }: TCustomerListClientProps): JSX.Element => {
   const [toggleDetails, setToggleDetails] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -193,7 +191,6 @@ const CustomerListClient = ({
     <>
       {isLoading && <LoadingIndicator />}
       <CustomerTable
-        isReadOnly={isReadOnly}
         data={customerList}
         onSort={handleSort}
         sortBy={paramsObject.sortBy}

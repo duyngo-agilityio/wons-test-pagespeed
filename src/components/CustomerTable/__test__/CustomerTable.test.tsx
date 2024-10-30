@@ -32,7 +32,6 @@ describe('CustomersTable Component', () => {
     const { container } = render(
       <CustomersTable
         onSort={jest.fn()}
-        isReadOnly={false}
         data={mockCustomersData}
         onEdit={mockOnEdit}
         onDelete={mockOnDelete}

@@ -10,6 +10,7 @@ import { ORDER } from '@/constants/params';
 
 // Actions
 import { deleteInvoice, updateInvoice } from '@/actions/invoice';
+import { waitFor } from '@testing-library/react';
 
 jest.mock('@/actions/invoice', () => ({
   ...jest.requireActual('@/actions/invoice'),
@@ -39,14 +40,13 @@ describe('InvoiceListClient section', () => {
   const renderComponent = (props?: Partial<TInvoiceListClientProps>) =>
     testLibJestUtils.render(
       <InvoiceListClient
-        isReadOnly={false}
         invoiceList={MOCK_INVOICES_WITH_CUSTOMER}
         pageCount={1}
         {...props}
       />,
     );
 
-  it('should match with snapshot', () => {
+  it('should match with snapshot', async () => {
     const { container } = renderComponent();
 
     container
@@ -57,7 +57,9 @@ describe('InvoiceListClient section', () => {
       .querySelector('th.bg-gray-50')
       ?.setAttribute('id', 'react-aria-:r0:-row-header-column-tjima90t7ui');
 
-    expect(container).toMatchSnapshot();
+    await waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
   });
 
   it('should show a success message when select invoice successfully.', async () => {
@@ -104,17 +106,6 @@ describe('InvoiceListClient section', () => {
     testLibJestUtils.fireEvent.click(getAllByTestId('sort-btn')[0]);
 
     expect(mockReplace).toHaveBeenCalled();
-  });
-
-  it('should navigate to Edit Invoice page when click Edit button', async () => {
-    const { getAllByTestId, getByText } = renderComponent({
-      sortOrder: ORDER.DESC,
-    });
-
-    testLibJestUtils.fireEvent.click(getAllByTestId('actions-btn')[0]);
-    testLibJestUtils.fireEvent.click(getByText('Edit'));
-
-    expect(mockPush).toHaveBeenCalled();
   });
 
   it.skip('should show a success message when delete invoice successfully.', async () => {

@@ -94,6 +94,4 @@ const TaskListBoardClient = ({ data }: ITaskListBoardProps) => {
   );
 };
 
-export default memo(TaskListBoardClient, isEqual) as <T>(
-  props: ITaskListBoardProps & T,
-) => JSX.Element;
+export default memo(TaskListBoardClient, isEqual);

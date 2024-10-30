@@ -22,7 +22,6 @@ type Story = StoryObj<typeof CustomerTable>;
 export const Default: Story = {
   args: {
     data: MOCK_CUSTOMERS_WITH_ATTRIBUTES,
-    isReadOnly: false,
     pageCount: 1,
     onEdit: fn(),
     onSort: fn(),

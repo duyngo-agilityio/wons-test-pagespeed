@@ -11,6 +11,12 @@ import dynamic from 'next/dynamic';
 // Types
 import { TInvoiceDataResponse, InvoiceStatus } from '@/types/invoice';
 
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
+
+// Constants
+import { DAYJS_PATTERN } from '@/constants/date';
+
 // Components
 import {
   InvoiceStatus as InvoiceStatusComponent,
@@ -25,9 +31,6 @@ import {
   StarButton,
 } from '@/components';
 
-// Constants
-import { DAYJS_PATTERN } from '@/constants/date';
-
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
 
@@ -36,7 +39,7 @@ type TInvoiceData = TInvoiceDataResponse;
 type TInvoicesTableProps = {
   data: TInvoiceData[];
   pageCount: number;
-  isReadOnly?: boolean;
+  isAdmin: boolean;
   onEdit: (id: number) => void;
   onDelete: (invoiceId: number, invoiceProductIds: number[]) => void;
   onDeleteMultiple: (ids: number[], invoiceProductIds: number[]) => void;
@@ -48,7 +51,7 @@ type TInvoicesTableProps = {
 const InvoicesTable = ({
   data = [],
   pageCount,
-  isReadOnly = true,
+  isAdmin,
   onEdit,
   onDelete,
   onDeleteMultiple,
@@ -225,7 +228,7 @@ const InvoicesTable = ({
           },
         },
         {
-          ...(!isReadOnly && {
+          ...(isAdmin && {
             header: (
               <Button
                 data-testid="multiple-delete-btn"
@@ -259,7 +262,7 @@ const InvoicesTable = ({
     [
       handleDelete,
       handleOpenConfirmModal,
-      isReadOnly,
+      isAdmin,
       onEdit,
       onToggleSelectStar,
       selectedInvoiceIds.length,
@@ -281,7 +284,7 @@ const InvoicesTable = ({
   return (
     <div className="flex flex-col gap-10">
       <Table
-        selectionMode={!isReadOnly ? 'multiple' : 'none'}
+        selectionMode={isAdmin ? 'multiple' : 'none'}
         columns={mappingContentColumns}
         data={data}
         onSort={onSort}
@@ -304,4 +307,6 @@ const InvoicesTable = ({
   );
 };
 
-export default memo(InvoicesTable, isEqual);
+export default withAccountState<TInvoicesTableProps>(
+  memo(InvoicesTable, isEqual),
+);

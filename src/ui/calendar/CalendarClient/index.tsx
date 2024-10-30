@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useState } from 'react';
+import { ComponentType, memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 // libs
@@ -36,6 +36,9 @@ import {
 
 // Types
 import { TEventResponse } from '@/types';
+
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
 
 // Components
 import {
@@ -485,4 +488,6 @@ const CalendarClient = ({
   );
 };
 
-export default memo(CalendarClient, isEqual);
+export default withAccountState<CalendarClientProps>(
+  memo(CalendarClient, isEqual) as ComponentType<CalendarClientProps>,
+);
