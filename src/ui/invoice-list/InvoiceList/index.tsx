@@ -1,8 +1,8 @@
 // APIs
-import { getInvoices } from '@/api';
+import { getInvoices } from '@/api/invoice';
 
 // Utils
-import { isAdmin } from '@/utils';
+import { isAdmin } from '@/utils/auth';
 
 // Utils
 import { InvoiceListClient } from '@/ui';

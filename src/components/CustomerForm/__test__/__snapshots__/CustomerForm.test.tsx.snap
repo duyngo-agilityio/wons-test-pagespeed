@@ -6,7 +6,6 @@ exports[`CustomerForm renders CustomerForm with content 1`] = `
     class="w-full max-w-2xl mx-auto"
   >
     <h2
-      aria-level="2"
       class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl "
     >
       Add Customer
