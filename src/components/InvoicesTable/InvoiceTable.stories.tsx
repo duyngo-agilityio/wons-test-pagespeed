@@ -23,7 +23,6 @@ export const Default: Story = {
   args: {
     data: MOCK_INVOICES_WITH_CUSTOMER,
     pageCount: 1,
-    isReadOnly: false,
     onEdit: fn(),
     onDelete: fn(),
     onDeleteMultiple: fn(),

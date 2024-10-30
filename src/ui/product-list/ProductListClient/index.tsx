@@ -30,7 +30,6 @@ import { useToast } from '@/hooks';
 
 export type TProductListClientProps = {
   productList: TProductInvoiceResponse[];
-  isReadOnly?: boolean;
   onEdit: (
     payload: Partial<IProductDetail>,
     id: number,
@@ -46,7 +45,6 @@ export type TProductListClientProps = {
 
 const ProductListClient = ({
   productList,
-  isReadOnly = true,
   onDelete,
   onEdit,
 }: TProductListClientProps) => {
@@ -180,7 +178,6 @@ const ProductListClient = ({
       {isLoading && <LoadingIndicator />}
       <ProductTable
         data={productList}
-        isReadOnly={isReadOnly}
         onDelete={handleDeleteProduct}
         onEdit={handleOpenDrawer}
         onRowAction={handleOpenProductDetail}

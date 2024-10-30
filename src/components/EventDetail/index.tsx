@@ -4,7 +4,19 @@ import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import { Modal as NextModal, ModalContent } from '@nextui-org/react';
 
-// components
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
+
+// Constants
+import { IMAGES } from '@/constants';
+
+// Icons
+import { FaUsers } from 'react-icons/fa';
+import { RiEdit2Fill } from 'react-icons/ri';
+import { AiFillDelete } from 'react-icons/ai';
+import { MdOutlineDescription } from 'react-icons/md';
+
+// Components
 import {
   Button,
   ImageFallback,
@@ -12,15 +24,6 @@ import {
   Heading,
   FaLocationDot,
 } from '@/components';
-
-// icons
-import { FaUsers } from 'react-icons/fa';
-import { RiEdit2Fill } from 'react-icons/ri';
-import { AiFillDelete } from 'react-icons/ai';
-import { MdOutlineDescription } from 'react-icons/md';
-
-// Constants
-import { IMAGES } from '@/constants';
 
 export interface Guest {
   id: number;
@@ -36,6 +39,7 @@ export interface EventCardProps {
   guests?: Guest[];
   link?: string;
   isOpen: boolean;
+  isAdmin: boolean;
   onCloseModal: () => void;
   onEdit?: (id: number) => void;
   onDelete?: (id: number) => void;
@@ -50,6 +54,7 @@ const EventDetail = ({
   guests = [],
   link = '',
   isOpen,
+  isAdmin,
   onCloseModal,
   onEdit,
   onDelete,
@@ -183,31 +188,33 @@ const EventDetail = ({
         </>
 
         {/* Action Icons */}
-        <div className="flex justify-end py-4 border-t border-gray-150 dark:border-gray-350 gap-3">
-          <Button
-            onClick={handleEdit}
-            key="edit"
-            className="!bg-[#f5f5fc] dark:!bg-[#2f3268] !py-3 !text-[#605cf8]"
-            aria-label="Edit"
-            startContent={
-              <RiEdit2Fill className="!text-blue-500 dark:!text-purple-600 rounded-" />
-            }
-          >
-            Edit
-          </Button>
-          <Button
-            key="delete"
-            onClick={handleDelete}
-            className="!bg-[#fff7fb] dark:!bg-pink-600 !py-3 !text-pink-500"
-            startContent={<AiFillDelete className="!text-pink-500" />}
-            aria-label="Delete"
-          >
-            Delete
-          </Button>
-        </div>
+        {isAdmin && (
+          <div className="flex justify-end py-4 border-t border-gray-150 dark:border-gray-350 gap-3">
+            <Button
+              onClick={handleEdit}
+              key="edit"
+              className="!bg-[#f5f5fc] dark:!bg-[#2f3268] !py-3 !text-[#605cf8]"
+              aria-label="Edit"
+              startContent={
+                <RiEdit2Fill className="!text-blue-500 dark:!text-purple-600 rounded-" />
+              }
+            >
+              Edit
+            </Button>
+            <Button
+              key="delete"
+              onClick={handleDelete}
+              className="!bg-[#fff7fb] dark:!bg-pink-600 !py-3 !text-pink-500"
+              startContent={<AiFillDelete className="!text-pink-500" />}
+              aria-label="Delete"
+            >
+              Delete
+            </Button>
+          </div>
+        )}
       </ModalContent>
     </NextModal>
   );
 };
 
-export default memo(EventDetail, isEqual);
+export default withAccountState<EventCardProps>(memo(EventDetail, isEqual));

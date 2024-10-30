@@ -1,9 +1,13 @@
 'use client';
 
 import { Key, memo, useCallback, useMemo, useState } from 'react';
+import isEqual from 'react-fast-compare';
 
-// Components
-import { Table } from '@/components';
+// constants
+import { ORDER } from '@/constants';
+
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
 
 // Types
 import { TProductInvoiceResponse } from '@/types';
@@ -11,13 +15,12 @@ import { TProductInvoiceResponse } from '@/types';
 // Utils
 import { calcTotalAmount, mappingContentColumns } from '@/utils';
 
-// constants
-import { ORDER } from '@/constants';
-import isEqual from 'react-fast-compare';
+// Components
+import { Table } from '@/components';
 
 type ProductTableProps = {
   data: TProductInvoiceResponse[];
-  isReadOnly?: boolean;
+  isAdmin: boolean;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   onRowAction?: (key: Key) => void;
@@ -25,7 +28,7 @@ type ProductTableProps = {
 
 const ProductTable = ({
   data = [],
-  isReadOnly = true,
+  isAdmin,
   onEdit,
   onDelete,
   onRowAction,
@@ -36,8 +39,8 @@ const ProductTable = ({
   const [order, setOrder] = useState<string>(ASC);
   const [sortBy, setSortBy] = useState<string>('');
   const columns = useMemo(
-    () => mappingContentColumns({ data, isReadOnly, onEdit, onDelete }),
-    [data, isReadOnly, onDelete, onEdit],
+    () => mappingContentColumns({ data, isAdmin, onEdit, onDelete }),
+    [data, isAdmin, onDelete, onEdit],
   );
 
   /**
@@ -156,4 +159,4 @@ const ProductTable = ({
   );
 };
 
-export default memo(ProductTable, isEqual);
+export default withAccountState<ProductTableProps>(memo(ProductTable, isEqual));

@@ -13,7 +13,7 @@ import { DropdownActions, Text, ImageFallback } from '@/components';
 
 type TColumn = {
   data: TProductInvoiceResponse[];
-  isReadOnly: boolean;
+  isAdmin: boolean;
   onEdit: (id: number) => void;
   onDelete: (id: number) => void;
 };
@@ -21,7 +21,7 @@ type TColumn = {
 // Columns for Top Selling Product table
 export const mappingContentColumns = ({
   data,
-  isReadOnly,
+  isAdmin,
   onEdit,
   onDelete,
 }: TColumn) => {
@@ -124,7 +124,7 @@ export const mappingContentColumns = ({
       value: 'totalSale',
     },
     {
-      ...(!isReadOnly && {
+      ...(isAdmin && {
         accessor: (customerData: TProductInvoiceResponse) => {
           const { id } = customerData || {};
           return (

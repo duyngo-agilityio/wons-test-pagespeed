@@ -1,8 +1,15 @@
+import Link from 'next/link';
 import { Key, memo, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
 // Utils
 import { formatPhoneNumberTyping } from '@/utils';
+
+// Types
+import { TCustomerDataResponse } from '@/types';
+
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
 
 // Components
 import {
@@ -13,10 +20,6 @@ import {
   ImageFallback,
 } from '@/components';
 
-// Types
-import { TCustomerDataResponse } from '@/types';
-import Link from 'next/link';
-
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 
 type TCustomerData = TCustomerDataResponse;
@@ -24,9 +27,9 @@ type TCustomerData = TCustomerDataResponse;
 type CustomersTableProps = {
   data: TCustomerData[];
   pageCount: number;
-  isReadOnly?: boolean;
   sortBy?: string;
   order?: string;
+  isAdmin: boolean;
   onEdit: (id: number) => void;
   onSort: (field: string) => void;
   onDelete: (id: number) => void;
@@ -36,9 +39,9 @@ type CustomersTableProps = {
 const CustomersTable = ({
   data = [],
   pageCount,
-  isReadOnly = true,
   sortBy = '',
   order = '',
+  isAdmin,
   onEdit,
   onSort,
   onDelete,
@@ -128,7 +131,7 @@ const CustomersTable = ({
           value: 'gender',
         },
         {
-          ...(!isReadOnly && {
+          ...(isAdmin && {
             accessor: (customerData: TCustomerData) => {
               const { id } = customerData || {};
 
@@ -139,7 +142,7 @@ const CustomersTable = ({
           }),
         },
       ].filter((item) => Object.keys(item).length !== 0),
-    [isReadOnly, onDelete, onEdit],
+    [isAdmin, onDelete, onEdit],
   );
 
   return (
@@ -158,4 +161,4 @@ const CustomersTable = ({
   );
 };
 
-export default memo(CustomersTable);
+export default withAccountState<CustomersTableProps>(memo(CustomersTable));

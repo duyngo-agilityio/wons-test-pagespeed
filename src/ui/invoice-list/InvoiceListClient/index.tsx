@@ -36,14 +36,12 @@ export type TInvoiceListClientProps = {
   invoiceList: TInvoiceDataResponse[];
   pageCount: number;
   sortOrder?: string;
-  isReadOnly?: boolean;
 };
 
 const InvoiceListClient = ({
   invoiceList,
   pageCount,
   sortOrder = '',
-  isReadOnly = true,
 }: TInvoiceListClientProps): JSX.Element => {
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
@@ -142,7 +140,6 @@ const InvoiceListClient = ({
     <>
       {isLoading && <LoadingIndicator />}
       <InvoicesTable
-        isReadOnly={isReadOnly}
         data={invoiceList}
         pageCount={pageCount}
         onEdit={handleEdit}

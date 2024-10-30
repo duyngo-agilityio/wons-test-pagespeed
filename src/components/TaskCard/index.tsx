@@ -8,16 +8,8 @@ import dynamic from 'next/dynamic';
 // Types
 import { StrapiModel, Task, TaskWithStringAssignees, Level } from '@/types';
 
-// Components
-import {
-  LevelChip,
-  DropdownActions,
-  AvatarGroup,
-  Text,
-  ImageFallback,
-  LoadingIndicator,
-  TaskForm,
-} from '@/components';
+// Hocs
+import { withAccountState } from '@/hocs/withAccountState';
 
 // Constants
 import { MESSAGES } from '@/constants';
@@ -37,14 +29,26 @@ import { uploadImage } from '@/api/image';
 // Utils
 import { formatErrorMessage } from '@/utils';
 
+// Components
+import {
+  LevelChip,
+  DropdownActions,
+  AvatarGroup,
+  Text,
+  ImageFallback,
+  LoadingIndicator,
+  TaskForm,
+} from '@/components';
+
 const DynamicTaskDetails = dynamic(() => import('../TaskDetail'));
 
 type TTaskCardProps = {
+  isAdmin: boolean;
   index: number;
   task: StrapiModel<Task>;
 };
 
-const TaskCard = ({ index, task }: TTaskCardProps) => {
+const TaskCard = ({ index, task, isAdmin }: TTaskCardProps) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [taskByID, setTaskByID] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -233,14 +237,16 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
             >
               <div className="flex flex-row items-center justify-between mb-[15px]">
                 <Text className="text-md" text={title} />
-                <DropdownActions
-                  id={id}
-                  onDelete={handleDelete}
-                  onEdit={handleEdit}
-                  isIconOnly
-                  disableAnimation
-                  customClassName="w-[15px] min-w-[15px]"
-                />
+                {isAdmin && (
+                  <DropdownActions
+                    id={id}
+                    onDelete={handleDelete}
+                    onEdit={handleEdit}
+                    isIconOnly
+                    disableAnimation
+                    customClassName="w-[15px] min-w-[15px]"
+                  />
+                )}
               </div>
               <LevelChip level={level} />
               <Text
@@ -297,4 +303,4 @@ const TaskCard = ({ index, task }: TTaskCardProps) => {
   );
 };
 
-export default memo(TaskCard);
+export default withAccountState<TTaskCardProps>(memo(TaskCard));

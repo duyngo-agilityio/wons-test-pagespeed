@@ -1,8 +1,5 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
-// Utils
-import { isAdmin } from '@/utils';
+import { lazy, Suspense } from 'react';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
@@ -11,7 +8,6 @@ const LazyCreateInvoice = lazy(() => import('@/ui/create-invoice'));
 
 // Constants
 import { IMAGES } from '@/constants';
-import { lazy, Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Wons Create New Invoice',
@@ -29,10 +25,6 @@ export const metadata: Metadata = {
 };
 
 const CreateInvoicePage = async (): Promise<JSX.Element> => {
-  const isSuperAdmin = await isAdmin();
-
-  if (!isSuperAdmin) notFound();
-
   return (
     <DashBoardLayout title="Create New Invoice">
       <Suspense>
