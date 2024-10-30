@@ -144,10 +144,9 @@ const InvoicesTable = ({
                 <ImageFallback
                   src={avatar}
                   alt="customer avatar"
-                  width={36}
-                  placeholder={null}
-                  height={36}
-                  sizes="36px"
+                  width={40}
+                  height={40}
+                  sizes="40px"
                   className="rounded-full h-full object-cover"
                 />
                 <Text size="md" text={fullName} className="text-nowrap" />
