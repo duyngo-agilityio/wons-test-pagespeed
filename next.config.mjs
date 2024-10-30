@@ -16,7 +16,7 @@ const cspHeader = `
 const nextConfig = {
   swcMinify: true,
   experimental: {
-    optimizePackageImports: ['react-hook-form', 'framer-motion', '@/components', '@/ui', '@/types', '@/constants', '@/layouts', '@/actions', '@/configs', '@/contexts', '@/hooks', '@/services', '@/utils', '@/models'],
+    optimizePackageImports: ['react-hook-form', '@/components', '@/ui', '@/types', '@/constants', '@/layouts', '@/actions', '@/contexts', '@/hooks', '@/services', '@/utils', '@/models'],
   },
   reactStrictMode: false,
   staticPageGenerationTimeout: 1000,
