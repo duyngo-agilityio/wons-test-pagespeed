@@ -1,14 +1,10 @@
+import { act } from 'react';
+
 // Mocks
 import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
 
 // Actions
 import EditInvoiceClient from '../EditInvoiceClient';
-import { act } from 'react';
-
-// jest.mock('@/actions', () => ({
-//   ...jest.requireActual('@/actions'),
-//   updateInvoice: jest.fn(),
-// }));
 
 const originalFetch = global.fetch;
 

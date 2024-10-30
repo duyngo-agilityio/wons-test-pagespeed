@@ -43,11 +43,11 @@ export const mappingContentColumns = ({
         const { imageUrl = '', title = '' } = attributesProduct || {};
 
         return (
-          <div className="flex gap-3.5 items-center h-9">
+          <div className="flex gap-3.5 items-center h-[40px]">
             <ImageFallback
-              width={36}
-              height={36}
-              sizes="36px"
+              width={40}
+              height={40}
+              sizes="40px"
               src={imageUrl}
               alt="customer avatar"
               className="rounded-full h-full object-cover"

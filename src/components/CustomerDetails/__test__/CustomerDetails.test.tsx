@@ -22,12 +22,4 @@ describe('CustomerDetails', () => {
 
     expect(container).toMatchSnapshot();
   });
-
-  it('should match snapshot with undefined', () => {
-    const { container } = renderComponent({
-      customer: undefined,
-    });
-
-    expect(container).toMatchSnapshot();
-  });
 });

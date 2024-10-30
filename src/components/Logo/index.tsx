@@ -17,7 +17,7 @@ const Logo = ({ size = 'lg' }: LogoProps): JSX.Element => (
     <ImageFallback
       priority
       src={IMAGES.LOGO}
-      placeholder="empty"
+      placeholder={null}
       alt="wons-logo"
       width={size === 'lg' ? 90 : 42}
       height={size === 'lg' ? 56 : 26}

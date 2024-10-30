@@ -8,7 +8,6 @@ exports[`DatePicker component should match with snapshot 1`] = `
     <script>
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
-     
     <div
       class="group flex flex-col data-[has-helper=true]:pb-[calc(theme(fontSize.tiny)_+8px)] gap-y-1.5 group w-full"
       data-has-end-content="true"
@@ -16,6 +15,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
     >
       <div
         aria-describedby="react-aria-description-1"
+        aria-label="Date Picker"
         aria-labelledby="react-aria-:r3:"
         class="relative gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-sm hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium w-full transition-background motion-reduce:transition-none !duration-150 px-5 pt-[17px] pb-[14px] h-12.5 rounded-10 bg-gray-50 dark:bg-gray-600"
         data-slot="input-wrapper"
@@ -34,7 +34,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
           >
             <div
               aria-describedby="react-aria-description-1"
-              aria-label="month"
+              aria-label="month, Date Picker"
               aria-valuemax="12"
               aria-valuemin="1"
               aria-valuenow="9"
@@ -64,7 +64,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
               /
             </div>
             <div
-              aria-label="day"
+              aria-label="day, Date Picker"
               aria-valuemax="30"
               aria-valuemin="1"
               aria-valuenow="8"
@@ -94,7 +94,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
               /
             </div>
             <div
-              aria-label="year"
+              aria-label="year, Date Picker"
               aria-valuemax="9999"
               aria-valuemin="1"
               aria-valuenow="2024"
@@ -124,7 +124,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
               , 
             </div>
             <div
-              aria-label="hour"
+              aria-label="hour, Date Picker"
               aria-valuemax="11"
               aria-valuemin="0"
               aria-valuenow="1"
@@ -154,7 +154,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
               :
             </div>
             <div
-              aria-label="minute"
+              aria-label="minute, Date Picker"
               aria-valuemax="59"
               aria-valuemin="0"
               aria-valuenow="45"
@@ -184,7 +184,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
                
             </div>
             <div
-              aria-label="AM/PM"
+              aria-label="AM/PM, Date Picker"
               aria-valuemax="12"
               aria-valuemin="0"
               aria-valuenow="0"
@@ -213,7 +213,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
                
             </div>
             <div
-              aria-label="time zone"
+              aria-label="time zone, Date Picker"
               aria-readonly="true"
               class="group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start inline-block outline-none focus:shadow-sm rounded-md text-foreground-500 data-[editable=true]:text-foreground data-[editable=true]:data-[placeholder=true]:text-foreground-500 data-[invalid=true]:text-danger-300 data-[invalid=true]:data-[editable=true]:text-danger data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20 data-[invalid=true]:data-[editable=true]:focus:text-danger focus:bg-default-400/50 data-[editable=true]:focus:text-default-foreground transition-colors motion-reduce:transition-none"
               data-slot="segment"
@@ -227,7 +227,7 @@ exports[`DatePicker component should match with snapshot 1`] = `
             </div>
             <input
               type="hidden"
-              value="2024-09-08T01:45:22+07:00[Asia/Bangkok]"
+              value="2024-09-08T01:45:22+07:00[Asia/Saigon]"
             />
           </div>
           <button
@@ -259,9 +259,6 @@ exports[`DatePicker component should match with snapshot 1`] = `
         </div>
       </div>
     </div>
-    <div
-      class="fixed top-4 right-4"
-    />
   </div>
 </div>
 `;

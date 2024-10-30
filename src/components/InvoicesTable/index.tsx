@@ -141,16 +141,15 @@ const InvoicesTable = ({
             const { avatar = '', fullName = '' } = customerAttributes || {};
 
             return (
-              <div className="flex gap-3.5 items-center h-9">
-                <div className="relative h-9 w-9">
-                  <ImageFallback
-                    src={avatar}
-                    alt="customer avatar"
-                    fill
-                    className="rounded-full h-full object-cover"
-                    sizes="(min-width: 768px) 100px, 36px"
-                  />
-                </div>
+              <div className="flex gap-3.5 items-center h-[40px]">
+                <ImageFallback
+                  src={avatar}
+                  alt="customer avatar"
+                  width={40}
+                  height={40}
+                  sizes="40px"
+                  className="rounded-full h-full object-cover"
+                />
                 <Text size="md" text={fullName} className="text-nowrap" />
               </div>
             );
@@ -305,6 +304,4 @@ const InvoicesTable = ({
   );
 };
 
-export default memo(InvoicesTable, isEqual) as <T>(
-  props: TInvoicesTableProps & T,
-) => JSX.Element;
+export default memo(InvoicesTable, isEqual);

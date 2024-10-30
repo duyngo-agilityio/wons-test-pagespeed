@@ -17,7 +17,7 @@ describe('DatePicker component', () => {
     jest.clearAllMocks();
   });
 
-  it.skip('should match with snapshot', () => {
+  it('should match with snapshot', () => {
     const { container } = renderComponent();
 
     expect(container).toMatchSnapshot();

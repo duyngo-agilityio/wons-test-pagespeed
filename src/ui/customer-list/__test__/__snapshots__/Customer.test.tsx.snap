@@ -167,7 +167,7 @@ exports[`Customer List component should render all content with resolved data an
                 tabindex="-1"
               >
                 <div
-                  class="flex gap-3.5 items-center h-9"
+                  class="flex gap-3.5 items-center h-[40px]"
                 >
                   <img
                     alt="customer avatar"
@@ -175,10 +175,10 @@ exports[`Customer List component should render all content with resolved data an
                     data-nimg="1"
                     decoding="async"
                     fetchpriority="high"
-                    height="36"
+                    height="40"
                     src="http://localhost/"
                     style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                    width="36"
+                    width="40"
                   />
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
@@ -254,7 +254,7 @@ exports[`Customer List component should render all content with resolved data an
                 tabindex="-1"
               >
                 <div
-                  class="flex gap-3.5 items-center h-9"
+                  class="flex gap-3.5 items-center h-[40px]"
                 >
                   <img
                     alt="customer avatar"
@@ -262,10 +262,10 @@ exports[`Customer List component should render all content with resolved data an
                     data-nimg="1"
                     decoding="async"
                     fetchpriority="high"
-                    height="36"
+                    height="40"
                     src="http://localhost/"
                     style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                    width="36"
+                    width="40"
                   />
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"
@@ -340,7 +340,7 @@ exports[`Customer List component should render all content with resolved data an
                 tabindex="-1"
               >
                 <div
-                  class="flex gap-3.5 items-center h-9"
+                  class="flex gap-3.5 items-center h-[40px]"
                 >
                   <img
                     alt="customer avatar"
@@ -348,10 +348,10 @@ exports[`Customer List component should render all content with resolved data an
                     data-nimg="1"
                     decoding="async"
                     fetchpriority="high"
-                    height="36"
+                    height="40"
                     src="http://localhost/"
                     style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
-                    width="36"
+                    width="40"
                   />
                   <p
                     class="font-dm-sans text-blue-800 dark:text-white text-md text-nowrap"

@@ -33,6 +33,7 @@ const InvoiceDetailsHeader = ({
         <ImageFallback
           src={IMAGES.LOGO_COMPANY}
           alt="logo-detail"
+          placeholder={null}
           width={30}
           height={44}
         />

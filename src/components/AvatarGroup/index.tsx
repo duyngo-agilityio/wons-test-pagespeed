@@ -34,6 +34,7 @@ const AvatarGroup = ({ users }: AvatarGroupProps) => (
             <ImageFallback
               src={avatar}
               alt={username}
+              placeholder={null}
               width={28}
               height={28}
               className="h-full rounded-full object-cover"
@@ -49,6 +50,4 @@ const AvatarGroup = ({ users }: AvatarGroupProps) => (
   </div>
 );
 
-export default memo(AvatarGroup, isEqual) as <T>(
-  props: AvatarGroupProps & T,
-) => JSX.Element;
+export default memo(AvatarGroup, isEqual);

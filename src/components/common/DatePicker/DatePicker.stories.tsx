@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { parseAbsoluteToLocal } from '@internationalized/date';
 
 // Components
-import DatePicker from '.';
+import DatePicker from './index';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Components/Common/DatePicker',
