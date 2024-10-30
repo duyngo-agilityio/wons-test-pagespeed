@@ -44,22 +44,26 @@ const RecentServicesTable = ({
         header: 'Service Name',
         accessor: (
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,
-        ) => (
-          <div className="flex gap-2 items-center h-7.5">
-            <ImageFallback
-              width={30}
-              height={30}
-              src={data.attributes.product.data.attributes.imageUrl}
-              alt="ui-ux-design"
-              sizes="30px"
-              className="rounded-5 h-full object-cover"
-            />
-            <Text
-              size="sm"
-              text={data.attributes.product.data.attributes.title}
-            />
-          </div>
-        ),
+        ) => {
+          const product = data.attributes.product || {};
+          const attributesProduct = product.data.attributes || {};
+
+          const { imageUrl = '', title = '' } = attributesProduct;
+
+          return (
+            <div className="flex gap-2 items-center h-[40px]">
+              <ImageFallback
+                width={40}
+                height={40}
+                src={imageUrl}
+                alt="ui-ux-design"
+                sizes="40px"
+                className="rounded-5 h-full object-cover"
+              />
+              <Text size="sm" text={title} />
+            </div>
+          );
+        },
         isSort: true,
         value: 'title',
       },

@@ -96,6 +96,7 @@ const TableCustom = <T extends { id: string }>({
     <BaseTable
       {...(isStriped && { isStriped: true })}
       selectionMode={selectionMode}
+      aria-label="Table"
       checkboxesProps={{
         classNames: {
           wrapper: [
@@ -173,7 +174,7 @@ const TableCustom = <T extends { id: string }>({
           );
         })}
       </TableHeader>
-      <TableBody emptyContent={'No Records found.'}>
+      <TableBody emptyContent="No Records found.">
         {data.map((item) => (
           <TableRow
             key={item.id}

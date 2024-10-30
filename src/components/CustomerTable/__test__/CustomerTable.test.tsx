@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { act } from 'react';
 
 // types
 import { TCustomerDataResponse } from '@/types';
@@ -27,7 +28,7 @@ describe('CustomersTable Component', () => {
   const mockOnEdit = jest.fn();
   const mockOnDelete = jest.fn();
 
-  it('renders the table headers and customer data correctly', () => {
+  it('renders the table headers and customer data correctly', async () => {
     const { container } = render(
       <CustomersTable
         onSort={jest.fn()}
@@ -39,11 +40,13 @@ describe('CustomersTable Component', () => {
       />,
     );
 
-    expect(container).toMatchSnapshot();
+    await act(async () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('renders correctly with undefined attributes', () => {
-    render(
+  it('renders correctly with undefined attributes', async () => {
+    const { getAllByText } = render(
       <CustomersTable
         onSort={jest.fn()}
         data={undefined as unknown as TCustomerDataResponse[]}
@@ -53,11 +56,13 @@ describe('CustomersTable Component', () => {
       />,
     );
 
-    expect(screen.getAllByText('')).toHaveLength(31);
+    await act(async () => {
+      expect(getAllByText('')).toHaveLength(31);
+    });
   });
 
-  it('renders correctly with empty attributes', () => {
-    render(
+  it('renders correctly with empty attributes', async () => {
+    const { getAllByText } = render(
       <CustomersTable
         onSort={jest.fn()}
         data={[]}
@@ -67,6 +72,8 @@ describe('CustomersTable Component', () => {
       />,
     );
 
-    expect(screen.getAllByText('')[1]).toBeInTheDocument();
+    await act(async () => {
+      expect(getAllByText('')[1]).toBeInTheDocument();
+    });
   });
 });
