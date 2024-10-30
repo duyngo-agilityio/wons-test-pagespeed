@@ -59,7 +59,9 @@ const InvoiceListPage = ({
         }
       >
         <Heading className="w-full" title={PAGE_TITLES.INVOICE} />
-        <InvoiceListActions />
+        <Suspense>
+          <InvoiceListActions />
+        </Suspense>
       </div>
       <Suspense
         key={order + sortBy + query + page}
