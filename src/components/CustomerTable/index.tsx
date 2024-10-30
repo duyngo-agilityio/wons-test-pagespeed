@@ -60,13 +60,12 @@ const CustomersTable = ({
             return (
               <div className="flex gap-3.5 items-center h-9">
                 <ImageFallback
-                  width={36}
-                  height={36}
+                  width={40}
+                  height={40}
                   src={avatar}
                   alt="customer avatar"
-                  placeholder={null}
                   className="rounded-full h-full object-cover"
-                  sizes="36px"
+                  sizes="40px"
                 />
                 <Text
                   size="md"

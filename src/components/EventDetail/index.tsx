@@ -105,6 +105,7 @@ const EventDetail = ({
                 <ImageFallback
                   src={IMAGES.GOOGLE_MEET}
                   alt="google meet"
+                  placeholder={null}
                   width={16}
                   height={16}
                 />
