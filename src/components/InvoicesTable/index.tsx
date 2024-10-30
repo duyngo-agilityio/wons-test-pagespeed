@@ -3,13 +3,13 @@
 // Libs
 import { Key, memo, useCallback, useMemo, useState } from 'react';
 import isEqual from 'react-fast-compare';
-
+import Link from 'next/link';
 import { Selection } from '@nextui-org/react';
 import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 
 // Types
-import { TInvoiceDataResponse, InvoiceStatus } from '@/types';
+import { TInvoiceDataResponse, InvoiceStatus } from '@/types/invoice';
 
 // Components
 import {
@@ -24,8 +24,9 @@ import {
   Button,
   StarButton,
 } from '@/components';
-import Link from 'next/link';
-import { DAYJS_PATTERN } from '@/constants';
+
+// Constants
+import { DAYJS_PATTERN } from '@/constants/date';
 
 const Pagination = dynamic(() => import('@/components/common/Pagination'));
 const ConfirmModal = dynamic(() => import('@/components/common/ConfirmModal'));
