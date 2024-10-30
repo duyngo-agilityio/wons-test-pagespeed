@@ -8,6 +8,7 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => (
   <div className="lg:flex">
+    {/* TODO: Update fallback later */}
     <Suspense>
       <Sidebar />
     </Suspense>
