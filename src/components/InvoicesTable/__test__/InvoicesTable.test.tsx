@@ -1,3 +1,4 @@
+import { act } from 'react';
 import { fireEvent } from '@testing-library/react';
 
 // Mocks
@@ -29,7 +30,7 @@ describe('InvoicesTable Component', () => {
       />,
     );
 
-  it('match snapshot', () => {
+  it('match snapshot', async () => {
     const { container } = renderComponent();
 
     container.getElementsByClassName(
@@ -44,10 +45,12 @@ describe('InvoicesTable Component', () => {
       .querySelector('th.bg-gray-50')
       ?.setAttribute('id', 'react-aria-:r0:-row-header-column-tjima90t7ui');
 
-    expect(container).toMatchSnapshot();
+    await act(async () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('should update selected invoice ids on selection change', () => {
+  it('should update selected invoice ids on selection change', async () => {
     const { getAllByRole } = renderComponent();
 
     const checkboxElements = getAllByRole('checkbox');
@@ -55,6 +58,8 @@ describe('InvoicesTable Component', () => {
 
     fireEvent.click(firstCheckbox);
 
-    expect(firstCheckbox.checked).toBe(true);
+    await act(async () => {
+      expect(firstCheckbox.checked).toBe(true);
+    });
   });
 });

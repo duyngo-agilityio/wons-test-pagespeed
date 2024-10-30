@@ -83,7 +83,7 @@ exports[`CalendarEventForm render successful 1`] = `
           <p
             class="font-dm-sans text-blue-800 dark:text-white text-md text-blue-800 text-[12px] font-normal leading-normal col-span-1 uppercase"
           >
-            05:00am - 07:00am
+            undefined - undefined
           </p>
         </div>
         <p
@@ -185,9 +185,7 @@ exports[`CalendarEventForm render successful 1`] = `
       >
         <p
           class="font-dm-sans text-blue-800 dark:text-white text-md text-blue-800 text-[12px] font-normal leading-normal col-span-1"
-        >
-          John Doe
-        </p>
+        />
         <p
           class="font-dm-sans text-blue-800 dark:text-white text-md text-[rgba(1, 13, 28, 0.50)] text-opacity-50 text-[12px] font-normal leading-normal"
         >

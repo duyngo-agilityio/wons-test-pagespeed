@@ -19,6 +19,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
         >
           <table
             aria-describedby=""
+            aria-label="Table"
             aria-multiselectable="true"
             class="min-w-full h-auto table-auto w-full border-separate border-spacing-x-0 border-spacing-y-[10px] bg-gray-50 dark:bg-gray-600"
             id="react-aria-:r0:"

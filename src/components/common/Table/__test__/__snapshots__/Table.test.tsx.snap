@@ -16,6 +16,7 @@ exports[`Table should match snapshot for Table primary 1`] = `
       >
         <table
           aria-describedby=""
+          aria-label="Table"
           class="min-w-full h-auto table-auto w-full border-separate border-spacing-x-0 border-spacing-y-[10px] bg-gray-50 dark:bg-gray-600"
           id="react-aria-:r0:"
           role="grid"
@@ -272,6 +273,7 @@ exports[`Table should match snapshot for Table secondary 1`] = `
       >
         <table
           aria-describedby=""
+          aria-label="Table"
           class="min-w-full h-auto table-auto w-full px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 [&>tbody>*:nth-child(even)]:bg-gray-50/50 dark:[&>tbody>*:nth-child(even)]:bg-gray-600"
           id="react-aria-:r2:"
           role="grid"
