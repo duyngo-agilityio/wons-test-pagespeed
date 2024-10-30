@@ -653,6 +653,7 @@ exports[`EditInvoice Component Test should render all content with resolved data
             >
               <table
                 aria-describedby=""
+                aria-label="Table"
                 class="min-w-full h-auto table-auto w-full px-0 dark:[&>tbody>*:nth-child(odd)]:bg-gray-400 [&>tbody>*:nth-child(even)]:bg-gray-50/50 dark:[&>tbody>*:nth-child(even)]:bg-gray-600"
                 id="react-aria-:r1r:"
                 role="grid"

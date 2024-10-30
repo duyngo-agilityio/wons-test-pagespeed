@@ -151,8 +151,6 @@ const CalendarEventForm = ({
 
     if (response) {
       setUsers(response);
-    } else {
-      console.error('No data found in the response');
     }
   }, []);
 

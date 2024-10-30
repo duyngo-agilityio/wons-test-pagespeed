@@ -1,4 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
+import { act } from 'react';
 
 // Constants
 import { BLUR_SRC, FALLBACK_SRC, IMAGES } from '@/constants';
@@ -19,26 +20,31 @@ describe('ImageFallback component', () => {
         {...props}
       />,
     );
+
   it('should match snapshot for ImageFallback', () => {
     const { container } = renderComponent();
 
     expect(container).toMatchSnapshot();
   });
 
-  it('switches to fallbackSrc on error', () => {
+  it('switches to fallbackSrc on error', async () => {
     const { getByAltText } = renderComponent();
     const image = getByAltText('image') as HTMLImageElement;
 
-    image.onerror?.(new Event('error'));
+    await act(async () => {
+      image.onerror?.(new Event('error'));
+    });
 
     expect(image.src).toContain('http://localhost/');
   });
 
-  it('switches to fallbackSrc when loading completes with broken image', () => {
+  it('switches to fallbackSrc when loading completes with broken image', async () => {
     const { getByAltText } = renderComponent();
     const image = getByAltText('image') as HTMLImageElement;
 
-    fireEvent.load?.(image);
+    await act(async () => {
+      fireEvent.load?.(image);
+    });
 
     expect(image.src).toContain('http://localhost/');
   });

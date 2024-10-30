@@ -1,13 +1,9 @@
-jest.mock('@/components', () => ({
-  TableSkeleton: () => <div>Table Skeleton</div>,
-}));
+// Pages
+import InvoiceDetailsPage from '../invoices/[id]/page';
 
 jest.mock('@/layouts', () => ({
   DashBoardLayout: () => <div>DashBoardLayout</div>,
 }));
-
-// Pages
-import InvoiceDetailsPage from '../invoices/[id]/page';
 
 describe('InvoiceDetails', () => {
   it('should match sanpshot', () => {

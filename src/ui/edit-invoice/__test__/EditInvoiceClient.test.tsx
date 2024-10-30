@@ -2,15 +2,13 @@
 import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
 
 // Actions
-// import { fireEvent, waitFor, act } from '@testing-library/react';
 import EditInvoiceClient from '../EditInvoiceClient';
-// import { TInvoiceDataResponse } from '@/types';
-// import { TInvoice } from '@/models';
+import { act } from 'react';
 
-jest.mock('@/actions', () => ({
-  ...jest.requireActual('@/actions'),
-  updateInvoice: jest.fn(),
-}));
+// jest.mock('@/actions', () => ({
+//   ...jest.requireActual('@/actions'),
+//   updateInvoice: jest.fn(),
+// }));
 
 const originalFetch = global.fetch;
 
@@ -66,8 +64,11 @@ describe('EditInvoiceClient section', () => {
       />,
     );
 
-  it('should match with snapshot', () => {
+  it('should match with snapshot', async () => {
     const { container } = renderComponent();
-    expect(container).toMatchSnapshot();
+
+    await act(async () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });

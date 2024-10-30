@@ -4,15 +4,6 @@ import InvoiceListPage from '@/app/(dashboard)/invoices/page';
 // Types
 import { ISearchParams } from '@/types';
 
-jest.mock('@/components', () => ({
-  TableSkeleton: () => <div>Table Skeleton</div>,
-}));
-
-jest.mock('@/ui', () => ({
-  InvoiceListActions: () => <div>InvoiceListActions</div>,
-  InvoiceList: () => <div>InvoiceList</div>,
-}));
-
 jest.mock('@/layouts', () => ({
   DashBoardLayout: () => <div>DashBoardLayout</div>,
 }));

@@ -1,4 +1,5 @@
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
+import { act } from 'react';
 
 // Mocks
 import { MOCK_TASKS } from '@/mocks';
@@ -25,10 +26,13 @@ const renderWithDndContext = (ui: React.ReactElement) => {
 describe('TaskCard Component', () => {
   const { todo } = MOCK_TASKS;
 
-  it('matches the snapshot', () => {
+  it('matches the snapshot', async () => {
     const { container } = renderWithDndContext(
       <TaskCard index={0} task={todo[0]} />,
     );
-    expect(container).toMatchSnapshot();
+
+    await act(async () => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });
