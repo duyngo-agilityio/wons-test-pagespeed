@@ -145,6 +145,7 @@ const InvoicesTable = ({
                   src={avatar}
                   alt="customer avatar"
                   width={36}
+                  placeholder={null}
                   height={36}
                   sizes="36px"
                   className="rounded-full h-full object-cover"
@@ -303,6 +304,4 @@ const InvoicesTable = ({
   );
 };
 
-export default memo(InvoicesTable, isEqual) as <T>(
-  props: TInvoicesTableProps & T,
-) => JSX.Element;
+export default memo(InvoicesTable, isEqual);

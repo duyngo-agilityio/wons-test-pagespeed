@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
 import { cn } from '@nextui-org/react';
 
 // Components
-import { Button, Heading } from '@/components';
+import { Button, Heading, Text } from '@/components';
 
 interface ErrorProps {
   error: (Error & { digest?: string }) | string;
@@ -18,11 +17,6 @@ const ErrorBoundary = ({ error, reset, className }: ErrorProps) => {
     reset?.();
   };
 
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
   return (
     <div
       className={cn(
@@ -31,6 +25,7 @@ const ErrorBoundary = ({ error, reset, className }: ErrorProps) => {
       )}
     >
       <Heading title="Something went wrong!" className="text-4xl" />
+      <Text text={typeof error === 'string' ? error : ''} />
       <Button onClick={handleReset} color="primary" className="mt-8">
         Try again
       </Button>

@@ -238,7 +238,7 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                       sizes="36px"
                       src="http://localhost/_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=3840&q=75"
                       srcset="/_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=16&q=75 16w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=32&q=75 32w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F90946%2Fpexels-photo-90946.jpeg%3Fauto%3Dcompress%26cs%3Dtinysrgb%26dpr%3D1%26w%3D500&w=3840&q=75 3840w"
-                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      style="color: transparent;"
                       width="36"
                     />
                     <p
@@ -405,7 +405,7 @@ exports[`InvoiceList section should match with snapshot 1`] = `
                       sizes="36px"
                       src="http://localhost/_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=3840&q=75"
                       srcset="/_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=16&q=75 16w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=32&q=75 32w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=48&q=75 48w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=64&q=75 64w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=96&q=75 96w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=128&q=75 128w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Fwp-content%2Fuploads%2F2024%2F02%2Fanh-avatar-cute-4.jpg&w=3840&q=75 3840w"
-                      style="color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+                      style="color: transparent;"
                       width="36"
                     />
                     <p
@@ -560,7 +560,7 @@ exports[`InvoiceList section should render correctly with response is null when 
             aria-describedby=""
             aria-label="Table"
             class="min-w-full h-auto table-auto w-full border-separate border-spacing-x-0 border-spacing-y-[10px] bg-gray-50 dark:bg-gray-600"
-            id="react-aria-:r2:"
+            id="react-aria-:r0:"
             role="grid"
             tabindex="0"
           >
@@ -577,7 +577,7 @@ exports[`InvoiceList section should render correctly with response is null when 
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="invoiceId0"
                   data-testid="sort-btn"
-                  id="react-aria-:r2:-invoiceId0"
+                  id="react-aria-:r0:-invoiceId0"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -605,7 +605,7 @@ exports[`InvoiceList section should render correctly with response is null when 
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="customer.fullName1"
                   data-testid="sort-btn"
-                  id="react-aria-:r2:-customer.fullName1"
+                  id="react-aria-:r0:-customer.fullName1"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -633,7 +633,7 @@ exports[`InvoiceList section should render correctly with response is null when 
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="email2"
                   data-testid="sort-btn"
-                  id="react-aria-:r2:-email2"
+                  id="react-aria-:r0:-email2"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -661,7 +661,7 @@ exports[`InvoiceList section should render correctly with response is null when 
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="date3"
                   data-testid="sort-btn"
-                  id="react-aria-:r2:-date3"
+                  id="react-aria-:r0:-date3"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -689,7 +689,7 @@ exports[`InvoiceList section should render correctly with response is null when 
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="status4"
                   data-testid="sort-btn"
-                  id="react-aria-:r2:-status4"
+                  id="react-aria-:r0:-status4"
                   role="columnheader"
                   tabindex="-1"
                 >
@@ -717,7 +717,7 @@ exports[`InvoiceList section should render correctly with response is null when 
                   class="group h-10 align-middle whitespace-nowrap text-foreground-500 text-tiny rtl:first:rounded-r-lg rtl:first:rounded-l-[unset] rtl:last:rounded-l-lg rtl:last:rounded-r-[unset] data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-start first:rounded-l-none last:rounded-r-none py-0 cursor-pointer font-normal bg-gray-50 dark:bg-gray-600 px-[17px]"
                   data-key="undefined5"
                   data-testid="sort-btn"
-                  id="react-aria-:r2:-undefined5"
+                  id="react-aria-:r0:-undefined5"
                   role="columnheader"
                   tabindex="-1"
                 >

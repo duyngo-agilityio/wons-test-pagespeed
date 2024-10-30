@@ -64,6 +64,7 @@ const CustomersTable = ({
                   height={36}
                   src={avatar}
                   alt="customer avatar"
+                  placeholder={null}
                   className="rounded-full h-full object-cover"
                   sizes="36px"
                 />

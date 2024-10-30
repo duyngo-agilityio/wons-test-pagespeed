@@ -248,6 +248,4 @@ const CustomerListClient = ({
   );
 };
 
-export default memo(CustomerListClient, isEqual) as <T>(
-  props: TCustomerListClientProps & T,
-) => JSX.Element;
+export default memo(CustomerListClient, isEqual);

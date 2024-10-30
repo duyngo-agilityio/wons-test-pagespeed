@@ -468,6 +468,4 @@ const InvoiceForm = ({
   );
 };
 
-export default memo(InvoiceForm, isEqual) as <T>(
-  props: InvoiceFormProps & T,
-) => JSX.Element;
+export default memo(InvoiceForm, isEqual);

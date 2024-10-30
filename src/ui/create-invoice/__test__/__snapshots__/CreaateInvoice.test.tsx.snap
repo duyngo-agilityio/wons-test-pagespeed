@@ -72,7 +72,8 @@ exports[`CreateInvoice Component Test should render all content with resolved da
             Date
           </span>
           <div
-            aria-labelledby="react-aria-:r9:"
+            aria-label="Date Picker"
+            aria-labelledby="react-aria-:r8: react-aria-:r9:"
             class="relative gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-sm hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium w-full transition-background motion-reduce:transition-none !duration-150 px-5 pt-[17px] pb-[14px] h-12.5 rounded-10 bg-gray-50 dark:bg-gray-600"
             data-slot="input-wrapper"
             id="react-aria-:r8:"
@@ -89,8 +90,8 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 role="presentation"
               >
                 <div
-                  aria-label="month, "
-                  aria-labelledby="react-aria-:ri: react-aria-:re: react-aria-:r9:"
+                  aria-label="month, Date Picker, "
+                  aria-labelledby="react-aria-:ri: react-aria-:re: react-aria-:r8: react-aria-:r9:"
                   aria-valuemax="12"
                   aria-valuemin="1"
                   aria-valuenow="10"
@@ -121,8 +122,8 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   /
                 </div>
                 <div
-                  aria-label="day, "
-                  aria-labelledby="react-aria-:rm: react-aria-:re: react-aria-:r9:"
+                  aria-label="day, Date Picker, "
+                  aria-labelledby="react-aria-:rm: react-aria-:re: react-aria-:r8: react-aria-:r9:"
                   aria-valuemax="31"
                   aria-valuemin="1"
                   aria-valuenow="30"
@@ -153,8 +154,8 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   /
                 </div>
                 <div
-                  aria-label="year, "
-                  aria-labelledby="react-aria-:rq: react-aria-:re: react-aria-:r9:"
+                  aria-label="year, Date Picker, "
+                  aria-labelledby="react-aria-:rq: react-aria-:re: react-aria-:r8: react-aria-:r9:"
                   aria-valuemax="9999"
                   aria-valuemin="1"
                   aria-valuenow="2024"
@@ -185,7 +186,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 aria-expanded="false"
                 aria-haspopup="dialog"
                 aria-label="Calendar"
-                aria-labelledby="react-aria-:r5: react-aria-:r9:"
+                aria-labelledby="react-aria-:r5: react-aria-:r8: react-aria-:r9:"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 -mr-2 text-inherit"
                 data-slot="selector-button"
                 id="react-aria-:r5:"
@@ -1033,7 +1034,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
             Date
           </span>
           <div
-            aria-labelledby="react-aria-:r2e:"
+            aria-label="Date Picker"
+            aria-labelledby="react-aria-:r2d: react-aria-:r2e:"
             class="relative gap-3 inline-flex flex-row items-center cursor-text tap-highlight-transparent shadow-sm hover:bg-default-200 focus-within:hover:bg-default-100 group-data-[invalid=true]:bg-danger-50 group-data-[invalid=true]:hover:bg-danger-100 group-data-[invalid=true]:focus-within:hover:bg-danger-50 min-h-10 rounded-medium w-full transition-background motion-reduce:transition-none !duration-150 px-5 pt-[17px] pb-[14px] h-12.5 rounded-10 bg-gray-50 dark:bg-gray-600"
             data-slot="input-wrapper"
             id="react-aria-:r2d:"
@@ -1050,8 +1052,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 role="presentation"
               >
                 <div
-                  aria-label="month, "
-                  aria-labelledby="react-aria-:r2n: react-aria-:r2j: react-aria-:r2e:"
+                  aria-label="month, Date Picker, "
+                  aria-labelledby="react-aria-:r2n: react-aria-:r2j: react-aria-:r2d: react-aria-:r2e:"
                   aria-valuemax="12"
                   aria-valuemin="1"
                   aria-valuenow="10"
@@ -1082,8 +1084,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   /
                 </div>
                 <div
-                  aria-label="day, "
-                  aria-labelledby="react-aria-:r2r: react-aria-:r2j: react-aria-:r2e:"
+                  aria-label="day, Date Picker, "
+                  aria-labelledby="react-aria-:r2r: react-aria-:r2j: react-aria-:r2d: react-aria-:r2e:"
                   aria-valuemax="31"
                   aria-valuemin="1"
                   aria-valuenow="30"
@@ -1114,8 +1116,8 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   /
                 </div>
                 <div
-                  aria-label="year, "
-                  aria-labelledby="react-aria-:r2v: react-aria-:r2j: react-aria-:r2e:"
+                  aria-label="year, Date Picker, "
+                  aria-labelledby="react-aria-:r2v: react-aria-:r2j: react-aria-:r2d: react-aria-:r2e:"
                   aria-valuemax="9999"
                   aria-valuemin="1"
                   aria-valuenow="2024"
@@ -1146,7 +1148,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 aria-expanded="false"
                 aria-haspopup="dialog"
                 aria-label="Calendar"
-                aria-labelledby="react-aria-:r2a: react-aria-:r2e:"
+                aria-labelledby="react-aria-:r2a: react-aria-:r2d: react-aria-:r2e:"
                 class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny gap-2 rounded-full px-0 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none bg-transparent data-[hover=true]:bg-default/40 min-w-8 w-8 h-8 -mr-2 text-inherit"
                 data-slot="selector-button"
                 id="react-aria-:r2a:"

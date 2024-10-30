@@ -53,6 +53,4 @@ const EditInvoiceClient = ({
   );
 };
 
-export default memo(EditInvoiceClient, isEqual) as <T>(
-  props: EditInvoiceClientProps & T,
-) => JSX.Element;
+export default memo(EditInvoiceClient, isEqual);

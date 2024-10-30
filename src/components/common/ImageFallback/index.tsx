@@ -7,12 +7,12 @@ import Image, { ImageProps } from 'next/image';
 import { BLUR_SRC, FALLBACK_SRC } from '@/constants';
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props';
 
-interface ImageFallbackProps extends ImageProps {
+interface ImageFallbackProps extends Omit<ImageProps, 'placeholder'> {
   src: string;
   alt: string;
   blurDataURL?: string;
   fallbackSrc?: string;
-  placeholder?: PlaceholderValue;
+  placeholder?: PlaceholderValue | null;
 }
 
 const ImageFallback = ({
@@ -47,7 +47,7 @@ const ImageFallback = ({
       priority
       src={imgSrc}
       alt={alt}
-      placeholder={placeholder}
+      placeholder={placeholder ? placeholder : undefined}
       blurDataURL={blurDataURL}
       onLoad={handleLoad}
       onError={handleFallbackImage}

@@ -20,7 +20,7 @@ describe('DateRangePicker', () => {
     mockOnClick.mockClear();
   });
 
-  it.skip('match snapshot', () => {
+  it('match snapshot', () => {
     const { container } = renderComponent();
 
     expect(container).toMatchSnapshot();
