@@ -174,7 +174,7 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -267,7 +267,7 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -359,7 +359,7 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -452,7 +452,7 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -941,7 +941,7 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -1034,7 +1034,7 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -1126,7 +1126,7 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -1219,7 +1219,7 @@ exports[`CustomerListClient section should match with snapshot 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"

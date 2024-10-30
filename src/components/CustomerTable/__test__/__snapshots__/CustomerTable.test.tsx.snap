@@ -180,7 +180,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex gap-3.5 items-center h-9"
+                  class="flex gap-3.5 items-center h-[40px]"
                 >
                   <img
                     alt="customer avatar"
@@ -306,7 +306,7 @@ exports[`CustomersTable Component renders the table headers and customer data co
                 tabindex="-1"
               >
                 <div
-                  class="flex gap-3.5 items-center h-9"
+                  class="flex gap-3.5 items-center h-[40px]"
                 >
                   <img
                     alt="customer avatar"

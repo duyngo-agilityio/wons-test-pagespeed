@@ -364,7 +364,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
@@ -611,7 +611,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                   tabindex="-1"
                 >
                   <div
-                    class="flex gap-3.5 items-center h-9"
+                    class="flex gap-3.5 items-center h-[40px]"
                   >
                     <img
                       alt="customer avatar"
