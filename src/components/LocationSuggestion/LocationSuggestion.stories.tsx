@@ -8,7 +8,7 @@ import { useDebounce } from 'use-debounce';
 import { HiLocationMarker } from 'react-icons/hi';
 
 // Components
-import LocationSuggestion from '.';
+import LocationSuggestion from './index';
 import { Input } from '../common';
 
 // Types

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Components
-import GenderStatus from '.';
+import GenderStatus from './index';
 
 const meta: Meta<typeof GenderStatus> = {
   title: 'Components/GenderStatus',

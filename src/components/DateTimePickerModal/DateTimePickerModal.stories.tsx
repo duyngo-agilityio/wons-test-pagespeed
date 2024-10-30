@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { formatToCalendarDate, formatDateString } from '@/utils';
 
 // Components
-import DateTimePickerModal from '.';
+import DateTimePickerModal from './index';
 import { Button } from '../common';
 
 const meta: Meta<typeof DateTimePickerModal> = {

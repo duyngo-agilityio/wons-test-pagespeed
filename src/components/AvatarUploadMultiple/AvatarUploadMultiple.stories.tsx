@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 // Components
-import AvatarUploadMultiple from '.';
+import AvatarUploadMultiple from './index';
 
 const meta: Meta<typeof AvatarUploadMultiple> = {
   title: 'Components/AvatarUploadMultiple',
