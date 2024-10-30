@@ -201,3 +201,30 @@ export const MOCK_INVOICE_PRODUCTS = [
     },
   },
 ];
+
+export const MOCK_PRODUCTS: (IProduct & { id: number })[] = [
+  {
+    id: 1,
+    imageUrl:
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
+    title: 'Iphone 12',
+    price: 1000,
+    rating: 4,
+    createdAt: '2024-08-27T04:20:56.562Z',
+    updatedAt: '2024-09-23T02:52:07.552Z',
+    publishedAt: '2024-09-10T04:14:24.732Z',
+    totalSale: 100,
+  },
+  {
+    id: 2,
+    imageUrl:
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D',
+    title: 'Iphone 13',
+    price: 2000,
+    rating: 5,
+    createdAt: '2024-09-22T22:25:15.043Z',
+    updatedAt: '2024-09-22T22:25:15.043Z',
+    publishedAt: '2024-09-22T22:25:15.041Z',
+    totalSale: 969,
+  },
+];
