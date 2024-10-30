@@ -1,5 +1,3 @@
-// 'use client';
-
 // components
 import { NotFoundComponent } from '@/components';
 

@@ -2,16 +2,16 @@
 import InvoiceList, { TInvoiceListProps } from '../index';
 
 // Mocks
-import { MOCK_INVOICES_RESPONSE } from '@/mocks';
+import { MOCK_INVOICES_RESPONSE } from '@/mocks/invoice';
 
 // Types
-import { TInvoiceListResponse } from '@/types';
+import { TInvoiceListResponse } from '@/types/invoice';
 
 // APIs
-import { getInvoices } from '@/api';
+import { getInvoices } from '@/api/invoice';
 
-jest.mock('@/api', () => ({
-  ...jest.requireActual('@/api'),
+jest.mock('@/api/invoice', () => ({
+  ...jest.requireActual('@/api/invoice'),
   getInvoices: jest.fn(),
 }));
 

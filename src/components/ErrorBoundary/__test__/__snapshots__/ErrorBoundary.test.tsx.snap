@@ -15,7 +15,6 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
           class="text-center h-screen flex justify-center items-center flex-col"
         >
           <h2
-            aria-level="2"
             class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-4xl"
           >
             Something went wrong!
@@ -48,7 +47,6 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
         class="text-center h-screen flex justify-center items-center flex-col"
       >
         <h2
-          aria-level="2"
           class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl text-4xl"
         >
           Something went wrong!

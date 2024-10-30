@@ -3,16 +3,17 @@
 import { revalidateTag } from 'next/cache';
 
 // Constants
-import { API_PATH } from '@/constants';
+import { API_PATH } from '@/constants/apis';
 
 // Models
-import { IProduct, TInvoice, TInvoiceProduct } from '@/models';
+import { TInvoice, TInvoiceProduct } from '@/models/invoice';
+import { IProduct } from '@/models/product';
 
 // Services
-import { httpClient } from '@/services';
+import { httpClient } from '@/services/http-request';
 
 // Utils
-import { formatErrorMessage } from '@/utils';
+import { formatErrorMessage } from '@/utils/messages';
 
 // Types
 import {
@@ -21,8 +22,8 @@ import {
   TInvoiceProductRequest,
   TInvoiceProductResponse,
   TInvoiceProductTable,
-  Method,
-} from '@/types';
+} from '@/types/invoice';
+import { Method } from '@/types/api';
 
 export const createInvoiceProducts = async (
   products: TInvoiceProductTable[],

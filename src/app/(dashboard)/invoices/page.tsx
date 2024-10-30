@@ -2,10 +2,12 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 // Constants
-import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
+import { PAGE_TITLES } from '@/constants/typography';
+import { DEFAULT_PAGE } from '@/constants/pagination';
+import { IMAGES } from '@/constants/images';
 
 // Types
-import { ISearchParams } from '@/types';
+import { ISearchParams } from '@/types/params';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
@@ -46,7 +48,6 @@ const InvoiceListPage = ({
 
   return (
     <main>
-      {/* TODO: Update later, add suspense for InvoiceListActions */}
       <DashBoardLayout
         title={PAGE_TITLES.INVOICE}
         rightContent={<InvoiceListActions />}

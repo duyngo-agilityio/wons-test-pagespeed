@@ -2,16 +2,17 @@
 import InvoiceListClient, { TInvoiceListClientProps } from '../index';
 
 // Mocks
-import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks';
+import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks/invoice';
 
 // Constants
-import { MESSAGES, ORDER } from '@/constants';
+import { MESSAGES } from '@/constants/messages';
+import { ORDER } from '@/constants/params';
 
 // Actions
-import { deleteInvoice, updateInvoice } from '@/actions';
+import { deleteInvoice, updateInvoice } from '@/actions/invoice';
 
-jest.mock('@/actions', () => ({
-  ...jest.requireActual('@/actions'),
+jest.mock('@/actions/invoice', () => ({
+  ...jest.requireActual('@/actions/invoice'),
   updateInvoice: jest.fn(),
   deleteInvoice: jest.fn(),
   deleteMultipleInvoice: jest.fn(),
