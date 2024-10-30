@@ -140,7 +140,7 @@ const InvoicesTable = ({
             const { avatar = '', fullName = '' } = customerAttributes || {};
 
             return (
-              <div className="flex gap-3.5 items-center h-9">
+              <div className="flex gap-3.5 items-center h-[40px]">
                 <ImageFallback
                   src={avatar}
                   alt="customer avatar"
