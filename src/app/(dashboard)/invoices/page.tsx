@@ -10,10 +10,11 @@ import { IMAGES } from '@/constants/images';
 import { ISearchParams } from '@/types/params';
 
 // Layouts
-import { DashBoardLayout } from '@/layouts';
+// import { DashBoardLayout } from '@/layouts';
 
 // Sections
 import { InvoiceListActions, InvoiceList, InvoiceListSkeleton } from '@/ui';
+import { Heading } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Wons Invoice',
@@ -48,22 +49,30 @@ const InvoiceListPage = ({
 
   return (
     <main>
-      <DashBoardLayout
+      {/* <DashBoardLayout
         title={PAGE_TITLES.INVOICE}
         rightContent={<InvoiceListActions />}
+      > */}
+      <div
+        className={
+          'base:mb-6 md:mb-7.5 w-full md:flex justify-between md:items-center'
+        }
       >
-        <Suspense
-          key={order + sortBy + query + page}
-          fallback={<InvoiceListSkeleton />}
-        >
-          <InvoiceList
-            sortBy={sortBy}
-            sortOrder={order}
-            query={query}
-            page={+page}
-          />
-        </Suspense>
-      </DashBoardLayout>
+        <Heading className="w-full" title={PAGE_TITLES.INVOICE} />
+        <InvoiceListActions />
+      </div>
+      <Suspense
+        key={order + sortBy + query + page}
+        fallback={<InvoiceListSkeleton />}
+      >
+        <InvoiceList
+          sortBy={sortBy}
+          sortOrder={order}
+          query={query}
+          page={+page}
+        />
+      </Suspense>
+      {/* </DashBoardLayout> */}
     </main>
   );
 };
