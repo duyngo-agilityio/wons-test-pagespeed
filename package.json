@@ -11,8 +11,7 @@
     "test": "jest --passWithNoTests --updateSnapshot",
     "coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006 --no-open",
-    "build-storybook": "storybook build",
-    "postinstall": "patch-package"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^17.0.0",
@@ -25,7 +24,6 @@
     "next": "14.2.4",
     "next-auth": "5.0.0-beta.20",
     "next-themes": "^0.3.0",
-    "patch-package": "^8.0.0",
     "react": "18.3.1",
     "react-big-calendar": "^1.14.1",
     "react-dom": "^18",
