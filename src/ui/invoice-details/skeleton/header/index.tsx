@@ -11,6 +11,7 @@ const InvoiceDetailsHeaderSkeleton = () => (
     <div className="flex flex-col gap-[37px]">
       <ImageFallback
         src={IMAGES.LOGO_COMPANY}
+        placeholder={null}
         alt="logo-detail"
         width={30}
         height={44}

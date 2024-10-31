@@ -12,7 +12,7 @@ const RootLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => (
-  <html lang="en">
+  <html lang="en" suppressHydrationWarning>
     <body className={`${DM_SANS_FONT.variable} font-dm-sans`}>
       <main>
         <LayoutProvider>{children}</LayoutProvider>

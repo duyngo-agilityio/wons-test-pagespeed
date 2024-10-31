@@ -685,7 +685,7 @@ exports[`CustomerListClient section open customer details drawer 1`] = `
             >
               <svg
                 class="text-blue-800/30 dark:text-white/30"
-                color="#3A36DB"
+                color="#3a36db"
                 font-size="16"
                 height="14"
                 viewBox="0 0 16 14"

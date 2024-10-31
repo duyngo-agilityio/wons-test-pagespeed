@@ -17,7 +17,7 @@ exports[`Filter component should match snapshot 1`] = `
       Filter
       <svg
         aria-hidden="true"
-        color="#FFFFFF"
+        color="#ffffff"
         fill="none"
         focusable="false"
         height="13"
