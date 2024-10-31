@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { lazy, Suspense } from 'react';
 
 // Constants
-import { IMAGES, PAGE_TITLES } from '@/constants';
+import { IMAGES } from '@/constants';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const CalendarPage = () => (
-  <DashBoardLayout title={PAGE_TITLES.CALENDAR}>
+  <DashBoardLayout>
     <Suspense fallback={<CalendarSkeleton />}>
       <LazyCalendar />
     </Suspense>
