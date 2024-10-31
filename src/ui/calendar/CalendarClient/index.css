@@ -47,23 +47,20 @@
   display: none;
 }
 
-.rbc-month-header {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
 .rbc-header {
   border-bottom: none;
 }
 
-.rbc-date-cell {
+.rbc-month-row .rbc-row-content .rbc-date-cell {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   flex: 1;
 }
 
 .rbc-month-view {
   border: none;
+  min-height: 100%;
 }
 
 .rbc-row:not(.rbc-month-header) {
@@ -78,7 +75,7 @@
 
 .rbc-header {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 28px;
   color: light-dark(var(--c-calendar-header-light), var(--c-calendar-white));
   white-space: pre-line;
@@ -205,7 +202,7 @@
   content: '';
   position: absolute;
   top: 23px;
-  right: -5px;
+  right: -7.5px;
   background-color: #a5a3ff;
   padding: 3px 8px;
   border-radius: 50%;
@@ -216,6 +213,35 @@
   z-index: -1;
   width: 25px;
   height: 25px;
+}
+
+.rbc-time-header-cell .rbc-header:not(.rbc-today) [role='columnheader'] {
+  position: relative;
+}
+
+.rbc-time-header-cell .rbc-header:not(.rbc-today) [role='columnheader']::after {
+  content: '';
+  position: absolute;
+  top: 23px;
+  right: -5px;
+  background-color: #dddde0;
+  padding: 3px 8px;
+  border-radius: 50%;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  z-index: -1;
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.rbc-time-header-cell
+  .rbc-header:not(.rbc-today)
+  [role='columnheader']:hover::after {
+  opacity: 1;
 }
 
 .rbc-events-container {
@@ -254,6 +280,30 @@
   background-color: #f0f0ff;
 }
 
+.rbc-time-view .rbc-time-header {
+  margin-bottom: 1.25rem;
+}
+
+.rbc-month-view .rbc-row.rbc-month-header {
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 320px) {
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(5)
+    [role='columnheader']::after {
+    top: 22px;
+    right: -7.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(6)
+    [role='columnheader']::after {
+    top: 22px;
+    right: -6.5px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   /* Time view */
   .rbc-time-header-content .rbc-button-link {
@@ -266,6 +316,40 @@
     width: 35px;
     height: 35px;
   }
+
+  .rbc-month-view {
+    min-height: 0;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today)
+    [role='columnheader']::after {
+    top: 18px;
+    right: -11.5px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(5)
+    [role='columnheader']::after {
+    top: 19px;
+    right: -13.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(6)
+    [role='columnheader']::after {
+    top: 19px;
+    right: -11.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):last-child
+    [role='columnheader']::after {
+    top: 19px;
+    right: -11.5px;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -277,6 +361,16 @@
   .rbc-header.rbc-today [role='columnheader']::after {
     right: -10.5px;
   }
+
+  .rbc-month-view {
+    min-height: 0;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today)
+    [role='columnheader']::after {
+    right: -10.5px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -286,6 +380,45 @@
   }
 
   .rbc-header.rbc-today [role='columnheader']::after {
+    top: 19px;
+    right: -11.5px;
+  }
+
+  .rbc-month-view {
+    min-height: 0;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today)
+    [role='columnheader']::after {
+    top: 19px;
+    right: -9.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(3)
+    [role='columnheader']::after {
+    top: 19px;
+    right: -8.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(4)
+    [role='columnheader']::after {
+    top: 19px;
+    right: -11.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):nth-child(5)
+    [role='columnheader']::after {
+    top: 19px;
+    right: -10.5px;
+  }
+
+  .rbc-time-header-cell
+    .rbc-header:not(.rbc-today):last-child
+    [role='columnheader']::after {
     top: 19px;
     right: -8.5px;
   }

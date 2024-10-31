@@ -10,6 +10,7 @@ export const colors = {
     500: '#3a36db', // bright blue
     800: '#06152b', // deep blue
     900: '#030229', // darkest blue
+    950: '#111e32',
   },
   teal: {
     300: '#2fe5a7', // light teal
@@ -30,6 +31,7 @@ export const colors = {
     750: '#4a5463',
     850: '#c2c6cb', // deep gray
     900: '#4a455c',
+    950: '#dddde0',
   },
   pink: {
     400: '#fee9f3',

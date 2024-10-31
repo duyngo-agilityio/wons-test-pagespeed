@@ -103,7 +103,10 @@ const CalendarCustom = ({
         dark:data-[selected=true]:bg-purple-600
         dark:data-[selected=true]:text-black
         data-[today=true]:bg-purple-500
-        `,
+        data-[hover=true]:bg-gray-950
+        data-[hover=true]:text-black
+        dark:data-[hover=true]:text-white
+       `,
         gridHeader: 'dark:bg-gray-400',
         header: 'z-[-1]',
         gridHeaderCell:
