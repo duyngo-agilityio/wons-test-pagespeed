@@ -14,7 +14,7 @@ import { TABLE_TITLES } from '@/constants';
 const MAPPING_PRODUCT_SKELETON = [
   {
     header: 'SN',
-    accessor: () => <Skeleton className="h-8 w-[10px] rounded-lg" />,
+    accessor: () => <Skeleton className="h-8 w-3/5 rounded-lg" />,
     isSort: true,
   },
   {
