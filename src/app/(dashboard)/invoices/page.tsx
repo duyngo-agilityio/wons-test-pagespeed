@@ -2,12 +2,10 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 // Constants
-import { PAGE_TITLES } from '@/constants/typography';
-import { DEFAULT_PAGE } from '@/constants/pagination';
-import { IMAGES } from '@/constants/images';
+import { DEFAULT_PAGE, IMAGES, PAGE_TITLES } from '@/constants';
 
 // Types
-import { ISearchParams } from '@/types/params';
+import { ISearchParams } from '@/types';
 
 // Layouts
 import { DashBoardLayout } from '@/layouts';

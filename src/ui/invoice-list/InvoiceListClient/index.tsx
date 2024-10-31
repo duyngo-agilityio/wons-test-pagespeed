@@ -7,20 +7,19 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
 // Types
-import { TInvoiceDataResponse } from '@/types/invoice';
+import { TInvoiceDataResponse } from '@/types';
 
 // Constants
-import { ORDER, SEARCH_QUERIES } from '@/constants/params';
-import { DEFAULT_PAGE } from '@/constants/pagination';
-import { ROUTES } from '@/constants/routes';
-import { MESSAGES } from '@/constants/messages';
+import {
+  ORDER,
+  DEFAULT_PAGE,
+  SEARCH_QUERIES,
+  ROUTES,
+  MESSAGES,
+} from '@/constants';
 
 // Actions
-import {
-  deleteInvoice,
-  deleteMultipleInvoice,
-  updateInvoice,
-} from '@/actions/invoice';
+import { deleteInvoice, deleteMultipleInvoice, updateInvoice } from '@/actions';
 
 // Hooks
 import { useToast } from '@/hooks';

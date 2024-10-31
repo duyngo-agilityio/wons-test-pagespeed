@@ -1,18 +1,19 @@
 import { revalidateTag } from 'next/cache';
 
 // services
-import { httpClient } from '@/services/http-request';
+import { httpClient } from '@/services';
 
 // utils
-import { formatErrorMessage } from '@/utils/messages';
+import { formatErrorMessage } from '@/utils';
 
 // types
-import { TInvoiceProductTable, InvoiceStatus } from '@/types/invoice';
-import { Method } from '@/types/api';
+import { TInvoiceProductTable, InvoiceStatus, Method } from '@/types';
 
 // mocks
-import { MOCK_INVOICES_WITH_CUSTOMER } from '@/mocks/invoice';
-import { MOCK_PRODUCTS_WITHOUT_ATTRIBUTES } from '@/mocks/product';
+import {
+  MOCK_INVOICES_WITH_CUSTOMER,
+  MOCK_PRODUCTS_WITHOUT_ATTRIBUTES,
+} from '@/mocks';
 
 // actions
 import {
@@ -23,19 +24,16 @@ import {
   editInvoice,
   updateInvoice,
   updateInvoiceProducts,
-} from '@/actions/invoice';
+} from '@/actions';
+import { API_PATH, MESSAGES } from '@/constants';
 
-// Constants
-import { API_PATH } from '@/constants/apis';
-import { MESSAGES } from '@/constants/messages';
-
-jest.mock('@/services/http-request', () => ({
+jest.mock('@/services', () => ({
   httpClient: {
     genericRequest: jest.fn(),
   },
 }));
 
-jest.mock('@/utils/messages', () => ({
+jest.mock('@/utils', () => ({
   formatErrorMessage: jest.fn(),
 }));
 

@@ -17,10 +17,10 @@ import {
 import { IoCaretDown } from 'react-icons/io5';
 
 // Types
-import { TableColumnType, TTableAccessor } from '@/types/table';
+import { TableColumnType, TTableAccessor } from '@/types';
 
 // Constants
-import { ORDER } from '@/constants/params';
+import { ORDER } from '@/constants';
 
 type VariantTable = 'primary' | 'secondary' | 'tertiary';
 
