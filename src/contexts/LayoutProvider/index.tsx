@@ -1,6 +1,5 @@
 'use client';
 
-import { ReactNode } from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
@@ -11,7 +10,7 @@ import { THEME_MODES } from '@/constants';
 import { ToastProvider } from '@/contexts';
 
 interface ILayoutProvider {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const LayoutProvider = ({ children }: ILayoutProvider) => {

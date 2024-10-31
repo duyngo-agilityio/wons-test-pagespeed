@@ -1,5 +1,6 @@
 'use client';
-import { memo, ReactNode } from 'react';
+
+import { memo } from 'react';
 
 // icons
 import { FaSpinner } from 'react-icons/fa';
@@ -49,7 +50,7 @@ const ButtonCustom = extendVariants(ButtonNextUI, {
 
 interface ButtonProps extends Omit<NextUIButtonProps, 'size'> {
   isLoading?: boolean;
-  children?: ReactNode;
+  children?: React.ReactNode;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 

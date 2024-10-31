@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 export interface IOptions {
   label: string;
   value: string;
@@ -11,6 +9,6 @@ export interface IFilter {
   items: Array<{
     id: string;
     content?: string;
-    customElement?: ReactNode;
+    customElement?: React.ReactNode;
   }>;
 }

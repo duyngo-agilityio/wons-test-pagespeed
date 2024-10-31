@@ -1,13 +1,7 @@
 'use client';
 
 // Libs
-import {
-  ReactNode,
-  useState,
-  createContext,
-  useCallback,
-  useMemo,
-} from 'react';
+import { useState, createContext, useCallback, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 // Types
@@ -28,7 +22,7 @@ export type TToastContext = {
 export const ToastContext = createContext({} as TToastContext);
 
 interface IToastProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {

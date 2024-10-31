@@ -1,6 +1,6 @@
 'use client';
 
-import { Key, memo, ReactNode, useCallback } from 'react';
+import { Key, memo, useCallback } from 'react';
 import { clsx } from 'clsx';
 import isEqual from 'react-fast-compare';
 import {
@@ -52,11 +52,14 @@ const TableCustom = <T extends { id: string }>({
   onSelectChange = () => {},
   onRowAction,
 }: CustomTableProps<T>) => {
-  const renderCell = (item: T, accessor?: TTableAccessor<T>): ReactNode => {
+  const renderCell = (
+    item: T,
+    accessor?: TTableAccessor<T>,
+  ): React.ReactNode => {
     if (!accessor) return;
 
     if (typeof accessor === 'string')
-      return <span>{item[accessor] as ReactNode}</span>;
+      return <span>{item[accessor] as React.ReactNode}</span>;
 
     if (typeof accessor === 'function') return accessor(item);
   };

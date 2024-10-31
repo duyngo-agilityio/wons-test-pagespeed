@@ -1,13 +1,13 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 import clsx from 'clsx';
 
 // Components
 import { Heading } from '@/components';
 
 interface IDashboardLayout {
-  children: ReactNode;
+  children: React.ReactNode;
   title?: string;
-  rightContent?: ReactNode;
+  rightContent?: React.ReactNode;
   isFilter?: boolean;
 }
 

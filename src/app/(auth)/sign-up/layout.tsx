@@ -1,6 +1,3 @@
-// Libs
-import { ReactNode } from 'react';
-
 // Constants
 import { IMAGES } from '@/constants';
 
@@ -11,7 +8,7 @@ import { AuthLayout } from '@/layouts';
 import { Heading, ImageFallback, Logo } from '@/components';
 
 interface SignUpLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const SignUpLayout = ({ children }: SignUpLayoutProps): JSX.Element => (

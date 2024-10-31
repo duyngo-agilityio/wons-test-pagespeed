@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 // Constants
 import { IMAGES } from '@/constants';
 
@@ -9,11 +7,7 @@ import { AuthLayout } from '@/layouts';
 // Components
 import { Heading, ImageFallback, Logo } from '@/components';
 
-interface SignInLayoutProps {
-  children: ReactNode;
-}
-
-const SignInLayout = ({ children }: SignInLayoutProps) => (
+const SignInLayout = ({ children }: React.PropsWithChildren) => (
   <AuthLayout
     image={
       <ImageFallback

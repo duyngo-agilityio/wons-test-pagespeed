@@ -1,12 +1,12 @@
 // Libs
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 
 // Components
 import { ThemeSwitcher } from '@/components';
 
 interface LayoutProps {
   image: JSX.Element;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 const AuthLayout = ({ image, children }: LayoutProps) => (

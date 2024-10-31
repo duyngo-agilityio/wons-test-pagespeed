@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 
 // Constants
 import { TABLE_TITLES } from '@/constants';
@@ -7,9 +7,9 @@ import { TABLE_TITLES } from '@/constants';
 import { Heading } from '@/components';
 
 interface ITableLayout {
-  children: ReactNode;
+  children: React.ReactNode;
   title?: string;
-  rightContent?: ReactNode;
+  rightContent?: React.ReactNode;
   className?: string;
 }
 
