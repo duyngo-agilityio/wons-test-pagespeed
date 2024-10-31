@@ -1,22 +1,23 @@
+'use client';
+
+import { useSession } from 'next-auth/react';
+
 // Constants
 import { IMAGES, ROLES } from '@/constants';
 
-// APIs
-import { getProfile } from '@/api';
-
 // Components
 import SidebarClient from './SidebarClient';
-import { auth } from '@/configs';
 
-const Sidebar = async () => {
-  const { user } = (await auth()) ?? {};
-  const jwt: string = user?.token as string;
-  const data = await getProfile(jwt);
+const Sidebar = () => {
+  const { data: session } = useSession();
+
+  const { user } = session || {};
   const {
     avatar = IMAGES.AVATAR_DEFAULT,
     fullName = '',
     role = ROLES[0],
-  } = data ?? {};
+  } = user || {};
+
   return <SidebarClient avatar={avatar} fullName={fullName} role={role.name} />;
 };
 

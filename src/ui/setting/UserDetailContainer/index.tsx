@@ -1,30 +1,33 @@
-import { auth } from '@/configs';
+'use client';
+
+import { useSession } from 'next-auth/react';
+
+// Types
+import { IUserFormData } from '@/types';
 
 // Actions
 import { updateUser } from '@/actions';
 
-// APIs
-import { getProfile } from '@/api';
-
 // Constants
-import { ROLES } from '@/constants';
+import { IMAGES, ROLES } from '@/constants';
 
 // Components
 import UserDetailClient from '../UserDetailClient';
-import { IUserFormData } from '@/types';
 
-const UserDetailContainer = async () => {
-  const { user } = (await auth()) ?? {};
-  const jwt: string = user?.token as string;
-  const id = Number(user?.id);
-  const data = await getProfile(jwt);
+const UserDetailContainer = () => {
+  const { data: session } = useSession();
+
+  const { user } = session || {};
+
   const {
-    avatar = '',
+    id,
+    avatar = IMAGES.AVATAR_DEFAULT,
     email = '',
     role = ROLES[0],
     fullName = '',
     username = '',
-  } = data ?? {};
+  } = user ?? {};
+
   const newUser: IUserFormData = {
     avatar,
     fullName,
@@ -33,7 +36,9 @@ const UserDetailContainer = async () => {
     role: role.name,
   };
 
-  return <UserDetailClient user={newUser} id={id} onEdit={updateUser} />;
+  return (
+    <UserDetailClient user={newUser} id={Number(id)} onEdit={updateUser} />
+  );
 };
 
 export default UserDetailContainer;
