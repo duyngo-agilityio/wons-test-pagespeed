@@ -155,7 +155,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                   class="flex items-center gap-2"
                 >
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-md !text-right block w-full"
+                    class="font-dm-sans text-blue-800 dark:text-white text-md text-right block w-full"
                   >
                     Total Amount
                   </p>
@@ -189,7 +189,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm"
                 >
                   #1
                 </p>
@@ -217,7 +217,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                     width="40"
                   />
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-sm "
+                    class="font-dm-sans text-blue-800 dark:text-white text-sm"
                   >
                     Macbook
                   </p>
@@ -230,7 +230,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm"
                 >
                   $3,443
                 </p>
@@ -282,7 +282,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm"
                 >
                   #2
                 </p>
@@ -310,7 +310,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                     width="40"
                   />
                   <p
-                    class="font-dm-sans text-blue-800 dark:text-white text-sm "
+                    class="font-dm-sans text-blue-800 dark:text-white text-sm"
                   >
                     I phone
                   </p>
@@ -323,7 +323,7 @@ exports[`RecentServicesTable match snapshot 1`] = `
                 tabindex="-1"
               >
                 <p
-                  class="font-dm-sans text-blue-800 dark:text-white text-sm "
+                  class="font-dm-sans text-blue-800 dark:text-white text-sm"
                 >
                   $4,543
                 </p>

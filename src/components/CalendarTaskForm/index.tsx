@@ -163,7 +163,7 @@ const CalendarTaskForm = ({
           onClick={toggleDateTimePicker}
         >
           <Button
-            className="!bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+            className="bg-pink-50 dark:bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer px-0"
             data-testid="time-button"
             onClick={toggleDateTimePicker}
           >
@@ -201,12 +201,12 @@ const CalendarTaskForm = ({
             }) => (
               <Textarea
                 classNames={{
-                  input: '!text-blue-800/70 dark:!text-white/70',
+                  input: 'text-blue-800/70 dark:text-white/70',
                   inputWrapper: [
                     'bg-gray-50 dark:bg-gray-600',
-                    'hover:!bg-gray-200/50 dark:hover:!bg-gray-900',
-                    'focus-within:!bg-gray-50 dark:focus-within:bg-gray-600',
-                    'group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600',
+                    'hover:bg-gray-200/50 dark:hover:bg-gray-900',
+                    'focus-within:bg-gray-50 dark:focus-within:bg-gray-600',
+                    'group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600',
                   ],
                 }}
                 isInvalid={!!error}
@@ -223,7 +223,7 @@ const CalendarTaskForm = ({
 
         <div className="flex flex-row-reverse gap-[0_20px] mt-6">
           <Button
-            className="min-w-[93px] text-[15px] font-normal w-auto py-[10px] mt-10 mt-0"
+            className="min-w-[93px] text-[15px] font-normal w-auto py-[10px] mt-0"
             type="submit"
             color="primary"
             isDisabled={isDisableSubmit}
@@ -232,7 +232,7 @@ const CalendarTaskForm = ({
           </Button>
 
           <Button
-            className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
+            className="min-w-[93px] bg-white font-normal dark:bg-white text-center text-blue-500 dark:text-white/70 border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
             onClick={handleModalClose}
           >
             Close

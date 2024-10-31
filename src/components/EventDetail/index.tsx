@@ -75,11 +75,12 @@ const EventDetail = ({
 
   return (
     <NextModal
-      className="!max-w-[467px]"
+      className="max-w-[467px]"
+      placement="center"
       isOpen={isOpen}
       onOpenChange={onCloseModal}
     >
-      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
+      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white dark:bg-gray-800 rounded-[10px] shadow-[-14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
         <>
           <div className="p-4">
             <div className="mb-8">
@@ -116,7 +117,7 @@ const EventDetail = ({
                 />
                 <Button
                   onClick={handleJoinGoogleMeet}
-                  className="!bg-blue-500 dark:!bg-blue-500 text-white font-bold py-2 px-4 rounded ml-4"
+                  className="bg-blue-500 dark:bg-blue-500 text-white font-bold py-2 px-4 rounded ml-4"
                 >
                   <Text
                     size="xl"
@@ -158,7 +159,7 @@ const EventDetail = ({
                       src={avatar}
                       width={30}
                       height={30}
-                      className="rounded-full mr-2 !h-[30px]"
+                      className="h-7.5 rounded-full mr-2 object-cover"
                       alt={`${name}'s avatar`}
                     />
                     <Text
@@ -193,10 +194,10 @@ const EventDetail = ({
             <Button
               onClick={handleEdit}
               key="edit"
-              className="!bg-[#f5f5fc] dark:!bg-[#2f3268] !py-3 !text-[#605cf8]"
+              className="bg-[#f5f5fc] dark:bg-[#2f3268] py-3 text-[#605cf8] dark:text-[#605cf8]"
               aria-label="Edit"
               startContent={
-                <RiEdit2Fill className="!text-blue-500 dark:!text-purple-600 rounded-" />
+                <RiEdit2Fill className="text-blue-500 dark:text-purple-600 rounded-" />
               }
             >
               Edit
@@ -204,8 +205,8 @@ const EventDetail = ({
             <Button
               key="delete"
               onClick={handleDelete}
-              className="!bg-[#fff7fb] dark:!bg-pink-600 !py-3 !text-pink-500"
-              startContent={<AiFillDelete className="!text-pink-500" />}
+              className="bg-[#fff7fb] dark:bg-pink-600 py-3 text-pink-500 dark:text-pink-500"
+              startContent={<AiFillDelete className="text-pink-500" />}
               aria-label="Delete"
             >
               Delete

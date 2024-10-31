@@ -115,16 +115,16 @@ const ProductForm = ({
       className="w-full max-w-2xl mx-auto mt-20"
       onSubmit={handleSubmit(saveData)}
     >
-      <div className="flex items-center gap-5">
+      <div className="flex items-center">
         <Button
           onClick={onCloseDrawer}
-          className="!bg-transparent dark:!bg-transparent text-gray-200 dark:text-gray-300 hover:!bg-transparent dark:hover:!bg-transparent"
+          className="p-2 bg-transparent dark:bg-transparent text-gray-200 dark:text-gray-300 hover:bg-transparent dark:hover:bg-transparent"
         >
           <GrPrevious size={20} />
         </Button>
         <Heading
           title={previewData ? 'Update Product' : 'Add a New Product'}
-          className="text-center"
+          className="text-center whitespace-nowrap w-full"
         />
       </div>
 
@@ -193,8 +193,8 @@ const ProductForm = ({
               classNames={{
                 trigger: `w-full ${
                   error
-                    ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                    : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600'
+                    ? 'bg-danger-50 hover:bg-danger-200/50 focus:bg-danger-200/50 dark:hover:bg-gray-600'
+                    : 'bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600'
                 } py-[26px] mt-5`,
                 label: 'text-xl font-medium pb-1',
               }}
@@ -267,7 +267,7 @@ const ProductForm = ({
                 />
                 <Text
                   text="Negotiable"
-                  className="ml-2 color-blue.900 !text-[14.22px] leading-[18.51px] font-normal"
+                  className="ml-2 color-blue.900 leading-[18.51px]"
                 />
               </>
             )}
@@ -286,12 +286,13 @@ const ProductForm = ({
           }) => (
             <Textarea
               classNames={{
-                input: '!text-blue-800/70 dark:!text-white/70',
+                input:
+                  'group-data-[has-value=true]:text-blue-800/70 dark:group-data-[has-value=true]:text-white/70',
                 inputWrapper: [
                   'bg-gray-50 dark:bg-gray-600',
-                  'hover:!bg-gray-200/50 dark:hover:!bg-gray-900',
-                  'focus-within:!bg-gray-50 dark:focus-within:bg-gray-600',
-                  'group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600',
+                  'hover:data-[hover:true]:bg-gray-200/50 dark:hover:data-[hover:true]:bg-gray-900',
+                  'focus-within:bg-gray-50 dark:focus-within:bg-gray-600',
+                  'group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600',
                 ],
               }}
               isInvalid={!!error}

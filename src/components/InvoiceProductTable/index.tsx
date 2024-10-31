@@ -131,7 +131,7 @@ const InvoiceProductTable = ({
           <Select
             classNames={{
               trigger: clsx(
-                'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40',
+                'bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40',
               ),
             }}
             selectedKeys={
@@ -201,7 +201,7 @@ const InvoiceProductTable = ({
       accessor: ({ product }: TInvoiceProductTable) => (
         <Button
           variant="ghost"
-          className="rounded-[100%] block p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
+          className="rounded-full block p-[10px] bg-pink-500/5 dark:bg-pink-500/5"
           data-id={product.data.id}
           endContent={<FaTrash className="text-pink-500" />}
           onClick={() => handleRemoveProduct(product.data.id)}
@@ -285,7 +285,7 @@ const InvoiceProductTable = ({
         <Button
           aria-label="Add new product"
           variant="ghost"
-          className="!bg-white block dark:!bg-gray-400 p-0"
+          className="bg-white block dark:bg-gray-400 p-0"
           isDisabled={productsValues.length === products.length}
           onClick={handleAddProduct}
           endContent={

@@ -23,7 +23,7 @@ import { TCustomerDataResponse } from '@/types';
 import { CUSTOMER_MOCK } from '@/mocks';
 
 // Hooks
-import { useToast } from '@/hooks';
+import { useBreakPoints, useToast } from '@/hooks';
 
 // Constants
 import { MESSAGES, ORDER, SEARCH_QUERIES } from '@/constants';
@@ -66,6 +66,7 @@ const CustomerListClient = ({
   const [customerForm, setCustomerForm] = useState<ICustomer>();
   const [idCustomer, setIdCustomer] = useState<number>();
   const [toggleForm, setToggleForm] = useState<boolean>(false);
+  const { isGreaterThanMd } = useBreakPoints();
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -207,13 +208,12 @@ const CustomerListClient = ({
           open={toggleForm}
           onClose={handleCloseFormDrawer}
           direction="right"
-          size={400}
-          className="!w-full md:!w-[400px]"
+          size={isGreaterThanMd ? 450 : 375}
         >
           <div className="p-5 relative bg-white dark:bg-gray-400 h-full max-w-full">
             <Button
               onClick={handleCloseFormDrawer}
-              className="absolute top-5 right-5 !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+              className="absolute top-5 right-5 bg-pink-50 dark:bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer px-0"
             >
               <IoClose size={20} />
             </Button>
@@ -233,7 +233,7 @@ const CustomerListClient = ({
           open={toggleDetails}
           onClose={handleCloseDrawer}
           direction="right"
-          className="!w-[302px] !max-w-[302px]"
+          size={302}
         >
           <CustomerDetails
             customer={customerDetails}

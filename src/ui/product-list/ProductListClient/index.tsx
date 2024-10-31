@@ -26,7 +26,7 @@ import { getDataByID, handleUpdateImage } from '@/utils';
 import { IProductDetail } from '@/models';
 
 // Hooks
-import { useToast } from '@/hooks';
+import { useBreakPoints, useToast } from '@/hooks';
 
 export type TProductListClientProps = {
   productList: TProductInvoiceResponse[];
@@ -58,6 +58,7 @@ const ProductListClient = ({
   const [idProduct, setIdProduct] = useState<number>(0);
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const { isGreaterThanLg } = useBreakPoints();
 
   // Func
   const handleDeleteProduct = useCallback(
@@ -187,7 +188,7 @@ const ProductListClient = ({
           open={toggleProductDetails}
           onClose={handleCloseProductDetail}
           direction="right"
-          className="base:!w-[302px] lg:!w-[369px] !max-w-[369px]"
+          size={isGreaterThanLg ? 369 : 302}
         >
           <ProductDetails product={productDetailsByID} />
         </Drawer>
@@ -197,7 +198,7 @@ const ProductListClient = ({
           open={toggleEditProduct}
           onClose={handleCloseDrawer}
           direction="right"
-          className="base:!w-[302px] lg:!w-[369px] !max-w-[369px]"
+          size={isGreaterThanLg ? 369 : 302}
         >
           <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
             <ProductForm

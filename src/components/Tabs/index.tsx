@@ -35,9 +35,9 @@ const Tabs = ({
 
   const secondaryStyles = {
     base: 'text-black dark:text-white',
-    tabList: 'bg-white dark:bg-gray-400 p-0 rounded-[5px]',
+    tabList: 'bg-white dark:bg-gray-400 p-0 rounded-[5px] gap-0',
     cursor: 'bg-blue-500 dark:bg-purple-600 rounded-none',
-    tab: 'px-4 !py-6 font-medium text-gray-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-white',
+    tab: 'px-4 py-6 font-medium text-gray-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-white',
     tabContent:
       'text-blue-800 dark:text-white group-data-[selected=true]:text-white dark:group-data-[selected=true]:text-gray-400',
   };
@@ -62,12 +62,7 @@ const Tabs = ({
         const { key, label, isDisable, content } = tab;
 
         return (
-          <Tab
-            key={key}
-            title={label}
-            isDisabled={isDisable}
-            // className="px-4 py-2"
-          >
+          <Tab key={key} title={label} isDisabled={isDisable}>
             {content}
           </Tab>
         );

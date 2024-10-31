@@ -131,13 +131,13 @@ const CalendarModal = ({
 
   return (
     <NextModal
-      className="!max-w-[467px]"
+      className="max-w-[467px]"
       isOpen={isOpen}
       size="xl"
       hideCloseButton={true}
       placement="center"
     >
-      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
+      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white dark:bg-gray-800 rounded-[10px] shadow-[-14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
         {isOpenCalendar && (
           <Calendar
             className="absolute top-[240px] left-[80px] z-10"
@@ -150,7 +150,7 @@ const CalendarModal = ({
         <Heading className="mt-[12px]" size="md" title={title} />
 
         <Button
-          className="absolute top-[30px] right-[30px] !bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+          className="absolute top-[30px] right-[30px] bg-pink-50 dark:bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer px-0"
           data-testid="close-button"
           onClick={handleModalClose}
         >

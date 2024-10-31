@@ -18,7 +18,7 @@ import { MESSAGES } from '@/constants';
 import { deleteTask, getTaskDetails, updateTaskWithAssignees } from '@/actions';
 
 // Hooks
-import { useToast } from '@/hooks';
+import { useBreakPoints, useToast } from '@/hooks';
 
 // Models
 import { TUser } from '@/models';
@@ -53,13 +53,13 @@ const TaskCard = ({ index, task, isAdmin }: TTaskCardProps) => {
   const [taskByID, setTaskByID] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { showToast } = useToast();
-
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [taskForm, setTaskForm] = useState<TaskWithStringAssignees>();
   const [isPending, startTransition] = useTransition();
   const [idTask, setIdTask] = useState<number>();
   const [avatarFiles, setAvatarFiles] = useState<File[]>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
+  const { isGreaterThanMd } = useBreakPoints();
 
   const { id, attributes } = task ?? {};
   const {
@@ -280,8 +280,7 @@ const TaskCard = ({ index, task, isAdmin }: TTaskCardProps) => {
                 open={isDrawerOpen}
                 onClose={handleCloseFormModal}
                 direction="right"
-                size={400}
-                className="!w-full md:!w-[450px]"
+                size={isGreaterThanMd ? 450 : 375}
               >
                 <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
                   <TaskForm

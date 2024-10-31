@@ -13,6 +13,7 @@ exports[`dashboard page should match snapshot 1`] = `
         class="base:mb-6 md:mb-7.5 w-full md:flex justify-between md:items-center"
       >
         <h2
+          aria-level="2"
           class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl w-full"
         >
           Dashboard
@@ -413,7 +414,8 @@ exports[`dashboard page should match snapshot 1`] = `
               class="flex justify-between mb-2"
             >
               <h2
-                class="font-bold font-dm-sans text-blue-800 dark:text-white text-2xl !text-blue-400 dark:!text-gray-850 font-medium"
+                aria-level="2"
+                class="font-bold font-dm-sans text-blue-400 dark:text-gray-850 text-2xl font-medium"
               >
                 Recent Orders
               </h2>

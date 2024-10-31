@@ -52,12 +52,12 @@ exports[`StatisticSection component should render all content with resolved data
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] leading-[31.33px]"
             >
               5+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-[15.02px]  w-full truncate overflow-hidden whitespace-nowrap leading-[19.56px]"
             >
               Favorite
             </p>
@@ -98,12 +98,12 @@ exports[`StatisticSection component should render all content with resolved data
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] leading-[31.33px]"
             >
               10+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-[15.02px]  w-full truncate overflow-hidden whitespace-nowrap leading-[19.56px]"
             >
               New Sales
             </p>
@@ -144,12 +144,12 @@ exports[`StatisticSection component should render all content with resolved data
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] leading-[31.33px]"
             >
               15+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-[15.02px]  w-full truncate overflow-hidden whitespace-nowrap leading-[19.56px]"
             >
               New Leads
             </p>
@@ -194,12 +194,12 @@ exports[`StatisticSection component should render all content with resolved data
             class="flex-1 min-w-0"
           >
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-md font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] leading-[31.33px]"
             >
               20+
             </p>
             <p
-              class="font-dm-sans text-blue-800 dark:text-white text-md !text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+              class="font-dm-sans text-blue-400 dark:text-gray-850 text-[15.02px]  w-full truncate overflow-hidden whitespace-nowrap leading-[19.56px]"
             >
               Referral
             </p>

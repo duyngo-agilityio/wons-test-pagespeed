@@ -30,7 +30,7 @@ const InvoiceDetailsFooter = () => {
           <Text
             text="@"
             size="4xs"
-            className="!text-blue-500 dark:!text-purple-600"
+            textColor="text-blue-500 dark:text-purple-600"
           />
           <Link href={`mailto:${EMAIL}`}>
             <Text text={EMAIL} size="4xs" className="text-gray-200" />
@@ -40,7 +40,7 @@ const InvoiceDetailsFooter = () => {
           <Text
             text="m"
             size="4xs"
-            className="!text-blue-500 dark:!text-purple-600"
+            textColor="text-blue-500 dark:text-purple-600"
           />
           <Link as={`tel:${PHONE}`} href={`tel:${PHONE}`}>
             <Text text={PHONE} size="4xs" className="text-gray-200" />
