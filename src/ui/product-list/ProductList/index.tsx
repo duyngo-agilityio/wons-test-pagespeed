@@ -20,7 +20,7 @@ import {
 } from '@/types';
 
 // Constants
-import { PAGE_SIZE } from '@/constants';
+import { PAGE_SIZE, TABLE_TITLES } from '@/constants';
 
 // services
 import { getInvoiceProducts, getProducts } from '@/api';
@@ -71,7 +71,7 @@ const ProductList = async ({ searchParams = {} }: TProductListPageProps) => {
     aggregateProductQuantities(result.data);
 
   return (
-    <TableLayout title="Top Selling Products">
+    <TableLayout title={TABLE_TITLES.TOP_SELLING_PRODUCTS}>
       <ProductListClient
         productList={sortProductsByTotalSale(
           resultFormatProduct.concat(

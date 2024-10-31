@@ -31,4 +31,5 @@ export const PAGE_TITLES = {
 
 export const TABLE_TITLES = {
   RECENT_ORDERS: 'Recent Orders',
+  TOP_SELLING_PRODUCTS: 'Top Selling Products',
 };
