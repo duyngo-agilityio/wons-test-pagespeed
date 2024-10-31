@@ -3,6 +3,7 @@ import {
   TInvoiceDataResponse,
   TInvoiceListResponse,
   InvoiceStatus,
+  TProductInvoiceResponse,
 } from '@/types';
 
 export const MOCK_INVOICES = [
@@ -184,3 +185,56 @@ export const MOCK_INVOICES_RESPONSE: TInvoiceListResponse = {
     },
   },
 };
+
+export const MOCK_INVOICE_PRODUCT_RESPONSE: TProductInvoiceResponse[] = [
+  {
+    id: 1,
+    attributes: {
+      price: 1200,
+      createdAt: '2024-08-27T04:31:42.022Z',
+      updatedAt: '2024-09-10T04:15:01.906Z',
+      publishedAt: '2024-09-10T04:14:54.432Z',
+      quantity: 1,
+      product: {
+        data: {
+          id: 1,
+          attributes: {
+            id: 1,
+            brand: 'Apple',
+            description: 'Expensive',
+            negotiable: true,
+            imageUrl: 'https://example.com/image1.jpg',
+            title: 'MacBook Pro',
+            price: 1200,
+            rating: 4.5,
+          },
+        },
+      },
+    },
+  },
+  {
+    id: 2,
+    attributes: {
+      price: 1,
+      createdAt: '2024-08-27T04:31:42.022Z',
+      updatedAt: '2024-09-10T04:55:01.906Z',
+      publishedAt: '2024-09-10T04:57:54.432Z',
+      quantity: 10,
+      product: {
+        data: {
+          id: 1,
+          attributes: {
+            id: 1,
+            brand: 'Apple',
+            description: 'Expensive',
+            negotiable: true,
+            imageUrl: 'https://example.com/image1.jpg',
+            title: 'MacBook Pro',
+            price: 1200,
+            rating: 4.5,
+          },
+        },
+      },
+    },
+  },
+];
