@@ -1,48 +1,48 @@
 export const colors = {
-  white: '#FFFFFF',
+  white: '#ffffff',
   black: '#000000',
   red: {
-    500: '#d50101', // Dark Red
+    500: '#d50101', // dark red
   },
   blue: {
     300: '#364152',
-    400: '#515c6a', // Light Blue
-    500: '#3A36DB', // Bright Blue
-    800: '#06152B', // Deep Blue
-    900: '#030229', // Darkest Blue
+    400: '#515c6a', // light blue
+    500: '#3a36db', // bright blue
+    800: '#06152b', // deep blue
+    900: '#030229', // darkest blue
   },
   teal: {
-    300: '#2FE5A7', // Light Teal
-    500: '#03A89E', // Bright Teal
+    300: '#2fe5a7', // light teal
+    500: '#03a89e', // bright teal
     600: '#038279',
     650: '#035954',
   },
   gray: {
-    50: '#F1F4FA', // Very Light Gray
-    100: '#DADADA', // Light Gray
+    50: '#f1f4fa', // very light gray
+    100: '#dadada', // light gray
     150: '#f2f3f4',
-    200: '#99B2C6', // Muted Gray-Blue
-    300: '#9DA8BB', // Soft Gray
+    200: '#99b2c6', // muted gray-blue
+    300: '#9da8bb', // soft gray
     350: '#404b5b',
-    400: '#364153', // Slate Gray
-    600: '#1A202C', // Dark Gray
+    400: '#364153', // slate gray
+    600: '#1a202c', // dark gray
     700: '#515567',
     750: '#4a5463',
-    850: '#c2c6cb', // Deep Gray
+    850: '#c2c6cb', // deep gray
     900: '#4a455c',
   },
   pink: {
     400: '#fee9f3',
-    450: '#FFD6ED',
-    500: '#FF69B4', // Hot Pink
+    450: '#ffd6ed',
+    500: '#ff69b4', // hot pink
     600: '#714e6e',
     700: '#d4c9d3',
-    800: '#9E005F',
+    800: '#9e005f',
   },
   purple: {
-    400: '#DCDBFF',
-    500: '#A5A3FF',
-    600: '#605CFF', // Light Purple
+    400: '#dcdbff',
+    500: '#a5a3ff',
+    600: '#605cff', // light purple
   },
   green: {
     200: '#37525b',
