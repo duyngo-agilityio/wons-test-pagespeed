@@ -38,7 +38,7 @@ exports[`CustomerDetails should match snapshot 1`] = `
             John Doe
           </p>
           <p
-            class="font-dm-sans text-blue-800 dark:text-white text-md "
+            class="font-dm-sans text-blue-800 dark:text-white text-md"
           >
             Software Engineer
           </p>

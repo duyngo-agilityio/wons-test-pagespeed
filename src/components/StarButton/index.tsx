@@ -27,7 +27,7 @@ const StartButton = ({
       data-testid="star-btn"
       aria-label="Start Button"
       isIconOnly
-      className="!bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
+      className="bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent"
       onClick={handleOnClick}
     >
       <FaStar

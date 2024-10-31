@@ -181,7 +181,7 @@ const TableCustom = <T extends { id: string }>({
             data-id={item.id}
             className={clsx(
               isStripedRow &&
-                'border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400',
+                'border-b-1 border-gray-50 dark:border-gray-50/50 dark:bg-gray-400',
               isStriped ? 'rounded-[5px]' : 'bg-white dark:bg-gray-400',
             )}
           >

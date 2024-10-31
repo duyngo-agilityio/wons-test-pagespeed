@@ -1,5 +1,6 @@
 // Libs
 import { memo } from 'react';
+import clsx from 'clsx';
 
 // Constants
 import { TEXT_SIZE_MAP } from '@/constants';
@@ -21,16 +22,30 @@ interface TextProps {
     | '4xl';
   as?: keyof React.ReactHTML;
   className?: string;
+  textColor?: string;
+  customSize?: string;
 }
 
-const Text = ({ text, size = 'md', as = 'p', className = '' }: TextProps) => {
+const Text = ({
+  text,
+  textColor = '',
+  size = 'md',
+  customSize = '',
+  as = 'p',
+  className = '',
+}: TextProps) => {
   const Component = as;
 
   const fontSizeClass = TEXT_SIZE_MAP[size];
 
   return (
     <Component
-      className={`font-dm-sans text-blue-800 dark:text-white ${fontSizeClass} ${className}`}
+      className={clsx(
+        'font-dm-sans',
+        textColor || 'text-blue-800 dark:text-white',
+        customSize || fontSizeClass,
+        className,
+      )}
     >
       {text}
     </Component>

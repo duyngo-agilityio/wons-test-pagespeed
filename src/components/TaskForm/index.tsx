@@ -177,7 +177,7 @@ const TaskForm = ({
       <div className="flex items-center gap-5">
         <Button
           onClick={onCloseDrawer}
-          className="!bg-transparent dark:!bg-transparent text-gray-200 dark:text-gray-300 hover:!bg-transparent dark:hover:!bg-transparent"
+          className="bg-transparent dark:bg-transparent text-gray-200 dark:text-gray-300 hover:data-[hover=true]:bg-transparent dark:hover:data-[hover=true]:bg-transparent"
         >
           <GrPrevious size={20} />
         </Button>
@@ -259,8 +259,8 @@ const TaskForm = ({
                   trigger: clsx(
                     'w-full py-[26px] mt-5',
                     error
-                      ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                      : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                      ? 'bg-danger-50 hover:data-[hover=true]:bg-danger-200/50 focus:bg-danger-200/50 dark:hover:data-[hover=true]:bg-gray-600'
+                      : 'bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                   ),
                   label:
                     'text-xl font-medium pb-1 !text-blue-800 dark:!text-white',
@@ -308,8 +308,8 @@ const TaskForm = ({
                     trigger: clsx(
                       'w-full py-[26px] mt-5',
                       error
-                        ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                        : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                        ? 'bg-danger-50 hover:data-[hover=true]:bg-danger-200/50 focus:bg-danger-200/50 dark:hover:data-[hover=true]:bg-gray-600'
+                        : 'bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
                     label:
                       'text-xl font-medium pb-1 !text-blue-800 dark:!text-white',
@@ -344,12 +344,12 @@ const TaskForm = ({
             }) => (
               <Textarea
                 classNames={{
-                  input: clsx('!text-blue-800/70 dark:!text-white/70'),
+                  input: 'text-blue-800/70 dark:text-white/70',
                   inputWrapper: clsx(
                     'bg-gray-50 dark:bg-gray-600',
-                    'hover:!bg-gray-200/50 dark:hover:!bg-gray-900',
-                    'focus-within:!bg-gray-50 dark:focus-within:bg-gray-600',
-                    'group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600',
+                    'hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900',
+                    'focus-within:bg-gray-50 dark:focus-within:bg-gray-600',
+                    'focus:group-data-[focus=true]:bg-gray-50 dark:focus:group-data-[focus=true]:bg-gray-600',
                   ),
                 }}
                 isInvalid={!!error}
@@ -389,8 +389,8 @@ const TaskForm = ({
                 trigger: clsx(
                   'w-full py-[26px] mt-5',
                   error
-                    ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                    : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                    ? 'bg-danger-50 hover:data-[hover=true]:bg-danger-200/50 focus:group-data-[focus=true]:bg-danger-200/50 dark:hover:data-[hover=true]:bg-gray-600'
+                    : 'bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                 ),
                 label:
                   'text-xl font-medium pb-1 !text-blue-800 dark:!text-white',

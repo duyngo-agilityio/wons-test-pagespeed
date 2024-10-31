@@ -27,7 +27,8 @@ const SignInForm = ({ signIn }: SignFormProps): JSX.Element => (
         <Text
           text="New Account"
           size="xl"
-          className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
+          textColor="text-blue-500 dark:text-purple-500"
+          className="font-medium inline hover:underline"
         />
       </Link>
     </div>

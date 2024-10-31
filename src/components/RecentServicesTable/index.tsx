@@ -97,7 +97,7 @@ const RecentServicesTable = ({
       },
       {
         header: (
-          <Text text="Total Amount" className="!text-right block w-full" />
+          <Text text="Total Amount" className="text-right block w-full" />
         ),
         accessor: (
           data: StrapiModel<TInvoiceProduct<StrapiModel<IProduct>>>,

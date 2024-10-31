@@ -43,11 +43,11 @@ const TaskDetail = ({
 
   return (
     <NextModal
-      className="!max-w-[467px]"
+      className="max-w-[467px]"
       isOpen={isOpen}
       onOpenChange={onCloseModal}
     >
-      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
+      <ModalContent className="relative top-0 left-0 p-[30px_30px_40px] bg-white dark:bg-gray-800 rounded-[10px] shadow-[ -14px_30px_20px_0px_rgba(0,0,0,0.05)] w-[467px]">
         <Heading title="Task Details" className="mb-8" />
         <div className="grid grid-cols-1 bg-red w-full">
           <div className="flex flex-row justify-between w-full mb-5">
@@ -57,7 +57,7 @@ const TaskDetail = ({
           <div className="flex flex-row justify-between w-full mb-5">
             <Text className="text-md sm:text-xl w-[35%]" text="Status" />
             <div className="text-md sm:text-xl w-[65%]">
-              <TaskStatusComponent status={label as TLabelStatus} />
+              <TaskStatusComponent status={label} />
             </div>
           </div>
           <div className="flex flex-row justify-between w-full mb-5">

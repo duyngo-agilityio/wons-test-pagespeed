@@ -14,28 +14,28 @@ const CustomInput = extendVariants(NextUIInput, {
       primary: {
         inputWrapper: [
           'bg-gray-50 dark:bg-gray-600',
-          'hover:!bg-gray-200/50 dark:hover:!bg-gray-900',
-          'focus-within:!bg-gray-50 dark:focus-within:bg-gray-600',
-          'group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600',
+          'hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900',
+          'focus-within:bg-gray-50 dark:focus-within:bg-gray-600',
+          'group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600',
         ],
         input: [
-          '!text-blue-800/70 dark:!text-white/70',
+          'text-blue-800/70 dark:text-white/70',
           'placeholder:text-blue-800/40 dark:placeholder:text-white/40',
           'bg-transparent',
         ],
         label: [
-          'group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white',
+          'group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white',
         ],
       },
       secondary: {
         inputWrapper: [
           'bg-gray-200/30 dark:bg-gray-600/30',
-          'hover:!bg-gray-200/50 dark:hover:!bg-gray-600/80',
-          'focus-within:!bg-gray-200/30 dark:focus-within:bg-gray-600/30',
-          'group-data-[focus=true]:!bg-gray-200/30 dark:group-data-[focus=true]:!bg-gray-600/30',
+          'hover:bg-gray-200/50 dark:hover:bg-gray-600/80',
+          'focus-within:bg-gray-200/30 dark:focus-within:bg-gray-600/30',
+          'group-data-[focus=true]:bg-gray-200/30 dark:group-data-[focus=true]:bg-gray-600/30',
         ],
         input: [
-          '!text-blue-800/70 dark:!text-white/70',
+          'text-blue-800/70 dark:text-white/70',
           'placeholder:text-blue-800/40 dark:placeholder:text-white/40',
         ],
         label:

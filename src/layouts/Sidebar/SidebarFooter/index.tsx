@@ -110,7 +110,7 @@ const SidebarFooter = ({
           </div>
           <Button
             isIconOnly
-            className="!bg-transparent dark:!bg-transparent hover:bg-transparent w-fit h-fit p-2"
+            className="bg-transparent dark:bg-transparent hover:bg-transparent w-fit h-fit p-2"
             onClick={handleOpenModal}
             aria-label="Sign out"
           >

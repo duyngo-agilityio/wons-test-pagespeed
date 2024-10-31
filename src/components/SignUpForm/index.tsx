@@ -195,29 +195,27 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           <Text
             text="By creating an account you agree to the"
             size="xl"
-            className="!text-blue-900 font-medium inline"
+            className="text-blue-900 font-medium inline"
           />
           &nbsp;
-          <Link href="#">
-            <Text
-              text="terms of use"
-              size="xl"
-              className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
-            />
+          <Link
+            href="#"
+            className="text-blue-500 dark:text-purple-500 text-xl font-medium inline hover:underline"
+          >
+            terms of use
           </Link>
           &nbsp;
           <Text
             text="and our"
             size="xl"
-            className="!text-blue-900 font-medium inline"
+            className="text-blue-900 font-medium inline"
           />
           &nbsp;
-          <Link href="#">
-            <Text
-              text="privacy policy."
-              size="xl"
-              className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
-            />
+          <Link
+            href="#"
+            className="text-blue-500 dark:text-purple-500 text-xl font-medium inline hover:underline"
+          >
+            privacy policy.
           </Link>
         </div>
       </div>
@@ -241,12 +239,11 @@ const SignUpForm = ({ isPending = false, onSubmit }: ISignUpFormProps) => {
           className="color-blue-900 font-medium inline"
         />
         &nbsp;
-        <Link href="/sign-in">
-          <Text
-            text="Sign in"
-            size="xl"
-            className="!text-blue-500 dark:!text-purple-500 font-medium inline hover:underline"
-          />
+        <Link
+          href="/sign-in"
+          className="text-blue-500 dark:text-purple-500 text-xl font-medium inline hover:underline"
+        >
+          Sign in
         </Link>
       </div>
     </form>

@@ -24,7 +24,7 @@ const CalendarSkeleton = () => {
         </div>
       </div>
       <div className="flex">
-        <div className="!pl-0 hidden md:flex px-[18px] md:px-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
+        <div className="hidden md:flex pr-[18px] md:pr-[28px] py-3 md:py-[32px] rounded-[5px] md:flex-col justify-between">
           <Skeleton className="w-[250px] h-[250px] rounded-lg mb-6" />
           <Skeleton className="w-[120px] h-10 rounded-md ml-16" />
         </div>

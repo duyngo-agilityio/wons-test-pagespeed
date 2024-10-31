@@ -35,11 +35,14 @@ const StatisticCard = ({
       <div className="flex-1 min-w-0">
         <Text
           text={statistic}
-          className="font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] !text-blue-400 dark:!text-gray-850 leading-[31.33px]"
+          textColor="text-blue-400 dark:text-gray-850"
+          className="font-bold text-[14px] sm:text-[18px] lg:text-[16px] xl:text-[24.06px] leading-[31.33px]"
         />
         <Text
           text={label}
-          className="!text-blue-400 dark:!text-gray-850 w-full truncate overflow-hidden whitespace-nowrap !text-[15.02px] leading-[19.56px]"
+          textColor="text-blue-400 dark:text-gray-850"
+          customSize="text-[15.02px]"
+          className=" w-full truncate overflow-hidden whitespace-nowrap leading-[19.56px]"
         />
       </div>
     </div>

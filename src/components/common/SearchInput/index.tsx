@@ -43,14 +43,14 @@ const SearchInput = ({ ...props }: InputProps) => {
     <Input
       classNames={{
         input: [
-          '!text-blue-800 dark:!text-white',
+          'text-blue-800 dark:text-white',
           'placeholder:text-sm placeholder:text-blue-800/50 dark:placeholder:text-white/50',
         ],
         inputWrapper: [
           'bg-white dark:bg-gray-400',
-          'hover:!bg-white dark:hover:!bg-gray-400',
-          'focus-within:!bg-white dark:focus-within:!bg-gray-400',
-          'group-data-[focus=true]:!bg-white dark:group-data-[focus=true]:!bg-gray-400',
+          'hover:bg-white dark:hover:bg-gray-400',
+          'focus-within:bg-white dark:focus-within:bg-gray-400',
+          'group-data-[focus=true]:bg-white dark:group-data-[focus=true]:bg-gray-400',
           'pl-5 pr-3.5 py-3',
           'md:max-w-[230px]',
         ],

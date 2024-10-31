@@ -72,7 +72,7 @@ const AvatarUpload = ({
 
   return (
     <div
-      className={`!m-0 flex flex-col justify-center items-center my-20 ${additionalClass}`}
+      className={`flex flex-col justify-center items-center ${additionalClass}`}
     >
       <label
         htmlFor="file"

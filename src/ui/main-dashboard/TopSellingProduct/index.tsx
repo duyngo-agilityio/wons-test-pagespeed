@@ -14,7 +14,7 @@ const TopSellingProducts = async () => {
   });
 
   return (
-    <TableLayout title="Top Selling Products" className="h-full md:!p-5">
+    <TableLayout title="Top Selling Products" className="h-full md:p-5">
       <div className="mt-8">
         {topProducts?.length ? (
           topProducts.map(

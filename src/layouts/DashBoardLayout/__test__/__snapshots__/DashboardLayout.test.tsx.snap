@@ -13,6 +13,7 @@ exports[`DashboardLayout should match snapshot 1`] = `
         class="base:mb-6 md:mb-7.5 w-full md:flex justify-between md:items-center"
       >
         <h2
+          aria-level="2"
           class="font-bold font-dm-sans text-blue-800 dark:text-white text-5xl w-full"
         >
           Dashboard
@@ -29,7 +30,7 @@ exports[`DashboardLayout should match snapshot 1`] = `
             data-slot="main-wrapper"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-white dark:bg-gray-400 hover:!bg-white dark:hover:!bg-gray-400 focus-within:!bg-white dark:focus-within:!bg-gray-400 group-data-[focus=true]:!bg-white dark:group-data-[focus=true]:!bg-gray-400 pl-5 pr-3.5 py-3 md:max-w-[230px] is-filled"
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 gap-3 data-[hover=true]:bg-default-200 h-10 min-h-10 rounded-medium transition-background motion-reduce:transition-none !duration-150 outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-white dark:bg-gray-400 hover:bg-white dark:hover:bg-gray-400 focus-within:bg-white dark:focus-within:bg-gray-400 group-data-[focus=true]:bg-white dark:group-data-[focus=true]:bg-gray-400 pl-5 pr-3.5 py-3 md:max-w-[230px] is-filled"
               data-slot="input-wrapper"
               style="cursor: text;"
             >
@@ -39,7 +40,7 @@ exports[`DashboardLayout should match snapshot 1`] = `
               >
                 <input
                   aria-label="Search"
-                  class="w-full font-normal bg-transparent !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground !text-blue-800 dark:!text-white placeholder:text-sm placeholder:text-blue-800/50 dark:placeholder:text-white/50 is-filled"
+                  class="w-full font-normal bg-transparent !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-small group-data-[has-value=true]:text-default-foreground text-blue-800 dark:text-white placeholder:text-sm placeholder:text-blue-800/50 dark:placeholder:text-white/50 is-filled"
                   data-filled="true"
                   data-filled-within="true"
                   data-has-end-content="true"
