@@ -26,7 +26,8 @@ const TableLayout = ({
       <Heading
         title={title}
         size="sm"
-        className="!text-blue-400 dark:!text-gray-850 font-medium"
+        textColor="text-blue-400 dark:text-gray-850"
+        className="font-medium"
       />
       {rightContent}
     </div>

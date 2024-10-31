@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
+import clsx from 'clsx';
 
 // components
 import { Button, ImageFallback } from '@/components';
@@ -27,10 +28,7 @@ const AvatarGroup = ({ users }: AvatarGroupProps) => (
         const { avatar = '', username = '' } = attributes ?? {};
 
         return (
-          <div
-            key={id}
-            className={`relative w-7 h-7 rounded-full ${index === 0 ? '' : '-ml-3'}`}
-          >
+          <div key={id} className={clsx('w-7 h-7', index !== 0 && '-ml-3')}>
             <ImageFallback
               src={avatar}
               alt={username}
@@ -44,7 +42,11 @@ const AvatarGroup = ({ users }: AvatarGroupProps) => (
       },
     )}
 
-    <Button className="!px-0 relative flex w-7 h-7 items-center justify-center !rounded-full !bg-teal-500 dark:!bg-teal-300 text-white -ml-3 border-2 hover:!bg-teal-600 dark:hover:!bg-teal-400 transition duration-300 ease-in-out">
+    <Button
+      isIconOnly
+      color="success"
+      className="w-7 h-7 p-0 -ml-3 rounded-full border-0"
+    >
       <FiPlus />
     </Button>
   </div>

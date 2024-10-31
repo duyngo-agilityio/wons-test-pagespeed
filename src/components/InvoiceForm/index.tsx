@@ -294,7 +294,7 @@ const InvoiceForm = ({
                 <Select
                   name={name}
                   id="customerId"
-                  defaultSelectedKeys={[value as string]}
+                  defaultSelectedKeys={[value]}
                   labelPlacement="outside"
                   onClose={onBlur}
                   placeholder=" "
@@ -307,8 +307,8 @@ const InvoiceForm = ({
                     trigger: clsx(
                       'w-full py-[26px] mt-5',
                       error
-                        ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                        : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                        ? 'bg-danger-50 hover:bg-danger-200/50 focus:bg-danger-200/50 dark:hover:bg-gray-600'
+                        : 'bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
                     label:
                       'text-xl font-medium pb-1 !text-blue-800 dark:!text-white',
@@ -355,8 +355,8 @@ const InvoiceForm = ({
                     trigger: clsx(
                       'w-full py-[26px] mt-5',
                       error
-                        ? 'bg-danger-50 hover:!bg-danger-200/50 focus:!bg-danger-200/50 dark:hover:!bg-gray-600'
-                        : 'bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
+                        ? 'bg-danger-50 hover:bg-danger-200/50 focus:bg-danger-200/50 dark:hover:bg-gray-600'
+                        : 'bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600',
                     ),
                     label:
                       'text-xl font-medium pb-1 !text-blue-800 dark:!text-white',

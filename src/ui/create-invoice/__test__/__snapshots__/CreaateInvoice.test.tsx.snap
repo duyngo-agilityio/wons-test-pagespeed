@@ -26,12 +26,12 @@ exports[`CreateInvoice Component Test should render all content with resolved da
             data-slot="main-wrapper"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 pointer-events-none transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] is-filled"
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 pointer-events-none transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] is-filled"
               data-slot="input-wrapper"
               style="cursor: text;"
             >
               <label
-                class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block pointer-events-none will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block pointer-events-none will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white font-medium text-xl top-5"
                 data-slot="label"
                 for="react-aria-:r0:"
                 id="react-aria-:r1:"
@@ -45,7 +45,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 <input
                   aria-label="Invoice Id"
                   aria-labelledby="react-aria-:r0: react-aria-:r1:"
-                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
+                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
                   data-filled="true"
                   data-filled-within="true"
                   data-slot="input"
@@ -264,7 +264,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="react-aria-:r13: react-aria-:rv:"
-                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
                 data-slot="trigger"
                 id="customerId"
                 type="button"
@@ -367,7 +367,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="react-aria-:r1b: react-aria-:r17:"
-                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
                 data-slot="trigger"
                 id="status"
                 type="button"
@@ -431,12 +431,12 @@ exports[`CreateInvoice Component Test should render all content with resolved da
             data-slot="main-wrapper"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px]"
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px]"
               data-slot="input-wrapper"
               style="cursor: text;"
             >
               <label
-                class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white font-medium text-xl top-5"
                 data-slot="label"
                 for="react-aria-:r1c:"
                 id="react-aria-:r1d:"
@@ -450,7 +450,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 <input
                   aria-label="Email"
                   aria-labelledby="react-aria-:r1c: react-aria-:r1d:"
-                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                   data-slot="input"
                   id="react-aria-:r1c:"
                   placeholder=" "
@@ -477,12 +477,12 @@ exports[`CreateInvoice Component Test should render all content with resolved da
               data-slot="main-wrapper"
             >
               <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
+                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
                 data-slot="input-wrapper"
                 style="cursor: text;"
               >
                 <label
-                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white font-medium text-xl top-5"
                   data-slot="label"
                   for="react-aria-:r1h:"
                   id="react-aria-:r1i:"
@@ -496,7 +496,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                   <input
                     aria-label="Address"
                     aria-labelledby="react-aria-:r1h: react-aria-:r1i:"
-                    class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+                    class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                     data-has-end-content="true"
                     data-slot="input"
                     id="react-aria-:r1h:"
@@ -539,7 +539,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
           </p>
           <button
             aria-label="Add new product"
-            class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
+            class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none hover:!bg-default border-transparent text-blue-800 dark:text-white hover:bg-gray-200/50 dark:hover:bg-gray-900 text-md rounded-[10px] border-[1px] h-auto min-w-max bg-white block dark:bg-gray-400 p-0"
             type="button"
           >
             <div
@@ -729,7 +729,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                 >
                   <tr
                     aria-labelledby="react-aria-:r1m:-$.5.0-title0"
-                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400 bg-white dark:bg-gray-400"
+                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 bg-white dark:bg-gray-400"
                     data-first="true"
                     data-key="$.5.0"
                     data-last="true"
@@ -777,7 +777,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                             aria-haspopup="listbox"
                             aria-label="Product Name field"
                             aria-labelledby="react-aria-:r1v: react-aria-:r1q:"
-                            class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40"
+                            class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40"
                             data-slot="trigger"
                             id="react-aria-:r1q:"
                             type="button"
@@ -822,7 +822,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                       tabindex="-1"
                     >
                       <p
-                        class="font-dm-sans text-blue-800 dark:text-white text-md "
+                        class="font-dm-sans text-blue-800 dark:text-white text-md"
                       >
                         $0
                       </p>
@@ -845,7 +845,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                           data-slot="main-wrapper"
                         >
                           <div
-                            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] bg-white dark:bg-gray-400 shadow-none px-2 is-filled"
+                            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] bg-white dark:bg-gray-400 shadow-none px-2 is-filled"
                             data-slot="input-wrapper"
                             style="cursor: text;"
                           >
@@ -855,7 +855,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                             >
                               <input
                                 aria-label="Quantity field"
-                                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
+                                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
                                 data-filled="true"
                                 data-filled-within="true"
                                 data-has-end-content="true"
@@ -866,7 +866,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                                 value="0"
                               />
                               <p
-                                class="font-dm-sans text-blue-800 dark:text-white text-md "
+                                class="font-dm-sans text-blue-800 dark:text-white text-md"
                               >
                                 Pcs
                               </p>
@@ -895,7 +895,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
                     >
                       <button
                         aria-label="Remove product"
-                        class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md border-[1px] h-auto min-w-max rounded-[100%] block p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
+                        class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none hover:!bg-default border-transparent text-blue-800 dark:text-white hover:bg-gray-200/50 dark:hover:bg-gray-900 text-md border-[1px] h-auto min-w-max rounded-full block p-[10px] bg-pink-500/5 dark:bg-pink-500/5"
                         data-id="0"
                         type="button"
                       >
@@ -933,7 +933,7 @@ exports[`CreateInvoice Component Test should render all content with resolved da
       >
         <a
           aria-label="Cancel"
-          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-transparent text-blue-500 dark:!text-white dark:!border-white border-blue-500 dark:text-purple-600 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:!text-blue-800 dark:hover:bg-white px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-10"
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-transparent text-blue-500 border-blue-500 dark:text-purple-600 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:text-blue-800 dark:hover:bg-white px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-10"
           href="/invoices"
           role="button"
           tabindex="0"
@@ -988,12 +988,12 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
             data-slot="main-wrapper"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 pointer-events-none transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] is-filled"
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 pointer-events-none transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] is-filled"
               data-slot="input-wrapper"
               style="cursor: text;"
             >
               <label
-                class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block pointer-events-none will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                class="absolute origin-top-left rtl:origin-top-right subpixel-antialiased block pointer-events-none will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white font-medium text-xl top-5"
                 data-slot="label"
                 for="react-aria-:r25:"
                 id="react-aria-:r26:"
@@ -1007,7 +1007,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 <input
                   aria-label="Invoice Id"
                   aria-labelledby="react-aria-:r25: react-aria-:r26:"
-                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
+                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
                   data-filled="true"
                   data-filled-within="true"
                   data-slot="input"
@@ -1216,7 +1216,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="react-aria-:r38: react-aria-:r34:"
-                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
                 data-slot="trigger"
                 id="customerId"
                 type="button"
@@ -1319,7 +1319,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby="react-aria-:r3g: react-aria-:r3c:"
-                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
+                class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-full py-[26px] mt-5 bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600"
                 data-slot="trigger"
                 id="status"
                 type="button"
@@ -1383,12 +1383,12 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
             data-slot="main-wrapper"
           >
             <div
-              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px]"
+              class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px]"
               data-slot="input-wrapper"
               style="cursor: text;"
             >
               <label
-                class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white font-medium text-xl top-5"
                 data-slot="label"
                 for="react-aria-:r3h:"
                 id="react-aria-:r3i:"
@@ -1402,7 +1402,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 <input
                   aria-label="Email"
                   aria-labelledby="react-aria-:r3h: react-aria-:r3i:"
-                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+                  class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                   data-slot="input"
                   id="react-aria-:r3h:"
                   placeholder=" "
@@ -1429,12 +1429,12 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
               data-slot="main-wrapper"
             >
               <div
-                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
+                class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
                 data-slot="input-wrapper"
                 style="cursor: text;"
               >
                 <label
-                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:!text-blue-800 dark:group-data-[filled-within=true]:!text-white font-medium text-xl top-5"
+                  class="absolute pointer-events-none origin-top-left rtl:origin-top-right subpixel-antialiased block will-change-auto !duration-200 !ease-out motion-reduce:transition-none transition-[transform,color,left,opacity] text-primary group-data-[filled-within=true]:pointer-events-auto pb-0 z-20 -translate-y-1/2 group-data-[filled-within=true]:left-0 left-3 rtl:left-auto rtl:right-3 group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)] pe-2 max-w-full text-ellipsis overflow-hidden group-data-[filled-within=true]:text-blue-800 dark:group-data-[filled-within=true]:text-white font-medium text-xl top-5"
                   data-slot="label"
                   for="react-aria-:r3m:"
                   id="react-aria-:r3n:"
@@ -1448,7 +1448,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                   <input
                     aria-label="Address"
                     aria-labelledby="react-aria-:r3m: react-aria-:r3n:"
-                    class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+                    class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
                     data-has-end-content="true"
                     data-slot="input"
                     id="react-aria-:r3m:"
@@ -1491,7 +1491,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
           </p>
           <button
             aria-label="Add new product"
-            class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md rounded-[10px] border-[1px] h-auto min-w-max !bg-white block dark:!bg-gray-400 p-0"
+            class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none hover:!bg-default border-transparent text-blue-800 dark:text-white hover:bg-gray-200/50 dark:hover:bg-gray-900 text-md rounded-[10px] border-[1px] h-auto min-w-max bg-white block dark:bg-gray-400 p-0"
             type="button"
           >
             <div
@@ -1681,7 +1681,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                 >
                   <tr
                     aria-labelledby="react-aria-:r3r:-$.5.0-title0"
-                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 dark:!bg-gray-400 bg-white dark:bg-gray-400"
+                    class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-b-1 border-gray-50 dark:border-gray-50/50 bg-white dark:bg-gray-400"
                     data-first="true"
                     data-key="$.5.0"
                     data-last="true"
@@ -1729,7 +1729,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                             aria-haspopup="listbox"
                             aria-label="Product Name field"
                             aria-labelledby="react-aria-:r44: react-aria-:r3v:"
-                            class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40"
+                            class="relative px-3 gap-3 inline-flex flex-row items-center shadow-sm tap-highlight-transparent data-[hover=true]:bg-default-200 group-data-[focus=true]:bg-default-100 h-10 min-h-10 rounded-medium outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:data-[hover=true]:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 w-40"
                             data-slot="trigger"
                             id="react-aria-:r3v:"
                             type="button"
@@ -1774,7 +1774,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                       tabindex="-1"
                     >
                       <p
-                        class="font-dm-sans text-blue-800 dark:text-white text-md "
+                        class="font-dm-sans text-blue-800 dark:text-white text-md"
                       >
                         $0
                       </p>
@@ -1797,7 +1797,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                           data-slot="main-wrapper"
                         >
                           <div
-                            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary group-data-[focus=true]:bg-primary-50 placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus-within:!bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:!bg-gray-50 dark:group-data-[focus=true]:!bg-gray-600 h-12.5 p-3.75 rounded-[10px] bg-white dark:bg-gray-400 shadow-none px-2 is-filled"
+                            class="relative w-full inline-flex tap-highlight-transparent flex-row items-center gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-focus group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-offset-background hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] bg-white dark:bg-gray-400 shadow-none px-2 is-filled"
                             data-slot="input-wrapper"
                             style="cursor: text;"
                           >
@@ -1807,7 +1807,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                             >
                               <input
                                 aria-label="Quantity field"
-                                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !text-blue-800/70 dark:!text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
+                                class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md is-filled"
                                 data-filled="true"
                                 data-filled-within="true"
                                 data-has-end-content="true"
@@ -1818,7 +1818,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                                 value="0"
                               />
                               <p
-                                class="font-dm-sans text-blue-800 dark:text-white text-md "
+                                class="font-dm-sans text-blue-800 dark:text-white text-md"
                               >
                                 Pcs
                               </p>
@@ -1847,7 +1847,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
                     >
                       <button
                         aria-label="Remove product"
-                        class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 bg-transparent gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none border-transparent text-blue-800 dark:text-white hover:!bg-gray-200/50 dark:hover:!bg-gray-900 text-md border-[1px] h-auto min-w-max rounded-[100%] block p-[10px] !bg-pink-500/5 dark:!bg-pink-500/5"
+                        class="z-0 group relative items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none hover:!bg-default border-transparent text-blue-800 dark:text-white hover:bg-gray-200/50 dark:hover:bg-gray-900 text-md border-[1px] h-auto min-w-max rounded-full block p-[10px] bg-pink-500/5 dark:bg-pink-500/5"
                         data-id="0"
                         type="button"
                       >
@@ -1885,7 +1885,7 @@ exports[`CreateInvoice Component Test should render content with empty 1`] = `
       >
         <a
           aria-label="Cancel"
-          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-transparent text-blue-500 dark:!text-white dark:!border-white border-blue-500 dark:text-purple-600 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:!text-blue-800 dark:hover:bg-white px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-10"
+          class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-3 [&>svg]:max-w-[theme(spacing.8)] transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover bg-transparent text-blue-500 border-blue-500 dark:text-purple-600 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:text-blue-800 dark:hover:bg-white px-[30px] pt-[15px] pb-[14px] text-md rounded-[10px] border-[1px] h-auto min-w-max w-full mt-10"
           href="/invoices"
           role="button"
           tabindex="0"

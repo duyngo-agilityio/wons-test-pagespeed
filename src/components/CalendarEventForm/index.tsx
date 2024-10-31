@@ -227,7 +227,8 @@ const CalendarEventForm = ({
           onClick={toggleDateTimePicker}
         >
           <Button
-            className="!bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+            isIconOnly
+            className="bg-pink-50 dark:bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer px-0"
             data-testid="time-button"
             onClick={toggleDateTimePicker}
           >
@@ -268,7 +269,7 @@ const CalendarEventForm = ({
                 variant="flat"
                 classNames={{
                   trigger:
-                    'w-full bg-gray-50 dark:bg-gray-600 hover:!bg-gray-200/50 dark:hover:!bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
+                    'w-full bg-gray-50 dark:bg-gray-600 hover:bg-gray-200/50 dark:hover:bg-gray-900 focus:bg-gray-50 dark:focus:bg-gray-600 py-[26px] mt-5',
                   label: 'text-xl font-medium pb-1',
                 }}
                 onChange={(e) => {
@@ -325,7 +326,7 @@ const CalendarEventForm = ({
           {!isOpenLocation && !previewData?.location && (
             <Button
               startContent={<LocationIcon />}
-              className="!bg-white font-medium dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] !rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"
+              className="bg-white font-medium dark:bg-white text-center text-blue-500 dark:text-blue-500 border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] px-[25px] rounded-[10px] font-DM-Sans text-[14.22px] font-normal leading-normal"
               onClick={() => setIsOpenLocation(true)}
             >
               Add Location
@@ -335,7 +336,7 @@ const CalendarEventForm = ({
 
         <div className="m-[0_0_40px] flex gap-[0_15px]">
           <Button
-            className="!bg-pink-50 dark:!bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer !px-0"
+            className="bg-pink-50 dark:bg-pink-600 text-pink-500 dark:text-pink-500 border-none rounded-full w-10 h-10 flex justify-center items-center cursor-pointer px-0"
             data-testid="calendar-button"
           >
             <CalendarIcon width={15} height={15} color="pink-500" />
@@ -364,7 +365,7 @@ const CalendarEventForm = ({
           </Button>
 
           <Button
-            className="min-w-[93px] !bg-white font-normal dark:!bg-white text-center !text-blue-500 dark:text-white/70 border border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] !rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
+            className="min-w-[93px] bg-white font-normal dark:bg-white text-center text-blue-500 dark:text-blue-500 border-[1px] border-[rgba(58, 54, 219, 0.1)] py-[10px] rounded-[10px] font-DM-Sans text-[15px] font-normal leading-normal"
             onClick={handleModalClose}
           >
             Close

@@ -234,7 +234,7 @@ const InvoicesTable = ({
                 data-testid="multiple-delete-btn"
                 isIconOnly
                 isDisabled={!selectedInvoiceIds.length}
-                className="w-20 h-10 !bg-transparent dark:!bg-transparent hover:!bg-transparent dark:hover:!bg-transparent"
+                className="w-20 h-10 bg-transparent dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent"
                 onClick={handleOpenConfirmModal}
               >
                 <MdDelete

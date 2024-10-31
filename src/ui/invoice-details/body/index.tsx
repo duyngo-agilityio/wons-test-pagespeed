@@ -103,7 +103,7 @@ const InvoiceDetailsBody = ({ data }: IInvoiceDetailsBody) => {
           <Text
             text={formatAmountWithDiscount({ data }, 5)}
             size="sm"
-            className="!text-blue-500 dark:!text-purple-600"
+            textColor="text-blue-500 dark:text-purple-600"
           />
         </div>
         <div className="flex flex-col py-4">

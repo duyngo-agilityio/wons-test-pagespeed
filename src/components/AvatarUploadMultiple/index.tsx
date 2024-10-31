@@ -117,10 +117,12 @@ const AvatarUploadMultiple = ({
                 className="rounded-md object-cover w-full h-full"
               />
               <Button
-                className="absolute top-0 right-0 p-1 !border-none rounded-none !bg-transparent dark:!bg-transparent !text-pink-500"
+                isIconOnly
+                color="secondary"
+                className="absolute top-0 right-0 p-1 border-none rounded-none rounded-tr-md hover:bg-gray-200/50 dark:hover:bg-gray-900"
                 onClick={handleChangeDelete}
               >
-                <IoClose size={16} />
+                <IoClose size={16} className="text-pink-500" />
               </Button>
             </div>
           );

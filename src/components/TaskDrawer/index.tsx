@@ -14,7 +14,7 @@ import { withAccountState } from '@/hocs/withAccountState';
 import { TaskWithStringAssignees } from '@/types';
 
 // hooks
-import { useToast } from '@/hooks';
+import { useBreakPoints, useToast } from '@/hooks';
 
 // actions
 import { createTask } from '@/actions';
@@ -42,6 +42,7 @@ const TaskDrawer = ({ user, isAdmin }: TaskDrawerProps): JSX.Element => {
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [isPending, startTransition] = useTransition();
   const { showToast } = useToast();
+  const { isGreaterThanMd } = useBreakPoints();
 
   const handleOpenDrawer = useCallback(() => {
     setIsDrawerOpen(true);
@@ -126,8 +127,7 @@ const TaskDrawer = ({ user, isAdmin }: TaskDrawerProps): JSX.Element => {
           open={isDrawerOpen}
           onClose={handleCloseDrawer}
           direction="right"
-          size={400}
-          className="!w-full md:!w-[450px]"
+          size={isGreaterThanMd ? 450 : 375}
         >
           <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
             <TaskForm

@@ -16,8 +16,8 @@ import { productTabs } from '@/mocks';
 // Constants
 import { RATING_PRODUCT, MESSAGES } from '@/constants';
 
-// Hooks
-import { useToast } from '@/hooks';
+// hooks
+import { useBreakPoints, useToast } from '@/hooks';
 
 // Actions
 import { createProduct } from '@/actions';
@@ -38,6 +38,7 @@ const ProductDrawer = ({ isAdmin }: ProductDrawerProps): JSX.Element => {
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const { showToast } = useToast();
+  const { isGreaterThanMd } = useBreakPoints();
 
   const handleOpenDrawer = useCallback(() => {
     setIsDrawerOpen(true);
@@ -119,8 +120,7 @@ const ProductDrawer = ({ isAdmin }: ProductDrawerProps): JSX.Element => {
             open={isDrawerOpen}
             onClose={handleCloseDrawer}
             direction="right"
-            size={400}
-            className="!w-full md:!w-[450px]"
+            size={isGreaterThanMd ? 450 : 375}
           >
             <div className="p-8 bg-white dark:bg-gray-400 h-full max-w-full overflow-y-auto">
               <ProductForm

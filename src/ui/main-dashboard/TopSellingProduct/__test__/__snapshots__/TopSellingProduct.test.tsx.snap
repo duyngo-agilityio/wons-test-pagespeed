@@ -3,13 +3,14 @@
 exports[`TopSellingProducts component renders correctly and matches snapshot 1`] = `
 <div>
   <section
-    class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 h-full md:!p-5"
+    class="bg-white dark:bg-gray-400 base:p-6 md:p-7 rounded-10 h-full md:p-5"
   >
     <div
       class="flex justify-between mb-2"
     >
       <h2
-        class="font-bold font-dm-sans text-blue-800 dark:text-white text-2xl !text-blue-400 dark:!text-gray-850 font-medium"
+        aria-level="2"
+        class="font-bold font-dm-sans text-blue-400 dark:text-gray-850 text-2xl font-medium"
       >
         Top Selling Products
       </h2>

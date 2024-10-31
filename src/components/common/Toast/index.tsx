@@ -28,11 +28,11 @@ const Toast = ({
   const getStatusColor = () => {
     switch (status) {
       case MESSAGES.STATUS.ERROR:
-        return '!bg-red-600 dark:!bg-red-600  text-white';
+        return 'bg-red-600 dark:bg-red-600  text-white';
       case MESSAGES.STATUS.SUCCESS:
-        return '!bg-green-700 dark:!bg-green-700 text-white';
+        return 'bg-green-700 dark:bg-green-700 text-white';
       default:
-        return '!bg-green-700 dark:!bg-green-700 text-white';
+        return 'bg-green-700 dark:bg-green-700 text-white';
     }
   };
 
@@ -47,7 +47,7 @@ const Toast = ({
 
       <Button
         isIconOnly
-        className={`ml-2 p-0 hover:!bg-transparent dark:hover:!bg-transparent ${getStatusColor()}`}
+        className={`ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent ${getStatusColor()}`}
         onClick={handleClose}
       >
         <IoIosClose
