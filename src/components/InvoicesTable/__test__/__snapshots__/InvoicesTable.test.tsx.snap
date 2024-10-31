@@ -259,7 +259,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                   >
                     <svg
                       class="text-blue-500 dark:text-purple-600"
-                      color="#3A36DB"
+                      color="#3a36db"
                       height="14"
                       viewBox="0 0 16 14"
                       width="16"
@@ -294,7 +294,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                   >
                     <svg
                       class="text-teal-500 dark:text-teal-300"
-                      color="#06152B"
+                      color="#06152b"
                       height="14"
                       viewBox="0 0 18 20"
                       width="13"
@@ -426,7 +426,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                   >
                     <svg
                       class="text-blue-500 dark:text-purple-600"
-                      color="#3A36DB"
+                      color="#3a36db"
                       height="14"
                       viewBox="0 0 16 14"
                       width="16"
@@ -461,7 +461,7 @@ exports[`InvoicesTable Component match snapshot 1`] = `
                   >
                     <svg
                       class="text-teal-500 dark:text-teal-300"
-                      color="#06152B"
+                      color="#06152b"
                       height="14"
                       viewBox="0 0 18 20"
                       width="13"
