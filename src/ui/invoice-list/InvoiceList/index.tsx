@@ -1,5 +1,5 @@
 // APIs
-import { getInvoices } from '@/api/invoice';
+import { getInvoices } from '@/api';
 
 // Utils
 import { InvoiceListClient } from '@/ui';

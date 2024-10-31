@@ -1,6 +1,5 @@
 // Constants
-import { API_PATH } from '@/constants/apis';
-import { DEFAULT_PAGE, PAGE_SIZE } from '@/constants/pagination';
+import { API_PATH, DEFAULT_PAGE, PAGE_SIZE } from '@/constants';
 
 // Types
 import {
@@ -8,14 +7,13 @@ import {
   TInvoiceListResponse,
   TInvoiceProductData,
   TRecentInvoiceProductResponse,
-} from '@/types/invoice';
+} from '@/types';
 
 // Utils
-import { formatFilterIntervalDate } from '@/utils/paramUrl';
-import { formatErrorMessage } from '@/utils/messages';
+import { formatFilterIntervalDate, formatErrorMessage } from '@/utils';
 
 // Services
-import { httpClient } from '@/services/http-request';
+import { httpClient } from '@/services';
 
 interface IParameters {
   cache?: RequestCache;

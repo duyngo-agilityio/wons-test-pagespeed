@@ -9,13 +9,13 @@ import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 
 // Types
-import { TInvoiceDataResponse, InvoiceStatus } from '@/types/invoice';
+import { TInvoiceDataResponse, InvoiceStatus } from '@/types';
 
 // Hocs
 import { withAccountState } from '@/hocs/withAccountState';
 
 // Constants
-import { DAYJS_PATTERN } from '@/constants/date';
+import { DAYJS_PATTERN } from '@/constants';
 
 // Components
 import {
