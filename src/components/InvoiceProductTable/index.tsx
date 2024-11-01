@@ -186,7 +186,7 @@ const InvoiceProductTable = ({
       header: 'Amount',
       accessor: ({ product, quantity }: TInvoiceProductTable) => (
         <Text
-          className="text-end text-teal-500 pr-3"
+          className="text-end text-teal-700 pr-3"
           text={
             quantity === 0
               ? '$0'

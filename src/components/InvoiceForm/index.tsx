@@ -447,7 +447,7 @@ const InvoiceForm = ({
             href={ROUTES.INVOICE}
             size="lg"
             color="secondary"
-            className="w-full mt-10"
+            className="w-full mt-10 dark:text-purple-450"
             aria-label="Cancel"
           >
             Cancel
