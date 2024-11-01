@@ -18,7 +18,7 @@ interface ITableSkeleton {
 }
 
 const TableSkeleton = ({
-  quantity = 5,
+  quantity = 6,
   variant = 'secondary',
   columns,
   isStriped = true,
