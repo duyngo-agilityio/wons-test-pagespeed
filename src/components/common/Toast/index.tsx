@@ -27,12 +27,12 @@ const Toast = ({
 
   const statusColor =
     status === MESSAGES.STATUS.ERROR
-      ? 'bg-red-600 dark:bg-red-600  text-white'
-      : 'bg-green-700 dark:bg-green-700 text-white';
+      ? 'bg-red-600 dark:bg-red-600'
+      : 'bg-green-700 dark:bg-green-700';
 
   return (
     <div
-      className={`min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start ${statusColor}`}
+      className={`min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start text-white ${statusColor}`}
     >
       <div className="flex flex-col">
         <h4 className="font-bold capitalize">{title}</h4>
@@ -41,7 +41,7 @@ const Toast = ({
 
       <Button
         isIconOnly
-        className={`ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent ${statusColor}`}
+        className={`ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent text-white ${statusColor}`}
         onClick={handleClose}
       >
         <IoIosClose
