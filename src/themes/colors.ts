@@ -17,6 +17,7 @@ export const colors = {
     500: '#03a89e', // bright teal
     600: '#038279',
     650: '#035954',
+    700: '#03635d',
   },
   gray: {
     50: '#f1f4fa', // very light gray
@@ -43,6 +44,7 @@ export const colors = {
   },
   purple: {
     400: '#dcdbff',
+    450: '#d2d1ff',
     500: '#a5a3ff',
     600: '#605cff', // light purple
   },
