@@ -5,6 +5,7 @@ export const colors = {
     500: '#d50101', // dark red
   },
   blue: {
+    200: '#A6A2F1',
     300: '#364152',
     400: '#515c6a', // light blue
     500: '#3a36db', // bright blue
@@ -27,6 +28,7 @@ export const colors = {
     300: '#9da8bb', // soft gray
     350: '#404b5b',
     400: '#364153', // slate gray
+    500: '#435A75', // slate gray
     600: '#1a202c', // dark gray
     700: '#515567',
     750: '#4a5463',
@@ -41,6 +43,7 @@ export const colors = {
     600: '#714e6e',
     700: '#d4c9d3',
     800: '#9e005f',
+    850: '#AD0046',
   },
   purple: {
     400: '#dcdbff',

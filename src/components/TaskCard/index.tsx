@@ -234,6 +234,7 @@ const TaskCard = ({ index, task, isAdmin }: TTaskCardProps) => {
                 snapshot.isDragging ? 'opacity-50' : ''
               }`}
               onClick={handleOpenModal}
+              role="none"
             >
               <div className="flex flex-row items-center justify-between mb-[15px]">
                 <Text className="text-md" text={title} />

@@ -45,6 +45,7 @@ const AvatarGroup = ({ users }: AvatarGroupProps) => (
     <Button
       isIconOnly
       color="success"
+      aria-label="Plus Button"
       className="w-7 h-7 p-0 -ml-3 rounded-full border-0"
     >
       <FiPlus />

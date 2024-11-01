@@ -39,7 +39,7 @@ const Tabs = ({
     cursor: 'bg-blue-500 dark:bg-purple-600 rounded-none',
     tab: 'px-4 py-6 font-medium text-gray-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-white',
     tabContent:
-      'text-blue-800 dark:text-white group-data-[selected=true]:text-white dark:group-data-[selected=true]:text-gray-400',
+      'text-blue-800 dark:text-white group-data-[selected=true]:text-white',
   };
 
   const styles =
