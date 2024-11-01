@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
+import { InView } from 'react-intersection-observer';
 
 // Components
 import { DateRangePicker, ProductDrawer } from '@/components';
@@ -48,12 +49,16 @@ const ProductListPage = ({
         title={PAGE_TITLES.PRODUCT}
         rightContent={<DateRangePicker />}
       >
-        <ProductDrawer />
+        <InView>
+          <ProductDrawer />
+        </InView>
         <Suspense
           key={page + startTime + endTime}
           fallback={<ProductListSkeleton />}
         >
-          <ProductList searchParams={searchParams} />
+          <InView>
+            <ProductList searchParams={searchParams} />
+          </InView>
         </Suspense>
       </DashBoardLayout>
     </main>
