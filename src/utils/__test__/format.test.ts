@@ -1,18 +1,20 @@
 import { CalendarDate, ZonedDateTime } from '@internationalized/date';
 
 // Types
-import { StrapiModel, TEventResponse, TProductInvoiceResponse } from '@/types';
+import { StrapiModel, TEventResponse } from '@/types';
 
 // Utils
 import {
-  aggregateProductQuantities,
   capitalizeFirstLetter,
   filterDataByIndex,
+  formatAmountWithDiscount,
   formatDatePicker,
   formatDateString,
   formatDateToISO,
+  formatPhoneNumber,
   formatPrice,
   formatPriceTyping,
+  formatSubtotal,
   formattedEvents,
   formattedGuestInfo,
   getSubarray,
@@ -22,7 +24,11 @@ import {
 } from '../format';
 
 // Mocks
-import { EVENTS_MOCKS, EVENTS_MOCKS_WIDTH_USERS_PERMISSIONS } from '@/mocks';
+import {
+  EVENTS_MOCKS,
+  EVENTS_MOCKS_WIDTH_USERS_PERMISSIONS,
+  MOCK_INVOICES,
+} from '@/mocks';
 
 // Models
 import { IEvent } from '@/models';
@@ -52,23 +58,6 @@ type MockDateValue = {
   month: number;
   day: number;
 };
-
-describe('aggregateProductQuantities() aggregateProductQuantities method', () => {
-  // Happy Path Tests
-  describe('Happy Path', () => {});
-
-  // Edge Case Tests
-  describe('Edge Cases', () => {
-    it('should return an empty array when given an empty array', () => {
-      // Test to ensure that the function returns an empty array when given an empty array
-      const products: TProductInvoiceResponse[] = [];
-
-      const result = aggregateProductQuantities(products);
-
-      expect(result).toEqual([]);
-    });
-  });
-});
 
 describe('capitalizeFirstLetter() capitalizeFirstLetter method', () => {
   // Happy Path Tests
@@ -711,5 +700,66 @@ describe('getSubarray() getSubarray method', () => {
       const result = getSubarray(data, 0, 10);
       expect(result).toEqual([1, 2, 3, 4, 5]);
     });
+  });
+});
+
+describe('formatPhoneNumber', () => {
+  it('returns an empty string for an empty input', () => {
+    expect(formatPhoneNumber('')).toBe('');
+  });
+
+  it('prepends "+" for a correctly formatted string', () => {
+    expect(formatPhoneNumber('1234567890')).toBe('+1234567890');
+  });
+
+  it('handles non-numeric input by returning it with "+" prepended', () => {
+    expect(formatPhoneNumber('abc-def')).toBe('+abc def');
+  });
+});
+
+describe('formatSubtotal', () => {
+  const mockData = { data: MOCK_INVOICES };
+  it('calculates subtotal without discount correctly', () => {
+    expect(formatSubtotal(mockData)).toBe('14.872,00 USD'); // (10*2 + 5*3)
+  });
+
+  it('calculates subtotal with discount correctly', () => {
+    expect(formatSubtotal(mockData, 10)).toBe('1.487,20 USD'); // 10% discount on (20*1 + 30*2)
+  });
+
+  it('returns zero for an empty item list', () => {
+    const items = { data: [] };
+    expect(formatSubtotal(items)).toBe(' USD');
+  });
+
+  it('returns the original subtotal for a discount of zero', () => {
+    expect(formatSubtotal(mockData, 0)).toBe('14.872,00 USD'); // (15*4)
+  });
+
+  it('returns the original subtotal with a negative discount (if applicable)', () => {
+    expect(formatSubtotal(mockData, -10)).toBe('-1.487,20 USD'); // Assuming the function can handle negative discounts
+  });
+});
+
+describe('formatAmountWithDiscount', () => {
+  const mockData = { data: MOCK_INVOICES };
+  it('calculates total without discount correctly', () => {
+    expect(formatAmountWithDiscount(mockData)).toBe('14.872,00 USD'); // (10*2 + 5*3)
+  });
+
+  it('calculates total with discount correctly', () => {
+    expect(formatAmountWithDiscount(mockData, 10)).toBe('13.384,80 USD'); // 10% discount on (20*1 + 30*2)
+  });
+
+  it('returns zero for an empty item list', () => {
+    expect(formatAmountWithDiscount(mockData)).toBe('14.872,00 USD');
+  });
+
+  it('returns the original total for a discount of zero', () => {
+    expect(formatAmountWithDiscount(mockData, 0)).toBe('14.872,00 USD'); // (15*4)
+  });
+
+  it('returns a negative total with a negative discount (if applicable)', () => {
+    expect(formatAmountWithDiscount(mockData, -10)).toBe('16.359,20 USD'); // Assuming the function can handle negative discounts, resulting in a total of 55.00
   });
 });

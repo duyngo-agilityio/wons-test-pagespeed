@@ -33,7 +33,7 @@ exports[`TaskCard Component matches the snapshot 1`] = `
           </p>
         </div>
         <div
-          class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[30px] max-h-[30px] rounded-[22px] bg-pink-500"
+          class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[30px] max-h-[30px] rounded-[22px] bg-pink-850 dark:bg-pink-500"
         >
           <span
             class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
