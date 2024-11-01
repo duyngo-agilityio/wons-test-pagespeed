@@ -23,6 +23,7 @@ describe('DateRangePicker', () => {
   it('match snapshot', () => {
     const { container } = renderComponent();
 
+    expect(container).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 });

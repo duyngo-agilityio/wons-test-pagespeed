@@ -25,20 +25,14 @@ const Toast = ({
 }: TToastProps): JSX.Element => {
   const handleClose = useCallback(() => onClose(id), [id, onClose]);
 
-  const getStatusColor = () => {
-    switch (status) {
-      case MESSAGES.STATUS.ERROR:
-        return 'bg-red-600 dark:bg-red-600  text-white';
-      case MESSAGES.STATUS.SUCCESS:
-        return 'bg-green-700 dark:bg-green-700 text-white';
-      default:
-        return 'bg-green-700 dark:bg-green-700 text-white';
-    }
-  };
+  const statusColor =
+    status === MESSAGES.STATUS.ERROR
+      ? 'bg-red-600 dark:bg-red-600'
+      : 'bg-green-700 dark:bg-green-700';
 
   return (
     <div
-      className={`min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start ${getStatusColor()}`}
+      className={`min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start text-white ${statusColor}`}
     >
       <div className="flex flex-col">
         <h4 className="font-bold capitalize">{title}</h4>
@@ -47,11 +41,11 @@ const Toast = ({
 
       <Button
         isIconOnly
-        className={`ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent ${getStatusColor()}`}
+        className={`ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent text-white ${statusColor}`}
         onClick={handleClose}
       >
         <IoIosClose
-          className={`w-6 h-6 outline-0 text-white dark:text-blue ${getStatusColor()}`}
+          className={`w-6 h-6 outline-0 text-white dark:text-blue ${statusColor}`}
         />
       </Button>
     </div>
