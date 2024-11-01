@@ -9,7 +9,7 @@ exports[`Calendar render toast correctly 1`] = `
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
     <div
-      class="min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start bg-green-700 dark:bg-green-700 text-white"
+      class="min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start text-white bg-green-700 dark:bg-green-700"
     >
       <div
         class="flex flex-col"
@@ -24,14 +24,14 @@ exports[`Calendar render toast correctly 1`] = `
         </p>
       </div>
       <button
-        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent dark:text-white text-md rounded-[10px] border-[1px] h-auto min-w-max ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent bg-green-700 dark:bg-green-700 text-white"
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent dark:text-white text-md rounded-[10px] border-[1px] h-auto min-w-max ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent text-white bg-green-700 dark:bg-green-700"
         type="button"
       >
         <div
           class="flex items-center"
         >
           <svg
-            class="w-6 h-6 outline-0 text-white dark:text-blue bg-green-700 dark:bg-green-700 text-white"
+            class="w-6 h-6 outline-0 text-white dark:text-blue bg-green-700 dark:bg-green-700"
             fill="currentColor"
             height="1em"
             stroke="currentColor"
@@ -60,7 +60,7 @@ exports[`Calendar render toast with errors 1`] = `
       !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&false)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}else{c.add('light')}if(e==='light'||e==='dark'||!e)d.style.colorScheme=e||'light'}catch(e){}}()
     </script>
     <div
-      class="min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start bg-red-600 dark:bg-red-600  text-white"
+      class="min-w-[250px] base:max-w-[340px] lg:max-w-full shadow-lg rounded-lg p-2 lg:mb-2 flex justify-between items-start text-white bg-red-600 dark:bg-red-600"
     >
       <div
         class="flex flex-col"
@@ -75,14 +75,14 @@ exports[`Calendar render toast with errors 1`] = `
         </p>
       </div>
       <button
-        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent dark:text-white text-md rounded-[10px] border-[1px] h-auto min-w-max ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent bg-red-600 dark:bg-red-600 text-white"
+        class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent data-[pressed=true]:scale-[0.97] outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 gap-2 !gap-0 transition-transform-colors-opacity motion-reduce:transition-none data-[hover=true]:opacity-hover border-transparent dark:text-white text-md rounded-[10px] border-[1px] h-auto min-w-max ml-2 p-0 hover:bg-transparent dark:hover:bg-transparent text-white bg-red-600 dark:bg-red-600"
         type="button"
       >
         <div
           class="flex items-center"
         >
           <svg
-            class="w-6 h-6 outline-0 text-white dark:text-blue bg-red-600 dark:bg-red-600  text-white"
+            class="w-6 h-6 outline-0 text-white dark:text-blue bg-red-600 dark:bg-red-600"
             fill="currentColor"
             height="1em"
             stroke="currentColor"
