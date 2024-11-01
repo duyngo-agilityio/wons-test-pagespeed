@@ -6,6 +6,5 @@ export * from './paramUrl';
 export * from './messages';
 export * from './generate-id';
 export * from './product';
-export * from './column';
 export * from './formHandler';
 export * from './task';

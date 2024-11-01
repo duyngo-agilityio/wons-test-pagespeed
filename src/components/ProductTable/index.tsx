@@ -1,6 +1,6 @@
 'use client';
 
-import { Key, memo, useCallback, useMemo, useState } from 'react';
+import { Key, memo, useCallback, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 // constants
@@ -13,10 +13,15 @@ import { withAccountState } from '@/hocs/withAccountState';
 import { TProductInvoiceResponse } from '@/types';
 
 // Utils
-import { calcTotalAmount, mappingContentColumns } from '@/utils';
+import {
+  calcTotalAmount,
+  formatPrice,
+  formatTotalAmount,
+  getSerialNumberWithMedal,
+} from '@/utils';
 
 // Components
-import { Table } from '@/components';
+import { DropdownActions, ImageFallback, Table, Text } from '@/components';
 
 type ProductTableProps = {
   data: TProductInvoiceResponse[];
@@ -38,10 +43,117 @@ const ProductTable = ({
     useState<TProductInvoiceResponse[]>(data);
   const [order, setOrder] = useState<string>(ASC);
   const [sortBy, setSortBy] = useState<string>('');
-  const columns = useMemo(
-    () => mappingContentColumns({ data, isAdmin, onEdit, onDelete }),
-    [data, isAdmin, onDelete, onEdit],
-  );
+  const columns = [
+    {
+      header: 'SN',
+      accessor: (productData: TProductInvoiceResponse) =>
+        getSerialNumberWithMedal<TProductInvoiceResponse>(data, productData),
+      isSort: true,
+      value: 'id',
+    },
+    {
+      header: 'Name',
+      accessor: (productData: TProductInvoiceResponse) => {
+        const { attributes } = productData || {};
+        const { product } = attributes || {};
+        const { data } = product || {};
+        const { attributes: attributesProduct } = data || {};
+        const { imageUrl = '', title = '' } = attributesProduct || {};
+
+        return (
+          <div className="flex gap-3.5 items-center h-[40px]">
+            <ImageFallback
+              width={40}
+              height={40}
+              sizes="40px"
+              src={imageUrl}
+              alt="customer avatar"
+              className="rounded-full h-full object-cover"
+            />
+            <Text
+              size="md"
+              text={title}
+              textColor="text-blue-500 dark:text-purple-500"
+              className="text-nowrap"
+            />
+          </div>
+        );
+      },
+      isSort: true,
+      value: 'title',
+    },
+    {
+      header: 'Price',
+      accessor: (productData: TProductInvoiceResponse) => {
+        const { attributes } = productData || {};
+        const { product } = attributes || {};
+        const { data } = product || {};
+        const { attributes: attributesProduct } = data || {};
+        const { price = 0 } = attributesProduct || {};
+
+        return (
+          <Text
+            size="md"
+            text={`$${formatPrice(price)}`}
+            className="text-nowrap"
+          />
+        );
+      },
+      isSort: true,
+      value: 'price',
+    },
+    {
+      header: 'Total Order',
+      accessor: (productData: TProductInvoiceResponse) => {
+        const { attributes } = productData || {};
+        const { quantity = 0 } = attributes || {};
+
+        return (
+          <Text
+            size="md"
+            text={`${quantity.toString()} Piece`}
+            className="text-nowrap"
+          />
+        );
+      },
+      isSort: true,
+      value: 'quantity',
+    },
+    {
+      header: 'Total Sales',
+      accessor: (productData: TProductInvoiceResponse) => {
+        const { attributes } = productData || {};
+        const { quantity = 0 } = attributes || {};
+        const { product } = attributes || {};
+        const { data } = product || {};
+        const { attributes: attributesProduct } = data || {};
+        const { price = 0 } = attributesProduct || {};
+
+        return (
+          <Text
+            size="md"
+            text={
+              quantity === 0 ? '$0' : `$${formatTotalAmount(price, quantity)}`
+            }
+            textColor="text-teal-600 dark:text-teal-300"
+            className="text-nowrap"
+          />
+        );
+      },
+      isSort: true,
+      value: 'totalSale',
+    },
+    {
+      ...(isAdmin && {
+        accessor: (customerData: TProductInvoiceResponse) => {
+          const { id } = customerData || {};
+          return (
+            <DropdownActions id={id} onEdit={onEdit} onDelete={onDelete} />
+          );
+        },
+      }),
+    },
+  ].filter((item) => Object.keys(item).length !== 0);
 
   /**
    * Handles sorting of products based on the selected value

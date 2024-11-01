@@ -1,12 +1,12 @@
 'use client';
 
 import { memo, useState } from 'react';
-import { Modal as NextModal, ModalContent } from '@nextui-org/react';
+import { Modal as NextModal, ModalContent, Input } from '@nextui-org/react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 // Components
-import { Button, Input, Text } from '@/components';
+import { Button, Text } from '@/components';
 
 // Constants
 import { DAYJS_PATTERN, MESSAGES } from '@/constants';
@@ -72,6 +72,8 @@ const DateTimeRangePickerModal = ({
       <ModalContent className="p-6">
         <div className="mb-4">
           <Input
+            labelPlacement="outside"
+            placeholder=" "
             label="Date"
             type="date"
             value={selectedDate}
@@ -80,6 +82,8 @@ const DateTimeRangePickerModal = ({
         </div>
         <div className="grid grid-cols-2 gap-4">
           <Input
+            labelPlacement="outside"
+            placeholder=" "
             label="Start Time"
             type="time"
             value={dayjs(selectedStartTime, DAYJS_PATTERN['hh:mma'])
@@ -89,6 +93,8 @@ const DateTimeRangePickerModal = ({
           />
           <Input
             label="End Time"
+            labelPlacement="outside"
+            placeholder=" "
             type="time"
             value={dayjs(selectedEndTime, DAYJS_PATTERN['hh:mma'])
               .utc(true)
