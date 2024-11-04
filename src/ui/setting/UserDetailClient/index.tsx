@@ -1,6 +1,7 @@
 'use client';
 
 import { memo, useState, useCallback, useTransition } from 'react';
+import { useSession } from 'next-auth/react';
 
 // Constants
 import { IMAGES, ROLES, MESSAGES } from '@/constants';
@@ -33,6 +34,7 @@ const UserDetailClient = ({ user, id, onEdit }: UserDetailClientProps) => {
   const [avatarFile, setAvatarFile] = useState<File>();
   const [isAvatarDirty, setIsAvatarDirty] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const { update } = useSession();
 
   const {
     avatar = IMAGES.AVATAR_DEFAULT,
@@ -76,6 +78,13 @@ const UserDetailClient = ({ user, id, onEdit }: UserDetailClientProps) => {
           description: error ?? MESSAGES.SUCCESS.UPDATE_PROFILE,
           status: error ? MESSAGES.STATUS.ERROR : MESSAGES.STATUS.SUCCESS,
         });
+
+        await update({
+          avatar: formData.avatar,
+          fullName: formData.fullName,
+          email: formData.email,
+          username: formData.username,
+        });
       });
 
       if (!isPending) {
@@ -83,7 +92,7 @@ const UserDetailClient = ({ user, id, onEdit }: UserDetailClientProps) => {
         setIsAvatarDirty(false);
       }
     },
-    [avatarFile, id, isAvatarDirty, isPending, onEdit, showToast],
+    [avatarFile, id, isAvatarDirty, isPending, onEdit, showToast, update],
   );
 
   return (

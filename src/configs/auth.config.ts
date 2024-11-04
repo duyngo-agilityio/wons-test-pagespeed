@@ -47,13 +47,19 @@ export const authConfig = {
       // Allow access in all other cases
       return true;
     },
-    async jwt({ user, token }) {
+    async jwt({ user, token, session }) {
       if (token) Object.assign(token, user);
+
+      if (session) Object.assign(token, session);
+
       return token;
     },
 
-    async session({ session, token }) {
+    async session({ session, token, newSession, trigger }) {
       Object.assign(session.user, token);
+
+      if (trigger === 'update' && newSession?.name) session = newSession;
+
       return session;
     },
   },
