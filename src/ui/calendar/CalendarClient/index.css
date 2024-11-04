@@ -108,7 +108,6 @@
 
 .rbc-date-cell.rbc-now {
   color: var(--c-calendar-current-date-color);
-  line-height: 33.37px;
   font-size: 25.63px;
 }
 
@@ -182,10 +181,6 @@
   color: white;
 }
 
-.rbc-day-slot .rbc-event {
-  min-height: 43px !important;
-}
-
 .rbc-event-label {
   width: 100% !important;
 }
@@ -193,6 +188,13 @@
 .rbc-header.rbc-today {
   background-color: transparent;
   background-color: #a5a3ff;
+  opacity: 1;
+  transition: background-color 0.3s;
+}
+
+.rbc-header.rbc-today:hover {
+  background-color: #605cff;
+  opacity: 1;
 }
 
 .rbc-time-header-cell .rbc-header:not(.rbc-today) {
@@ -204,10 +206,6 @@
 .rbc-time-header-cell .rbc-header:not(.rbc-today):hover {
   background-color: #dddde0;
   opacity: 1;
-}
-
-.rbc-events-container {
-  bottom: 20px !important;
 }
 
 .rbc-row-segment {
