@@ -1,113 +1,49 @@
-// Unit tests for: formatErrorMessage
+import { ERROR_MAPPER, MESSAGES } from '@/constants';
+import { formatErrorMessage, TStrapiErrorResponse } from '../messages';
 
-import { formatErrorMessage } from '../messages';
-
-// Import necessary modules and constants
-// Mock the constants
-jest.mock('@/constants', () => ({
-  ERROR_MAPPER: {
-    'Known error message': 'Mapped error message',
-  },
-  MESSAGES: {
-    ERROR: {
-      UNKNOWN_ERROR: 'An unknown error occurred',
-    },
-  },
-}));
-
-describe('formatErrorMessage() formatErrorMessage method', () => {
-  // Happy path tests
-  describe('Happy Path', () => {
-    it('should return the mapped error message for a known error', () => {
-      // Arrange: Create a valid error response with a known error message
-      const errorResponse = {
-        data: null,
-        error: {
-          status: 400,
-          name: 'BadRequest',
-          message: 'Known error message',
-        },
-      };
-
-      // Act: Call the function with the error response
-      const result = formatErrorMessage(errorResponse);
-
-      // Assert: Verify that the mapped error message is returned
-      expect(result).toBe('Mapped error message');
-    });
-
-    it('should return the unknown error message for an unknown error', () => {
-      // Arrange: Create a valid error response with an unknown error message
-      const errorResponse = {
-        data: null,
-        error: {
-          status: 500,
-          name: 'InternalServerError',
-          message: 'Unknown error message',
-        },
-      };
-
-      // Act: Call the function with the error response
-      const result = formatErrorMessage(errorResponse);
-
-      // Assert: Verify that the unknown error message is returned
-      expect(result).toBe('An unknown error occurred');
-    });
+describe('formatErrorMessage', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 
-  // Edge case tests
-  describe('Edge Cases', () => {
-    it('should return the unknown error message for an invalid error response structure', () => {
-      // Arrange: Create an invalid error response
-      const errorResponse = {
-        data: null,
-        error: {
-          status: 'not-a-number', // Invalid status type
-          name: 'BadRequest',
-          message: 'Known error message',
-        },
-      };
+  it('returns mapped error message for a known Strapi error response', () => {
+    const errorResponse: TStrapiErrorResponse = {
+      error: { status: 400, name: 'BadRequest', message: 'known_error_key' },
+    };
+    ERROR_MAPPER['known_error_key'] = 'Something went wrong.';
 
-      // Act: Call the function with the invalid error response
-      const result = formatErrorMessage(errorResponse);
+    const result = formatErrorMessage(errorResponse);
 
-      // Assert: Verify that the unknown error message is returned
-      expect(result).toBe('An unknown error occurred');
-    });
+    expect(result).toBe('Something went wrong.');
+  });
 
-    it('should return the unknown error message when errorResponse is null', () => {
-      // Arrange: Set errorResponse to null
-      const errorResponse = null;
+  it('returns default unknown error message for an unknown error key', () => {
+    const errorResponse: TStrapiErrorResponse = {
+      error: { status: 404, name: 'NotFound', message: 'unknown_error_key' },
+    };
 
-      // Act: Call the function with null
-      const result = formatErrorMessage(errorResponse);
+    const result = formatErrorMessage(errorResponse);
 
-      // Assert: Verify that the unknown error message is returned
-      expect(result).toBe('An unknown error occurred');
-    });
+    expect(result).toBe(MESSAGES.ERROR.UNKNOWN_ERROR);
+  });
 
-    it('should return the unknown error message when errorResponse is undefined', () => {
-      // Arrange: Set errorResponse to undefined
-      const errorResponse = undefined;
+  it('returns default unknown error message for an invalid error response', () => {
+    const invalidErrorResponse = { invalidKey: 'invalidValue' };
 
-      // Act: Call the function with undefined
-      const result = formatErrorMessage(errorResponse);
+    const result = formatErrorMessage(invalidErrorResponse);
 
-      // Assert: Verify that the unknown error message is returned
-      expect(result).toBe('An unknown error occurred');
-    });
+    expect(result).toBe(MESSAGES.ERROR.UNKNOWN_ERROR);
+  });
 
-    it('should return the unknown error message when errorResponse is an empty object', () => {
-      // Arrange: Set errorResponse to an empty object
-      const errorResponse = {};
+  it('returns default unknown error message when errorResponse is undefined', () => {
+    const result = formatErrorMessage(undefined);
 
-      // Act: Call the function with an empty object
-      const result = formatErrorMessage(errorResponse);
+    expect(result).toBe(MESSAGES.ERROR.UNKNOWN_ERROR);
+  });
 
-      // Assert: Verify that the unknown error message is returned
-      expect(result).toBe('An unknown error occurred');
-    });
+  it('returns default unknown error message when errorResponse is null', () => {
+    const result = formatErrorMessage(null);
+
+    expect(result).toBe(MESSAGES.ERROR.UNKNOWN_ERROR);
   });
 });
-
-// End of unit tests for: formatErrorMessage

@@ -7,8 +7,10 @@ import {
   eventSchema,
   getDirtyState,
   isEnableSubmitButton,
+  productFormSchema,
   signInSchema,
 } from '../validators';
+import { MOCK_PRODUCTS } from '@/mocks';
 
 describe('isEnableSubmitButton', () => {
   it('should enable button if all required fields are filled and there are no errors', () => {
@@ -40,6 +42,10 @@ describe('isEnableSubmitButton', () => {
 });
 
 describe('getDirtyState', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should return true for identical objects', () => {
     const baseObject = { field1: 'value1', field2: 'value2' };
     const targetObject = { field1: 'value1', field2: 'value2' };
@@ -136,6 +142,53 @@ describe('signInSchema', () => {
     const data = { identifier: 'user@example.com', password: 'short' };
     expect(() => signInSchema.parse(data)).toThrow(
       MESSAGES.ERROR.GENERAL_INVALID_PASSWORD,
+    );
+  });
+});
+
+describe('productFormSchema', () => {
+  it('should throw an error for missing title', () => {
+    const invalidData = {
+      ...MOCK_PRODUCTS[0],
+      title: '',
+    };
+
+    expect(() => productFormSchema.parse(invalidData)).toThrow(
+      MESSAGES.ERROR.FIELD_REQUIRED,
+    );
+  });
+
+  it('should throw an error for invalid brand', () => {
+    const invalidData = {
+      ...MOCK_PRODUCTS[0],
+      brand: 'unknownBrand',
+    };
+
+    expect(() => productFormSchema.parse(invalidData)).toThrow(
+      MESSAGES.ERROR.FIELD_REQUIRED,
+    );
+  });
+
+  it('should throw an error for empty imageUrl', () => {
+    const invalidData = {
+      ...MOCK_PRODUCTS[0],
+      imageUrl: '',
+      price: '555',
+    };
+
+    expect(() => productFormSchema.parse(invalidData)).toThrow(
+      MESSAGES.ERROR.FIELD_REQUIRED,
+    );
+  });
+
+  it('should throw an error for description exceeding maximum length', () => {
+    const invalidData = {
+      ...MOCK_PRODUCTS[0],
+      description: 'a'.repeat(10001),
+    };
+
+    expect(() => productFormSchema.parse(invalidData)).toThrow(
+      MESSAGES.ERROR.FIELD_INVALID('Description'),
     );
   });
 });

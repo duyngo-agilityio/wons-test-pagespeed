@@ -5,6 +5,7 @@ import { StrapiModel, TEventResponse } from '@/types';
 
 // Utils
 import {
+  aggregateProductQuantities,
   capitalizeFirstLetter,
   filterDataByIndex,
   formatAmountWithDiscount,
@@ -27,6 +28,7 @@ import {
 import {
   EVENTS_MOCKS,
   EVENTS_MOCKS_WIDTH_USERS_PERMISSIONS,
+  MOCK_INVOICE_PRODUCT_RESPONSE,
   MOCK_INVOICES,
 } from '@/mocks';
 
@@ -624,7 +626,6 @@ describe('getTimeFromISO() getTimeFromISO method', () => {
     });
   });
 
-  // Edge Case Tests
   describe('Edge Cases', () => {
     it('should throw an error for an invalid ISO date string', () => {
       const invalidISOString = 'invalid-date-string';
@@ -761,5 +762,43 @@ describe('formatAmountWithDiscount', () => {
 
   it('returns a negative total with a negative discount (if applicable)', () => {
     expect(formatAmountWithDiscount(mockData, -10)).toBe('16.359,20 USD'); // Assuming the function can handle negative discounts, resulting in a total of 55.00
+  });
+});
+
+describe('aggregateProductQuantities', () => {
+  it('should return an empty array when given an empty product list', () => {
+    const result = aggregateProductQuantities([]);
+    expect(result).toEqual([]);
+  });
+
+  it('should return the same product list when there is only one product', () => {
+    const result = aggregateProductQuantities(MOCK_INVOICE_PRODUCT_RESPONSE);
+    expect(result).toEqual([
+      {
+        id: 1,
+        attributes: {
+          price: 1200, // Taking the price of the first instance
+          createdAt: '2024-08-27T04:31:42.022Z', // Taking the createdAt of the first instance
+          updatedAt: '2024-09-10T04:15:01.906Z', // Taking the updatedAt of the first instance
+          publishedAt: '2024-09-10T04:14:54.432Z', // Taking the publishedAt of the first instance
+          quantity: 11, // Aggregated quantity (1 + 10)
+          product: {
+            data: {
+              id: 1,
+              attributes: {
+                id: 1,
+                brand: 'Apple',
+                description: 'Expensive',
+                negotiable: true,
+                imageUrl: 'https://example.com/image1.jpg',
+                title: 'MacBook Pro',
+                price: 1200,
+                rating: 4.5,
+              },
+            },
+          },
+        },
+      },
+    ]);
   });
 });
