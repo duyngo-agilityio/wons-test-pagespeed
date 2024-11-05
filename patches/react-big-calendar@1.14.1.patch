@@ -1,5 +1,5 @@
 diff --git a/dist/react-big-calendar.esm.js b/dist/react-big-calendar.esm.js
-index 771b698cd884d7cf863809941c1f071b7b85caae..7359204f84bc1799fee781d5beea3eb9912d6320 100644
+index 771b698cd884d7cf863809941c1f071b7b85caae..dcd51f2614d3f72489847779e0f64b811caaf856 100644
 --- a/dist/react-big-calendar.esm.js
 +++ b/dist/react-big-calendar.esm.js
 @@ -1705,6 +1705,7 @@ var EventEndingRow = /*#__PURE__*/function (_React$Component) {
@@ -10,7 +10,17 @@ index 771b698cd884d7cf863809941c1f071b7b85caae..7359204f84bc1799fee781d5beea3eb9
          key: 'sm_' + slot,
          className: clsx('rbc-button-link', 'rbc-show-more'),
          onClick: function onClick(e) {
-@@ -1991,7 +1992,7 @@ var DateHeader = function DateHeader(_ref) {
+@@ -1975,8 +1976,7 @@ DateContentRow.defaultProps = {
+ var Header = function Header(_ref) {
+   var label = _ref.label;
+   return /*#__PURE__*/React.createElement("span", {
+-    role: "columnheader",
+-    "aria-sort": "none"
++    role: "none",
+   }, label);
+ };
+ 
+@@ -1991,7 +1991,7 @@ var DateHeader = function DateHeader(_ref) {
      type: "button",
      className: "rbc-button-link",
      onClick: onDrillDown,
@@ -20,7 +30,7 @@ index 771b698cd884d7cf863809941c1f071b7b85caae..7359204f84bc1799fee781d5beea3eb9
  };
  
 diff --git a/dist/react-big-calendar.js b/dist/react-big-calendar.js
-index fffc1076d89cf53a23f492aa784e655dba8984f8..9c78ec441c92e1da717370a394aafe0943445269 100644
+index fffc1076d89cf53a23f492aa784e655dba8984f8..bb8a2b0408115a8c46f9a974eb908d9aacd11a5c 100644
 --- a/dist/react-big-calendar.js
 +++ b/dist/react-big-calendar.js
 @@ -39982,6 +39982,7 @@
@@ -31,7 +41,17 @@ index fffc1076d89cf53a23f492aa784e655dba8984f8..9c78ec441c92e1da717370a394aafe09
            key: 'sm_' + slot,
            className: clsx('rbc-button-link', 'rbc-show-more'),
            onClick: function onClick(e) {
-@@ -40318,7 +40319,7 @@
+@@ -40302,8 +40303,7 @@
+   var Header = function Header(_ref) {
+     var label = _ref.label;
+     return /*#__PURE__*/React.createElement("span", {
+-      role: "columnheader",
+-      "aria-sort": "none"
++      role: "none",
+     }, label);
+   };
+ 
+@@ -40318,7 +40318,7 @@
        type: "button",
        className: "rbc-button-link",
        onClick: onDrillDown,
@@ -55,7 +75,7 @@ index 7b474131a3f38832ac43fc8a85ea4983ddae0a88..a00fd3e45c928986d0d9731853edb886
  var _default = exports.default = DateHeader;
 \ No newline at end of file
 diff --git a/lib/EventEndingRow.js b/lib/EventEndingRow.js
-index b6d14c195380cb72c9acd8ad5d3f547ab5532e4e..ca44e68a6f4d92f542fff1d7f4657acd9fd3a80f 100644
+index b6d14c195380cb72c9acd8ad5d3f547ab5532e4e..3cbcde07d09a2deba13f60e1fd5e65f79a1ff740 100644
 --- a/lib/EventEndingRow.js
 +++ b/lib/EventEndingRow.js
 @@ -96,6 +96,7 @@ var EventEndingRow = /*#__PURE__*/function (_React$Component) {
@@ -66,3 +86,17 @@ index b6d14c195380cb72c9acd8ad5d3f547ab5532e4e..ca44e68a6f4d92f542fff1d7f4657acd
          key: 'sm_' + slot,
          className: (0, _clsx.default)('rbc-button-link', 'rbc-show-more'),
          onClick: function onClick(e) {
+diff --git a/lib/Header.js b/lib/Header.js
+index 3047b5922c64c216e2596dee1aa09c032c8570b5..69e7c1498fd76452fc6533ce90fa671f94ac0144 100644
+--- a/lib/Header.js
++++ b/lib/Header.js
+@@ -9,8 +9,7 @@ var _react = _interopRequireDefault(require("react"));
+ var Header = function Header(_ref) {
+   var label = _ref.label;
+   return /*#__PURE__*/_react.default.createElement("span", {
+-    role: "columnheader",
+-    "aria-sort": "none"
++    role: "none",
+   }, label);
+ };
+ var _default = exports.default = Header;

@@ -9,7 +9,7 @@ patchedDependencies:
     hash: abb56bdw5xvpk7trwi75ktqgum
     path: patches/@nextui-org__pagination@2.0.35.patch
   react-big-calendar@1.14.1:
-    hash: 4yhjs2au7apcnrezcarxgihsli
+    hash: dfh6n22kpwclcfhlt34xwtwtee
     path: patches/react-big-calendar@1.14.1.patch
 
 importers:
@@ -51,7 +51,7 @@ importers:
         version: 18.3.1
       react-big-calendar:
         specifier: ^1.14.1
-        version: 1.14.1(patch_hash=4yhjs2au7apcnrezcarxgihsli)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.14.1(patch_hash=dfh6n22kpwclcfhlt34xwtwtee)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
@@ -16530,7 +16530,7 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-big-calendar@1.14.1(patch_hash=4yhjs2au7apcnrezcarxgihsli)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-big-calendar@1.14.1(patch_hash=dfh6n22kpwclcfhlt34xwtwtee)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.24.5
       clsx: 1.2.1
