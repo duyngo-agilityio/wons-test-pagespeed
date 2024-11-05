@@ -15,10 +15,6 @@ jest.mock('@/utils', () => ({
   formatErrorMessage: jest.fn(),
 }));
 
-jest.mock('next/cache', () => ({
-  revalidateTag: jest.fn(),
-}));
-
 jest.mock('@/services', () => ({
   httpClient: {
     getRequest: jest.fn(),

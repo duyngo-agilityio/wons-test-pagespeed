@@ -12,7 +12,7 @@ describe('getAllStatistics', () => {
     jest.clearAllMocks();
   });
 
-  it.skip('should return statistics data when API call is successful', async () => {
+  it('should return statistics data when API call is successful', async () => {
     const mockStatisticsResponse = {
       data: [
         {
@@ -44,7 +44,7 @@ describe('getAllStatistics', () => {
     });
   });
 
-  it.skip('should return an empty array when no data is available', async () => {
+  it('should return an empty array when no data is available', async () => {
     const mockEmptyResponse = { data: [] };
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockEmptyResponse);
 
@@ -53,7 +53,7 @@ describe('getAllStatistics', () => {
     expect(result).toEqual({ data: [] });
   });
 
-  it.skip('should throw an error when the API call fails', async () => {
+  it('should throw an error when the API call fails', async () => {
     const mockError = new Error('API Error');
     (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
     const result = await getAllStatistics();
