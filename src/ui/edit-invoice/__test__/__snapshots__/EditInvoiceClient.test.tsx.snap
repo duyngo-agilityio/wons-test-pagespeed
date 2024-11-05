@@ -29,6 +29,7 @@ exports[`EditInvoiceClient section should match with snapshot 1`] = `
               >
                 <svg
                   class="text-blue-800/70 dark:text-white/70"
+                  data-testid="avatar-upload-icon"
                   fill="currentColor"
                   height="32"
                   stroke="currentColor"

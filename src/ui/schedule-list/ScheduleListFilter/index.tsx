@@ -15,7 +15,7 @@ const ScheduleListFilter = async (): Promise<JSX.Element> => {
   const filterOptions = formatFilterOptions(users);
 
   return (
-    <div className="mb-1 flex items-center gap-5 base:mt-10 md:mt-0 base:flex-col md:flex-row">
+    <div className="mb-1 flex items-center gap-5 base:flex-col md:flex-row">
       <Filter title="Filter" items={filterOptions} />
     </div>
   );

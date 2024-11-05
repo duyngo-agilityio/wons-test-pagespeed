@@ -1,5 +1,5 @@
 // Mocks
-import { MOCK_INVOICES, mockProducts } from '@/mocks';
+import { MOCK_INVOICES, MOCK_PRODUCTS_WITH_STRAPI_MODEL } from '@/mocks';
 
 // Page
 import DashboardPage from '../page';
@@ -20,7 +20,7 @@ jest.mock('@/api', () => ({
     ],
   })),
   getAllProducts: jest.fn(() => ({
-    data: mockProducts,
+    data: MOCK_PRODUCTS_WITH_STRAPI_MODEL,
   })),
 }));
 

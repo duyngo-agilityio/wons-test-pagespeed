@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InvoiceStatusComponent matches snapshot when variant is Default 1`] = `
+<div>
+  <div
+    class="relative min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-1 text-small text-default-foreground w-[162px] max-w-[162px] h-[45px] max-h-[45px] rounded-[22px] bg-gray-500/10"
+  >
+    <span
+      class="flex-1 font-normal px-2 text-center text-md capitalize text-gray-500"
+    />
+  </div>
+</div>
+`;

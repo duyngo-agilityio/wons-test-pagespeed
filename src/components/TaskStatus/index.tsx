@@ -27,15 +27,22 @@ const TaskStatusComponent = ({ status }: TTaskStatusProps): JSX.Element => {
       bg: 'bg-pink-500/10',
       color: 'text-pink-500',
     },
+    default: {
+      bg: 'bg-gray-300',
+      color: 'text-gray-700',
+    },
   };
 
   return (
     <Chip
       classNames={{
-        base: ['w-[100px] px-2 rounded-[20px]', `${chipClasses[status].bg}`],
+        base: [
+          'w-[100px] px-2 rounded-[20px]',
+          chipClasses[status]?.bg || chipClasses.default.bg,
+        ],
         content: [
           'text-center text-md capitalize',
-          `${chipClasses[status].color}`,
+          chipClasses[status]?.color || chipClasses.default.color,
         ],
       }}
     >

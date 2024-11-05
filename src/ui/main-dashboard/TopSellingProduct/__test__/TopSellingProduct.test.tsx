@@ -8,7 +8,7 @@ import TopSellingProducts from '../index';
 import { getAllProducts } from '@/api';
 
 // mocks
-import { mockProducts } from '@/mocks';
+import { MOCK_PRODUCTS_WITH_STRAPI_MODEL } from '@/mocks';
 
 jest.mock('@/api', () => ({
   ...jest.requireActual('@/api'),
@@ -26,7 +26,7 @@ async function resolvedComponent(
 describe('TopSellingProducts component', () => {
   it('renders correctly and matches snapshot', async () => {
     (getAllProducts as jest.Mock).mockResolvedValue({
-      data: mockProducts,
+      data: MOCK_PRODUCTS_WITH_STRAPI_MODEL,
     });
 
     const TopSellingProductsResolved = await resolvedComponent(

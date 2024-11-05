@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetails Component matches snapshot 1`] = `
+<div>
+  <div
+    class="min-h-full base:w-[302px] lg:w-[369px] max-w-[369px] bg-white dark:bg-gray-400 py-[62px] px-6"
+  >
+    <div
+      class="flex flex-col items-center gap-4 border-b-1 border-blue-800/10 dark:border-white/10 pb-7.5"
+    >
+      <div
+        class="relative w-28 h-28"
+      >
+        <img
+          alt="Test Brand+/test-image.jpg"
+          class="object-cover rounded-full h-full"
+          data-nimg="fill"
+          decoding="async"
+          fetchpriority="high"
+          sizes="112px"
+          src="http://localhost/_next/image?url=%2Ftest-image.jpg&w=3840&q=75"
+          srcset="/_next/image?url=%2Ftest-image.jpg&w=16&q=75 16w, /_next/image?url=%2Ftest-image.jpg&w=32&q=75 32w, /_next/image?url=%2Ftest-image.jpg&w=48&q=75 48w, /_next/image?url=%2Ftest-image.jpg&w=64&q=75 64w, /_next/image?url=%2Ftest-image.jpg&w=96&q=75 96w, /_next/image?url=%2Ftest-image.jpg&w=128&q=75 128w, /_next/image?url=%2Ftest-image.jpg&w=256&q=75 256w, /_next/image?url=%2Ftest-image.jpg&w=384&q=75 384w, /_next/image?url=%2Ftest-image.jpg&w=640&q=75 640w, /_next/image?url=%2Ftest-image.jpg&w=750&q=75 750w, /_next/image?url=%2Ftest-image.jpg&w=828&q=75 828w, /_next/image?url=%2Ftest-image.jpg&w=1080&q=75 1080w, /_next/image?url=%2Ftest-image.jpg&w=1200&q=75 1200w, /_next/image?url=%2Ftest-image.jpg&w=1920&q=75 1920w, /_next/image?url=%2Ftest-image.jpg&w=2048&q=75 2048w, /_next/image?url=%2Ftest-image.jpg&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;"
+        />
+      </div>
+      <div
+        class="flex flex-col items-center"
+      >
+        <p
+          class="font-dm-sans text-blue-800 dark:text-white text-3xl font-bold"
+        >
+          Test Product
+        </p>
+        <p
+          class="font-dm-sans text-blue-800 dark:text-white text-md"
+        >
+          Test Brand
+        </p>
+      </div>
+    </div>
+    <div
+      class="flex flex-col gap-2.5 mt-10"
+    >
+      <p
+        class="font-dm-sans text-blue-800 dark:text-white text-xxl capitalize font-medium"
+      >
+        Information
+      </p>
+      <div
+        class="flex items-center justify-between border-b-1 border-blue-800/10 dark:border-white/10 py-4"
+      >
+        <p
+          class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium"
+        >
+          Price: $100.00
+        </p>
+        <p
+          class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium"
+        >
+          Negotiable
+        </p>
+      </div>
+      <p
+        class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium border-b-1 border-blue-800/10 dark:border-white/10 py-4"
+      >
+        Total Order: 5 Piece
+      </p>
+      <p
+        class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium border-b-1 border-blue-800/10 dark:border-white/10 py-4"
+      >
+        Total Sales: $500.00
+      </p>
+      <p
+        class="font-dm-sans text-blue-800 dark:text-white text-xl opacity-70 font-medium py-4"
+      >
+        This is a test product description.
+      </p>
+    </div>
+  </div>
+</div>
+`;
