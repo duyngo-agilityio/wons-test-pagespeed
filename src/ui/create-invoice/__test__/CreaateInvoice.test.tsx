@@ -8,7 +8,7 @@ import CreateInvoice from '../index';
 import { getCustomers, getProducts } from '@/api';
 
 // mocks
-import { mockProducts, CUSTOMER_MOCK } from '@/mocks';
+import { MOCK_PRODUCTS_WITH_STRAPI_MODEL, CUSTOMER_MOCK } from '@/mocks';
 
 jest.mock('@/api', () => ({
   ...jest.requireActual('@/api'),
@@ -29,7 +29,7 @@ describe('CreateInvoice Component Test', () => {
   });
   it('should render all content with resolved data and match snapshot', async () => {
     (getProducts as jest.Mock).mockResolvedValue({
-      mockProducts,
+      MOCK_PRODUCTS_WITH_STRAPI_MODEL,
     });
 
     (getCustomers as jest.Mock).mockResolvedValue({

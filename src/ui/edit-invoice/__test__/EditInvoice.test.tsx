@@ -8,7 +8,7 @@ import { getCustomers, getInvoiceById, getProducts } from '@/api';
 
 // mocks
 import {
-  mockProducts,
+  MOCK_PRODUCTS_WITH_STRAPI_MODEL,
   CUSTOMER_MOCK,
   MOCK_INVOICES_WITH_CUSTOMER,
 } from '@/mocks';
@@ -63,7 +63,7 @@ describe('EditInvoice Component Test', () => {
 
   it('should render all content with resolved data and match snapshot', async () => {
     (getProducts as jest.Mock).mockResolvedValue({
-      data: mockProducts,
+      data: MOCK_PRODUCTS_WITH_STRAPI_MODEL,
     });
 
     (getCustomers as jest.Mock).mockResolvedValue({

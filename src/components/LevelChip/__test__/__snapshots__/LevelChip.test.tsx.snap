@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LevelChip Component matches snapshot when level is medium and size is md 1`] = `
+<div>
+  <div
+    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap text-small text-default-foreground px-[22px] h-[30px] max-h-[30px] rounded-[22px] bg-blue-500 dark:bg-blue-200"
+  >
+    <span
+      class="flex-1 font-normal px-2 text-center text-md capitalize text-white dark:text-gray-600"
+    >
+      medium
+    </span>
+  </div>
+</div>
+`;

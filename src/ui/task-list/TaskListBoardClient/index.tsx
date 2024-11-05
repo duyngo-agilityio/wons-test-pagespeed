@@ -11,7 +11,7 @@ import { convertTasksByStatus, mapTaskStatusToStateKey } from '@/utils';
 import { MESSAGE_STATUS, MESSAGES } from '@/constants';
 
 // Components
-import { Column } from '@/components';
+import { Column, Text } from '@/components';
 
 // hooks
 import { useToast } from '@/hooks';
@@ -81,6 +81,14 @@ const TaskListBoardClient = ({ data }: ITaskListBoardProps) => {
   useEffect(() => {
     setTasks(convertTasksByStatus(data));
   }, [data]);
+
+  if (!data || data.length === 0) {
+    return (
+      <div className="h-[10rem] flex justify-center items-center">
+        <Text className="text-center" size="xl" text="No Tasks Found" />
+      </div>
+    );
+  }
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
