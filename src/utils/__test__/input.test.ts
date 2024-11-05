@@ -10,10 +10,6 @@ const mockErrors = {
 const mockClearErrorFunc = jest.fn();
 
 describe('clearErrorOnChange', () => {
-  beforeEach(() => {
-    mockClearErrorFunc.mockClear();
-  });
-
   it('clears error when message exists for the specified field name', () => {
     clearErrorOnChange(
       'fieldName1',
