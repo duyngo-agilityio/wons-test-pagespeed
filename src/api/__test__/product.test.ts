@@ -94,7 +94,10 @@ describe('getProducts', () => {
 
   it('should return top getProducts when API call is successful', async () => {
     const mockResponse = {
-      data: [mockProducts[0], mockProducts[1]],
+      data: [
+        MOCK_PRODUCTS_WITH_STRAPI_MODEL[0],
+        MOCK_PRODUCTS_WITH_STRAPI_MODEL[1],
+      ],
     };
 
     (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);
