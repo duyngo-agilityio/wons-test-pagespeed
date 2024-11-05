@@ -13,6 +13,13 @@
     );
 }
 
+.rbc-off-range {
+  color: light-dark(
+    var(--c-calendar-off-range-light),
+    var(--c-calendar-off-range-dark)
+  );
+}
+
 .rbc-date-cell {
   align-items: center;
   text-align: center;
@@ -107,12 +114,21 @@
 }
 
 .rbc-date-cell.rbc-now {
-  color: var(--c-calendar-current-date-color);
+  color: var(--c-calendar-current-date-color-dark);
+  line-height: 33.37px;
   font-size: 25.63px;
 }
 
 .rbc-date-cell.rbc-now.rbc-current {
-  border-top: 2px solid var(--c-calendar-current-date-color);
+  border-top: 2px solid
+    light-dark(
+      var(--c-calendar-current-date-color-light),
+      var(--c-calendar-current-date-color-dark)
+    );
+  color: light-dark(
+    var(--c-calendar-current-date-color-light),
+    var(--c-calendar-current-date-color-dark)
+  );
 }
 
 .rbc-time-column {
@@ -173,8 +189,11 @@
 
 .rbc-event {
   width: auto;
-  background-color: var(--c-calendar-current-date-color);
-  color: black;
+  background-color: light-dark(
+    var(--c-calendar-current-date-color-light),
+    var(--c-calendar-current-date-color-dark)
+  );
+  color: light-dark(white, black);
 }
 
 .rbc-event.rbc-selected {
@@ -225,7 +244,10 @@
   background-color: transparent;
   border: 1px solid #dcd4f7;
   border-radius: 5px;
-  color: #4a3aff;
+  color: light-dark(
+    var(--c-calendar-show-more-light),
+    var(--c-calendar-show-more-dark)
+  );
   padding: 6.5px 12px;
   font-weight: bold;
   text-transform: capitalize;
@@ -238,6 +260,7 @@
 
 .rbc-button-link.rbc-show-more:hover {
   background-color: #f0f0ff;
+  color: var(--c-calendar-show-more-light);
 }
 
 .rbc-time-view .rbc-time-header {

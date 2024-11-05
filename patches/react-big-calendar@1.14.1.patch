@@ -1,0 +1,68 @@
+diff --git a/dist/react-big-calendar.esm.js b/dist/react-big-calendar.esm.js
+index 771b698cd884d7cf863809941c1f071b7b85caae..7359204f84bc1799fee781d5beea3eb9912d6320 100644
+--- a/dist/react-big-calendar.esm.js
++++ b/dist/react-big-calendar.esm.js
+@@ -1705,6 +1705,7 @@ var EventEndingRow = /*#__PURE__*/function (_React$Component) {
+       var count = remainingEvents.length;
+       return count ? /*#__PURE__*/React.createElement("button", {
+         type: "button",
++        role: "cell",
+         key: 'sm_' + slot,
+         className: clsx('rbc-button-link', 'rbc-show-more'),
+         onClick: function onClick(e) {
+@@ -1991,7 +1992,7 @@ var DateHeader = function DateHeader(_ref) {
+     type: "button",
+     className: "rbc-button-link",
+     onClick: onDrillDown,
+-    role: "cell"
++    role: "button"
+   }, label);
+ };
+ 
+diff --git a/dist/react-big-calendar.js b/dist/react-big-calendar.js
+index fffc1076d89cf53a23f492aa784e655dba8984f8..9c78ec441c92e1da717370a394aafe0943445269 100644
+--- a/dist/react-big-calendar.js
++++ b/dist/react-big-calendar.js
+@@ -39982,6 +39982,7 @@
+         var count = remainingEvents.length;
+         return count ? /*#__PURE__*/React.createElement("button", {
+           type: "button",
++          role: "cell",
+           key: 'sm_' + slot,
+           className: clsx('rbc-button-link', 'rbc-show-more'),
+           onClick: function onClick(e) {
+@@ -40318,7 +40319,7 @@
+       type: "button",
+       className: "rbc-button-link",
+       onClick: onDrillDown,
+-      role: "cell"
++      role: "button"
+     }, label);
+   };
+ 
+diff --git a/lib/DateHeader.js b/lib/DateHeader.js
+index 7b474131a3f38832ac43fc8a85ea4983ddae0a88..a00fd3e45c928986d0d9731853edb8864a0600c0 100644
+--- a/lib/DateHeader.js
++++ b/lib/DateHeader.js
+@@ -17,7 +17,7 @@ var DateHeader = function DateHeader(_ref) {
+     type: "button",
+     className: "rbc-button-link",
+     onClick: onDrillDown,
+-    role: "cell"
++    role: "button"
+   }, label);
+ };
+ var _default = exports.default = DateHeader;
+\ No newline at end of file
+diff --git a/lib/EventEndingRow.js b/lib/EventEndingRow.js
+index b6d14c195380cb72c9acd8ad5d3f547ab5532e4e..ca44e68a6f4d92f542fff1d7f4657acd9fd3a80f 100644
+--- a/lib/EventEndingRow.js
++++ b/lib/EventEndingRow.js
+@@ -96,6 +96,7 @@ var EventEndingRow = /*#__PURE__*/function (_React$Component) {
+       var count = remainingEvents.length;
+       return count ? /*#__PURE__*/_react.default.createElement("button", {
+         type: "button",
++        role: "cell",
+         key: 'sm_' + slot,
+         className: (0, _clsx.default)('rbc-button-link', 'rbc-show-more'),
+         onClick: function onClick(e) {
