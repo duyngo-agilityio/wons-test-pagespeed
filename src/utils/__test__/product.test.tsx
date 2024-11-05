@@ -24,7 +24,7 @@ import {
   MOCK_INVOICE_PRODUCT_RESPONSE,
   MOCK_PRODUCTS,
   MOCK_PRODUCTS_WITHOUT_ATTRIBUTES,
-  mockProducts,
+  MOCK_PRODUCTS_WITH_STRAPI_MODEL,
 } from '@/mocks';
 
 describe('getSerialNumberWithMedal', () => {
@@ -93,10 +93,13 @@ describe('filterProductsNotInInvoice', () => {
   it('filters out products that are in the invoice', () => {
     const invoiceProductIds = new Set([1, 2]); // IDs of products in the invoice
 
-    const result = filterProductsNotInInvoice(invoiceProductIds, mockProducts);
+    const result = filterProductsNotInInvoice(
+      invoiceProductIds,
+      MOCK_PRODUCTS_WITH_STRAPI_MODEL,
+    );
 
     // Only products not in invoiceProductIds should remain
-    const expected = [mockProducts[2]];
+    const expected = [MOCK_PRODUCTS_WITH_STRAPI_MODEL[2]];
 
     expect(result).toEqual(expected);
   });
@@ -104,23 +107,29 @@ describe('filterProductsNotInInvoice', () => {
   it('returns all products if none are in the invoice', () => {
     const invoiceProductIds = new Set([]); // Empty set
 
-    const result = filterProductsNotInInvoice(invoiceProductIds, mockProducts);
+    const result = filterProductsNotInInvoice(
+      invoiceProductIds,
+      MOCK_PRODUCTS_WITH_STRAPI_MODEL,
+    );
 
-    expect(result).toEqual(mockProducts); // No products are filtered out
+    expect(result).toEqual(MOCK_PRODUCTS_WITH_STRAPI_MODEL); // No products are filtered out
   });
 
   it('returns an empty array if all products are in the invoice', () => {
     const invoiceProductIds = new Set([1, 2]);
 
-    const result = filterProductsNotInInvoice(invoiceProductIds, mockProducts);
+    const result = filterProductsNotInInvoice(
+      invoiceProductIds,
+      MOCK_PRODUCTS_WITH_STRAPI_MODEL,
+    );
 
-    expect(result).toEqual([mockProducts[2]]); // All products are filtered out
+    expect(result).toEqual([MOCK_PRODUCTS_WITH_STRAPI_MODEL[2]]); // All products are filtered out
   });
 });
 
 describe('formatProduct', () => {
   it('formats products correctly', () => {
-    const result = formatProduct(mockProducts);
+    const result = formatProduct(MOCK_PRODUCTS_WITH_STRAPI_MODEL);
 
     const expected = [
       {
@@ -128,7 +137,7 @@ describe('formatProduct', () => {
         attributes: {
           price: 0,
           quantity: 0,
-          product: { data: mockProducts[0] },
+          product: { data: MOCK_PRODUCTS_WITH_STRAPI_MODEL[0] },
         },
       },
       {
@@ -136,7 +145,7 @@ describe('formatProduct', () => {
         attributes: {
           price: 0,
           quantity: 0,
-          product: { data: mockProducts[1] },
+          product: { data: MOCK_PRODUCTS_WITH_STRAPI_MODEL[1] },
         },
       },
       {
@@ -144,7 +153,7 @@ describe('formatProduct', () => {
         attributes: {
           price: 0,
           quantity: 0,
-          product: { data: mockProducts[2] },
+          product: { data: MOCK_PRODUCTS_WITH_STRAPI_MODEL[2] },
         },
       },
     ];
@@ -159,7 +168,7 @@ describe('formatProduct', () => {
   });
 
   it('handles a single product correctly', () => {
-    const result = formatProduct([mockProducts[2]]);
+    const result = formatProduct([MOCK_PRODUCTS_WITH_STRAPI_MODEL[2]]);
 
     const expected = [
       {
@@ -167,7 +176,7 @@ describe('formatProduct', () => {
         attributes: {
           price: 0,
           quantity: 0,
-          product: { data: mockProducts[2] },
+          product: { data: MOCK_PRODUCTS_WITH_STRAPI_MODEL[2] },
         },
       },
     ];
@@ -178,15 +187,15 @@ describe('formatProduct', () => {
 
 describe('getDataByID', () => {
   it('returns the correct item when the ID exists', () => {
-    const result = getDataByID(mockProducts, 2);
+    const result = getDataByID(MOCK_PRODUCTS_WITH_STRAPI_MODEL, 2);
 
-    const expected = mockProducts[1];
+    const expected = MOCK_PRODUCTS_WITH_STRAPI_MODEL[1];
 
     expect(result).toEqual(expected);
   });
 
   it('throws an error when the ID does not exist', () => {
-    expect(() => getDataByID(mockProducts, 6)).toThrowError(
+    expect(() => getDataByID(MOCK_PRODUCTS_WITH_STRAPI_MODEL, 6)).toThrowError(
       'Item with ID 6 not found',
     );
   });

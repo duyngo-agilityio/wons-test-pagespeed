@@ -90,6 +90,7 @@ const AvatarUpload = ({
             />
           ) : (
             <IoCamera
+              data-testid="avatar-upload-icon"
               size={32}
               className="text-blue-800/70 dark:text-white/70"
             />

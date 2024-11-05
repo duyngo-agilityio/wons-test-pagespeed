@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import isEqual from 'react-fast-compare';
 import {
@@ -81,12 +81,34 @@ const Filter = ({
     [searchParams, replace, pathname, FILTERS],
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    if (isOpen) {
+      setIsOpen(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('scroll', handleScroll);
+    } else {
+      window.removeEventListener('scroll', handleScroll);
+    }
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen, handleScroll]);
+
   return (
-    <Popover {...popoverProps} className={className}>
+    <Popover
+      {...popoverProps}
+      className={className}
+      isOpen={isOpen}
+      onOpenChange={(open) => setIsOpen(open)}
+    >
       <PopoverTrigger {...popoverTriggerProps}>
         {title && (
           <Button
-            className=" w-full bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100 px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium z-auto"
+            className=" w-full bg-blue-500 border-transparent dark:bg-purple-600 text-white px-5 py-3 text-md rounded-[10px] border-[1px] h-auto min-w-max font-medium z-auto"
             endContent={<FilterIcon />}
             {...buttonProps}
           >

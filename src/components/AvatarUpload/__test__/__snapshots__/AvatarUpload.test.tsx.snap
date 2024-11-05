@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarUpload Component matches the snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center "
+  >
+    <label
+      class="cursor-pointer hover:scale-110 transition-transform"
+      for="file"
+    >
+      <div
+        class="rounded-full w-32 h-32 bg-gray-50 dark:bg-gray-600 flex justify-center items-center"
+      >
+        <svg
+          class="text-blue-800/70 dark:text-white/70"
+          data-testid="avatar-upload-icon"
+          fill="currentColor"
+          height="32"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="256"
+            cy="272"
+            r="64"
+          />
+          <path
+            d="M432 144h-59c-3 0-6.72-1.94-9.62-5l-25.94-40.94a15.52 15.52 0 0 0-1.37-1.85C327.11 85.76 315 80 302 80h-92c-13 0-25.11 5.76-34.07 16.21a15.52 15.52 0 0 0-1.37 1.85l-25.94 41c-2.22 2.42-5.34 5-8.62 5v-8a16 16 0 0 0-16-16h-24a16 16 0 0 0-16 16v8h-4a48.05 48.05 0 0 0-48 48V384a48.05 48.05 0 0 0 48 48h352a48.05 48.05 0 0 0 48-48V192a48.05 48.05 0 0 0-48-48zM256 368a96 96 0 1 1 96-96 96.11 96.11 0 0 1-96 96z"
+          />
+        </svg>
+      </div>
+    </label>
+    <div
+      class="group flex-col data-[hidden=true]:hidden w-full group relative justify-end data-[has-label=true]:mt-[29px] hidden"
+      data-filled="true"
+      data-filled-within="true"
+      data-invalid="true"
+      data-slot="base"
+    >
+      <div
+        class="h-full flex flex-col"
+        data-slot="main-wrapper"
+      >
+        <div
+          class="relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm gap-3 min-h-10 transition-background motion-reduce:transition-none !duration-150 data-[hover=true]:bg-primary-100 text-primary placeholder:text-primary outline-none group-data-[focus-visible=true]:z-10 group-data-[focus-visible=true]:ring-offset-background !bg-danger-50 data-[hover=true]:!bg-danger-100 group-data-[focus=true]:!bg-danger-50 bg-gray-50 dark:bg-gray-600 hover:data-[hover=true]:bg-gray-200/50 dark:hover:bg-gray-900 focus-within:bg-gray-50 dark:focus-within:bg-gray-600 group-data-[focus=true]:bg-gray-50 dark:group-data-[focus=true]:bg-gray-600 h-12.5 p-3.75 rounded-[10px] group-data-[focus-visible=true]:ring-2 group-data-[focus-visible=true]:ring-offset-2 group-data-[focus-visible=true]:ring-blue-500"
+          data-slot="input-wrapper"
+          style="cursor: text;"
+        >
+          <div
+            class="inline-flex w-full items-center h-full box-border"
+            data-slot="inner-wrapper"
+          >
+            <input
+              accept="image/*"
+              aria-invalid="true"
+              aria-label="Upload Avatar"
+              class="w-full font-normal !outline-none focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 file:cursor-pointer file:bg-transparent file:border-0 autofill:bg-transparent bg-clip-text !placeholder:text-danger !text-danger text-blue-800/70 dark:text-white/70 placeholder:text-blue-800/40 dark:placeholder:text-white/40 bg-transparent text-md"
+              data-slot="input"
+              data-testid="avatar-upload"
+              id="file"
+              placeholder=" "
+              type="file"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

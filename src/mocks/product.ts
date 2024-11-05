@@ -4,7 +4,7 @@ import { StrapiModel } from '@/types/strapi';
 // models
 import { IProduct } from '@/models';
 
-export const mockProducts: StrapiModel<IProduct>[] = [
+export const MOCK_PRODUCTS_WITH_STRAPI_MODEL: StrapiModel<IProduct>[] = [
   {
     id: 1,
     attributes: {

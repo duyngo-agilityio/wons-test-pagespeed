@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenderStatusComponent matches snapshot when gender is female 1`] = `
+<div>
+  <div
+    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small text-default-foreground w-[100px] px-2 rounded-[20px] bg-pink-500/10 dark:bg-gray-900"
+  >
+    <span
+      class="flex-1 font-normal px-2 text-center text-md capitalize text-pink-800 dark:text-pink-450"
+    >
+      female
+    </span>
+  </div>
+</div>
+`;
+
+exports[`GenderStatusComponent matches snapshot when gender is male 1`] = `
+<div>
+  <div
+    class="relative max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap h-7 text-small text-default-foreground w-[100px] px-2 rounded-[20px] bg-teal-500/10 dark:bg-green-200"
+  >
+    <span
+      class="flex-1 font-normal px-2 text-center text-md capitalize text-teal-650 dark:text-teal-300"
+    >
+      male
+    </span>
+  </div>
+</div>
+`;
