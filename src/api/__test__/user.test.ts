@@ -3,7 +3,7 @@ import { MESSAGES } from '@/constants';
 
 // Services
 import { httpClient } from '@/services';
-import { getProfile } from '../user';
+import { getProfile, getUsers } from '../user';
 
 // Mocks
 import { MOCK_ERROR_RESPONSE, MOCK_PROFILE } from '@/mocks';
@@ -25,5 +25,11 @@ describe('getProfile', () => {
     await expect(getProfile(mockJWT)).rejects.toThrow(
       MESSAGES.ERROR.UNKNOWN_ERROR,
     );
+  });
+
+  it('should get the getUsers failed', async () => {
+    jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
+
+    await expect(getUsers()).rejects.toThrow(MESSAGES.ERROR.UNKNOWN_ERROR);
   });
 });

@@ -1,9 +1,9 @@
 // Services
 import { httpClient } from '@/services';
-import { getTaskById } from '../task';
+import { getTaskById, getTasks } from '../task';
 
 // Mocks
-import { MOCK_TASKS } from '@/mocks';
+import { MOCK_ERROR_RESPONSE, MOCK_TASKS } from '@/mocks';
 
 // Constants
 import { MESSAGES } from '@/constants';
@@ -13,6 +13,7 @@ import { formatErrorMessage } from '@/utils';
 
 jest.mock('@/utils', () => ({
   formatErrorMessage: jest.fn(),
+  formatFilterMultipleUser: jest.fn(),
 }));
 
 jest.mock('@/services', () => ({
@@ -51,5 +52,31 @@ describe('getTaskById', () => {
       error: MOCK_ERROR,
     });
     expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
+  });
+});
+
+describe('getTasks', () => {
+  it('should get the getTasks successfully', async () => {
+    const mockTaskDetails = MOCK_TASKS.todo[0];
+
+    jest
+      .spyOn(httpClient, 'getRequest')
+      .mockResolvedValue({ data: mockTaskDetails });
+
+    const response = await getTasks({
+      query: '',
+    });
+
+    expect(response).toEqual({ data: mockTaskDetails });
+  });
+
+  it('should get the getTasks list failed', async () => {
+    jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
+
+    await expect(
+      getTasks({
+        query: 'joinnee',
+      }),
+    ).rejects.toThrow('');
   });
 });
