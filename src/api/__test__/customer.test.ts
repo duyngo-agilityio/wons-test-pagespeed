@@ -18,6 +18,8 @@ describe('Customer APIs', () => {
       const res = await getCustomers({
         page: DEFAULT_PAGE,
         pageSize: PAGE_SIZE[4],
+        sortBy: 'phone',
+        order: 'desc',
       });
 
       expect(res).toEqual(MOCK_CUSTOMER_RESPONSE);

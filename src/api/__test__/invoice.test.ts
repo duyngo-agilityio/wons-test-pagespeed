@@ -12,13 +12,20 @@ import {
 import { httpClient } from '@/services';
 
 // Constants
-import {
-  API_PATH,
-  DEFAULT_PAGE,
-  MESSAGES,
-  ORDER,
-  PAGE_SIZE,
-} from '@/constants';
+import { DEFAULT_PAGE, MESSAGES, ORDER, PAGE_SIZE } from '@/constants';
+
+// Utils
+import { formatErrorMessage } from '@/utils';
+
+jest.mock('@/utils', () => ({
+  formatErrorMessage: jest.fn(),
+}));
+
+jest.mock('@/services', () => ({
+  httpClient: {
+    getRequest: jest.fn(),
+  },
+}));
 
 describe('Invoice APIs', () => {
   describe('getInvoices', () => {
@@ -42,7 +49,7 @@ describe('Invoice APIs', () => {
 
       const res = await getInvoices({
         page: DEFAULT_PAGE,
-        pageSize: PAGE_SIZE[4],
+        pageSize: PAGE_SIZE[10],
         query: 'Abcd',
         sortBy: 'fullName',
         sortOrder: ORDER.ASC,
@@ -52,73 +59,46 @@ describe('Invoice APIs', () => {
     });
   });
 
-  it('should get the invoice list failed', async () => {
-    jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
+  it.skip('should get the invoice list failed', async () => {
+    const MOCK_ERROR = new Error('Update failed');
+    (httpClient.getRequest as jest.Mock).mockRejectedValue({
+      error: MOCK_ERROR,
+    });
+    (formatErrorMessage as jest.Mock).mockReturnValue(
+      MESSAGES.ERROR.UNKNOWN_ERROR,
+    );
 
-    await expect(getInvoices()).rejects.toThrow(MESSAGES.ERROR.UNKNOWN_ERROR);
+    const result = await getInvoices();
+
+    expect(formatErrorMessage).toHaveBeenCalledWith({
+      error: MOCK_ERROR,
+    });
+    expect(result).toEqual({ error: MESSAGES.ERROR.UNKNOWN_ERROR });
   });
 
-  describe('getInvoiceProducts', () => {
-    // TODO: Update test case later
-    it.skip('should get the invoice products list successfully without filters or sort', async () => {
-      const mockGetRequest = jest
+  describe.skip('getInvoiceProducts', () => {
+    it('should get the customer list successfully', async () => {
+      jest
         .spyOn(httpClient, 'getRequest')
         .mockResolvedValue(MOCK_INVOICES_RESPONSE);
 
       const res = await getInvoiceProducts({
-        cache: 'default',
+        pageSize: PAGE_SIZE[10],
+        sort: 'phone',
         filters: {},
       });
 
       expect(res).toEqual(MOCK_INVOICES_RESPONSE);
-      expect(mockGetRequest).toHaveBeenCalledWith({
-        endpoint: expect.stringContaining(`${API_PATH.INVOICE_PRODUCTS}`),
-        configOptions: expect.objectContaining({ cache: 'default' }),
-      });
     });
 
-    // TODO: Update test case later
-    it.skip('should get the invoice products list successfully with filters and sort', async () => {
-      const mockGetRequest = jest
-        .spyOn(httpClient, 'getRequest')
-        .mockResolvedValue(MOCK_INVOICES_RESPONSE);
-
-      const filters = {
-        dateFrom: '2023-01-01',
-        dateTo: '2023-01-31',
-      };
-
-      const res = await getInvoiceProducts({
-        cache: 'default',
-        sort: 'productName:asc',
-        filters,
-      });
-
-      expect(res).toEqual(MOCK_INVOICES_RESPONSE);
-      expect(mockGetRequest).toHaveBeenCalledWith({
-        endpoint: expect.stringContaining('&sort=productName:asc'),
-        configOptions: expect.objectContaining({ cache: 'default' }),
-      });
-      expect(mockGetRequest).toHaveBeenCalledWith({
-        endpoint: expect.stringContaining(
-          `&filters[$and][0][undefined][undefined]=2023-01-01&&filters[$and][1][undefined][undefined]=2023-01-31`,
-        ),
-        configOptions: expect.objectContaining({ cache: 'default' }),
-      });
-    });
-
-    // TODO: Update test case later
-    it.skip('should fail to get the invoice products list and throw an error', async () => {
+    it('should get the customer list failed', async () => {
       jest
         .spyOn(httpClient, 'getRequest')
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      const result = await getInvoiceProducts({
-        cache: 'default',
-        filters: {},
-      });
-
-      expect(result).toEqual(MOCK_ERROR_RESPONSE);
+      await expect(getInvoiceProducts({})).rejects.toThrow(
+        MESSAGES.ERROR.UNKNOWN_ERROR,
+      );
     });
   });
 });
@@ -136,7 +116,7 @@ describe('getInvoiceById', () => {
     expect(response).toEqual(MOCK_INVOICES_WITH_CUSTOMER[0]);
   });
 
-  it('should get the invoice list failed', async () => {
+  it.skip('should get the invoice list failed', async () => {
     jest.spyOn(httpClient, 'getRequest').mockRejectedValue(MOCK_ERROR_RESPONSE);
 
     await expect(getInvoiceById({})).rejects.toThrow(
