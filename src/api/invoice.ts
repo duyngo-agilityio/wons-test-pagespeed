@@ -16,7 +16,6 @@ import { formatFilterIntervalDate, formatErrorMessage } from '@/utils';
 import { httpClient } from '@/services';
 
 interface IParameters {
-  cache?: RequestCache;
   sort?: string;
   filters?: Record<string, string>;
   pageSize?: number;
@@ -28,7 +27,6 @@ export interface InvoiceListConfigs {
   sortBy?: string;
   page?: number;
   pageSize?: number;
-  cache?: RequestCache;
   id?: number;
 }
 
@@ -41,6 +39,7 @@ export const getInvoiceProducts = async ({
   data?: TInvoiceProductData;
 }> => {
   const sortValue: string = sort ? `&sort=${sort}` : '';
+
   const filterQuery: string = formatFilterIntervalDate(
     filters as Record<string, string>,
   );

@@ -52,11 +52,7 @@ export const getCalendarTasks = async (): Promise<{
       },
     });
 
-    if (!productsResponse?.data?.length) {
-      return { data: [] };
-    }
-
-    return { data: productsResponse.data };
+    return { data: productsResponse.data ?? [] };
   } catch (error) {
     const message = formatErrorMessage(error);
     return { error: message };
