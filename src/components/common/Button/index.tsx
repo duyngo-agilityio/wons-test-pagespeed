@@ -19,7 +19,7 @@ const ButtonCustom = extendVariants(ButtonNextUI, {
       primary:
         'bg-blue-500 border-transparent dark:bg-purple-600 text-white hover:bg-blue-100',
       secondary:
-        'bg-transparent text-blue-500 dark:text-white dark:border-white border-blue-500 dark:text-purple-600 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:text-blue-800 dark:hover:bg-white',
+        'bg-transparent text-blue-500 dark:text-white dark:border-white border-blue-500 dark:text-purple-450 dark:border-purple-600 hover:bg-blue-500 hover:text-white dark:hover:text-blue-800 dark:hover:bg-white',
       success: 'bg-teal-500 text-white dark:bg-teal-300',
     },
     isDisabled: {
