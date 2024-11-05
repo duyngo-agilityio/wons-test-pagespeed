@@ -1,5 +1,5 @@
 // api
-import { getAllProducts } from '../product';
+import { getAllProducts, getProducts } from '../product';
 
 // services
 import { httpClient } from '@/services';
@@ -25,7 +25,7 @@ describe('getAllProducts', () => {
     jest.clearAllMocks();
   });
 
-  it.skip('should return top 2 products when API call is successful', async () => {
+  it('should return top 2 products when API call is successful', async () => {
     const mockResponse = {
       data: [mockProducts[0], mockProducts[1]],
     };
@@ -45,7 +45,17 @@ describe('getAllProducts', () => {
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
 
-  it.skip('should return an empty array when no products are found', async () => {
+  it('should get the task list undefined', async () => {
+    jest.spyOn(httpClient, 'getRequest').mockResolvedValue({});
+
+    const response = await getAllProducts({
+      limitNumber: LIMIT_NUMBERS.TOP_SELLING_PRODUCTS,
+    });
+
+    expect(response).toEqual({ data: [] });
+  });
+
+  it('should return an empty array when no products are found', async () => {
     const mockResponse = {
       data: [],
     };
@@ -59,7 +69,7 @@ describe('getAllProducts', () => {
     expect(result.data).toHaveLength(0);
     expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
   });
-  it.skip('should return an error when the API call fails', async () => {
+  it('should return an error when the API call fails', async () => {
     const mockError = new Error('API Error');
 
     (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
@@ -67,6 +77,50 @@ describe('getAllProducts', () => {
     const result = await getAllProducts({
       limitNumber: LIMIT_NUMBERS.TOP_SELLING_PRODUCTS,
     });
+
+    expect(result.error).toBeDefined();
+
+    expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('getProducts', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should return top getProducts when API call is successful', async () => {
+    const mockResponse = {
+      data: [mockProducts[0], mockProducts[1]],
+    };
+
+    (httpClient.getRequest as jest.Mock).mockResolvedValue(mockResponse);
+
+    const result = await getProducts();
+
+    expect(result.data).toHaveLength(2);
+
+    expect(result.data?.[0]?.attributes.rating).toBeGreaterThanOrEqual(
+      result.data?.[1]?.attributes.rating ?? 0,
+    );
+
+    expect(httpClient.getRequest).toHaveBeenCalledTimes(1);
+  });
+
+  it('should get the task list undefined', async () => {
+    jest.spyOn(httpClient, 'getRequest').mockResolvedValue({});
+
+    const response = await getProducts();
+
+    expect(response).toEqual({ data: [] });
+  });
+
+  it('should return an error when the API call fails', async () => {
+    const mockError = new Error('API Error');
+
+    (httpClient.getRequest as jest.Mock).mockRejectedValue(mockError);
+
+    const result = await getProducts();
 
     expect(result.error).toBeDefined();
 
